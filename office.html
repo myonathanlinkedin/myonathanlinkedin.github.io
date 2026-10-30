@@ -4538,45 +4538,56 @@ class LabBossaAudioEngine {
         document.getElementById('btn-office-track')
       );
 
-      // Real-time authentic visitor counter starting genuinely from 1
+      // Real-time authentic global visitor counter with unique device & session tracking
       const initVisitorCounter = async () => {
         const visEls = document.querySelectorAll('#stat-visitors, .stat-visitors-val');
         if (visEls.length === 0) return;
 
-        let localCount = parseInt(localStorage.getItem('cormap_office_visitor_hits') || '0', 10);
-        const sessionLogged = sessionStorage.getItem('cormap_office_session');
+        const updateElements = (val) => {
+          const formatted = new Intl.NumberFormat('en-US').format(Math.max(1, val));
+          visEls.forEach((el) => { el.textContent = formatted; });
+        };
 
-        if (!sessionLogged) {
-          localCount += 1;
-          localStorage.setItem('cormap_office_visitor_hits', String(localCount));
-          sessionStorage.setItem('cormap_office_session', '1');
+        // Unique device identification token
+        let deviceToken = localStorage.getItem('lab_device_token');
+        const isNewDevice = !deviceToken;
+        if (isNewDevice) {
+          deviceToken = 'dev_' + Math.random().toString(36).substring(2, 11) + '_' + Date.now().toString(36);
+          localStorage.setItem('lab_device_token', deviceToken);
         }
 
-        const authenticTotal = Math.max(1, localCount);
-        visEls.forEach((el) => {
-          el.textContent = new Intl.NumberFormat('en-US').format(authenticTotal);
-        });
+        // Session deduplication: each new device session increments global database
+        const sessionCounted = sessionStorage.getItem('lab_session_counted');
+        const shouldHit = isNewDevice || !sessionCounted;
+
+        // Active global counter endpoint
+        const KEY = 'myonathan_agentic_lab_visitors_v2';
+        const endpoint = shouldHit
+          ? `https://countapi.mileshilliard.com/api/v1/hit/${KEY}`
+          : `https://countapi.mileshilliard.com/api/v1/get/${KEY}`;
 
         try {
           const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 1800);
-          const endpoint = sessionLogged
-            ? 'https://api.counterapi.dev/v1/myonathanlinkedin/virtual-office'
-            : 'https://api.counterapi.dev/v1/myonathanlinkedin/virtual-office/up';
-          const r = await fetch(endpoint, { signal: controller.signal });
+          const timeoutId = setTimeout(() => controller.abort(), 2500);
+          const r = await fetch(endpoint, {
+            signal: controller.signal,
+            headers: { 'Accept': 'application/json' }
+          });
           clearTimeout(timeoutId);
           if (r.ok) {
             const data = await r.json();
-            const apiCount = typeof data.count === 'number' ? data.count : 0;
-            if (apiCount > 0) {
-              const finalTotal = Math.max(authenticTotal, apiCount);
-              visEls.forEach((el) => {
-                el.textContent = new Intl.NumberFormat('en-US').format(finalTotal);
-              });
+            const count = typeof data.value === 'number' ? data.value : 0;
+            if (count > 0) {
+              sessionStorage.setItem('lab_session_counted', '1');
+              localStorage.setItem('lab_last_global_count', String(count));
+              updateElements(count);
+              return;
             }
           }
         } catch (_) {
-          // Authentic local hits count already applied to all visitor elements
+          // Graceful fallback to last cached count
+          const cached = parseInt(localStorage.getItem('lab_last_global_count') || '1', 10);
+          updateElements(cached);
         }
       };
       setTimeout(initVisitorCounter, 100);
