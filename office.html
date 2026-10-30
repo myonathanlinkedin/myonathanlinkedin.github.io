@@ -50,26 +50,27 @@
       box-shadow: 0 10px 34px rgba(0, 0, 0, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
 
-    /* 7.1 Topbar Navigation (Never clips brand title on desktop or mobile) */
+    /* 7.1 Topbar Navigation (Strict single slim row on desktop & mobile) */
     #hud-topbar {
-      position: fixed; top: 10px; left: 12px; right: 12px; min-height: 48px;
+      position: fixed; top: 10px; left: 12px; right: 12px;
+      height: 42px; min-height: 42px; max-height: 42px;
       z-index: 30; display: flex; align-items: center; justify-content: space-between;
-      padding: 6px 12px; gap: 8px; flex-wrap: wrap;
+      padding: 0 12px; gap: 8px; flex-wrap: nowrap !important; overflow: hidden;
     }
 
     #hud-topbar.collapsed { display: none !important; }
     #btn-restore-topbar.visible { display: inline-flex !important; }
 
     .topbar-left {
-      display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-width: 0;
+      display: flex; align-items: center; gap: 8px; flex-wrap: nowrap !important; flex-shrink: 0; min-width: 0;
     }
 
     .panel-toggles {
-      display: flex; align-items: center; gap: 5px; flex-shrink: 0;
+      display: flex; align-items: center; gap: 5px; flex-shrink: 0; flex-wrap: nowrap !important;
     }
 
     .brand-cluster {
-      display: flex; align-items: center; gap: 6px; min-width: 0;
+      display: flex; align-items: center; gap: 6px; flex-shrink: 0; min-width: 0;
     }
 
     .brand-pulse-dot {
@@ -79,7 +80,7 @@
 
     .brand-title {
       font-family: var(--font-mono); font-size: 0.72rem; font-weight: 800;
-      letter-spacing: 0.02em; color: #ffffff; white-space: nowrap;
+      letter-spacing: 0.02em; color: #ffffff; white-space: nowrap !important;
     }
 
     .brand-tag {
@@ -90,12 +91,8 @@
       color: #34d399; white-space: nowrap; flex-shrink: 0;
     }
 
-    @media (max-width: 1680px) { .brand-tag { display: none; } }
-    @media (max-width: 1420px) { #stat-shift-pill { display: none !important; } }
-    @media (max-width: 1120px) { .telemetry-pills { display: none !important; } }
-
     .telemetry-pills {
-      display: flex; align-items: center; gap: 5px; flex-wrap: nowrap; flex-shrink: 0;
+      display: flex; align-items: center; gap: 5px; flex-wrap: nowrap !important; flex-shrink: 0;
     }
 
     .telemetry-pill {
@@ -103,14 +100,21 @@
       padding: 4px 8px; border-radius: 8px;
       font-family: var(--font-mono); font-size: 0.67rem; color: var(--text-secondary);
       background: rgba(15, 23, 42, 0.72); border: 1px solid rgba(148, 163, 184, 0.18);
-      white-space: nowrap;
+      white-space: nowrap; flex-shrink: 0;
     }
 
     .telemetry-pill strong { color: var(--accent-cyan); }
+    #stat-visitors-pill strong { color: #38bdf8; }
+    #stat-shift-pill strong { color: #34d399; }
 
     .topbar-actions {
-      display: flex; align-items: center; gap: 5px; flex-wrap: wrap; flex-shrink: 0;
+      display: flex; align-items: center; gap: 5px; flex-wrap: nowrap !important; flex-shrink: 0;
     }
+
+    @media (max-width: 1600px) { .brand-tag { display: none; } }
+    @media (max-width: 1300px) { .desktop-verify { display: none !important; } }
+    @media (max-width: 1100px) { #stat-modules-pill, #stat-papers-pill { display: none !important; } }
+    @media (max-width: 980px)  { #stat-fps-pill { display: none !important; } }
 
     .hud-btn {
       display: inline-flex; align-items: center; justify-content: center;
@@ -406,29 +410,43 @@
     /* 8.3 Responsive Smartphone & Tablet Layout (360px - 900px) */
     @media (max-width: 900px) {
       #hud-topbar {
-        top: 8px; left: 8px; right: 8px; padding: 7px 10px; gap: 5px;
+        top: 8px; left: 8px; right: 8px;
+        height: 38px; min-height: 38px; max-height: 38px;
+        padding: 0 8px; gap: 5px;
+        display: flex; flex-direction: row !important;
+        flex-wrap: nowrap !important; overflow-x: auto; overflow-y: hidden;
+        -webkit-overflow-scrolling: touch; scrollbar-width: none;
       }
+      #hud-topbar::-webkit-scrollbar { display: none; }
       .topbar-left {
-        width: 100%; flex-direction: column; align-items: flex-start; gap: 5px;
+        width: auto; flex-direction: row !important; align-items: center;
+        gap: 5px; flex-wrap: nowrap !important; flex-shrink: 0;
       }
       .brand-cluster {
-        width: 100%; order: -1;
+        display: inline-flex; align-items: center; gap: 4px; flex-shrink: 0; width: auto;
       }
       .brand-title {
-        font-size: 0.66rem; white-space: normal; line-height: 1.25; word-break: break-word;
+        font-size: 0.64rem; white-space: nowrap !important; line-height: 1; word-break: normal;
       }
       .panel-toggles {
-        width: 100%; flex-wrap: wrap; gap: 4px;
+        display: inline-flex; align-items: center; gap: 3px; flex-shrink: 0; flex-wrap: nowrap !important; width: auto;
       }
-      .telemetry-pills { display: none !important; }
+      .telemetry-pills {
+        display: inline-flex !important; align-items: center; gap: 4px; flex-shrink: 0; flex-wrap: nowrap !important;
+      }
+      #stat-modules-pill, #stat-papers-pill, #stat-fps-pill { display: none !important; }
+      #stat-visitors-pill, #stat-shift-pill { display: inline-flex !important; }
+      .desktop-verify { display: none !important; }
       .btn-text-full { display: none; }
       .btn-text-short { display: inline; }
       .topbar-actions {
-        width: 100%; flex-wrap: wrap; justify-content: flex-start; gap: 4px;
+        width: auto; display: inline-flex; align-items: center;
+        flex-wrap: nowrap !important; justify-content: flex-start; gap: 4px; flex-shrink: 0;
       }
-      .hud-btn { height: 28px; padding: 0 7px; font-size: 0.67rem; }
+      .hud-btn { height: 28px; padding: 0 6px; font-size: 0.65rem; }
       #hud-left {
-        top: 112px; left: 8px; width: min(280px, calc(100vw - 16px));
+        top: 56px; left: 8px; width: min(290px, calc(100vw - 16px));
+        max-height: calc(100dvh - 110px);
       }
       #desk-drawer {
         top: auto; left: 8px; right: 8px; bottom: 8px;
@@ -486,11 +504,11 @@
     </div>
 
     <div class="telemetry-pills">
-      <span class="telemetry-pill">Modules: <strong id="stat-modules">411</strong></span>
-      <span class="telemetry-pill">Papers: <strong id="stat-papers">114</strong></span>
-      <span class="telemetry-pill" title="Total Real-Time Lab Visitors">👁️ Visitors: <strong id="stat-visitors">1,482</strong></span>
-      <span class="telemetry-pill" id="stat-shift-pill" title="4 Rotating Shifts (6h each = 24h) with Biometric Fingerprint Attendance">🕒 <strong id="stat-shift">Shift 3/4 (18:00-00:00 WIB)</strong> • 🟢 Fingerprint Verified</span>
-      <span class="telemetry-pill">FPS: <strong id="stat-fps">60</strong></span>
+      <span class="telemetry-pill" id="stat-modules-pill">Modules: <strong id="stat-modules">411</strong></span>
+      <span class="telemetry-pill" id="stat-papers-pill">Papers: <strong id="stat-papers">114</strong></span>
+      <span class="telemetry-pill" id="stat-visitors-pill" title="Total Real-Time Lab Visitors">👁️ Visitors: <strong id="stat-visitors">1</strong></span>
+      <span class="telemetry-pill" id="stat-shift-pill" title="4 Rotating Shifts (6h each = 24h) with Biometric Fingerprint Attendance">🕒 <strong id="stat-shift">Shift 4/4: Overnight (00:00-06:00 WIB)</strong><span class="desktop-verify"> • 🟢 Fingerprint Verified</span></span>
+      <span class="telemetry-pill" id="stat-fps-pill">FPS: <strong id="stat-fps">60</strong></span>
     </div>
 
     <div class="topbar-actions">
@@ -556,6 +574,10 @@
     <div class="panel-header">
       <span class="panel-title">24/7 Lab Divisions (5)</span>
       <button type="button" id="btn-close-panel" class="panel-close" title="Hide Panel (H)">✕</button>
+    </div>
+    <div class="hud-left-meta" style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;margin-bottom:12px;border-radius:10px;background:rgba(2,6,23,0.72);border:1px solid rgba(148,163,184,0.18);font-family:var(--font-mono);font-size:0.72rem;">
+      <div>👁️ Visitors: <strong class="stat-visitors-val" style="color:#38bdf8;">1</strong></div>
+      <div>🕒 <strong class="stat-shift-val" style="color:#34d399;">Shift 4: Overnight</strong></div>
     </div>
     <div id="zone-selector-list" class="zone-list"></div>
     <div class="panel-header" style="margin-top:6px;">
@@ -931,9 +953,9 @@ function buildWallSignTexture() {
   // "masukkan nama2 orang yang kerja saat ini current shift & next shift jadi orang tahu bahwa ini bukan random"
   const shifts = [
     { id: 1, name: 'Morning', hours: '06:00 - 12:00 WIB', team: ['Bima Vance', 'Dr. Clara Wijaya', 'Marcus Pratama', 'Elena Kusuma', 'Nadia Miller'] },
-    { id: 2, name: 'Afternoon', hours: '12:00 - 18:00 WIB', team: ['Arthur Nugraha', 'Dr. Sarah Oktavia', 'Kevin Setiawan', 'Chloe Lestari', 'Audrey Wibisono'] },
+    { id: 2, name: 'Afternoon', hours: '12:00 - 18:00 WIB', team: ['Arthur Nugraha', 'Sarah Oktavia, Ph.D.', 'Kevin Setiawan', 'Chloe Lestari', 'Audrey Wibisono'] },
     { id: 3, name: 'Evening', hours: '18:00 - 00:00 WIB', team: ['Aris Hamilton', 'Dr. Citra Beaumont', 'David Siregar', 'Grace Pangestu', 'Stella Gunawan'] },
-    { id: 4, name: 'Graveyard', hours: '00:00 - 06:00 WIB', team: ['Lucas Wibowo', 'Dr. Hannah Handayani', 'Brandon Prakoso', 'Maya Safitri', 'Fiona Saputri'] }
+    { id: 4, name: 'Overnight', hours: '00:00 - 06:00 WIB', team: ['Lucas Wibowo', 'Hannah Handayani, Ph.D.', 'Brandon Prakoso', 'Maya Safitri', 'Fiona Saputri'] }
   ];
 
   // Dynamic WIB calculation (UTC+7)
@@ -3368,6 +3390,7 @@ class LabBossaAudioEngine {
     this.currentSource = null;
     this.cachedBuffers = [];
     this.isRendering = false;
+    this.unlocked = false;
 
     this.tracks = [
       {
@@ -3417,7 +3440,7 @@ class LabBossaAudioEngine {
         style: 'bossa_rhodes',
       },
       {
-        name: 'Cozy Café Marimba & Celesta',
+        name: 'Cozy Cafe Marimba & Celesta',
         shortName: 'Cozy Marimba',
         bpm: 100,
         chords: [
@@ -3459,8 +3482,24 @@ class LabBossaAudioEngine {
     this.masterGain.connect(this.ctx.destination);
   }
 
-  // Pre-renders procedural audio loop into an AudioBuffer using OfflineAudioContext
-  // Eliminates real-time JavaScript timers & oscillator instantiations completely
+  _unlockContext() {
+    this._initContext();
+    if (!this.ctx) return;
+    if (this.ctx.state === 'suspended') {
+      this.ctx.resume().catch(() => {});
+    }
+    if (!this.unlocked) {
+      try {
+        const silent = this.ctx.createBuffer(1, 1, 22050);
+        const src = this.ctx.createBufferSource();
+        src.buffer = silent;
+        src.connect(this.ctx.destination);
+        src.start(0);
+        this.unlocked = true;
+      } catch (_) {}
+    }
+  }
+
   async _renderTrackBuffer(trackIdx) {
     if (this.cachedBuffers[trackIdx]) return this.cachedBuffers[trackIdx];
     const track = this.tracks[trackIdx];
@@ -3475,9 +3514,17 @@ class LabBossaAudioEngine {
     const OfflineCtxClass = window.OfflineAudioContext || window.webkitOfflineAudioContext;
     if (!OfflineCtxClass) return null;
 
-    const offCtx = new OfflineCtxClass(2, totalFrames, sampleRate);
+    let offCtx;
+    try {
+      offCtx = new OfflineCtxClass(2, totalFrames, sampleRate);
+    } catch (_) {
+      try {
+        offCtx = new OfflineCtxClass(2, totalFrames, 44100);
+      } catch (e2) {
+        return null;
+      }
+    }
 
-    // Warm studio delay & stereo reverb bus inside offline context
     const delayL = offCtx.createDelay(1.0);
     const delayR = offCtx.createDelay(1.0);
     delayL.delayTime.value = 0.27;
@@ -3488,45 +3535,57 @@ class LabBossaAudioEngine {
 
     const toneFilter = offCtx.createBiquadFilter();
     toneFilter.type = 'lowpass';
-    toneFilter.frequency.value = 2600;
+    toneFilter.frequency.value = 2400;
 
-    const wetGain = offCtx.createGain();
-    wetGain.gain.value = 0.22;
-
-    const reverbInput = offCtx.createGain();
-    reverbInput.connect(delayL);
-    delayL.connect(delayR);
+    const delayMerger = offCtx.createChannelMerger(2);
+    delayL.connect(toneFilter);
     delayR.connect(toneFilter);
     toneFilter.connect(fbGain);
     fbGain.connect(delayL);
-    toneFilter.connect(wetGain);
-    wetGain.connect(offCtx.destination);
+    fbGain.connect(delayR);
+
+    delayL.connect(delayMerger, 0, 0);
+    delayR.connect(delayMerger, 0, 1);
+
+    const reverbInput = offCtx.createGain();
+    reverbInput.gain.value = 0.35;
+    reverbInput.connect(delayL);
+    reverbInput.connect(delayR);
 
     const dryGain = offCtx.createGain();
-    dryGain.gain.value = 0.30;
-    dryGain.connect(offCtx.destination);
+    dryGain.gain.value = 0.72;
 
-    // Schedule all musical voices deterministically into offline context
+    dryGain.connect(offCtx.destination);
+    delayMerger.connect(offCtx.destination);
+
+    const isRhodes = track.style === 'bossa_rhodes';
+    const isMarimba = track.style === 'marimba_celesta';
+
     for (let s = 0; s < totalSteps; s++) {
       const when = s * stepDuration;
+      const bar = Math.floor(s / 16);
       const barStep = s % 16;
-      const chordIdx = Math.floor(s / 16) % track.chords.length;
+      const chordIdx = bar % track.chords.length;
       const chord = track.chords[chordIdx];
       const bassNote = track.bass[chordIdx];
-      const isRhodes = track.style === 'bossa_rhodes';
-      const isMarimba = track.style === 'marimba_celesta';
 
-      // 1. Warm Upright Bass Voice
-      if (barStep === 0 || barStep === 6 || barStep === 8 || barStep === 14) {
-        const bNote = (barStep === 6 || barStep === 14) ? bassNote + 7 : bassNote;
-        this._renderBass(offCtx, dryGain, bNote, when, 0.55, 0.20);
+      if (barStep === 0) {
+        this._renderBass(offCtx, dryGain, bassNote, when, stepDuration * 6.0, 0.42);
+      } else if (barStep === 6 || barStep === 10) {
+        this._renderBass(offCtx, dryGain, bassNote + (barStep === 10 ? 7 : 0), when, stepDuration * 3.5, 0.32);
       }
 
-      // 2. Studio Piano / Rhodes Chord Comping
-      if (barStep === 0 || barStep === 3 || barStep === 6 || barStep === 10 || barStep === 12) {
-        for (let i = 0; i < chord.length; i++) {
-          if (barStep === 0 || (i % 2 === barStep % 2)) {
-            this._renderPiano(offCtx, dryGain, reverbInput, chord[i], when, 0.85, 0.065, isRhodes);
+      if (isRhodes) {
+        if (barStep === 0 || barStep === 3 || barStep === 6 || barStep === 10 || barStep === 12) {
+          const syncVol = (barStep === 3 || barStep === 10) ? 0.085 : 0.065;
+          for (let c = 0; c < chord.length; c++) {
+            this._renderPiano(offCtx, dryGain, reverbInput, chord[c], when, stepDuration * 3.5, syncVol, true);
+          }
+        }
+      } else if (isMarimba) {
+        if (barStep === 0 || barStep === 4 || barStep === 8 || barStep === 12) {
+          for (let c = 0; c < chord.length; c++) {
+            this._renderPiano(offCtx, dryGain, reverbInput, chord[c], when, stepDuration * 3.8, 0.045, false);
           }
         }
       } else if (barStep % 2 === 0) {
@@ -3534,36 +3593,58 @@ class LabBossaAudioEngine {
         this._renderPiano(offCtx, dryGain, reverbInput, arpNote, when, 0.45, 0.055, isRhodes);
       }
 
-      // 3. Lead Vibraphone / Marimba Melody
       if (barStep % 2 === 0 || barStep === 7 || barStep === 15) {
         const melIdx = (Math.floor(s / 2) + chordIdx * 2) % track.melody.length;
         const melNote = track.melody[melIdx];
         this._renderLead(offCtx, dryGain, reverbInput, melNote, when, isMarimba ? 0.55 : 0.95, 0.095, isMarimba);
       }
 
-      // 4. Soft Brushed Shaker Pulse
       if (barStep % 4 === 0 || barStep === 3 || barStep === 11) {
         this._renderShaker(offCtx, dryGain, when, barStep === 3 || barStep === 11);
       }
     }
 
-    const rendered = await offCtx.startRendering();
+    let rendered = null;
+    try {
+      const renderPromise = new Promise((resolve, reject) => {
+        offCtx.oncomplete = (e) => resolve(e.renderedBuffer);
+        try {
+          const p = offCtx.startRendering();
+          if (p && typeof p.then === 'function') {
+            p.then(resolve).catch(reject);
+          }
+        } catch (e) {
+          reject(e);
+        }
+      });
+      rendered = await renderPromise;
+    } catch (err) {
+      console.warn('Offline render error:', err);
+      return null;
+    }
 
-    // Fold reverb tail into the loop beginning and apply 15ms seamless micro-crossfade
-    const loopFrames = Math.floor(loopDuration * sampleRate);
-    const finalBuffer = (this.ctx ? this.ctx : offCtx).createBuffer(2, loopFrames, sampleRate);
+    if (!rendered) return null;
+
+    const actualRate = rendered.sampleRate || sampleRate;
+    const loopFrames = Math.floor(loopDuration * actualRate);
+    const targetCtx = this.ctx || offCtx;
+    const finalBuffer = targetCtx.createBuffer(2, loopFrames, actualRate);
 
     for (let ch = 0; ch < 2; ch++) {
       const srcData = rendered.getChannelData(ch);
       const dstData = finalBuffer.getChannelData(ch);
-      for (let i = 0; i < loopFrames; i++) {
+      const copyLen = Math.min(srcData.length, loopFrames);
+      for (let i = 0; i < copyLen; i++) {
         dstData[i] = srcData[i];
       }
-      const tailFrames = Math.min(totalFrames - loopFrames, loopFrames);
-      for (let i = 0; i < tailFrames; i++) {
-        dstData[i] += srcData[loopFrames + i];
+      const remFrames = srcData.length - loopFrames;
+      if (remFrames > 0) {
+        const tailLen = Math.min(remFrames, loopFrames);
+        for (let i = 0; i < tailLen; i++) {
+          dstData[i] += srcData[loopFrames + i];
+        }
       }
-      const fadeLen = Math.floor(sampleRate * 0.015);
+      const fadeLen = Math.floor(actualRate * 0.015);
       for (let i = 0; i < fadeLen; i++) {
         const factor = i / fadeLen;
         const endSample = dstData[loopFrames - fadeLen + i];
@@ -3588,20 +3669,16 @@ class LabBossaAudioEngine {
     const filter = ctx.createBiquadFilter();
     filter.type = 'lowpass';
     filter.frequency.setValueAtTime(freq * 4.5, when);
-    filter.frequency.exponentialRampToValueAtTime(Math.max(20, freq * 1.4), when + durationSec);
+    filter.frequency.exponentialRampToValueAtTime(Math.max(20, freq * 1.2), when + durationSec);
 
     const env = ctx.createGain();
-    const g2 = ctx.createGain();
-    g2.gain.value = isRhodes ? 0.18 : 0.08;
-
     env.gain.setValueAtTime(0.0001, when);
-    env.gain.linearRampToValueAtTime(volume, when + 0.018);
-    env.gain.exponentialRampToValueAtTime(volume * 0.42, when + 0.18);
+    env.gain.linearRampToValueAtTime(volume, when + 0.008);
+    env.gain.exponentialRampToValueAtTime(Math.max(0.0001, volume * 0.4), when + 0.12);
     env.gain.exponentialRampToValueAtTime(0.0001, when + durationSec);
 
     osc1.connect(filter);
-    osc2.connect(g2);
-    g2.connect(filter);
+    osc2.connect(filter);
     filter.connect(env);
     env.connect(dryGain);
     env.connect(reverbGain);
@@ -3616,19 +3693,21 @@ class LabBossaAudioEngine {
     const freq = this._midiToFreq(midi);
     const oscFund = ctx.createOscillator();
     const oscHarm = ctx.createOscillator();
-    oscFund.type = 'sine';
+    oscFund.type = isMarimba ? 'sine' : 'sine';
     oscHarm.type = 'sine';
-    oscFund.frequency.setValueAtTime(freq, when);
-    oscHarm.frequency.setValueAtTime(freq * 4.0, when);
 
-    const harmEnv = ctx.createGain();
-    harmEnv.gain.setValueAtTime(volume * (isMarimba ? 0.25 : 0.15), when);
-    harmEnv.gain.exponentialRampToValueAtTime(0.0001, when + (isMarimba ? 0.09 : 0.22));
+    oscFund.frequency.setValueAtTime(freq, when);
+    oscHarm.frequency.setValueAtTime(freq * (isMarimba ? 4.0 : 2.0), when);
 
     const mainEnv = ctx.createGain();
     mainEnv.gain.setValueAtTime(0.0001, when);
-    mainEnv.gain.linearRampToValueAtTime(volume, when + 0.01);
+    mainEnv.gain.linearRampToValueAtTime(volume, when + 0.004);
     mainEnv.gain.exponentialRampToValueAtTime(0.0001, when + durationSec);
+
+    const harmEnv = ctx.createGain();
+    harmEnv.gain.setValueAtTime(0.0001, when);
+    harmEnv.gain.linearRampToValueAtTime(volume * (isMarimba ? 0.22 : 0.45), when + 0.003);
+    harmEnv.gain.exponentialRampToValueAtTime(0.0001, when + durationSec * (isMarimba ? 0.35 : 0.7));
 
     oscFund.connect(mainEnv);
     oscHarm.connect(harmEnv);
@@ -3682,8 +3761,6 @@ class LabBossaAudioEngine {
     osc.stop(when + 0.045);
   }
 
-  // Plays pre-rendered buffer via native AudioBufferSourceNode
-  // 0% JavaScript main thread involvement during playback
   async _playCurrentBuffer() {
     if (!this.isPlaying || !this.ctx) return;
     let buf = this.cachedBuffers[this.trackIndex];
@@ -3692,10 +3769,11 @@ class LabBossaAudioEngine {
       this.isRendering = true;
       try {
         buf = await this._renderTrackBuffer(this.trackIndex);
-      } finally {
+      } catch (_) {}
+      finally {
         this.isRendering = false;
       }
-      if (!this.isPlaying) return;
+      if (!this.isPlaying || !buf) return;
     }
 
     if (this.currentSource) {
@@ -3706,26 +3784,32 @@ class LabBossaAudioEngine {
       this.currentSource = null;
     }
 
-    this.currentSource = this.ctx.createBufferSource();
-    this.currentSource.buffer = buf;
-    this.currentSource.loop = true;
-    this.currentSource.connect(this.masterGain);
-    this.currentSource.start(0);
+    try {
+      this.currentSource = this.ctx.createBufferSource();
+      this.currentSource.buffer = buf;
+      this.currentSource.loop = true;
+      this.currentSource.connect(this.masterGain);
+      this.currentSource.start(0);
 
-    // Smooth studio fade-in eliminates clicks
-    this.masterGain.gain.cancelScheduledValues(this.ctx.currentTime);
-    this.masterGain.gain.setValueAtTime(0.0001, this.ctx.currentTime);
-    this.masterGain.gain.setTargetAtTime(0.28, this.ctx.currentTime, 0.06);
+      if (this.masterGain) {
+        const curTime = this.ctx.currentTime || 0;
+        this.masterGain.gain.cancelScheduledValues(curTime);
+        this.masterGain.gain.setValueAtTime(0.001, curTime);
+        this.masterGain.gain.setTargetAtTime(0.28, curTime, 0.05);
+      }
+    } catch (err) {
+      console.warn('Audio start exception:', err);
+    }
   }
 
   async start() {
-    this._initContext();
+    this._unlockContext();
     if (!this.ctx) return;
     if (this.ctx.state === 'suspended') {
-      this.ctx.resume().catch(() => {});
+      try { await this.ctx.resume(); } catch (_) {}
     }
-    if (this.isPlaying) return;
     this.isPlaying = true;
+    this.userMuted = false;
     this._updateButtons();
     await this._playCurrentBuffer();
   }
@@ -3733,7 +3817,12 @@ class LabBossaAudioEngine {
   stop() {
     this.isPlaying = false;
     if (this.masterGain && this.ctx) {
-      this.masterGain.gain.setTargetAtTime(0.0001, this.ctx.currentTime, 0.03);
+      try {
+        const curTime = this.ctx.currentTime || 0;
+        this.masterGain.gain.cancelScheduledValues(curTime);
+        this.masterGain.gain.setValueAtTime(this.masterGain.gain.value, curTime);
+        this.masterGain.gain.setTargetAtTime(0.0001, curTime, 0.03);
+      } catch (_) {}
     }
     setTimeout(() => {
       if (this.currentSource && !this.isPlaying) {
@@ -3748,6 +3837,7 @@ class LabBossaAudioEngine {
   }
 
   toggle() {
+    this._unlockContext();
     if (this.isPlaying) {
       this.userMuted = true;
       this.stop();
@@ -3758,12 +3848,12 @@ class LabBossaAudioEngine {
   }
 
   async nextTrack() {
+    this._unlockContext();
     this.trackIndex = (this.trackIndex + 1) % this.tracks.length;
     this._updateButtons();
     if (this.isPlaying) {
       await this._playCurrentBuffer();
     } else {
-      // Pre-warm cache for next track in background
       this._renderTrackBuffer(this.trackIndex).catch(() => {});
     }
   }
@@ -3784,31 +3874,37 @@ class LabBossaAudioEngine {
 
   _bindUi() {
     if (this.toggleBtnEl) {
-      this.toggleBtnEl.addEventListener('click', (e) => {
+      const handleToggle = (e) => {
         e.stopPropagation();
+        this._unlockContext();
         this.toggle();
-      });
+      };
+      this.toggleBtnEl.addEventListener('click', handleToggle);
+      this.toggleBtnEl.addEventListener('touchend', handleToggle, { passive: true });
     }
     if (this.trackBtnEl) {
-      this.trackBtnEl.addEventListener('click', (e) => {
+      const handleTrack = (e) => {
         e.stopPropagation();
+        this._unlockContext();
         this.nextTrack();
-      });
+      };
+      this.trackBtnEl.addEventListener('click', handleTrack);
+      this.trackBtnEl.addEventListener('touchend', handleTrack, { passive: true });
     }
 
-    // Auto-unlock & pre-render buffer in background on first user interaction
-    const autoUnlock = () => {
-      this._initContext();
-      // Pre-warm buffer 0 in background so playback starts instantaneously
+    const unlockOnInteraction = () => {
+      this._unlockContext();
       this._renderTrackBuffer(0).catch(() => {});
       if (!this.isPlaying && !this.userMuted) {
-        this.start();
+        this.start().catch(() => {});
       }
-      window.removeEventListener('pointerdown', autoUnlock);
-      window.removeEventListener('keydown', autoUnlock);
+      ['click', 'touchstart', 'touchend', 'pointerdown', 'keydown'].forEach((ev) => {
+        window.removeEventListener(ev, unlockOnInteraction);
+      });
     };
-    window.addEventListener('pointerdown', autoUnlock, { once: true });
-    window.addEventListener('keydown', autoUnlock, { once: true });
+    ['click', 'touchstart', 'touchend', 'pointerdown', 'keydown'].forEach((ev) => {
+      window.addEventListener(ev, unlockOnInteraction, { passive: true });
+    });
     this._updateButtons();
   }
 }
@@ -4312,8 +4408,11 @@ class LabBossaAudioEngine {
         let sNum = 1, sName = 'Morning (06:00-12:00 WIB)';
         if (wibH >= 12 && wibH < 18) { sNum = 2; sName = 'Afternoon (12:00-18:00 WIB)'; }
         else if (wibH >= 18) { sNum = 3; sName = 'Evening (18:00-00:00 WIB)'; }
-        else if (wibH < 6) { sNum = 4; sName = 'Graveyard (00:00-06:00 WIB)'; }
+        else if (wibH < 6) { sNum = 4; sName = 'Overnight (00:00-06:00 WIB)'; }
         if (shiftEl) shiftEl.textContent = `Shift ${sNum}/4: ${sName}`;
+        document.querySelectorAll('.stat-shift-val').forEach((el) => {
+          el.textContent = `Shift ${sNum}: ${sName.split(' ')[0]}`;
+        });
       };
       updateShiftDisplay();
       setInterval(updateShiftDisplay, 60000);
@@ -4337,7 +4436,7 @@ class LabBossaAudioEngine {
         // Shift 2: Siang (12:00 - 18:00 WIB)
         {
           worker_kernel: { name: 'Arthur Nugraha', role: 'Principal Systems Architect' },
-          worker_research: { name: 'Dr. Sarah Oktavia', role: 'Principal Research Scientist' },
+          worker_research: { name: 'Sarah Oktavia, Ph.D.', role: 'Principal Research Scientist' },
           worker_hardware: { name: 'Kevin Setiawan', role: 'Algorithmic Quality & Complexity Lead' },
           worker_release: { name: 'Chloe Lestari', role: 'Open-Source Portfolio Lead' },
           worker_lounge: { name: 'Audrey Wibisono', role: 'Research Strategy & Collaboration Lead' },
@@ -4350,10 +4449,10 @@ class LabBossaAudioEngine {
           worker_release: { name: 'Grace Pangestu', role: 'Open-Source Portfolio Lead' },
           worker_lounge: { name: 'Stella Gunawan', role: 'Research Strategy & Collaboration Lead' },
         },
-        // Shift 4: Dini Hari (00:00 - 06:00 WIB)
+        // Shift 4: Overnight / Dini Hari (00:00 - 06:00 WIB)
         {
           worker_kernel: { name: 'Lucas Wibowo', role: 'Principal Systems Architect' },
-          worker_research: { name: 'Dr. Hannah Handayani', role: 'Principal Research Scientist' },
+          worker_research: { name: 'Hannah Handayani, Ph.D.', role: 'Principal Research Scientist' },
           worker_hardware: { name: 'Brandon Prakoso', role: 'Algorithmic Quality & Complexity Lead' },
           worker_release: { name: 'Maya Safitri', role: 'Open-Source Portfolio Lead' },
           worker_lounge: { name: 'Fiona Saputri', role: 'Research Strategy & Collaboration Lead' },
@@ -4477,22 +4576,24 @@ class LabBossaAudioEngine {
         document.getElementById('btn-office-track')
       );
 
-      // Real-time visitor counter with ad-blocker resilience & session deduplication
+      // Real-time authentic visitor counter starting genuinely from 1
       const initVisitorCounter = async () => {
-        const visEl = document.getElementById('stat-visitors');
-        if (!visEl) return;
-        const BASE_SEED = 1480;
-        let localCount = parseInt(localStorage.getItem('lab_visitor_hits') || '0', 10);
-        const sessionLogged = sessionStorage.getItem('lab_visitor_session');
+        const visEls = document.querySelectorAll('#stat-visitors, .stat-visitors-val');
+        if (visEls.length === 0) return;
+
+        let localCount = parseInt(localStorage.getItem('cormap_office_visitor_hits') || '0', 10);
+        const sessionLogged = sessionStorage.getItem('cormap_office_session');
 
         if (!sessionLogged) {
           localCount += 1;
-          localStorage.setItem('lab_visitor_hits', String(localCount));
-          sessionStorage.setItem('lab_visitor_session', '1');
+          localStorage.setItem('cormap_office_visitor_hits', String(localCount));
+          sessionStorage.setItem('cormap_office_session', '1');
         }
 
-        const fallbackTotal = BASE_SEED + localCount;
-        visEl.textContent = new Intl.NumberFormat('en-US').format(fallbackTotal);
+        const authenticTotal = Math.max(1, localCount);
+        visEls.forEach((el) => {
+          el.textContent = new Intl.NumberFormat('en-US').format(authenticTotal);
+        });
 
         try {
           const controller = new AbortController();
@@ -4505,11 +4606,15 @@ class LabBossaAudioEngine {
           if (r.ok) {
             const data = await r.json();
             const apiCount = typeof data.count === 'number' ? data.count : 0;
-            const finalTotal = Math.max(fallbackTotal, BASE_SEED + apiCount);
-            visEl.textContent = new Intl.NumberFormat('en-US').format(finalTotal);
+            if (apiCount > 0) {
+              const finalTotal = Math.max(authenticTotal, apiCount);
+              visEls.forEach((el) => {
+                el.textContent = new Intl.NumberFormat('en-US').format(finalTotal);
+              });
+            }
           }
         } catch (_) {
-          // Seamless offline / adblock fallback already applied to visEl
+          // Authentic local hits count already applied to all visitor elements
         }
       };
       setTimeout(initVisitorCounter, 100);
