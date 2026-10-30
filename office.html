@@ -50,88 +50,62 @@
       box-shadow: 0 10px 34px rgba(0, 0, 0, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
 
-    /* 7.1 Topbar Navigation (Strict single slim row on desktop & mobile) */
-    #hud-topbar {
-      position: fixed; top: 10px; left: 12px; right: 12px;
-      height: 42px; min-height: 42px; max-height: 42px;
-      z-index: 30; display: flex; align-items: center; justify-content: space-between;
-      padding: 0 12px; gap: 8px; flex-wrap: nowrap !important; overflow: hidden;
+    /* 7.1 Top HUD Container (Mirrors 7.2 Bottom HUD Architecture Exactly) */
+    #hud-top-container {
+      position: fixed; top: 10px; left: 14px; right: 14px; z-index: 30;
+      display: flex; flex-direction: column; align-items: center; gap: 6px; pointer-events: none;
     }
 
-    #hud-topbar.collapsed { display: none !important; }
+    #hud-top-container.collapsed { display: none !important; }
     #btn-restore-topbar.visible { display: inline-flex !important; }
 
-    .topbar-left {
-      display: flex; align-items: center; gap: 8px; flex-wrap: nowrap !important; flex-shrink: 0; min-width: 0;
+    #hud-top-ticker {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 5px 14px; border-radius: 999px;
+      font-family: var(--font-mono); font-size: 0.70rem; color: #e2e8f0;
+      max-width: min(960px, calc(100vw - 20px));
+      pointer-events: auto; white-space: nowrap; overflow: hidden;
     }
 
-    .panel-toggles {
-      display: flex; align-items: center; gap: 5px; flex-shrink: 0; flex-wrap: nowrap !important;
+    #hud-top-ticker .brand-pulse-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #10b981; box-shadow: 0 0 8px #10b981; flex-shrink: 0;
     }
 
-    .brand-cluster {
-      display: flex; align-items: center; gap: 6px; flex-shrink: 0; min-width: 0;
+    #hud-top-ticker .brand-title {
+      font-family: var(--font-mono); font-weight: 800; color: #ffffff;
     }
 
-    .brand-pulse-dot {
-      width: 9px; height: 9px; border-radius: 50%;
-      background: #10b981; box-shadow: 0 0 10px #10b981; flex-shrink: 0;
+    .ticker-sep {
+      color: rgba(148, 163, 184, 0.4); font-size: 0.65rem;
     }
 
-    .brand-title {
-      font-family: var(--font-mono); font-size: 0.72rem; font-weight: 800;
-      letter-spacing: 0.02em; color: #ffffff; white-space: nowrap !important;
+    #hud-top-ticker strong { color: var(--accent-cyan); }
+    #hud-top-ticker #stat-visitors { color: #38bdf8; font-weight: 700; }
+    #hud-top-ticker #stat-shift { color: #34d399; font-weight: 700; }
+
+    #hud-topbar {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 5px; padding: 6px 10px;
+      max-width: min(980px, calc(100vw - 20px)); pointer-events: auto;
     }
 
-    .brand-tag {
-      display: inline-flex; align-items: center; gap: 4px;
-      padding: 3px 8px; border-radius: 999px;
-      font-family: var(--font-mono); font-size: 0.62rem; font-weight: 700;
-      background: rgba(16, 185, 129, 0.18); border: 1px solid rgba(16, 185, 129, 0.48);
-      color: #34d399; white-space: nowrap; flex-shrink: 0;
-    }
-
-    .telemetry-pills {
-      display: flex; align-items: center; gap: 5px; flex-wrap: nowrap !important; flex-shrink: 0;
-    }
-
-    .telemetry-pill {
-      display: inline-flex; align-items: center; gap: 4px;
-      padding: 4px 8px; border-radius: 8px;
-      font-family: var(--font-mono); font-size: 0.67rem; color: var(--text-secondary);
-      background: rgba(15, 23, 42, 0.72); border: 1px solid rgba(148, 163, 184, 0.18);
-      white-space: nowrap; flex-shrink: 0;
-    }
-
-    .telemetry-pill strong { color: var(--accent-cyan); }
-    #stat-visitors-pill strong { color: #38bdf8; }
-    #stat-shift-pill strong { color: #34d399; }
-
-    .topbar-actions {
-      display: flex; align-items: center; gap: 5px; flex-wrap: nowrap !important; flex-shrink: 0;
-    }
-
-    @media (max-width: 1600px) { .brand-tag { display: none; } }
-    @media (max-width: 1300px) { .desktop-verify { display: none !important; } }
-    @media (max-width: 1100px) { #stat-modules-pill, #stat-papers-pill { display: none !important; } }
-    @media (max-width: 980px)  { #stat-fps-pill { display: none !important; } }
-
-    .hud-btn {
+    .top-btn {
       display: inline-flex; align-items: center; justify-content: center;
-      gap: 4px; height: 30px; padding: 0 7px; border-radius: 8px;
-      font-family: var(--font-sans); font-size: 0.68rem; font-weight: 600;
+      gap: 4px; padding: 6px 9px; border-radius: 8px;
+      font-family: var(--font-mono); font-size: 0.69rem; font-weight: 600;
       color: #e2e8f0; background: rgba(15, 23, 42, 0.78);
-      border: 1px solid rgba(148, 163, 184, 0.24);
-      cursor: pointer; text-decoration: none; transition: all 0.16s ease;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      cursor: pointer; text-decoration: none; transition: all 0.15s ease;
       white-space: nowrap; flex-shrink: 0;
     }
 
-    .hud-btn:hover, .hud-btn.active {
+    .top-btn:hover, .top-btn.active {
       background: rgba(16, 185, 129, 0.24); border-color: rgba(52, 211, 153, 0.65);
-      color: #ffffff; box-shadow: 0 0 12px rgba(16, 185, 129, 0.28);
+      color: #ffffff; box-shadow: 0 0 10px rgba(16, 185, 129, 0.28);
     }
 
-    .hud-btn.primary {
+    .top-btn.primary {
       background: linear-gradient(135deg, rgba(88, 28, 135, 0.72), rgba(14, 116, 144, 0.78));
       border-color: rgba(168, 85, 247, 0.5); color: #ffffff;
     }
@@ -409,41 +383,23 @@
 
     /* 8.3 Responsive Smartphone & Tablet Layout (360px - 900px) */
     @media (max-width: 900px) {
+      #hud-top-container {
+        top: 6px; left: 8px; right: 8px; gap: 5px;
+      }
+      #hud-top-ticker {
+        padding: 5px 10px; font-size: 0.64rem; border-radius: 999px;
+        width: 100%; max-width: min(620px, calc(100vw - 16px));
+        white-space: normal; line-height: 1.35; text-align: center;
+        flex-wrap: wrap; row-gap: 2px; column-gap: 6px;
+      }
+      .mobile-hide-telemetry { display: none !important; }
       #hud-topbar {
-        top: 8px; left: 8px; right: 8px;
-        height: 38px; min-height: 38px; max-height: 38px;
-        padding: 0 8px; gap: 5px;
-        display: flex; flex-direction: row !important;
-        flex-wrap: nowrap !important; overflow-x: auto; overflow-y: hidden;
-        -webkit-overflow-scrolling: touch; scrollbar-width: none;
+        width: 100%; max-width: min(620px, calc(100vw - 16px));
+        gap: 4px; padding: 5px 6px; justify-content: center;
       }
-      #hud-topbar::-webkit-scrollbar { display: none; }
-      .topbar-left {
-        width: auto; flex-direction: row !important; align-items: center;
-        gap: 5px; flex-wrap: nowrap !important; flex-shrink: 0;
-      }
-      .brand-cluster {
-        display: inline-flex; align-items: center; gap: 4px; flex-shrink: 0; width: auto;
-      }
-      .brand-title {
-        font-size: 0.64rem; white-space: nowrap !important; line-height: 1; word-break: normal;
-      }
-      .panel-toggles {
-        display: inline-flex; align-items: center; gap: 3px; flex-shrink: 0; flex-wrap: nowrap !important; width: auto;
-      }
-      .telemetry-pills {
-        display: inline-flex !important; align-items: center; gap: 4px; flex-shrink: 0; flex-wrap: nowrap !important;
-      }
-      #stat-modules-pill, #stat-papers-pill, #stat-fps-pill { display: none !important; }
-      #stat-visitors-pill, #stat-shift-pill { display: inline-flex !important; }
-      .desktop-verify { display: none !important; }
+      .top-btn { padding: 5px 7px; font-size: 0.66rem; }
       .btn-text-full { display: none; }
       .btn-text-short { display: inline; }
-      .topbar-actions {
-        width: auto; display: inline-flex; align-items: center;
-        flex-wrap: nowrap !important; justify-content: flex-start; gap: 4px; flex-shrink: 0;
-      }
-      .hud-btn { height: 28px; padding: 0 6px; font-size: 0.65rem; }
       #hud-left {
         top: 56px; left: 8px; width: min(290px, calc(100vw - 16px));
         max-height: calc(100dvh - 110px);
@@ -486,66 +442,57 @@
   <canvas id="office-canvas" aria-label="3D Autonomous Virtual Office Diorama"></canvas>
   <div id="worker-bubbles" aria-live="polite"></div>
 
-  <!-- 7.1 Topbar Navigation -->
-  <button type="button" id="btn-restore-topbar" class="hud-btn glass-panel" title="Show Top Panel" style="position:fixed;top:10px;left:12px;z-index:55;display:none;padding:0 12px;height:32px;border-color:rgba(52,211,153,0.65);background:rgba(15,23,42,0.92);">▼ Show Top Panel</button>
-  <header id="hud-topbar" class="glass-panel">
-    <div class="topbar-left">
-      <div class="panel-toggles">
-        <button type="button" id="btn-toggle-panel" class="hud-btn active" title="Show/Hide Left Divisions Panel (H)">☰ <span class="btn-text-full">Left</span><span class="btn-text-short">Left</span></button>
-        <button type="button" id="btn-toggle-drawer" class="hud-btn" title="Show/Hide Right Inspector Panel">📋 <span class="btn-text-full">Right</span><span class="btn-text-short">Right</span></button>
-        <button type="button" id="btn-toggle-bottom" class="hud-btn active" title="Show/Hide Bottom Panel &amp; Notification">🎛️ <span class="btn-text-full">Bottom</span><span class="btn-text-short">Bottom</span></button>
-        <button type="button" id="btn-hide-topbar" class="hud-btn" title="Hide Top Panel">▲ <span class="btn-text-full">Hide Top</span><span class="btn-text-short">Top</span></button>
-      </div>
-      <div class="brand-cluster">
-        <span class="brand-pulse-dot" title="24/7 Agentic Autonomous Pipeline Active"></span>
-        <span class="brand-title">MATEUS YONATHAN // AGENTIC AUTONOMOUS LAB</span>
-        <span class="brand-tag">● WE WORK 24 HOURS</span>
-      </div>
+  <!-- 7.1 Top HUD Container (Mirrors 7.2 Bottom HUD Architecture) -->
+  <button type="button" id="btn-restore-topbar" class="top-btn glass-panel" title="Show Top HUD" style="position:fixed;top:10px;left:14px;z-index:55;display:none;padding:0 12px;height:32px;border-color:rgba(52,211,153,0.65);background:rgba(15,23,42,0.92);">▼ Show Top HUD</button>
+  <div id="hud-top-container">
+    <div id="hud-top-ticker" class="glass-panel" title="24/7 Autonomous Lab Telemetry">
+      <span class="brand-pulse-dot" title="24/7 Agentic Autonomous Pipeline Active"></span>
+      <span class="brand-title">MATEUS YONATHAN // LAB</span>
+      <span class="ticker-sep mobile-hide-telemetry">•</span>
+      <span class="mobile-hide-telemetry">Mods: <strong id="stat-modules">411</strong></span>
+      <span class="ticker-sep mobile-hide-telemetry">•</span>
+      <span class="mobile-hide-telemetry">Papers: <strong id="stat-papers">114</strong></span>
+      <span class="ticker-sep">•</span>
+      <span title="Total Real-Time Lab Visitors">👁️ Visitors: <strong id="stat-visitors">1</strong></span>
+      <span class="ticker-sep">•</span>
+      <span id="stat-shift-pill" title="4 Rotating Shifts (6h each = 24h) with Biometric Fingerprint Attendance">🕒 <strong id="stat-shift">Shift 4: Overnight (00:00-06:00 WIB)</strong></span>
+      <span class="ticker-sep mobile-hide-telemetry">•</span>
+      <span class="mobile-hide-telemetry">FPS: <strong id="stat-fps">60</strong></span>
     </div>
 
-    <div class="telemetry-pills">
-      <span class="telemetry-pill" id="stat-modules-pill">Modules: <strong id="stat-modules">411</strong></span>
-      <span class="telemetry-pill" id="stat-papers-pill">Papers: <strong id="stat-papers">114</strong></span>
-      <span class="telemetry-pill" id="stat-visitors-pill" title="Total Real-Time Lab Visitors">👁️ Visitors: <strong id="stat-visitors">1</strong></span>
-      <span class="telemetry-pill" id="stat-shift-pill" title="4 Rotating Shifts (6h each = 24h) with Biometric Fingerprint Attendance">🕒 <strong id="stat-shift">Shift 4/4: Overnight (00:00-06:00 WIB)</strong><span class="desktop-verify"> • 🟢 Fingerprint Verified</span></span>
-      <span class="telemetry-pill" id="stat-fps-pill">FPS: <strong id="stat-fps">60</strong></span>
-    </div>
-
-    <div class="topbar-actions">
-      <button type="button" id="btn-office-music" class="hud-btn" title="Toggle Studio Bossa-Jazz Soundtrack">
+    <nav id="hud-topbar" class="glass-panel" aria-label="Navigation &amp; Controls">
+      <button type="button" id="btn-toggle-panel" class="top-btn active" title="Show/Hide Left Divisions Panel (H)">☰ <span class="btn-text-full">Left</span><span class="btn-text-short">Left</span></button>
+      <button type="button" id="btn-toggle-drawer" class="top-btn" title="Show/Hide Right Inspector Panel">📋 <span class="btn-text-full">Right</span><span class="btn-text-short">Right</span></button>
+      <button type="button" id="btn-toggle-bottom" class="top-btn active" title="Show/Hide Bottom Camera Dock">🎛️ <span class="btn-text-full">Bottom</span><span class="btn-text-short">Bottom</span></button>
+      <button type="button" id="btn-office-music" class="top-btn" title="Toggle Studio Soundtrack">
         <span class="btn-text-full">🎵 Music: OFF</span>
         <span class="btn-text-short">🎵 OFF</span>
       </button>
-      <button type="button" id="btn-office-track" class="hud-btn" title="Switch Studio Soundtrack">
+      <button type="button" id="btn-office-track" class="top-btn" title="Switch Studio Soundtrack">
         <span class="btn-text-full">⏭ Studio Piano</span>
         <span class="btn-text-short">⏭</span>
       </button>
-      <button type="button" id="btn-office-theme" class="hud-btn active" title="Toggle Bright White / Night Mode">
-        <span class="btn-text-full">☀️ Bright White</span>
+      <button type="button" id="btn-office-theme" class="top-btn active" title="Toggle Bright White / Night Mode">
+        <span class="btn-text-full">☀️ White</span>
         <span class="btn-text-short">☀️</span>
       </button>
-      <a href="constellation.html" class="hud-btn primary" title="Open 3D Celestial Constellation Graph">
-        <span class="btn-text-full">🌌 Constellation ↗</span>
+      <a href="constellation.html" class="top-btn primary" title="Open 3D Celestial Constellation Graph">
+        <span class="btn-text-full">🌌 Graph ↗</span>
         <span class="btn-text-short">🌌 Graph</span>
       </a>
-      <a href="index.html" class="hud-btn" title="Back to Main Catalog">
-        <span class="btn-text-full">📚 Catalog ↗</span>
-        <span class="btn-text-short">⬅ Catalog</span>
+      <a href="index.html" class="top-btn" title="Back to Main Catalog">
+        <span class="btn-text-full">📚 Catalog</span>
+        <span class="btn-text-short">📚 Catalog</span>
       </a>
-      <a href="https://github.com/myonathanlinkedin" target="_blank" rel="noopener" class="hud-btn" title="GitHub Profile">
+      <a href="https://github.com/myonathanlinkedin" target="_blank" rel="noopener" class="top-btn" title="GitHub Profile">
         <span class="btn-text-full">GitHub ↗</span>
         <span class="btn-text-short">GH ↗</span>
       </a>
-      <button type="button" id="btn-fullscreen" class="hud-btn" title="Toggle Fullscreen">
-        <span class="btn-text-full">⛶</span>
-        <span class="btn-text-short">⛶</span>
-      </button>
-      <button type="button" id="btn-help-office" class="hud-btn" title="What Is This? Visitor Guide">
-        <span class="btn-text-full">❓ Guide</span>
-        <span class="btn-text-short">❓</span>
-      </button>
-    </div>
-  </header>
+      <button type="button" id="btn-fullscreen" class="top-btn" title="Toggle Fullscreen">⛶</button>
+      <button type="button" id="btn-help-office" class="top-btn" title="Visitor Guide">❓ <span class="btn-text-full">Guide</span></button>
+      <button type="button" id="btn-hide-topbar" class="top-btn" title="Hide Top HUD">✕ Hide</button>
+    </nav>
+  </div>
 
   <div id="office-help-modal" role="dialog" aria-modal="true" aria-label="Visitor Guide - Agentic Autonomous Lab">
     <div class="glass-panel office-help-card">
@@ -3941,6 +3888,14 @@ class LabBossaAudioEngine {
         const genderLabel = worker.gender === 'female' ? '👩‍🔬 Female Engineer' : '👨‍💻 Male Engineer';
         const stateLabel = '24/7 ACTIVE';
 
+        if (worker.metadata && worker.display_name) {
+          if (worker.id === 'worker_research') worker.metadata['Scientist Name'] = worker.display_name;
+          else if (worker.id === 'worker_kernel') worker.metadata['Architect Name'] = worker.display_name;
+          else if (worker.id === 'worker_hardware') worker.metadata['Lead Reviewer'] = worker.display_name;
+          else if (worker.id === 'worker_release') worker.metadata['Portfolio Lead'] = worker.display_name;
+          else if (worker.id === 'worker_lounge') worker.metadata['Strategy Lead'] = worker.display_name;
+        }
+
         let metaRowsHtml = '';
         const meta = worker.metadata || {};
         Object.keys(meta).forEach((k) => {
@@ -4155,7 +4110,7 @@ class LabBossaAudioEngine {
       }
 
       _bindTopbarAndPanelEvents() {
-        const topbarEl = document.getElementById('hud-topbar');
+        const topbarEl = document.getElementById('hud-top-container') || document.getElementById('hud-topbar');
         const btnHideTopbar = document.getElementById('btn-hide-topbar');
         const btnRestoreTopbar = document.getElementById('btn-restore-topbar');
         const leftPanel = document.getElementById('hud-left');
@@ -4471,6 +4426,13 @@ class LabBossaAudioEngine {
         if (activeRoster[w.id]) {
           w.display_name = activeRoster[w.id].name;
           w.role = activeRoster[w.id].role;
+          if (w.metadata) {
+            if (w.id === 'worker_research') w.metadata['Scientist Name'] = activeRoster[w.id].name;
+            else if (w.id === 'worker_kernel') w.metadata['Architect Name'] = activeRoster[w.id].name;
+            else if (w.id === 'worker_hardware') w.metadata['Lead Reviewer'] = activeRoster[w.id].name;
+            else if (w.id === 'worker_release') w.metadata['Portfolio Lead'] = activeRoster[w.id].name;
+            else if (w.id === 'worker_lounge') w.metadata['Strategy Lead'] = activeRoster[w.id].name;
+          }
         }
       }
 
