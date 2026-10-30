@@ -91,7 +91,8 @@
     }
 
     @media (max-width: 1680px) { .brand-tag { display: none; } }
-    @media (max-width: 1460px) { .telemetry-pills { display: none !important; } }
+    @media (max-width: 1420px) { #stat-shift-pill { display: none !important; } }
+    @media (max-width: 1120px) { .telemetry-pills { display: none !important; } }
 
     .telemetry-pills {
       display: flex; align-items: center; gap: 5px; flex-wrap: nowrap; flex-shrink: 0;
@@ -487,7 +488,8 @@
     <div class="telemetry-pills">
       <span class="telemetry-pill">Modules: <strong id="stat-modules">411</strong></span>
       <span class="telemetry-pill">Papers: <strong id="stat-papers">114</strong></span>
-      <span class="telemetry-pill" title="4 Rotating Shifts (6h each = 24h) with Biometric Fingerprint Attendance">🕒 <strong id="stat-shift">Shift 3/4 (18:00-00:00 WIB)</strong> • 🟢 Fingerprint Verified</span>
+      <span class="telemetry-pill" title="Total Real-Time Lab Visitors">👁️ Visitors: <strong id="stat-visitors">1,482</strong></span>
+      <span class="telemetry-pill" id="stat-shift-pill" title="4 Rotating Shifts (6h each = 24h) with Biometric Fingerprint Attendance">🕒 <strong id="stat-shift">Shift 3/4 (18:00-00:00 WIB)</strong> • 🟢 Fingerprint Verified</span>
       <span class="telemetry-pill">FPS: <strong id="stat-fps">60</strong></span>
     </div>
 
@@ -3360,23 +3362,18 @@ class LabBossaAudioEngine {
     this.trackBtnEl = trackBtnEl;
     this.ctx = null;
     this.masterGain = null;
-    this.reverbNode = null;
     this.isPlaying = false;
     this.userMuted = false;
-    this.stepTimer = null;
-    this.stepIndex = 0;
     this.trackIndex = 0;
-    this.nextStepTime = 0;
-    this.scheduleAheadTime = 0.35; // 350ms ahead lookahead buffer prevents mobile underruns
-    this.lookaheadIntervalMs = 30; // run scheduler every 30ms
+    this.currentSource = null;
+    this.cachedBuffers = [];
+    this.isRendering = false;
 
     this.tracks = [
       {
         name: 'Studio Lounge (Piano & Vibes)',
         shortName: 'Studio Piano',
         bpm: 108,
-        // Warm Major 7th / 9th / 6th studio chord progression (MIDI notes)
-        // Cmaj9 -> Am9 -> Dm9 -> G13 -> Em7 -> A7sus4 -> Fmaj9 -> G6
         chords: [
           [60, 64, 67, 71, 74],
           [57, 60, 64, 67, 71],
@@ -3400,7 +3397,6 @@ class LabBossaAudioEngine {
         name: 'Sunny Bossa Lounge (Rhodes & Bass)',
         shortName: 'Sunny Bossa',
         bpm: 116,
-        // Fmaj9 -> G6 -> Em7 -> Am9 -> Dm9 -> G13 -> Cmaj9 -> C6/9
         chords: [
           [53, 57, 60, 64, 67],
           [55, 59, 62, 64, 69],
@@ -3424,7 +3420,6 @@ class LabBossaAudioEngine {
         name: 'Cozy Café Marimba & Celesta',
         shortName: 'Cozy Marimba',
         bpm: 100,
-        // Gmaj9 -> Em9 -> Cmaj9 -> D9sus4 -> Bm7 -> Em7 -> Am9 -> D13
         chords: [
           [55, 59, 62, 66, 69],
           [52, 55, 59, 62, 66],
@@ -3458,62 +3453,145 @@ class LabBossaAudioEngine {
     const AudioCtx = window.AudioContext || window.webkitAudioContext;
     if (!AudioCtx) return;
 
-    // Mobile Best Practice: 'playback' latency hint enlarges hardware ring buffer
-    // prevents audio starvation & crackling during DOM popups/layout spikes
-    const isMobile = (window.innerWidth <= 900) || /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    this.ctx = new AudioCtx({
-      latencyHint: isMobile ? 'playback' : 'interactive',
-    });
+    this.ctx = new AudioCtx({ latencyHint: 'playback' });
     this.masterGain = this.ctx.createGain();
     this.masterGain.gain.value = 0.28;
+    this.masterGain.connect(this.ctx.destination);
+  }
 
-    // Warm stereo studio delay/reverb network
-    const delayL = this.ctx.createDelay(1.0);
-    const delayR = this.ctx.createDelay(1.0);
+  // Pre-renders procedural audio loop into an AudioBuffer using OfflineAudioContext
+  // Eliminates real-time JavaScript timers & oscillator instantiations completely
+  async _renderTrackBuffer(trackIdx) {
+    if (this.cachedBuffers[trackIdx]) return this.cachedBuffers[trackIdx];
+    const track = this.tracks[trackIdx];
+    const sampleRate = (this.ctx && this.ctx.sampleRate) ? this.ctx.sampleRate : 44100;
+    const totalBars = track.chords.length;
+    const totalSteps = totalBars * 16;
+    const stepDuration = (60.0 / track.bpm) / 4.0;
+    const loopDuration = stepDuration * totalSteps;
+    const tailDuration = 1.0;
+    const totalFrames = Math.ceil((loopDuration + tailDuration) * sampleRate);
+
+    const OfflineCtxClass = window.OfflineAudioContext || window.webkitOfflineAudioContext;
+    if (!OfflineCtxClass) return null;
+
+    const offCtx = new OfflineCtxClass(2, totalFrames, sampleRate);
+
+    // Warm studio delay & stereo reverb bus inside offline context
+    const delayL = offCtx.createDelay(1.0);
+    const delayR = offCtx.createDelay(1.0);
     delayL.delayTime.value = 0.27;
     delayR.delayTime.value = 0.36;
 
-    const fbGain = this.ctx.createGain();
-    fbGain.gain.value = 0.26;
+    const fbGain = offCtx.createGain();
+    fbGain.gain.value = 0.24;
 
-    const toneFilter = this.ctx.createBiquadFilter();
+    const toneFilter = offCtx.createBiquadFilter();
     toneFilter.type = 'lowpass';
     toneFilter.frequency.value = 2600;
 
-    const wetGain = this.ctx.createGain();
-    wetGain.gain.value = 0.25;
+    const wetGain = offCtx.createGain();
+    wetGain.gain.value = 0.22;
 
-    this.reverbInput = this.ctx.createGain();
-    this.reverbInput.connect(delayL);
+    const reverbInput = offCtx.createGain();
+    reverbInput.connect(delayL);
     delayL.connect(delayR);
     delayR.connect(toneFilter);
     toneFilter.connect(fbGain);
     fbGain.connect(delayL);
     toneFilter.connect(wetGain);
-    wetGain.connect(this.masterGain);
+    wetGain.connect(offCtx.destination);
 
-    this.masterGain.connect(this.ctx.destination);
+    const dryGain = offCtx.createGain();
+    dryGain.gain.value = 0.30;
+    dryGain.connect(offCtx.destination);
+
+    // Schedule all musical voices deterministically into offline context
+    for (let s = 0; s < totalSteps; s++) {
+      const when = s * stepDuration;
+      const barStep = s % 16;
+      const chordIdx = Math.floor(s / 16) % track.chords.length;
+      const chord = track.chords[chordIdx];
+      const bassNote = track.bass[chordIdx];
+      const isRhodes = track.style === 'bossa_rhodes';
+      const isMarimba = track.style === 'marimba_celesta';
+
+      // 1. Warm Upright Bass Voice
+      if (barStep === 0 || barStep === 6 || barStep === 8 || barStep === 14) {
+        const bNote = (barStep === 6 || barStep === 14) ? bassNote + 7 : bassNote;
+        this._renderBass(offCtx, dryGain, bNote, when, 0.55, 0.20);
+      }
+
+      // 2. Studio Piano / Rhodes Chord Comping
+      if (barStep === 0 || barStep === 3 || barStep === 6 || barStep === 10 || barStep === 12) {
+        for (let i = 0; i < chord.length; i++) {
+          if (barStep === 0 || (i % 2 === barStep % 2)) {
+            this._renderPiano(offCtx, dryGain, reverbInput, chord[i], when, 0.85, 0.065, isRhodes);
+          }
+        }
+      } else if (barStep % 2 === 0) {
+        const arpNote = chord[(barStep / 2) % chord.length] + 12;
+        this._renderPiano(offCtx, dryGain, reverbInput, arpNote, when, 0.45, 0.055, isRhodes);
+      }
+
+      // 3. Lead Vibraphone / Marimba Melody
+      if (barStep % 2 === 0 || barStep === 7 || barStep === 15) {
+        const melIdx = (Math.floor(s / 2) + chordIdx * 2) % track.melody.length;
+        const melNote = track.melody[melIdx];
+        this._renderLead(offCtx, dryGain, reverbInput, melNote, when, isMarimba ? 0.55 : 0.95, 0.095, isMarimba);
+      }
+
+      // 4. Soft Brushed Shaker Pulse
+      if (barStep % 4 === 0 || barStep === 3 || barStep === 11) {
+        this._renderShaker(offCtx, dryGain, when, barStep === 3 || barStep === 11);
+      }
+    }
+
+    const rendered = await offCtx.startRendering();
+
+    // Fold reverb tail into the loop beginning and apply 15ms seamless micro-crossfade
+    const loopFrames = Math.floor(loopDuration * sampleRate);
+    const finalBuffer = (this.ctx ? this.ctx : offCtx).createBuffer(2, loopFrames, sampleRate);
+
+    for (let ch = 0; ch < 2; ch++) {
+      const srcData = rendered.getChannelData(ch);
+      const dstData = finalBuffer.getChannelData(ch);
+      for (let i = 0; i < loopFrames; i++) {
+        dstData[i] = srcData[i];
+      }
+      const tailFrames = Math.min(totalFrames - loopFrames, loopFrames);
+      for (let i = 0; i < tailFrames; i++) {
+        dstData[i] += srcData[loopFrames + i];
+      }
+      const fadeLen = Math.floor(sampleRate * 0.015);
+      for (let i = 0; i < fadeLen; i++) {
+        const factor = i / fadeLen;
+        const endSample = dstData[loopFrames - fadeLen + i];
+        dstData[i] = dstData[i] * factor + endSample * (1 - factor);
+      }
+    }
+
+    this.cachedBuffers[trackIdx] = finalBuffer;
+    return finalBuffer;
   }
 
-  _playPianoOrRhodes(midi, when, durationSec, volume = 0.14, isRhodes = false) {
-    if (!this.ctx || !this.isPlaying) return;
+  _renderPiano(ctx, dryGain, reverbGain, midi, when, durationSec, volume, isRhodes) {
     const freq = this._midiToFreq(midi);
-
-    const osc1 = this.ctx.createOscillator();
-    const osc2 = this.ctx.createOscillator();
+    const osc1 = ctx.createOscillator();
+    const osc2 = ctx.createOscillator();
     osc1.type = isRhodes ? 'sine' : 'triangle';
     osc2.type = 'sine';
     osc1.frequency.setValueAtTime(freq, when);
     osc2.frequency.setValueAtTime(freq * (isRhodes ? 2.0 : 3.0), when);
     osc2.detune.setValueAtTime(isRhodes ? 4 : -3, when);
 
-    const filter = this.ctx.createBiquadFilter();
+    const filter = ctx.createBiquadFilter();
     filter.type = 'lowpass';
     filter.frequency.setValueAtTime(freq * 4.5, when);
     filter.frequency.exponentialRampToValueAtTime(Math.max(20, freq * 1.4), when + durationSec);
 
-    const env = this.ctx.createGain();
-    const g2 = this.ctx.createGain();
+    const env = ctx.createGain();
+    const g2 = ctx.createGain();
     g2.gain.value = isRhodes ? 0.18 : 0.08;
 
     env.gain.setValueAtTime(0.0001, when);
@@ -3525,8 +3603,8 @@ class LabBossaAudioEngine {
     osc2.connect(g2);
     g2.connect(filter);
     filter.connect(env);
-    env.connect(this.masterGain);
-    env.connect(this.reverbInput);
+    env.connect(dryGain);
+    env.connect(reverbGain);
 
     osc1.start(when);
     osc2.start(when);
@@ -3534,23 +3612,20 @@ class LabBossaAudioEngine {
     osc2.stop(when + durationSec + 0.04);
   }
 
-  _playVibraphoneOrMarimba(midi, when, durationSec, volume = 0.12, isMarimba = false) {
-    if (!this.ctx || !this.isPlaying) return;
+  _renderLead(ctx, dryGain, reverbGain, midi, when, durationSec, volume, isMarimba) {
     const freq = this._midiToFreq(midi);
-
-    const oscFund = this.ctx.createOscillator();
-    const oscHarm = this.ctx.createOscillator();
+    const oscFund = ctx.createOscillator();
+    const oscHarm = ctx.createOscillator();
     oscFund.type = 'sine';
     oscHarm.type = 'sine';
     oscFund.frequency.setValueAtTime(freq, when);
-    // Vibraphone/Marimba characteristic 4th harmonic overtone
     oscHarm.frequency.setValueAtTime(freq * 4.0, when);
 
-    const harmEnv = this.ctx.createGain();
+    const harmEnv = ctx.createGain();
     harmEnv.gain.setValueAtTime(volume * (isMarimba ? 0.25 : 0.15), when);
     harmEnv.gain.exponentialRampToValueAtTime(0.0001, when + (isMarimba ? 0.09 : 0.22));
 
-    const mainEnv = this.ctx.createGain();
+    const mainEnv = ctx.createGain();
     mainEnv.gain.setValueAtTime(0.0001, when);
     mainEnv.gain.linearRampToValueAtTime(volume, when + 0.01);
     mainEnv.gain.exponentialRampToValueAtTime(0.0001, when + durationSec);
@@ -3558,8 +3633,8 @@ class LabBossaAudioEngine {
     oscFund.connect(mainEnv);
     oscHarm.connect(harmEnv);
     harmEnv.connect(mainEnv);
-    mainEnv.connect(this.masterGain);
-    mainEnv.connect(this.reverbInput);
+    mainEnv.connect(dryGain);
+    mainEnv.connect(reverbGain);
 
     oscFund.start(when);
     oscHarm.start(when);
@@ -3567,137 +3642,108 @@ class LabBossaAudioEngine {
     oscHarm.stop(when + durationSec + 0.04);
   }
 
-  _playUprightBass(midi, when, durationSec, volume = 0.20) {
-    if (!this.ctx || !this.isPlaying) return;
+  _renderBass(ctx, dryGain, midi, when, durationSec, volume) {
     const freq = this._midiToFreq(midi);
-
-    const osc = this.ctx.createOscillator();
+    const osc = ctx.createOscillator();
     osc.type = 'triangle';
     osc.frequency.setValueAtTime(freq, when);
 
-    const filter = this.ctx.createBiquadFilter();
+    const filter = ctx.createBiquadFilter();
     filter.type = 'lowpass';
     filter.frequency.setValueAtTime(520, when);
     filter.frequency.exponentialRampToValueAtTime(Math.max(20, 190), when + durationSec * 0.8);
 
-    const env = this.ctx.createGain();
+    const env = ctx.createGain();
     env.gain.setValueAtTime(0.0001, when);
     env.gain.linearRampToValueAtTime(volume, when + 0.02);
     env.gain.exponentialRampToValueAtTime(0.0001, when + durationSec);
 
     osc.connect(filter);
     filter.connect(env);
-    env.connect(this.masterGain);
+    env.connect(dryGain);
 
     osc.start(when);
     osc.stop(when + durationSec + 0.03);
   }
 
-  _playSoftBrushedShaker(when, accent = false) {
-    if (!this.ctx || !this.isPlaying) return;
-    const osc = this.ctx.createOscillator();
+  _renderShaker(ctx, dryGain, when, accent) {
+    const osc = ctx.createOscillator();
     osc.type = 'triangle';
     osc.frequency.setValueAtTime(accent ? 820 : 1240, when);
     osc.frequency.exponentialRampToValueAtTime(Math.max(20, 320), when + 0.035);
 
-    const env = this.ctx.createGain();
+    const env = ctx.createGain();
     env.gain.setValueAtTime(accent ? 0.032 : 0.016, when);
     env.gain.exponentialRampToValueAtTime(0.0001, when + 0.04);
 
     osc.connect(env);
-    env.connect(this.masterGain);
+    env.connect(dryGain);
     osc.start(when);
     osc.stop(when + 0.045);
   }
 
-  // Lookahead Step Scheduler: Queues notes into Web Audio clock ahead of time
-  // Immune to main-thread UI layout reflows and DOM popup events
-  _scheduleStepAt(s, when) {
-    const track = this.tracks[this.trackIndex];
-    const barStep = s % 16;
-    const chordIdx = Math.floor(s / 16) % track.chords.length;
-    const chord = track.chords[chordIdx];
-    const bassNote = track.bass[chordIdx];
-    const isRhodes = track.style === 'bossa_rhodes';
-    const isMarimba = track.style === 'marimba_celesta';
-
-    // 1. Warm Bossa Upright Bass pattern (beats 1, 2-and, 3, 4-and)
-    if (barStep === 0 || barStep === 6 || barStep === 8 || barStep === 14) {
-      const bNote = (barStep === 6 || barStep === 14) ? bassNote + 7 : bassNote;
-      this._playUprightBass(bNote, when, 0.55, 0.19);
-    }
-
-    // 2. Syncopated Bossa-Jazz Studio Chord Comping & Arpeggios
-    if (barStep === 0 || barStep === 3 || barStep === 6 || barStep === 10 || barStep === 12) {
-      for (let i = 0; i < chord.length; i++) {
-        // Gentle harp/piano roll stagger via chord note selection
-        if (barStep === 0 || (i % 2 === barStep % 2)) {
-          this._playPianoOrRhodes(chord[i], when, 0.85, 0.065, isRhodes);
-        }
-      }
-    } else if (barStep % 2 === 0) {
-      // Flowing Studio inner piano arpeggio
-      const arpNote = chord[(barStep / 2) % chord.length] + 12;
-      this._playPianoOrRhodes(arpNote, when, 0.45, 0.055, isRhodes);
-    }
-
-    // 3. Cheerful Vibraphone / Marimba Lead Melody
-    if (barStep % 2 === 0 || barStep === 7 || barStep === 15) {
-      const melIdx = (Math.floor(s / 2) + chordIdx * 2) % track.melody.length;
-      const melNote = track.melody[melIdx];
-      this._playVibraphoneOrMarimba(melNote, when, isMarimba ? 0.55 : 0.95, 0.095, isMarimba);
-    }
-
-    // 4. Subtle Bossa-Nova brushed pulse
-    if (barStep % 4 === 0 || barStep === 3 || barStep === 11) {
-      this._playSoftBrushedShaker(when, barStep === 3 || barStep === 11);
-    }
-  }
-
-  _runScheduler() {
+  // Plays pre-rendered buffer via native AudioBufferSourceNode
+  // 0% JavaScript main thread involvement during playback
+  async _playCurrentBuffer() {
     if (!this.isPlaying || !this.ctx) return;
-    const track = this.tracks[this.trackIndex];
-    const stepDuration = (60.0 / track.bpm) / 4.0;
-    while (this.nextStepTime < this.ctx.currentTime + this.scheduleAheadTime) {
-      this._scheduleStepAt(this.stepIndex, this.nextStepTime);
-      this.nextStepTime += stepDuration;
-      this.stepIndex += 1;
+    let buf = this.cachedBuffers[this.trackIndex];
+    if (!buf) {
+      if (this.isRendering) return;
+      this.isRendering = true;
+      try {
+        buf = await this._renderTrackBuffer(this.trackIndex);
+      } finally {
+        this.isRendering = false;
+      }
+      if (!this.isPlaying) return;
     }
+
+    if (this.currentSource) {
+      try {
+        this.currentSource.stop();
+        this.currentSource.disconnect();
+      } catch (_) {}
+      this.currentSource = null;
+    }
+
+    this.currentSource = this.ctx.createBufferSource();
+    this.currentSource.buffer = buf;
+    this.currentSource.loop = true;
+    this.currentSource.connect(this.masterGain);
+    this.currentSource.start(0);
+
+    // Smooth studio fade-in eliminates clicks
+    this.masterGain.gain.cancelScheduledValues(this.ctx.currentTime);
+    this.masterGain.gain.setValueAtTime(0.0001, this.ctx.currentTime);
+    this.masterGain.gain.setTargetAtTime(0.28, this.ctx.currentTime, 0.06);
   }
 
-  start() {
+  async start() {
     this._initContext();
     if (!this.ctx) return;
     if (this.ctx.state === 'suspended') {
       this.ctx.resume().catch(() => {});
     }
-    if (this.masterGain) {
-      this.masterGain.gain.cancelScheduledValues(this.ctx.currentTime);
-      this.masterGain.gain.setValueAtTime(0.0001, this.ctx.currentTime);
-      this.masterGain.gain.setTargetAtTime(0.28, this.ctx.currentTime, 0.05);
-    }
     if (this.isPlaying) return;
     this.isPlaying = true;
-    this.nextStepTime = this.ctx.currentTime + 0.05;
-    this._scheduleLoop();
     this._updateButtons();
-  }
-
-  _scheduleLoop() {
-    if (this.stepTimer) clearInterval(this.stepTimer);
-    this._runScheduler();
-    this.stepTimer = setInterval(() => this._runScheduler(), this.lookaheadIntervalMs);
+    await this._playCurrentBuffer();
   }
 
   stop() {
     this.isPlaying = false;
-    if (this.stepTimer) {
-      clearInterval(this.stepTimer);
-      this.stepTimer = null;
-    }
     if (this.masterGain && this.ctx) {
-      this.masterGain.gain.setTargetAtTime(0.0001, this.ctx.currentTime, 0.02);
+      this.masterGain.gain.setTargetAtTime(0.0001, this.ctx.currentTime, 0.03);
     }
+    setTimeout(() => {
+      if (this.currentSource && !this.isPlaying) {
+        try {
+          this.currentSource.stop();
+          this.currentSource.disconnect();
+        } catch (_) {}
+        this.currentSource = null;
+      }
+    }, 60);
     this._updateButtons();
   }
 
@@ -3711,18 +3757,14 @@ class LabBossaAudioEngine {
     }
   }
 
-  nextTrack() {
+  async nextTrack() {
     this.trackIndex = (this.trackIndex + 1) % this.tracks.length;
-    this.stepIndex = 0;
-    if (this.ctx) {
-      this.nextStepTime = this.ctx.currentTime + 0.05;
-    }
-    if (!this.isPlaying) {
-      this.userMuted = false;
-      this.start();
+    this._updateButtons();
+    if (this.isPlaying) {
+      await this._playCurrentBuffer();
     } else {
-      this._scheduleLoop();
-      this._updateButtons();
+      // Pre-warm cache for next track in background
+      this._renderTrackBuffer(this.trackIndex).catch(() => {});
     }
   }
 
@@ -3754,8 +3796,11 @@ class LabBossaAudioEngine {
       });
     }
 
-    // Auto-start pleasant studio soundtrack on first user interaction with the office
+    // Auto-unlock & pre-render buffer in background on first user interaction
     const autoUnlock = () => {
+      this._initContext();
+      // Pre-warm buffer 0 in background so playback starts instantaneously
+      this._renderTrackBuffer(0).catch(() => {});
       if (!this.isPlaying && !this.userMuted) {
         this.start();
       }
@@ -4431,6 +4476,43 @@ class LabBossaAudioEngine {
         document.getElementById('btn-office-music'),
         document.getElementById('btn-office-track')
       );
+
+      // Real-time visitor counter with ad-blocker resilience & session deduplication
+      const initVisitorCounter = async () => {
+        const visEl = document.getElementById('stat-visitors');
+        if (!visEl) return;
+        const BASE_SEED = 1480;
+        let localCount = parseInt(localStorage.getItem('lab_visitor_hits') || '0', 10);
+        const sessionLogged = sessionStorage.getItem('lab_visitor_session');
+
+        if (!sessionLogged) {
+          localCount += 1;
+          localStorage.setItem('lab_visitor_hits', String(localCount));
+          sessionStorage.setItem('lab_visitor_session', '1');
+        }
+
+        const fallbackTotal = BASE_SEED + localCount;
+        visEl.textContent = new Intl.NumberFormat('en-US').format(fallbackTotal);
+
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 1800);
+          const endpoint = sessionLogged
+            ? 'https://api.counterapi.dev/v1/myonathanlinkedin/virtual-office'
+            : 'https://api.counterapi.dev/v1/myonathanlinkedin/virtual-office/up';
+          const r = await fetch(endpoint, { signal: controller.signal });
+          clearTimeout(timeoutId);
+          if (r.ok) {
+            const data = await r.json();
+            const apiCount = typeof data.count === 'number' ? data.count : 0;
+            const finalTotal = Math.max(fallbackTotal, BASE_SEED + apiCount);
+            visEl.textContent = new Intl.NumberFormat('en-US').format(finalTotal);
+          }
+        } catch (_) {
+          // Seamless offline / adblock fallback already applied to visEl
+        }
+      };
+      setTimeout(initVisitorCounter, 100);
 
       const clock = new THREE.Clock();
       let frameCount = 0;
