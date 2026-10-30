@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Mateus Yonathan Agentic Autonomous Lab - We Work 24 Hours</title>
-  <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 409 verified modules and 112 research papers." />
+  <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 409 verified modules and 113 research papers." />
   <meta name="author" content="Mateus Yonathan" />
   <link rel="canonical" href="https://MYONATHANLINKEDIN.github.io/office.html" />
   <link rel="icon" href="https://MYONATHANLINKEDIN.github.io/assets/avatar.png" type="image/png" />
@@ -485,7 +485,7 @@
 
     <div class="telemetry-pills">
       <span class="telemetry-pill">Modules: <strong id="stat-modules">409</strong></span>
-      <span class="telemetry-pill">Papers: <strong id="stat-papers">112</strong></span>
+      <span class="telemetry-pill">Papers: <strong id="stat-papers">113</strong></span>
       <span class="telemetry-pill">FPS: <strong id="stat-fps">60</strong></span>
     </div>
 
@@ -532,7 +532,7 @@
         <button type="button" class="drawer-close" id="btn-close-office-help" title="Close Guide">✕</button>
       </div>
       <div style="font-size:0.82rem;line-height:1.65;color:#cbd5e1;display:grid;gap:9px;margin-top:8px;">
-        <p><strong>What Is This?</strong> Welcome to the interactive 3D exhibition space of the <strong>Mateus Yonathan Agentic Autonomous Lab</strong>. This virtual studio showcases our 24/7 open-source software engineering and academic research publications (409 public modules &amp; 112 Research Papers) in real time.</p>
+        <p><strong>What Is This?</strong> Welcome to the interactive 3D exhibition space of the <strong>Mateus Yonathan Agentic Autonomous Lab</strong>. This virtual studio showcases our 24/7 open-source software engineering and academic research publications (409 public modules &amp; 113 Research Papers) in real time.</p>
         <p><strong>5 Divisions You Can Visit:</strong><br/>
         • <strong>💻 Systems Architecture:</strong> Showcases newly released algorithms and data structures across 14 programming languages.<br/>
         • <strong>📄 Research Paper Wing:</strong> Displays published Research Papers and Mini-Papers with executive summaries and Scholar Preprints.<br/>
@@ -813,55 +813,140 @@ function buildFloorGridTexture(isLight = true) {
 function buildWallSignTexture() {
   const canvas = document.createElement('canvas');
   canvas.width = 2048;
-  canvas.height = 280;
+  canvas.height = 240;
   const ctx = canvas.getContext('2d');
 
-  ctx.fillStyle = '#0f172a';
-  ctx.fillRect(0, 0, 2048, 280);
-  ctx.strokeStyle = '#10b981';
-  ctx.lineWidth = 10;
-  ctx.strokeRect(6, 6, 2036, 268);
+  // 1. Rich Executive Obsidian Gradient Background
+  const bgGrad = ctx.createLinearGradient(0, 0, 2048, 240);
+  bgGrad.addColorStop(0.0, '#070b14');
+  bgGrad.addColorStop(0.4, '#0c1322');
+  bgGrad.addColorStop(0.8, '#0a1728');
+  bgGrad.addColorStop(1.0, '#06131f');
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, 2048, 240);
 
-  // Glowing green live status dot
+  // Subtle tech micro-grid pattern
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.025)';
+  ctx.lineWidth = 1;
+  for (let x = 40; x < 2048; x += 48) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, 240); ctx.stroke();
+  }
+  for (let y = 30; y < 240; y += 40) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(2048, y); ctx.stroke();
+  }
+
+  // Top edge luminous highlight bevel
+  const topGlow = ctx.createLinearGradient(0, 0, 2048, 0);
+  topGlow.addColorStop(0.0, 'rgba(16, 185, 129, 0.20)');
+  topGlow.addColorStop(0.25, 'rgba(56, 189, 248, 0.95)');
+  topGlow.addColorStop(0.70, 'rgba(168, 85, 247, 0.90)');
+  topGlow.addColorStop(1.0, 'rgba(16, 185, 129, 0.30)');
+  ctx.fillStyle = topGlow;
+  ctx.fillRect(4, 4, 2040, 4);
+
+  // Precision outer border
+  ctx.strokeStyle = 'rgba(56, 189, 248, 0.40)';
+  ctx.lineWidth = 3;
+  ctx.strokeRect(3, 3, 2042, 234);
+
+  // Inner metallic hairline border
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(9, 9, 2030, 222);
+
+  // Corner mounting hex studs (precision aerospace diorama feel)
+  const corners = [[26, 26], [2022, 26], [26, 214], [2022, 214]];
+  for (let i = 0; i < corners.length; i++) {
+    const cx = corners[i][0];
+    const cy = corners[i][1];
+    ctx.fillStyle = '#64748b';
+    ctx.beginPath(); ctx.arc(cx, cy, 6, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#cbd5e1';
+    ctx.beginPath(); ctx.arc(cx - 1, cy - 1, 3, 0, Math.PI * 2); ctx.fill();
+  }
+
+  // 2. Left & Center Branding Elements
+  // Glowing Pulse Indicator
+  ctx.fillStyle = 'rgba(16, 185, 129, 0.22)';
+  ctx.beginPath(); ctx.arc(68, 56, 18, 0, Math.PI * 2); ctx.fill();
   ctx.fillStyle = '#10b981';
-  ctx.beginPath();
-  ctx.arc(68, 70, 16, 0, Math.PI * 2);
-  ctx.fill();
-
-  // Primary Brand Title with auto-fit
-  const titleText = 'MATEUS YONATHAN // AGENTIC AUTONOMOUS LAB';
-  let titleSize = 48;
+  ctx.beginPath(); ctx.arc(68, 56, 9, 0, Math.PI * 2); ctx.fill();
   ctx.fillStyle = '#ffffff';
-  ctx.font = `bold ${titleSize}px sans-serif`;
-  while (ctx.measureText(titleText).width > (2048 - 180) && titleSize > 24) {
-    titleSize -= 2;
-    ctx.font = `bold ${titleSize}px sans-serif`;
-  }
-  ctx.fillText(titleText, 102, 84);
+  ctx.beginPath(); ctx.arc(66, 54, 3, 0, Math.PI * 2); ctx.fill();
 
-  // Subtitle banner text with auto-fit preventing word truncation
-  const subText = '● WE WORK 24 HOURS NON-STOP • CONTINUOUS CODING, RESEARCH PAPERS & BENCHMARKING';
-  let subSize = 28;
+  // Line 1: Main Brand Title
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '800 38px system-ui, -apple-system, sans-serif';
+  ctx.fillText('MATEUS YONATHAN // AGENTIC AUTONOMOUS LAB', 104, 68);
+
+  // Sub-badge next to title
+  ctx.fillStyle = 'rgba(16, 185, 129, 0.16)';
+  ctx.strokeStyle = 'rgba(52, 211, 153, 0.45)';
+  ctx.lineWidth = 1;
+  const bX = 1120;
+  ctx.beginPath(); ctx.roundRect(bX, 40, 275, 36, 18); ctx.fill(); ctx.stroke();
   ctx.fillStyle = '#34d399';
-  ctx.font = `bold ${subSize}px monospace`;
-  const maxSubWidth = 2048 - 140;
-  while (ctx.measureText(subText).width > maxSubWidth && subSize > 16) {
-    subSize -= 1;
-    ctx.font = `bold ${subSize}px monospace`;
-  }
-  ctx.fillText(subText, 56, 160);
+  ctx.font = '700 16px monospace';
+  ctx.fillText('● LIVE 24/7 PIPELINE', bX + 22, 64);
 
-  // Guyon Team Motto with Horse Emoji (Warm Vibrant Gold / Amber)
-  const mottoText = '🐎 Motto: Work Like a Horse & Work Smart | Kerja Bagai Kuda & Cerdas';
-  let mottoSize = 27;
+  // Line 2: Pipeline Operations Subtitle
+  ctx.fillStyle = '#7dd3fc';
+  ctx.font = '600 20px monospace';
+  ctx.fillText('CONTINUOUS CODING  •  PEER-AUDITED RESEARCH PAPERS  •  VERIFIED SYSTEMS BENCHMARKING', 62, 120);
+
+  // Line 3: Guyon Motto in Premium Rounded Glass Pill
+  const pillX = 60, pillY = 150, pillW = 1335, pillH = 58, pillR = 14;
+  ctx.fillStyle = 'rgba(245, 158, 11, 0.10)';
+  ctx.strokeStyle = 'rgba(251, 191, 36, 0.42)';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.roundRect(pillX, pillY, pillW, pillH, pillR); ctx.fill(); ctx.stroke();
+
   ctx.fillStyle = '#fbbf24';
-  ctx.font = `bold ${mottoSize}px sans-serif`;
-  const maxMottoWidth = 2048 - 140;
-  while (ctx.measureText(mottoText).width > maxMottoWidth && mottoSize > 16) {
-    mottoSize -= 1;
-    ctx.font = `bold ${mottoSize}px sans-serif`;
+  ctx.font = '700 22px system-ui, -apple-system, sans-serif';
+  ctx.fillText('🐎  Motto: Work Like a Horse & Work Smart  |  Kerja Bagai Kuda & Cerdas', pillX + 22, pillY + 37);
+
+  // 3. Right Section: Mission Control HUD Telemetry Cards (Fills the right space!)
+  const divX = 1425;
+  const divGrad = ctx.createLinearGradient(0, 20, 0, 220);
+  divGrad.addColorStop(0, 'rgba(56, 189, 248, 0.05)');
+  divGrad.addColorStop(0.5, 'rgba(56, 189, 248, 0.45)');
+  divGrad.addColorStop(1, 'rgba(56, 189, 248, 0.05)');
+  ctx.strokeStyle = divGrad;
+  ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(divX, 24); ctx.lineTo(divX, 216); ctx.stroke();
+
+  const stats = [
+    { num: '409', lbl: 'MODULES', col: '#38bdf8', bg: 'rgba(56, 189, 248, 0.10)', bdr: 'rgba(56, 189, 248, 0.35)' },
+    { num: '112', lbl: 'PAPERS', col: '#c084fc', bg: 'rgba(192, 132, 252, 0.10)', bdr: 'rgba(192, 132, 252, 0.35)' },
+    { num: '14',  lbl: 'LANGS', col: '#34d399', bg: 'rgba(52, 211, 153, 0.10)', bdr: 'rgba(52, 211, 153, 0.35)' }
+  ];
+
+  let startSX = divX + 24;
+  for (let i = 0; i < stats.length; i++) {
+    const st = stats[i];
+    const cardW = 168, cardH = 96, cardY = 32;
+    const cX = startSX + i * (cardW + 14);
+
+    ctx.fillStyle = st.bg;
+    ctx.strokeStyle = st.bdr;
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.roundRect(cX, cardY, cardW, cardH, 10); ctx.fill(); ctx.stroke();
+
+    ctx.fillStyle = st.col;
+    ctx.font = '800 36px system-ui, -apple-system, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(st.num, cX + cardW / 2, cardY + 48);
+
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '700 13px monospace';
+    ctx.fillText(st.lbl, cX + cardW / 2, cardY + 76);
+    ctx.textAlign = 'left';
   }
-  ctx.fillText(mottoText, 56, 232);
+
+  // Sub telemetry line on bottom right
+  ctx.fillStyle = '#64748b';
+  ctx.font = '600 13px monospace';
+  ctx.fillText('STATUS: 100% AUTONOMOUS • 0 HALLUCINATIONS', divX + 32, 186);
 
   const tex = new THREE.CanvasTexture(canvas);
   tex.colorSpace = THREE.SRGBColorSpace;
@@ -937,11 +1022,24 @@ class CutawayRoomBuilder {
     scene.add(floorMesh);
 
     // Prominent 24/7 Autonomous Lab Wall Banner mounted inside the 3D office (-Z upper header)
-    const signGeo = new THREE.PlaneGeometry(9.6, 1.30);
+    // Sized & positioned strictly beneath room ceiling coping (y=4.46 < 4.60) to prevent top overlap
+    const signGeo = new THREE.PlaneGeometry(8.20, 0.96);
     const signMat = new THREE.MeshBasicMaterial({ map: buildWallSignTexture() });
     const signMesh = new THREE.Mesh(signGeo, signMat);
-    signMesh.position.set(0.0, 4.10, -D / 2 + 0.03);
+    signMesh.position.set(0.0, 3.98, -D / 2 + 0.038);
     scene.add(signMesh);
+
+    // Architectural backing frame and twin suspension rods mounting to ceiling beam
+    const mountParts = [
+      createColoredPart(new THREE.BoxGeometry(8.28, 1.02, 0.04), '#090d16', 0.0, 3.98, -D / 2 + 0.018),
+      createColoredPart(new THREE.CylinderGeometry(0.02, 0.02, 0.18, 12), '#94a3b8', -3.2, 4.55, -D / 2 + 0.025),
+      createColoredPart(new THREE.CylinderGeometry(0.02, 0.02, 0.18, 12), '#94a3b8', 3.2, 4.55, -D / 2 + 0.025),
+    ];
+    const mountMesh = new THREE.Mesh(
+      mergeGeometries(mountParts, false),
+      new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.45, metalness: 0.65 })
+    );
+    scene.add(mountMesh);
 
     // Translucent Sky-Blue Glass Window Panes (merged into 1 draw call)
     const glassParts = [
