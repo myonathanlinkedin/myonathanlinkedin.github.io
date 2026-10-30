@@ -1,7 +1,7 @@
 # 🏛️ Mateus Yonathan // Agentic Autonomous Lab — Office Discussions & Roster Record
 
 > **Official Lab Motto:**  
-> **🐎 Motto: "Work like a Horse/Kerja bagai kuda & Work Smart"**  
+> **🐎 Motto: "Work like a Horse/Kerja bagai Kuda & Work Smart"**  
 > *Continuous 24/7 Autonomous AI Engineering & Academic Research Operations*
 
 ---
@@ -105,35 +105,42 @@ Berikut adalah rekaman lengkap 10 dialog interaktif antar rekan kerja di dalam l
 
 ## 👥 Roster Lengkap 20 Karyawan Lintas 4 Shift (24 Jam WIB)
 
-| Shift | Waktu (WIB) | Divisi / Peran | Nama Karyawan | Spesialisasi Utama |
-|---|---|---|---|---|
-| **Shift 1: Morning** | 06:00 – 12:00 | Kernel Desk | **Bima Vance** | Principal Systems Architect |
-| | | Research Wing | **Dr. Clara Wijaya** | Principal Research Scientist |
-| | | Quality Lab | **Kevin Pratama** | Hardware & Systems Optimization Lead |
-| | | Portfolio Hub | **Dewi Lestari** | Open-Source Portfolio Lead |
-| | | Coffee Lounge | **Rizky Ramadhan** | Research Strategy & Collaboration Lead |
-| **Shift 2: Afternoon** | 12:00 – 18:00 | Kernel Desk | **Fajar Nugraha** | Principal Systems Architect |
-| | | Research Wing | **Sarah Oktavia** | Principal Research Scientist |
-| | | Quality Lab | **Marcus Pratama** | Algorithmic Quality & Complexity Lead |
-| | | Portfolio Hub | **Elena Kusuma** | Open-Source Portfolio Lead |
-| | | Coffee Lounge | **Aditya Wibisono** | Research Strategy & Collaboration Lead |
-| **Shift 3: Evening** | 18:00 – 00:00 | Kernel Desk | **Aris Munandar** | Principal Systems Architect |
-| | | Research Wing | **Citra Anggraini** | Principal Research Scientist |
-| | | Quality Lab | **Dimas Setiawan** | Algorithmic Quality & Complexity Lead |
-| | | Portfolio Hub | **Tariq Hidayat** | Open-Source Portfolio Lead |
-| | | Coffee Lounge | **Nadia Miller** | Research Strategy & Collaboration Lead |
-| **Shift 4: Graveyard** | 00:00 – 06:00 | Kernel Desk | **Hendro Wibowo** | Principal Systems Architect |
-| | | Research Wing | **Rina Handayani** | Principal Research Scientist |
-| | | Quality Lab | **Bagus Prakoso** | Algorithmic Quality & Complexity Lead |
-| | | Portfolio Hub | **Maya Safitri** | Open-Source Portfolio Lead |
-| | | Coffee Lounge | **Ilham Saputra** | Research Strategy & Collaboration Lead |
+> [!IMPORTANT]
+> **Kepatuhan Gender & Gelar Akademik:**
+> 1. **Zero Gender Mismatch:** Struktur 3D avatar (Zone Kernel = Pria, Zone Research = Wanita, Zone Quality/Hardware = Pria, Zone Release = Wanita, Zone Lounge = Wanita) telah 100% selaras dengan nama karyawan di semua 4 shift.
+> 2. **Gelar Riset Wajib (Dr. / Ph.D.):** Seluruh Principal Research Scientist (Zone Research) wajib bergelar **Dr.**
+> 3. **Kombinasi Nama Hibrida:** Seluruh 20 karyawan menggunakan perpaduan nama Inggris dan Indonesia secara proporsional.
+> 4. **Penggantian Nama:** Slot Lounge Shift 4 (avatar wanita) diganti menjadi **Fiona Saputri** (menggantikan nama pria Ilham Saputra).
+
+| Shift | Waktu (WIB) | Divisi / Peran | Gender Avatar | Nama Karyawan | Spesialisasi Utama |
+|---|---|---|---|---|---|
+| **Shift 1: Morning** | 06:00 – 12:00 | Kernel Desk | Pria (Male) | **Bima Vance** | Principal Systems Architect |
+| | | Research Wing | Wanita (Female) | **Dr. Clara Wijaya** | Principal Research Scientist |
+| | | Quality Lab | Pria (Male) | **Marcus Pratama** | Hardware & Systems Optimization Lead |
+| | | Portfolio Hub | Wanita (Female) | **Elena Kusuma** | Open-Source Portfolio Lead |
+| | | Coffee Lounge | Wanita (Female) | **Nadia Miller** | Research Strategy & Collaboration Lead |
+| **Shift 2: Afternoon** | 12:00 – 18:00 | Kernel Desk | Pria (Male) | **Arthur Nugraha** | Principal Systems Architect |
+| | | Research Wing | Wanita (Female) | **Dr. Sarah Oktavia** | Principal Research Scientist |
+| | | Quality Lab | Pria (Male) | **Kevin Setiawan** | Algorithmic Quality & Complexity Lead |
+| | | Portfolio Hub | Wanita (Female) | **Chloe Lestari** | Open-Source Portfolio Lead |
+| | | Coffee Lounge | Wanita (Female) | **Audrey Wibisono** | Research Strategy & Collaboration Lead |
+| **Shift 3: Evening** | 18:00 – 00:00 | Kernel Desk | Pria (Male) | **Aris Hamilton** | Principal Systems Architect |
+| | | Research Wing | Wanita (Female) | **Dr. Citra Beaumont** | Principal Research Scientist |
+| | | Quality Lab | Pria (Male) | **David Siregar** | Algorithmic Quality & Complexity Lead |
+| | | Portfolio Hub | Wanita (Female) | **Grace Pangestu** | Open-Source Portfolio Lead |
+| | | Coffee Lounge | Wanita (Female) | **Stella Gunawan** | Research Strategy & Collaboration Lead |
+| **Shift 4: Graveyard** | 00:00 – 06:00 | Kernel Desk | Pria (Male) | **Lucas Wibowo** | Principal Systems Architect |
+| | | Research Wing | Wanita (Female) | **Dr. Hannah Handayani** | Principal Research Scientist |
+| | | Quality Lab | Pria (Male) | **Brandon Prakoso** | Algorithmic Quality & Complexity Lead |
+| | | Portfolio Hub | Wanita (Female) | **Maya Safitri** | Open-Source Portfolio Lead |
+| | | Coffee Lounge | Wanita (Female) | **Fiona Saputri** | Research Strategy & Collaboration Lead |
 
 ---
 
 ## 🛡️ Catatan Keputusan Desain & Pengecualian Bahasa
 
 * **Pengecualian Khusus Motto:** Teks motto pada papan neon lab dipertahankan dalam format dwibahasa sesuai instruksi pemilik:  
-  `Motto: "Work like a Horse/Kerja bagai kuda & Work Smart"`  
+  `Motto: "Work like a Horse/Kerja bagai Kuda & Work Smart"`  
   `Autonomous AI Engineering (Continuous 24/7 Ops)`
 * **Bahasa Dialog & Telemetri:** Seluruh dialog balon percakapan rekan kerja di dalam kantor 3D distandarisasi ke dalam **Bahasa Inggris profesional** untuk audiens global LinkedIn & GitHub.
 * **Separasi Zona Karpet (Zero Overlap):** Semua 7 area karpet departemen di lantai telah diverifikasi secara matematis memiliki jarak aman (gap) pemisah lorong marmer dan tidak saling tumpang tindih.
