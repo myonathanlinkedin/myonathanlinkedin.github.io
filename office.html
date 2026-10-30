@@ -6,8 +6,8 @@
   <title>Mateus Yonathan Agentic Autonomous Lab - We Work 24 Hours</title>
   <meta name="description" content="Interactive 3D Isometric Virtual Office depicting autonomous male and female engineers and research scientists working 24/7 on 410 verified modules and 114 research papers." />
   <meta name="author" content="Mateus Yonathan" />
-  <link rel="canonical" href="https://myonathanlinkedin.github.io/office.html" />
-  <link rel="icon" href="https://myonathanlinkedin.github.io/assets/avatar.png" type="image/png" />
+  <link rel="canonical" href="https://MYONATHANLINKEDIN.github.io/office.html" />
+  <link rel="icon" href="https://MYONATHANLINKEDIN.github.io/assets/avatar.png" type="image/png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -511,7 +511,7 @@
         <span class="btn-text-full">📚 Catalog ↗</span>
         <span class="btn-text-short">⬅ Catalog</span>
       </a>
-      <a href="https://github.com/myonathanlinkedin" target="_blank" rel="noopener" class="hud-btn" title="GitHub Profile">
+      <a href="https://github.com/MYONATHANLINKEDIN" target="_blank" rel="noopener" class="hud-btn" title="GitHub Profile">
         <span class="btn-text-full">GitHub ↗</span>
         <span class="btn-text-short">GH ↗</span>
       </a>
@@ -558,6 +558,9 @@
     <div class="panel-header" style="margin-top:6px;">
       <span class="panel-title">Display Controls</span>
     </div>
+    <label style="display:flex;align-items:center;gap:8px;font-size:0.75rem;color:#cbd5e1;cursor:pointer;margin-bottom:6px;">
+      <input type="checkbox" id="chk-floor-zones" checked /> Show Floor Zone Boxes
+    </label>
     <label style="display:flex;align-items:center;gap:8px;font-size:0.75rem;color:#cbd5e1;cursor:pointer;margin-bottom:6px;">
       <input type="checkbox" id="chk-bubbles" checked /> Show Live Speech Bubbles
     </label>
@@ -626,7 +629,7 @@ function createColoredPart(geometry, hexColor, x = 0, y = 0, z = 0, rx = 0, ry =
   return nonIndexed;
 }
 
-function buildFloorGridTexture(isLight = true) {
+function buildFloorGridTexture(isLight = true, showRugs = true) {
   const canvas = document.createElement('canvas');
   canvas.width = 1024;
   canvas.height = 1024;
@@ -766,7 +769,7 @@ function buildFloorGridTexture(isLight = true) {
   }
 
   // Department zone accent rugs baked into 1 texture (0 extra draw calls)
-  const drawZoneRug = (wx, wz, w, d, fill, border, labelText) => {
+  const drawZoneRug = (wx, wz, w, d, fill, border, labelText, customTextWx = null, customTextWz = null) => {
     const cx = ((wx + 9) / 18) * 1024;
     const cz = ((wz + 9) / 18) * 1024;
     const pw = (w / 18) * 1024;
@@ -780,29 +783,40 @@ function buildFloorGridTexture(isLight = true) {
     ctx.stroke();
 
     if (labelText) {
+      const tx = customTextWx !== null ? ((customTextWx + 9) / 18) * 1024 : cx;
+      const tz = customTextWz !== null ? ((customTextWz + 9) / 18) * 1024 : (cz + pd / 2 - 14);
       ctx.fillStyle = isLight ? '#0f172a' : '#e2e8f0';
-      ctx.font = 'bold 15px monospace';
+      ctx.font = 'bold 14px monospace';
       ctx.textAlign = 'center';
-      ctx.fillText(labelText, cx, cz + pd / 2 - 12);
+      ctx.textBaseline = 'middle';
+      if (Array.isArray(labelText)) {
+        labelText.forEach((line, idx) => {
+          ctx.fillText(line, tx, tz + (idx - (labelText.length - 1) / 2) * 16);
+        });
+      } else {
+        ctx.fillText(labelText, tx, tz);
+      }
     }
   };
 
-  if (isLight) {
-    drawZoneRug(-5.2, -4.0, 5.2, 4.2, 'rgba(224, 242, 254, 0.90)', 'rgba(2, 132, 199, 0.60)', 'SYSTEMS ARCHITECTURE');
-    drawZoneRug(5.0, -4.0, 5.6, 4.2, 'rgba(243, 232, 255, 0.90)', 'rgba(147, 51, 234, 0.55)', 'RESEARCH PAPER WING');
-    drawZoneRug(5.2, 3.8, 5.0, 4.4, 'rgba(209, 250, 229, 0.90)', 'rgba(5, 150, 105, 0.60)', 'QUALITY & COMPLEXITY');
-    drawZoneRug(-5.2, 4.2, 5.2, 4.2, 'rgba(254, 243, 199, 0.90)', 'rgba(217, 119, 6, 0.60)', 'PUBLIC PORTFOLIO HUB');
-    drawZoneRug(0.0, 2.2, 4.6, 3.8, 'rgba(252, 231, 243, 0.88)', 'rgba(219, 39, 119, 0.52)', 'LOUNGE & WAR ROOM');
-    drawZoneRug(-0.2, -6.2, 6.2, 3.2, 'rgba(254, 226, 226, 0.85)', 'rgba(225, 29, 72, 0.50)', 'KITCHEN, SINK & COFFEE BAR');
-    drawZoneRug(-6.8, -0.3, 2.4, 3.0, 'rgba(254, 249, 195, 0.88)', 'rgba(202, 138, 4, 0.55)', 'SNACK CANTEEN');
-  } else {
-    drawZoneRug(-5.2, -4.0, 5.2, 4.2, 'rgba(14, 116, 144, 0.28)', 'rgba(56, 189, 248, 0.50)', 'SYSTEMS ARCHITECTURE');
-    drawZoneRug(5.0, -4.0, 5.6, 4.2, 'rgba(107, 33, 168, 0.26)', 'rgba(192, 132, 252, 0.50)', 'RESEARCH PAPER WING');
-    drawZoneRug(5.2, 3.8, 5.0, 4.4, 'rgba(6, 95, 70, 0.28)', 'rgba(52, 211, 153, 0.50)', 'QUALITY & COMPLEXITY');
-    drawZoneRug(-5.2, 4.2, 5.2, 4.2, 'rgba(146, 64, 14, 0.24)', 'rgba(251, 191, 36, 0.48)', 'PUBLIC PORTFOLIO HUB');
-    drawZoneRug(0.0, 2.2, 4.6, 3.8, 'rgba(21, 94, 67, 0.28)', 'rgba(244, 114, 182, 0.42)', 'LOUNGE & WAR ROOM');
-    drawZoneRug(-0.2, -6.2, 6.2, 3.2, 'rgba(136, 19, 55, 0.25)', 'rgba(251, 113, 133, 0.45)', 'KITCHEN, SINK & COFFEE BAR');
-    drawZoneRug(-6.8, -0.3, 2.4, 3.0, 'rgba(133, 77, 14, 0.25)', 'rgba(250, 204, 21, 0.45)', 'SNACK CANTEEN');
+  if (showRugs) {
+    if (isLight) {
+      drawZoneRug(-5.2, -4.0, 5.0, 4.2, 'rgba(224, 242, 254, 0.90)', 'rgba(2, 132, 199, 0.60)', 'SYSTEMS ARCHITECTURE', -5.2, -2.05);
+      drawZoneRug(5.0, -4.0, 5.2, 4.2, 'rgba(243, 232, 255, 0.90)', 'rgba(147, 51, 234, 0.55)', 'RESEARCH PAPER WING', 5.0, -2.05);
+      drawZoneRug(5.2, 3.8, 5.0, 4.4, 'rgba(209, 250, 229, 0.90)', 'rgba(5, 150, 105, 0.60)', 'QUALITY & COMPLEXITY', 4.8, 5.80);
+      drawZoneRug(-5.2, 4.2, 5.0, 4.2, 'rgba(254, 243, 199, 0.90)', 'rgba(217, 119, 6, 0.60)', 'PUBLIC PORTFOLIO HUB', -5.2, 6.15);
+      drawZoneRug(0.0, 2.2, 4.4, 3.6, 'rgba(252, 231, 243, 0.88)', 'rgba(219, 39, 119, 0.52)', 'LOUNGE & WAR ROOM', 0.0, 3.85);
+      drawZoneRug(-0.2, -6.1, 4.4, 4.4, 'rgba(254, 226, 226, 0.85)', 'rgba(225, 29, 72, 0.50)', 'KITCHEN, SINK & COFFEE BAR', -0.2, -4.05);
+      drawZoneRug(-6.9, -0.15, 2.4, 3.1, 'rgba(254, 249, 195, 0.88)', 'rgba(202, 138, 4, 0.55)', ['SNACK', 'CANTEEN'], -6.35, 0.35);
+    } else {
+      drawZoneRug(-5.2, -4.0, 5.0, 4.2, 'rgba(14, 116, 144, 0.28)', 'rgba(56, 189, 248, 0.50)', 'SYSTEMS ARCHITECTURE', -5.2, -2.05);
+      drawZoneRug(5.0, -4.0, 5.2, 4.2, 'rgba(107, 33, 168, 0.26)', 'rgba(192, 132, 252, 0.50)', 'RESEARCH PAPER WING', 5.0, -2.05);
+      drawZoneRug(5.2, 3.8, 5.0, 4.4, 'rgba(6, 95, 70, 0.28)', 'rgba(52, 211, 153, 0.50)', 'QUALITY & COMPLEXITY', 4.8, 5.80);
+      drawZoneRug(-5.2, 4.2, 5.0, 4.2, 'rgba(146, 64, 14, 0.24)', 'rgba(251, 191, 36, 0.48)', 'PUBLIC PORTFOLIO HUB', -5.2, 6.15);
+      drawZoneRug(0.0, 2.2, 4.4, 3.6, 'rgba(21, 94, 67, 0.28)', 'rgba(244, 114, 182, 0.42)', 'LOUNGE & WAR ROOM', 0.0, 3.85);
+      drawZoneRug(-0.2, -6.1, 4.4, 4.4, 'rgba(136, 19, 55, 0.25)', 'rgba(251, 113, 133, 0.45)', 'KITCHEN, SINK & COFFEE BAR', -0.2, -4.05);
+      drawZoneRug(-6.9, -0.15, 2.4, 3.1, 'rgba(133, 77, 14, 0.25)', 'rgba(250, 204, 21, 0.45)', ['SNACK', 'CANTEEN'], -6.35, 0.35);
+    }
   }
 
   const tex = new THREE.CanvasTexture(canvas);
@@ -908,15 +922,15 @@ function buildWallSignTexture() {
 
   ctx.fillStyle = '#fef08a';
   ctx.font = 'bold 22px system-ui, -apple-system, sans-serif';
-  ctx.fillText('Kerja Bagai Kuda & Cerdas  (Continuous 24/7 Ops)', mX + 22, mY + 84);
+  ctx.fillText('Autonomous AI Engineering (Continuous 24/7 Ops)', mX + 22, mY + 84);
 
   // SECTION 2: 4-SHIFT LIVE ROSTER (x: 935 to 2260) - SOLVES USER REQUEST
   // "masukkan nama2 orang yang kerja saat ini current shift & next shift jadi orang tahu bahwa ini bukan random"
   const shifts = [
-    { id: 1, name: 'Pagi', hours: '06:00 - 12:00 WIB', team: ['Bima Vance', 'Dr. Clara W.', 'Kevin Pratama', 'Dewi Lestari'] },
-    { id: 2, name: 'Siang', hours: '12:00 - 18:00 WIB', team: ['Marcus Pratama', 'Elena Kusuma', 'Sarah Oktavia', 'Fajar Nugraha'] },
-    { id: 3, name: 'Malam', hours: '18:00 - 00:00 WIB', team: ['Nadia Miller', 'Aris Munandar', 'Citra Anggraini', 'Dimas Setiawan'] },
-    { id: 4, name: 'Dini Hari', hours: '00:00 - 06:00 WIB', team: ['Hendro Wibowo', 'Rina Handayani', 'Bagus Prakoso', 'Maya Safitri'] }
+    { id: 1, name: 'Morning', hours: '06:00 - 12:00 WIB', team: ['Bima Vance', 'Dr. Clara W.', 'Kevin Pratama', 'Dewi Lestari'] },
+    { id: 2, name: 'Afternoon', hours: '12:00 - 18:00 WIB', team: ['Marcus Pratama', 'Elena Kusuma', 'Sarah Oktavia', 'Fajar Nugraha'] },
+    { id: 3, name: 'Evening', hours: '18:00 - 00:00 WIB', team: ['Nadia Miller', 'Aris Munandar', 'Citra Anggraini', 'Dimas Setiawan'] },
+    { id: 4, name: 'Graveyard', hours: '00:00 - 06:00 WIB', team: ['Hendro Wibowo', 'Rina Handayani', 'Bagus Prakoso', 'Maya Safitri'] }
   ];
 
   // Dynamic WIB calculation (UTC+7)
@@ -1181,16 +1195,28 @@ class IsometricSceneEngine {
     this.controls.target.set(initTgt[0], initTgt[1], initTgt[2]);
     this.controls.enableDamping = true;
     this.controls.dampingFactor = 0.08;
+    this.controls.enablePan = true;
+    this.controls.screenSpacePanning = true;
+    this.controls.panSpeed = 1.0;
     this.controls.minZoom = spatialCfg.camera.min_zoom;
     this.controls.maxZoom = spatialCfg.camera.max_zoom;
     this.controls.minPolarAngle = Math.PI * 0.14;
     this.controls.maxPolarAngle = Math.PI * 0.44;
     this.controls.autoRotate = false;
     this.controls.autoRotateSpeed = 0.45;
+    this.controls.mouseButtons = {
+      LEFT: THREE.MOUSE.ROTATE,
+      MIDDLE: THREE.MOUSE.DOLLY,
+      RIGHT: THREE.MOUSE.PAN,
+    };
     this.controls.touches = {
       ONE: THREE.TOUCH.ROTATE,
       TWO: THREE.TOUCH.DOLLY_PAN,
     };
+
+    this.canvas.addEventListener('contextmenu', (e) => e.preventDefault());
+    this.isFloorRugsVisible = true;
+    this.homeTarget = new THREE.Vector3(initTgt[0], initTgt[1], initTgt[2]);
 
     this.desiredZoom = this.camera.zoom;
     this.isWarping = false;
@@ -1206,6 +1232,23 @@ class IsometricSceneEngine {
     this.roomHandles = CutawayRoomBuilder.build(this.scene);
 
     window.addEventListener('resize', () => this.onResize());
+  }
+
+  setFloorRugsVisibility(visible) {
+    this.isFloorRugsVisible = visible;
+    if (this.roomHandles && this.roomHandles.floorMat) {
+      const oldMap = this.roomHandles.floorMat.map;
+      this.roomHandles.floorMat.map = buildFloorGridTexture(this.isLightTheme, this.isFloorRugsVisible);
+      this.roomHandles.floorMat.needsUpdate = true;
+      if (oldMap) oldMap.dispose();
+    }
+  }
+
+  recenter() {
+    this.warpTarget.copy(this.homeTarget);
+    this.warpOffset.set(22.0, 22.0, 22.0);
+    this.desiredZoom = this.cfg.camera.macro_zoom || 0.92;
+    this.isWarping = true;
   }
 
   _setupLighting() {
@@ -1248,7 +1291,7 @@ class IsometricSceneEngine {
     this.dirLight.intensity = this.isLightTheme ? 1.52 : 1.05;
     if (this.roomHandles && this.roomHandles.floorMat) {
       const oldMap = this.roomHandles.floorMat.map;
-      this.roomHandles.floorMat.map = buildFloorGridTexture(this.isLightTheme);
+      this.roomHandles.floorMat.map = buildFloorGridTexture(this.isLightTheme, this.isFloorRugsVisible);
       this.roomHandles.floorMat.needsUpdate = true;
       if (oldMap) oldMap.dispose();
     }
@@ -2048,15 +2091,14 @@ class StylizedCharacterFactory {
     blobInstanced.instanceMatrix.needsUpdate = true;
     scene.add(blobInstanced);
 
-    // Floating Octahedron Plumbobs (1 single InstancedMesh draw call for all 5 avatars)
-    const plumbobGeo = new THREE.OctahedronGeometry(0.13, 0);
-    plumbobGeo.scale(0.75, 1.48, 0.75);
+    // Floating Holographic Cyber Status Halo Rings (1 single InstancedMesh draw call for all 5 avatars)
+    const plumbobGeo = new THREE.TorusGeometry(0.14, 0.022, 10, 32);
+    plumbobGeo.rotateX(Math.PI / 2);
     const plumbobMat = new THREE.MeshStandardMaterial({
       color: 0xffffff,
-      roughness: 0.18,
-      metalness: 0.25,
-      emissive: 0x222222,
-      flatShading: true,
+      roughness: 0.20,
+      metalness: 0.85,
+      emissive: 0x333333,
     });
     const plumbobInstanced = new THREE.InstancedMesh(plumbobGeo, plumbobMat, avatars.length);
     for (let i = 0; i < avatars.length; i++) {
@@ -3743,7 +3785,7 @@ class LabBossaAudioEngine {
 
         const links = worker.links || {};
         const primaryUrl = this.escapeHtml(
-          links.scholar_url || links.source_url || links.github_profile_url || links.catalog_url || `https://github.com/myonathanlinkedin`
+          links.scholar_url || links.source_url || links.github_profile_url || links.catalog_url || `https://github.com/MYONATHANLINKEDIN`
         );
         const primaryLabel = links.scholar_url
           ? '🎓 Scholar Preprint ↗'
@@ -3894,7 +3936,7 @@ class LabBossaAudioEngine {
         if (!zoneId || zoneId === 'ALL') {
           this.selectedZoneId = null;
           this.selectedWorkerId = null;
-          const initTgt = this.cameraCfg.initial_target || [0, 1.1, 0];
+          const initTgt = this.cameraCfg.initial_target || [0, 2.15, 0];
           const macroZoom = this.cameraCfg.macro_zoom || 0.92;
           this.sceneEngine.focusOn(initTgt, macroZoom, true);
           this.drawerCtrl.close();
@@ -3953,6 +3995,7 @@ class LabBossaAudioEngine {
         const hudBottom = document.getElementById('hud-bottom');
         const btnCloseTicker = document.getElementById('btn-close-ticker');
         const btnCloseBottom = document.getElementById('btn-close-bottom');
+        const chkFloorZones = document.getElementById('chk-floor-zones');
         const chkBubbles = document.getElementById('chk-bubbles');
         const chkNotif = document.getElementById('chk-notif');
         const chkBottomDock = document.getElementById('chk-bottom-dock');
@@ -4062,6 +4105,11 @@ class LabBossaAudioEngine {
             }
           });
         }
+        if (chkFloorZones) {
+          chkFloorZones.addEventListener('change', (e) => {
+            this.sceneEngine.setFloorRugsVisibility(e.target.checked);
+          });
+        }
         if (chkBubbles && this.bubblesContainer) {
           chkBubbles.addEventListener('change', (e) => {
             this.bubblesContainer.style.display = e.target.checked ? 'block' : 'none';
@@ -4070,6 +4118,12 @@ class LabBossaAudioEngine {
         if (chkRing) {
           chkRing.addEventListener('change', (e) => {
             this.ringEnabled = Boolean(e.target.checked);
+          });
+        }
+
+        if (this.sceneEngine && this.sceneEngine.canvas) {
+          this.sceneEngine.canvas.addEventListener('dblclick', () => {
+            this.selectZone('ALL');
           });
         }
 
@@ -4163,10 +4217,10 @@ class LabBossaAudioEngine {
 
       const updateShiftDisplay = () => {
         const wibH = (new Date().getUTCHours() + 7) % 24;
-        let sNum = 1, sName = 'Pagi (06:00-12:00 WIB)';
-        if (wibH >= 12 && wibH < 18) { sNum = 2; sName = 'Siang (12:00-18:00 WIB)'; }
-        else if (wibH >= 18) { sNum = 3; sName = 'Malam (18:00-00:00 WIB)'; }
-        else if (wibH < 6) { sNum = 4; sName = 'Dini Hari (00:00-06:00 WIB)'; }
+        let sNum = 1, sName = 'Morning (06:00-12:00 WIB)';
+        if (wibH >= 12 && wibH < 18) { sNum = 2; sName = 'Afternoon (12:00-18:00 WIB)'; }
+        else if (wibH >= 18) { sNum = 3; sName = 'Evening (18:00-00:00 WIB)'; }
+        else if (wibH < 6) { sNum = 4; sName = 'Graveyard (00:00-06:00 WIB)'; }
         if (shiftEl) shiftEl.textContent = `Shift ${sNum}/4: ${sName}`;
       };
       updateShiftDisplay();
