@@ -593,9 +593,9 @@
   <div id="worker-bubbles" aria-live="polite"></div>
 
   <!-- Top-Right Floating Cinematic Toggle: Show / Hide All Panels -->
-  <button type="button" id="btn-toggle-all-panels" class="glass-panel" title="Hide All Panels (Cinematic 3D View)" aria-label="Show or Hide All Panels">
+  <button type="button" id="btn-toggle-all-panels" class="glass-panel" title="Hide All (Cinematic 3D View)" aria-label="Show or Hide All">
     <span id="btn-all-panels-icon">✕</span>
-    <span id="btn-all-panels-text">Hide Panels</span>
+    <span id="btn-all-panels-text">Hide All</span>
   </button>
 
   <!-- 7.1 Top HUD Container (Mirrors 7.2 Bottom HUD Architecture) -->
@@ -672,6 +672,48 @@
     </div>
   </div>
 
+  <!-- Cosmic Observatory Modal -->
+  <div id="telescope-cosmic-modal" role="dialog" aria-modal="true" aria-label="Cosmic Observatory Dialog" class="glass-panel" style="display:none;position:fixed;inset:0;margin:auto;max-width:540px;width:92%;max-height:85vh;height:fit-content;padding:24px;border-radius:18px;background:rgba(2,6,23,0.92);border:1px solid rgba(56,189,248,0.35);box-shadow:0 0 40px rgba(14,165,233,0.35);backdrop-filter:blur(22px);z-index:9999;overflow-y:auto;color:#f8fafc;font-family:var(--font-sans);">
+    <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(56,189,248,0.25);padding-bottom:12px;margin-bottom:16px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="font-size:1.6rem;">🔭</span>
+        <div>
+          <h3 style="margin:0;font-size:1.15rem;font-weight:700;color:#38bdf8;letter-spacing:0.04em;">ASTRONOMICAL OBSERVATORY</h3>
+          <span style="font-size:0.75rem;color:#94a3b8;font-family:var(--font-mono);">DEEP-SKY COSMIC TELEMETRY &bull; 3D STELLAR MAPPING</span>
+        </div>
+      </div>
+      <button type="button" id="btn-close-cosmic-modal" class="panel-close" style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:#f8fafc;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;justify-content:center;">✕</button>
+    </div>
+    
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;font-family:var(--font-mono);font-size:0.75rem;">
+      <div style="background:rgba(15,23,42,0.8);border:1px solid rgba(56,189,248,0.2);border-radius:10px;padding:10px;">
+        <div style="color:#94a3b8;margin-bottom:4px;">CELESTIAL EPOCH</div>
+        <div style="color:#38bdf8;font-weight:700;font-size:0.85rem;" id="cosmic-telemetry-epoch">J2000.0 &bull; LIVE WIB</div>
+      </div>
+      <div style="background:rgba(15,23,42,0.8);border:1px solid rgba(56,189,248,0.2);border-radius:10px;padding:10px;">
+        <div style="color:#94a3b8;margin-bottom:4px;">OBSERVATORY DECK</div>
+        <div style="color:#34d399;font-weight:700;font-size:0.85rem;">SOUTH ZENITH 38° ELEV</div>
+      </div>
+      <div style="background:rgba(15,23,42,0.8);border:1px solid rgba(56,189,248,0.2);border-radius:10px;padding:10px;">
+        <div style="color:#94a3b8;margin-bottom:4px;">OPTICAL COATING</div>
+        <div style="color:#a855f7;font-weight:700;font-size:0.85rem;">APO Triplet ED Glass</div>
+      </div>
+      <div style="background:rgba(15,23,42,0.8);border:1px solid rgba(56,189,248,0.2);border-radius:10px;padding:10px;">
+        <div style="color:#94a3b8;margin-bottom:4px;">ACTIVE TARGET</div>
+        <div style="color:#f59e0b;font-weight:700;font-size:0.85rem;">Cygnus Loop &bull; Andromeda M31</div>
+      </div>
+    </div>
+
+    <p style="font-size:0.82rem;line-height:1.6;color:#cbd5e1;margin-bottom:18px;">
+      Gaze out from our open garden terrace into the infinite computational cosmos. Our research team takes spontaneous stargazing breaks here to contemplate complex algorithms, algorithmic spacetime proofs, and cosmic architecture. Step directly into our interactive 3D Constellation Page to navigate through celestial nodes and deep-sky networks.
+    </p>
+
+    <div style="display:flex;align-items:center;gap:10px;justify-content:flex-end;">
+      <button type="button" id="btn-dismiss-cosmic" style="padding:9px 16px;border-radius:10px;background:rgba(30,41,59,0.7);border:1px solid rgba(148,163,184,0.3);color:#cbd5e1;cursor:pointer;font-size:0.82rem;">Close</button>
+      <a href="constellation.html" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:10px;background:linear-gradient(135deg, #0284c7 0%, #6366f1 100%);color:#ffffff;font-size:0.82rem;font-weight:600;text-decoration:none;box-shadow:0 0 16px rgba(99,102,241,0.45);transition:all 0.2s ease;">🌌 Enter 3D Constellation Page ↗</a>
+    </div>
+  </div>
+
   <!-- Left Divisions & Quick Inspector Panel -->
   <aside id="hud-left" class="glass-panel" aria-label="Autonomous Office Divisions">
     <div class="panel-header">
@@ -724,6 +766,7 @@
       <button type="button" class="cam-btn" data-zone="zone_hardware" title="Zone 3: Algorithmic Quality & Complexity Lab">📊 Quality Lab</button>
       <button type="button" class="cam-btn" data-zone="zone_release" title="Zone 4: Public Open-Source Portfolio Hub">🌐 Portfolio Hub</button>
       <button type="button" class="cam-btn" data-zone="zone_lounge" title="Zone 5: Coffee Lounge">☕ Lounge</button>
+      <button type="button" class="cam-btn" data-zone="zone_telescope" id="btn-cam-garden" title="Outdoor Garden Terrace & Cosmic Telescope">🔭 Garden</button>
       <button type="button" class="cam-btn" id="btn-autotour" data-cam="autotour" title="Toggle 360 Isometric Auto-Tour">▶ Auto-Tour: OFF</button>
       <button type="button" class="cam-btn" id="btn-close-bottom" title="Hide Bottom Camera Dock">✕ Hide</button>
     </nav>
@@ -1214,6 +1257,39 @@ class CutawayRoomBuilder {
     shellParts.push(createColoredPart(new THREE.BoxGeometry(W, 0.14, 0.08), '#b47b48', 0, 0.07, -D / 2 + 0.04));
     shellParts.push(createColoredPart(new THREE.BoxGeometry(0.08, 0.14, D), '#b47b48', -W / 2 + 0.04, 0.07, 0));
 
+    // Phase 1: Outdoor Garden Terrace Architecture (Decking, Foundation Plinth & Planters)
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(9.4, 0.36, 5.4), '#cbd5e1', 0.0, -0.19, 11.7));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(9.56, 0.08, 5.56), '#94a3b8', 0.0, -0.35, 11.7));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(9.2, 0.024, 5.2), '#334155', 0.0, 0.012, 11.7));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(8.6, 0.03, 4.6), '#b47b48', 0.0, 0.018, 11.7));
+    for (let s = -3.8; s <= 3.8; s += 0.95) {
+      shellParts.push(createColoredPart(new THREE.BoxGeometry(0.04, 0.032, 4.56), '#784315', s, 0.02, 11.7));
+    }
+    // Sliding door portal trim at South threshold (z = 9.0)
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(3.6, 0.03, 0.22), '#0284c7', 0.0, 0.02, 9.0));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.12, 3.2, 0.16), '#475569', -1.8, 1.6, 9.0));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.12, 3.2, 0.16), '#475569', 1.8, 1.6, 9.0));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(3.72, 0.14, 0.16), '#475569', 0.0, 3.2, 9.0));
+    // Balustrade handrails and stainless steel stanchions
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(9.2, 0.05, 0.05), '#64748b', 0.0, 1.08, 14.28));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.05, 0.05, 5.28), '#64748b', -4.58, 1.08, 11.64));
+    shellParts.push(createColoredPart(new THREE.BoxGeometry(0.05, 0.05, 5.28), '#64748b', 4.58, 1.08, 11.64));
+    [-4.58, -2.3, 0.0, 2.3, 4.58].forEach((px) => {
+      shellParts.push(createColoredPart(new THREE.CylinderGeometry(0.025, 0.025, 1.06, 8), '#94a3b8', px, 0.54, 14.28));
+    });
+    [9.0, 11.64].forEach((pz) => {
+      shellParts.push(createColoredPart(new THREE.CylinderGeometry(0.025, 0.025, 1.06, 8), '#94a3b8', -4.58, 0.54, pz));
+      shellParts.push(createColoredPart(new THREE.CylinderGeometry(0.025, 0.025, 1.06, 8), '#94a3b8', 4.58, 0.54, pz));
+    });
+    // Zen Bonsai & Garden Flora Planters
+    [-3.8, 3.8].forEach((px) => {
+      shellParts.push(createColoredPart(new THREE.BoxGeometry(1.1, 0.45, 1.1), '#334155', px, 0.225, 13.4));
+      shellParts.push(createColoredPart(new THREE.BoxGeometry(0.96, 0.04, 0.96), '#3f2e18', px, 0.43, 13.4));
+      shellParts.push(createColoredPart(new THREE.CylinderGeometry(0.06, 0.08, 0.42, 8), '#784315', px, 0.64, 13.4));
+      shellParts.push(createColoredPart(new THREE.SphereGeometry(0.38, 8, 8), '#15803d', px, 0.95, 13.4));
+      shellParts.push(createColoredPart(new THREE.SphereGeometry(0.18, 6, 6), '#f472b6', px + 0.12, 1.15, 13.32));
+    });
+
     const mergedShell = mergeGeometries(shellParts, false);
     const shellMat = new THREE.MeshStandardMaterial({
       vertexColors: true,
@@ -1272,6 +1348,10 @@ class CutawayRoomBuilder {
       createColoredPart(new THREE.BoxGeometry(5.4, 2.48, 0.05), '#38bdf8', 4.0, 2.45, -D / 2 - T / 2),
       createColoredPart(new THREE.BoxGeometry(0.05, 2.48, 5.2), '#38bdf8', -W / 2 - T / 2, 2.45, -3.95),
       createColoredPart(new THREE.BoxGeometry(0.05, 2.48, 5.2), '#38bdf8', -W / 2 - T / 2, 2.45, 3.95),
+      // Glass Balustrade perimeter panels for Garden Terrace
+      createColoredPart(new THREE.BoxGeometry(9.1, 0.88, 0.03), '#38bdf8', 0.0, 0.58, 14.28),
+      createColoredPart(new THREE.BoxGeometry(0.03, 0.88, 5.18), '#38bdf8', -4.58, 0.58, 11.64),
+      createColoredPart(new THREE.BoxGeometry(0.03, 0.88, 5.18), '#38bdf8', 4.58, 0.58, 11.64),
     ];
     const glassMesh = new THREE.Mesh(
       mergeGeometries(glassParts, false),
@@ -1648,9 +1728,9 @@ class OfficeFurnitureBuilder {
     addCyl(0.08, 0.13, 0.14, 12, '#fde68a', 5.76, 1.28, -4.62, 0.3, 0, 0.3);
 
     // 3.3 Wheeled Research Whiteboard (2.8 x 1.6 units) beside Research Wing
-    const wbX = 7.15;
-    const wbZ = -3.55;
-    const wbRot = -0.52;
+    const wbX = 7.62;
+    const wbZ = -3.40;
+    const wbRot = -0.42;
     const cosW = Math.cos(wbRot);
     const sinW = Math.sin(wbRot);
     addBox(2.84, 1.64, 0.07, '#475569', wbX, 1.72, wbZ, 0, wbRot, 0);
@@ -1977,6 +2057,37 @@ class OfficeFurnitureBuilder {
     addMonstera(4.55, -7.45);
     addMonstera(-3.55, -7.45);
 
+    // Phase 2: Astronomical Observatory Telescope (Garden Terrace at [1.0, 0.0, 12.2])
+    const tx = 1.0;
+    const tz = 12.2;
+    addCyl(0.08, 0.08, 0.12, 12, '#334155', tx, 1.14, tz);
+    addCyl(0.18, 0.18, 0.02, 12, '#64748b', tx, 0.52, tz);
+    for (let leg = 0; leg < 3; leg++) {
+      const lang = (leg / 3) * Math.PI * 2;
+      const footX = tx + Math.cos(lang) * 0.56;
+      const footZ = tz + Math.sin(lang) * 0.56;
+      const midX = (tx + footX) * 0.5;
+      const midZ = (tz + footZ) * 0.5;
+      addCyl(0.022, 0.026, 1.22, 8, '#1e293b', midX, 0.57, midZ, Math.sin(lang) * 0.38, 0, -Math.cos(lang) * 0.38);
+      addCyl(0.035, 0.035, 0.04, 8, '#d97706', midX, 0.57, midZ);
+      addCyl(0.028, 0.028, 0.03, 8, '#0f172a', footX, 0.015, footZ);
+    }
+    addBox(0.14, 0.16, 0.14, '#1e293b', tx, 1.25, tz);
+    addCyl(0.05, 0.05, 0.04, 12, '#f59e0b', tx, 1.25, tz + 0.08, Math.PI / 2, 0, 0);
+    addCyl(0.018, 0.018, 0.44, 8, '#94a3b8', tx - 0.16, 1.12, tz, 0, 0, 0.65);
+    addCyl(0.065, 0.065, 0.12, 10, '#0f172a', tx - 0.24, 1.04, tz, 0, 0, 0.65);
+    const tiltElev = 0.66;
+    const yawAzim = -0.42;
+    addCyl(0.11, 0.11, 1.15, 16, '#0f172a', tx + 0.08, 1.48, tz + 0.18, tiltElev, yawAzim, 0);
+    addCyl(0.118, 0.118, 0.16, 16, '#1e3a8a', tx + 0.22, 1.78, tz + 0.44, tiltElev, yawAzim, 0);
+    addCyl(0.122, 0.122, 0.03, 16, '#38bdf8', tx + 0.28, 1.88, tz + 0.52, tiltElev, yawAzim, 0);
+    addCyl(0.105, 0.105, 0.015, 16, '#0284c7', tx + 0.28, 1.88, tz + 0.52, tiltElev, yawAzim, 0);
+    addCyl(0.032, 0.032, 0.42, 8, '#475569', tx + 0.12, 1.62, tz + 0.22, tiltElev, yawAzim, 0);
+    addCyl(0.036, 0.036, 0.02, 8, '#38bdf8', tx + 0.18, 1.75, tz + 0.32, tiltElev, yawAzim, 0);
+    addBox(0.08, 0.08, 0.08, '#1e293b', tx - 0.06, 1.18, tz - 0.08);
+    addCyl(0.03, 0.025, 0.12, 10, '#d97706', tx - 0.08, 1.25, tz - 0.12, -0.45, 0, 0.35);
+    addCyl(0.032, 0.032, 0.03, 10, '#0f172a', tx - 0.10, 1.30, tz - 0.14, -0.45, 0, 0.35);
+
     // Merge all static furniture & appliances into 1 single draw call with smooth shading
     const furnitureMesh = new THREE.Mesh(
       mergeGeometries(parts, false),
@@ -2034,13 +2145,14 @@ class OfficeFurnitureBuilder {
       { zoneId: 'zone_hardware', workerId: 'worker_hardware', pos: [5.2, 1.20, 3.6], size: [3.2, 2.4, 3.4] },
       { zoneId: 'zone_release', workerId: 'worker_release', pos: [-5.2, 1.15, 4.4], size: [3.2, 2.3, 2.8] },
       { zoneId: 'zone_lounge', workerId: 'worker_lounge', pos: [0.0, 1.05, 1.5], size: [3.2, 2.1, 3.2] },
+      { zoneId: 'zone_telescope', workerId: 'telescope', isTelescope: true, pos: [1.0, 1.25, 12.2], size: [1.8, 1.9, 1.8] },
     ];
     const proxyMat = new THREE.MeshBasicMaterial({ visible: false });
     for (let z = 0; z < zoneBoxes.length; z++) {
       const zb = zoneBoxes[z];
       const proxy = new THREE.Mesh(new THREE.BoxGeometry(zb.size[0], zb.size[1], zb.size[2]), proxyMat);
       proxy.position.set(zb.pos[0], zb.pos[1], zb.pos[2]);
-      proxy.userData = { zoneId: zb.zoneId, workerId: zb.workerId };
+      proxy.userData = { zoneId: zb.zoneId, workerId: zb.workerId, isTelescope: Boolean(zb.isTelescope) };
       scene.add(proxy);
       hitProxies.push(proxy);
     }
@@ -2621,11 +2733,11 @@ class OfficeAnimationEngine {
     let rz = z;
     const arcPush = Math.sin(p * Math.PI);
 
-    // 1. Zone 2 Solid Barrier: Research Desk + Wheeled Whiteboard + Gap (x: 3.50 to 8.55, z: -5.15 to -2.60)
-    // The gap between the desk (x: 3.6-6.0) and whiteboard (x: 5.9-8.5) is too small to pass through.
+    // 1. Zone 2 Solid Barrier: Research Desk + Wheeled Whiteboard + Gap (x: 3.50 to 9.00, z: -5.15 to -2.60)
+    // The gap between the desk (x: 3.6-6.0) and whiteboard (x: 6.3-9.0) is strictly impassable.
     // Strictly impassable: avatars must NEVER squeeze through the gap or penetrate desk/whiteboard!
     const isSittingAtChair = (av && av.workerId === 'worker_research' && Math.abs(x - 4.80) < 0.35 && Math.abs(z - (-3.35)) < 0.35);
-    if (!isSittingAtChair && rx > 3.50 && rx < 8.55 && rz > -5.15 && rz < -2.60) {
+    if (!isSittingAtChair && rx > 3.50 && rx < 9.00 && rz > -5.15 && rz < -2.60) {
       if (rz > -3.10 && rx > 5.50) {
         rz = -2.55; // Divert South into open lounge
       } else {
@@ -2713,15 +2825,29 @@ class OfficeAnimationEngine {
           // Walking from desk to chair/stool/spot with smooth obstacle avoidance
           const p = cycleT / 2.8;
           const smoothP = p * p * (3.0 - 2.0 * p);
-          let rawX = av.homePos[0] + (meetX - av.homePos[0]) * smoothP;
-          let rawZ = av.homePos[2] + (meetZ - av.homePos[2]) * smoothP;
-          if (av.workerId === 'worker_release' && (meetZ < 3.8 || av.homePos[2] > 3.8)) {
-            rawX += Math.sin(smoothP * Math.PI) * 1.5;
-          }
-          if ((av.homePos[0] > 3.5 || meetX > 3.5) &&
-              ((av.homePos[2] > -3.7 && meetZ < -5.0) || (av.homePos[2] < -5.0 && meetZ > -3.7))) {
-            rawX -= Math.sin(smoothP * Math.PI) * 2.5;
-            rawZ += Math.sin(smoothP * Math.PI) * 1.3;
+          const isGardenTrip = meetZ > 9.0 || av.homePos[2] > 9.0;
+          let rawX, rawZ;
+          if (isGardenTrip) {
+            if (smoothP < 0.55) {
+              const tp = smoothP / 0.55;
+              rawX = av.homePos[0] + (0.0 - av.homePos[0]) * tp;
+              rawZ = av.homePos[2] + (8.8 - av.homePos[2]) * tp;
+            } else {
+              const tp = (smoothP - 0.55) / 0.45;
+              rawX = 0.0 + (meetX - 0.0) * tp;
+              rawZ = 8.8 + (meetZ - 8.8) * tp;
+            }
+          } else {
+            rawX = av.homePos[0] + (meetX - av.homePos[0]) * smoothP;
+            rawZ = av.homePos[2] + (meetZ - av.homePos[2]) * smoothP;
+            if (av.workerId === 'worker_release' && (meetZ < 3.8 || av.homePos[2] > 3.8)) {
+              rawX += Math.sin(smoothP * Math.PI) * 1.5;
+            }
+            if ((av.homePos[0] > 3.5 || meetX > 3.5) &&
+                ((av.homePos[2] > -3.7 && meetZ < -5.0) || (av.homePos[2] < -5.0 && meetZ > -3.7))) {
+              rawX -= Math.sin(smoothP * Math.PI) * 2.5;
+              rawZ += Math.sin(smoothP * Math.PI) * 1.3;
+            }
           }
           const isRestroomTrip = (meetX > 6.8 && meetZ > 6.4) || (av.homePos[0] > 6.8 && av.homePos[2] > 6.4);
           const safePos = this._avoidFurnitureObstacles(rawX, rawZ, smoothP, isRestroomTrip, av);
@@ -2746,15 +2872,29 @@ class OfficeAnimationEngine {
           // Walking back from spot to workstation with smooth obstacle avoidance
           const p = (cycleT - 13.2) / (cycleLen - 13.2);
           const smoothP = p * p * (3.0 - 2.0 * p);
-          let rawX = meetX + (av.homePos[0] - meetX) * smoothP;
-          let rawZ = meetZ + (av.homePos[2] - meetZ) * smoothP;
-          if (av.workerId === 'worker_release' && (meetZ < 3.8 || av.homePos[2] > 3.8)) {
-            rawX += Math.sin(smoothP * Math.PI) * 1.5;
-          }
-          if ((av.homePos[0] > 3.5 || meetX > 3.5) &&
-              ((av.homePos[2] > -3.7 && meetZ < -5.0) || (av.homePos[2] < -5.0 && meetZ > -3.7))) {
-            rawX -= Math.sin(smoothP * Math.PI) * 2.5;
-            rawZ += Math.sin(smoothP * Math.PI) * 1.3;
+          const isGardenTrip = meetZ > 9.0 || av.homePos[2] > 9.0;
+          let rawX, rawZ;
+          if (isGardenTrip) {
+            if (smoothP < 0.45) {
+              const tp = smoothP / 0.45;
+              rawX = meetX + (0.0 - meetX) * tp;
+              rawZ = meetZ + (8.8 - meetZ) * tp;
+            } else {
+              const tp = (smoothP - 0.45) / 0.55;
+              rawX = 0.0 + (av.homePos[0] - 0.0) * tp;
+              rawZ = 8.8 + (av.homePos[2] - 8.8) * tp;
+            }
+          } else {
+            rawX = meetX + (av.homePos[0] - meetX) * smoothP;
+            rawZ = meetZ + (av.homePos[2] - meetZ) * smoothP;
+            if (av.workerId === 'worker_release' && (meetZ < 3.8 || av.homePos[2] > 3.8)) {
+              rawX += Math.sin(smoothP * Math.PI) * 1.5;
+            }
+            if ((av.homePos[0] > 3.5 || meetX > 3.5) &&
+                ((av.homePos[2] > -3.7 && meetZ < -5.0) || (av.homePos[2] < -5.0 && meetZ > -3.7))) {
+              rawX -= Math.sin(smoothP * Math.PI) * 2.5;
+              rawZ += Math.sin(smoothP * Math.PI) * 1.3;
+            }
           }
           const isRestroomTrip = (meetX > 6.8 && meetZ > 6.4) || (av.homePos[0] > 6.8 && av.homePos[2] > 6.4);
           const safePos = this._avoidFurnitureObstacles(rawX, rawZ, smoothP, isRestroomTrip, av);
@@ -2810,7 +2950,25 @@ class OfficeAnimationEngine {
         b.rForearm.rotation.set(-0.45, 0, 0);
       } else if (mode === 'discussing') {
         const gPhase = elapsedSec * 5.2 + i * 1.7;
-        if (spotPosture === 'seated' || spotPosture === 'seated_stool') {
+        if (spotPosture === 'stargazing') {
+          activityBadge = isSpeakerA ? '🔭 Cosmic Stargazing' : '🌸 Garden Terrace Break';
+          b.pelvis.position.set(0, 0.84, 0);
+          if (isSpeakerA) {
+            b.torso.rotation.set(0.24, -0.12, 0);
+            b.head.rotation.set(-0.16, -0.08, 0);
+            b.lUpperArm.rotation.set(-0.68, 0.22, 0);
+            b.lForearm.rotation.set(-0.85, 0, 0);
+            b.rUpperArm.rotation.set(-0.68, -0.22, 0);
+            b.rForearm.rotation.set(-0.85, 0, 0);
+          } else {
+            b.torso.rotation.set(-0.08, 0.15, 0);
+            b.head.rotation.set(-0.25, 0.20, 0);
+            b.lUpperArm.rotation.set(-0.35, 0, 0);
+            b.lForearm.rotation.set(-0.55, 0, 0);
+            b.rUpperArm.rotation.set(-0.35, 0, 0);
+            b.rForearm.rotation.set(-0.55, 0, 0);
+          }
+        } else if (spotPosture === 'seated' || spotPosture === 'seated_stool') {
           // Seated comfortably on War-Room Chair, Swivel Bar Stool, or Lounge Sofa!
           const seatY = spotPosture === 'seated_stool' ? 0.58 : 0.45;
           const thighAngle = spotPosture === 'seated_stool' ? -1.22 : -Math.PI / 2;
@@ -3534,12 +3692,13 @@ class SpeechBubbleProjector {
 }
 
 class OfficeRaycasterEngine {
-  constructor(canvas, camera, scene, hitProxies, spatialZones, onSelectWorker) {
+  constructor(canvas, camera, scene, hitProxies, spatialZones, onSelectWorker, onSelectTelescope) {
     this.canvas = canvas;
     this.camera = camera;
     this.hitProxies = hitProxies || [];
     this.spatialZones = spatialZones || {};
     this.onSelectWorker = onSelectWorker;
+    this.onSelectTelescope = onSelectTelescope || null;
 
     this.raycaster = new THREE.Raycaster();
     this.pointer = new THREE.Vector2();
@@ -3585,7 +3744,12 @@ class OfficeRaycasterEngine {
       this.raycaster.setFromCamera(this.pointer, this.camera);
       const hits = this.raycaster.intersectObjects(this.hitProxies, false);
       if (hits.length > 0) {
-        const wid = hits[0].object.userData.workerId;
+        const uData = hits[0].object.userData;
+        if (uData && uData.isTelescope && this.onSelectTelescope) {
+          this.onSelectTelescope();
+          return;
+        }
+        const wid = uData ? uData.workerId : null;
         if (wid) this.onSelectWorker(wid);
       }
     });
@@ -4443,6 +4607,19 @@ class LabBossaAudioEngine {
         });
       }
 
+      openCosmicModal() {
+        const modal = document.getElementById('telescope-cosmic-modal');
+        if (modal) {
+          modal.style.display = 'block';
+          const epochEl = document.getElementById('cosmic-telemetry-epoch');
+          if (epochEl) {
+            const d = new Date();
+            epochEl.textContent = `J2000.0 • ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')} WIB`;
+          }
+        }
+        this.selectZone('zone_telescope');
+      }
+
       selectWorker(workerId) {
         const worker = this.workersById.get(workerId);
         if (!worker) return;
@@ -4518,22 +4695,42 @@ class LabBossaAudioEngine {
           document.body.classList.toggle('all-panels-hidden', arePanelsHidden);
           if (btnToggleAll) {
             btnToggleAll.classList.toggle('panels-hidden', arePanelsHidden);
-            btnToggleAll.title = arePanelsHidden ? 'Show All Panels' : 'Hide All Panels (Cinematic 3D View)';
+            btnToggleAll.title = arePanelsHidden ? 'Show All' : 'Hide All (Cinematic 3D View)';
             if (iconAll) iconAll.textContent = arePanelsHidden ? '👁' : '✕';
-            if (textAll) textAll.textContent = arePanelsHidden ? 'Show Panels' : 'Hide Panels';
-          }
-          if (btnHideTopbar) {
-            btnHideTopbar.textContent = arePanelsHidden ? '👁 Show' : '✕ Hide';
+            if (textAll) textAll.textContent = arePanelsHidden ? 'Show All' : 'Hide All';
           }
         };
 
         if (btnToggleAll) {
           btnToggleAll.addEventListener('click', () => toggleAllPanels());
         }
-        if (btnHideTopbar) {
-          btnHideTopbar.addEventListener('click', () => toggleAllPanels());
+
+        if (btnHideTopbar && topbarEl && btnRestoreTopbar) {
+          btnHideTopbar.addEventListener('click', () => {
+            topbarEl.classList.add('collapsed');
+            btnRestoreTopbar.classList.add('visible');
+          });
+          btnRestoreTopbar.addEventListener('click', () => {
+            topbarEl.classList.remove('collapsed');
+            btnRestoreTopbar.classList.remove('visible');
+          });
         }
         window.toggleAllOfficePanels = toggleAllPanels;
+
+        const cosmicModal = document.getElementById('telescope-cosmic-modal');
+        const btnCloseCosmic = document.getElementById('btn-close-cosmic-modal');
+        const btnDismissCosmic = document.getElementById('btn-dismiss-cosmic');
+        if (btnCloseCosmic && cosmicModal) {
+          btnCloseCosmic.addEventListener('click', () => { cosmicModal.style.display = 'none'; });
+        }
+        if (btnDismissCosmic && cosmicModal) {
+          btnDismissCosmic.addEventListener('click', () => { cosmicModal.style.display = 'none'; });
+        }
+        window.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && cosmicModal && cosmicModal.style.display !== 'none') {
+            cosmicModal.style.display = 'none';
+          }
+        });
         const btnToggleDrawer = document.getElementById('btn-toggle-drawer');
         const btnToggleBottom = document.getElementById('btn-toggle-bottom');
         const btnClose = document.getElementById('btn-close-panel');
@@ -4893,8 +5090,10 @@ class LabBossaAudioEngine {
         sceneEngine.scene,
         furnitureBundle.hitProxies,
         spatialZones,
-        (workerId) => hudCtrl.selectWorker(workerId)
+        (workerId) => hudCtrl.selectWorker(workerId),
+        () => hudCtrl.openCosmicModal()
       );
+      window.openCosmicModal = () => hudCtrl.openCosmicModal();
 
       const animEngine = new OfficeAnimationEngine(
         characterBundle,
@@ -5167,6 +5366,9 @@ class LabBossaAudioEngine {
       window.__OFFICE_TELEMETRY__ = {
         initialized: true,
         THREE,
+        sceneEngine,
+        furnitureBundle,
+        screenAnchors: furnitureBundle.screenAnchors,
         renderer: sceneEngine.renderer,
         scene: sceneEngine.scene,
         camera: sceneEngine.camera,
