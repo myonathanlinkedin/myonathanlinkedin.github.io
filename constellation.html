@@ -1269,6 +1269,58 @@
         max-height: calc(100dvh - 180px);
       }
     }
+
+    /* Floating Restore Button: Strictly hidden by default, visible only when all panels are hidden */
+    #btn-restore-all-panels {
+      display: none;
+      position: fixed;
+      top: 10px;
+      right: 14px;
+      z-index: 1000;
+      pointer-events: auto;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 0 14px;
+      height: 32px;
+      border-radius: 999px;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #34d399;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(52, 211, 153, 0.65);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.40);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #btn-restore-all-panels:hover {
+      background: rgba(30, 41, 59, 0.98);
+      border-color: #38bdf8;
+      color: #38bdf8;
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.45);
+      transform: scale(1.03);
+    }
+    body.all-panels-hidden #btn-restore-all-panels {
+      display: inline-flex !important;
+    }
+    body.all-panels-hidden #hud-topbar,
+    body.all-panels-hidden #btn-restore-topbar,
+    body.all-panels-hidden #hud-left,
+    body.all-panels-hidden #hud-bottom-container,
+    body.all-panels-hidden #hud-right:not(.open) {
+      display: none !important;
+    }
+    body.all-panels-hidden #hud-right.open {
+      display: flex !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      transform: translate3d(0, 0, 0) !important;
+      z-index: 999 !important;
+    }
   </style>
 </head>
 <body>
@@ -3277,6 +3329,22 @@ class ConstellationHudController {
     const leftHudEl = document.getElementById('hud-left');
     const rightHudEl = document.getElementById('hud-right');
     const bottomHudEl = document.getElementById('hud-bottom-container');
+    const btnToggleAll = document.getElementById('btn-toggle-all-panels');
+    const btnRestoreAll = document.getElementById('btn-restore-all-panels');
+
+    let arePanelsHidden = false;
+    const toggleAllPanels = (forceHidden = null) => {
+      arePanelsHidden = (forceHidden !== null) ? Boolean(forceHidden) : !arePanelsHidden;
+      document.body.classList.toggle('all-panels-hidden', arePanelsHidden);
+    };
+
+    if (btnToggleAll) {
+      btnToggleAll.addEventListener('click', () => toggleAllPanels(true));
+    }
+    if (btnRestoreAll) {
+      btnRestoreAll.addEventListener('click', () => toggleAllPanels(false));
+    }
+    window.toggleAllConstellationPanels = toggleAllPanels;
 
     if (hideTopbarBtn && topbarEl && restoreTopbarBtn) {
       hideTopbarBtn.addEventListener('click', () => {
