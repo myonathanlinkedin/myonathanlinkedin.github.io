@@ -1371,12 +1371,12 @@ class CutawayRoomBuilder {
     [0.82, 3.8, 6.78].forEach((px) => {
       shellParts.push(createColoredPart(new THREE.CylinderGeometry(0.025, 0.025, 1.06, 8), '#94a3b8', px, 0.54, 14.48));
     });
-    // Zen Bonsai Planters on Garden Terrace
+    // Zen Bonsai Planters on Garden Terrace (Elevated/relocated to North corners Z=9.8 to clear 'COSMIC OBSERVATORY & GARDEN DECK' floor typography)
     [1.4, 6.2].forEach((px) => {
-      shellParts.push(createColoredPart(new THREE.BoxGeometry(0.9, 0.40, 0.9), '#334155', px, 0.20, 13.8));
-      shellParts.push(createColoredPart(new THREE.BoxGeometry(0.78, 0.04, 0.78), '#3f2e18', px, 0.41, 13.8));
-      shellParts.push(createColoredPart(new THREE.SphereGeometry(0.32, 8, 8), '#15803d', px, 0.80, 13.8));
-      shellParts.push(createColoredPart(new THREE.SphereGeometry(0.14, 6, 6), '#f472b6', px + 0.08, 0.98, 13.75));
+      shellParts.push(createColoredPart(new THREE.BoxGeometry(0.9, 0.40, 0.9), '#334155', px, 0.20, 9.8));
+      shellParts.push(createColoredPart(new THREE.BoxGeometry(0.78, 0.04, 0.78), '#3f2e18', px, 0.41, 9.8));
+      shellParts.push(createColoredPart(new THREE.SphereGeometry(0.32, 8, 8), '#15803d', px, 0.80, 9.8));
+      shellParts.push(createColoredPart(new THREE.SphereGeometry(0.14, 6, 6), '#f472b6', px + 0.08, 0.98, 9.75));
     });
 
     // 2. HORIZONTAL EXPANSION WING B: Floor 2 "God's Eye" AI War Room (South-West: X: -7.6 to -1.6, Z: 9.0 to 15.2)
