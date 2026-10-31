@@ -100,6 +100,54 @@
     #hud-top-container.collapsed { display: none !important; }
     #btn-restore-topbar.visible { display: inline-flex !important; }
 
+    /* Top-Right Floating Cinematic Toggle: Show / Hide All Panels */
+    #btn-toggle-all-panels {
+      position: fixed;
+      top: 10px;
+      right: 14px;
+      z-index: 1000;
+      pointer-events: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 0 13px;
+      height: 32px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      background: rgba(15, 23, 42, 0.90);
+      border: 1px solid rgba(148, 163, 184, 0.40);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.40);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #btn-toggle-all-panels:hover {
+      background: rgba(30, 41, 59, 0.98);
+      border-color: #38bdf8;
+      color: #38bdf8;
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.45);
+      transform: scale(1.03);
+    }
+    #btn-toggle-all-panels.panels-hidden {
+      border-color: #34d399;
+      color: #34d399;
+      background: rgba(6, 78, 59, 0.92);
+      box-shadow: 0 0 18px rgba(52, 211, 153, 0.50);
+    }
+    body.all-panels-hidden #hud-top-container,
+    body.all-panels-hidden #hud-left,
+    body.all-panels-hidden #hud-bottom-container,
+    body.all-panels-hidden #desk-drawer,
+    body.all-panels-hidden #worker-bubbles {
+      display: none !important;
+    }
+
     #hud-top-ticker {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       padding: 5px 14px; border-radius: 999px;
@@ -520,6 +568,14 @@
       .speech-bubble { max-width: 170px; font-size: 0.61rem; padding: 4px 7px; cursor: pointer; }
       .bubble-activity { max-width: 68px; font-size: 0.53rem; }
       .bubble-toggle-btn { padding: 1px 4px; font-size: 0.53rem; }
+      #btn-toggle-all-panels {
+        top: 6px;
+        right: 8px;
+        height: 28px;
+        padding: 0 9px;
+        font-size: 0.65rem;
+        gap: 4px;
+      }
     }
 </style>
 
@@ -535,6 +591,12 @@
 <body>
   <canvas id="office-canvas" aria-label="3D Autonomous Virtual Office Diorama"></canvas>
   <div id="worker-bubbles" aria-live="polite"></div>
+
+  <!-- Top-Right Floating Cinematic Toggle: Show / Hide All Panels -->
+  <button type="button" id="btn-toggle-all-panels" class="glass-panel" title="Hide All Panels (Cinematic 3D View)" aria-label="Show or Hide All Panels">
+    <span id="btn-all-panels-icon">✕</span>
+    <span id="btn-all-panels-text">Hide Panels</span>
+  </button>
 
   <!-- 7.1 Top HUD Container (Mirrors 7.2 Bottom HUD Architecture) -->
   <button type="button" id="btn-restore-topbar" class="top-btn glass-panel" title="Show Top HUD" style="position:fixed;top:10px;left:14px;z-index:55;display:none;padding:0 12px;height:32px;border-color:rgba(52,211,153,0.65);background:rgba(15,23,42,0.92);">▼ Show Top HUD</button>
@@ -2022,7 +2084,88 @@ function createSkinnedPart(geometry, boneIndex, hexColor, matrix4) {
 }
 
 class StylizedCharacterFactory {
-  static buildAll(scene, spatialZones, workersData) {
+  static get SHIFT_PALETTES() {
+    return [
+      // Shift 1: Pagi (06:00 - 12:00 WIB) — Fresh Morning Executive (Bima, Dr. Clara, Marcus, Elena, Nadia)
+      {
+        worker_kernel:   { topColor: '#e0f2fe', vestColor: '#1e3a8a', pantsColor: '#1e293b', shoeColor: '#f8fafc', hairColor: '#1c1917', skinColor: '#f5cba7', plumbobHex: '#10b981' },
+        worker_research: { topColor: '#ffffff', vestColor: '#6366f1', pantsColor: '#334155', shoeColor: '#0f172a', hairColor: '#3b1d0e', skinColor: '#fad7bd', plumbobHex: '#38bdf8' },
+        worker_hardware: { topColor: '#0f172a', vestColor: '#059669', pantsColor: '#1f2937', shoeColor: '#cbd5e1', hairColor: '#292524', skinColor: '#eab68c', plumbobHex: '#fbbf24' },
+        worker_release:  { topColor: '#f0f9ff', vestColor: '#0284c7', pantsColor: '#0f172a', shoeColor: '#f8fafc', hairColor: '#451a03', skinColor: '#f5cba7', plumbobHex: '#10b981' },
+        worker_lounge:   { topColor: '#fdf2f8', vestColor: '#db2777', pantsColor: '#1e293b', shoeColor: '#f1f5f9', hairColor: '#581c87', skinColor: '#fad7bd', plumbobHex: '#ec4899' },
+      },
+      // Shift 2: Siang (12:00 - 18:00 WIB) — Dynamic Tech Innovators (Arthur, Sarah Ph.D., Kevin, Chloe, Audrey)
+      {
+        worker_kernel:   { topColor: '#0f766e', vestColor: '#d97706', pantsColor: '#18181b', shoeColor: '#fed7aa', hairColor: '#18181b', skinColor: '#e8be99', plumbobHex: '#f59e0b' },
+        worker_research: { topColor: '#ffe4e6', vestColor: '#991b1b', pantsColor: '#292524', shoeColor: '#44403c', hairColor: '#262626', skinColor: '#fde0cb', plumbobHex: '#ef4444' },
+        worker_hardware: { topColor: '#1e293b', vestColor: '#15803d', pantsColor: '#374151', shoeColor: '#111827', hairColor: '#3f3f46', skinColor: '#e2ab80', plumbobHex: '#84cc16' },
+        worker_release:  { topColor: '#ede9fe', vestColor: '#ea580c', pantsColor: '#111827', shoeColor: '#ffffff', hairColor: '#78350f', skinColor: '#f7d3b5', plumbobHex: '#06b6d4' },
+        worker_lounge:   { topColor: '#fef3c7', vestColor: '#4338ca', pantsColor: '#0f172a', shoeColor: '#e2e8f0', hairColor: '#312e81', skinColor: '#fce3cf', plumbobHex: '#a855f7' },
+      },
+      // Shift 3: Malam (18:00 - 00:00 WIB) — Sophisticated Amethyst Night (Aris, Dr. Citra, David, Grace, Stella)
+      {
+        worker_kernel:   { topColor: '#18181b', vestColor: '#7c3aed', pantsColor: '#27272a', shoeColor: '#52525b', hairColor: '#27272a', skinColor: '#dcb085', plumbobHex: '#8b5cf6' },
+        worker_research: { topColor: '#f5f3ff', vestColor: '#1d4ed8', pantsColor: '#0f172a', shoeColor: '#1e1b4b', hairColor: '#450a0a', skinColor: '#edd0b7', plumbobHex: '#3b82f6' },
+        worker_hardware: { topColor: '#27272a', vestColor: '#b45309', pantsColor: '#1c1917', shoeColor: '#0a0a0a', hairColor: '#1c1917', skinColor: '#d9a073', plumbobHex: '#f97316' },
+        worker_release:  { topColor: '#042f2e', vestColor: '#0d9488', pantsColor: '#09090b', shoeColor: '#ccfbf1', hairColor: '#1e1b4b', skinColor: '#edd0b7', plumbobHex: '#14b8a6' },
+        worker_lounge:   { topColor: '#ffe4e6', vestColor: '#b91c1c', pantsColor: '#18181b', shoeColor: '#fda4af', hairColor: '#701a75', skinColor: '#edd0b7', plumbobHex: '#f43f5e' },
+      },
+      // Shift 4: Overnight / Dini Hari (00:00 - 06:00 WIB) — Cyberpunk Minimalist Ops (Lucas, Hannah Ph.D., Brandon, Maya, Fiona)
+      {
+        worker_kernel:   { topColor: '#020617', vestColor: '#4f46e5', pantsColor: '#09090b', shoeColor: '#38bdf8', hairColor: '#18181b', skinColor: '#f0c49d', plumbobHex: '#6366f1' },
+        worker_research: { topColor: '#ffffff', vestColor: '#06b6d4', pantsColor: '#0f172a', shoeColor: '#0891b2', hairColor: '#172554', skinColor: '#fce4d4', plumbobHex: '#00f5ff' },
+        worker_hardware: { topColor: '#1f2937', vestColor: '#e11d48', pantsColor: '#111827', shoeColor: '#f43f5e', hairColor: '#27272a', skinColor: '#dfaa7d', plumbobHex: '#ff0055' },
+        worker_release:  { topColor: '#1e1b4b', vestColor: '#f59e0b', pantsColor: '#09090b', shoeColor: '#fef08a', hairColor: '#3730a3', skinColor: '#ebd1ba', plumbobHex: '#fbbf24' },
+        worker_lounge:   { topColor: '#042f2e', vestColor: '#10b981', pantsColor: '#0f172a', shoeColor: '#6ee7b7', hairColor: '#064e3b', skinColor: '#fae0cb', plumbobHex: '#10b981' },
+      },
+    ];
+  }
+
+  static applyShiftOutfit(characterBundle, shiftIdx) {
+    if (!characterBundle || !Array.isArray(characterBundle.avatars)) return;
+    const safeIdx = ((Number(shiftIdx) % 4) + 4) % 4;
+    const palette = StylizedCharacterFactory.SHIFT_PALETTES[safeIdx] || StylizedCharacterFactory.SHIFT_PALETTES[0];
+    const dummyC = new THREE.Color();
+
+    for (let aIdx = 0; aIdx < characterBundle.avatars.length; aIdx++) {
+      const av = characterBundle.avatars[aIdx];
+      const spec = palette[av.workerId];
+      if (!spec || !av.skinnedMesh || !Array.isArray(av.partRanges)) continue;
+      const colorAttr = av.skinnedMesh.geometry.attributes.color;
+      if (!colorAttr) continue;
+
+      const catHexMap = {
+        vest: spec.vestColor,
+        top: spec.topColor,
+        pants: spec.pantsColor,
+        shoe: spec.shoeColor,
+        hair: spec.hairColor,
+        skin: spec.skinColor,
+      };
+
+      for (let r = 0; r < av.partRanges.length; r++) {
+        const pr = av.partRanges[r];
+        const hex = catHexMap[pr.category];
+        if (hex) {
+          dummyC.set(hex);
+          for (let vi = pr.start; vi < pr.start + pr.count; vi++) {
+            colorAttr.setXYZ(vi, dummyC.r, dummyC.g, dummyC.b);
+          }
+        }
+      }
+      colorAttr.needsUpdate = true;
+
+      if (characterBundle.plumbobInstanced && spec.plumbobHex) {
+        characterBundle.plumbobInstanced.setColorAt(aIdx, new THREE.Color(spec.plumbobHex));
+      }
+    }
+
+    if (characterBundle.plumbobInstanced && characterBundle.plumbobInstanced.instanceColor) {
+      characterBundle.plumbobInstanced.instanceColor.needsUpdate = true;
+    }
+  }
+
+  static buildAll(scene, spatialZones, workersData, activeShiftIdx = 0) {
     // Smooth Gouraud/Phong shading (flatShading: false) for organic 3D characters
     const sharedSkinMat = new THREE.MeshStandardMaterial({
       vertexColors: true,
@@ -2035,88 +2178,58 @@ class StylizedCharacterFactory {
     const shadowPositions = [];
     const plumbobColors = [];
 
-    const avatarSpecs = [
+    const safeShiftIdx = ((Number(activeShiftIdx) % 4) + 4) % 4;
+    const palette = StylizedCharacterFactory.SHIFT_PALETTES[safeShiftIdx] || StylizedCharacterFactory.SHIFT_PALETTES[0];
+
+    const baseSpecs = [
       {
         workerId: 'worker_kernel',
         zoneId: 'zone_kernel',
         gender: 'male',
         hairStyle: 'short_layered',
-        hairColor: '#1e1b18',
-        skinColor: '#f5cba7',
-        topColor: '#1e3a8a',
-        vestColor: '#2563eb',
-        pantsColor: '#1e293b',
-        shoeColor: '#e2e8f0',
         accessory: 'glasses',
         heldProp: 'none',
         posture: 'seated_typing',
-        plumbobHex: '#10b981',
       },
       {
         workerId: 'worker_research',
         zoneId: 'zone_research',
         gender: 'female',
         hairStyle: 'ponytail',
-        hairColor: '#3b1d0e',
-        skinColor: '#fad7bd',
-        topColor: '#f8fafc',
-        vestColor: '#7e22ce',
-        pantsColor: '#334155',
-        shoeColor: '#1e1b4b',
         accessory: 'glasses',
         heldProp: 'research_tablet',
         posture: 'seated_research',
-        plumbobHex: '#38bdf8',
       },
       {
         workerId: 'worker_hardware',
         zoneId: 'zone_hardware',
         gender: 'male',
         hairStyle: 'short_layered',
-        hairColor: '#27272a',
-        skinColor: '#eab68c',
-        topColor: '#0f172a',
-        vestColor: '#059669',
-        pantsColor: '#1f2937',
-        shoeColor: '#334155',
         accessory: 'none',
         heldProp: 'audit_tablet',
         posture: 'standing_audit',
-        plumbobHex: '#fbbf24',
       },
       {
         workerId: 'worker_release',
         zoneId: 'zone_release',
         gender: 'female',
         hairStyle: 'wavy_bob',
-        hairColor: '#451a03',
-        skinColor: '#f5cba7',
-        topColor: '#0f172a',
-        vestColor: '#0284c7',
-        pantsColor: '#1e293b',
-        shoeColor: '#f8fafc',
         accessory: 'headset',
         heldProp: 'none',
         posture: 'seated_typing',
-        plumbobHex: '#10b981',
       },
       {
         workerId: 'worker_lounge',
         zoneId: 'zone_lounge',
         gender: 'female',
         hairStyle: 'ponytail',
-        hairColor: '#581c87',
-        skinColor: '#fad7bd',
-        topColor: '#be185d',
-        vestColor: '#db2777',
-        pantsColor: '#1e293b',
-        shoeColor: '#f1f5f9',
         accessory: 'none',
         heldProp: 'coffee_mug',
         posture: 'seated_sofa',
-        plumbobHex: '#ec4899',
       },
     ];
+
+    const avatarSpecs = baseSpecs.map((b) => Object.assign({}, b, palette[b.workerId] || {}));
 
     for (let i = 0; i < avatarSpecs.length; i++) {
       const spec = avatarSpecs[i];
@@ -2250,19 +2363,28 @@ class StylizedCharacterFactory {
     const pos = new THREE.Vector3();
     const scl = new THREE.Vector3(1, 1, 1);
 
-    const addBonePart = (boneIdx, geo, hex, lx = 0, ly = 0, lz = 0, rx = 0, ry = 0, rz = 0, sx = 1, sy = 1, sz = 1) => {
+    const partRanges = [];
+    let currentVertexOffset = 0;
+
+    const addBonePart = (boneIdx, geo, hex, category, lx = 0, ly = 0, lz = 0, rx = 0, ry = 0, rz = 0, sx = 1, sy = 1, sz = 1) => {
       pos.set(lx, ly, lz);
       euler.set(rx, ry, rz);
       quat.setFromEuler(euler);
       scl.set(sx, sy, sz);
       localMat.compose(pos, quat, scl);
       worldMat.multiplyMatrices(bones[boneIdx].matrixWorld, localMat);
-      subGeos.push(createSkinnedPart(geo, boneIdx, hex, worldMat));
+      const part = createSkinnedPart(geo, boneIdx, hex, worldMat);
+      const vCount = part.attributes.position.count;
+      if (category) {
+        partRanges.push({ category, start: currentVertexOffset, count: vCount });
+      }
+      currentVertexOffset += vCount;
+      subGeos.push(part);
     };
 
     // 0. Smooth Organic Pelvis & Belt (bone 0)
-    addBonePart(0, new THREE.CapsuleGeometry(0.125, 0.11, 12, 20), spec.pantsColor, 0, 0, 0, 0, 0, Math.PI / 2, 1.0, 1.0, 0.85);
-    addBonePart(0, new THREE.CylinderGeometry(0.148, 0.148, 0.045, 24), '#0f172a', 0, 0.055, 0, 0, 0, 0, 1.08, 1.0, 0.82);
+    addBonePart(0, new THREE.CapsuleGeometry(0.125, 0.11, 12, 20), spec.pantsColor, 'pants', 0, 0, 0, 0, 0, Math.PI / 2, 1.0, 1.0, 0.85);
+    addBonePart(0, new THREE.CylinderGeometry(0.148, 0.148, 0.045, 24), '#0f172a', 'belt', 0, 0.055, 0, 0, 0, 0, 1.08, 1.0, 0.82);
 
     // 1. Smooth Tapered Torso, Rounded Shoulders, Collar & Neck (bone 1)
     const isFemale = spec.gender === 'female';
@@ -2270,115 +2392,116 @@ class StylizedCharacterFactory {
       1,
       new THREE.CylinderGeometry(isFemale ? 0.148 : 0.168, isFemale ? 0.128 : 0.142, 0.40, 24, 4),
       spec.vestColor,
+      'vest',
       0, 0.21, 0,
       0, 0, 0,
       1.14, 1.0, 0.80
     );
     // Smooth rounded shoulder dome
-    addBonePart(1, new THREE.SphereGeometry(0.165, 22, 16), spec.vestColor, 0, 0.37, 0, 0, 0, 0, 1.24, 0.48, 0.78);
+    addBonePart(1, new THREE.SphereGeometry(0.165, 22, 16), spec.vestColor, 'vest', 0, 0.37, 0, 0, 0, 0, 1.24, 0.48, 0.78);
     // Inner shirt V-neck & collar
-    addBonePart(1, new THREE.CylinderGeometry(0.088, 0.072, 0.12, 20), spec.topColor, 0, 0.39, 0.032, 0, 0, 0, 1.0, 1.0, 0.88);
+    addBonePart(1, new THREE.CylinderGeometry(0.088, 0.072, 0.12, 20), spec.topColor, 'top', 0, 0.39, 0.032, 0, 0, 0, 1.0, 1.0, 0.88);
     if (isFemale) {
       // Subtle organic female silhouette contour & blazer peplum flare
-      addBonePart(1, new THREE.SphereGeometry(0.082, 16, 14), spec.vestColor, 0.068, 0.27, 0.072, 0, 0, 0, 1.0, 0.92, 0.85);
-      addBonePart(1, new THREE.SphereGeometry(0.082, 16, 14), spec.vestColor, -0.068, 0.27, 0.072, 0, 0, 0, 1.0, 0.92, 0.85);
-      addBonePart(1, new THREE.CylinderGeometry(0.128, 0.155, 0.14, 24), spec.vestColor, 0, 0.07, 0, 0, 0, 0, 1.12, 1.0, 0.82);
+      addBonePart(1, new THREE.SphereGeometry(0.082, 16, 14), spec.vestColor, 'vest', 0.068, 0.27, 0.072, 0, 0, 0, 1.0, 0.92, 0.85);
+      addBonePart(1, new THREE.SphereGeometry(0.082, 16, 14), spec.vestColor, 'vest', -0.068, 0.27, 0.072, 0, 0, 0, 1.0, 0.92, 0.85);
+      addBonePart(1, new THREE.CylinderGeometry(0.128, 0.155, 0.14, 24), spec.vestColor, 'vest', 0, 0.07, 0, 0, 0, 0, 1.12, 1.0, 0.82);
     }
     // Smooth cylindrical neck
-    addBonePart(1, new THREE.CylinderGeometry(0.060, 0.068, 0.13, 20), spec.skinColor, 0, 0.46, 0);
+    addBonePart(1, new THREE.CylinderGeometry(0.060, 0.068, 0.13, 20), spec.skinColor, 'skin', 0, 0.46, 0);
 
     // 2. Smooth Sculpted Head, Facial Features & Organic Hair (bone 2)
     // Oval cranium + soft jawline sphere
-    addBonePart(2, new THREE.SphereGeometry(0.202, 28, 24), spec.skinColor, 0, 0.24, 0, 0, 0, 0, 0.94, 1.08, 0.96);
-    addBonePart(2, new THREE.SphereGeometry(0.152, 24, 18), spec.skinColor, 0, 0.165, 0.028, 0, 0, 0, 0.92, 0.88, 0.92);
+    addBonePart(2, new THREE.SphereGeometry(0.202, 28, 24), spec.skinColor, 'skin', 0, 0.24, 0, 0, 0, 0, 0.94, 1.08, 0.96);
+    addBonePart(2, new THREE.SphereGeometry(0.152, 24, 18), spec.skinColor, 'skin', 0, 0.165, 0.028, 0, 0, 0, 0.92, 0.88, 0.92);
     // Smooth ears
-    addBonePart(2, new THREE.SphereGeometry(0.042, 14, 12), spec.skinColor, 0.188, 0.235, -0.01, 0, 0, 0, 0.45, 0.88, 0.65);
+    addBonePart(2, new THREE.SphereGeometry(0.042, 14, 12), spec.skinColor, 'skin', 0.188, 0.235, -0.01, 0, 0, 0, 0.45, 0.88, 0.65);
     addBonePart(2, new THREE.SphereGeometry(0.042, 14, 12), spec.skinColor, -0.188, 0.235, -0.01, 0, 0, 0, 0.45, 0.88, 0.65);
     // Smooth sculpted 3D nose
-    addBonePart(2, new THREE.CapsuleGeometry(0.020, 0.032, 8, 14), spec.skinColor, 0, 0.228, 0.192, -0.22, 0, 0);
+    addBonePart(2, new THREE.CapsuleGeometry(0.020, 0.032, 8, 14), spec.skinColor, 'skin', 0, 0.228, 0.192, -0.22, 0, 0);
     // Expressive almond eyes (sclera + iris + bright catchlight)
-    addBonePart(2, new THREE.SphereGeometry(0.030, 14, 12), '#ffffff', 0.072, 0.262, 0.172, 0, 0, 0, 1.05, 0.85, 0.45);
-    addBonePart(2, new THREE.SphereGeometry(0.030, 14, 12), '#ffffff', -0.072, 0.262, 0.172, 0, 0, 0, 1.05, 0.85, 0.45);
-    addBonePart(2, new THREE.SphereGeometry(0.019, 12, 10), '#0f172a', 0.072, 0.262, 0.184, 0, 0, 0, 1.0, 1.0, 0.55);
+    addBonePart(2, new THREE.SphereGeometry(0.030, 14, 12), '#ffffff', 'eyes', 0.072, 0.262, 0.172, 0, 0, 0, 1.05, 0.85, 0.45);
+    addBonePart(2, new THREE.SphereGeometry(0.030, 14, 12), '#ffffff', 'eyes', -0.072, 0.262, 0.172, 0, 0, 0, 1.05, 0.85, 0.45);
+    addBonePart(2, new THREE.SphereGeometry(0.019, 12, 10), '#0f172a', 'eyes', 0.072, 0.262, 0.184, 0, 0, 0, 1.0, 1.0, 0.55);
     addBonePart(2, new THREE.SphereGeometry(0.019, 12, 10), '#0f172a', -0.072, 0.262, 0.184, 0, 0, 0, 1.0, 1.0, 0.55);
-    addBonePart(2, new THREE.SphereGeometry(0.007, 8, 8), '#ffffff', 0.078, 0.269, 0.192);
-    addBonePart(2, new THREE.SphereGeometry(0.007, 8, 8), '#ffffff', -0.066, 0.269, 0.192);
+    addBonePart(2, new THREE.SphereGeometry(0.007, 8, 8), '#ffffff', 'eyes', 0.078, 0.269, 0.192);
+    addBonePart(2, new THREE.SphereGeometry(0.007, 8, 8), '#ffffff', 'eyes', -0.066, 0.269, 0.192);
     // Soft rosy blush on cheeks
-    addBonePart(2, new THREE.SphereGeometry(0.032, 12, 10), '#f43f5e', 0.105, 0.205, 0.158, 0, 0, 0, 1.1, 0.65, 0.35);
+    addBonePart(2, new THREE.SphereGeometry(0.032, 12, 10), '#f43f5e', 'blush', 0.105, 0.205, 0.158, 0, 0, 0, 1.1, 0.65, 0.35);
     addBonePart(2, new THREE.SphereGeometry(0.032, 12, 10), '#f43f5e', -0.105, 0.205, 0.158, 0, 0, 0, 1.1, 0.65, 0.35);
     // Sculpted eyebrows & friendly smile
-    addBonePart(2, new THREE.CapsuleGeometry(0.010, 0.044, 6, 10), spec.hairColor, 0.074, 0.305, 0.176, 0, 0, 1.48);
-    addBonePart(2, new THREE.CapsuleGeometry(0.010, 0.044, 6, 10), spec.hairColor, -0.074, 0.305, 0.176, 0, 0, -1.48);
-    addBonePart(2, new THREE.TorusGeometry(0.030, 0.0075, 8, 16, Math.PI), '#9f1239', 0, 0.168, 0.178, Math.PI * 0.95, 0, 0);
+    addBonePart(2, new THREE.CapsuleGeometry(0.010, 0.044, 6, 10), spec.hairColor, 'hair', 0.074, 0.305, 0.176, 0, 0, 1.48);
+    addBonePart(2, new THREE.CapsuleGeometry(0.010, 0.044, 6, 10), spec.hairColor, 'hair', -0.074, 0.305, 0.176, 0, 0, -1.48);
+    addBonePart(2, new THREE.TorusGeometry(0.030, 0.0075, 8, 16, Math.PI), '#9f1239', 'mouth', 0, 0.168, 0.178, Math.PI * 0.95, 0, 0);
 
     // Smooth Organic Sculpted Hairstyles (zero blocky cubes)
     // Base rounded hair dome
-    addBonePart(2, new THREE.SphereGeometry(0.214, 28, 24), spec.hairColor, 0, 0.275, -0.018, 0, 0, 0, 0.98, 1.02, 1.02);
+    addBonePart(2, new THREE.SphereGeometry(0.214, 28, 24), spec.hairColor, 'hair', 0, 0.275, -0.018, 0, 0, 0, 0.98, 1.02, 1.02);
     // Swept front bangs
-    addBonePart(2, new THREE.CapsuleGeometry(0.056, 0.17, 10, 16), spec.hairColor, 0.02, 0.385, 0.125, 0.25, 0.12, 1.42);
-    addBonePart(2, new THREE.CapsuleGeometry(0.048, 0.13, 10, 16), spec.hairColor, -0.06, 0.375, 0.132, 0.20, -0.18, -1.35);
+    addBonePart(2, new THREE.CapsuleGeometry(0.056, 0.17, 10, 16), spec.hairColor, 'hair', 0.02, 0.385, 0.125, 0.25, 0.12, 1.42);
+    addBonePart(2, new THREE.CapsuleGeometry(0.048, 0.13, 10, 16), spec.hairColor, 'hair', -0.06, 0.375, 0.132, 0.20, -0.18, -1.35);
 
     if (spec.hairStyle === 'short_layered') {
       // Sculpted male crown wave & tapered side locks
-      addBonePart(2, new THREE.CapsuleGeometry(0.062, 0.16, 10, 16), spec.hairColor, 0, 0.425, 0.04, 0.15, 0, Math.PI / 2);
-      addBonePart(2, new THREE.CapsuleGeometry(0.042, 0.12, 8, 14), spec.hairColor, 0.178, 0.28, 0.02, 0.1, 0, -0.15);
-      addBonePart(2, new THREE.CapsuleGeometry(0.042, 0.12, 8, 14), spec.hairColor, -0.178, 0.28, 0.02, 0.1, 0, 0.15);
+      addBonePart(2, new THREE.CapsuleGeometry(0.062, 0.16, 10, 16), spec.hairColor, 'hair', 0, 0.425, 0.04, 0.15, 0, Math.PI / 2);
+      addBonePart(2, new THREE.CapsuleGeometry(0.042, 0.12, 8, 14), spec.hairColor, 'hair', 0.178, 0.28, 0.02, 0.1, 0, -0.15);
+      addBonePart(2, new THREE.CapsuleGeometry(0.042, 0.12, 8, 14), spec.hairColor, 'hair', -0.178, 0.28, 0.02, 0.1, 0, 0.15);
     } else if (spec.hairStyle === 'ponytail') {
       // Soft side hair locks + scrunchie ring + lush curved ponytail
-      addBonePart(2, new THREE.CapsuleGeometry(0.052, 0.18, 10, 16), spec.hairColor, 0.175, 0.24, 0.02, 0.12, 0, -0.12);
+      addBonePart(2, new THREE.CapsuleGeometry(0.052, 0.18, 10, 16), spec.hairColor, 'hair', 0.175, 0.24, 0.02, 0.12, 0, -0.12);
       addBonePart(2, new THREE.CapsuleGeometry(0.052, 0.18, 10, 16), spec.hairColor, -0.175, 0.24, 0.02, 0.12, 0, 0.12);
-      addBonePart(2, new THREE.TorusGeometry(0.048, 0.016, 10, 20), spec.vestColor, 0, 0.30, -0.205, 0.35, 0, 0);
-      addBonePart(2, new THREE.SphereGeometry(0.082, 18, 16), spec.hairColor, 0, 0.29, -0.25, 0, 0, 0, 0.95, 1.05, 1.15);
-      addBonePart(2, new THREE.CapsuleGeometry(0.068, 0.20, 12, 18), spec.hairColor, 0, 0.16, -0.275, 0.32, 0, 0);
+      addBonePart(2, new THREE.TorusGeometry(0.048, 0.016, 10, 20), spec.vestColor, 'vest', 0, 0.30, -0.205, 0.35, 0, 0);
+      addBonePart(2, new THREE.SphereGeometry(0.082, 18, 16), spec.hairColor, 'hair', 0, 0.29, -0.25, 0, 0, 0, 0.95, 1.05, 1.15);
+      addBonePart(2, new THREE.CapsuleGeometry(0.068, 0.20, 12, 18), spec.hairColor, 'hair', 0, 0.16, -0.275, 0.32, 0, 0);
     } else if (spec.hairStyle === 'wavy_bob') {
       // Smooth rounded bob waves framing face and shoulders
-      addBonePart(2, new THREE.CapsuleGeometry(0.068, 0.22, 12, 18), spec.hairColor, 0.172, 0.20, 0.01, 0.08, 0, -0.08);
+      addBonePart(2, new THREE.CapsuleGeometry(0.068, 0.22, 12, 18), spec.hairColor, 'hair', 0.172, 0.20, 0.01, 0.08, 0, -0.08);
       addBonePart(2, new THREE.CapsuleGeometry(0.068, 0.22, 12, 18), spec.hairColor, -0.172, 0.20, 0.01, 0.08, 0, 0.08);
-      addBonePart(2, new THREE.CapsuleGeometry(0.085, 0.20, 12, 18), spec.hairColor, 0, 0.19, -0.145, 0, 0, Math.PI / 2);
+      addBonePart(2, new THREE.CapsuleGeometry(0.085, 0.20, 12, 18), spec.hairColor, 'hair', 0, 0.19, -0.145, 0, 0, Math.PI / 2);
     }
 
     // Smooth Eyeglasses or Headset
     if (spec.accessory === 'glasses') {
-      addBonePart(2, new THREE.TorusGeometry(0.046, 0.0075, 10, 24), '#0f172a', 0.074, 0.264, 0.188);
-      addBonePart(2, new THREE.TorusGeometry(0.046, 0.0075, 10, 24), '#0f172a', -0.074, 0.264, 0.188);
-      addBonePart(2, new THREE.CylinderGeometry(0.007, 0.007, 0.052, 10), '#0f172a', 0, 0.268, 0.190, 0, 0, Math.PI / 2);
+      addBonePart(2, new THREE.TorusGeometry(0.046, 0.0075, 10, 24), '#0f172a', 'acc', 0.074, 0.264, 0.188);
+      addBonePart(2, new THREE.TorusGeometry(0.046, 0.0075, 10, 24), '#0f172a', 'acc', -0.074, 0.264, 0.188);
+      addBonePart(2, new THREE.CylinderGeometry(0.007, 0.007, 0.052, 10), '#0f172a', 'acc', 0, 0.268, 0.190, 0, 0, Math.PI / 2);
     } else if (spec.accessory === 'headset') {
-      addBonePart(2, new THREE.TorusGeometry(0.212, 0.016, 10, 28, Math.PI), '#f59e0b', 0, 0.255, 0);
-      addBonePart(2, new THREE.CylinderGeometry(0.056, 0.056, 0.038, 20), '#0f172a', 0.208, 0.24, 0, 0, 0, Math.PI / 2);
-      addBonePart(2, new THREE.CylinderGeometry(0.056, 0.056, 0.038, 20), '#0f172a', -0.208, 0.24, 0, 0, 0, Math.PI / 2);
-      addBonePart(2, new THREE.CapsuleGeometry(0.009, 0.14, 6, 12), '#fbbf24', -0.175, 0.185, 0.095, 1.25, 0.35, 0);
+      addBonePart(2, new THREE.TorusGeometry(0.212, 0.016, 10, 28, Math.PI), '#f59e0b', 'acc', 0, 0.255, 0);
+      addBonePart(2, new THREE.CylinderGeometry(0.056, 0.056, 0.038, 20), '#0f172a', 'acc', 0.208, 0.24, 0, 0, 0, Math.PI / 2);
+      addBonePart(2, new THREE.CylinderGeometry(0.056, 0.056, 0.038, 20), '#0f172a', 'acc', -0.208, 0.24, 0, 0, 0, Math.PI / 2);
+      addBonePart(2, new THREE.CapsuleGeometry(0.009, 0.14, 6, 12), '#fbbf24', 'acc', -0.175, 0.185, 0.095, 1.25, 0.35, 0);
     }
 
     // 3. Smooth Capsule Arms, Forearms & Hands (bones 3, 4, 5, 6) + Held Props
-    addBonePart(3, new THREE.CapsuleGeometry(0.054, 0.17, 10, 18), spec.vestColor, 0, -0.11, 0);
-    addBonePart(4, new THREE.CapsuleGeometry(0.045, 0.16, 10, 18), spec.topColor, 0, -0.10, 0);
-    addBonePart(4, new THREE.SphereGeometry(0.046, 14, 12), spec.skinColor, 0, -0.23, 0.01, 0, 0, 0, 0.85, 1.12, 0.68);
-    addBonePart(4, new THREE.CapsuleGeometry(0.015, 0.025, 6, 10), spec.skinColor, -0.032, -0.22, 0.03, 0.4, 0, -0.5);
+    addBonePart(3, new THREE.CapsuleGeometry(0.054, 0.17, 10, 18), spec.vestColor, 'vest', 0, -0.11, 0);
+    addBonePart(4, new THREE.CapsuleGeometry(0.045, 0.16, 10, 18), spec.topColor, 'top', 0, -0.10, 0);
+    addBonePart(4, new THREE.SphereGeometry(0.046, 14, 12), spec.skinColor, 'skin', 0, -0.23, 0.01, 0, 0, 0, 0.85, 1.12, 0.68);
+    addBonePart(4, new THREE.CapsuleGeometry(0.015, 0.025, 6, 10), spec.skinColor, 'skin', -0.032, -0.22, 0.03, 0.4, 0, -0.5);
 
-    addBonePart(5, new THREE.CapsuleGeometry(0.054, 0.17, 10, 18), spec.vestColor, 0, -0.11, 0);
-    addBonePart(6, new THREE.CapsuleGeometry(0.045, 0.16, 10, 18), spec.topColor, 0, -0.10, 0);
-    addBonePart(6, new THREE.SphereGeometry(0.046, 14, 12), spec.skinColor, 0, -0.23, 0.01, 0, 0, 0, 0.85, 1.12, 0.68);
-    addBonePart(6, new THREE.CapsuleGeometry(0.015, 0.025, 6, 10), spec.skinColor, 0.032, -0.22, 0.03, 0.4, 0, 0.5);
+    addBonePart(5, new THREE.CapsuleGeometry(0.054, 0.17, 10, 18), spec.vestColor, 'vest', 0, -0.11, 0);
+    addBonePart(6, new THREE.CapsuleGeometry(0.045, 0.16, 10, 18), spec.topColor, 'top', 0, -0.10, 0);
+    addBonePart(6, new THREE.SphereGeometry(0.046, 14, 12), spec.skinColor, 'skin', 0, -0.23, 0.01, 0, 0, 0, 0.85, 1.12, 0.68);
+    addBonePart(6, new THREE.CapsuleGeometry(0.015, 0.025, 6, 10), spec.skinColor, 'skin', 0.032, -0.22, 0.03, 0.4, 0, 0.5);
 
     if (spec.heldProp === 'research_tablet') {
-      addBonePart(4, new THREE.BoxGeometry(0.22, 0.018, 0.28), '#1e293b', -0.05, -0.25, 0.08);
-      addBonePart(4, new THREE.BoxGeometry(0.19, 0.020, 0.24), '#c084fc', -0.05, -0.25, 0.08);
+      addBonePart(4, new THREE.BoxGeometry(0.22, 0.018, 0.28), '#1e293b', 'prop', -0.05, -0.25, 0.08);
+      addBonePart(4, new THREE.BoxGeometry(0.19, 0.020, 0.24), '#c084fc', 'prop', -0.05, -0.25, 0.08);
     } else if (spec.heldProp === 'audit_tablet') {
-      addBonePart(4, new THREE.BoxGeometry(0.24, 0.020, 0.30), '#0f172a', -0.08, -0.25, 0.09);
-      addBonePart(4, new THREE.BoxGeometry(0.20, 0.022, 0.26), '#10b981', -0.08, -0.25, 0.09);
+      addBonePart(4, new THREE.BoxGeometry(0.24, 0.020, 0.30), '#0f172a', 'prop', -0.08, -0.25, 0.09);
+      addBonePart(4, new THREE.BoxGeometry(0.20, 0.022, 0.26), '#10b981', 'prop', -0.08, -0.25, 0.09);
     } else if (spec.heldProp === 'coffee_mug') {
-      addBonePart(6, new THREE.CylinderGeometry(0.052, 0.046, 0.11, 18), '#ffffff', 0.02, -0.24, 0.06, Math.PI / 2, 0, 0);
-      addBonePart(6, new THREE.TorusGeometry(0.028, 0.008, 8, 16, Math.PI), '#ffffff', 0.02, -0.24, 0.11, 0, Math.PI / 2, 0);
+      addBonePart(6, new THREE.CylinderGeometry(0.052, 0.046, 0.11, 18), '#ffffff', 'prop', 0.02, -0.24, 0.06, Math.PI / 2, 0, 0);
+      addBonePart(6, new THREE.TorusGeometry(0.028, 0.008, 8, 16, Math.PI), '#ffffff', 'prop', 0.02, -0.24, 0.11, 0, Math.PI / 2, 0);
     }
 
     // 4. Smooth Capsule Thighs, Calves & Rounded Sneakers (bones 7, 8, 9, 10)
-    addBonePart(7, new THREE.CapsuleGeometry(0.068, 0.25, 10, 18), spec.pantsColor, 0, -0.17, 0);
-    addBonePart(8, new THREE.CapsuleGeometry(0.056, 0.24, 10, 18), spec.pantsColor, 0, -0.17, 0);
-    addBonePart(8, new THREE.CapsuleGeometry(0.058, 0.12, 10, 18), spec.shoeColor, 0, -0.37, 0.045, Math.PI / 2, 0, 0, 1.05, 1.0, 0.82);
+    addBonePart(7, new THREE.CapsuleGeometry(0.068, 0.25, 10, 18), spec.pantsColor, 'pants', 0, -0.17, 0);
+    addBonePart(8, new THREE.CapsuleGeometry(0.056, 0.24, 10, 18), spec.pantsColor, 'pants', 0, -0.17, 0);
+    addBonePart(8, new THREE.CapsuleGeometry(0.058, 0.12, 10, 18), spec.shoeColor, 'shoe', 0, -0.37, 0.045, Math.PI / 2, 0, 0, 1.05, 1.0, 0.82);
 
-    addBonePart(9, new THREE.CapsuleGeometry(0.068, 0.25, 10, 18), spec.pantsColor, 0, -0.17, 0);
-    addBonePart(10, new THREE.CapsuleGeometry(0.056, 0.24, 10, 18), spec.pantsColor, 0, -0.17, 0);
-    addBonePart(10, new THREE.CapsuleGeometry(0.058, 0.12, 10, 18), spec.shoeColor, 0, -0.37, 0.045, Math.PI / 2, 0, 0, 1.05, 1.0, 0.82);
+    addBonePart(9, new THREE.CapsuleGeometry(0.068, 0.25, 10, 18), spec.pantsColor, 'pants', 0, -0.17, 0);
+    addBonePart(10, new THREE.CapsuleGeometry(0.056, 0.24, 10, 18), spec.pantsColor, 'pants', 0, -0.17, 0);
+    addBonePart(10, new THREE.CapsuleGeometry(0.058, 0.12, 10, 18), spec.shoeColor, 'shoe', 0, -0.37, 0.045, Math.PI / 2, 0, 0, 1.05, 1.0, 0.82);
 
     const mergedCharGeo = mergeGeometries(subGeos, false);
     const skinnedMesh = new THREE.SkinnedMesh(mergedCharGeo, material);
@@ -2437,6 +2560,7 @@ class StylizedCharacterFactory {
       posture: spec.posture,
       rootGroup,
       skinnedMesh,
+      partRanges,
       bones: {
         pelvis: bPelvis,
         torso: bTorso,
@@ -3272,6 +3396,22 @@ class SpeechBubbleProjector {
         itemObj.w = itemObj.el.offsetWidth || (window.innerWidth <= 900 ? 170 : 220);
         itemObj.h = itemObj.el.offsetHeight || (window.innerWidth <= 900 ? 46 : 52);
       });
+    }
+  }
+
+  refreshWorkers(workers) {
+    this.workers = workers || this.workers;
+    for (const item of this.items) {
+      const w = this.workers.find((x) => x.id === item.workerId);
+      if (!w) continue;
+      const nameEl = item.el.querySelector('.bubble-name');
+      const dotEl = item.el.querySelector('.bubble-dot');
+      const humanName = w.display_name || (w.role ? w.role.split(' ')[0] : 'Engineer');
+      if (nameEl) nameEl.textContent = humanName;
+      if (dotEl && w.plumbob_color) {
+        dotEl.style.background = w.plumbob_color;
+        dotEl.style.boxShadow = `0 0 8px ${w.plumbob_color}`;
+      }
     }
   }
 
@@ -4368,16 +4508,32 @@ class LabBossaAudioEngine {
         const leftPanel = document.getElementById('hud-left');
         const btnToggle = document.getElementById('btn-toggle-panel');
 
-        if (btnHideTopbar && topbarEl && btnRestoreTopbar) {
-          btnHideTopbar.addEventListener('click', () => {
-            topbarEl.classList.add('collapsed');
-            btnRestoreTopbar.classList.add('visible');
-          });
-          btnRestoreTopbar.addEventListener('click', () => {
-            topbarEl.classList.remove('collapsed');
-            btnRestoreTopbar.classList.remove('visible');
-          });
+        const btnToggleAll = document.getElementById('btn-toggle-all-panels');
+        const iconAll = document.getElementById('btn-all-panels-icon');
+        const textAll = document.getElementById('btn-all-panels-text');
+
+        let arePanelsHidden = false;
+        const toggleAllPanels = (forceHidden = null) => {
+          arePanelsHidden = (forceHidden !== null) ? Boolean(forceHidden) : !arePanelsHidden;
+          document.body.classList.toggle('all-panels-hidden', arePanelsHidden);
+          if (btnToggleAll) {
+            btnToggleAll.classList.toggle('panels-hidden', arePanelsHidden);
+            btnToggleAll.title = arePanelsHidden ? 'Show All Panels' : 'Hide All Panels (Cinematic 3D View)';
+            if (iconAll) iconAll.textContent = arePanelsHidden ? '👁' : '✕';
+            if (textAll) textAll.textContent = arePanelsHidden ? 'Show Panels' : 'Hide Panels';
+          }
+          if (btnHideTopbar) {
+            btnHideTopbar.textContent = arePanelsHidden ? '👁 Show' : '✕ Hide';
+          }
+        };
+
+        if (btnToggleAll) {
+          btnToggleAll.addEventListener('click', () => toggleAllPanels());
         }
+        if (btnHideTopbar) {
+          btnHideTopbar.addEventListener('click', () => toggleAllPanels());
+        }
+        window.toggleAllOfficePanels = toggleAllPanels;
         const btnToggleDrawer = document.getElementById('btn-toggle-drawer');
         const btnToggleBottom = document.getElementById('btn-toggle-bottom');
         const btnClose = document.getElementById('btn-close-panel');
@@ -4717,7 +4873,7 @@ class LabBossaAudioEngine {
 
       const sceneEngine = new IsometricSceneEngine(canvas, spatialCfg);
       const furnitureBundle = OfficeFurnitureBuilder.build(sceneEngine.scene);
-      const characterBundle = StylizedCharacterFactory.buildAll(sceneEngine.scene, spatialZones, workers);
+      const characterBundle = StylizedCharacterFactory.buildAll(sceneEngine.scene, spatialZones, workers, activeShiftIdx);
 
       DynamicMonitorScreensEngine.build(sceneEngine.scene, furnitureBundle.screenAnchors, payload);
 
@@ -4747,6 +4903,79 @@ class LabBossaAudioEngine {
         bubbleProjector
       );
       hudCtrl.animEngine = animEngine;
+
+      const shiftNames = [
+        'Morning (06:00-12:00 WIB)',
+        'Afternoon (12:00-18:00 WIB)',
+        'Evening (18:00-00:00 WIB)',
+        'Overnight (00:00-06:00 WIB)',
+      ];
+
+      const applyShift = (shiftIdx) => {
+        activeShiftIdx = ((Number(shiftIdx) % 4) + 4) % 4;
+        const sNum = activeShiftIdx + 1;
+        const sName = shiftNames[activeShiftIdx];
+        if (shiftEl) shiftEl.textContent = `Shift ${sNum}/4: ${sName}`;
+        document.querySelectorAll('.stat-shift-val').forEach((el) => {
+          el.textContent = `Shift ${sNum}: ${sName.split(' ')[0]}`;
+        });
+
+        const curRoster = shiftRosters[activeShiftIdx];
+        const curPalette = StylizedCharacterFactory.SHIFT_PALETTES[activeShiftIdx] || {};
+
+        for (const w of workers) {
+          if (curRoster[w.id]) {
+            w.display_name = curRoster[w.id].name;
+            w.role = curRoster[w.id].role;
+            if (curPalette[w.id] && curPalette[w.id].plumbobHex) {
+              w.plumbob_color = curPalette[w.id].plumbobHex;
+            }
+            if (w.metadata) {
+              if (w.id === 'worker_research') w.metadata['Scientist Name'] = curRoster[w.id].name;
+              else if (w.id === 'worker_kernel') w.metadata['Architect Name'] = curRoster[w.id].name;
+              else if (w.id === 'worker_hardware') w.metadata['Lead Reviewer'] = curRoster[w.id].name;
+              else if (w.id === 'worker_release') w.metadata['Portfolio Lead'] = curRoster[w.id].name;
+              else if (w.id === 'worker_lounge') w.metadata['Strategy Lead'] = curRoster[w.id].name;
+            }
+          }
+        }
+
+        // Instantly update character outfits to current shift's colors
+        StylizedCharacterFactory.applyShiftOutfit(characterBundle, activeShiftIdx);
+
+        // Update speech bubbles with active staff names and plumbob dots
+        if (bubbleProjector && typeof bubbleProjector.refreshWorkers === 'function') {
+          bubbleProjector.refreshWorkers(workers);
+        }
+
+        // Update left panel cards
+        if (hudCtrl && typeof hudCtrl._populateLeftPanel === 'function') {
+          hudCtrl._populateLeftPanel();
+        }
+      };
+
+      window.setOfficeShift = applyShift;
+      window.getOfficeShift = () => activeShiftIdx;
+
+      const shiftPill = document.getElementById('stat-shift-pill');
+      if (shiftPill) {
+        shiftPill.style.cursor = 'pointer';
+        shiftPill.addEventListener('click', () => {
+          applyShift((activeShiftIdx + 1) % 4);
+        });
+      }
+
+      setInterval(() => {
+        const wH = (new Date().getUTCHours() + 7) % 24;
+        let expShift = 0;
+        if (wH >= 6 && wH < 12) expShift = 0;
+        else if (wH >= 12 && wH < 18) expShift = 1;
+        else if (wH >= 18) expShift = 2;
+        else expShift = 3;
+        if (expShift !== activeShiftIdx) {
+          applyShift(expShift);
+        }
+      }, 30000);
 
       // Dynamic discussion fetcher: Pulls fresh engineering breakthroughs from Hacker News Firebase API
       // Strict 1500ms timeout with 100% resilient fallback to local curated discussions
@@ -4937,12 +5166,16 @@ class LabBossaAudioEngine {
 
       window.__OFFICE_TELEMETRY__ = {
         initialized: true,
+        THREE,
         renderer: sceneEngine.renderer,
         scene: sceneEngine.scene,
         camera: sceneEngine.camera,
         workerCount: workers.length,
         zoneCount: Object.keys(spatialZones).length,
         selectZone: (zId) => hudCtrl.selectZone(zId),
+        hudCtrl,
+        characterBundle,
+        workers,
         audioEngine,
         animEngine,
         drawerCtrl,
