@@ -143,9 +143,16 @@
     body.all-panels-hidden #hud-top-container,
     body.all-panels-hidden #hud-left,
     body.all-panels-hidden #hud-bottom-container,
-    body.all-panels-hidden #desk-drawer,
+    body.all-panels-hidden #desk-drawer:not(.open),
     body.all-panels-hidden #worker-bubbles {
       display: none !important;
+    }
+    body.all-panels-hidden #desk-drawer.open {
+      display: flex !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      transform: translate3d(0, 0, 0) !important;
+      z-index: 999 !important;
     }
 
     #hud-top-ticker {
@@ -526,12 +533,13 @@
     @media (max-width: 900px) {
       #hud-top-container {
         top: 6px; left: 8px; right: 8px; gap: 5px;
+        padding-right: 96px;
       }
       #hud-top-ticker {
-        padding: 5px 10px; font-size: 0.64rem; border-radius: 999px;
-        width: 100%; max-width: min(620px, calc(100vw - 16px));
-        white-space: normal; line-height: 1.35; text-align: center;
-        flex-wrap: wrap; row-gap: 2px; column-gap: 6px;
+        padding: 4px 10px; font-size: 0.62rem; border-radius: 999px;
+        width: 100%; max-width: none;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        display: inline-flex; align-items: center; justify-content: flex-start;
       }
       .mobile-hide-telemetry { display: none !important; }
       #hud-topbar {
@@ -3297,29 +3305,32 @@ class OfficeAnimationEngine {
         b.rForearm.rotation.set(-0.45, 0, 0);
       } else if (mode === 'discussing') {
         const gPhase = elapsedSec * 5.2 + i * 1.7;
-        if (spotPosture === 'stargazing') {
-          activityBadge = isSpeakerA ? '🔭 Cosmic Stargazing' : '🌸 Garden Terrace Break';
-          b.pelvis.position.set(0, 0.84, 0);
+        if (spotPosture === 'telescope_observer' || spotPosture === 'stargazing') {
+          const seatY = 0.44;
+          b.pelvis.position.set(0, seatY, 0);
           if (b.lThigh && b.rThigh && b.lCalf && b.rCalf) {
-            b.lThigh.rotation.set(0, 0, 0);
-            b.rThigh.rotation.set(0, 0, 0);
-            b.lCalf.rotation.set(0, 0, 0);
-            b.rCalf.rotation.set(0, 0, 0);
+            b.lThigh.rotation.x = -Math.PI / 2;
+            b.rThigh.rotation.x = -Math.PI / 2;
+            b.lCalf.rotation.x = Math.PI / 2;
+            b.rCalf.rotation.x = Math.PI / 2;
           }
           if (isSpeakerA) {
-            b.torso.rotation.set(0.24, -0.12, 0);
-            b.head.rotation.set(-0.16, -0.08, 0);
-            b.lUpperArm.rotation.set(-0.68, 0.22, 0);
-            b.lForearm.rotation.set(-0.85, 0, 0);
-            b.rUpperArm.rotation.set(-0.68, -0.22, 0);
-            b.rForearm.rotation.set(-0.85, 0, 0);
+            const focusTurn = Math.sin(elapsedSec * 2.8) * 0.14;
+            b.torso.rotation.set(0.28, 0.08, 0);
+            b.head.rotation.set(0.16, 0.05, 0);
+            b.rUpperArm.rotation.set(-0.75, -0.22, 0);
+            b.rForearm.rotation.set(-1.20 + focusTurn * 0.5, 0.25, focusTurn);
+            b.lUpperArm.rotation.set(-0.68, 0.18, 0);
+            b.lForearm.rotation.set(-1.05, -0.15, 0);
+            activityBadge = '🔭 Calibrating Eyepiece Focus';
           } else {
-            b.torso.rotation.set(-0.08, 0.15, 0);
-            b.head.rotation.set(-0.25, 0.20, 0);
-            b.lUpperArm.rotation.set(-0.35, 0, 0);
-            b.lForearm.rotation.set(-0.55, 0, 0);
-            b.rUpperArm.rotation.set(-0.35, 0, 0);
-            b.rForearm.rotation.set(-0.55, 0, 0);
+            b.torso.rotation.set(0.05, -0.18, 0);
+            b.head.rotation.set(isTalking ? -0.12 : 0.14, isTalking ? -0.22 : 0.10, 0);
+            b.lUpperArm.rotation.set(-0.52, 0.12, 0);
+            b.lForearm.rotation.set(-1.10, 0, 0);
+            b.rUpperArm.rotation.set(-0.52, -0.12, 0);
+            b.rForearm.rotation.set(-1.10, 0, 0);
+            activityBadge = '✨ Correlating Deep-Sky Coordinates';
           }
         } else if (spotPosture === 'command_center') {
           // Seated comfortably on Floor 2 Mezzanine Captain Chair facing God's Eye panoramic display
@@ -3442,7 +3453,7 @@ class OfficeAnimationEngine {
       }
 
       // Update Ground Contact Shadow, Floating Plumbob, Raycast Hit Proxy & Speech Bubble
-      const isSeatedMode = (mode === 'discussing' && (spotPosture === 'seated' || spotPosture === 'seated_stool')) ||
+      const isSeatedMode = (mode === 'discussing' && (spotPosture === 'seated' || spotPosture === 'seated_stool' || spotPosture === 'command_center' || spotPosture === 'telescope_observer')) ||
         (mode === 'home' && av.posture !== 'standing_audit');
       const headHeight = isSeatedMode ? 2.16 : 2.48;
       this._dummy.position.set(targetX, headHeight + Math.sin(t * 2.6) * 0.06, targetZ);
@@ -5096,9 +5107,6 @@ class LabBossaAudioEngine {
       }
 
       openCosmicModal() {
-        if (typeof window.toggleAllOfficePanels === 'function' && document.body.classList.contains('all-panels-hidden')) {
-          window.toggleAllOfficePanels(false);
-        }
         const modal = document.getElementById('telescope-cosmic-modal');
         if (modal) {
           modal.style.display = 'block';
@@ -5112,18 +5120,12 @@ class LabBossaAudioEngine {
       }
 
       openGodsEyeModal() {
-        if (typeof window.toggleAllOfficePanels === 'function' && document.body.classList.contains('all-panels-hidden')) {
-          window.toggleAllOfficePanels(false);
-        }
         const modal = document.getElementById('gods-eye-ai-modal');
         if (modal) modal.style.display = 'block';
         this.selectZone('zone_gods_eye');
       }
 
       selectWorker(workerId) {
-        if (typeof window.toggleAllOfficePanels === 'function' && document.body.classList.contains('all-panels-hidden')) {
-          window.toggleAllOfficePanels(false);
-        }
         const worker = this.workersById.get(workerId);
         if (!worker) return;
         if (this.animEngine && Array.isArray(this.animEngine.dailyDiscussions)) {
@@ -5148,9 +5150,6 @@ class LabBossaAudioEngine {
       }
 
       selectZone(zoneId) {
-        if (zoneId && zoneId !== 'ALL' && typeof window.toggleAllOfficePanels === 'function' && document.body.classList.contains('all-panels-hidden')) {
-          window.toggleAllOfficePanels(false);
-        }
         if (!zoneId || zoneId === 'ALL') {
           this.selectedZoneId = null;
           this.selectedWorkerId = null;
