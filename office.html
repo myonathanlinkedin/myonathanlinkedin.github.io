@@ -2442,11 +2442,8 @@ class OfficeAnimationEngine {
       [-0.30, -5.25, 1.65], // Espresso & Smoothie Bar Island
       [0.0, 1.12, 1.15],    // Lounge Glass Coffee Table
       [-5.20, -4.40, 1.45], // Zone 1 Desk
-      [4.80, -4.40, 1.45],  // Zone 2 Research Desk
       [-5.20, 4.00, 1.45],  // Zone 4 Portfolio Desk
-      [5.60, 3.80, 1.40],   // Zone 3 Server Racks & Diagnostics
-      [7.15, -3.55, 1.85],  // Zone 2 Wheeled Research Paper Whiteboard
-      [7.70, 7.55, 1.25],  // Executive Restroom Cubicle (Flush against East wall)
+      [5.60, 3.80, 1.35],   // Zone 3 Server Racks & Diagnostics
       [-8.35, 7.40, 0.50],  // Biometric Fingerprint Attendance Pedestal (Flush against West wall)
     ];
 
@@ -2454,14 +2451,43 @@ class OfficeAnimationEngine {
     this._color = new THREE.Color();
   }
 
-  _avoidFurnitureObstacles(x, z, p) {
+  _avoidFurnitureObstacles(x, z, p, isRestroomTrip, av) {
     let rx = x;
     let rz = z;
     const arcPush = Math.sin(p * Math.PI);
-    // Safety steer: divert around Wheeled Research Whiteboard (x: 7.15, z: -3.55) into open aisle
-    if (rx > 5.75 && rz > -4.85 && rz < -2.35) {
-      rx = 5.70;
+
+    // 1. Zone 2 Solid Barrier: Research Desk + Wheeled Whiteboard + Gap (x: 3.50 to 8.55, z: -5.15 to -2.60)
+    // The gap between the desk (x: 3.6-6.0) and whiteboard (x: 5.9-8.5) is too small to pass through.
+    // Strictly impassable: avatars must NEVER squeeze through the gap or penetrate desk/whiteboard!
+    const isSittingAtChair = (av && av.workerId === 'worker_research' && Math.abs(x - 4.80) < 0.35 && Math.abs(z - (-3.35)) < 0.35);
+    if (!isSittingAtChair && rx > 3.50 && rx < 8.55 && rz > -5.15 && rz < -2.60) {
+      if (rz > -3.10 && rx > 5.50) {
+        rz = -2.55; // Divert South into open lounge
+      } else {
+        rx = 3.45; // Divert West into open center aisle
+      }
     }
+
+    // 2. Zone 1 Systems & Kernel Desk (x: [-6.40, -3.95], z: [-5.05, -3.75])
+    if (rx > -6.40 && rx < -3.95 && rz > -5.05 && rz < -3.75) {
+      rx = -3.85;
+    }
+
+    // 3. Zone 4 Portfolio Release Desk (x: [-6.40, -3.95], z: [3.35, 4.65])
+    if (rx > -6.40 && rx < -3.95 && rz > 3.35 && rz < 4.65) {
+      rx = -3.85;
+    }
+
+    // 4. Executive Restroom Cubicle (Toilet):
+    // Per user instruction: avatars can enter inside the toilet when visiting!
+    // If NOT visiting toilet, push away from cubicle outer walls.
+    if (!isRestroomTrip) {
+      if (rx > 6.85 && rx < 8.55 && rz > 6.50 && rz < 8.60) {
+        rx = 6.75;
+      }
+    }
+
+    // 5. Circular Furniture Obstacles (War-Room Table, Espresso Bar, Coffee Table, etc.)
     for (let iter = 0; iter < 2; iter++) {
       for (let k = 0; k < this.obstacles.length; k++) {
         const obs = this.obstacles[k];
@@ -2527,7 +2553,13 @@ class OfficeAnimationEngine {
           if (av.workerId === 'worker_release' && (meetZ < 3.8 || av.homePos[2] > 3.8)) {
             rawX += Math.sin(smoothP * Math.PI) * 1.5;
           }
-          const safePos = this._avoidFurnitureObstacles(rawX, rawZ, smoothP);
+          if ((av.homePos[0] > 3.5 || meetX > 3.5) &&
+              ((av.homePos[2] > -3.7 && meetZ < -5.0) || (av.homePos[2] < -5.0 && meetZ > -3.7))) {
+            rawX -= Math.sin(smoothP * Math.PI) * 2.5;
+            rawZ += Math.sin(smoothP * Math.PI) * 1.3;
+          }
+          const isRestroomTrip = (meetX > 6.8 && meetZ > 6.4) || (av.homePos[0] > 6.8 && av.homePos[2] > 6.4);
+          const safePos = this._avoidFurnitureObstacles(rawX, rawZ, smoothP, isRestroomTrip, av);
           targetX = safePos[0];
           targetZ = safePos[1];
           targetRotY = Math.atan2(meetX - av.homePos[0], meetZ - av.homePos[2]);
@@ -2554,7 +2586,13 @@ class OfficeAnimationEngine {
           if (av.workerId === 'worker_release' && (meetZ < 3.8 || av.homePos[2] > 3.8)) {
             rawX += Math.sin(smoothP * Math.PI) * 1.5;
           }
-          const safePos = this._avoidFurnitureObstacles(rawX, rawZ, smoothP);
+          if ((av.homePos[0] > 3.5 || meetX > 3.5) &&
+              ((av.homePos[2] > -3.7 && meetZ < -5.0) || (av.homePos[2] < -5.0 && meetZ > -3.7))) {
+            rawX -= Math.sin(smoothP * Math.PI) * 2.5;
+            rawZ += Math.sin(smoothP * Math.PI) * 1.3;
+          }
+          const isRestroomTrip = (meetX > 6.8 && meetZ > 6.4) || (av.homePos[0] > 6.8 && av.homePos[2] > 6.4);
+          const safePos = this._avoidFurnitureObstacles(rawX, rawZ, smoothP, isRestroomTrip, av);
           targetX = safePos[0];
           targetZ = safePos[1];
           targetRotY = Math.atan2(av.homePos[0] - meetX, av.homePos[2] - meetZ);
@@ -2569,7 +2607,7 @@ class OfficeAnimationEngine {
       av.rootGroup.rotation.y = targetRotY;
 
       // Dynamic privacy blur / censor inside the restroom cubicle
-      const isCensored = (mode === 'restroom_censored');
+      const isCensored = (mode === 'restroom_censored') || (targetX > 6.9 && targetZ > 6.5);
       if (av._censoredState !== isCensored) {
         av._censoredState = isCensored;
         av.rootGroup.traverse((child) => {
@@ -3607,9 +3645,11 @@ class LabBossaAudioEngine {
     this.trackIndex = 1;
     this.currentSource = null;
     this.cachedBuffers = [];
-    this.isRendering = false;
+    this.renderPromises = {};
     this.unlocked = false;
     this.toastTimer = null;
+    this._lastToggleTime = 0;
+    this._lastTrackTime = 0;
 
     this.tracks = [
       {
@@ -3741,7 +3781,10 @@ class LabBossaAudioEngine {
 
   async _renderTrackBuffer(trackIdx) {
     if (this.cachedBuffers[trackIdx]) return this.cachedBuffers[trackIdx];
-    const track = this.tracks[trackIdx];
+    if (this.renderPromises[trackIdx]) return this.renderPromises[trackIdx];
+
+    const doRender = async () => {
+      const track = this.tracks[trackIdx];
     const sampleRate = (this.ctx && this.ctx.sampleRate) ? this.ctx.sampleRate : 44100;
     const totalBars = track.chords.length;
     const totalSteps = totalBars * 16;
@@ -3891,8 +3934,13 @@ class LabBossaAudioEngine {
       }
     }
 
-    this.cachedBuffers[trackIdx] = finalBuffer;
-    return finalBuffer;
+      this.cachedBuffers[trackIdx] = finalBuffer;
+      delete this.renderPromises[trackIdx];
+      return finalBuffer;
+    };
+
+    this.renderPromises[trackIdx] = doRender();
+    return this.renderPromises[trackIdx];
   }
 
   _renderPiano(ctx, dryGain, reverbGain, midi, when, durationSec, volume, isRhodes) {
@@ -4004,13 +4052,10 @@ class LabBossaAudioEngine {
     if (!this.isPlaying || !this.ctx) return;
     let buf = this.cachedBuffers[this.trackIndex];
     if (!buf) {
-      if (this.isRendering) return;
-      this.isRendering = true;
       try {
         buf = await this._renderTrackBuffer(this.trackIndex);
-      } catch (_) {}
-      finally {
-        this.isRendering = false;
+      } catch (err) {
+        console.warn('Audio buffer render failed:', err);
       }
       if (!this.isPlaying || !buf) return;
     }
@@ -4116,6 +4161,9 @@ class LabBossaAudioEngine {
   _bindUi() {
     if (this.toggleBtnEl) {
       const handleToggle = (e) => {
+        const now = Date.now();
+        if (now - this._lastToggleTime < 320) return;
+        this._lastToggleTime = now;
         e.stopPropagation();
         this._unlockContext();
         this.toggle();
@@ -4125,6 +4173,9 @@ class LabBossaAudioEngine {
     }
     if (this.trackBtnEl) {
       const handleTrack = (e) => {
+        const now = Date.now();
+        if (now - this._lastTrackTime < 320) return;
+        this._lastTrackTime = now;
         e.stopPropagation();
         this._unlockContext();
         this.nextTrack();
@@ -4848,6 +4899,7 @@ class LabBossaAudioEngine {
         zoneCount: Object.keys(spatialZones).length,
         selectZone: (zId) => hudCtrl.selectZone(zId),
         audioEngine,
+        animEngine,
       };
 
       function animate() {
