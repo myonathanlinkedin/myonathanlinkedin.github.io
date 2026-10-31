@@ -100,26 +100,26 @@
     #hud-top-container.collapsed { display: none !important; }
     #btn-restore-topbar.visible { display: inline-flex !important; }
 
-    /* Top-Right Floating Cinematic Toggle: Show / Hide All Panels */
-    #btn-toggle-all-panels {
+    /* Floating Restore Button: Only visible when all panels are hidden (Cinematic 3D View) */
+    #btn-restore-all-panels {
+      display: none;
       position: fixed;
       top: 10px;
       right: 14px;
       z-index: 1000;
       pointer-events: auto;
-      display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
-      padding: 0 13px;
+      padding: 0 14px;
       height: 32px;
       border-radius: 999px;
       font-family: var(--font-mono);
       font-size: 0.72rem;
       font-weight: 700;
-      color: #f1f5f9;
-      background: rgba(15, 23, 42, 0.90);
-      border: 1px solid rgba(148, 163, 184, 0.40);
+      color: #34d399;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(52, 211, 153, 0.65);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.40);
@@ -127,18 +127,15 @@
       user-select: none;
       transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    #btn-toggle-all-panels:hover {
+    #btn-restore-all-panels:hover {
       background: rgba(30, 41, 59, 0.98);
       border-color: #38bdf8;
       color: #38bdf8;
       box-shadow: 0 0 14px rgba(56, 189, 248, 0.45);
       transform: scale(1.03);
     }
-    #btn-toggle-all-panels.panels-hidden {
-      border-color: #34d399;
-      color: #34d399;
-      background: rgba(6, 78, 59, 0.92);
-      box-shadow: 0 0 18px rgba(52, 211, 153, 0.50);
+    body.all-panels-hidden #btn-restore-all-panels {
+      display: inline-flex !important;
     }
     body.all-panels-hidden #hud-top-container,
     body.all-panels-hidden #hud-left,
@@ -533,13 +530,12 @@
     @media (max-width: 900px) {
       #hud-top-container {
         top: 6px; left: 8px; right: 8px; gap: 5px;
-        padding-right: 96px;
       }
       #hud-top-ticker {
         padding: 4px 10px; font-size: 0.62rem; border-radius: 999px;
         width: 100%; max-width: none;
         white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-        display: inline-flex; align-items: center; justify-content: flex-start;
+        display: inline-flex; align-items: center; justify-content: center;
       }
       .mobile-hide-telemetry { display: none !important; }
       #hud-topbar {
@@ -576,11 +572,11 @@
       .speech-bubble { max-width: 170px; font-size: 0.61rem; padding: 4px 7px; cursor: pointer; }
       .bubble-activity { max-width: 68px; font-size: 0.53rem; }
       .bubble-toggle-btn { padding: 1px 4px; font-size: 0.53rem; }
-      #btn-toggle-all-panels {
+      #btn-restore-all-panels {
         top: 6px;
         right: 8px;
         height: 28px;
-        padding: 0 9px;
+        padding: 0 10px;
         font-size: 0.65rem;
         gap: 4px;
       }
@@ -600,10 +596,9 @@
   <canvas id="office-canvas" aria-label="3D Autonomous Virtual Office Diorama"></canvas>
   <div id="worker-bubbles" aria-live="polite"></div>
 
-  <!-- Top-Right Floating Cinematic Toggle: Show / Hide All Panels -->
-  <button type="button" id="btn-toggle-all-panels" class="glass-panel" title="Hide All (Cinematic 3D View)" aria-label="Show or Hide All">
-    <span id="btn-all-panels-icon">✕</span>
-    <span id="btn-all-panels-text">Hide All</span>
+  <!-- Floating Restore Button: Only visible when all panels are hidden (Cinematic 3D View) -->
+  <button type="button" id="btn-restore-all-panels" class="glass-panel" title="Show All HUD Panels" aria-label="Show All Panels">
+    <span>👁️</span> <span>Show HUD</span>
   </button>
 
   <!-- 7.1 Top HUD Container (Mirrors 7.2 Bottom HUD Architecture) -->
@@ -654,7 +649,7 @@
       </a>
       <button type="button" id="btn-fullscreen" class="top-btn" title="Toggle Fullscreen">⛶</button>
       <button type="button" id="btn-help-office" class="top-btn" title="Visitor Guide">❓ <span class="btn-text-full">Guide</span></button>
-      <button type="button" id="btn-hide-topbar" class="top-btn" title="Hide Top HUD">✕ Hide</button>
+      <button type="button" id="btn-toggle-all-panels" class="top-btn" title="Hide All Panels (Cinematic 3D View)">✕ <span class="btn-text-full">Hide All</span><span class="btn-text-short">Hide</span></button>
     </nav>
   </div>
 
@@ -1059,21 +1054,21 @@ function buildFloorGridTexture(isLight = true, showRugs = true) {
 
   if (showRugs) {
     if (isLight) {
-      drawZoneRug(-5.2, -4.0, 5.0, 4.2, 'rgba(224, 242, 254, 0.90)', 'rgba(2, 132, 199, 0.60)', 'SYSTEMS ARCHITECTURE', -5.2, -2.05);
-      drawZoneRug(5.0, -4.0, 5.2, 4.2, 'rgba(243, 232, 255, 0.90)', 'rgba(147, 51, 234, 0.55)', 'RESEARCH PAPER WING', 5.0, -2.05);
-      drawZoneRug(5.2, 3.8, 5.0, 4.4, 'rgba(209, 250, 229, 0.90)', 'rgba(5, 150, 105, 0.60)', 'QUALITY & COMPLEXITY', 4.8, 5.80);
-      drawZoneRug(-5.2, 4.2, 5.0, 4.2, 'rgba(254, 243, 199, 0.90)', 'rgba(217, 119, 6, 0.60)', 'PUBLIC PORTFOLIO HUB', -5.2, 6.15);
-      drawZoneRug(0.0, 2.2, 4.4, 3.6, 'rgba(252, 231, 243, 0.88)', 'rgba(219, 39, 119, 0.52)', 'LOUNGE & WAR ROOM', 0.0, 3.85);
-      drawZoneRug(-0.2, -6.1, 4.4, 4.4, 'rgba(254, 226, 226, 0.85)', 'rgba(225, 29, 72, 0.50)', 'KITCHEN, SINK & COFFEE BAR', -0.2, -4.05);
-      drawZoneRug(-6.9, -0.15, 2.4, 3.1, 'rgba(254, 249, 195, 0.88)', 'rgba(202, 138, 4, 0.55)', ['SNACK', 'CANTEEN'], -6.35, 0.35);
+      drawZoneRug(-5.2, -4.0, 5.0, 4.2, 'rgba(224, 242, 254, 0.22)', 'rgba(2, 132, 199, 0.50)', 'SYSTEMS ARCHITECTURE', -5.2, -2.05);
+      drawZoneRug(5.0, -4.0, 5.2, 4.2, 'rgba(243, 232, 255, 0.22)', 'rgba(147, 51, 234, 0.48)', 'RESEARCH PAPER WING', 5.0, -2.05);
+      drawZoneRug(5.2, 3.8, 5.0, 4.4, 'rgba(209, 250, 229, 0.22)', 'rgba(5, 150, 105, 0.50)', 'QUALITY & COMPLEXITY', 4.8, 5.80);
+      drawZoneRug(-5.2, 4.2, 5.0, 4.2, 'rgba(254, 243, 199, 0.22)', 'rgba(217, 119, 6, 0.50)', 'PUBLIC PORTFOLIO HUB', -5.2, 6.15);
+      drawZoneRug(0.0, 2.2, 4.4, 3.6, 'rgba(252, 231, 243, 0.20)', 'rgba(219, 39, 119, 0.45)', 'LOUNGE & WAR ROOM', 0.0, 3.85);
+      drawZoneRug(-0.2, -6.1, 4.4, 4.4, 'rgba(254, 226, 226, 0.18)', 'rgba(225, 29, 72, 0.42)', 'KITCHEN, SINK & COFFEE BAR', -0.2, -4.05);
+      drawZoneRug(-6.9, -0.15, 2.4, 3.1, 'rgba(254, 249, 195, 0.18)', 'rgba(202, 138, 4, 0.45)', ['SNACK', 'CANTEEN'], -6.35, 0.35);
     } else {
-      drawZoneRug(-5.2, -4.0, 5.0, 4.2, 'rgba(14, 116, 144, 0.28)', 'rgba(56, 189, 248, 0.50)', 'SYSTEMS ARCHITECTURE', -5.2, -2.05);
-      drawZoneRug(5.0, -4.0, 5.2, 4.2, 'rgba(107, 33, 168, 0.26)', 'rgba(192, 132, 252, 0.50)', 'RESEARCH PAPER WING', 5.0, -2.05);
-      drawZoneRug(5.2, 3.8, 5.0, 4.4, 'rgba(6, 95, 70, 0.28)', 'rgba(52, 211, 153, 0.50)', 'QUALITY & COMPLEXITY', 4.8, 5.80);
-      drawZoneRug(-5.2, 4.2, 5.0, 4.2, 'rgba(146, 64, 14, 0.24)', 'rgba(251, 191, 36, 0.48)', 'PUBLIC PORTFOLIO HUB', -5.2, 6.15);
-      drawZoneRug(0.0, 2.2, 4.4, 3.6, 'rgba(21, 94, 67, 0.28)', 'rgba(244, 114, 182, 0.42)', 'LOUNGE & WAR ROOM', 0.0, 3.85);
-      drawZoneRug(-0.2, -6.1, 4.4, 4.4, 'rgba(136, 19, 55, 0.25)', 'rgba(251, 113, 133, 0.45)', 'KITCHEN, SINK & COFFEE BAR', -0.2, -4.05);
-      drawZoneRug(-6.9, -0.15, 2.4, 3.1, 'rgba(133, 77, 14, 0.25)', 'rgba(250, 204, 21, 0.45)', ['SNACK', 'CANTEEN'], -6.35, 0.35);
+      drawZoneRug(-5.2, -4.0, 5.0, 4.2, 'rgba(14, 116, 144, 0.16)', 'rgba(56, 189, 248, 0.45)', 'SYSTEMS ARCHITECTURE', -5.2, -2.05);
+      drawZoneRug(5.0, -4.0, 5.2, 4.2, 'rgba(107, 33, 168, 0.15)', 'rgba(192, 132, 252, 0.45)', 'RESEARCH PAPER WING', 5.0, -2.05);
+      drawZoneRug(5.2, 3.8, 5.0, 4.4, 'rgba(6, 95, 70, 0.16)', 'rgba(52, 211, 153, 0.45)', 'QUALITY & COMPLEXITY', 4.8, 5.80);
+      drawZoneRug(-5.2, 4.2, 5.0, 4.2, 'rgba(146, 64, 14, 0.15)', 'rgba(251, 191, 36, 0.42)', 'PUBLIC PORTFOLIO HUB', -5.2, 6.15);
+      drawZoneRug(0.0, 2.2, 4.4, 3.6, 'rgba(21, 94, 67, 0.16)', 'rgba(244, 114, 182, 0.38)', 'LOUNGE & WAR ROOM', 0.0, 3.85);
+      drawZoneRug(-0.2, -6.1, 4.4, 4.4, 'rgba(136, 19, 55, 0.15)', 'rgba(251, 113, 133, 0.40)', 'KITCHEN, SINK & COFFEE BAR', -0.2, -4.05);
+      drawZoneRug(-6.9, -0.15, 2.4, 3.1, 'rgba(133, 77, 14, 0.15)', 'rgba(250, 204, 21, 0.40)', ['SNACK', 'CANTEEN'], -6.35, 0.35);
     }
   }
 
@@ -1442,7 +1437,7 @@ class CutawayRoomBuilder {
     const makeZonePlate = (w, d, fill, stroke, title, isL) => {
       const cv = document.createElement('canvas'); cv.width = 512; cv.height = 512;
       const ctx = cv.getContext('2d');
-      ctx.fillStyle = fill; ctx.strokeStyle = stroke; ctx.lineWidth = 8;
+      ctx.fillStyle = fill; ctx.strokeStyle = stroke; ctx.lineWidth = 6;
       ctx.beginPath();
       if (ctx.roundRect) ctx.roundRect(16, 16, 480, 480, 24); else ctx.rect(16, 16, 480, 480);
       ctx.fill(); ctx.stroke();
@@ -1453,22 +1448,33 @@ class CutawayRoomBuilder {
       }
       const tex = new THREE.CanvasTexture(cv); tex.colorSpace = THREE.SRGBColorSpace;
       const g = new THREE.PlaneGeometry(w, d); g.rotateX(-Math.PI / 2);
-      const m = new THREE.MeshStandardMaterial({ map: tex, transparent: true, roughness: 0.38, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 });
+      const m = new THREE.MeshStandardMaterial({
+        map: tex,
+        transparent: true,
+        roughness: 0.38,
+        polygonOffset: true,
+        polygonOffsetFactor: -2,
+        polygonOffsetUnits: -2
+      });
       const p = new THREE.Mesh(g, m); p.receiveShadow = true;
       return p;
     };
-    // 1. Zone 6: Telescope Garden Terrace Box
-    const teleZone = makeZonePlate(5.2, 4.4, 'rgba(224, 242, 254, 0.88)', 'rgba(2, 132, 199, 0.65)', 'COSMIC OBSERVATORY & GARDEN DECK', isLight);
-    teleZone.position.set(3.8, 0.025, 11.75);
+    // 1. Zone 6: Telescope Garden Terrace Box (Elevated to Y=0.040 so it clears wood slats at Y=0.036 cleanly)
+    const teleFill = isLight ? 'rgba(224, 242, 254, 0.22)' : 'rgba(14, 116, 144, 0.18)';
+    const teleZone = makeZonePlate(5.2, 4.4, teleFill, 'rgba(2, 132, 199, 0.55)', 'COSMIC OBSERVATORY & GARDEN DECK', isLight);
+    teleZone.position.set(3.8, 0.040, 11.75);
     scene.add(teleZone);
-    // 2. Zone 7: Floor 2 God's Eye AI Command Deck Box
-    const godsZone = makeZonePlate(5.2, 3.8, 'rgba(224, 242, 254, 0.90)', 'rgba(2, 132, 199, 0.70)', "GOD'S EYE AI COMMAND DECK", isLight);
-    godsZone.position.set(-4.6, 2.375, 12.80);
+    // 2. Zone 7: Floor 2 God's Eye AI Command Deck Box (Y=2.385 clears slab at Y=2.37)
+    const godsFill = isLight ? 'rgba(224, 242, 254, 0.22)' : 'rgba(14, 116, 144, 0.18)';
+    const godsZone = makeZonePlate(5.2, 3.8, godsFill, 'rgba(2, 132, 199, 0.60)', "GOD'S EYE AI COMMAND DECK", isLight);
+    godsZone.position.set(-4.6, 2.385, 12.80);
     scene.add(godsZone);
-    // 3. Ground Hardware & GPU Server Bunker Box (under Floor 2)
-    const gndZone = makeZonePlate(5.2, 3.8, 'rgba(209, 250, 229, 0.88)', 'rgba(5, 150, 105, 0.60)', 'GROUND HARDWARE & GPU SERVER LAB', isLight);
-    gndZone.position.set(-4.6, 0.025, 12.80);
+    // 3. Ground Hardware & GPU Server Bunker Box (Y=0.030 clears bunker slab)
+    const gndFill = isLight ? 'rgba(209, 250, 229, 0.22)' : 'rgba(6, 95, 70, 0.18)';
+    const gndZone = makeZonePlate(5.2, 3.8, gndFill, 'rgba(5, 150, 105, 0.50)', 'GROUND HARDWARE & GPU SERVER LAB', isLight);
+    gndZone.position.set(-4.6, 0.030, 12.80);
     scene.add(gndZone);
+    const zonePlates = [teleZone, godsZone, gndZone];
 
     // Prominent 24/7 Autonomous Lab Wall Banner mounted inside the 3D office (-Z upper header)
     // Sized & positioned strictly beneath room ceiling coping (y=4.51 < 4.60) to prevent top overlap
@@ -1519,7 +1525,7 @@ class CutawayRoomBuilder {
     );
     scene.add(glassMesh);
 
-    return { floorMat, shellMesh };
+    return { floorMat, shellMesh, zonePlates };
   }
 }
 
@@ -1614,6 +1620,11 @@ class IsometricSceneEngine {
       this.roomHandles.floorMat.map = buildFloorGridTexture(this.isLightTheme, this.isFloorRugsVisible);
       this.roomHandles.floorMat.needsUpdate = true;
       if (oldMap) oldMap.dispose();
+    }
+    if (this.roomHandles && this.roomHandles.zonePlates) {
+      this.roomHandles.zonePlates.forEach((p) => {
+        p.visible = visible;
+      });
     }
   }
 
@@ -4267,9 +4278,6 @@ class OfficeRaycasterEngine {
       this.raycaster.setFromCamera(this.pointer, this.camera);
       const hits = this.raycaster.intersectObjects(this.hitProxies, false);
       if (hits.length > 0) {
-        if (typeof window.toggleAllOfficePanels === 'function' && document.body.classList.contains('all-panels-hidden')) {
-          window.toggleAllOfficePanels(false);
-        }
         const uData = hits[0].object.userData;
         if (uData && uData.isTelescope && this.onSelectTelescope) {
           this.onSelectTelescope();
@@ -5191,23 +5199,19 @@ class LabBossaAudioEngine {
         const btnToggle = document.getElementById('btn-toggle-panel');
 
         const btnToggleAll = document.getElementById('btn-toggle-all-panels');
-        const iconAll = document.getElementById('btn-all-panels-icon');
-        const textAll = document.getElementById('btn-all-panels-text');
+        const btnRestoreAll = document.getElementById('btn-restore-all-panels');
 
         let arePanelsHidden = false;
         const toggleAllPanels = (forceHidden = null) => {
           arePanelsHidden = (forceHidden !== null) ? Boolean(forceHidden) : !arePanelsHidden;
           document.body.classList.toggle('all-panels-hidden', arePanelsHidden);
-          if (btnToggleAll) {
-            btnToggleAll.classList.toggle('panels-hidden', arePanelsHidden);
-            btnToggleAll.title = arePanelsHidden ? 'Show All' : 'Hide All (Cinematic 3D View)';
-            if (iconAll) iconAll.textContent = arePanelsHidden ? '👁' : '✕';
-            if (textAll) textAll.textContent = arePanelsHidden ? 'Show All' : 'Hide All';
-          }
         };
 
         if (btnToggleAll) {
-          btnToggleAll.addEventListener('click', () => toggleAllPanels());
+          btnToggleAll.addEventListener('click', () => toggleAllPanels(true));
+        }
+        if (btnRestoreAll) {
+          btnRestoreAll.addEventListener('click', () => toggleAllPanels(false));
         }
 
         if (btnHideTopbar && topbarEl && btnRestoreTopbar) {
