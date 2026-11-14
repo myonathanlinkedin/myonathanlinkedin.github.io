@@ -2598,7 +2598,15 @@ const allModules = [{"topic": "Kildall s algorithm", "language": "Ruby", "catego
           const releaseDate = formatTanggalWIB(item.release_timestamp || item.timestamp || item.created_at || item.published_at || item.date || "");
           const formattedAbstract = (abstractTopic || "").replace(
             /(https?:\/\/[^\s<]+)/g,
-            url => `<a href="${url}" target="_blank" rel="noopener noreferrer" class="abstract-url">${url}</a>`
+            raw => {
+              let url = raw;
+              let trailing = "";
+              while (url.length > 0 && ".,;:)>".includes(url[url.length - 1])) {
+                trailing = url[url.length - 1] + trailing;
+                url = url.slice(0, -1);
+              }
+              return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="abstract-url">${url}</a>${trailing}`;
+            }
           );
 
           const fallbackBlock = `
