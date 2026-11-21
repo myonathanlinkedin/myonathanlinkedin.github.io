@@ -2,18 +2,18 @@
   "version": "2.0.0",
   "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
   "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
-  "last_synced": "2026-11-21T10:59:13.327624+00:00",
+  "last_synced": "2026-11-21T11:36:09.161044+00:00",
   "baselines": [
     {
       "id": "baseline_gundam_frame_v1",
       "faction": "hero_federation",
       "name": "RX-Type Advanced Movable Frame",
       "mesh_url": "models/baselines/baseline_gundam_frame_v1.glb",
-      "sha256_hash": "c073a5ad4932d33cbb9404d45f863aeea778606be4c32ad1ad12d0fd2a9a875f",
-      "file_size_bytes": 69140,
+      "sha256_hash": "e55e4c057e73d93af1c4983fe722d8047ab6327d5d13fb008ea9ebce52870cd9",
+      "file_size_bytes": 638752,
       "base_mass_kg": 24500,
       "base_reactor_kw": 3450,
-      "subsystem_count": 30,
+      "subsystem_count": 95,
       "hardpoints": [
         "HP-00",
         "HP-01",
@@ -49,11 +49,11 @@
       "faction": "antagonist_zeon_heavy",
       "name": "MS-Type Heavy Industrial Movable Frame",
       "mesh_url": "models/baselines/baseline_rival_heavy_frame_v1.glb",
-      "sha256_hash": "30f82aadd808f6cad904a152a22356cfa706c40fe307e0eb3fd8f798d6c6f6ee",
-      "file_size_bytes": 51676,
+      "sha256_hash": "c940a0da5dff6ebad4285119532d7d6a743d5abdd12c888b6fcadd1e9a3b8050",
+      "file_size_bytes": 310632,
       "base_mass_kg": 31200,
       "base_reactor_kw": 4200,
-      "subsystem_count": 22,
+      "subsystem_count": 47,
       "hardpoints": [
         "HP-00",
         "HP-01",
@@ -142,20 +142,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_a_aero.glb",
-          "sha256_hash": "16bd9f4d3795ac2ca30c40e8eb5cc686e17709498aff01fe95a86a7a09b989de",
-          "file_size_bytes": 11640,
+          "sha256_hash": "6c2ab86df75a1f6e85819e483ae49741a1048f3d374bc4656c4d34ec28a1d451",
+          "file_size_bytes": 56936,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -71.0,
-            128.0,
-            -35.0
+            -65.27533346505717,
+            120.0,
+            -49.96397584137993
           ],
           "max": [
-            71.0,
-            179.0,
-            -4.0
+            65.27533346505717,
+            186.0,
+            -9.984995484087623
           ]
         }
       },
@@ -248,20 +248,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_s_space.glb",
-          "sha256_hash": "be126fd55b717b33b774292026cd0d0f6af101467f3e8375f5d7dfe6d5bbbd3b",
-          "file_size_bytes": 21860,
+          "sha256_hash": "437fb657f76f3fd134f869507bb8575e8511929b9dbb1e6abf568300e6ce3f0d",
+          "file_size_bytes": 47768,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -31.2,
-            96.0,
-            -38.0
+            -34.57436329178668,
+            86.43500419292351,
+            -54.84987664342163
           ],
           "max": [
-            31.2,
-            166.0,
-            -4.0
+            34.57436329178668,
+            170.16988568582985,
+            -15.5
           ]
         }
       },
@@ -332,20 +332,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_h_artillery.glb",
-          "sha256_hash": "3ceb8647140790a69b4fbb738f025e7c7bcee35957920905e9533337765cd647",
-          "file_size_bytes": 18656,
+          "sha256_hash": "9f2038b9f420a1edc912fc25aaf2e9e062dab9c5b7377eb1f53cb4956aaaa92a",
+          "file_size_bytes": 47348,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -22.2,
-            0.0,
-            -33.0
+            -24.6,
+            5.098217822166853,
+            -40.0
           ],
           "max": [
-            22.2,
-            194.0,
-            18.5
+            24.6,
+            173.23694542624645,
+            66.59506131943664
           ]
         }
       },
@@ -416,20 +416,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_e_recon.glb",
-          "sha256_hash": "ce0c991b12d9681466086d89e7d45c9416901f6491468a38b1209238f2531fa1",
-          "file_size_bytes": 11064,
+          "sha256_hash": "153efe8e1efa88922ad4749c4deb2c8f569f8077aa11b002ab6a98d71e1627c4",
+          "file_size_bytes": 26292,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -24.0,
+            -26.5,
             137.0,
-            -42.0
+            -50.40911154280369
           ],
           "max": [
-            24.0,
-            193.0,
-            6.0
+            26.5,
+            186.97105405787667,
+            2.409111542803693
           ]
         }
       },
@@ -489,20 +489,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_c_cqc.glb",
-          "sha256_hash": "34e73674a63c2d1c4a9ec03c9dc9ecef040e2710d27bc97d981281ab36ef45e8",
-          "file_size_bytes": 12424,
+          "sha256_hash": "3096f14abc15ca42fb0d856594252a2d8654550558d7feddbcfdf55c6760802e",
+          "file_size_bytes": 23808,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -47.0,
-            74.0,
-            -12.0
+            -55.7,
+            68.25911008791483,
+            -23.5
           ],
           "max": [
             12.0,
             151.0,
-            26.5
+            67.9147835396958
           ]
         }
       },
@@ -515,6 +515,203 @@
         "operational_role": "Urban breaching with pneumatic pile-bunker stake.",
         "reactor_power_draw_kw": 320,
         "vernier_thrust_kgf": 12000
+      }
+    },
+    {
+      "part_id": "weapon_beam_rifle_rx",
+      "serial_number": "GXM-WPN-BRIF-06",
+      "name": "RX-78 Ver.Ka Long-Barrel Beam Rifle (E-Pac)",
+      "category": "weapon",
+      "faction_compatibility": "universal_cross_faction",
+      "compatible_hardpoints": [
+        "HP-11"
+      ],
+      "structural_specs": {
+        "mass_kg": 920,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -22.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "station_id": "HP-11",
+          "gender": "female_chassis_socket",
+          "relative_position": [
+            -38.0,
+            24.0,
+            4.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "asset_reference": {
+          "relative_url": "models/parts/weapon_beam_rifle_rx.glb",
+          "sha256_hash": "7e87c7d2529fd21584b64ae856cd6e6cbddaddb56503a52a7861827a9bdc20c6",
+          "file_size_bytes": 33116,
+          "compression": "meshopt"
+        },
+        "bounding_box_aabb_mm": {
+          "min": [
+            -12.0,
+            74.25,
+            -23.5
+          ],
+          "max": [
+            39.6,
+            151.0,
+            89.0
+          ]
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "High-output mega-particle beam rifle with gold optical sight & E-Pac.",
+        "reactor_power_draw_kw": 310,
+        "vernier_thrust_kgf": 0
+      }
+    },
+    {
+      "part_id": "armor_tower_shield_fed",
+      "serial_number": "GXM-ARM-SHLD-07",
+      "name": "Gundarium Hexagonal Federation Composite Shield",
+      "category": "armor",
+      "faction_compatibility": "universal_cross_faction",
+      "compatible_hardpoints": [
+        "HP-07"
+      ],
+      "structural_specs": {
+        "mass_kg": 2150,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -22.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "station_id": "HP-07",
+          "gender": "female_chassis_socket",
+          "relative_position": [
+            38.0,
+            24.0,
+            4.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "asset_reference": {
+          "relative_url": "models/parts/armor_tower_shield_fed.glb",
+          "sha256_hash": "aadeeb7a827c565db9239c8651a171f35c3180aa8700548d3bc3789767724575",
+          "file_size_bytes": 27356,
+          "compression": "meshopt"
+        },
+        "bounding_box_aabb_mm": {
+          "min": [
+            -53.06120888204838,
+            65.56405516590772,
+            -23.5
+          ],
+          "max": [
+            12.0,
+            151.0,
+            31.17300803364464
+          ]
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Multi-layered anti-beam Gundarium hexagonal shield with gold cross emblem.",
+        "reactor_power_draw_kw": 0,
+        "vernier_thrust_kgf": 0
+      }
+    },
+    {
+      "part_id": "propulsion_vernier_wing_pod",
+      "serial_number": "GXM-PRV-FINB-08",
+      "name": "Twin Wing-Binder Psycho-Fin Vernier Array",
+      "category": "propulsion",
+      "faction_compatibility": "universal_cross_faction",
+      "compatible_hardpoints": [
+        "HP-00",
+        "HP-03"
+      ],
+      "structural_specs": {
+        "mass_kg": 4950,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -22.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "station_id": "HP-00",
+          "gender": "male_dovetail_key",
+          "relative_position": [
+            0.0,
+            48.0,
+            -18.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        },
+        {
+          "station_id": "HP-03",
+          "gender": "female_chassis_socket",
+          "relative_position": [
+            34.0,
+            50.0,
+            0.0
+          ],
+          "clearance_tolerance_mm": 0.2
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "asset_reference": {
+          "relative_url": "models/parts/propulsion_vernier_wing_pod.glb",
+          "sha256_hash": "e08adf25aa1d1bed6d1a7e87a21390e5e1d167453385f7ee232e4e74dbe4b64f",
+          "file_size_bytes": 83052,
+          "compression": "meshopt"
+        },
+        "bounding_box_aabb_mm": {
+          "min": [
+            -53.614509236707754,
+            120.080151224826,
+            -45.54427522678554
+          ],
+          "max": [
+            53.614509236707754,
+            195.31240661815423,
+            -15.5
+          ]
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "6-unit asymmetric wing-binder vernier array for high-G AMBAC vector agility.",
+        "reactor_power_draw_kw": 920,
+        "vernier_thrust_kgf": 168000
       }
     }
   ]

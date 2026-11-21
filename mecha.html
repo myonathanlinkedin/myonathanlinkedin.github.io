@@ -6,8 +6,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>Gundam-Like Mecha Enthusiast | Autonomous 3D Engineering Hangar & Kinematic Simulator</title>
-  <meta name="description" content="Interactive 3D Mecha Engineering Hangar & Kinematic Simulation. Modular Movable Frame assembly, hot-swappable UHIS mission packs, and real-time AMBAC telemetry." />
+  <title>Gundam-Like Mecha Enthusiast | Autonomous 3D Engineering Hangar &amp; Kinematic Simulator</title>
+  <meta name="description" content="Interactive 3D Gundam-Like Mecha Engineering Hangar & Kinematic Simulator. Real-robot CC0 rigged PBR mecha units, animated combat poses, 26-station UHIS modular mission packs, Hologram/Blueprint shaders, and real-time AMBAC telemetry." />
   <link rel="canonical" href="https://myonathanlinkedin.github.io/mecha.html" />
   <link rel="icon" type="image/x-icon" href="https://myonathanlinkedin.github.io/favicon.ico" />
   <link rel="icon" type="image/png" sizes="48x48" href="https://myonathanlinkedin.github.io/assets/favicon-48x48.png" />
@@ -15,7 +15,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;700;800;900&display=swap" rel="stylesheet" />
 
   <script type="importmap">
   {
@@ -28,30 +28,26 @@
 
   <style>
     :root {
-      --bg-hangar: #030712;
-      --bg-panel: rgba(10, 16, 30, 0.75);
-      --border-panel: rgba(56, 189, 248, 0.22);
-      --accent-cyan: #00f5ff;
+      --bg-hangar: #040814;
+      --bg-panel: rgba(8, 13, 25, 0.80);
+      --border-panel: rgba(0, 229, 255, 0.24);
+      --accent-cyan: #00e5ff;
+      --accent-cyan-dim: rgba(0, 229, 255, 0.14);
       --accent-gold: #f59e0b;
       --accent-red: #ef4444;
       --accent-green: #10b981;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
+      --text-main: #f1f5f9;
+      --text-muted: #8b9bb4;
+      --font-display: 'Orbitron', monospace;
       --font-mono: 'Fira Code', monospace;
-      --font-sans: 'Inter', sans-serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
     }
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html, body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: radial-gradient(circle at 50% 30%, #08152e 0%, #030712 60%, #010308 100%);
+      width: 100%; height: 100%; overflow: hidden;
+      background: #040814;
       color: var(--text-main);
       font-family: var(--font-sans);
       user-select: none;
@@ -59,864 +55,1734 @@
     }
 
     #hangar-viewport {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      height: 100dvh;
-      overflow: hidden;
+      position: fixed; inset: 0; width: 100vw; height: 100vh; height: 100dvh; overflow: hidden;
     }
 
     #hangar-canvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      outline: none;
-      touch-action: none;
-      cursor: grab;
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      outline: none; touch-action: none; cursor: grab;
     }
     #hangar-canvas:active { cursor: grabbing; }
 
+    /* Sci-Fi Corner Reticles */
+    .corner-marker {
+      position: fixed; z-index: 15; width: 22px; height: 22px; opacity: 0.35; pointer-events: none;
+    }
+    .corner-marker::before, .corner-marker::after { content: ""; position: absolute; background: var(--accent-cyan); }
+    .corner-marker.tl { top: 8px; left: 8px; }
+    .corner-marker.tl::before { width: 22px; height: 1px; top: 0; left: 0; }
+    .corner-marker.tl::after { width: 1px; height: 22px; top: 0; left: 0; }
+    .corner-marker.tr { top: 8px; right: 8px; }
+    .corner-marker.tr::before { width: 22px; height: 1px; top: 0; right: 0; }
+    .corner-marker.tr::after { width: 1px; height: 22px; top: 0; right: 0; }
+    .corner-marker.bl { bottom: 8px; left: 8px; }
+    .corner-marker.bl::before { width: 22px; height: 1px; bottom: 0; left: 0; }
+    .corner-marker.bl::after { width: 1px; height: 22px; bottom: 0; left: 0; }
+    .corner-marker.br { bottom: 8px; right: 8px; }
+    .corner-marker.br::before { width: 22px; height: 1px; bottom: 0; right: 0; }
+    .corner-marker.br::after { width: 1px; height: 22px; bottom: 0; right: 0; }
+
     .glass-hud {
       background: var(--bg-panel);
-      backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      backdrop-filter: blur(18px) saturate(180%);
+      -webkit-backdrop-filter: blur(18px) saturate(180%);
       border: 1px solid var(--border-panel);
       border-radius: 12px;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.07);
       pointer-events: auto;
+      transition: transform 0.34s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease, width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Top Navigation HUD */
+    /* Hidden panel utility states for Show/Hide & Show/Hide All */
+    .hud-hidden-top-left { transform: translateY(-140%) !important; opacity: 0 !important; pointer-events: none !important; }
+    .hud-hidden-left { transform: translateX(calc(-100% - 32px)) !important; opacity: 0 !important; pointer-events: none !important; }
+    .hud-hidden-right { transform: translateX(calc(100% + 32px)) !important; opacity: 0 !important; pointer-events: none !important; }
+    .hud-hidden-bottom { transform: translate(-50%, 150%) !important; opacity: 0 !important; pointer-events: none !important; }
+
+    /* Top-Left Clean Navigation: Brand + 1 Main Page Link + 1 All-3D-Pages Dropdown */
     #nav-header {
       position: fixed;
-      top: 12px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 50;
+      top: 14px;
+      left: 16px;
+      z-index: 60;
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 8px 16px;
-      max-width: min(1200px, calc(100vw - 24px));
+      gap: 10px;
+      padding: 7px 12px;
+      max-width: calc(100vw - 440px);
       flex-wrap: wrap;
-      justify-content: center;
     }
 
     .brand-title {
-      font-family: var(--font-mono);
-      font-weight: 700;
-      font-size: 13px;
-      letter-spacing: 0.8px;
-      color: var(--accent-cyan);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 11.5px;
+      letter-spacing: 1.4px;
+      color: var(--text-main);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
+      white-space: nowrap;
     }
+    .brand-title span.accent { color: var(--accent-cyan); }
     .status-orb {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
+      width: 7px; height: 7px; border-radius: 50%;
       background: var(--accent-cyan);
       box-shadow: 0 0 10px var(--accent-cyan);
       animation: pulse-glow 2s infinite ease-in-out;
     }
     @keyframes pulse-glow {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.85); }
+      50% { opacity: 0.45; transform: scale(0.8); }
     }
 
-    .nav-links {
-      display: flex;
-      gap: 8px;
+    .nav-sep { width: 1px; height: 18px; background: rgba(255, 255, 255, 0.14); }
+
+    .nav-home-btn {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #e2e8f0;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 7px;
+      padding: 5px 10px;
+      display: inline-flex;
       align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+      transition: all 0.2s;
     }
+    .nav-home-btn:hover {
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+      background: rgba(0, 229, 255, 0.12);
+    }
+
     .nav-select {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 600;
       color: var(--accent-cyan);
-      background: rgba(15, 23, 42, 0.88);
-      border: 1px solid rgba(0, 245, 255, 0.45);
-      border-radius: 8px;
-      padding: 6px 14px;
+      background: rgba(10, 18, 36, 0.92);
+      border: 1px solid rgba(0, 229, 255, 0.38);
+      border-radius: 7px;
+      padding: 5px 10px;
       outline: none;
       cursor: pointer;
-      box-shadow: 0 0 12px rgba(0, 245, 255, 0.18);
-      transition: all 0.2s ease;
-      letter-spacing: 0.5px;
+      transition: all 0.2s;
     }
     .nav-select:hover, .nav-select:focus {
       border-color: var(--accent-cyan);
-      box-shadow: 0 0 18px rgba(0, 245, 255, 0.4);
-      background: rgba(15, 23, 42, 0.98);
+      box-shadow: 0 0 12px rgba(0, 229, 255, 0.3);
     }
-    .nav-select option {
-      background: #0b132b;
-      color: #f1f5f9;
-      padding: 8px;
-    }
+    .nav-select option { background: #091224; color: #f1f5f9; }
 
-    /* Left Drawer: Modular Catalog Inventory */
-    #left-drawer {
+    /* Persistent Top-Right Application Menu Visibility Bar (Show/Hide & Show/Hide All) */
+    #hud-vis-bar {
       position: fixed;
-      top: 76px;
-      left: 16px;
-      bottom: 76px;
-      width: 320px;
-      max-width: calc(100vw - 32px);
-      z-index: 40;
-      display: flex;
-      flex-direction: column;
-      padding: 14px;
-      gap: 12px;
-      transition: transform 0.3s ease;
-    }
-
-    .drawer-title {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--accent-cyan);
-      letter-spacing: 1px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 6px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .faction-switch {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px;
-    }
-    .faction-btn {
-      font-family: var(--font-mono);
-      font-size: 10.5px;
-      font-weight: 700;
-      padding: 7px 4px;
-      border-radius: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(0, 0, 0, 0.4);
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .faction-btn.active.hero {
-      background: rgba(0, 245, 255, 0.2);
-      border-color: var(--accent-cyan);
-      color: var(--accent-cyan);
-      box-shadow: 0 0 12px rgba(0, 245, 255, 0.25);
-    }
-    .faction-btn.active.rival {
-      background: rgba(239, 68, 68, 0.2);
-      border-color: var(--accent-red);
-      color: var(--accent-red);
-      box-shadow: 0 0 12px rgba(239, 68, 68, 0.25);
-    }
-
-    .items-scroll {
-      flex: 1;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      padding-right: 4px;
-    }
-    .items-scroll::-webkit-scrollbar { width: 4px; }
-    .items-scroll::-webkit-scrollbar-thumb { background: rgba(56, 189, 248, 0.3); border-radius: 4px; }
-
-    .part-card {
-      background: rgba(15, 23, 42, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 8px;
-      padding: 10px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .part-card:hover {
-      border-color: var(--accent-cyan);
-      background: rgba(0, 245, 255, 0.05);
-    }
-    .part-card.equipped {
-      border-color: var(--accent-green);
-      background: rgba(16, 185, 129, 0.1);
-    }
-
-    .part-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 4px;
-    }
-    .part-name {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-main);
-    }
-    .part-serial {
-      font-family: var(--font-mono);
-      font-size: 9.5px;
-      color: var(--text-muted);
-    }
-    .part-desc {
-      font-size: 10.5px;
-      color: var(--text-muted);
-      line-height: 1.4;
-      margin-bottom: 6px;
-    }
-    .part-badges {
-      display: flex;
-      gap: 4px;
-      flex-wrap: wrap;
-    }
-    .badge {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      padding: 2px 5px;
-      border-radius: 4px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--text-muted);
-    }
-    .badge.hp { color: var(--accent-gold); border-color: rgba(245, 158, 11, 0.3); }
-
-    /* Right Drawer: Telemetry HUD */
-    #right-drawer {
-      position: fixed;
-      top: 76px;
+      top: 14px;
       right: 16px;
-      bottom: 76px;
-      width: 290px;
-      max-width: calc(100vw - 32px);
-      z-index: 40;
+      z-index: 100;
       display: flex;
-      flex-direction: column;
-      padding: 14px;
-      gap: 12px;
-      transition: transform 0.3s ease;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 8px;
+      border-radius: 10px;
+      background: rgba(8, 13, 25, 0.84);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(0, 229, 255, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
     }
-
-    .telemetry-block {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .telemetry-row {
-      display: flex;
-      justify-content: space-between;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      padding: 4px 0;
-      border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
-    }
-    .telemetry-label { color: var(--text-muted); }
-    .telemetry-val { font-weight: 700; color: var(--accent-cyan); }
-    .telemetry-val.amber { color: var(--accent-gold); }
-    .telemetry-val.green { color: var(--accent-green); }
-
-    .ambac-badge {
-      padding: 6px 10px;
-      border-radius: 6px;
-      background: rgba(16, 185, 129, 0.12);
-      border: 1px solid var(--accent-green);
-      color: var(--accent-green);
+    .vis-pill {
       font-family: var(--font-mono);
       font-size: 10px;
+      font-weight: 600;
+      padding: 5px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+      transition: all 0.18s ease;
+    }
+    .vis-pill:hover {
+      color: var(--text-main);
+      border-color: rgba(0, 229, 255, 0.45);
+      background: rgba(0, 229, 255, 0.08);
+    }
+    .vis-pill.active {
+      color: var(--accent-cyan);
+      border-color: rgba(0, 229, 255, 0.6);
+      background: rgba(0, 229, 255, 0.15);
+    }
+    .vis-divider {
+      width: 1px; height: 18px; background: rgba(255, 255, 255, 0.15); margin: 0 2px;
+    }
+    .vis-master-btn {
+      font-family: var(--font-display);
+      font-size: 9.5px;
       font-weight: 700;
-      text-align: center;
       letter-spacing: 0.8px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(245, 158, 11, 0.55);
+      background: rgba(245, 158, 11, 0.16);
+      color: #fcd34d;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .vis-master-btn:hover {
+      background: rgba(245, 158, 11, 0.28);
+      box-shadow: 0 0 14px rgba(245, 158, 11, 0.35);
+    }
+    .vis-master-btn.all-hidden {
+      border-color: var(--accent-cyan);
+      background: rgba(0, 229, 255, 0.18);
+      color: var(--accent-cyan);
+      box-shadow: 0 0 18px rgba(0, 229, 255, 0.3);
+    }
+    #hud-vis-bar.compact-mode .vis-pill,
+    #hud-vis-bar.compact-mode .vis-divider { display: none; }
+
+    /* Left Drawer: Mobile Suit Roster + Algorithmic Reference Modular Parts Catalog */
+    #left-drawer {
+      position: fixed;
+      top: 66px;
+      left: 16px;
+      bottom: 70px;
+      width: 344px;
+      max-width: calc(100vw - 32px);
+      z-index: 40;
+      display: flex;
+      flex-direction: column;
+      padding: 12px;
+      gap: 8px;
+      overflow: hidden;
+    }
+    #left-drawer.expanded { width: 495px; }
+
+    .drawer-title {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      letter-spacing: 1.4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 5px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .title-actions { display: flex; align-items: center; gap: 4px; }
+    .icon-toggle-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-muted);
+      border-radius: 5px;
+      padding: 2px 7px;
+      font-size: 10.5px;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .icon-toggle-btn:hover {
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+      background: rgba(0, 229, 255, 0.12);
     }
 
-    /* Bottom Control Bar: Exploded View Slider & Actions */
+    /* Mobile Suit Unit Roster Grid */
+    .unit-roster {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5px;
+    }
+    .unit-btn {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      font-weight: 700;
+      padding: 6px 6px;
+      border-radius: 7px;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      background: rgba(0, 0, 0, 0.36);
+      color: var(--text-muted);
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      transition: all 0.18s;
+    }
+    .unit-btn .u-sub { font-size: 8px; font-weight: 500; opacity: 0.72; }
+    .unit-btn:hover { color: var(--text-main); border-color: rgba(0, 229, 255, 0.4); }
+    .unit-btn.active.hero {
+      background: rgba(0, 229, 255, 0.16);
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+      box-shadow: 0 0 12px rgba(0, 229, 255, 0.18);
+    }
+    .unit-btn.active.rival {
+      background: rgba(239, 68, 68, 0.18);
+      border-color: var(--accent-red);
+      color: #fca5a5;
+      box-shadow: 0 0 12px rgba(239, 68, 68, 0.22);
+    }
+    .unit-btn.active.cad {
+      background: rgba(245, 158, 11, 0.18);
+      border-color: var(--accent-gold);
+      color: #fcd34d;
+    }
+    .unit-btn.full-span { grid-column: span 2; flex-direction: row; justify-content: space-between; align-items: center; }
+
+    .section-divider-label {
+      font-family: var(--font-display);
+      font-size: 8.8px;
+      letter-spacing: 1.3px;
+      color: var(--text-muted);
+      margin-top: 2px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .parts-search-wrap { position: relative; display: flex; align-items: center; width: 100%; }
+    .parts-search-input {
+      width: 100%;
+      background: rgba(12, 20, 38, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 7px;
+      padding: 6px 24px 6px 9px;
+      font-size: 10.5px;
+      font-family: var(--font-sans);
+      color: var(--text-main);
+      outline: none;
+    }
+    .parts-search-input:focus { border-color: var(--accent-cyan); }
+    .search-clear-btn {
+      position: absolute; right: 6px; background: transparent; border: none;
+      color: var(--text-muted); cursor: pointer; font-size: 11px;
+    }
+
+    .category-chips-scroll { display: flex; gap: 4px; overflow-x: auto; padding-bottom: 2px; }
+    .category-chips-scroll::-webkit-scrollbar { height: 3px; }
+    .category-chips-scroll::-webkit-scrollbar-thumb { background: rgba(0, 229, 255, 0.3); border-radius: 3px; }
+    .cat-chip {
+      font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+      padding: 3px 7px; border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.35); color: var(--text-muted);
+      cursor: pointer; white-space: nowrap; transition: all 0.15s;
+    }
+    .cat-chip.active { background: var(--accent-cyan-dim); color: var(--accent-cyan); border-color: var(--accent-cyan); }
+
+    .filter-controls-row { display: flex; gap: 5px; }
+    .hud-dropdown {
+      flex: 1; font-family: var(--font-mono); font-size: 9.2px; font-weight: 600;
+      color: var(--text-muted); background: rgba(12, 20, 38, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 6px;
+      padding: 4px 6px; outline: none; cursor: pointer;
+    }
+    .hud-dropdown:focus { border-color: var(--accent-cyan); color: var(--text-main); }
+
+    .catalog-status-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: var(--font-mono); font-size: 9px; color: var(--text-muted);
+    }
+    .equipped-filter-btn {
+      font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+      color: var(--accent-green); background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 99px;
+      padding: 2px 7px; cursor: pointer;
+    }
+    .equipped-filter-btn.active { background: rgba(16, 185, 129, 0.32); border-color: var(--accent-green); }
+
+    .items-scroll {
+      flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; padding-right: 3px;
+    }
+    #left-drawer.expanded .items-scroll {
+      display: grid; grid-template-columns: 1fr 1fr; align-content: start; gap: 7px;
+    }
+    .items-scroll::-webkit-scrollbar { width: 4px; }
+    .items-scroll::-webkit-scrollbar-thumb { background: rgba(0, 229, 255, 0.25); border-radius: 4px; }
+
+    .part-card {
+      background: rgba(15, 23, 42, 0.58);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px; padding: 8px 9px; cursor: pointer;
+      transition: all 0.16s ease; display: flex; flex-direction: column; gap: 4px;
+    }
+    .part-card:hover { border-color: rgba(0, 229, 255, 0.45); background: rgba(15, 23, 42, 0.88); }
+    .part-card.equipped { border-color: var(--accent-green); background: rgba(16, 185, 129, 0.1); }
+    .part-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 6px; }
+    .part-name-group { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+    .part-name { font-size: 10.5px; font-weight: 700; color: var(--text-main); line-height: 1.25; }
+    .part-serial { font-family: var(--font-mono); font-size: 8.5px; color: var(--accent-gold); }
+    .equip-action-btn {
+      font-family: var(--font-mono); font-size: 8.8px; font-weight: 700;
+      padding: 3px 6px; border-radius: 5px;
+      border: 1px solid rgba(0, 229, 255, 0.35); background: rgba(0, 229, 255, 0.1);
+      color: var(--accent-cyan); cursor: pointer; white-space: nowrap; flex-shrink: 0;
+    }
+    .equip-action-btn.equipped { border-color: var(--accent-green); background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
+    .part-desc { font-size: 9.5px; color: var(--text-muted); line-height: 1.3; }
+    .part-specs-grid { display: flex; flex-wrap: wrap; gap: 4px; }
+    .spec-pill {
+      font-family: var(--font-mono); font-size: 8.4px; padding: 2px 5px;
+      border-radius: 4px; background: rgba(0, 0, 0, 0.38);
+      border: 1px solid rgba(255, 255, 255, 0.08); color: #cbd5e1;
+    }
+    .spec-pill.hp { color: var(--accent-cyan); border-color: rgba(0, 229, 255, 0.22); }
+
+    /* Right Side Stack: Telemetry Drawer + Scene Controls Panel */
+    #right-stack {
+      position: fixed;
+      top: 66px;
+      right: 16px;
+      bottom: 70px;
+      width: 300px;
+      max-width: calc(100vw - 32px);
+      z-index: 40;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      pointer-events: none;
+      overflow-y: auto;
+      padding-right: 2px;
+    }
+    #right-stack::-webkit-scrollbar { width: 3px; }
+    #right-stack::-webkit-scrollbar-thumb { background: rgba(0, 229, 255, 0.25); border-radius: 3px; }
+    #right-stack.stack-hidden { opacity: 0 !important; overflow: hidden !important; pointer-events: none !important; }
+
+    #right-drawer, #scene-panel { padding: 12px; display: flex; flex-direction: column; gap: 7px; }
+
+    .telemetry-block { display: flex; flex-direction: column; gap: 4px; }
+    .telemetry-row {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 10px; padding-bottom: 3px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .telemetry-label { color: var(--text-muted); font-family: var(--font-mono); font-size: 9px; }
+    .telemetry-val { font-family: var(--font-display); font-size: 10px; font-weight: 700; color: var(--text-main); text-align: right; }
+    .telemetry-val.amber { color: var(--accent-gold); }
+    .telemetry-val.green { color: var(--accent-green); }
+    .telemetry-val.cyan { color: var(--accent-cyan); }
+
+    .ambac-badge {
+      font-family: var(--font-mono); font-size: 9px; font-weight: 700; text-align: center;
+      padding: 4px 8px; border-radius: 6px;
+      background: rgba(16, 185, 129, 0.14); border: 1px solid rgba(16, 185, 129, 0.4); color: #6ee7b7;
+    }
+
+    .control-sublabel {
+      font-family: var(--font-display); font-size: 8.8px; letter-spacing: 1.4px;
+      color: var(--text-muted); text-transform: uppercase; margin-top: 2px;
+    }
+    .mode-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+    .mode-btn {
+      font-family: var(--font-mono); font-size: 9.2px; font-weight: 600;
+      padding: 5px 7px; border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted); cursor: pointer; display: flex; align-items: center; gap: 5px;
+      transition: all 0.18s;
+    }
+    .mode-btn:hover { color: var(--text-main); border-color: rgba(0, 229, 255, 0.4); }
+    .mode-btn.active {
+      background: var(--accent-cyan-dim); border-color: var(--accent-cyan);
+      color: var(--accent-cyan); box-shadow: 0 0 12px rgba(0, 229, 255, 0.16);
+    }
+
+    .anim-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+    .anim-btn {
+      font-family: var(--font-mono); font-size: 8.8px; font-weight: 600;
+      padding: 3px 7px; border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(0, 0, 0, 0.35);
+      color: var(--text-muted); cursor: pointer; transition: all 0.15s;
+    }
+    .anim-btn:hover { color: var(--text-main); border-color: rgba(0, 229, 255, 0.45); }
+    .anim-btn.active { background: rgba(245, 158, 11, 0.2); border-color: var(--accent-gold); color: #fcd34d; }
+
+    .planet-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
+    .planet-btn {
+      background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px; padding: 4px 2px; cursor: pointer;
+      display: flex; flex-direction: column; align-items: center; gap: 1px; transition: all 0.18s;
+    }
+    .planet-btn .p-icon { font-size: 12px; }
+    .planet-btn .p-name { font-family: var(--font-mono); font-size: 7.5px; color: var(--text-muted); text-transform: uppercase; }
+    .planet-btn.active { background: var(--accent-cyan-dim); border-color: var(--accent-cyan); }
+    .planet-btn.active .p-name { color: var(--accent-cyan); font-weight: 700; }
+
+    .toggle-row { display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: var(--text-muted); }
+    .switch-btn {
+      width: 32px; height: 17px; border-radius: 99px;
+      background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.18);
+      position: relative; cursor: pointer; transition: all 0.25s;
+    }
+    .switch-btn::after {
+      content: ""; position: absolute; top: 2px; left: 2px; width: 11px; height: 11px;
+      border-radius: 50%; background: var(--text-muted); transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .switch-btn.active { background: var(--accent-cyan-dim); border-color: var(--accent-cyan); }
+    .switch-btn.active::after { left: 17px; background: var(--accent-cyan); box-shadow: 0 0 8px var(--accent-cyan); }
+
+    /* Bottom Control Dock */
     #bottom-bar {
       position: fixed;
-      bottom: 16px;
+      bottom: 14px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 45;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 8px 18px;
-      max-width: min(720px, calc(100vw - 32px));
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .slider-group {
+      z-index: 50;
       display: flex;
       align-items: center;
       gap: 10px;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--text-muted);
+      padding: 7px 13px;
+      max-width: calc(100vw - 24px);
+      flex-wrap: wrap;
+      justify-content: center;
     }
-    .exploded-slider {
-      -webkit-appearance: none;
-      width: 140px;
-      height: 4px;
-      border-radius: 2px;
-      background: rgba(255, 255, 255, 0.2);
-      outline: none;
+    .slider-group {
+      display: flex; align-items: center; gap: 7px;
+      font-family: var(--font-mono); font-size: 9.8px; font-weight: 700; color: var(--accent-cyan);
     }
-    .exploded-slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--accent-cyan);
-      cursor: pointer;
-      box-shadow: 0 0 10px var(--accent-cyan);
-    }
-
+    .exploded-slider { width: 115px; accent-color: var(--accent-cyan); cursor: pointer; }
+    .cam-group { display: flex; align-items: center; gap: 4px; }
     .action-btn {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 600;
-      padding: 6px 12px;
-      border-radius: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--text-main);
-      cursor: pointer;
-      transition: all 0.2s;
+      font-family: var(--font-mono); font-size: 9.2px; font-weight: 700;
+      padding: 5px 8px; border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.14); background: rgba(15, 23, 42, 0.78);
+      color: var(--text-main); cursor: pointer; transition: all 0.18s; white-space: nowrap;
     }
-    .action-btn:hover {
-      border-color: var(--accent-cyan);
-      background: rgba(0, 245, 255, 0.15);
-      color: var(--accent-cyan);
-    }
+    .action-btn:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); background: rgba(0, 229, 255, 0.12); }
+    .action-btn.active { border-color: var(--accent-cyan); color: var(--accent-cyan); background: var(--accent-cyan-dim); }
 
     /* Loading Overlay */
     #loading-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      background: #030712;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
+      position: fixed; inset: 0; z-index: 200;
+      background: radial-gradient(circle at 50% 40%, #0a1833 0%, #030712 80%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
       transition: opacity 0.4s ease;
     }
     .spinner {
-      width: 42px;
-      height: 42px;
-      border: 3px solid rgba(0, 245, 255, 0.2);
-      border-top-color: var(--accent-cyan);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 3px solid rgba(0, 229, 255, 0.18); border-top-color: var(--accent-cyan);
+      animation: spin 0.9s linear infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-text {
+      font-family: var(--font-display); font-size: 11px; letter-spacing: 2.5px; color: var(--accent-cyan);
+    }
 
-    @media (max-width: 860px) {
-      #left-drawer { width: 260px; left: 8px; }
-      #right-drawer { display: none; }
+    /* Info Guide Modal & Toast (matching 3D Virtual Office UX) */
+    #guide-backdrop {
+      display: none; position: fixed; inset: 0; z-index: 180;
+      background: rgba(2, 6, 20, 0.72); backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      align-items: center; justify-content: center; padding: 16px;
+    }
+    #guide-backdrop.open { display: flex; }
+    #guide-modal {
+      width: min(680px, 96vw); max-height: 86vh; overflow-y: auto;
+      padding: 20px 22px; background: rgba(9, 15, 30, 0.96);
+      border: 1px solid rgba(0, 229, 255, 0.4); border-radius: 16px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.75), 0 0 32px rgba(0, 229, 255, 0.14);
+    }
+    .guide-header {
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(0, 229, 255, 0.22); padding-bottom: 12px; margin-bottom: 14px;
+    }
+    .guide-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 9px; margin: 12px 0 14px;
+    }
+    .guide-card {
+      background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(0, 229, 255, 0.18);
+      border-radius: 10px; padding: 10px 12px;
+    }
+    .guide-card h4 {
+      font-family: var(--font-display); font-size: 9.5px; color: var(--accent-cyan);
+      letter-spacing: 1px; margin-bottom: 4px;
+    }
+    .guide-card p { font-size: 10.8px; color: #cbd5e1; line-height: 1.48; }
+    .mecha-toast {
+      position: fixed; bottom: 72px; left: 50%; transform: translateX(-50%) translateY(12px);
+      z-index: 160; padding: 7px 14px; border-radius: 99px;
+      background: rgba(8, 14, 28, 0.92); border: 1px solid rgba(0, 229, 255, 0.45);
+      color: var(--accent-cyan); font-family: var(--font-mono); font-size: 10.5px; font-weight: 600;
+      opacity: 0; pointer-events: none; transition: all 0.25s ease; white-space: nowrap;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+    }
+    .mecha-toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    .nav-action-pill {
+      font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+      color: #e2e8f0; background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 7px;
+      padding: 5px 9px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+      white-space: nowrap; transition: all 0.18s;
+    }
+    .nav-action-pill:hover { color: var(--accent-cyan); border-color: var(--accent-cyan); background: rgba(0, 229, 255, 0.12); }
+    .nav-action-pill.playing { color: #34d399; border-color: rgba(52, 211, 153, 0.6); background: rgba(16, 185, 129, 0.16); }
+
+    @media (max-width: 960px) {
+      #nav-header { max-width: calc(100vw - 24px); }
+      #hud-vis-bar { top: auto; bottom: 70px; right: 12px; }
+      #left-drawer { width: min(320px, calc(100vw - 24px)); }
+      #right-stack { width: min(290px, calc(100vw - 24px)); }
+      .guide-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <!-- Hangar 3D WebGL Canvas Viewport -->
+  <!-- Sci-Fi Corner Reticles -->
+  <div class="corner-marker tl"></div>
+  <div class="corner-marker tr"></div>
+  <div class="corner-marker bl"></div>
+  <div class="corner-marker br"></div>
+
+  <!-- Loading Overlay -->
+  <div id="loading-overlay">
+    <div class="spinner"></div>
+    <div id="loading-label" class="loading-text">INITIALIZING 3D GUNDAM-LIKE HANGAR...</div>
+  </div>
+
+  <!-- 3D Viewport -->
   <div id="hangar-viewport">
     <canvas id="hangar-canvas"></canvas>
   </div>
 
-  <!-- Loading Screen -->
-  <div id="loading-overlay">
-    <div class="spinner"></div>
-    <div style="font-family: var(--font-mono); font-size: 13px; color: var(--accent-cyan); letter-spacing: 1px;">
-      INITIALIZING HANGAR DOCK &amp; LOADING CHASSIS ASSETS...
-    </div>
-  </div>
-
-  <!-- Top Navigation Header -->
+  <!-- Top-Left Clean Navigation: Brand + 1 Main Page Link + 1 All-3D-Pages Dropdown + Guide & Battle BGM -->
   <header id="nav-header" class="glass-hud">
     <div class="brand-title">
       <span class="status-orb"></span>
-      GUNDAM-LIKE MECHA ENTHUSIAST
+      <span>GUNDAM-LIKE <span class="accent">HANGAR</span></span>
     </div>
-    <div class="nav-links">
-      <select id="portfolio-navigator" class="nav-select" onchange="if(this.value){if(this.value.startsWith('http'))window.open(this.value,'_blank');else window.location.href=this.value;}">
-        <option value="" disabled>🌐 SYSTEMS PORTFOLIO NETWORK ▾</option>
-        <option value="index.html">⚡ Systems Engineering Lab Home</option>
-        <option value="constellation.html">🌌 3D Knowledge Universe</option>
-        <option value="office.html">🏢 3D Interactive Virtual Studio</option>
-        <option value="mecha.html" selected>🤖 Gundam-Like Mecha 3D Hangar (Active)</option>
-        <option value="https://economic-analysis-three.vercel.app/?lang=en">📊 Real-Time Macroeconomics Platform ↗</option>
-        <option value="https://github.com/myonathanlinkedin/mini-papers">📄 Systems Engineering Research Papers ↗</option>
-        <option value="https://github.com/myonathanlinkedin">🐙 GitHub Central Profile ↗</option>
-        <option value="https://linkedin.com/in/siyoyo">💼 LinkedIn Executive Profile ↗</option>
-      </select>
-    </div>
+    <span class="nav-sep"></span>
+    <a href="index.html" class="nav-home-btn" title="Return to Main Portfolio Page">🏠 Main Page</a>
+    <select id="nav-3d-pages" class="nav-select" aria-label="Switch 3D Interactive Pages" onchange="if(this.value){window.location.href=this.value;}">
+      <option value="" selected>🤖 3D Gundam-Like Hangar</option>
+      <option value="office.html">🏢 3D Virtual Office (24/7)</option>
+      <option value="constellation.html">🌌 3D Knowledge Constellation</option>
+    </select>
+    <span class="nav-sep"></span>
+    <button id="btn-open-guide" class="nav-action-pill" title="About this Autonomous Agentic Hangar">ℹ️ Guide</button>
+    <button id="btn-bgm-toggle" class="nav-action-pill" title="Toggle Mecha Battle Background Music">🔇 Battle BGM</button>
+    <button id="btn-bgm-track" class="nav-action-pill" title="Switch Mecha Battle Track">🎵 Track</button>
   </header>
 
-  <!-- Left Drawer: Modular Catalog Inventory -->
+  <!-- Autonomous Agentic Hangar Info Guide Modal -->
+  <div id="guide-backdrop" role="dialog" aria-modal="true" aria-label="Autonomous 3D Mecha Hangar Guide">
+    <div id="guide-modal">
+      <div class="guide-header">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:22px;">🤖</span>
+          <div>
+            <div style="font-family:var(--font-display);font-size:13px;font-weight:800;color:var(--accent-cyan);letter-spacing:1.2px;">
+              AUTONOMOUS AGENTIC 3D MECHA HANGAR
+            </div>
+            <div style="font-family:var(--font-mono);font-size:9.5px;color:var(--text-muted);margin-top:2px;">
+              ZERO HUMAN INTERVENTION • AUTOMATED CAD SYNTHESIS • 26-STATION UHIS KITBASHING
+            </div>
+          </div>
+        </div>
+        <button id="btn-close-guide" class="icon-toggle-btn" title="Close Guide">✕</button>
+      </div>
+
+      <p style="font-size:11.5px;color:#e2e8f0;line-height:1.6;">
+        Welcome to the <strong>Gundam-Like Mecha Engineering Hangar</strong> — an interactive 3D showcase powered by an <strong>autonomous agentic pipeline</strong>. Every modular mission pack, beam rifle, composite shield, vernier array, structural mass calculation, collision clearance check, and catalog manifest entry is synthesized, validated, cryptographically hashed (SHA-256), and deployed <strong>100% automatically by autonomous agents without manual human intervention</strong>.
+      </p>
+
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h4>⚡ 100% AGENTIC PARTS PIPELINE</h4>
+          <p>Autonomous engineering workers continuously design new weapons, armor modules, and propulsion pods, verify SAT bounding-box clearances, compute AMBAC thrust-to-weight physics, and register zero-duplicate parts directly into the live catalog.</p>
+        </div>
+        <div class="guide-card">
+          <h4>📍 UNIVERSAL 26-STATION HARDPOINTS</h4>
+          <p>All agentically generated parts conform to the 26-station UHIS dovetail &amp; 3.0mm pin standard, enabling instant cross-faction kitbashing across Hero (VANGUARD-07, SERAPH-03) and Rival (RONIN-04, ATLAS-09) mobile suits.</p>
+        </div>
+        <div class="guide-card">
+          <h4>🎮 INTERACTIVE CONTROLS &amp; SHADERS</h4>
+          <p>Drag to orbit, scroll to zoom, trigger baked combat animations (Sentinel, RifleBurst, ShieldGuard, WingDeploy, SwordSlash), or switch between Standard PBR, GLSL Hologram, X-Ray, Blueprint, and 5 planetary lighting setups.</p>
+        </div>
+        <div class="guide-card">
+          <h4>👁️ MENU SHOW/HIDE &amp; BATTLE BGM</h4>
+          <p>Use the top-right bar to individually show/hide any HUD menu, press <strong>H</strong> (or click <strong>HIDE ALL</strong>) for unobstructed cinema mode, and toggle synthesized Gundam-style orchestral battle music anytime.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid rgba(255,255,255,0.08);padding-top:12px;">
+        <span style="font-family:var(--font-mono);font-size:9.5px;color:var(--accent-green);">● AUTONOMOUS SYNTHESIS PIPELINE ACTIVE 24/7</span>
+        <button id="btn-dismiss-guide" class="action-btn active" style="padding:7px 16px;font-size:10.5px;">Got It — Enter Hangar</button>
+      </div>
+    </div>
+  </div>
+  <div id="mecha-toast" class="mecha-toast"></div>
+
+  <!-- Persistent Top-Right Application Menu Visibility Bar (Show/Hide & Show/Hide All) -->
+  <nav id="hud-vis-bar" aria-label="Menu Visibility Controls">
+    <button id="vis-left" class="vis-pill active" title="Show/Hide Modular Parts Catalog">◧ Parts</button>
+    <button id="vis-right" class="vis-pill active" title="Show/Hide Diagnostic Telemetry">◨ Specs</button>
+    <button id="vis-scene" class="vis-pill active" title="Show/Hide Render Modes &amp; Lighting">🎨 Scene</button>
+    <button id="vis-bottom" class="vis-pill active" title="Show/Hide Bottom Control Dock">▬ Dock</button>
+    <span class="vis-divider"></span>
+    <button id="btn-toggle-all-hud" class="vis-master-btn" title="Toggle All Menus (Hotkey: H)">👁️ HIDE ALL</button>
+  </nav>
+
+  <!-- Left Drawer: Mobile Suit Roster + Algorithmic Reference Modular Parts Catalog -->
   <aside id="left-drawer" class="glass-hud">
     <div class="drawer-title">
-      <span>MODULAR INVENTORY</span>
-      <span style="font-size: 10px; color: var(--text-muted);">UHIS 26-STATION</span>
+      <span>MECHA ROSTER &amp; PARTS</span>
+      <div class="title-actions">
+        <button id="btn-toggle-drawer-size" class="icon-toggle-btn" title="Expand / Compact Grid">⛶</button>
+        <button id="btn-hide-left" class="icon-toggle-btn" title="Hide Parts Catalog">✕</button>
+      </div>
     </div>
 
-    <!-- Faction Selector -->
-    <div class="faction-switch">
-      <button id="btn-hero" class="faction-btn active hero">HERO GUNDAM</button>
-      <button id="btn-rival" class="faction-btn rival">RIVAL ENEMY</button>
+    <!-- Real Rigged CC0 Mecha Units + Ver.Ka CAD Frame -->
+    <div id="unit-roster" class="unit-roster">
+      <button class="unit-btn active hero" data-unit="vanguard">
+        <span>⚔️ VANGUARD-07</span>
+        <span class="u-sub">Hero Gundam-Like • 18m</span>
+      </button>
+      <button class="unit-btn hero" data-unit="seraph">
+        <span>🪽 SERAPH-03</span>
+        <span class="u-sub">Winged Ace • Cannon Arm</span>
+      </button>
+      <button class="unit-btn rival" data-unit="ronin">
+        <span>👹 RONIN-04</span>
+        <span class="u-sub">Crimson Rival • Katana</span>
+      </button>
+      <button class="unit-btn rival" data-unit="atlas">
+        <span>🛡️ ATLAS-09</span>
+        <span class="u-sub">Olive Heavy Military</span>
+      </button>
+      <button class="unit-btn full-span cad" data-unit="cad_rx">
+        <span>⚙️ RX-78 CAD INNER FRAME (95-Node Exploded Lab)</span>
+        <span class="u-sub">PARAMETRIC CAD</span>
+      </button>
     </div>
 
-    <!-- Modular Parts Scroll List -->
-    <div id="parts-list" class="items-scroll">
-      <!-- Injected dynamically from catalog -->
+    <div class="section-divider-label">
+      <span>MODULAR UHIS PARTS CATALOG</span>
+      <span style="color: var(--accent-cyan);">26-STATION</span>
     </div>
+
+    <!-- Search -->
+    <div class="parts-search-wrap">
+      <input type="text" id="parts-search-input" class="parts-search-input" placeholder="🔍 Search parts, serial, HP station..." autocomplete="off" />
+      <button id="btn-clear-search" class="search-clear-btn" style="display: none;" title="Clear Search">✕</button>
+    </div>
+
+    <!-- Category Filter Chips -->
+    <div id="category-chips" class="category-chips-scroll">
+      <button class="cat-chip active" data-category="all">ALL (<span id="cat-count-all">0</span>)</button>
+      <button class="cat-chip" data-category="pack">PACKS (<span id="cat-count-packs">0</span>)</button>
+      <button class="cat-chip" data-category="weapon">WEAPONS (<span id="cat-count-weapons">0</span>)</button>
+      <button class="cat-chip" data-category="armor">ARMOR (<span id="cat-count-armor">0</span>)</button>
+      <button class="cat-chip" data-category="propulsion">VERNIERS (<span id="cat-count-propulsion">0</span>)</button>
+    </div>
+
+    <!-- Hardpoint Station & Sort Controls -->
+    <div class="filter-controls-row">
+      <select id="station-filter" class="hud-dropdown">
+        <option value="all">📍 All Hardpoints (26-Station)</option>
+        <option value="HP-00">HP-00 Dorsal Spine Hub</option>
+        <option value="HP-01">HP-01 Cranial Visor</option>
+        <option value="HP-03">HP-03 Clavicle Mount</option>
+        <option value="HP-07">HP-07 Forearm Shield</option>
+        <option value="HP-11">HP-11 Hand Weapon</option>
+        <option value="HP-13">HP-13 Hip Core</option>
+        <option value="HP-17">HP-17 Rear Skirt</option>
+      </select>
+      <select id="parts-sort" class="hud-dropdown" style="max-width: 108px;">
+        <option value="default">Sort: Default</option>
+        <option value="name_asc">Name A-Z</option>
+        <option value="mass_asc">Mass (Light)</option>
+        <option value="mass_desc">Mass (Heavy)</option>
+        <option value="thrust_desc">Thrust (Max)</option>
+      </select>
+    </div>
+
+    <!-- Status Bar + Equipped-Only Quick Filter -->
+    <div class="catalog-status-bar">
+      <span id="catalog-count-label">Showing 0 of 0 parts</span>
+      <button id="btn-equipped-only" class="equipped-filter-btn" title="Filter equipped parts">0 Equipped</button>
+    </div>
+
+    <!-- Scrollable / Grid Parts List -->
+    <div id="parts-list" class="items-scroll"></div>
   </aside>
 
-  <!-- Right Drawer: Live Telemetry HUD -->
-  <aside id="right-drawer" class="glass-hud">
-    <div class="drawer-title">
-      <span>DIAGNOSTIC TELEMETRY</span>
-      <span style="color: var(--accent-green); font-size: 10px;">● ONLINE</span>
-    </div>
+  <!-- Right Side Stack: Diagnostic Telemetry + Scene/Animation/Lighting Panel -->
+  <div id="right-stack">
+    <aside id="right-drawer" class="glass-hud">
+      <div class="drawer-title">
+        <span>DIAGNOSTIC TELEMETRY</span>
+        <div class="title-actions">
+          <span style="color: var(--accent-green); font-family: var(--font-mono); font-size: 9px; margin-right: 4px;">● LIVE</span>
+          <button id="btn-hide-right" class="icon-toggle-btn" title="Hide Telemetry">✕</button>
+        </div>
+      </div>
 
-    <div class="telemetry-block">
-      <div class="telemetry-row">
-        <span class="telemetry-label">CHASSIS CONFIG</span>
-        <span id="tel-chassis" class="telemetry-val">RX-Type Movable Frame</span>
+      <div class="telemetry-block">
+        <div class="telemetry-row">
+          <span class="telemetry-label">ACTIVE UNIT</span>
+          <span id="tel-chassis" class="telemetry-val cyan">VANGUARD-07</span>
+        </div>
+        <div class="telemetry-row">
+          <span class="telemetry-label">HEIGHT / SCALE</span>
+          <span id="tel-height" class="telemetry-val">18.0 m (Real-Scale)</span>
+        </div>
+        <div class="telemetry-row">
+          <span class="telemetry-label">TOTAL MASS</span>
+          <span id="tel-mass" class="telemetry-val">43,400 kg</span>
+        </div>
+        <div class="telemetry-row">
+          <span class="telemetry-label">REACTOR OUTPUT</span>
+          <span id="tel-reactor" class="telemetry-val amber">3,450 kW</span>
+        </div>
+        <div class="telemetry-row">
+          <span class="telemetry-label">THRUST FORCE</span>
+          <span id="tel-thrust" class="telemetry-val">55,500 kgf</span>
+        </div>
+        <div class="telemetry-row">
+          <span class="telemetry-label">VACUUM TWR</span>
+          <span id="tel-twr" class="telemetry-val amber">1.28 G</span>
+        </div>
+        <div class="telemetry-row">
+          <span class="telemetry-label">MOUNTED PACKS</span>
+          <span id="tel-equipped-count" class="telemetry-val green">0 active</span>
+        </div>
       </div>
-      <div class="telemetry-row">
-        <span class="telemetry-label">TOTAL DRY MASS</span>
-        <span id="tel-mass" class="telemetry-val">24,500 kg</span>
-      </div>
-      <div class="telemetry-row">
-        <span class="telemetry-label">REACTOR OUTPUT</span>
-        <span id="tel-reactor" class="telemetry-val amber">3,450 kW</span>
-      </div>
-      <div class="telemetry-row">
-        <span class="telemetry-label">THRUST FORCE</span>
-        <span id="tel-thrust" class="telemetry-val">0 kgf</span>
-      </div>
-      <div class="telemetry-row">
-        <span class="telemetry-label">TWR (VACUUM)</span>
-        <span id="tel-twr" class="telemetry-val amber">0.00 G</span>
-      </div>
-      <div class="telemetry-row">
-        <span class="telemetry-label">CENTER OF MASS</span>
-        <span id="tel-com" class="telemetry-val">[0.0, 48.0, -18.0]</span>
-      </div>
-      <div class="telemetry-row">
-        <span class="telemetry-label">EQUIPPED PACKS</span>
-        <span id="tel-equipped-count" class="telemetry-val green">0 active</span>
-      </div>
-    </div>
 
-    <div class="ambac-badge" id="tel-ambac">
-      AMBAC FLIGHT ENVELOPE: NOMINAL
-    </div>
+      <div class="ambac-badge" id="tel-ambac">AMBAC KINEMATIC ENVELOPE: NOMINAL</div>
 
-    <!-- Active Part Inspection Details -->
-    <div style="margin-top: 6px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.08);">
-      <div style="font-family: var(--font-mono); font-size: 10px; color: var(--accent-gold); margin-bottom: 4px;">
-        SELECTED INSPECTION NODE
+      <div style="padding-top: 5px; border-top: 1px solid rgba(255,255,255,0.07);">
+        <div style="font-family: var(--font-mono); font-size: 8.8px; color: var(--accent-gold); margin-bottom: 2px;">
+          UNIT ARCHITECTURE &amp; INSPECTOR
+        </div>
+        <div id="inspect-title" style="font-size: 10.8px; font-weight: 700;">VANGUARD-07 Classic Real-Robot</div>
+        <div id="inspect-body" style="font-size: 9.5px; color: var(--text-muted); line-height: 1.38; margin-top: 2px;">
+          18m satin white military real-robot with cobalt chest, crimson waist, gold V-fin, emerald optics, dual backpack verniers, beam rifle &amp; forearm shield (CC0 1.0 Public Domain Rigged PBR).
+        </div>
       </div>
-      <div id="inspect-title" style="font-size: 11.5px; font-weight: 700;">Double-Pivot Knee Linkage</div>
-      <div id="inspect-body" style="font-size: 10.5px; color: var(--text-muted); line-height: 1.4; margin-top: 4px;">
-        135° dual-axis hinge with synchronized 3-tier sliding femoral armor and chrome-plated slave hydraulic damper.
-      </div>
-    </div>
-  </aside>
+    </aside>
 
-  <!-- Bottom Control Bar -->
+    <!-- Scene, Animation & Lighting Controls Panel -->
+    <aside id="scene-panel" class="glass-hud">
+      <div class="drawer-title">
+        <span>ANIMATION, SHADER &amp; LIGHT</span>
+        <div class="title-actions">
+          <button id="btn-hide-scene" class="icon-toggle-btn" title="Hide Scene Controls">✕</button>
+        </div>
+      </div>
+
+      <div class="control-sublabel">Combat &amp; Kinetic Stance</div>
+      <div id="anim-chips" class="anim-chips"></div>
+
+      <div class="control-sublabel">Shader / Render Mode</div>
+      <div class="mode-grid">
+        <button class="mode-btn active" data-render-mode="standard">◆ Standard PBR</button>
+        <button class="mode-btn" data-render-mode="hologram">◇ Hologram</button>
+        <button class="mode-btn" data-render-mode="xray">▦ X-Ray Mesh</button>
+        <button class="mode-btn" data-render-mode="blueprint">📐 Blueprint</button>
+      </div>
+
+      <div class="control-sublabel">Environment Lighting</div>
+      <div id="planet-grid" class="planet-grid">
+        <button class="planet-btn active" data-env="hangar" title="Hangar Studio"><span class="p-icon">🏗️</span><span class="p-name">Hangar</span></button>
+        <button class="planet-btn" data-env="earth" title="Earth Orbit"><span class="p-icon">🌍</span><span class="p-name">Earth</span></button>
+        <button class="planet-btn" data-env="mars" title="Mars Dust"><span class="p-icon">🔴</span><span class="p-name">Mars</span></button>
+        <button class="planet-btn" data-env="lunar" title="Lunar Contrast"><span class="p-icon">🌑</span><span class="p-name">Lunar</span></button>
+        <button class="planet-btn" data-env="cyberpunk" title="Neo-Tokyo Neon"><span class="p-icon">🏙️</span><span class="p-name">Cyber</span></button>
+      </div>
+
+      <div class="toggle-row">
+        <span>Auto-Rotate Turntable</span>
+        <button id="btn-auto-rotate" class="switch-btn active" aria-label="Toggle Auto Rotate"></button>
+      </div>
+      <div class="toggle-row">
+        <span>Animation Playback</span>
+        <button id="btn-anim-play" class="switch-btn active" aria-label="Toggle Animation Playback"></button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Bottom Control Dock -->
   <footer id="bottom-bar" class="glass-hud">
     <div class="slider-group">
-      <span>EXPLODED VIEW</span>
+      <span>EXPLODED PACKS / CAD</span>
       <input type="range" id="slider-exploded" class="exploded-slider" min="0" max="100" value="0" />
-      <span id="lbl-exploded">0%</span>
+      <span id="lbl-exploded" style="min-width: 28px;">0%</span>
     </div>
-    <button id="btn-reset-view" class="action-btn">RESET CAMERA</button>
-    <button id="btn-wireframe" class="action-btn">WIREFRAME</button>
+    <div class="cam-group">
+      <button class="action-btn active" data-cam="heroic">3/4 HEROIC</button>
+      <button class="action-btn" data-cam="front">FRONT</button>
+      <button class="action-btn" data-cam="head">HEAD ZOOM</button>
+      <button class="action-btn" data-cam="dorsal">DORSAL</button>
+      <button id="btn-reset-view" class="action-btn" title="Auto-Fit Reset Camera">↺ FIT</button>
+      <button id="btn-hide-bottom" class="icon-toggle-btn" title="Hide Bottom Dock">✕</button>
+    </div>
   </footer>
 
-  <!-- Application Logic (Three.js WebGL Engine) -->
+  <!-- Three.js Studio WebGL Engine -->
   <script type="module">
     import * as THREE from 'three';
     import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
     import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+    import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+    import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+    import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+    import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 
-    // Application State
+    // =========================================================================
+    // 1. MECHA ROSTER REGISTRY (4 AAA CC0 1.0 RIGGED PBR UNITS + CAD LAB FRAME)
+    // =========================================================================
+    const UNIT_REGISTRY = {
+      vanguard: {
+        id: 'vanguard',
+        name: 'VANGUARD-07 Real-Robot',
+        faction: 'hero',
+        heightStr: '18.0 m (27.3k Tris)',
+        massKg: 43400,
+        reactorKw: 3450,
+        baseThrust: 55500,
+        glbUrl: 'assets/mecha/models/cc0/vanguard-07.glb',
+        isCC0: true,
+        defaultAnim: 'Sentinel',
+        desc: '18m satin white military real-robot with cobalt chest, crimson waist, gold V-fin, emerald optics, dual backpack verniers, beam rifle & forearm shield (CC0 1.0 Rigged PBR).'
+      },
+      seraph: {
+        id: 'seraph',
+        name: 'SERAPH-03 Winged Ace',
+        faction: 'hero',
+        heightStr: '20.0 m (30.8k Tris)',
+        massKg: 46800,
+        reactorKw: 4600,
+        baseThrust: 94000,
+        glbUrl: 'assets/mecha/models/cc0/seraph-03.glb',
+        isCC0: true,
+        defaultAnim: 'WingDeploy',
+        desc: 'Dark titanium winged high-mobility ace unit featuring articulated silver metal wings, amber sensors, and a heavy integrated right forearm cannon (CC0 1.0 Rigged PBR).'
+      },
+      ronin: {
+        id: 'ronin',
+        name: 'RONIN-04 Crimson Rival',
+        faction: 'rival',
+        heightStr: '16.5 m (31.5k Tris)',
+        massKg: 41200,
+        reactorKw: 4100,
+        baseThrust: 78000,
+        glbUrl: 'assets/mecha/models/cc0/ronin-04.glb',
+        isCC0: true,
+        defaultAnim: 'BladeSalute',
+        desc: 'Crimson lacquer samurai commander unit with aged-gold crescent helmet, layered combat skirt armor, tactical katana, and left pulse bracer (CC0 1.0 Rigged PBR).'
+      },
+      atlas: {
+        id: 'atlas',
+        name: 'ATLAS-09 Heavy Military',
+        faction: 'rival',
+        heightStr: '18.2 m (26.5k Tris)',
+        massKg: 54600,
+        reactorKw: 3900,
+        baseThrust: 64000,
+        glbUrl: 'assets/mecha/models/cc0/atlas-09.glb',
+        isCC0: true,
+        defaultAnim: 'Sentinel',
+        desc: 'Battle-worn 18m heavy military rival chassis clad in olive drab armor plating with high-torque hydraulic joints and close-quarters combat actuators (CC0 1.0 Rigged PBR).'
+      },
+      cad_rx: {
+        id: 'cad_rx',
+        name: 'RX-78 Ver.Ka CAD Frame',
+        faction: 'hero',
+        heightStr: '180.0 mm (95 CAD Nodes)',
+        massKg: 24500,
+        reactorKw: 3450,
+        baseThrust: 55500,
+        glbUrl: 'assets/mecha/models/baselines/baseline_gundam_frame_v1.glb',
+        isCC0: false,
+        defaultAnim: null,
+        desc: 'Parametric 95-node Master Grade Movable Frame compiled autonomously by our Python CAD engine for exploded assembly disassembly and ISO clearance inspection.'
+      }
+    };
+
     const state = {
       catalog: null,
-      activeFaction: 'hero', // 'hero' | 'rival'
-      activeBaselineId: 'baseline_gundam_frame_v1',
-      equippedPacks: new Map(), // part_id -> Object3D
-      wireframeMode: false,
+      activeUnitId: 'vanguard',
+      equippedPacks: new Map(),
+      renderMode: 'standard',
+      activeEnv: 'hangar',
       explodedFactor: 0.0,
+      autoRotate: true,
+      animPlaying: true,
       chassisModel: null,
-      chassisParts: []
+      mixer: null,
+      actions: new Map(),
+      activeAnimName: null,
+      chassisParts: [],
+      blueprintEdges: [],
+      searchQuery: '',
+      activeCategory: 'all',
+      activeStation: 'all',
+      activeSort: 'default',
+      equippedOnly: false,
+      isDrawerExpanded: false,
+      menus: {
+        left: true,
+        right: true,
+        scene: true,
+        bottom: true,
+        allHidden: false,
+        savedBeforeHideAll: null
+      }
     };
 
     // DOM Elements
     const canvas = document.getElementById('hangar-canvas');
     const loadingOverlay = document.getElementById('loading-overlay');
+    const loadingLabel = document.getElementById('loading-label');
+    const navHeader = document.getElementById('nav-header');
+    const hudVisBar = document.getElementById('hud-vis-bar');
+    const leftDrawer = document.getElementById('left-drawer');
+    const rightStack = document.getElementById('right-stack');
+    const rightDrawer = document.getElementById('right-drawer');
+    const scenePanel = document.getElementById('scene-panel');
+    const bottomBar = document.getElementById('bottom-bar');
+
+    const visLeftBtn = document.getElementById('vis-left');
+    const visRightBtn = document.getElementById('vis-right');
+    const visSceneBtn = document.getElementById('vis-scene');
+    const visBottomBtn = document.getElementById('vis-bottom');
+    const btnToggleAllHud = document.getElementById('btn-toggle-all-hud');
+
+    const animChips = document.getElementById('anim-chips');
     const partsList = document.getElementById('parts-list');
-    const btnHero = document.getElementById('btn-hero');
-    const btnRival = document.getElementById('btn-rival');
+    const partsSearchInput = document.getElementById('parts-search-input');
+    const btnClearSearch = document.getElementById('btn-clear-search');
+    const categoryChips = document.getElementById('category-chips');
+    const stationFilter = document.getElementById('station-filter');
+    const partsSort = document.getElementById('parts-sort');
+    const catalogCountLabel = document.getElementById('catalog-count-label');
+    const btnEquippedOnly = document.getElementById('btn-equipped-only');
     const sliderExploded = document.getElementById('slider-exploded');
     const lblExploded = document.getElementById('lbl-exploded');
-    const btnResetView = document.getElementById('btn-reset-view');
-    const btnWireframe = document.getElementById('btn-wireframe');
+    const btnAutoRotate = document.getElementById('btn-auto-rotate');
+    const btnAnimPlay = document.getElementById('btn-anim-play');
 
-    // Telemetry Elements
     const telChassis = document.getElementById('tel-chassis');
+    const telHeight = document.getElementById('tel-height');
     const telMass = document.getElementById('tel-mass');
     const telReactor = document.getElementById('tel-reactor');
     const telThrust = document.getElementById('tel-thrust');
     const telTwr = document.getElementById('tel-twr');
-    const telCom = document.getElementById('tel-com');
     const telEquippedCount = document.getElementById('tel-equipped-count');
     const inspectTitle = document.getElementById('inspect-title');
     const inspectBody = document.getElementById('inspect-body');
 
-    // Three.js Core Setup
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    // =========================================================================
+    // 2. APPLICATION MENU SHOW / HIDE & SHOW / HIDE ALL CONTROLLER
+    // =========================================================================
+    function syncMenuVisibility() {
+      const m = state.menus;
+      const showHeader = !m.allHidden;
+      const showLeft = !m.allHidden && m.left;
+      const showRight = !m.allHidden && m.right;
+      const showScene = !m.allHidden && m.scene;
+      const showBottom = !m.allHidden && m.bottom;
+
+      navHeader.classList.toggle('hud-hidden-top-left', !showHeader);
+      leftDrawer.classList.toggle('hud-hidden-left', !showLeft);
+      rightDrawer.classList.toggle('hud-hidden-right', !showRight);
+      scenePanel.classList.toggle('hud-hidden-right', !showScene);
+      rightStack.classList.toggle('stack-hidden', !showRight && !showScene);
+      bottomBar.classList.toggle('hud-hidden-bottom', !showBottom);
+
+      visLeftBtn.classList.toggle('active', showLeft);
+      visRightBtn.classList.toggle('active', showRight);
+      visSceneBtn.classList.toggle('active', showScene);
+      visBottomBtn.classList.toggle('active', showBottom);
+
+      hudVisBar.classList.toggle('compact-mode', m.allHidden);
+      btnToggleAllHud.classList.toggle('all-hidden', m.allHidden);
+      btnToggleAllHud.innerText = m.allHidden ? '👁️ SHOW ALL (H)' : '👁️ HIDE ALL';
+    }
+
+    function toggleSingleMenu(key) {
+      if (state.menus.allHidden) state.menus.allHidden = false;
+      state.menus[key] = !state.menus[key];
+      syncMenuVisibility();
+    }
+
+    function toggleAllMenus() {
+      if (!state.menus.allHidden) {
+        state.menus.savedBeforeHideAll = {
+          left: state.menus.left, right: state.menus.right, scene: state.menus.scene, bottom: state.menus.bottom
+        };
+        state.menus.allHidden = true;
+      } else {
+        state.menus.allHidden = false;
+        if (state.menus.savedBeforeHideAll) Object.assign(state.menus, state.menus.savedBeforeHideAll);
+        if (!state.menus.left && !state.menus.right && !state.menus.scene && !state.menus.bottom) {
+          state.menus.left = state.menus.right = state.menus.scene = state.menus.bottom = true;
+        }
+      }
+      syncMenuVisibility();
+    }
+
+    visLeftBtn.addEventListener('click', () => toggleSingleMenu('left'));
+    visRightBtn.addEventListener('click', () => toggleSingleMenu('right'));
+    visSceneBtn.addEventListener('click', () => toggleSingleMenu('scene'));
+    visBottomBtn.addEventListener('click', () => toggleSingleMenu('bottom'));
+    btnToggleAllHud.addEventListener('click', toggleAllMenus);
+    document.getElementById('btn-hide-left')?.addEventListener('click', () => { state.menus.left = false; syncMenuVisibility(); });
+    document.getElementById('btn-hide-right')?.addEventListener('click', () => { state.menus.right = false; syncMenuVisibility(); });
+    document.getElementById('btn-hide-scene')?.addEventListener('click', () => { state.menus.scene = false; syncMenuVisibility(); });
+    document.getElementById('btn-hide-bottom')?.addEventListener('click', () => { state.menus.bottom = false; syncMenuVisibility(); });
+
+    window.addEventListener('keydown', (e) => {
+      if (document.activeElement && ['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+      if (e.key === 'h' || e.key === 'H') toggleAllMenus();
+    });
+
+    if (window.innerWidth < 960) {
+      state.menus.left = false; state.menus.right = false; state.menus.scene = false;
+    }
+    syncMenuVisibility();
+
+    // =========================================================================
+    // 3. THREE.JS STUDIO RENDERER, PMREM ROOM ENVIRONMENT & CRISP BLOOM
+    // =========================================================================
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.05;
 
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x030712, 0.0035);
+    scene.background = new THREE.Color(0x060b16);
+    scene.fog = new THREE.FogExp2(0x060b16, 0.0012);
 
-    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1.0, 1200.0);
-    camera.position.set(0.0, 120.0, 260.0);
+    // Neutral Studio IBL Environment Map for crisp PBR metallic reflections (no washed-out white!)
+    const pmremGenerator = new THREE.PMREMGenerator(renderer);
+    scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 0.04).texture;
+    scene.environmentIntensity = 0.85;
+    pmremGenerator.dispose();
+
+    const camera = new THREE.PerspectiveCamera(38, window.innerWidth / window.innerHeight, 1.0, 2200.0);
+    camera.position.set(115, 110, 240);
 
     const controls = new OrbitControls(camera, canvas);
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
-    controls.target.set(0.0, 95.0, 0.0);
-    controls.maxPolarAngle = Math.PI / 2 + 0.05;
-    controls.minDistance = 30.0;
-    controls.maxDistance = 600.0;
+    controls.target.set(0, 92, 0);
+    controls.maxPolarAngle = Math.PI / 2 + 0.06;
+    controls.minDistance = 50;
+    controls.maxDistance = 620;
+    controls.autoRotate = state.autoRotate;
+    controls.autoRotateSpeed = 0.75;
 
-    // Hangar Lighting Rig (Sci-Fi High-Intensity Studio Lighting)
-    const ambientLight = new THREE.HemisphereLight(0xe0f2fe, 0x0f172a, 1.25);
-    scene.add(ambientLight);
+    // Crisp Controlled Post-Processing Bloom (High threshold = 1.45 so white armor NEVER blows out!)
+    let composer = null;
+    try {
+      composer = new EffectComposer(renderer);
+      composer.addPass(new RenderPass(scene, camera));
+      const bloomPass = new UnrealBloomPass(
+        new THREE.Vector2(window.innerWidth, window.innerHeight),
+        0.26, // subtle studio glow only on true emissives
+        0.30,
+        1.45  // strictly above 1.0 diffuse white!
+      );
+      composer.addPass(bloomPass);
+      composer.addPass(new OutputPass());
+    } catch (e) {
+      composer = null;
+    }
 
-    const keySpot = new THREE.SpotLight(0xffffff, 4.5, 700, Math.PI / 3.5, 0.4, 1.0);
-    keySpot.position.set(0.0, 240.0, 160.0);
-    keySpot.target.position.set(0.0, 95.0, 0.0);
-    keySpot.castShadow = true;
-    keySpot.shadow.bias = -0.0001;
-    scene.add(keySpot);
-    scene.add(keySpot.target);
+    // Studio & Planetary Lighting Rig (Balanced studio contrast!)
+    const hemiLight = new THREE.HemisphereLight(0xcfe8ff, 0x101828, 0.65);
+    scene.add(hemiLight);
 
-    // Front-Right Warm Amber Fill
-    const fillLight = new THREE.DirectionalLight(0xf59e0b, 1.6);
-    fillLight.position.set(150.0, 180.0, 120.0);
+    const keyLight = new THREE.DirectionalLight(0xffffff, 2.0);
+    keyLight.position.set(130, 240, 175);
+    keyLight.castShadow = true;
+    keyLight.shadow.mapSize.set(2048, 2048);
+    keyLight.shadow.camera.near = 20;
+    keyLight.shadow.camera.far = 700;
+    keyLight.shadow.camera.left = -160;
+    keyLight.shadow.camera.right = 160;
+    keyLight.shadow.camera.top = 240;
+    keyLight.shadow.camera.bottom = -40;
+    keyLight.shadow.bias = -0.0005;
+    scene.add(keyLight);
+
+    const fillLight = new THREE.DirectionalLight(0x7dd3fc, 0.85);
+    fillLight.position.set(-165, 130, 110);
     scene.add(fillLight);
 
-    // Back-Left Cyan Cool Rim
-    const rimLightCyan = new THREE.DirectionalLight(0x00f5ff, 2.6);
-    rimLightCyan.position.set(-160.0, 200.0, -140.0);
-    scene.add(rimLightCyan);
+    const rimLight = new THREE.DirectionalLight(0x38bdf8, 1.35);
+    rimLight.position.set(-100, 195, -180);
+    scene.add(rimLight);
 
-    // Back-Right White Silhouette
-    const rimLightWhite = new THREE.DirectionalLight(0xffffff, 1.8);
-    rimLightWhite.position.set(140.0, 220.0, -160.0);
-    scene.add(rimLightWhite);
+    const holoCoreLight = new THREE.PointLight(0x00e5ff, 0, 260);
+    holoCoreLight.position.set(0, 100, 45);
+    scene.add(holoCoreLight);
 
-    // Hangar Grid Floor
-    const gridHelper = new THREE.GridHelper(400, 40, 0x00f5ff, 0x1e293b);
-    gridHelper.position.y = 0.0;
-    scene.add(gridHelper);
+    // Hangar Pedestal Platform & Tactical Floor
+    const floorGroup = new THREE.Group();
+    scene.add(floorGroup);
 
-    // Contact Shadow / Floor Glow Ring
-    const floorGeo = new THREE.RingGeometry(8, 48, 32);
-    const floorMat = new THREE.MeshBasicMaterial({
-      color: 0x00f5ff,
+    const darkPad = new THREE.Mesh(
+      new THREE.CylinderGeometry(76, 84, 4.0, 64),
+      new THREE.MeshStandardMaterial({ color: 0x0b1222, roughness: 0.32, metalness: 0.72 })
+    );
+    darkPad.position.y = -2.0;
+    darkPad.receiveShadow = true;
+    floorGroup.add(darkPad);
+
+    const glowRingOuter = new THREE.Mesh(
+      new THREE.RingGeometry(71, 73.2, 64),
+      new THREE.MeshBasicMaterial({ color: 0x00e5ff, side: THREE.DoubleSide, transparent: true, opacity: 0.55 })
+    );
+    glowRingOuter.rotation.x = -Math.PI / 2;
+    glowRingOuter.position.y = 0.08;
+    floorGroup.add(glowRingOuter);
+
+    const glowRingInner = new THREE.Mesh(
+      new THREE.RingGeometry(46, 47.0, 64),
+      new THREE.MeshBasicMaterial({ color: 0xf59e0b, side: THREE.DoubleSide, transparent: true, opacity: 0.35 })
+    );
+    glowRingInner.rotation.x = -Math.PI / 2;
+    glowRingInner.position.y = 0.08;
+    floorGroup.add(glowRingInner);
+
+    const gridHelper = new THREE.GridHelper(540, 44, 0x0ea5e9, 0x132038);
+    gridHelper.position.y = -0.05;
+    gridHelper.material.transparent = true;
+    gridHelper.material.opacity = 0.28;
+    floorGroup.add(gridHelper);
+
+    // Starfield Backdrop
+    const starPositions = new Float32Array(1800 * 3);
+    for (let i = 0; i < 1800; i++) {
+      const r = 450 + Math.random() * 680;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos(2 * Math.random() - 1);
+      starPositions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+      starPositions[i * 3 + 1] = Math.abs(r * Math.cos(phi)) + 15;
+      starPositions[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta);
+    }
+    const starGeo = new THREE.BufferGeometry();
+    starGeo.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+    const starField = new THREE.Points(
+      starGeo,
+      new THREE.PointsMaterial({ color: 0xe2e8f0, size: 1.7, transparent: true, opacity: 0.38 })
+    );
+    scene.add(starField);
+
+    // Cyberpunk Neon Accents
+    const cyberGroup = new THREE.Group();
+    cyberGroup.visible = false;
+    const neonTorus = new THREE.Mesh(
+      new THREE.TorusGeometry(42, 1.5, 16, 64),
+      new THREE.MeshBasicMaterial({ color: 0xff007f })
+    );
+    neonTorus.position.set(-125, 125, -110);
+    cyberGroup.add(neonTorus);
+    const neonPillar = new THREE.Mesh(
+      new THREE.CylinderGeometry(1.5, 1.5, 130, 16),
+      new THREE.MeshBasicMaterial({ color: 0x00e5ff })
+    );
+    neonPillar.position.set(130, 115, -90);
+    cyberGroup.add(neonPillar);
+    scene.add(cyberGroup);
+
+    // =========================================================================
+    // 4. CUSTOM GLSL FRESNEL HOLOGRAM SHADER (mecha-3d-showcase architecture)
+    // =========================================================================
+    const hologramMaterial = new THREE.ShaderMaterial({
       transparent: true,
-      opacity: 0.12,
-      side: THREE.DoubleSide
+      side: THREE.DoubleSide,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+      uniforms: {
+        uTime: { value: 0 },
+        uColor: { value: new THREE.Color('#00e5ff') },
+        uAlpha: { value: 0.75 }
+      },
+      vertexShader: `
+        varying vec3 vNormal;
+        varying vec3 vViewDir;
+        varying float vWorldY;
+        void main() {
+          vNormal = normalize(normalMatrix * normal);
+          vec4 worldPos = modelMatrix * vec4(position, 1.0);
+          vWorldY = worldPos.y;
+          vec4 mvPos = modelViewMatrix * vec4(position, 1.0);
+          vViewDir = normalize(-mvPos.xyz);
+          gl_Position = projectionMatrix * mvPos;
+        }
+      `,
+      fragmentShader: `
+        uniform float uTime;
+        uniform vec3 uColor;
+        uniform float uAlpha;
+        varying vec3 vNormal;
+        varying vec3 vViewDir;
+        varying float vWorldY;
+        float rand(vec2 st) { return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123); }
+        void main() {
+          float fresnel = pow(1.0 - abs(dot(vNormal, vViewDir)), 2.5);
+          float scanLine = smoothstep(0.3, 0.7, sin(vWorldY * 1.4 + uTime * 4.5) * 0.5 + 0.5);
+          float scanIntensity = mix(0.45, 1.0, scanLine);
+          float barPos = mod(uTime * 48.0, 210.0) - 10.0;
+          float scanBar = (1.0 - smoothstep(0.0, 14.0, abs(vWorldY - barPos))) * 0.7;
+          float glitch = step(0.975, rand(vec2(floor(uTime * 14.0), 0.0)));
+          float flicker = 1.0 - glitch * 0.35;
+          float alpha = clamp((0.14 + fresnel * 1.15 + scanBar) * scanIntensity * flicker, 0.0, 1.0) * uAlpha;
+          vec3 col = uColor * (0.65 + fresnel * 1.5 + scanBar * 1.6) + vec3(fresnel * 0.2, fresnel * 0.08, 0.0);
+          gl_FragColor = vec4(col, alpha);
+        }
+      `
     });
-    const floorRing = new THREE.Mesh(floorGeo, floorMat);
-    floorRing.rotation.x = Math.PI / 2;
-    floorRing.position.y = 0.1;
-    scene.add(floorRing);
 
-    // Assembly Root Container
+    const blueprintSolidMat = new THREE.MeshStandardMaterial({ color: 0x08142b, roughness: 0.72, metalness: 0.18 });
+    const blueprintLineMat = new THREE.LineBasicMaterial({ color: 0x00e5ff, transparent: true, opacity: 0.78 });
+
+    // =========================================================================
+    // 5. PLANETARY & HANGAR LIGHTING PRESETS
+    // =========================================================================
+    const ENVIRONMENTS = {
+      hangar:    { bg: 0x060b16, fog: 0x060b16, key: 0xffffff, keyI: 2.0, fill: 0x7dd3fc, fillI: 0.85, rim: 0x38bdf8, rimI: 1.35, hemiI: 0.65, envI: 0.85, stars: 0.32, cyber: false },
+      earth:     { bg: 0x071226, fog: 0x071226, key: 0xfffdf5, keyI: 2.3, fill: 0x60a5fa, fillI: 1.05, rim: 0x93c5fd, rimI: 1.25, hemiI: 0.75, envI: 0.95, stars: 0.72, cyber: false },
+      mars:      { bg: 0x16090b, fog: 0x16090b, key: 0xff8c5a, keyI: 2.2, fill: 0xd94626, fillI: 1.0,  rim: 0xfb923c, rimI: 1.5,  hemiI: 0.55, envI: 0.75, stars: 0.52, cyber: false },
+      lunar:     { bg: 0x05060a, fog: 0x05060a, key: 0xf8fafc, keyI: 2.6, fill: 0x475569, fillI: 0.3,  rim: 0xcbd5e1, rimI: 0.95, hemiI: 0.30, envI: 0.65, stars: 0.95, cyber: false },
+      cyberpunk: { bg: 0x070217, fog: 0x070217, key: 0x6d28d9, keyI: 1.0, fill: 0xff007f, fillI: 2.4,  rim: 0x00e5ff, rimI: 2.6,  hemiI: 0.45, envI: 0.75, stars: 0.45, cyber: true }
+    };
+
+    function applyEnvironment(envKey) {
+      const cfg = ENVIRONMENTS[envKey] || ENVIRONMENTS.hangar;
+      state.activeEnv = envKey;
+      scene.background.setHex(cfg.bg);
+      scene.fog.color.setHex(cfg.fog);
+      keyLight.color.setHex(cfg.key);
+      keyLight.intensity = cfg.keyI;
+      fillLight.color.setHex(cfg.fill);
+      fillLight.intensity = cfg.fillI;
+      rimLight.color.setHex(cfg.rim);
+      rimLight.intensity = cfg.rimI;
+      hemiLight.intensity = cfg.hemiI;
+      scene.environmentIntensity = cfg.envI;
+      starField.material.opacity = cfg.stars;
+      cyberGroup.visible = cfg.cyber;
+      glowRingOuter.material.color.setHex(cfg.cyber ? 0xff007f : 0x00e5ff);
+    }
+
+    // =========================================================================
+    // 6. MATERIAL HELPERS (CC0 PRESERVES EMBEDDED PBR TEXTURES; CAD GETS VER.KA!)
+    // =========================================================================
+    function buildCadPBRMaterial(node) {
+      const n = (node.name || '').toLowerCase();
+      let color = 0xe8edf5, roughness = 0.32, metalness = 0.16, emissive = 0x000000, emissiveIntensity = 0.0;
+      if (n.includes('twin_eyes') || n.includes('sensor_front') || n.includes('sensor_rear') || n.includes('thruster_glow')) {
+        color = 0x00f5ff; emissive = 0x00f5ff; emissiveIntensity = 2.4; roughness = 0.1; metalness = 0.1;
+      } else if (n.includes('v_fin_crest_gem') || n.includes('chin_guard') || n.includes('cockpit_hatch') || n.includes('abdomen_core') || n.includes('toe_plate') || n.includes('heel_block')) {
+        color = 0xc81e1e; roughness = 0.34; metalness = 0.22;
+      } else if (n.includes('v_fin') || n.includes('louvers') || n.includes('v_emblem')) {
+        color = 0xeab308; roughness = 0.24; metalness = 0.85;
+      } else if (n.includes('chest_armor_blue')) {
+        color = 0x1d4ed8; roughness = 0.32; metalness = 0.28;
+      } else if (n.includes('backpack_core') || n.includes('visor_recess') || n.includes('vent_duct') || n.includes('foot_sole')) {
+        color = 0x1e293b; roughness = 0.44; metalness = 0.65;
+      } else if (n.includes('hydraulic') || n.includes('piston') || n.includes('thruster_bell')) {
+        color = 0xcbd5e1; roughness = 0.16; metalness = 0.94;
+      } else if (n.includes('frame') || n.includes('gimbal') || n.includes('knuckle') || n.includes('pivot') || n.includes('gear') || n.includes('fist') || n.includes('socket') || n.includes('clavicle') || n.includes('humerus') || n.includes('femur') || n.includes('tibia') || n.includes('neck')) {
+        color = 0x334155; roughness = 0.42; metalness = 0.82;
+      }
+      return new THREE.MeshStandardMaterial({ color, roughness, metalness, emissive, emissiveIntensity });
+    }
+
+    function buildPackPBRMaterial(node) {
+      const n = (node.name || '').toLowerCase();
+      let color = 0x334155, roughness = 0.34, metalness = 0.78, emissive = 0x000000, emissiveIntensity = 0.0;
+      if (n.includes('optic_cyan')) {
+        color = 0x00f5ff; emissive = 0x00f5ff; emissiveIntensity = 2.6; roughness = 0.1; metalness = 0.1;
+      } else if (n.includes('shield_core_red') || n.includes('tank') || n.includes('booster')) {
+        color = 0xb91c1c; roughness = 0.32; metalness = 0.26;
+      } else if (n.includes('gold') || n.includes('blade') || n.includes('intake')) {
+        color = 0xeab308; roughness = 0.24; metalness = 0.85;
+      } else if (n.includes('wing') || n.includes('fuselage') || n.includes('disc') || n.includes('shield_frame') || n.includes('fin_binder')) {
+        color = 0xdbe3ee; roughness = 0.30; metalness = 0.22;
+      } else if (n.includes('bell') || n.includes('thruster') || n.includes('vernier')) {
+        color = 0xcbd5e1; roughness = 0.16; metalness = 0.94; emissive = 0x00e5ff; emissiveIntensity = 0.4;
+      }
+      return new THREE.MeshStandardMaterial({ color, roughness, metalness, emissive, emissiveIntensity });
+    }
+
+    // =========================================================================
+    // 7. RENDER MODE ENGINE (PBR / HOLOGRAM / X-RAY / BLUEPRINT)
+    // =========================================================================
     const mechaRoot = new THREE.Group();
     scene.add(mechaRoot);
-
+    const packsGroup = new THREE.Group();
+    mechaRoot.add(packsGroup);
     const gltfLoader = new GLTFLoader();
 
-    // Dedicated PBR Material Stylizer for Authentic Gundam & Rival Mobile Suits
-    function applyMechaMaterial(node, faction) {
-      const name = (node.name || '').toLowerCase();
-      let color, roughness = 0.3, metalness = 0.5, emissive = 0x000000, emissiveIntensity = 0.0;
+    function clearBlueprintEdges() {
+      state.blueprintEdges.forEach(line => {
+        if (line.parent) line.parent.remove(line);
+        line.geometry?.dispose();
+      });
+      state.blueprintEdges = [];
+    }
 
-      if (faction === 'hero') {
-        if (name.includes('v_fin') || name.includes('antenna') || name.includes('duct') || name.includes('helium') || name.includes('crest')) {
-          // Iconic V-Fin Antenna & Chest Intake Ducts (Gold / Warm Yellow)
-          color = 0xf59e0b;
-          roughness = 0.28;
-          metalness = 0.82;
-        } else if (name.includes('cockpit') || name.includes('sole') || name.includes('chin') || name.includes('red')) {
-          // Iconic Cockpit Block Hatch & Soles (Crimson Red)
-          color = 0xdc2626;
-          roughness = 0.35;
-          metalness = 0.20;
-        } else if (name.includes('thoracic') || name.includes('chest') || name.includes('torso') || name.includes('backpack')) {
-          // Iconic Federation Upper Thorax (Cobalt Navy Blue)
-          color = 0x1d4ed8;
-          roughness = 0.32;
-          metalness = 0.30;
-        } else if (name.includes('camera') || name.includes('eye') || name.includes('sensor')) {
-          // Dual Optic Visor (Glowing Emerald Cyan)
-          color = 0x00f5ff;
-          emissive = 0x00f5ff;
-          emissiveIntensity = 2.4;
-          roughness = 0.1;
-          metalness = 0.1;
-        } else if (name.includes('piston') || name.includes('vernier') || name.includes('thruster') || name.includes('bell')) {
-          // Hydraulic Rods & Thruster Bells (Polished Chrome Silver)
-          color = 0xf1f5f9;
-          roughness = 0.08;
-          metalness = 0.98;
-        } else if (name.includes('knuckle') || name.includes('pivot') || name.includes('gear') || name.includes('gimbal') || name.includes('clavicle') || name.includes('socket')) {
-          // Ver.Ka Internal Movable Frame Joints (Gunmetal Titanium)
-          color = 0x334155;
-          roughness = 0.45;
-          metalness = 0.88;
-        } else {
-          // Master Grade Outer Armor Plating (Polar White)
-          color = 0xf8fafc;
-          roughness = 0.26;
-          metalness = 0.14;
-        }
-      } else {
-        // Rival Heavy Antagonist Frame (Mono-Eye Zeon / Zaku / Dom Style)
-        if (name.includes('mono_eye') || name.includes('sensor')) {
-          // 180° Swept Mono-Eye Optics (Glowing Ruby Red)
-          color = 0xff0044;
-          emissive = 0xff0044;
-          emissiveIntensity = 3.0;
-          roughness = 0.1;
-          metalness = 0.1;
-        } else if (name.includes('spike') || name.includes('blade') || name.includes('shield') || name.includes('tread')) {
-          // Kinetic Ramming Spikes & Tower Shield (Charcoal Tungsten)
-          color = 0x1e293b;
-          roughness = 0.40;
-          metalness = 0.75;
-        } else if (name.includes('conduit') || name.includes('thruster') || name.includes('jet') || name.includes('socket')) {
-          // External Power Conduits & Verniers (Dark Titanium)
-          color = 0x475569;
-          roughness = 0.35;
-          metalness = 0.85;
-        } else {
-          // Heavy Armor Cowlings (Military Olive Drab)
-          color = 0x4a5d45;
-          roughness = 0.38;
-          metalness = 0.28;
-        }
-      }
+    function applyRenderMode(mode) {
+      state.renderMode = mode;
+      clearBlueprintEdges();
+      holoCoreLight.intensity = (mode === 'hologram') ? 4.0 : 0.0;
 
-      node.material = new THREE.MeshStandardMaterial({
-        color: color,
-        roughness: roughness,
-        metalness: metalness,
-        emissive: emissive,
-        emissiveIntensity: emissiveIntensity,
-        wireframe: state.wireframeMode
+      mechaRoot.traverse(node => {
+        if (!node.isMesh || !node.userData.origMaterial) return;
+        const orig = node.userData.origMaterial;
+
+        if (mode === 'standard') {
+          if (Array.isArray(orig)) orig.forEach(m => { m.wireframe = false; });
+          else orig.wireframe = false;
+          node.material = orig;
+        } else if (mode === 'hologram') {
+          node.material = hologramMaterial;
+        } else if (mode === 'xray') {
+          if (Array.isArray(orig)) orig.forEach(m => { m.wireframe = true; });
+          else orig.wireframe = true;
+          node.material = orig;
+        } else if (mode === 'blueprint') {
+          node.material = blueprintSolidMat;
+          if (!node.isSkinnedMesh) {
+            const edges = new THREE.EdgesGeometry(node.geometry, 28);
+            const line = new THREE.LineSegments(edges, blueprintLineMat);
+            node.add(line);
+            state.blueprintEdges.push(line);
+          } else {
+            // Skinned meshes get clean translucent wireframe blueprint overlay
+            const skelWire = new THREE.MeshBasicMaterial({ color: 0x00e5ff, wireframe: true, transparent: true, opacity: 0.45 });
+            node.material = skelWire;
+          }
+        }
+      });
+
+      document.querySelectorAll('[data-render-mode]').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.renderMode === mode);
       });
     }
 
-    function applyMissionPackMaterial(node, packType) {
-      const name = (node.name || '').toLowerCase();
-      let color = 0x334155, roughness = 0.35, metalness = 0.75, emissive = 0x000000, emissiveIntensity = 0.0;
-
-      if (name.includes('wing') || name.includes('fuselage') || name.includes('disc') || name.includes('shield')) {
-        color = 0xe2e8f0; // White / Light Composite Aerofoil
-        roughness = 0.28;
-        metalness = 0.20;
-      } else if (name.includes('bell') || name.includes('nozzle') || name.includes('thruster') || name.includes('vector')) {
-        color = 0xf8fafc;
-        roughness = 0.08;
-        metalness = 0.98;
-        emissive = 0x00f5ff;
-        emissiveIntensity = 0.8;
-      } else if (name.includes('cannon') || name.includes('barrel') || name.includes('bunker') || name.includes('stake') || name.includes('spade')) {
-        color = 0x1e293b; // Heavy Ordnance Gunmetal
-        roughness = 0.30;
-        metalness = 0.85;
-      } else if (name.includes('booster') || name.includes('tank')) {
-        color = 0xdc2626; // High-Visibility Propellant Tanks
-        roughness = 0.32;
-        metalness = 0.30;
-      } else if (name.includes('antenna') || name.includes('blade') || name.includes('intake')) {
-        color = 0xf59e0b; // Gold / Yellow Warning Trim
-        roughness = 0.30;
-        metalness = 0.80;
+    // =========================================================================
+    // 8. AUTO-FIT CAMERA & PRESETS (jurmy24/mechaverse bounding-box precision)
+    // =========================================================================
+    function setCameraPreset(preset) {
+      const box = new THREE.Box3().setFromObject(mechaRoot);
+      const center = new THREE.Vector3(0, 92, 0);
+      const size = new THREE.Vector3(90, 180, 70);
+      if (!box.isEmpty()) {
+        box.getCenter(center);
+        box.getSize(size);
       }
+      const maxDim = Math.max(size.x, size.y, size.z, 185);
 
-      node.material = new THREE.MeshStandardMaterial({
-        color: color,
-        roughness: roughness,
-        metalness: metalness,
-        emissive: emissive,
-        emissiveIntensity: emissiveIntensity,
-        wireframe: state.wireframeMode
+      if (preset === 'heroic') {
+        camera.position.set(maxDim * 0.62, center.y + maxDim * 0.08, maxDim * 1.56);
+        controls.target.set(center.x, center.y + 4, center.z);
+      } else if (preset === 'front') {
+        camera.position.set(0, center.y + 6, maxDim * 1.66);
+        controls.target.set(center.x, center.y + 4, center.z);
+      } else if (preset === 'head') {
+        camera.position.set(36, center.y + size.y * 0.36, 82);
+        controls.target.set(0, center.y + size.y * 0.34, 0);
+      } else if (preset === 'dorsal') {
+        camera.position.set(-115, center.y + 18, -maxDim * 1.52);
+        controls.target.set(center.x, center.y + 4, center.z);
+      }
+      controls.update();
+      document.querySelectorAll('[data-cam]').forEach(b => b.classList.toggle('active', b.dataset.cam === preset));
+    }
+
+    // =========================================================================
+    // 9. SKELETAL ANIMATION CONTROLLER (CC0 Baked Animations!)
+    // =========================================================================
+    function playAnimation(clipName) {
+      if (!state.mixer || !state.actions.has(clipName)) return;
+      const next = state.actions.get(clipName);
+      state.actions.forEach((act, nm) => {
+        if (nm !== clipName) act.fadeOut(0.28);
+      });
+      next.reset().fadeIn(0.28).play();
+      state.activeAnimName = clipName;
+      animChips.querySelectorAll('.anim-btn').forEach(b => b.classList.toggle('active', b.dataset.anim === clipName));
+    }
+
+    function renderAnimationChips(clips, defaultClip) {
+      animChips.innerHTML = '';
+      if (!clips || clips.length === 0) {
+        animChips.innerHTML = `<span style="font-size:9px;color:var(--text-muted);font-family:var(--font-mono);">Static CAD Frame — use Exploded Slider below</span>`;
+        return;
+      }
+      clips.forEach(clip => {
+        const btn = document.createElement('button');
+        btn.className = 'anim-btn' + (clip.name === defaultClip ? ' active' : '');
+        btn.dataset.anim = clip.name;
+        btn.innerText = clip.name;
+        btn.addEventListener('click', () => playAnimation(clip.name));
+        animChips.appendChild(btn);
       });
     }
 
-    // 1. Fetch Master Catalog Manifest
-    async function initCatalog() {
-      try {
-        const res = await fetch('data/mecha_catalog.json');
-        if (!res.ok) throw new Error('Local manifest not found, falling back to remote CDN.');
-        state.catalog = await res.json();
-      } catch (err) {
-        console.warn('Falling back to GitHub raw CDN endpoint:', err);
-        const cdnUrl = 'https://raw.githubusercontent.com/myonathanlinkedin/Codes_Container/main/data/mecha_catalog.json';
-        const res = await fetch(cdnUrl);
-        state.catalog = await res.json();
+    // =========================================================================
+    // 10. LOAD UNIT (CC0 AAA RIGGED GLB OR VER.KA CAD FRAME)
+    // =========================================================================
+    async function loadUnit(unitId) {
+      const spec = UNIT_REGISTRY[unitId] || UNIT_REGISTRY.vanguard;
+      state.activeUnitId = spec.id;
+
+      // Update Roster Buttons
+      document.querySelectorAll('#unit-roster .unit-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.unit === spec.id);
+      });
+
+      loadingLabel.innerText = `LOADING ${spec.name.toUpperCase()}...`;
+      loadingOverlay.style.display = 'flex';
+      loadingOverlay.style.opacity = '1';
+
+      clearBlueprintEdges();
+      if (state.mixer) {
+        state.mixer.stopAllAction();
+        state.mixer = null;
       }
+      state.actions.clear();
 
-      renderInventory();
-      await loadChassis(state.activeBaselineId);
-      loadingOverlay.style.opacity = '0';
-      setTimeout(() => loadingOverlay.style.display = 'none', 400);
-    }
-
-    // 2. Load Chassis Model (.glb)
-    async function loadChassis(chassisId) {
-      const chassisData = state.catalog.baselines.find(b => b.id === chassisId);
-      if (!chassisData) return;
-
-      // Dispose existing chassis
       if (state.chassisModel) {
         mechaRoot.remove(state.chassisModel);
-        state.chassisModel.traverse(node => {
-          if (node.geometry) node.geometry.dispose();
-          if (node.material) {
-            Array.isArray(node.material) ? node.material.forEach(m => m.dispose()) : node.material.dispose();
-          }
+        state.chassisModel.traverse(n => {
+          if (n.geometry) n.geometry.dispose();
         });
+        state.chassisModel = null;
       }
-
       state.chassisParts = [];
-      const modelUrl = `assets/mecha/${chassisData.mesh_url}`;
 
       return new Promise((resolve, reject) => {
-        gltfLoader.load(modelUrl, (gltf) => {
-          state.chassisModel = gltf.scene;
+        gltfLoader.load(spec.glbUrl, (gltf) => {
+          const model = gltf.scene;
+          state.chassisModel = model;
 
-          // Material Polish & Exploded Normal Caching
-          state.chassisModel.traverse(node => {
+          // Normalize scale to exact 180-unit Master Grade Hangar height & anchor feet cleanly at Y = 0!
+          const rawBox = new THREE.Box3().setFromObject(model);
+          const rawSize = new THREE.Vector3();
+          rawBox.getSize(rawSize);
+          const targetHeight = 180.0;
+          const scaleFactor = rawSize.y > 0.001 ? (targetHeight / rawSize.y) : 1.0;
+          model.scale.setScalar(scaleFactor);
+
+          // Recompute bounds post-scale to center X/Z and rest feet at Y = 0
+          model.updateMatrixWorld(true);
+          const scaledBox = new THREE.Box3().setFromObject(model);
+          const scaledCenter = new THREE.Vector3();
+          scaledBox.getCenter(scaledCenter);
+          model.position.set(-scaledCenter.x, -scaledBox.min.y, -scaledCenter.z);
+
+          model.traverse(node => {
             if (node.isMesh) {
               node.castShadow = true;
               node.receiveShadow = true;
-              applyMechaMaterial(node, state.activeFaction);
-
-              // Cache local origin for exploded view
+              if (!spec.isCC0) {
+                node.material = buildCadPBRMaterial(node);
+              } else if (node.material) {
+                // Keep authentic CC0 baked PBR textures intact; ensure proper env reflection
+                if (Array.isArray(node.material)) {
+                  node.material.forEach(m => { m.envMapIntensity = 1.1; });
+                } else {
+                  node.material.envMapIntensity = 1.1;
+                }
+              }
+              node.userData.origMaterial = node.material;
+              if (node.geometry) {
+                node.geometry.computeBoundingBox();
+                node.userData.geomCenter = new THREE.Vector3();
+                node.geometry.boundingBox.getCenter(node.userData.geomCenter);
+              }
               node.userData.initialPosition = node.position.clone();
               state.chassisParts.push(node);
             }
           });
 
-          mechaRoot.add(state.chassisModel);
+          mechaRoot.add(model);
+
+          // Setup Baked Skeletal Animations if present!
+          if (gltf.animations && gltf.animations.length > 0) {
+            state.mixer = new THREE.AnimationMixer(model);
+            gltf.animations.forEach(clip => {
+              state.actions.set(clip.name, state.mixer.clipAction(clip));
+            });
+            const startClip = state.actions.has(spec.defaultAnim) ? spec.defaultAnim : gltf.animations[0].name;
+            renderAnimationChips(gltf.animations, startClip);
+            playAnimation(startClip);
+          } else {
+            renderAnimationChips([], null);
+          }
+
+          // Re-add equipped pack meshes to chassisParts for exploded view
+          packsGroup.traverse(n => {
+            if (n.isMesh && !state.chassisParts.includes(n)) state.chassisParts.push(n);
+          });
+
+          applyRenderMode(state.renderMode);
+          applyExplodedDisplacement(state.explodedFactor);
           updateTelemetry();
-          resolve(state.chassisModel);
+
+          inspectTitle.innerText = spec.name;
+          inspectBody.innerText = spec.desc;
+
+          setCameraPreset('heroic');
+          loadingOverlay.style.opacity = '0';
+          setTimeout(() => { loadingOverlay.style.display = 'none'; }, 350);
+          resolve(model);
         }, undefined, (err) => {
-          console.error('Error loading chassis GLB:', err);
+          console.error('Error loading unit GLB:', err);
+          loadingLabel.innerText = 'ERROR LOADING MODEL ASSET';
           reject(err);
         });
       });
     }
 
-    // 3. Render Inventory Drawer
+    // =========================================================================
+    // 11. ALGORITHMIC REFERENCE CATALOG (MODULAR UHIS PARTS)
+    // =========================================================================
+    function matchCategoryBucket(part, bucket) {
+      if (bucket === 'all') return true;
+      const cat = (part.category || '').toLowerCase();
+      if (bucket === 'pack') return cat.includes('pack');
+      if (bucket === 'weapon') return cat.includes('weapon');
+      if (bucket === 'armor') return cat.includes('armor') || cat.includes('shield');
+      if (bucket === 'propulsion') return cat.includes('propulsion') || cat.includes('vernier');
+      return cat === bucket;
+    }
+
     function renderInventory() {
       partsList.innerHTML = '';
       if (!state.catalog || !state.catalog.modular_parts) return;
 
-      state.catalog.modular_parts.forEach(part => {
+      const allParts = state.catalog.modular_parts;
+      document.getElementById('cat-count-all').innerText = allParts.length;
+      document.getElementById('cat-count-packs').innerText = allParts.filter(p => matchCategoryBucket(p, 'pack')).length;
+      document.getElementById('cat-count-weapons').innerText = allParts.filter(p => matchCategoryBucket(p, 'weapon')).length;
+      document.getElementById('cat-count-armor').innerText = allParts.filter(p => matchCategoryBucket(p, 'armor')).length;
+      document.getElementById('cat-count-propulsion').innerText = allParts.filter(p => matchCategoryBucket(p, 'propulsion')).length;
+
+      let filtered = allParts.filter(part => {
+        if (state.equippedOnly && !state.equippedPacks.has(part.part_id)) return false;
+        if (state.searchQuery) {
+          const q = state.searchQuery;
+          const hit = (part.name || '').toLowerCase().includes(q)
+            || (part.serial_number || '').toLowerCase().includes(q)
+            || (part.telemetry_and_lore?.operational_role || '').toLowerCase().includes(q)
+            || (part.compatible_hardpoints || []).some(hp => hp.toLowerCase().includes(q));
+          if (!hit) return false;
+        }
+        if (!matchCategoryBucket(part, state.activeCategory)) return false;
+        if (state.activeStation !== 'all' && !(part.compatible_hardpoints || []).includes(state.activeStation)) return false;
+        return true;
+      });
+
+      if (state.activeSort === 'name_asc') filtered.sort((a, b) => a.name.localeCompare(b.name));
+      else if (state.activeSort === 'mass_asc') filtered.sort((a, b) => a.structural_specs.mass_kg - b.structural_specs.mass_kg);
+      else if (state.activeSort === 'mass_desc') filtered.sort((a, b) => b.structural_specs.mass_kg - a.structural_specs.mass_kg);
+      else if (state.activeSort === 'thrust_desc') filtered.sort((a, b) => (b.telemetry_and_lore?.vernier_thrust_kgf || 0) - (a.telemetry_and_lore?.vernier_thrust_kgf || 0));
+
+      catalogCountLabel.innerText = `Showing ${filtered.length} of ${allParts.length} parts`;
+      btnEquippedOnly.innerText = state.equippedOnly ? `✓ Equipped (${state.equippedPacks.size})` : `${state.equippedPacks.size} Equipped`;
+      btnEquippedOnly.classList.toggle('active', state.equippedOnly);
+
+      if (filtered.length === 0) {
+        partsList.innerHTML = `<div style="padding:18px;text-align:center;color:var(--text-muted);font-size:10.5px;">No modular parts match current filters.</div>`;
+        return;
+      }
+
+      filtered.forEach(part => {
         const isEquipped = state.equippedPacks.has(part.part_id);
         const card = document.createElement('div');
         card.className = `part-card ${isEquipped ? 'equipped' : ''}`;
+        card.setAttribute('data-part-id', part.part_id);
         card.innerHTML = `
-          <div class="part-card-header">
-            <span class="part-name">${part.name}</span>
-            <span class="part-serial">${part.serial_number}</span>
+          <div class="part-card-top">
+            <div class="part-name-group">
+              <span class="part-name">${part.name}</span>
+              <span class="part-serial">${part.serial_number}</span>
+            </div>
+            <button class="equip-action-btn ${isEquipped ? 'equipped' : ''}">${isEquipped ? '✓ ON' : '+ EQUIP'}</button>
           </div>
-          <div class="part-desc">${part.telemetry_and_lore.operational_role}</div>
-          <div class="part-badges">
-            <span class="badge hp">${part.compatible_hardpoints.join(', ')}</span>
-            <span class="badge">+${(part.structural_specs.mass_kg / 1000).toFixed(1)}t</span>
-            <span class="badge" style="color: var(--accent-cyan)">${isEquipped ? 'EQUIPPED' : 'CLICK TO EQUIP'}</span>
+          <div class="part-desc">${part.telemetry_and_lore?.operational_role || ''}</div>
+          <div class="part-specs-grid">
+            <span class="spec-pill">⚖️ ${(part.structural_specs.mass_kg / 1000).toFixed(1)}t</span>
+            <span class="spec-pill">🚀 ${((part.telemetry_and_lore?.vernier_thrust_kgf || 0) / 1000).toFixed(0)}k kgf</span>
+            <span class="spec-pill">⚡ +${part.telemetry_and_lore?.reactor_power_draw_kw || 0}kW</span>
+            <span class="spec-pill hp">📍 ${part.compatible_hardpoints.join(', ')}</span>
           </div>
         `;
-
         card.addEventListener('click', () => toggleEquipPart(part));
         partsList.appendChild(card);
       });
     }
 
-    // 4. Toggle Equip / Unequip Modular Mission Pack
     async function toggleEquipPart(part) {
       if (state.equippedPacks.has(part.part_id)) {
-        // Unequip
         const model = state.equippedPacks.get(part.part_id);
-        mechaRoot.remove(model);
-        model.traverse(node => {
-          if (node.geometry) node.geometry.dispose();
-          if (node.material) {
-            Array.isArray(node.material) ? node.material.forEach(m => m.dispose()) : node.material.dispose();
-          }
-        });
+        packsGroup.remove(model);
+        model.traverse(n => { if (n.geometry) n.geometry.dispose(); });
         state.chassisParts = state.chassisParts.filter(n => n.parent !== null);
         state.equippedPacks.delete(part.part_id);
       } else {
-        // Equip
         const modelUrl = `assets/mecha/${part.cad_mesh_definition.asset_reference.relative_url}`;
         try {
           const gltf = await new Promise((res, rej) => gltfLoader.load(modelUrl, res, undefined, rej));
           const packModel = gltf.scene;
-
           packModel.traverse(node => {
             if (node.isMesh) {
               node.castShadow = true;
               node.receiveShadow = true;
-              applyMissionPackMaterial(node, part.part_id);
+              node.material = buildPackPBRMaterial(node);
+              node.userData.origMaterial = node.material;
+              node.geometry.computeBoundingBox();
+              node.userData.geomCenter = new THREE.Vector3();
+              node.geometry.boundingBox.getCenter(node.userData.geomCenter);
               node.userData.initialPosition = node.position.clone();
+              node.userData.isModularPack = true;
               state.chassisParts.push(node);
             }
           });
-
-          // Mount to Dorsal Spine hardpoint (HP-00 at 0, 144, -12 mm)
-          packModel.position.set(0.0, 0.0, 0.0);
-          mechaRoot.add(packModel);
+          packsGroup.add(packModel);
           state.equippedPacks.set(part.part_id, packModel);
         } catch (e) {
-          console.error('Failed to load pack:', e);
+          console.error('Failed to load modular part:', e);
         }
       }
-
       renderInventory();
       updateTelemetry();
+      applyRenderMode(state.renderMode);
       applyExplodedDisplacement(state.explodedFactor);
     }
 
-    // 5. Update Telemetry HUD
     function updateTelemetry() {
-      const chassisData = state.catalog.baselines.find(b => b.id === state.activeBaselineId);
-      if (!chassisData) return;
-
-      let totalMass = chassisData.base_mass_kg;
-      let totalReactor = chassisData.base_reactor_kw;
-      let totalThrust = 0;
+      const spec = UNIT_REGISTRY[state.activeUnitId] || UNIT_REGISTRY.vanguard;
+      let totalMass = spec.massKg;
+      let totalReactor = spec.reactorKw;
+      let totalThrust = spec.baseThrust;
 
       state.equippedPacks.forEach((_, partId) => {
-        const p = state.catalog.modular_parts.find(item => item.part_id === partId);
+        const p = state.catalog?.modular_parts?.find(item => item.part_id === partId);
         if (p) {
           totalMass += p.structural_specs.mass_kg;
           totalReactor += p.telemetry_and_lore.reactor_power_draw_kw;
@@ -925,49 +1791,48 @@
       });
 
       const twr = totalMass > 0 ? (totalThrust / totalMass) : 0;
-
-      telChassis.innerText = chassisData.name;
-      telMass.innerText = `${totalMass.toLocaleString()} kg (${(totalMass / 1000).toFixed(1)} t)`;
+      telChassis.innerText = spec.name;
+      telHeight.innerText = spec.heightStr;
+      telMass.innerText = `${totalMass.toLocaleString()} kg (${(totalMass / 1000).toFixed(1)}t)`;
       telReactor.innerText = `${totalReactor.toLocaleString()} kW`;
       telThrust.innerText = `${totalThrust.toLocaleString()} kgf`;
       telTwr.innerText = `${twr.toFixed(2)} G`;
-      telEquippedCount.innerText = `${state.equippedPacks.size} packs mounted`;
+      telEquippedCount.innerText = `${state.equippedPacks.size} active`;
     }
 
-    // 6. Vector-Aligned Mechanical Exploded View Handler (Ver.Ka Blueprint Separation)
+    // =========================================================================
+    // 12. VECTOR-ALIGNED EXPLODED VIEW (FOR CAD INNER FRAME & MODULAR PACKS)
+    // =========================================================================
     function applyExplodedDisplacement(factor) {
       state.chassisParts.forEach(node => {
-        if (!node.userData.initialPosition) return;
-        const name = (node.name || '').toLowerCase();
+        if (!node.userData.initialPosition || node.isSkinnedMesh) return;
+        const n = (node.name || '').toLowerCase();
         const init = node.userData.initialPosition;
+        const gc = node.userData.geomCenter || new THREE.Vector3();
+        const sideSign = n.endsWith('_l') || gc.x < -1.0 ? -1.0 : (n.endsWith('_r') || gc.x > 1.0 ? 1.0 : 0.0);
         const dir = new THREE.Vector3(0, 0, 0);
 
-        if (name.includes('head') || name.includes('v_fin') || name.includes('blade') || name.includes('eye')) {
-          dir.set(0.0, 1.4, 0.3); // Head canopy lifts up
-        } else if (name.includes('thoracic') || name.includes('chest') || name.includes('cockpit') || name.includes('conduit')) {
-          dir.set(0.0, 0.2, 1.6); // Torso armor pushes forward
-        } else if (name.includes('clavicle') || name.includes('shoulder') || name.includes('humerus') || name.includes('elbow') || name.includes('forearm') || name.includes('hand') || name.includes('shield') || name.includes('spike')) {
-          const sign = (init.x >= 0.0) ? 1.0 : -1.0;
-          dir.set(sign * 1.8, 0.1, 0.0); // Arm assemblies slide laterally
-        } else if (name.includes('foot') || name.includes('sole') || name.includes('ankle') || name.includes('tread')) {
-          const sign = (init.x >= 0.0) ? 0.6 : -0.6;
-          dir.set(sign, -1.4, 0.4); // Feet slide downward
-        } else if (name.includes('tibia') || name.includes('calf') || name.includes('knee')) {
-          const sign = (init.x >= 0.0) ? 0.8 : -0.8;
-          dir.set(sign, -0.8, 0.2); // Lower legs slide down & outward
-        } else if (name.includes('femur') || name.includes('thigh') || name.includes('hip')) {
-          const sign = (init.x >= 0.0) ? 1.0 : -1.0;
-          dir.set(sign, -0.3, 0.0); // Thighs slide laterally
-        } else if (name.includes('backpack') || name.includes('socket') || name.includes('vernier') || name.includes('booster') || name.includes('wing') || name.includes('cannon') || name.includes('rotodome')) {
-          dir.set(0.0, 0.2, -1.8); // Backpack / mission pack slides backward
-        } else {
-          dir.copy(init).normalize();
-          if (dir.lengthSq() === 0) dir.set(0.0, 1.0, 0.0);
-        }
+        if (n.includes('head') || n.includes('v_fin')) dir.set(0, 1.35, 0.25);
+        else if (n.includes('chest') || n.includes('cockpit') || n.includes('abdomen')) dir.set(0, 0.15, 1.35);
+        else if (n.includes('pauldron') || n.includes('arm') || n.includes('forearm') || n.includes('shield') || n.includes('rifle') || n.includes('elbow') || n.includes('fist')) dir.set((sideSign || 1) * 1.5, 0.12, 0.15);
+        else if (n.includes('foot') || n.includes('sole') || n.includes('ankle')) dir.set(sideSign * 0.55, -1.2, 0.3);
+        else if (n.includes('shin') || n.includes('calf') || n.includes('knee') || n.includes('tibia')) dir.set(sideSign * 0.75, -0.65, 0.2);
+        else if (n.includes('thigh') || n.includes('femur') || n.includes('hip')) dir.set(sideSign * 0.85, -0.2, 0);
+        else if (n.includes('backpack') || n.includes('wing') || n.includes('cannon') || n.includes('booster') || n.includes('tank') || n.includes('rotodome') || n.includes('fin_binder') || n.includes('vernier')) dir.set(sideSign * 0.35, 0.15, -1.65);
+        else dir.set(sideSign * 0.4, 0.3, -0.4);
 
-        node.position.copy(init).addScaledVector(dir, factor * 48.0);
+        node.position.copy(init).addScaledVector(dir, factor * 42.0);
       });
     }
+
+    // =========================================================================
+    // 13. EVENT LISTENERS
+    // =========================================================================
+    document.querySelectorAll('#unit-roster .unit-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.dataset.unit !== state.activeUnitId) loadUnit(btn.dataset.unit);
+      });
+    });
 
     sliderExploded.addEventListener('input', (e) => {
       const val = parseFloat(e.target.value);
@@ -976,211 +1841,462 @@
       applyExplodedDisplacement(state.explodedFactor);
     });
 
-    // 7. Faction Switching Buttons (Cross-Faction Kitbashing Retention)
-    btnHero.addEventListener('click', async () => {
-      if (state.activeFaction === 'hero') return;
-      state.activeFaction = 'hero';
-      state.activeBaselineId = 'baseline_gundam_frame_v1';
-      btnHero.className = 'faction-btn active hero';
-      btnRival.className = 'faction-btn rival';
-      
-      await loadChassis(state.activeBaselineId);
-      renderInventory();
+    document.querySelectorAll('[data-render-mode]').forEach(btn => {
+      btn.addEventListener('click', () => applyRenderMode(btn.dataset.renderMode));
     });
 
-    btnRival.addEventListener('click', async () => {
-      if (state.activeFaction === 'rival') return;
-      state.activeFaction = 'rival';
-      state.activeBaselineId = 'baseline_rival_heavy_frame_v1';
-      btnRival.className = 'faction-btn active rival';
-      btnHero.className = 'faction-btn hero';
-
-      await loadChassis(state.activeBaselineId);
-      renderInventory();
-    });
-
-    // 8. Control Actions
-    btnResetView.addEventListener('click', () => {
-      camera.position.set(0.0, 90.0, 320.0);
-      controls.target.set(0.0, 90.0, 0.0);
-      controls.update();
-    });
-
-    btnWireframe.addEventListener('click', () => {
-      state.wireframeMode = !state.wireframeMode;
-      mechaRoot.traverse(node => {
-        if (node.isMesh && node.material) {
-          node.material.wireframe = state.wireframeMode;
-        }
+    document.querySelectorAll('#planet-grid .planet-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#planet-grid .planet-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyEnvironment(btn.dataset.env);
       });
-      btnWireframe.innerText = state.wireframeMode ? 'SOLID SHADE' : 'WIREFRAME';
     });
 
-    // Window Resize Handler
+    document.querySelectorAll('[data-cam]').forEach(btn => {
+      btn.addEventListener('click', () => setCameraPreset(btn.dataset.cam));
+    });
+    document.getElementById('btn-reset-view')?.addEventListener('click', () => setCameraPreset('heroic'));
+
+    btnAutoRotate.addEventListener('click', () => {
+      state.autoRotate = !state.autoRotate;
+      controls.autoRotate = state.autoRotate;
+      btnAutoRotate.classList.toggle('active', state.autoRotate);
+    });
+    btnAnimPlay.addEventListener('click', () => {
+      state.animPlaying = !state.animPlaying;
+      btnAnimPlay.classList.toggle('active', state.animPlaying);
+    });
+
+    document.getElementById('btn-toggle-drawer-size')?.addEventListener('click', (e) => {
+      state.isDrawerExpanded = !state.isDrawerExpanded;
+      leftDrawer.classList.toggle('expanded', state.isDrawerExpanded);
+      e.currentTarget.innerText = state.isDrawerExpanded ? '🗗' : '⛶';
+    });
+
+    partsSearchInput?.addEventListener('input', (e) => {
+      state.searchQuery = e.target.value.trim().toLowerCase();
+      btnClearSearch.style.display = state.searchQuery ? 'block' : 'none';
+      renderInventory();
+    });
+    btnClearSearch?.addEventListener('click', () => {
+      partsSearchInput.value = ''; state.searchQuery = ''; btnClearSearch.style.display = 'none'; renderInventory();
+    });
+    categoryChips?.addEventListener('click', (e) => {
+      const btn = e.target.closest('.cat-chip');
+      if (!btn) return;
+      categoryChips.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      state.activeCategory = btn.dataset.category || 'all';
+      renderInventory();
+    });
+    stationFilter?.addEventListener('change', (e) => { state.activeStation = e.target.value; renderInventory(); });
+    partsSort?.addEventListener('change', (e) => { state.activeSort = e.target.value; renderInventory(); });
+    btnEquippedOnly?.addEventListener('click', () => { state.equippedOnly = !state.equippedOnly; renderInventory(); });
+
     window.addEventListener('resize', () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
+      if (composer) composer.setSize(window.innerWidth, window.innerHeight);
     });
 
-    // Main Render Loop (60 FPS)
-    function animate() {
-      requestAnimationFrame(animate);
-      controls.update();
-      renderer.render(scene, camera);
+    window.__mechaDebug = { state, loadUnit, playAnimation, setCameraPreset, applyRenderMode, applyEnvironment, toggleAllMenus, toggleSingleMenu, toggleEquipPart };
+
+    // =========================================================================
+    // 14. INFO GUIDE MODAL & GUNDAM-STYLE MECHA BATTLE BGM SYNTHESIZER
+    // =========================================================================
+    const guideBackdrop = document.getElementById('guide-backdrop');
+    const toastEl = document.getElementById('mecha-toast');
+    let toastTimer = null;
+
+    function showToast(msg) {
+      if (!toastEl) return;
+      toastEl.textContent = msg;
+      toastEl.classList.add('visible');
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toastEl.classList.remove('visible'), 2600);
     }
 
-    // 9. Interactive 3D Raycasting Inspection & Ver.Ka Telemetry Map
-    const subsystemTelemetry = {
-      'cervical': {
-        title: 'Cervical Head Gimbal Linkage (6-DoF)',
-        desc: 'Dual-axis pitch/yaw gimbal [-25°, +40°] with synchronized 4.5 mm forward translation cam and Minovsky optical sensor bus.'
-      },
-      'v_fin': {
-        title: 'V-Fin Phased-Array Antenna Array',
-        desc: 'Broadband pencil-beam microwave transceivers providing directional communications through high-density Minovsky particle jamming.'
-      },
-      'cockpit': {
-        title: '3-Axis Cockpit Gimbal Suspension Capsule',
-        desc: '2.0m magnetic levitation spherical cockpit damping up to 12G lateral accelerations with automated core escape booster.'
-      },
-      'spine': {
-        title: 'Thoraco-Lumbar Articulated Spine (4-DoF)',
-        desc: 'Multi-tiered structural backbone with fluid-pulse damping conduits channeling high-pressure hydraulic impulses.'
-      },
-      'hp00': {
-        title: 'UHIS HP-00 Standardized Dorsal Dovetail',
-        desc: 'Universal trapezoidal hardpoint with 10° taper, dual pneumatic spring detents, and 100 MPa direct plasma tap.'
-      },
-      'shoulder': {
-        title: 'Clavicular Forward-Swing Bracket (6-DoF)',
-        desc: 'Eccentric 35° anterior swing clevis enabling full two-handed beam rifle manipulation across the thoracic centerline.'
-      },
-      'elbow': {
-        title: 'Double-Pivot Elbow with Slave Hydraulic Damper',
-        desc: '145° dual-axis hinge with 14.2 mm synchronized chrome-plated hydraulic slave cylinder stroke.'
-      },
-      'wrist': {
-        title: 'Universal 2-Axis Wrist Gimbal & Bus',
-        desc: 'Porous magnetic low-resistance coated bearing race with 3.0mm universal auxiliary weapon interface.'
-      },
-      'hip': {
-        title: 'Pelvic Hip Drop-Down Swivel Hub',
-        desc: 'Lowers femoral pivot 6.0 mm and translates 4.0 mm forward, extending forward leg flexion from 65° to 105°.'
-      },
-      'femur': {
-        title: 'Sliding Femoral Armor Rail Assembly',
-        desc: 'Brass-guided longitudinal rails allowing 8.5 mm proximal slide during full knee flexion.'
-      },
-      'knee': {
-        title: 'Dual-Axis Knee with Floating Kneecap Linkage',
-        desc: 'Twin pivot nodes delivering 135° flexion with 4-bar floating kneecap suspension and expanding posterior cowls.'
-      },
-      'calf': {
-        title: 'Posterior Calf Vernier Cowling',
-        desc: 'Expandable thermal exhaust shell revealing high-impulse attitude control thrusters for AMBAC agility.'
-      },
-      'ankle': {
-        title: 'Universal Ankle Gimbal & 3-Section Sole',
-        desc: 'Pitch [-35°, +45°], roll ±28° with independent hydraulic heel damper and 40° upward-pivoting toe claw.'
-      },
-      'rival_head': {
-        title: 'Cast Iron Antagonist Cranial Turret',
-        desc: 'Heavily armored 280mm cast shell with 180° circular swept mono-eye guide track and crimson infrared targeting illuminator.'
-      },
-      'mono_eye': {
-        title: 'Compound 180° Swept Mono-Eye Optical Sensor',
-        desc: 'Multi-spectral infrared/optical compound tracking array with continuous horizontal panoramic azimuth sweep.'
-      },
-      'conduit': {
-        title: 'Braided Superconducting Fluid-Pulse Conduits',
-        desc: 'External rubberized cryogenic conduits cooling high-output fusion plasma outside the thoracic frame to maximize reactor core volume.'
-      },
-      'spiked': {
-        title: 'Triple Kinetic Ramming Pauldron',
-        desc: 'Cast titanium-ceramic pauldron reinforced with three solid kinetic piercing spikes for close-quarters breach charges.'
-      },
-      'shield': {
-        title: 'Articulated Curved Heavy Tower Shield',
-        desc: 'Multi-laminate Chobham armor plate mounted on a 2-axis subarm providing 180° frontal and lateral ballistic coverage.'
-      },
-      'hover': {
-        title: 'Flared Lower Leg Thermonuclear Hover Cowling',
-        desc: 'High-expansion shroud housing thermonuclear thermal jets and high-flow lift fans for 220 km/h ground-effect gliding.'
-      },
-      'tread': {
-        title: 'Heavy Magnetic Ground Grip Sole Plate',
-        desc: 'Deep-grooved segmented tread plates with high-power electromagnetic anchoring solenoids for artillery recoil stabilization.'
-      },
-      'delta_wing': {
-        title: 'Variable-Sweep Aerodynamic Delta Wing (Type-A)',
-        desc: '15° to 68° variable geometry wings with titanium leading-edge slats providing supersonic atmospheric maneuverability.'
-      },
-      'booster': {
-        title: 'High-Impulse Thermonuclear Rocket Binder (Type-S)',
-        desc: '140,000 kgf vacuum thrust rocket bell with dual-axis gimbal vectoring (±15°) boosting overall TWR to 3.85 G.'
-      },
-      'cannon': {
-        title: 'Dual 380mm Over-the-Shoulder Artillery Cannons (Type-H)',
-        desc: 'Liquid-cooled heavy smoothbore barrels with pneumatic recoil dampers absorbing 500 kN launch impulses.'
-      },
-      'rotodome': {
-        title: '3.8m Multi-Spectral Chirp LIDAR Rotodome (Type-E)',
-        desc: 'Full-azimuth 360° rotating radar disc generating real-time 3D battlefield point-clouds through Minovsky particle interference.'
-      },
-      'pile_bunker': {
-        title: 'Hydraulic Pile-Bunker Penetrating Stake (Type-C)',
-        desc: 'High-pressure nitrogen accumulator driving a solid carbon-alloy penetrator through heavy warship armor plates.'
-      }
-    };
+    function openGuide() { guideBackdrop?.classList.add('open'); }
+    function closeGuide() { guideBackdrop?.classList.remove('open'); }
 
-    const raycaster = new THREE.Raycaster();
-    const mouse = new THREE.Vector2();
+    document.getElementById('btn-open-guide')?.addEventListener('click', openGuide);
+    document.getElementById('btn-close-guide')?.addEventListener('click', closeGuide);
+    document.getElementById('btn-dismiss-guide')?.addEventListener('click', closeGuide);
+    guideBackdrop?.addEventListener('click', (e) => { if (e.target === guideBackdrop) closeGuide(); });
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeGuide(); });
 
-    window.addEventListener('pointerdown', (e) => {
-      if (e.target !== canvas) return;
+    class MechaBattleAudioEngine {
+      constructor(toggleBtn, trackBtn) {
+        this.toggleBtn = toggleBtn;
+        this.trackBtn = trackBtn;
+        this.ctx = null;
+        this.masterGain = null;
+        this.currentSource = null;
+        this.isPlaying = false;
+        this.userMuted = false;
+        this.trackIndex = 0;
+        this.cachedBuffers = [];
+        this.renderPromises = {};
 
-      mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-      mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
-
-      raycaster.setFromCamera(mouse, camera);
-      const intersects = raycaster.intersectObjects(mechaRoot.children, true);
-
-      if (intersects.length > 0) {
-        const hit = intersects[0].object;
-        const name = (hit.name || '').toLowerCase();
-
-        let matched = null;
-        for (const [key, data] of Object.entries(subsystemTelemetry)) {
-          if (name.includes(key)) {
-            matched = data;
-            break;
+        this.tracks = [
+          {
+            name: 'Orbital Sortie (UC Battle Theme)',
+            shortName: 'Orbital Sortie',
+            bpm: 138,
+            // Heroic D-minor anime mecha battle progression (Dm - Bb - C - Am - Bb - Gm - A7 - A7)
+            bass: [38, 34, 36, 33, 34, 31, 33, 33],
+            chords: [
+              [50, 57, 62, 65], [46, 53, 58, 62], [48, 55, 60, 64], [45, 52, 57, 60],
+              [46, 53, 58, 62], [43, 50, 55, 58], [45, 52, 57, 61], [45, 52, 57, 61]
+            ],
+            lead: [
+              74, 0, 74, 77, 81, 0, 79, 77, 74, 0, 72, 74, 77, 0, 76, 0,
+              74, 0, 77, 81, 86, 0, 84, 81, 79, 0, 77, 76, 77, 0, 81, 0,
+              82, 0, 81, 79, 77, 0, 74, 77, 79, 0, 77, 76, 74, 0, 72, 0,
+              73, 0, 76, 79, 81, 0, 85, 81, 86, 0, 85, 81, 79, 76, 73, 0
+            ],
+            intensity: 'heroic_battle'
+          },
+          {
+            name: 'Zero-G Intercept (High-Mobility Combat)',
+            shortName: 'Zero-G Combat',
+            bpm: 146,
+            // E-minor high-speed mecha dogfight (Em - C - D - Bm - C - Am - B7 - B7)
+            bass: [40, 36, 38, 35, 36, 33, 35, 35],
+            chords: [
+              [52, 59, 64, 67], [48, 55, 60, 64], [50, 57, 62, 66], [47, 54, 59, 62],
+              [48, 55, 60, 64], [45, 52, 57, 60], [47, 54, 59, 63], [47, 54, 59, 63]
+            ],
+            lead: [
+              76, 79, 83, 0, 83, 81, 79, 76, 79, 81, 83, 0, 86, 0, 83, 0,
+              84, 83, 79, 0, 79, 76, 74, 76, 78, 81, 86, 0, 83, 0, 78, 0,
+              76, 79, 84, 0, 83, 81, 79, 76, 81, 84, 88, 0, 86, 84, 81, 0,
+              83, 0, 83, 81, 79, 78, 76, 78, 79, 83, 87, 0, 88, 0, 83, 0
+            ],
+            intensity: 'cyber_combat'
+          },
+          {
+            name: 'Catapult Launch Deck (Tactical Pulse)',
+            shortName: 'Launch Deck',
+            bpm: 116,
+            // C-minor hangar readiness & catapult tension (Cm - Ab - Fm - G7)
+            bass: [36, 36, 32, 32, 29, 29, 31, 31],
+            chords: [
+              [48, 55, 60, 63], [48, 55, 60, 63], [44, 51, 56, 60], [44, 51, 56, 60],
+              [41, 48, 53, 56], [41, 48, 53, 56], [43, 50, 55, 59], [43, 50, 55, 59]
+            ],
+            lead: [
+              72, 0, 0, 75, 79, 0, 75, 0, 72, 0, 74, 75, 79, 0, 0, 0,
+              80, 0, 0, 79, 75, 0, 72, 0, 75, 0, 79, 80, 84, 0, 0, 0,
+              77, 0, 0, 75, 72, 0, 68, 0, 72, 0, 75, 77, 80, 0, 0, 0,
+              79, 0, 77, 74, 71, 0, 74, 0, 79, 0, 83, 0, 86, 0, 79, 0
+            ],
+            intensity: 'hangar_pulse'
           }
-        }
+        ];
 
-        if (matched) {
-          inspectTitle.innerText = matched.title;
-          inspectBody.innerText = matched.desc;
-        } else {
-          inspectTitle.innerText = hit.name ? hit.name.toUpperCase().replace(/_/g, ' ') : 'STRUCTURAL SUB-ELEMENT';
-          inspectBody.innerText = 'Precision CNC-machined titanium-gundarium alloy movable frame articulation component with magnetic low-resistance bearing races.';
-        }
+        this._bindUi();
+        setTimeout(() => { this._renderTrackBuffer(0).catch(() => {}); }, 250);
+      }
 
-        // Emissive feedback
-        if (hit.material && hit.material.emissive) {
-          const origEmissive = hit.material.emissive.clone();
-          hit.material.emissive.setHex(0x00f5ff);
-          hit.material.emissiveIntensity = 0.8;
-          setTimeout(() => {
-            hit.material.emissive.copy(origEmissive);
-            hit.material.emissiveIntensity = 0.0;
-          }, 350);
+      _midi(m) { return 440.0 * Math.pow(2.0, (m - 69.0) / 12.0); }
+
+      _initCtx() {
+        if (this.ctx) return;
+        const AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) return;
+        this.ctx = new AC({ latencyHint: 'playback' });
+        this.masterGain = this.ctx.createGain();
+        this.masterGain.gain.value = 0.24;
+        this.masterGain.connect(this.ctx.destination);
+      }
+
+      playEquipSfx(isEquip = true) {
+        if (!this.ctx || this.ctx.state !== 'running') return;
+        const now = this.ctx.currentTime;
+        const osc = this.ctx.createOscillator();
+        const g = this.ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(isEquip ? 520 : 660, now);
+        osc.frequency.exponentialRampToValueAtTime(isEquip ? 1040 : 310, now + 0.09);
+        g.gain.setValueAtTime(0.08, now);
+        g.gain.exponentialRampToValueAtTime(0.001, now + 0.11);
+        osc.connect(g); g.connect(this.masterGain);
+        osc.start(now); osc.stop(now + 0.12);
+      }
+
+      async _renderTrackBuffer(idx) {
+        if (this.cachedBuffers[idx]) return this.cachedBuffers[idx];
+        if (this.renderPromises[idx]) return this.renderPromises[idx];
+
+        const work = async () => {
+          const tr = this.tracks[idx];
+          const sr = 44100;
+          const totalBars = tr.chords.length;
+          const totalSteps = totalBars * 16;
+          const stepDur = (60.0 / tr.bpm) / 4.0;
+          const loopDur = stepDur * totalSteps;
+          const OffCtx = window.OfflineAudioContext || window.webkitOfflineAudioContext;
+          if (!OffCtx) return null;
+
+          const off = new OffCtx(2, Math.ceil((loopDur + 0.8) * sr), sr);
+
+          // Stereo Battle Hall Delay / Reverb Bus
+          const delayL = off.createDelay(1.0); delayL.delayTime.value = 0.22;
+          const delayR = off.createDelay(1.0); delayR.delayTime.value = 0.31;
+          const fb = off.createGain(); fb.gain.value = 0.26;
+          const lp = off.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 2800;
+          const merger = off.createChannelMerger(2);
+          delayL.connect(lp); delayR.connect(lp); lp.connect(fb); fb.connect(delayL); fb.connect(delayR);
+          delayL.connect(merger, 0, 0); delayR.connect(merger, 0, 1);
+          const wetBus = off.createGain(); wetBus.gain.value = 0.32;
+          wetBus.connect(delayL); wetBus.connect(delayR);
+          const dryBus = off.createGain(); dryBus.gain.value = 0.78;
+          dryBus.connect(off.destination); merger.connect(off.destination);
+
+          // Noise buffer for snare/hi-hat battle drums
+          const noiseBuf = off.createBuffer(1, Math.floor(sr * 0.25), sr);
+          const nd = noiseBuf.getChannelData(0);
+          for (let i = 0; i < nd.length; i++) nd[i] = Math.random() * 2 - 1;
+
+          for (let s = 0; s < totalSteps; s++) {
+            const t = s * stepDur;
+            const bar = Math.floor(s / 16);
+            const bs = s % 16;
+            const bassMidi = tr.bass[bar % tr.bass.length];
+            const chord = tr.chords[bar % tr.chords.length];
+
+            // 1. Driving 16th-note Mecha Synth Bass Ostinato (sawtooth + resonant lowpass)
+            if (bs % 2 === 0 || (tr.intensity !== 'hangar_pulse' && bs % 4 === 3)) {
+              const bOsc = off.createOscillator();
+              const bFilt = off.createBiquadFilter();
+              const bGain = off.createGain();
+              bOsc.type = 'sawtooth';
+              bOsc.frequency.setValueAtTime(this._midi(bassMidi + (bs % 4 === 2 ? 12 : 0)), t);
+              bFilt.type = 'lowpass';
+              bFilt.frequency.setValueAtTime(bs % 4 === 0 ? 950 : 520, t);
+              bFilt.frequency.exponentialRampToValueAtTime(180, t + stepDur * 1.6);
+              bGain.gain.setValueAtTime(0.001, t);
+              bGain.gain.linearRampToValueAtTime(0.24, t + 0.01);
+              bGain.gain.exponentialRampToValueAtTime(0.001, t + stepDur * 1.7);
+              bOsc.connect(bFilt); bFilt.connect(bGain); bGain.connect(dryBus);
+              bOsc.start(t); bOsc.stop(t + stepDur * 1.8);
+            }
+
+            // 2. Orchestral Brass / Power Pad Stab on Bar Downbeat & Beat 3
+            if (bs === 0 || (tr.intensity === 'heroic_battle' && bs === 10)) {
+              const dur = (bs === 0) ? stepDur * 9.0 : stepDur * 5.0;
+              chord.forEach(note => {
+                const o = off.createOscillator();
+                const f = off.createBiquadFilter();
+                const g = off.createGain();
+                o.type = 'sawtooth';
+                o.frequency.setValueAtTime(this._midi(note), t);
+                f.type = 'lowpass';
+                f.frequency.setValueAtTime(340, t);
+                f.frequency.linearRampToValueAtTime(1650, t + 0.14);
+                f.frequency.exponentialRampToValueAtTime(620, t + dur);
+                g.gain.setValueAtTime(0.001, t);
+                g.gain.linearRampToValueAtTime(0.055, t + 0.06);
+                g.gain.exponentialRampToValueAtTime(0.001, t + dur);
+                o.connect(f); f.connect(g); g.connect(dryBus); g.connect(wetBus);
+                o.start(t); o.stop(t + dur + 0.05);
+              });
+            }
+
+            // 3. Heroic Anime Brass / Synth Lead Melody (8th-note grid)
+            if (s % 2 === 0) {
+              const lMidi = tr.lead[(s / 2) % tr.lead.length];
+              if (lMidi > 0) {
+                const dur = stepDur * 3.2;
+                [-4, 4].forEach(det => {
+                  const o = off.createOscillator();
+                  const f = off.createBiquadFilter();
+                  const g = off.createGain();
+                  o.type = 'sawtooth';
+                  o.frequency.setValueAtTime(this._midi(lMidi), t);
+                  o.detune.setValueAtTime(det, t);
+                  f.type = 'lowpass';
+                  f.frequency.setValueAtTime(2400, t);
+                  f.frequency.exponentialRampToValueAtTime(1100, t + dur);
+                  g.gain.setValueAtTime(0.001, t);
+                  g.gain.linearRampToValueAtTime(0.068, t + 0.02);
+                  g.gain.exponentialRampToValueAtTime(0.001, t + dur);
+                  o.connect(f); f.connect(g); g.connect(dryBus); g.connect(wetBus);
+                  o.start(t); o.stop(t + dur + 0.04);
+                });
+              }
+            }
+
+            // 4. Punchy Taiko Kick Drum
+            if (bs === 0 || bs === 6 || bs === 8 || (tr.intensity === 'cyber_combat' && bs === 14)) {
+              const k = off.createOscillator();
+              const kg = off.createGain();
+              k.type = 'sine';
+              k.frequency.setValueAtTime(135, t);
+              k.frequency.exponentialRampToValueAtTime(40, t + 0.12);
+              kg.gain.setValueAtTime(0.42, t);
+              kg.gain.exponentialRampToValueAtTime(0.001, t + 0.16);
+              k.connect(kg); kg.connect(dryBus);
+              k.start(t); k.stop(t + 0.18);
+            }
+
+            // 5. Crisp Battle Snare (Beats 2 & 4)
+            if (bs === 4 || bs === 12) {
+              const ns = off.createBufferSource(); ns.buffer = noiseBuf;
+              const bp = off.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 1850;
+              const ng = off.createGain();
+              ng.gain.setValueAtTime(0.18, t);
+              ng.gain.exponentialRampToValueAtTime(0.001, t + 0.13);
+              ns.connect(bp); bp.connect(ng); ng.connect(dryBus); ng.connect(wetBus);
+              ns.start(t); ns.stop(t + 0.15);
+            }
+
+            // 6. Driving Metallic Hi-Hat
+            if (bs % 2 === 0) {
+              const hs = off.createBufferSource(); hs.buffer = noiseBuf;
+              const hp = off.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 7200;
+              const hg = off.createGain();
+              hg.gain.setValueAtTime(bs % 4 === 2 ? 0.055 : 0.025, t);
+              hg.gain.exponentialRampToValueAtTime(0.001, t + 0.045);
+              hs.connect(hp); hp.connect(hg); hg.connect(dryBus);
+              hs.start(t); hs.stop(t + 0.05);
+            }
+          }
+
+          const rendered = await off.startRendering();
+          // Trim cleanly to exact loop length for gapless playback
+          const loopFrames = Math.floor(loopDur * sr);
+          const cleanBuf = off.createBuffer(2, loopFrames, sr);
+          for (let ch = 0; ch < 2; ch++) {
+            const srcD = rendered.getChannelData(ch);
+            const dstD = cleanBuf.getChannelData(ch);
+            const fadeLen = Math.min(400, Math.floor(loopFrames * 0.01));
+            for (let i = 0; i < loopFrames; i++) dstD[i] = srcD[i];
+            // Wrap tail seamlessly into start
+            const tailFrames = Math.min(rendered.length - loopFrames, loopFrames);
+            for (let i = 0; i < tailFrames; i++) dstD[i] += srcD[loopFrames + i];
+            for (let i = 0; i < fadeLen; i++) {
+              const g = i / fadeLen;
+              dstD[i] *= g;
+              dstD[loopFrames - 1 - i] *= g;
+            }
+          }
+          this.cachedBuffers[idx] = cleanBuf;
+          return cleanBuf;
+        };
+
+        this.renderPromises[idx] = work();
+        return this.renderPromises[idx];
+      }
+
+      async start() {
+        this._initCtx();
+        if (!this.ctx) return;
+        if (this.ctx.state === 'suspended') await this.ctx.resume().catch(() => {});
+        const buf = await this._renderTrackBuffer(this.trackIndex);
+        if (!buf) return;
+        this._stopSource();
+        const src = this.ctx.createBufferSource();
+        src.buffer = buf;
+        src.loop = true;
+        src.connect(this.masterGain);
+        src.start(0);
+        this.currentSource = src;
+        this.isPlaying = true;
+        this._updateUi();
+        showToast(`🎵 Now Playing: ${this.tracks[this.trackIndex].name}`);
+      }
+
+      _stopSource() {
+        if (this.currentSource) {
+          try { this.currentSource.stop(); this.currentSource.disconnect(); } catch (_) {}
+          this.currentSource = null;
         }
       }
-    });
 
-    // Initialize
-    initCatalog();
+      stop() {
+        this._stopSource();
+        this.isPlaying = false;
+        this._updateUi();
+      }
+
+      async toggle() {
+        if (this.isPlaying) {
+          this.userMuted = true;
+          this.stop();
+          showToast('🔇 Battle BGM Muted');
+        } else {
+          this.userMuted = false;
+          await this.start();
+        }
+      }
+
+      async nextTrack() {
+        this.trackIndex = (this.trackIndex + 1) % this.tracks.length;
+        this.userMuted = false;
+        await this.start();
+      }
+
+      _updateUi() {
+        if (this.toggleBtn) {
+          this.toggleBtn.classList.toggle('playing', this.isPlaying);
+          this.toggleBtn.textContent = this.isPlaying ? '🔊 Battle BGM' : '🔇 Battle BGM';
+        }
+        if (this.trackBtn) {
+          this.trackBtn.textContent = `🎵 ${this.tracks[this.trackIndex].shortName}`;
+        }
+      }
+
+      _bindUi() {
+        this.toggleBtn?.addEventListener('click', () => this.toggle());
+        this.trackBtn?.addEventListener('click', () => this.nextTrack());
+        this._updateUi();
+      }
+    }
+
+    const battleAudio = new MechaBattleAudioEngine(
+      document.getElementById('btn-bgm-toggle'),
+      document.getElementById('btn-bgm-track')
+    );
+
+    // Bootstrap Catalog & Default VANGUARD-07 Gundam-Like Real-Robot
+    async function bootstrap() {
+      try {
+        const res = await fetch('data/mecha_catalog.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('Local catalog not found');
+        state.catalog = await res.json();
+      } catch {
+        const res = await fetch('https://raw.githubusercontent.com/myonathanlinkedin/Codes_Container/main/data/mecha_catalog.json');
+        state.catalog = await res.json();
+      }
+      renderInventory();
+      await loadUnit('vanguard');
+    }
+
+    const clock = new THREE.Clock();
+    function animate() {
+      requestAnimationFrame(animate);
+      const delta = Math.min(clock.getDelta(), 0.05);
+      const elapsed = clock.getElapsedTime();
+      if (state.mixer && state.animPlaying) {
+        state.mixer.update(delta);
+      }
+      if (state.renderMode === 'hologram') {
+        hologramMaterial.uniforms.uTime.value = elapsed;
+      }
+      if (cyberGroup.visible) {
+        neonTorus.rotation.y = elapsed * 0.5;
+        neonTorus.rotation.x = Math.sin(elapsed * 0.7) * 0.35;
+      }
+      controls.update();
+      if (composer) composer.render();
+      else renderer.render(scene, camera);
+    }
+
+    bootstrap();
     animate();
   </script>
 </body>
