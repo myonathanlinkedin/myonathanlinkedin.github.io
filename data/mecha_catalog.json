@@ -2,14 +2,14 @@
   "version": "2.0.0",
   "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
   "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
-  "last_synced": "2026-11-21T12:29:08.144222+00:00",
+  "last_synced": "2026-11-21T16:23:26.659582+00:00",
   "baselines": [
     {
       "id": "baseline_gundam_frame_v1",
       "faction": "hero_federation",
       "name": "RX-Type Advanced Movable Frame",
       "mesh_url": "models/baselines/baseline_gundam_frame_v1.glb",
-      "sha256_hash": "e55e4c057e73d93af1c4983fe722d8047ab6327d5d13fb008ea9ebce52870cd9",
+      "sha256_hash": "029c4864c5c397609c69187bbef3544e36160b285b336765a17691fd9f886499",
       "file_size_bytes": 638752,
       "base_mass_kg": 24500,
       "base_reactor_kw": 3450,
@@ -49,7 +49,7 @@
       "faction": "antagonist_zeon_heavy",
       "name": "MS-Type Heavy Industrial Movable Frame",
       "mesh_url": "models/baselines/baseline_rival_heavy_frame_v1.glb",
-      "sha256_hash": "c940a0da5dff6ebad4285119532d7d6a743d5abdd12c888b6fcadd1e9a3b8050",
+      "sha256_hash": "835acab2fdf8579e61e0c642073ec7951ee9d7156a61095bd917bba2be5275f6",
       "file_size_bytes": 310632,
       "base_mass_kg": 31200,
       "base_reactor_kw": 4200,
@@ -145,7 +145,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_a_aero.glb",
-          "sha256_hash": "7e43e1a30ba776913e298bbc3ad9fd2a22c270768da720cb50c77566139ef304",
+          "sha256_hash": "f9864d82dac37a34c07f26762c1aafa978008fe5cdfecb1347891fdbdde2ea70",
           "file_size_bytes": 56836,
           "compression": "meshopt"
         },
@@ -254,8 +254,8 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_s_space.glb",
-          "sha256_hash": "fb687d9a1d88df919bbb31cf9f0aba28c28083d7519b574d3fd033fc63268f26",
-          "file_size_bytes": 47760,
+          "sha256_hash": "8ddd6f8d4a0e26d0881370f0119f0d5f2a1802e66ba27a71a4a573ce596cf27b",
+          "file_size_bytes": 47764,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
@@ -341,7 +341,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_h_artillery.glb",
-          "sha256_hash": "1616aac79c86fac7bab2e04a9385895bd80705c0e4fc04d53bb007873753c35a",
+          "sha256_hash": "cbda7bc8c582cb8efd6503ffce35a3a9018bec80c16c2dbe1df6751e43b2d890",
           "file_size_bytes": 66760,
           "compression": "meshopt"
         },
@@ -428,7 +428,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_e_recon.glb",
-          "sha256_hash": "2d5927b1554df91370dc38c1c169cfb0be329fcb5d2e46ae68c3953d83f1e1c6",
+          "sha256_hash": "bd91348111a65e18750e580485b0f86dfa656e6a496a9d11b6043d776077d03c",
           "file_size_bytes": 26388,
           "compression": "meshopt"
         },
@@ -634,7 +634,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/armor_tower_shield_fed.glb",
-          "sha256_hash": "a4525f83ba34e6b540d96c0eabd129efd185c6ad4d34aa4bb1bee78f86d21a0f",
+          "sha256_hash": "e69b489efa2c6fc4eb27ad5f14542117626a21ae74168ebaeae38405acd9c3cc",
           "file_size_bytes": 34472,
           "compression": "meshopt"
         },
@@ -710,7 +710,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/propulsion_vernier_wing_pod.glb",
-          "sha256_hash": "15bd4ab4343aae1786b649c6753cef482ee463b2e4a3c173490993ad113f8318",
+          "sha256_hash": "89a1b3edfd0501a7722530bac069ce022c331fc805b7ae43ddb625923afdf012",
           "file_size_bytes": 97844,
           "compression": "meshopt"
         },
