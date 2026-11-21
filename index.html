@@ -360,6 +360,8 @@
     .nav-dropdown {
       position: relative;
       display: inline-block;
+      padding-bottom: 4px;
+      margin-bottom: -4px;
     }
     .nav-dropdown-btn {
       display: inline-flex;
@@ -383,23 +385,33 @@
     .nav-dropdown-content {
       display: none;
       position: absolute;
-      top: 100%;
+      top: calc(100% + 4px);
       right: 0;
-      margin-top: 6px;
-      min-width: 220px;
-      background: rgba(15, 23, 42, 0.96);
+      min-width: 230px;
+      background: rgba(15, 23, 42, 0.97);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(56, 189, 248, 0.15);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65), 0 0 15px rgba(56, 189, 248, 0.16);
       padding: 6px;
       z-index: 1000;
     }
+    /* Invisible hover bridge covering the gap between trigger button and menu so hover NEVER collapses! */
+    .nav-dropdown-content::before {
+      content: "";
+      position: absolute;
+      top: -16px;
+      left: -8px;
+      right: -8px;
+      height: 18px;
+      background: transparent;
+    }
     .nav-dropdown:hover .nav-dropdown-content,
-    .nav-dropdown:focus-within .nav-dropdown-content {
+    .nav-dropdown:focus-within .nav-dropdown-content,
+    .nav-dropdown.open .nav-dropdown-content {
       display: block;
-      animation: fadeInDown 0.18s ease-out;
+      animation: fadeInDown 0.16s ease-out;
     }
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-4px); }
@@ -2982,6 +2994,39 @@ const allModules = [{"topic": "Count-Min Sketch Heavy Hitters Frequency Estimato
     setInterval(() => {
       loadDataFromFiles(true);
     }, 30000);
+
+    // Bulletproof Navigation Dropdown Hover-Grace + Click Toggle (Prevents accidental hover collapse!)
+    document.querySelectorAll(".nav-dropdown").forEach(dd => {
+      let closeTimer = null;
+      const btn = dd.querySelector(".nav-dropdown-btn");
+      const openMenu = () => {
+        if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+        document.querySelectorAll(".nav-dropdown.open").forEach(other => {
+          if (other !== dd) other.classList.remove("open");
+        });
+        dd.classList.add("open");
+      };
+      const scheduleClose = () => {
+        if (closeTimer) clearTimeout(closeTimer);
+        closeTimer = setTimeout(() => { dd.classList.remove("open"); closeTimer = null; }, 240);
+      };
+      dd.addEventListener("mouseenter", openMenu);
+      dd.addEventListener("mouseleave", scheduleClose);
+      btn?.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (dd.classList.contains("open")) {
+          dd.classList.remove("open");
+        } else {
+          openMenu();
+        }
+      });
+    });
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".nav-dropdown")) {
+        document.querySelectorAll(".nav-dropdown.open").forEach(dd => dd.classList.remove("open"));
+      }
+    });
 
     // Immediate background sync on tab visibility change or focus
     document.addEventListener("visibilitychange", () => {

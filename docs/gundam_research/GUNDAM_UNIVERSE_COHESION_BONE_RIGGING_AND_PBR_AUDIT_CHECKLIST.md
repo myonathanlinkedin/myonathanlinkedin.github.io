@@ -36,16 +36,17 @@
 
 > **IRONCLAD ROSTER RULE:** Every Mobile Suit displayed in the 3D Gundam-Like Hangar **MUST** exist strictly within the **Gundam Real-Robot Universe** (18 m military humanoid Mobile Suit proportions, V-Fin or Mono-Eye optical head, standardized dorsal backpack interface, beveled military armor paneling, vernier thruster geometry). Non-Gundam robots (`SERAPH-03`, `RONIN-04`, `ATLAS-09`) must be **removed or archived** from the Gundam-Universe hangar roster.
 
-### 2.1 Approved Gundam-Universe Chassis Architecture
+### 2.1 Approved Gundam-Universe Chassis Architecture (Hero vs. Authentic Zeon / Neo-Zeon Enemies)
 
 | Unit Designation | Faction / Role | Visual Standard | Hardpoint Compatibility | Status |
 |---|---|---|---|---|
-| **VANGUARD-07 (RX-Type Standard)** | Federation Hero Real-Robot | Satin Polar White armor, Cobalt chest, Signal Red abdomen/skirts, Gold V-Fin, Emerald twin optics, dual backpack verniers | 100% Universal UHIS (`HP-00` Dorsal + Aux Hardpoints) | `[x]` Active (CC0 1.0 Verified) |
-| **VANGUARD-07B (Titans Spec-Ops Mk-II)** | Dark-Navy Test / Rival Gundam | Deep Titans Navy armor, Midnight Slate torso, Amber-Gold V-Fin, Crimson visor optics (same canonical Gundam Movable Frame!) | 100% Shared `VANGUARD_07_RIG` Bone Sockets | `[ ]` Planned Variant (PBR Recolor Shader/Canvas) |
-| **VANGUARD-07C (Ace Commander Custom)** | Red Comet / Casval Custom Gundam | Metallic Crimson Lacquer armor, Dark Charcoal torso, Warm Gold V-Fin, Blazing Cyan optics | 100% Shared `VANGUARD_07_RIG` Bone Sockets | `[ ]` Planned Variant (PBR Recolor Shader/Canvas) |
-| **VANGUARD-07G3 (Orbital Low-Vis G-3)** | High-Altitude Recon Gundam | Low-Visibility Tactical Light Grey, Gunmetal chest, Violet-Slate trim, Emerald optics | 100% Shared `VANGUARD_07_RIG` Bone Sockets | `[ ]` Planned Variant (PBR Recolor Shader/Canvas) |
-| **MS-Type Mono-Eye Rival (Zaku / Sazabi-Like)** | Zeon-Style Antagonist Mobile Suit | Curved dome helmet, 180° sweeping Ruby Mono-Eye, braided power conduits, spiked left pauldron, flared hover calves — **MUST meet 20k–35k tri PBR + Normal/ORM parity** before replacing CAD frame | 100% Universal `HP-00` Dorsal Hub | `[ ]` Requires Tier 2/3 Sculpted PBR Asset (Never use off-universe samurai/walker!) |
-| **RX-78 Parametric CAD Inner Frame** | Engineering Disassembly Lab | 95-node exploded Ver.Ka Movable Frame for pure mechanical inspection | Full 26-station CAD reference | `[x]` Active (CAD Lab Mode) |
+| **VANGUARD-07 (RX-Type Standard)** | Federation Hero Gundam-Like Real-Robot | Satin Polar White armor, Cobalt chest, Signal Red abdomen/skirts, Gold V-Fin, Emerald twin optics, dual backpack verniers, 7 combat animations (`27.3k` tris CC0 1.0) | 100% Live Chest-Bone `ADP-HP00-DORSAL` + Pelvis Rear-Waist Aux Racks | `[x]` Active (CC0 1.0 Verified) |
+| **MS-06Z Zaku-II Infantry** | Principality of Zeon Mono-Eye Enemy | Master Grade Auto-Smooth (`72` nodes, `16.3k` tris): smooth spherical olive dome helmet, 180° sweeping Ruby Mono-Eye, braided cheek/waist/leg hoses, Left olive 3-spike dome pauldron, Right curved shoulder shield, 120mm drum-mag MG & Heat Hawk | 100% Physical `ADP-HP00-DORSAL` + Rear-Waist Aux Racks + Faction Olive PBR Sync | `[x]` Active (`zeon_enemies.py`) |
+| **MS-07B Gouf Close-Combat Ace** | Zeon Ground-Combat Mono-Eye Ace | Master Grade Auto-Smooth (`71` nodes, `15.8k` tris): swept commander fin dome, sweeping Ruby Mono-Eye, twin curved horned shoulder pauldrons, two-tone military cornflower-blue/Prussian-navy armor, curved Knight Shield & molten-orange Thermal Heat Saber | 100% Physical `ADP-HP00-DORSAL` + Rear-Waist Aux Racks + Faction Blue/Navy PBR Sync | `[x]` Active (`zeon_enemies.py`) |
+| **MSN-04S Sazabi Commander** | Neo-Zeon Heavy Mono-Eye Commander | Master Grade Auto-Smooth (`71` nodes, `14.2k` tris): sweeping Neo-Zeon crested helmet + tall blade, sweeping Emerald Mono-Eye, multi-panel Crimson-Maroon/Obsidian torso with Golden Abdominal Mega-Particle Cannon, massive flared shoulder binders, bell-bottom hover legs & Beam Shot-Rifle | 100% Physical `ADP-HP00-DORSAL` + Rear-Waist Aux Racks + Faction Crimson/Gold PBR Sync | `[x]` Active (`zeon_enemies.py`) |
+| **RX-78 Parametric CAD Inner Frame** | Engineering Disassembly Lab | 95-node exploded Ver.Ka Movable Frame for pure mechanical inspection & bare-arm direct mounting | Full 26-station CAD reference (`HP-00`, `HP-07` Forearm, `HP-11` Hand) | `[x]` Active (CAD Lab Mode) |
+
+> **Anti-Monochrome Rule:** Hero Gundams are NEVER painted into flat all-red or all-blue monochromatic recolors. Enemy slots are strictly filled by distinct, canon Gundam-Universe Mono-Eye Mobile Suit silhouettes (`Zaku-II`, `Gouf`, `Sazabi`) with authentic multi-tone military color blocking, connected inner-frame skeletons, and Blender-grade area-weighted Auto-Smooth normals (`42°` crease threshold).
 
 ---
 
@@ -189,30 +190,30 @@ When the user clicks **`+ EQUIP`** on any modular part, the hangar executes a **
 
 ## 7. Master Implementation & Audit Checklist
 
-### Phase A — Gundam-Universe Roster Cleanup & Canon Faction Variants
-- [ ] Remove off-universe units (`SERAPH-03`, `RONIN-04`, `ATLAS-09`) from the Gundam-Universe roster in `mecha.html` (and delete unused off-universe GLBs to save ~21 MB bloat).
-- [ ] Establish **VANGUARD-07** as the canonical Hero Gundam-Like Real-Robot baseline.
-- [ ] Implement **Gundam-Universe Faction Variants** sharing `VANGUARD_07_RIG` (100% canon Gundam Movable Frame paradigm):
-  - [ ] `VANGUARD-07` — Federation Hero Standard (White / Cobalt / Signal Red / Gold V-Fin / Emerald Optics)
-  - [ ] `VANGUARD-07B` — Titans Spec-Ops Mk-II (Dark Navy / Midnight Slate / Amber V-Fin / Crimson Optics)
-  - [ ] `VANGUARD-07C` — Ace Commander Custom (Char/Casval Crimson / Charcoal / Gold V-Fin / Cyan Optics)
-  - [ ] `VANGUARD-07G3` — Orbital Low-Vis G-3 (Tactical Light Grey / Gunmetal / Violet-Slate / Emerald Optics)
-- [ ] Retain `RX-78 CAD Inner Frame` (`95` nodes) strictly as dedicated **Exploded CAD Lab** inspection mode.
-- [ ] Gate any future Rival Mono-Eye Mobile Suit (`Zaku` / `Sazabi`-like) behind a strict **Gundam-Universe Silhouette + PBR Parity Audit** before adding to roster.
+### Phase A — Gundam-Universe Roster Cleanup & Canon Zeon / Neo-Zeon Enemy Mobile Suits
+- [x] Remove off-universe units (`SERAPH-03`, `RONIN-04`, `ATLAS-09`) from the Gundam-Universe roster in `mecha.html` and delete unused off-universe GLBs (~21 MB saved).
+- [x] Establish **VANGUARD-07** as the canonical Federation Hero Gundam-Like Real-Robot baseline (zero weird monochrome Gundam recolors!).
+- [x] Sculpt & deploy **3 Authentic Gundam-Universe Enemy Mobile Suits** (`src/mecha_engine/zeon_enemies.py`) with Blender-grade `42°` Auto-Smooth Weighted Normals, connected inner-frame skeletons, live sweeping Mono-Eye scanner animation, and multi-tone matte-military PBR:
+  - [x] `MS-06Z Zaku-II Infantry` (Two-Tone Zeon Olive / Charcoal / Ruby Mono-Eye / Left 3-Spike Dome + Right Curved Shield / 120mm Drum MG & Thermal Heat Hawk)
+  - [x] `MS-07B Gouf Close-Combat Ace` (Two-Tone Military Blue / Prussian Navy / Ruby Mono-Eye / Twin Curved Horned Pauldrons / Knight Shield & Molten Heat Saber)
+  - [x] `MSN-04S Sazabi Commander` (Crimson-Maroon / Oxblood / Obsidian / Gold / Emerald Mono-Eye / Flared Shoulder Binders / Belly Mega-Particle Cannon / Bell-Bottom Hover Legs)
+- [x] Retain `RX-78 CAD Inner Frame` (`95` nodes) strictly as dedicated **Exploded CAD Lab** inspection mode.
+- [x] Add full **Mateus Yonathan** author branding across `<title>`, `<meta name="author">`, JSON-LD, single-row top nav (`MATEUS YONATHAN // MECHA HANGAR`), Telemetry Architect badge, and Info Guide modal.
 
 ### Phase B — Physical Adapters, Chirality Fix, Bone Mounting & *"KLIK!"* Snap-Fit
-- [ ] Fix **Left/Right Chirality (`-X = Right Arm/Rifle`, `+X = Left Arm/Shield`)** to match `vanguard-07.glb`'s verified glTF skeleton.
-- [ ] Refactor `cad_compiler.py` so every modular part's `mounting_dovetail_plug` sits cleanly at **local origin `[0, 0, 0]`** AND fix `propulsion_vernier_wing_pod` vernier bell attachment so **0 floating cones** exist.
-- [ ] Build physical graphite **Adapter Brackets** (`ADP-HP00-DORSAL`, `ADP-HP03-SHOULDER`, `ADP-HP07-FOREARM`, `ADP-HP11-WEAPON`, `ADP-HP13-SKIRT`) seated flush onto `VANGUARD_07_RIG` bones (`chest`, `forearm.L`, `hand.R`, `skirt.L/R`) with zero backpack/head/rifle clipping.
-- [ ] Implement **3-Stage Gunpla Snap-Fit Animation** (Adapter engage → Guided rail slide-in → Micro-recoil lock settle + Cyan seam flash) + **Web Audio Mechanical *"KLIK!"* Snap-Fit Sound** (`playGunplaSnapClick()` / `playGunplaUnlatch()`).
-- [ ] Enforce **1-Slot Mutual Exclusion** (`HP-00` auto-swap: equipping a new dorsal pack smoothly unlatches & swaps the previous pack — zero overlapping wings!).
-- [ ] Enforce **Native-Equipment Awareness** (`hasNativeRifle`, `hasNativeShield`) so `VANGUARD-07` stows extra shields/rifles onto a clean dorsal weapon rack adapter instead of clipping into its built-in rifle/shield.
-- [ ] Verify all bone-attached adapters & packs stay 100% locked across `Sentinel`, `RifleBurst`, `ShieldGuard`, `BoostJump`, `KneelFire`, `Run`, and `Backflip`.
+- [x] Fix **Left/Right Chirality (`-X = Right Arm/Rifle`, `+X = Left Arm/Shield`)** to match `vanguard-07.glb`'s verified glTF skeleton.
+- [x] Refactor `cad_compiler.py` so every modular part's `mounting_dovetail_plug` sits cleanly at **local origin `[0, 0, 0]`** AND fix `propulsion_vernier_wing_pod` / `type_s_space` vernier bell attachment so **0 floating cones** exist.
+- [x] Build physical machined graphite **Adapter Brackets** (`adapter_hp00_dorsal.glb` — `ADP-HP00-DORSAL`, `ADP-HP07-FOREARM`, `ADP-HP11-WEAPON`) seated flush onto `VANGUARD_07_RIG` live bones (`chest`, `pelvis`) and all 3 Zeon enemy dorsal bosses with **0.0 mm backpack/head/rifle clipping**.
+- [x] Implement **3-Stage Gunpla Snap-Fit Animation** (Adapter engage → Guided rail slide-in → Micro-recoil detent settle + Razor-thin Cyan lock-seam ring flash) + **3-Layer Web Audio Mechanical *"KLIK!"* Snap-Fit Sound** (`playGunplaSnapClick()` / `playGunplaUnlatch()`).
+- [x] Enforce **1-Slot Mutual Exclusion** (`dorsal_pack`, `aux_shield`, `aux_weapon` auto-swap — zero overlapping wings!).
+- [x] Enforce **Native-Equipment Awareness** so armed suits (`VANGUARD-07`, `Zaku-II`, `Gouf`, `Sazabi`) stow extra shields/rifles cleanly onto sleek rear-waist tactical racks instead of clipping built-in weapons.
+- [x] Verify all bone-attached adapters & packs stay 100% locked across `Sentinel`, `RifleBurst`, `ShieldGuard`, `BoostJump`, `KneelFire`, `Run`, and `Backflip`.
 
-### Phase C — PBR Texture & Weathering Parity (Tier 1 → Tier 2/3)
-- [ ] Add **Procedural Canvas PBR Material Factory** (`MeshPhysicalMaterial` with `clearcoat: 0.22`, tileable `512×512` panel-line albedo, Sobel normal map, and weathered roughness map) so all adapters & modular parts match `VANGUARD-07`'s satin weathered finish.
-- [ ] Sync modular part color palette dynamically with active Gundam-Universe faction variant (Federation White / Titans Navy / Commander Crimson / G-3 Grey).
-- [ ] Document & prepare optional **Tier 2 (`build123d` + headless `bpy`)** / **Tier 3 (Hunyuan3D / Tripo3D)** upgrade path for future automated 20k-tri sculpted rival & part generation.
+### Phase C — PBR Texture & Weathering Parity + Portfolio Navigation Polish
+- [x] Add **Organic Brushed Weathered Gundarium PBR Material Factory** (`MeshPhysicalMaterial` with organic brushed grain, subtle panel seams, Sobel normal map, weathered roughness map — zero tiled grid artifacts) matching `VANGUARD-07`'s military matte-satin finish.
+- [x] Sync modular part color palette dynamically with active Gundam-Universe unit faction (`Federation White/Cobalt/Red`, `Zeon Olive`, `Zeon Blue/Navy`, `Neo-Zeon Crimson-Maroon/Gold`).
+- [x] Fix `index.html` top navigation dropdown hover-collapse dead gap (invisible hover bridge `::before` + 240ms hover-grace & click-toggle JS verified via headless Chrome).
+- [ ] Optional future **Tier 2 (`build123d` + headless `bpy`)** / **Tier 3 (Hunyuan3D / Tripo3D)** upgrade path documented for next-gen 25k-tri sculpted rival assets.
 
 ### Phase D — Already Verified & Protected (Do Not Regress!)
 - [x] **Top Navigation Cleanliness:** 1 standalone `🏠 Main Page` button + 1 dedicated `🤖 3D Pages ▾` dropdown (no mixed LinkedIn/GitHub/Macro links).

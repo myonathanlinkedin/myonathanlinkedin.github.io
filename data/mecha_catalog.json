@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
   "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
-  "last_synced": "2026-11-21T11:36:09.161044+00:00",
+  "last_synced": "2026-11-21T12:29:08.144222+00:00",
   "baselines": [
     {
       "id": "baseline_gundam_frame_v1",
@@ -91,7 +91,10 @@
       "serial_number": "GXM-MPK-AERO-01",
       "name": "Type-A Atmospheric Superiority Pack",
       "category": "modular_mission_pack",
-      "faction_compatibility": "universal_cross_faction",
+      "primary_hardpoint": "HP-00",
+      "slot_group": "dorsal_pack",
+      "adapter_id": "ADP-HP00-DORSAL",
+      "faction_compatibility": "universal_gundam_universe",
       "compatible_hardpoints": [
         "HP-00",
         "HP-19",
@@ -142,20 +145,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_a_aero.glb",
-          "sha256_hash": "6c2ab86df75a1f6e85819e483ae49741a1048f3d374bc4656c4d34ec28a1d451",
-          "file_size_bytes": 56936,
+          "sha256_hash": "7e43e1a30ba776913e298bbc3ad9fd2a22c270768da720cb50c77566139ef304",
+          "file_size_bytes": 56836,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -65.27533346505717,
-            120.0,
-            -49.96397584137993
+            -60.32602831829667,
+            -22.0,
+            -34.0
           ],
           "max": [
-            65.27533346505717,
-            186.0,
-            -9.984995484087623
+            60.32602831829667,
+            37.0,
+            11.492109098140496
           ]
         }
       },
@@ -175,7 +178,10 @@
       "serial_number": "GXM-MPK-SPAC-02",
       "name": "Type-S High-Mobility Space Interceptor Pack",
       "category": "modular_mission_pack",
-      "faction_compatibility": "universal_cross_faction",
+      "primary_hardpoint": "HP-00",
+      "slot_group": "dorsal_pack",
+      "adapter_id": "ADP-HP00-DORSAL",
+      "faction_compatibility": "universal_gundam_universe",
       "compatible_hardpoints": [
         "HP-00",
         "HP-03",
@@ -248,20 +254,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_s_space.glb",
-          "sha256_hash": "437fb657f76f3fd134f869507bb8575e8511929b9dbb1e6abf568300e6ce3f0d",
-          "file_size_bytes": 47768,
+          "sha256_hash": "fb687d9a1d88df919bbb31cf9f0aba28c28083d7519b574d3fd033fc63268f26",
+          "file_size_bytes": 47760,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -34.57436329178668,
-            86.43500419292351,
-            -54.84987664342163
+            -31.464637715169665,
+            -40.85408979621438,
+            -34.372349350912515
           ],
           "max": [
-            34.57436329178668,
-            170.16988568582985,
-            -15.5
+            31.464637715169665,
+            23.084085000504206,
+            8.0
           ]
         }
       },
@@ -281,7 +287,10 @@
       "serial_number": "GXM-MPK-ARTY-03",
       "name": "Type-H Heavy Bombardment Artillery Pack",
       "category": "modular_mission_pack",
-      "faction_compatibility": "universal_cross_faction",
+      "primary_hardpoint": "HP-00",
+      "slot_group": "dorsal_pack",
+      "adapter_id": "ADP-HP00-DORSAL",
+      "faction_compatibility": "universal_gundam_universe",
       "compatible_hardpoints": [
         "HP-00",
         "HP-13",
@@ -332,20 +341,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_h_artillery.glb",
-          "sha256_hash": "9f2038b9f420a1edc912fc25aaf2e9e062dab9c5b7377eb1f53cb4956aaaa92a",
-          "file_size_bytes": 47348,
+          "sha256_hash": "1616aac79c86fac7bab2e04a9385895bd80705c0e4fc04d53bb007873753c35a",
+          "file_size_bytes": 66760,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -24.6,
-            5.098217822166853,
-            -40.0
+            -31.0,
+            -20.5,
+            -20.0
           ],
           "max": [
-            24.6,
-            173.23694542624645,
-            66.59506131943664
+            31.0,
+            32.75,
+            64.0
           ]
         }
       },
@@ -365,7 +374,10 @@
       "serial_number": "GXM-MPK-EWRN-04",
       "name": "Type-E Electronic Reconnaissance & Radome Pack",
       "category": "modular_mission_pack",
-      "faction_compatibility": "universal_cross_faction",
+      "primary_hardpoint": "HP-00",
+      "slot_group": "dorsal_pack",
+      "adapter_id": "ADP-HP00-DORSAL",
+      "faction_compatibility": "universal_gundam_universe",
       "compatible_hardpoints": [
         "HP-00",
         "HP-01",
@@ -416,20 +428,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_e_recon.glb",
-          "sha256_hash": "153efe8e1efa88922ad4749c4deb2c8f569f8077aa11b002ab6a98d71e1627c4",
-          "file_size_bytes": 26292,
+          "sha256_hash": "2d5927b1554df91370dc38c1c169cfb0be329fcb5d2e46ae68c3953d83f1e1c6",
+          "file_size_bytes": 26388,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -26.5,
-            137.0,
-            -50.40911154280369
+            -24.5,
+            -7.0,
+            -41.47031489979035
           ],
           "max": [
-            26.5,
-            186.97105405787667,
-            2.409111542803693
+            24.5,
+            35.85492547746093,
+            8.0
           ]
         }
       },
@@ -449,7 +461,10 @@
       "serial_number": "GXM-MPK-CQCP-05",
       "name": "Type-C Close-Quarters Combat Breacher Pack",
       "category": "modular_mission_pack",
-      "faction_compatibility": "universal_cross_faction",
+      "primary_hardpoint": "HP-07",
+      "slot_group": "aux_shield",
+      "adapter_id": "ADP-HP07-FOREARM",
+      "faction_compatibility": "universal_gundam_universe",
       "compatible_hardpoints": [
         "HP-07",
         "HP-11"
@@ -489,20 +504,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_c_cqc.glb",
-          "sha256_hash": "3096f14abc15ca42fb0d856594252a2d8654550558d7feddbcfdf55c6760802e",
-          "file_size_bytes": 23808,
+          "sha256_hash": "31563b1a04ca95c3d6bff7bf6d8060a14a5b73c6973edb9b080b1bbc87b92e16",
+          "file_size_bytes": 23632,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -55.7,
-            68.25911008791483,
-            -23.5
+            -14.5,
+            -56.0,
+            -15.3
           ],
           "max": [
-            12.0,
-            151.0,
-            67.9147835396958
+            14.5,
+            26.0,
+            8.0
           ]
         }
       },
@@ -522,7 +537,10 @@
       "serial_number": "GXM-WPN-BRIF-06",
       "name": "RX-78 Ver.Ka Long-Barrel Beam Rifle (E-Pac)",
       "category": "weapon",
-      "faction_compatibility": "universal_cross_faction",
+      "primary_hardpoint": "HP-11",
+      "slot_group": "aux_weapon",
+      "adapter_id": "ADP-HP11-WEAPON",
+      "faction_compatibility": "universal_gundam_universe",
       "compatible_hardpoints": [
         "HP-11"
       ],
@@ -551,20 +569,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/weapon_beam_rifle_rx.glb",
-          "sha256_hash": "7e87c7d2529fd21584b64ae856cd6e6cbddaddb56503a52a7861827a9bdc20c6",
-          "file_size_bytes": 33116,
+          "sha256_hash": "497fd6013b51d25e8e1e79904d8625b716124ab51738f57c44a117f02ebdfb8a",
+          "file_size_bytes": 32964,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
             -12.0,
-            74.25,
-            -23.5
+            -14.0,
+            -15.8
           ],
           "max": [
-            39.6,
-            151.0,
-            89.0
+            12.0,
+            66.0,
+            8.0
           ]
         }
       },
@@ -584,7 +602,10 @@
       "serial_number": "GXM-ARM-SHLD-07",
       "name": "Gundarium Hexagonal Federation Composite Shield",
       "category": "armor",
-      "faction_compatibility": "universal_cross_faction",
+      "primary_hardpoint": "HP-07",
+      "slot_group": "aux_shield",
+      "adapter_id": "ADP-HP07-FOREARM",
+      "faction_compatibility": "universal_gundam_universe",
       "compatible_hardpoints": [
         "HP-07"
       ],
@@ -613,20 +634,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/armor_tower_shield_fed.glb",
-          "sha256_hash": "aadeeb7a827c565db9239c8651a171f35c3180aa8700548d3bc3789767724575",
-          "file_size_bytes": 27356,
+          "sha256_hash": "a4525f83ba34e6b540d96c0eabd129efd185c6ad4d34aa4bb1bee78f86d21a0f",
+          "file_size_bytes": 34472,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -53.06120888204838,
-            65.56405516590772,
-            -23.5
+            -16.5,
+            -34.0,
+            -10.299999999999999
           ],
           "max": [
-            12.0,
-            151.0,
-            31.17300803364464
+            16.5,
+            27.0,
+            8.0
           ]
         }
       },
@@ -646,7 +667,10 @@
       "serial_number": "GXM-PRV-FINB-08",
       "name": "Twin Wing-Binder Psycho-Fin Vernier Array",
       "category": "propulsion",
-      "faction_compatibility": "universal_cross_faction",
+      "primary_hardpoint": "HP-00",
+      "slot_group": "dorsal_pack",
+      "adapter_id": "ADP-HP00-DORSAL",
+      "faction_compatibility": "universal_gundam_universe",
       "compatible_hardpoints": [
         "HP-00",
         "HP-03"
@@ -686,20 +710,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/propulsion_vernier_wing_pod.glb",
-          "sha256_hash": "e08adf25aa1d1bed6d1a7e87a21390e5e1d167453385f7ee232e4e74dbe4b64f",
-          "file_size_bytes": 83052,
+          "sha256_hash": "15bd4ab4343aae1786b649c6753cef482ee463b2e4a3c173490993ad113f8318",
+          "file_size_bytes": 97844,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -53.614509236707754,
-            120.080151224826,
-            -45.54427522678554
+            -46.163463065997426,
+            -13.142373233232565,
+            -26.525942012948377
           ],
           "max": [
-            53.614509236707754,
-            195.31240661815423,
-            -15.5
+            46.163463065997426,
+            41.40317415894295,
+            8.0
           ]
         }
       },
