@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>Gundam X Mecha Enthusiast | Autonomous 3D Engineering Hangar & Kinematic Simulator</title>
+  <meta name="description" content="Interactive 3D Mecha Engineering Hangar & Kinematic Simulation. Modular Movable Frame assembly, hot-swappable UHIS mission packs, and real-time AMBAC telemetry." />
+  <link rel="canonical" href="https://myonathanlinkedin.github.io/mecha.html" />
+  <link rel="icon" type="image/x-icon" href="https://myonathanlinkedin.github.io/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="48x48" href="https://myonathanlinkedin.github.io/assets/favicon-48x48.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://myonathanlinkedin.github.io/assets/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg-hangar: #030712;
+      --bg-panel: rgba(10, 16, 30, 0.75);
+      --border-panel: rgba(56, 189, 248, 0.22);
+      --accent-cyan: #00f5ff;
+      --accent-gold: #f59e0b;
+      --accent-red: #ef4444;
+      --accent-green: #10b981;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-mono: 'Fira Code', monospace;
+      --font-sans: 'Inter', sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 30%, #08152e 0%, #030712 60%, #010308 100%);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #hangar-viewport {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+    }
+
+    #hangar-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      outline: none;
+      touch-action: none;
+      cursor: grab;
+    }
+    #hangar-canvas:active { cursor: grabbing; }
+
+    .glass-hud {
+      background: var(--bg-panel);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border: 1px solid var(--border-panel);
+      border-radius: 12px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      pointer-events: auto;
+    }
+
+    /* Top Navigation HUD */
+    #nav-header {
+      position: fixed;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 16px;
+      max-width: min(1200px, calc(100vw - 24px));
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .brand-title {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.8px;
+      color: var(--accent-cyan);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .status-orb {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 10px var(--accent-cyan);
+      animation: pulse-glow 2s infinite ease-in-out;
+    }
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .nav-btn {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      transition: all 0.2s ease;
+    }
+    .nav-btn:hover, .nav-btn.active {
+      color: var(--text-main);
+      background: rgba(0, 245, 255, 0.12);
+      border-color: var(--accent-cyan);
+    }
+
+    /* Left Drawer: Modular Catalog Inventory */
+    #left-drawer {
+      position: fixed;
+      top: 76px;
+      left: 16px;
+      bottom: 76px;
+      width: 320px;
+      max-width: calc(100vw - 32px);
+      z-index: 40;
+      display: flex;
+      flex-direction: column;
+      padding: 14px;
+      gap: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .drawer-title {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      letter-spacing: 1px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .faction-switch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+    .faction-btn {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 7px 4px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.4);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .faction-btn.active.hero {
+      background: rgba(0, 245, 255, 0.2);
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+      box-shadow: 0 0 12px rgba(0, 245, 255, 0.25);
+    }
+    .faction-btn.active.rival {
+      background: rgba(239, 68, 68, 0.2);
+      border-color: var(--accent-red);
+      color: var(--accent-red);
+      box-shadow: 0 0 12px rgba(239, 68, 68, 0.25);
+    }
+
+    .items-scroll {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-right: 4px;
+    }
+    .items-scroll::-webkit-scrollbar { width: 4px; }
+    .items-scroll::-webkit-scrollbar-thumb { background: rgba(56, 189, 248, 0.3); border-radius: 4px; }
+
+    .part-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .part-card:hover {
+      border-color: var(--accent-cyan);
+      background: rgba(0, 245, 255, 0.05);
+    }
+    .part-card.equipped {
+      border-color: var(--accent-green);
+      background: rgba(16, 185, 129, 0.1);
+    }
+
+    .part-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+    .part-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+    .part-serial {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      color: var(--text-muted);
+    }
+    .part-desc {
+      font-size: 10.5px;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .part-badges {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      padding: 2px 5px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+    }
+    .badge.hp { color: var(--accent-gold); border-color: rgba(245, 158, 11, 0.3); }
+
+    /* Right Drawer: Telemetry HUD */
+    #right-drawer {
+      position: fixed;
+      top: 76px;
+      right: 16px;
+      bottom: 76px;
+      width: 290px;
+      max-width: calc(100vw - 32px);
+      z-index: 40;
+      display: flex;
+      flex-direction: column;
+      padding: 14px;
+      gap: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .telemetry-block {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .telemetry-row {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 4px 0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
+    }
+    .telemetry-label { color: var(--text-muted); }
+    .telemetry-val { font-weight: 700; color: var(--accent-cyan); }
+    .telemetry-val.amber { color: var(--accent-gold); }
+    .telemetry-val.green { color: var(--accent-green); }
+
+    .ambac-badge {
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid var(--accent-green);
+      color: var(--accent-green);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0.8px;
+    }
+
+    /* Bottom Control Bar: Exploded View Slider & Actions */
+    #bottom-bar {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 45;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 8px 18px;
+      max-width: min(720px, calc(100vw - 32px));
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .slider-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .exploded-slider {
+      -webkit-appearance: none;
+      width: 140px;
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.2);
+      outline: none;
+    }
+    .exploded-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      cursor: pointer;
+      box-shadow: 0 0 10px var(--accent-cyan);
+    }
+
+    .action-btn {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .action-btn:hover {
+      border-color: var(--accent-cyan);
+      background: rgba(0, 245, 255, 0.15);
+      color: var(--accent-cyan);
+    }
+
+    /* Loading Overlay */
+    #loading-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: #030712;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      transition: opacity 0.4s ease;
+    }
+    .spinner {
+      width: 42px;
+      height: 42px;
+      border: 3px solid rgba(0, 245, 255, 0.2);
+      border-top-color: var(--accent-cyan);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 860px) {
+      #left-drawer { width: 260px; left: 8px; }
+      #right-drawer { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hangar 3D WebGL Canvas Viewport -->
+  <div id="hangar-viewport">
+    <canvas id="hangar-canvas"></canvas>
+  </div>
+
+  <!-- Loading Screen -->
+  <div id="loading-overlay">
+    <div class="spinner"></div>
+    <div style="font-family: var(--font-mono); font-size: 13px; color: var(--accent-cyan); letter-spacing: 1px;">
+      INITIALIZING HANGAR DOCK &amp; LOADING CHASSIS ASSETS...
+    </div>
+  </div>
+
+  <!-- Top Navigation Header -->
+  <header id="nav-header" class="glass-hud">
+    <div class="brand-title">
+      <span class="status-orb"></span>
+      GUNDAM X MECHA ENTHUSIAST
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-btn">PORTFOLIO</a>
+      <a href="constellation.html" class="nav-btn">3D GALAXY</a>
+      <a href="office.html" class="nav-btn">OFFICE</a>
+      <a href="mecha.html" class="nav-btn active">MECHA HANGAR</a>
+    </div>
+  </header>
+
+  <!-- Left Drawer: Modular Catalog Inventory -->
+  <aside id="left-drawer" class="glass-hud">
+    <div class="drawer-title">
+      <span>MODULAR INVENTORY</span>
+      <span style="font-size: 10px; color: var(--text-muted);">UHIS 26-STATION</span>
+    </div>
+
+    <!-- Faction Selector -->
+    <div class="faction-switch">
+      <button id="btn-hero" class="faction-btn active hero">HERO GUNDAM</button>
+      <button id="btn-rival" class="faction-btn rival">RIVAL ENEMY</button>
+    </div>
+
+    <!-- Modular Parts Scroll List -->
+    <div id="parts-list" class="items-scroll">
+      <!-- Injected dynamically from catalog -->
+    </div>
+  </aside>
+
+  <!-- Right Drawer: Live Telemetry HUD -->
+  <aside id="right-drawer" class="glass-hud">
+    <div class="drawer-title">
+      <span>DIAGNOSTIC TELEMETRY</span>
+      <span style="color: var(--accent-green); font-size: 10px;">● ONLINE</span>
+    </div>
+
+    <div class="telemetry-block">
+      <div class="telemetry-row">
+        <span class="telemetry-label">CHASSIS CONFIG</span>
+        <span id="tel-chassis" class="telemetry-val">RX-Type Movable Frame</span>
+      </div>
+      <div class="telemetry-row">
+        <span class="telemetry-label">TOTAL DRY MASS</span>
+        <span id="tel-mass" class="telemetry-val">24,500 kg</span>
+      </div>
+      <div class="telemetry-row">
+        <span class="telemetry-label">REACTOR OUTPUT</span>
+        <span id="tel-reactor" class="telemetry-val amber">3,450 kW</span>
+      </div>
+      <div class="telemetry-row">
+        <span class="telemetry-label">THRUST FORCE</span>
+        <span id="tel-thrust" class="telemetry-val">0 kgf</span>
+      </div>
+      <div class="telemetry-row">
+        <span class="telemetry-label">TWR (VACUUM)</span>
+        <span id="tel-twr" class="telemetry-val amber">0.00 G</span>
+      </div>
+      <div class="telemetry-row">
+        <span class="telemetry-label">CENTER OF MASS</span>
+        <span id="tel-com" class="telemetry-val">[0.0, 48.0, -18.0]</span>
+      </div>
+      <div class="telemetry-row">
+        <span class="telemetry-label">EQUIPPED PACKS</span>
+        <span id="tel-equipped-count" class="telemetry-val green">0 active</span>
+      </div>
+    </div>
+
+    <div class="ambac-badge" id="tel-ambac">
+      AMBAC FLIGHT ENVELOPE: NOMINAL
+    </div>
+
+    <!-- Active Part Inspection Details -->
+    <div style="margin-top: 6px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.08);">
+      <div style="font-family: var(--font-mono); font-size: 10px; color: var(--accent-gold); margin-bottom: 4px;">
+        SELECTED INSPECTION NODE
+      </div>
+      <div id="inspect-title" style="font-size: 11.5px; font-weight: 700;">Double-Pivot Knee Linkage</div>
+      <div id="inspect-body" style="font-size: 10.5px; color: var(--text-muted); line-height: 1.4; margin-top: 4px;">
+        135° dual-axis hinge with synchronized 3-tier sliding femoral armor and chrome-plated slave hydraulic damper.
+      </div>
+    </div>
+  </aside>
+
+  <!-- Bottom Control Bar -->
+  <footer id="bottom-bar" class="glass-hud">
+    <div class="slider-group">
+      <span>EXPLODED VIEW</span>
+      <input type="range" id="slider-exploded" class="exploded-slider" min="0" max="100" value="0" />
+      <span id="lbl-exploded">0%</span>
+    </div>
+    <button id="btn-reset-view" class="action-btn">RESET CAMERA</button>
+    <button id="btn-wireframe" class="action-btn">WIREFRAME</button>
+  </footer>
+
+  <!-- Application Logic (Three.js WebGL Engine) -->
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+    // Application State
+    const state = {
+      catalog: null,
+      activeFaction: 'hero', // 'hero' | 'rival'
+      activeBaselineId: 'baseline_gundam_frame_v1',
+      equippedPacks: new Map(), // part_id -> Object3D
+      wireframeMode: false,
+      explodedFactor: 0.0,
+      chassisModel: null,
+      chassisParts: []
+    };
+
+    // DOM Elements
+    const canvas = document.getElementById('hangar-canvas');
+    const loadingOverlay = document.getElementById('loading-overlay');
+    const partsList = document.getElementById('parts-list');
+    const btnHero = document.getElementById('btn-hero');
+    const btnRival = document.getElementById('btn-rival');
+    const sliderExploded = document.getElementById('slider-exploded');
+    const lblExploded = document.getElementById('lbl-exploded');
+    const btnResetView = document.getElementById('btn-reset-view');
+    const btnWireframe = document.getElementById('btn-wireframe');
+
+    // Telemetry Elements
+    const telChassis = document.getElementById('tel-chassis');
+    const telMass = document.getElementById('tel-mass');
+    const telReactor = document.getElementById('tel-reactor');
+    const telThrust = document.getElementById('tel-thrust');
+    const telTwr = document.getElementById('tel-twr');
+    const telCom = document.getElementById('tel-com');
+    const telEquippedCount = document.getElementById('tel-equipped-count');
+    const inspectTitle = document.getElementById('inspect-title');
+    const inspectBody = document.getElementById('inspect-body');
+
+    // Three.js Core Setup
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x030712, 0.0035);
+
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1.0, 1000.0);
+    camera.position.set(0.0, 90.0, 320.0);
+
+    const controls = new OrbitControls(camera, canvas);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.target.set(0.0, 90.0, 0.0);
+    controls.maxPolarAngle = Math.PI / 2 + 0.1;
+    controls.minDistance = 30.0;
+    controls.maxDistance = 600.0;
+
+    // Hangar Lighting Rig
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
+    scene.add(ambientLight);
+
+    const keyLight = new THREE.DirectionalLight(0x00f5ff, 2.2);
+    keyLight.position.set(120.0, 220.0, 160.0);
+    keyLight.castShadow = true;
+    scene.add(keyLight);
+
+    const fillLight = new THREE.DirectionalLight(0xf59e0b, 1.2);
+    fillLight.position.set(-140.0, 160.0, -100.0);
+    scene.add(fillLight);
+
+    const rimLight = new THREE.DirectionalLight(0xffffff, 1.6);
+    rimLight.position.set(0.0, 280.0, -180.0);
+    scene.add(rimLight);
+
+    // Hangar Grid Floor
+    const gridHelper = new THREE.GridHelper(400, 40, 0x00f5ff, 0x1e293b);
+    gridHelper.position.y = 0.0;
+    scene.add(gridHelper);
+
+    // Assembly Root Container
+    const mechaRoot = new THREE.Group();
+    scene.add(mechaRoot);
+
+    const gltfLoader = new GLTFLoader();
+
+    // 1. Fetch Master Catalog Manifest
+    async function initCatalog() {
+      try {
+        const res = await fetch('data/mecha_catalog.json');
+        if (!res.ok) throw new Error('Local manifest not found, falling back to remote CDN.');
+        state.catalog = await res.json();
+      } catch (err) {
+        console.warn('Falling back to GitHub raw CDN endpoint:', err);
+        const cdnUrl = 'https://raw.githubusercontent.com/myonathanlinkedin/Codes_Container/main/data/mecha_catalog.json';
+        const res = await fetch(cdnUrl);
+        state.catalog = await res.json();
+      }
+
+      renderInventory();
+      await loadChassis(state.activeBaselineId);
+      loadingOverlay.style.opacity = '0';
+      setTimeout(() => loadingOverlay.style.display = 'none', 400);
+    }
+
+    // 2. Load Chassis Model (.glb)
+    async function loadChassis(chassisId) {
+      const chassisData = state.catalog.baselines.find(b => b.id === chassisId);
+      if (!chassisData) return;
+
+      // Dispose existing chassis
+      if (state.chassisModel) {
+        mechaRoot.remove(state.chassisModel);
+        state.chassisModel.traverse(node => {
+          if (node.geometry) node.geometry.dispose();
+          if (node.material) {
+            Array.isArray(node.material) ? node.material.forEach(m => m.dispose()) : node.material.dispose();
+          }
+        });
+      }
+
+      state.chassisParts = [];
+      const modelUrl = `assets/mecha/${chassisData.mesh_url}`;
+
+      return new Promise((resolve, reject) => {
+        gltfLoader.load(modelUrl, (gltf) => {
+          state.chassisModel = gltf.scene;
+
+          // Material Polish & Exploded Normal Caching
+          state.chassisModel.traverse(node => {
+            if (node.isMesh) {
+              node.castShadow = true;
+              node.receiveShadow = true;
+              node.material = new THREE.MeshStandardMaterial({
+                color: state.activeFaction === 'hero' ? 0x223042 : 0x2d1f1f,
+                roughness: 0.35,
+                metalness: 0.85,
+                wireframe: state.wireframeMode
+              });
+
+              // Cache local origin for exploded view
+              node.userData.initialPosition = node.position.clone();
+              state.chassisParts.push(node);
+            }
+          });
+
+          mechaRoot.add(state.chassisModel);
+          updateTelemetry();
+          resolve(state.chassisModel);
+        }, undefined, (err) => {
+          console.error('Error loading chassis GLB:', err);
+          reject(err);
+        });
+      });
+    }
+
+    // 3. Render Inventory Drawer
+    function renderInventory() {
+      partsList.innerHTML = '';
+      if (!state.catalog || !state.catalog.modular_parts) return;
+
+      state.catalog.modular_parts.forEach(part => {
+        const isEquipped = state.equippedPacks.has(part.part_id);
+        const card = document.createElement('div');
+        card.className = `part-card ${isEquipped ? 'equipped' : ''}`;
+        card.innerHTML = `
+          <div class="part-card-header">
+            <span class="part-name">${part.name}</span>
+            <span class="part-serial">${part.serial_number}</span>
+          </div>
+          <div class="part-desc">${part.telemetry_and_lore.operational_role}</div>
+          <div class="part-badges">
+            <span class="badge hp">${part.compatible_hardpoints.join(', ')}</span>
+            <span class="badge">+${(part.structural_specs.mass_kg / 1000).toFixed(1)}t</span>
+            <span class="badge" style="color: var(--accent-cyan)">${isEquipped ? 'EQUIPPED' : 'CLICK TO EQUIP'}</span>
+          </div>
+        `;
+
+        card.addEventListener('click', () => toggleEquipPart(part));
+        partsList.appendChild(card);
+      });
+    }
+
+    // 4. Toggle Equip / Unequip Modular Mission Pack
+    async function toggleEquipPart(part) {
+      if (state.equippedPacks.has(part.part_id)) {
+        // Unequip
+        const model = state.equippedPacks.get(part.part_id);
+        mechaRoot.remove(model);
+        model.traverse(node => {
+          if (node.geometry) node.geometry.dispose();
+          if (node.material) {
+            Array.isArray(node.material) ? node.material.forEach(m => m.dispose()) : node.material.dispose();
+          }
+        });
+        state.chassisParts = state.chassisParts.filter(n => n.parent !== null);
+        state.equippedPacks.delete(part.part_id);
+      } else {
+        // Equip
+        const modelUrl = `assets/mecha/${part.cad_mesh_definition.asset_reference.relative_url}`;
+        try {
+          const gltf = await new Promise((res, rej) => gltfLoader.load(modelUrl, res, undefined, rej));
+          const packModel = gltf.scene;
+
+          packModel.traverse(node => {
+            if (node.isMesh) {
+              node.castShadow = true;
+              node.receiveShadow = true;
+              node.material = new THREE.MeshStandardMaterial({
+                color: 0x1e293b,
+                roughness: 0.25,
+                metalness: 0.9,
+                wireframe: state.wireframeMode
+              });
+              node.userData.initialPosition = node.position.clone();
+              state.chassisParts.push(node);
+            }
+          });
+
+          // Mount to Dorsal Spine offset (HP-00) with adaptive standoff
+          const zOffset = state.activeFaction === 'hero' ? -18.0 : -22.0;
+          packModel.position.set(0.0, 95.0, zOffset);
+          mechaRoot.add(packModel);
+          state.equippedPacks.set(part.part_id, packModel);
+        } catch (e) {
+          console.error('Failed to load pack:', e);
+        }
+      }
+
+      renderInventory();
+      updateTelemetry();
+      applyExplodedDisplacement(state.explodedFactor);
+    }
+
+    // 5. Update Telemetry HUD
+    function updateTelemetry() {
+      const chassisData = state.catalog.baselines.find(b => b.id === state.activeBaselineId);
+      if (!chassisData) return;
+
+      let totalMass = chassisData.base_mass_kg;
+      let totalReactor = chassisData.base_reactor_kw;
+      let totalThrust = 0;
+
+      state.equippedPacks.forEach((_, partId) => {
+        const p = state.catalog.modular_parts.find(item => item.part_id === partId);
+        if (p) {
+          totalMass += p.structural_specs.mass_kg;
+          totalReactor += p.telemetry_and_lore.reactor_power_draw_kw;
+          totalThrust += p.telemetry_and_lore.vernier_thrust_kgf;
+        }
+      });
+
+      const twr = totalMass > 0 ? (totalThrust / totalMass) : 0;
+
+      telChassis.innerText = chassisData.name;
+      telMass.innerText = `${totalMass.toLocaleString()} kg (${(totalMass / 1000).toFixed(1)} t)`;
+      telReactor.innerText = `${totalReactor.toLocaleString()} kW`;
+      telThrust.innerText = `${totalThrust.toLocaleString()} kgf`;
+      telTwr.innerText = `${twr.toFixed(2)} G`;
+      telEquippedCount.innerText = `${state.equippedPacks.size} packs mounted`;
+    }
+
+    // 6. Exploded View Slider Handler
+    function applyExplodedDisplacement(factor) {
+      state.chassisParts.forEach(node => {
+        if (!node.userData.initialPosition) return;
+        const norm = node.userData.initialPosition.clone().normalize();
+        if (norm.lengthSq() === 0) norm.set(0, 1, 0);
+        node.position.copy(node.userData.initialPosition).addScaledVector(norm, factor * 45.0);
+      });
+    }
+
+    sliderExploded.addEventListener('input', (e) => {
+      const val = parseFloat(e.target.value);
+      state.explodedFactor = val / 100.0;
+      lblExploded.innerText = `${Math.round(val)}%`;
+      applyExplodedDisplacement(state.explodedFactor);
+    });
+
+    // 7. Faction Switching Buttons (Cross-Faction Kitbashing Retention)
+    btnHero.addEventListener('click', async () => {
+      if (state.activeFaction === 'hero') return;
+      state.activeFaction = 'hero';
+      state.activeBaselineId = 'baseline_gundam_frame_v1';
+      btnHero.className = 'faction-btn active hero';
+      btnRival.className = 'faction-btn rival';
+      
+      // Update standoff position for all currently equipped kitbash packs
+      state.equippedPacks.forEach((packModel) => {
+        packModel.position.set(0.0, 95.0, -18.0);
+      });
+
+      await loadChassis(state.activeBaselineId);
+      renderInventory();
+    });
+
+    btnRival.addEventListener('click', async () => {
+      if (state.activeFaction === 'rival') return;
+      state.activeFaction = 'rival';
+      state.activeBaselineId = 'baseline_rival_heavy_frame_v1';
+      btnRival.className = 'faction-btn active rival';
+      btnHero.className = 'faction-btn hero';
+      
+      // Update standoff position for all currently equipped kitbash packs
+      state.equippedPacks.forEach((packModel) => {
+        packModel.position.set(0.0, 95.0, -22.0);
+      });
+
+      await loadChassis(state.activeBaselineId);
+      renderInventory();
+    });
+
+    // 8. Control Actions
+    btnResetView.addEventListener('click', () => {
+      camera.position.set(0.0, 90.0, 320.0);
+      controls.target.set(0.0, 90.0, 0.0);
+      controls.update();
+    });
+
+    btnWireframe.addEventListener('click', () => {
+      state.wireframeMode = !state.wireframeMode;
+      mechaRoot.traverse(node => {
+        if (node.isMesh && node.material) {
+          node.material.wireframe = state.wireframeMode;
+        }
+      });
+      btnWireframe.innerText = state.wireframeMode ? 'SOLID SHADE' : 'WIREFRAME';
+    });
+
+    // Window Resize Handler
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Main Render Loop (60 FPS)
+    function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    }
+
+    // 9. Interactive 3D Raycasting Inspection & Ver.Ka Telemetry Map
+    const subsystemTelemetry = {
+      'cervical': {
+        title: 'Cervical Head Gimbal Linkage (6-DoF)',
+        desc: 'Dual-axis pitch/yaw gimbal [-25°, +40°] with synchronized 4.5 mm forward translation cam and Minovsky optical sensor bus.'
+      },
+      'v_fin': {
+        title: 'V-Fin Phased-Array Antenna Array',
+        desc: 'Broadband pencil-beam microwave transceivers providing directional communications through high-density Minovsky particle jamming.'
+      },
+      'cockpit': {
+        title: '3-Axis Cockpit Gimbal Suspension Capsule',
+        desc: '2.0m magnetic levitation spherical cockpit damping up to 12G lateral accelerations with automated core escape booster.'
+      },
+      'spine': {
+        title: 'Thoraco-Lumbar Articulated Spine (4-DoF)',
+        desc: 'Multi-tiered structural backbone with fluid-pulse damping conduits channeling high-pressure hydraulic impulses.'
+      },
+      'hp00': {
+        title: 'UHIS HP-00 Standardized Dorsal Dovetail',
+        desc: 'Universal trapezoidal hardpoint with 10° taper, dual pneumatic spring detents, and 100 MPa direct plasma tap.'
+      },
+      'shoulder': {
+        title: 'Clavicular Forward-Swing Bracket (6-DoF)',
+        desc: 'Eccentric 35° anterior swing clevis enabling full two-handed beam rifle manipulation across the thoracic centerline.'
+      },
+      'elbow': {
+        title: 'Double-Pivot Elbow with Slave Hydraulic Damper',
+        desc: '145° dual-axis hinge with 14.2 mm synchronized chrome-plated hydraulic slave cylinder stroke.'
+      },
+      'wrist': {
+        title: 'Universal 2-Axis Wrist Gimbal & Bus',
+        desc: 'Porous magnetic low-resistance coated bearing race with 3.0mm universal auxiliary weapon interface.'
+      },
+      'hip': {
+        title: 'Pelvic Hip Drop-Down Swivel Hub',
+        desc: 'Lowers femoral pivot 6.0 mm and translates 4.0 mm forward, extending forward leg flexion from 65° to 105°.'
+      },
+      'femur': {
+        title: 'Sliding Femoral Armor Rail Assembly',
+        desc: 'Brass-guided longitudinal rails allowing 8.5 mm proximal slide during full knee flexion.'
+      },
+      'knee': {
+        title: 'Dual-Axis Knee with Floating Kneecap Linkage',
+        desc: 'Twin pivot nodes delivering 135° flexion with 4-bar floating kneecap suspension and expanding posterior cowls.'
+      },
+      'calf': {
+        title: 'Posterior Calf Vernier Cowling',
+        desc: 'Expandable thermal exhaust shell revealing high-impulse attitude control thrusters for AMBAC agility.'
+      },
+      'ankle': {
+        title: 'Universal Ankle Gimbal & 3-Section Sole',
+        desc: 'Pitch [-35°, +45°], roll ±28° with independent hydraulic heel damper and 40° upward-pivoting toe claw.'
+      },
+      'rival_head': {
+        title: 'Cast Iron Antagonist Cranial Turret',
+        desc: 'Heavily armored 280mm cast shell with 180° circular swept mono-eye guide track and crimson infrared targeting illuminator.'
+      },
+      'mono_eye': {
+        title: 'Compound 180° Swept Mono-Eye Optical Sensor',
+        desc: 'Multi-spectral infrared/optical compound tracking array with continuous horizontal panoramic azimuth sweep.'
+      },
+      'conduit': {
+        title: 'Braided Superconducting Fluid-Pulse Conduits',
+        desc: 'External rubberized cryogenic conduits cooling high-output fusion plasma outside the thoracic frame to maximize reactor core volume.'
+      },
+      'spiked': {
+        title: 'Triple Kinetic Ramming Pauldron',
+        desc: 'Cast titanium-ceramic pauldron reinforced with three solid kinetic piercing spikes for close-quarters breach charges.'
+      },
+      'shield': {
+        title: 'Articulated Curved Heavy Tower Shield',
+        desc: 'Multi-laminate Chobham armor plate mounted on a 2-axis subarm providing 180° frontal and lateral ballistic coverage.'
+      },
+      'hover': {
+        title: 'Flared Lower Leg Thermonuclear Hover Cowling',
+        desc: 'High-expansion shroud housing thermonuclear thermal jets and high-flow lift fans for 220 km/h ground-effect gliding.'
+      },
+      'tread': {
+        title: 'Heavy Magnetic Ground Grip Sole Plate',
+        desc: 'Deep-grooved segmented tread plates with high-power electromagnetic anchoring solenoids for artillery recoil stabilization.'
+      },
+      'delta_wing': {
+        title: 'Variable-Sweep Aerodynamic Delta Wing (Type-A)',
+        desc: '15° to 68° variable geometry wings with titanium leading-edge slats providing supersonic atmospheric maneuverability.'
+      },
+      'booster': {
+        title: 'High-Impulse Thermonuclear Rocket Binder (Type-S)',
+        desc: '140,000 kgf vacuum thrust rocket bell with dual-axis gimbal vectoring (±15°) boosting overall TWR to 3.85 G.'
+      },
+      'cannon': {
+        title: 'Dual 380mm Over-the-Shoulder Artillery Cannons (Type-H)',
+        desc: 'Liquid-cooled heavy smoothbore barrels with pneumatic recoil dampers absorbing 500 kN launch impulses.'
+      },
+      'rotodome': {
+        title: '3.8m Multi-Spectral Chirp LIDAR Rotodome (Type-E)',
+        desc: 'Full-azimuth 360° rotating radar disc generating real-time 3D battlefield point-clouds through Minovsky particle interference.'
+      },
+      'pile_bunker': {
+        title: 'Hydraulic Pile-Bunker Penetrating Stake (Type-C)',
+        desc: 'High-pressure nitrogen accumulator driving a solid carbon-alloy penetrator through heavy warship armor plates.'
+      }
+    };
+
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+    window.addEventListener('pointerdown', (e) => {
+      if (e.target !== canvas) return;
+
+      mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(mechaRoot.children, true);
+
+      if (intersects.length > 0) {
+        const hit = intersects[0].object;
+        const name = (hit.name || '').toLowerCase();
+
+        let matched = null;
+        for (const [key, data] of Object.entries(subsystemTelemetry)) {
+          if (name.includes(key)) {
+            matched = data;
+            break;
+          }
+        }
+
+        if (matched) {
+          inspectTitle.innerText = matched.title;
+          inspectBody.innerText = matched.desc;
+        } else {
+          inspectTitle.innerText = hit.name ? hit.name.toUpperCase().replace(/_/g, ' ') : 'STRUCTURAL SUB-ELEMENT';
+          inspectBody.innerText = 'Precision CNC-machined titanium-gundarium alloy movable frame articulation component with magnetic low-resistance bearing races.';
+        }
+
+        // Emissive feedback
+        if (hit.material && hit.material.emissive) {
+          const origEmissive = hit.material.emissive.clone();
+          hit.material.emissive.setHex(0x00f5ff);
+          hit.material.emissiveIntensity = 0.8;
+          setTimeout(() => {
+            hit.material.emissive.copy(origEmissive);
+            hit.material.emissiveIntensity = 0.0;
+          }, 350);
+        }
+      }
+    });
+
+    // Initialize
+    initCatalog();
+    animate();
+  </script>
+</body>
+</html>
