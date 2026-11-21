@@ -3141,15 +3141,31 @@
       return getSharedMechaMaterial({ color: 0x1e2530, roughness: 0.40, metalness: 0.72 });
     }
 
+    // Dedicated Unlit Radiant 3-Layer Crimson-Pink Beam Saber Plasma Materials (ZERO Bloom pass needed!)
+    const beamSaberCoreMat = new THREE.MeshBasicMaterial({
+      color: 0xfff0f6, toneMapped: false
+    });
+    const beamSaberMidMat = new THREE.MeshBasicMaterial({
+      color: 0xff175c, transparent: true, opacity: 0.78,
+      depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false
+    });
+    const beamSaberHaloMat = new THREE.MeshBasicMaterial({
+      color: 0xff004c, transparent: true, opacity: 0.34,
+      depthWrite: false, blending: THREE.AdditiveBlending, side: THREE.DoubleSide, toneMapped: false
+    });
+
     function buildPackPBRMaterial(node, unitId = state.activeUnitId) {
       const spec = UNIT_REGISTRY[unitId] || UNIT_REGISTRY.vanguard_rx;
       const pc = spec.packColors;
       const n = (node.name || '').toLowerCase();
-      if (n.includes('aura_pink_glass')) {
-        return getSharedMechaMaterial({ color: 0xff2e97, emissive: 0xff1493, emissiveIntensity: 2.0, roughness: 0.10, metalness: 0.05, transparent: true, opacity: 0.46, isEmissive: true, envMapIntensity: 0.6 });
+      if (n.includes('core_laser') || n.includes('blade_core_pink')) {
+        return beamSaberCoreMat;
       }
-      if (n.includes('blade_core_pink')) {
-        return getSharedMechaMaterial({ color: 0xffe4f3, emissive: 0xff4da6, emissiveIntensity: 2.6, roughness: 0.08, metalness: 0.05, isEmissive: true });
+      if (n.includes('mid_laser') || n.includes('aura_pink_glass')) {
+        return beamSaberMidMat;
+      }
+      if (n.includes('halo_laser')) {
+        return beamSaberHaloMat;
       }
       if (n.includes('hilt_white')) {
         return getSharedMechaMaterial({ color: 0xf0f2ec, roughness: 0.34, metalness: 0.10, useDetail: false });
