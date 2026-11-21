@@ -750,28 +750,20 @@
       font-size: 11px;
     }
 
-    /* 8-Zone Body Customization Filter Chips */
+    /* 8-Zone Body Customization Filter Chips — Crisp Multi-Row Wrap (Zero Stiff Horizontal Scroll!) */
     .category-chips-scroll {
       display: flex;
+      flex-wrap: wrap;
       gap: 4px;
-      overflow-x: auto;
-      padding-bottom: 3px;
-    }
-
-    .category-chips-scroll::-webkit-scrollbar {
-      height: 3px;
-    }
-
-    .category-chips-scroll::-webkit-scrollbar-thumb {
-      background: rgba(0, 229, 255, 0.3);
-      border-radius: 3px;
+      overflow: visible;
+      padding-bottom: 2px;
     }
 
     .cat-chip {
       font-family: var(--font-mono);
-      font-size: 8.6px;
+      font-size: 8.3px;
       font-weight: 700;
-      padding: 3px 6px;
+      padding: 3.5px 6px;
       border-radius: 5px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       background: rgba(0, 0, 0, 0.35);
@@ -779,6 +771,7 @@
       cursor: pointer;
       white-space: nowrap;
       transition: all 0.15s;
+      flex: 0 1 auto;
     }
 
     .cat-chip.active {
@@ -1600,16 +1593,83 @@
     }
 
     /* Mobile & Tablet Ergonomic Layout — Zero Bottom Overlap Guarantee */
+    /* Mobile & Tablet Ergonomic Layout — Sleek 2-Row Top Bar + Zero Bottom Overlap */
     @media (max-width: 960px) {
       #nav-header {
         top: 8px;
         left: 8px;
         right: 8px;
         max-width: none;
+        display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        align-items: center;
+        justify-content: flex-start;
         padding: 6px 8px;
         gap: 4px 6px;
+        gap: 5px 5px;
+      }
+
+      #nav-header .nav-sep {
+        display: none;
+      }
+
+      #nav-header .nav-mobile-break {
+        display: block !important;
+        order: 4;
+        flex: 0 0 100%;
+        height: 0;
+      }
+
+      #nav-header .brand-title {
+        order: 1;
+        flex: 1 1 0;
+        min-width: 0;
+        font-size: 8.2px;
+        letter-spacing: 0.4px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      #nav-header .nav-home-btn {
+        order: 2;
+        padding: 3px 6px;
+        font-size: 8.2px;
+      }
+
+      #nav-header #btn-hide-top {
+        order: 3;
+        width: 22px;
+        height: 22px;
+      }
+
+      #nav-header #nav-3d-pages {
+        order: 5;
+        flex: 1 1 0;
+        min-width: 0;
+        padding: 3.5px 5px;
+        font-size: 8.1px;
+      }
+
+      #nav-header #btn-open-guide {
+        order: 6;
+        padding: 3.5px 5px;
+        font-size: 8.1px;
+      }
+
+      #nav-header #btn-bgm-toggle {
+        order: 7;
+        padding: 3.5px 5px;
+        font-size: 8.1px;
+      }
+
+      #nav-header #btn-bgm-track {
+        order: 8;
+        padding: 3.5px 5px;
+        font-size: 8.1px;
+        max-width: 78px;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       #btn-restore-top {
@@ -1726,6 +1786,7 @@
     </a>
     <span class="nav-sep"></span>
     <a href="index.html" class="nav-home-btn" title="Return to Main Portfolio Page">🏠 Main Page</a>
+    <span class="nav-mobile-break" style="display:none;"></span>
     <select id="nav-3d-pages" class="nav-select" aria-label="Switch 3D Interactive Pages"
       onchange="if(this.value){window.location.href=this.value;}">
       <option value="" selected>🤖 3D Gundam-Like Hangar</option>
@@ -1782,10 +1843,10 @@
             stances.</p>
         </div>
         <div class="guide-card">
-          <h4>🧬 AGENTIC ZERO-DUPLICATE SYNTHESIZER</h4>
-          <p>Every catalog part carries a unique SHA-256 cryptographic seed and parametric CAD genome. Click <strong>🧬
-              +AGENT SYNTH</strong> anytime to autonomously compile a brand-new, non-duplicate 3D modular part in real
-            time.</p>
+          <h4>🎲 1-CLICK RANDOM TACTICAL BUILD</h4>
+          <p>Click <strong>🎲 RANDOM BUILD</strong> anytime to automatically assemble a fresh multi-zone combat
+            loadout (mixing Aero, Heavy Siege, Psycho-Fin, CQC Breacher, or Recon builds) paired with a matching
+            60fps combat stance.</p>
         </div>
         <div class="guide-card">
           <h4>✕ PANEL CLOSE &amp; CINEMA HUD CONTROLS</h4>
@@ -1850,15 +1911,15 @@
       <span style="color: var(--accent-gold);">🔌 SNAP-FIT "KLIK!"</span>
     </div>
 
-    <!-- 1-Click Full Armor Loadout + Live Agentic Zero-Duplicate Part Synthesizer -->
+    <!-- 1-Click Full Armor Loadout + Smart Multi-Zone Tactical Loadout Randomizer -->
     <div class="quick-loadout-row">
       <button id="btn-full-armor" class="loadout-btn full-armor"
         title="Snap on a complete 8-zone Full-Armor loadout across Head, Chest, Shoulders, Back, Arms, Waist &amp; Legs">
         ⚡ FULL ARMOR (8-ZONE)
       </button>
       <button id="btn-agentic-synth" class="loadout-btn agent-synth"
-        title="Autonomously synthesize a brand-new unique non-duplicate 3D part with SHA-256 seed genome">
-        🧬 +AGENT SYNTH
+        title="Randomize a fresh multi-zone tactical loadout (weapons, shields, backpacks, armor &amp; combat stance)">
+        🎲 RANDOM BUILD
       </button>
       <button id="btn-clear-loadout" class="loadout-btn clear-all" title="Dismount all equipped parts">
         🧹 CLEAR
@@ -4152,90 +4213,55 @@
       showToast('🧹 Dismounted All 8 Body Zones');
     }
 
-    // Live Agentic Zero-Duplicate Parametric Part Synthesizer (Generates a brand-new SHA-256 seed-unique part in the browser!)
+    // Smart Multi-Zone Tactical Build Randomizer (Cycles Distinct Gundam Combat Archetypes Across All 8 Zones!)
     async function synthesizeLiveAgenticPart() {
-      if (!state.catalog?.modular_parts) return;
-      const zones = Object.keys(BODY_ZONES);
-      const targetZone = state.activeCategory !== 'all' && BODY_ZONES[state.activeCategory]
-        ? state.activeCategory
-        : zones[(state.catalog.modular_parts.length + state.agenticSynthNonce) % zones.length];
+      if (!state.catalog?.modular_parts || state.catalog.modular_parts.length === 0) return;
+
+      const presets = [
+        { name: 'Heavy Siege Assault', stance: 'RifleBurst', zones: ['dorsal_pack', 'aux_weapon', 'aux_shield', 'shoulder_pods', 'chest_armor', 'waist_ordnance', 'leg_thrusters'] },
+        { name: 'High-Mobility Interceptor', stance: 'BoostJump', zones: ['dorsal_pack', 'aux_weapon', 'head_sensor', 'leg_thrusters', 'waist_ordnance'] },
+        { name: 'Close-Quarters Breacher', stance: 'ShieldGuard', zones: ['aux_shield', 'chest_armor', 'shoulder_pods', 'head_sensor', 'dorsal_pack'] },
+        { name: 'Tactical Recon Vanguard', stance: 'Sentinel', zones: ['dorsal_pack', 'head_sensor', 'aux_weapon', 'aux_shield', 'leg_thrusters'] },
+        { name: 'Full-Armor Striker', stance: 'MeleeSlash', zones: ['head_sensor', 'chest_armor', 'shoulder_pods', 'dorsal_pack', 'aux_weapon', 'aux_shield', 'waist_ordnance', 'leg_thrusters'] }
+      ];
+      const build = presets[state.agenticSynthNonce % presets.length];
       state.agenticSynthNonce++;
 
-      // Deterministic cryptographic SHA-256-like hex derivation from timestamp + zone + nonce
-      const rawStr = `${Date.now()}_${targetZone}_${state.agenticSynthNonce}_GXM_UC2026`;
-      let h1 = 0xdeadbeef ^ rawStr.length, h2 = 0x41c6ce57 ^ rawStr.length;
-      for (let i = 0; i < rawStr.length; i++) {
-        const ch = rawStr.charCodeAt(i);
-        h1 = Math.imul(h1 ^ ch, 2654435761);
-        h2 = Math.imul(h2 ^ ch, 1597334677);
-      }
-      h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
-      h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
-      const seedHex = (h1 >>> 0).toString(16).padStart(8, '0') + (h2 >>> 0).toString(16).padStart(8, '0') +
-        ((h1 ^ 0x5a5a5a5a) >>> 0).toString(16).padStart(8, '0') + ((h2 ^ 0xa5a5a5a5) >>> 0).toString(16).padStart(8, '0') +
-        ((h1 * 31) >>> 0).toString(16).padStart(8, '0') + ((h2 * 17) >>> 0).toString(16).padStart(8, '0') +
-        ((h1 ^ h2) >>> 0).toString(16).padStart(8, '0') + ((~h1) >>> 0).toString(16).padStart(8, '0');
-      const tag4 = seedHex.slice(0, 4).toUpperCase();
-      const b0 = parseInt(seedHex.slice(0, 2), 16) / 255.0;
-      const b1 = parseInt(seedHex.slice(2, 4), 16) / 255.0;
-      const b2 = parseInt(seedHex.slice(4, 6), 16) / 255.0;
+      const prevIds = Array.from(state.equippedPacks.keys());
+      prevIds.forEach(id => dismountPart(id, true));
 
-      // Pick template archetype in that body zone and apply unique parametric genome scaling
-      const template = state.catalog.modular_parts.find(p => resolvePartSlotGroup(p) === targetZone) || state.catalog.modular_parts[0];
-      const zMeta = BODY_ZONES[targetZone];
-      const sx = +(0.90 + b0 * 0.24).toFixed(3);
-      const sy = +(0.90 + b1 * 0.26).toFixed(3);
-      const sz = +(0.92 + b2 * 0.22).toFixed(3);
-
-      const zoneTitleMap = {
-        head_sensor: `HD-${tag4} Cranial ${Math.round(55 + b0 * 25)}mm Vulcan & Psycho-Crest`,
-        chest_armor: `CH-${tag4} Chobham Reactive Breastplate & I-Field Gen`,
-        shoulder_pods: `SH-${tag4} Twin ${Math.round(6 + b0 * 6)}-Tube Missile & Vernier Pauldrons`,
-        dorsal_pack: `MP-${tag4} Variable-Geometry High-Mobility Striker Pack`,
-        aux_weapon: `BR-${tag4} High-Output ${(4.2 + b0 * 3.5).toFixed(1)}MW Long-Barrel Beam Rifle`,
-        aux_shield: `SD-${tag4} Gundarium Phase-Composite Hexagonal Shield`,
-        waist_ordnance: `WS-${tag4} Xiphias Mach-${(7.5 + b1 * 2.4).toFixed(1)} Folding Hip Railguns`,
-        leg_thrusters: `LG-${tag4} FA-78 Dual Calf Missile & Supersonic Boosters`
-      };
-
-      const newPart = {
-        part_id: `agentic_${targetZone}_${seedHex.slice(0, 6)}`,
-        serial_number: `GXM-SYN-${tag4}`,
-        name: zoneTitleMap[targetZone] || `AG-${tag4} Agentic Modular Unit`,
-        category: template.category,
-        primary_hardpoint: zMeta.hp,
-        slot_group: targetZone,
-        adapter_id: zMeta.adapterId,
-        entropy_seed: seedHex,
-        synthesis_origin: 'live_agentic_parametric_genome',
-        _genomeScale: [sx, sy, sz],
-        compatible_hardpoints: template.compatible_hardpoints,
-        structural_specs: {
-          mass_kg: Math.round(template.structural_specs.mass_kg * ((sx + sy + sz) / 3.0)),
-          primary_material: 'gundarium_alloy_gamma',
-          center_of_mass: [0, 48, -22]
-        },
-        cad_mesh_definition: {
-          format: 'binary_gltf_glb',
-          asset_reference: {
-            relative_url: template.cad_mesh_definition.asset_reference.relative_url,
-            sha256_hash: seedHex,
-            file_size_bytes: template.cad_mesh_definition.asset_reference.file_size_bytes
-          }
-        },
-        telemetry_and_lore: {
-          operational_role: `Autonomously synthesized ${zMeta.short} module (Genome scale ${sx}×${sy}×${sz}, Seed ${seedHex.slice(0, 8)}).`,
-          reactor_power_draw_kw: Math.round((template.telemetry_and_lore?.reactor_power_draw_kw || 250) * (0.9 + b1 * 0.3)),
-          vernier_thrust_kgf: Math.round((template.telemetry_and_lore?.vernier_thrust_kgf || 0) * (0.9 + b0 * 0.35))
+      const allParts = state.catalog.modular_parts;
+      const pickRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
+      let mountedCount = 0;
+      for (const z of build.zones) {
+        const candidates = allParts.filter(p => resolvePartSlotGroup(p) === z);
+        if (candidates.length === 0) continue;
+        let chosen = null;
+        if (build.name === 'Close-Quarters Breacher' && z === 'aux_shield') {
+          chosen = candidates.find(p => p.part_id === 'mission_pack_type_c_cqc') || pickRandom(candidates);
+        } else if (build.name === 'Heavy Siege Assault' && z === 'dorsal_pack') {
+          chosen = candidates.find(p => p.part_id === 'mission_pack_type_h_artillery') || pickRandom(candidates);
+        } else if (build.name === 'High-Mobility Interceptor' && z === 'dorsal_pack') {
+          chosen = candidates.find(p => p.part_id === 'propulsion_vernier_wing_pod' || p.part_id === 'mission_pack_type_s_space') || pickRandom(candidates);
+        } else if (build.name === 'Tactical Recon Vanguard' && z === 'dorsal_pack') {
+          chosen = candidates.find(p => p.part_id === 'mission_pack_type_e_recon') || pickRandom(candidates);
+        } else {
+          chosen = pickRandom(candidates);
         }
-      };
+        if (chosen) {
+          await mountPartOnAdapter(chosen, true);
+          mountedCount++;
+        }
+      }
 
-      state.catalog.modular_parts.unshift(newPart);
-      await mountPartOnAdapter(newPart, false);
+      playAnimation(build.stance);
       renderInventory();
       updateTelemetry();
       applyRenderMode(state.renderMode);
-      showToast(`🧬 [NEW AGENTIC PART] ${newPart.serial_number} Synthesized & Locked onto ${zMeta.label}!`, true);
+      applyExplodedDisplacement(state.explodedFactor);
+      battleAudio.playGunplaSnapClick();
+      triggerStagePulse(0x00e5ff);
+      showToast(`🎲 [RANDOM BUILD] ${build.name} — ${mountedCount} Modules + ${build.stance} Stance!`, true);
     }
 
     function updateTelemetry() {
@@ -4488,7 +4514,7 @@
     function updateCalloutLeaders(force = false) {
       if (!state.showCallouts || !calloutSvg || !calloutNodesEl) return;
       const w = window.innerWidth, h = window.innerHeight;
-      const sig = `${Math.round(camera.position.x * 2)},${Math.round(camera.position.y * 2)},${Math.round(camera.position.z * 2)},${Math.round(controls.target.y)},${w}x${h},${state.hatchOpen?1:0},${state.renderMode},${state.activeStance},${state.activeEnv},${state.activeUnitId},${state.menus.left?1:0},${state.menus.right?1:0},${state.menus.allHidden?1:0}`;
+      const sig = `${Math.round(camera.position.x * 2)},${Math.round(camera.position.y * 2)},${Math.round(camera.position.z * 2)},${Math.round(controls.target.y)},${w}x${h},${state.hatchOpen ? 1 : 0},${state.renderMode},${state.activeStance},${state.activeEnv},${state.activeUnitId},${state.menus.left ? 1 : 0},${state.menus.right ? 1 : 0},${state.menus.allHidden ? 1 : 0}`;
       if (!force && sig === _lastCalloutSig) return;
       _lastCalloutSig = sig;
       const rSign = state.kinematicRig?.rSign || 1.0;
