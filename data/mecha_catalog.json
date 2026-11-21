@@ -2,14 +2,14 @@
   "version": "2.0.0",
   "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
   "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
-  "last_synced": "2026-11-21T18:00:58.774486+00:00",
+  "last_synced": "2026-11-21T18:04:51.744212+00:00",
   "baselines": [
     {
       "id": "baseline_gundam_frame_v1",
       "faction": "hero_federation",
       "name": "RX-Type Advanced Movable Frame",
       "mesh_url": "models/baselines/baseline_gundam_frame_v1.glb",
-      "sha256_hash": "fb7098d9199a5e61a2e19c07b5238423db5fb232a0f72ac2ab9e90f18e3cc7dc",
+      "sha256_hash": "2dec53ddc31a1d04346e3bd77cfd0d4e96dca8fee40f9c6639bfee72d5652b32",
       "file_size_bytes": 2036472,
       "base_mass_kg": 24500,
       "base_reactor_kw": 3450,
@@ -49,7 +49,7 @@
       "faction": "antagonist_zeon_heavy",
       "name": "MS-Type Heavy Industrial Movable Frame",
       "mesh_url": "models/baselines/baseline_rival_heavy_frame_v1.glb",
-      "sha256_hash": "5e61ff7fcb28a3740ce5112d8f90501e4e772a626d5f41a84f931bb8af7d553b",
+      "sha256_hash": "6cd632867c755d5616b75dd76dd901a9e1958b7a991a8d6d4dc276be9c740505",
       "file_size_bytes": 588536,
       "base_mass_kg": 31200,
       "base_reactor_kw": 4200,
@@ -147,8 +147,8 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_a_aero.glb",
-          "sha256_hash": "eb4b8281e24d772ca4c4f16f479846ee2dc28047f35e097c652a3a7eedca3524",
-          "file_size_bytes": 114868,
+          "sha256_hash": "bd553d3e3be6936ff3cc233aca5ff9941ee73d1da469553ab8b797c5e1d78e50",
+          "file_size_bytes": 139736,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
@@ -258,8 +258,8 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_s_space.glb",
-          "sha256_hash": "e6e6d4e42e91fa28d07a15262e6bbee74a81022b76d3a5376dcb02cc13489b21",
-          "file_size_bytes": 96732,
+          "sha256_hash": "d57c82d172cef3c7ed26d347ab12da66b663c4c7ee2708c39b177d8e6d5548cd",
+          "file_size_bytes": 121588,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
@@ -347,8 +347,8 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_h_artillery.glb",
-          "sha256_hash": "07f71f3baa63741775da8df611af3fe054700a979881b8c2bc7e6980b3a4ffe6",
-          "file_size_bytes": 181072,
+          "sha256_hash": "c68b8b9d676604a2aa41b1f3a6dc7afda50e3f5e5a0ac783ff22c67d7a3b2810",
+          "file_size_bytes": 205940,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
@@ -436,8 +436,8 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_e_recon.glb",
-          "sha256_hash": "27cad22888c63fc7ed4dfed8b05faa714ed5a64953142658e4f6b5f9fc3d557e",
-          "file_size_bytes": 45988,
+          "sha256_hash": "5f632980b1b2f074ef1d85bce9e71fc31b480996c4b33e6d122512d66e545b6b",
+          "file_size_bytes": 70828,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
@@ -514,20 +514,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_c_cqc.glb",
-          "sha256_hash": "57d2296701611d7e8a5d708c7ef58c2700b92e5de7009c69714d4045a92cbcd0",
-          "file_size_bytes": 42412,
+          "sha256_hash": "b807b2b498efd3583476f9abc8bc6f34319a12bc519349a75cfc2cffa5925c91",
+          "file_size_bytes": 98020,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -14.5,
-            -56.0,
-            -15.3
+            -15.200000000000001,
+            -51.15241772948784,
+            -15.216823180065909
           ],
           "max": [
-            14.5,
-            26.0,
-            8.0
+            12.0,
+            27.34557739612491,
+            20.308891398772705
           ]
         }
       },
@@ -581,20 +581,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/weapon_beam_rifle_rx.glb",
-          "sha256_hash": "14c808b6e6431b80f3f1dd0f1556332709623f789c4f1b48b7016181e0775d82",
-          "file_size_bytes": 67268,
+          "sha256_hash": "ccd1e762946bb101e22044d18f2969fdc90083b3be800b9c52868ad8bdc5355a",
+          "file_size_bytes": 181476,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
             -12.0,
-            -14.0,
-            -15.8
+            -7.0,
+            -6.0
           ],
           "max": [
             12.0,
-            66.0,
-            8.0
+            15.458980933132963,
+            65.5
           ]
         }
       },
@@ -648,20 +648,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/armor_tower_shield_fed.glb",
-          "sha256_hash": "ac83d2aba7bc34fc3722f387d0927ae3d45d5988be09e95ed05b94f3357f1fbc",
-          "file_size_bytes": 88336,
+          "sha256_hash": "11127aa7ea0ee7e4f650e6ad00f82c643e80e1ca1517a007e27b4d44c5d73177",
+          "file_size_bytes": 144012,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -16.5,
-            -34.0,
-            -10.299999999999999
+            -12.716824774453599,
+            -36.55733072702707,
+            -17.044581562688208
           ],
           "max": [
-            16.5,
-            27.0,
-            8.0
+            12.0,
+            28.799716913600243,
+            22.613142898214928
           ]
         }
       },
@@ -726,8 +726,8 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/propulsion_vernier_wing_pod.glb",
-          "sha256_hash": "9084b22ec45cce9386eeae0f36cb646eeaa496abd113ec2b8861654288c271d4",
-          "file_size_bytes": 244788,
+          "sha256_hash": "112b88af130f32d6318e00be9379c3db539376de0d5aef455906a5ac5e32f2f1",
+          "file_size_bytes": 269660,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
@@ -804,19 +804,19 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/head_vulcan_crest_pod.glb",
-          "sha256_hash": "57dbdaa2d4f12d930994916e144090f96a40f191b8e4311fb3faa4a1747c0431",
-          "file_size_bytes": 135440,
+          "sha256_hash": "ee3780e0a0761f08cc6579d3490fff9eb2c0b509a7fc657d42d1d75f2e0836ad",
+          "file_size_bytes": 216252,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -13.0,
+            -16.7,
             -7.0,
-            -17.5
+            -18.8
           ],
           "max": [
-            13.0,
-            24.3,
+            16.7,
+            26.7,
             10.4
           ]
         }
@@ -882,20 +882,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/chest_chobham_reactive_armor.glb",
-          "sha256_hash": "d81dfdb148b02c0ff9dd94cf66ed3b6fe5fa602be35c8aeb5cd55b33b8e50d35",
-          "file_size_bytes": 153608,
+          "sha256_hash": "a17005696f08e498107046a6a2aef9f19ad5448b2a04255de58751b32cee358f",
+          "file_size_bytes": 251032,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -19.79499664155091,
+            -20.25559454766321,
             -7.0,
-            -5.2874858935072355
+            -1.2711481882758697
           ],
           "max": [
-            19.79499664155091,
-            8.388437784981589,
-            8.0
+            20.25559454766321,
+            11.981710365977184,
+            18.558633494615066
           ]
         }
       },
@@ -960,20 +960,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/shoulder_missile_pauldron_pods.glb",
-          "sha256_hash": "d5c34bb5f8dc4ab3a719c50e56c81a34d561a6298c768e8c5c045a1317b53756",
-          "file_size_bytes": 144256,
+          "sha256_hash": "15638b522c250eabd667d70b062b5a689df30d62a1265a52c860a83279fc50b9",
+          "file_size_bytes": 217932,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -54.11342954302841,
-            -7.947623814151586,
-            -11.75
+            -64.77077106558413,
+            -7.418476369601312,
+            -11.200000000000001
           ],
           "max": [
-            54.11342954302841,
-            12.163233664580007,
-            11.6
+            64.77077106558413,
+            15.78145961698776,
+            11.5
           ]
         }
       },
@@ -1038,20 +1038,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/waist_xiphias_hip_railguns.glb",
-          "sha256_hash": "84deaeec3c03d247f4471c656020173400ef1e512af9a9c9eae2a72815038448",
-          "file_size_bytes": 239104,
+          "sha256_hash": "8e1c5f597e7cbdf7cd3f82a56c58d488275bf2d449434f6ec41e5f270ddeed72",
+          "file_size_bytes": 313160,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -32.39857895023643,
-            -18.776794304023802,
-            -11.804190244872782
+            -35.28214652821439,
+            -19.5100286989102,
+            -11.9667184719064
           ],
           "max": [
-            32.39857895023643,
+            35.28214652821439,
             7.0,
-            39.82390285838273
+            36.943485137406455
           ]
         }
       },
@@ -1116,19 +1116,19 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/leg_calf_vernier_missile_pods.glb",
-          "sha256_hash": "8bb61eb03a36e174500a65ca4ca18273ae9a506eb469968685fc6cf55d784c7f",
-          "file_size_bytes": 120896,
+          "sha256_hash": "c6ae099e37ac0ec60e910993f01886f7fd80283115c36fd64479f9feaca53ad6",
+          "file_size_bytes": 194356,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -35.33896190476568,
-            -18.58266748735656,
-            -17.668095186021823
+            -40.56213631736097,
+            -18.396191282653064,
+            -16.961433021034438
           ],
           "max": [
-            35.33896190476568,
-            15.035839897851538,
+            40.56213631736097,
+            14.815926698046553,
             8.7
           ]
         }
@@ -1198,20 +1198,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/agentic_head_crest_f18218.glb",
-          "sha256_hash": "068abf5f17e6c18f1476d698bdbf0ad46d8e60aeb12479b3c8ce8aa2ca72d4a2",
-          "file_size_bytes": 415440,
+          "sha256_hash": "09dfd68219d41b3aae42169f824191530b5703977c59c1aafc3144e0df47b8c7",
+          "file_size_bytes": 216292,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -14.799999999999999,
+            -16.7,
             -7.0,
-            -14.782352941176471
+            -17.58235294117647
           ],
           "max": [
-            14.799999999999999,
-            25.06078431372549,
-            11.7
+            16.7,
+            30.76078431372549,
+            10.4
           ]
         }
       },
@@ -1280,20 +1280,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/agentic_shoulder_pods_337ee5.glb",
-          "sha256_hash": "e999e4fed9d36636c0dbce8d408309eb27d7eb67f6a9c079602357e9e1a869b2",
-          "file_size_bytes": 314164,
+          "sha256_hash": "e0af101e2bf7e25a2d066248552dcdaebf1a232c9e07cc9677776b1fed43a8f4",
+          "file_size_bytes": 218076,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -54.11342954302841,
-            -7.66150935684213,
-            -11.971176470588235
+            -64.77077106558413,
+            -7.151411220295666,
+            -11.410823529411765
           ],
           "max": [
-            54.11342954302841,
-            11.86746986805069,
-            11.81835294117647
+            64.77077106558413,
+            15.213327070776202,
+            11.716470588235294
           ]
         }
       },
@@ -1351,20 +1351,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/agentic_shield_aa6bbe.glb",
-          "sha256_hash": "3d63363331da84e8c7416f13901c56c96afdf14c922c789d81694d00715a9532",
-          "file_size_bytes": 220712,
+          "sha256_hash": "c13767b0f4067941c250fd80f70f38a423b88f10bf156982ee85a7dd77546945",
+          "file_size_bytes": 144040,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -16.426235294117646,
-            -35.586666666666666,
-            -10.299999999999999
+            -12.716824774453599,
+            -38.50705503246852,
+            -17.166233085998375
           ],
           "max": [
-            16.426235294117646,
-            28.259999999999998,
-            8.0
+            12.0,
+            30.335701815658926,
+            22.774538663213953
           ]
         }
       },
@@ -1377,231 +1377,6 @@
         "operational_role": "Agentically synthesized multi-layer anti-beam shield (aspect=1.00x1.05).",
         "reactor_power_draw_kw": 0,
         "vernier_thrust_kgf": 0
-      }
-    },
-    {
-      "part_id": "agentic_beam_rifle_69f6f3",
-      "serial_number": "GXM-AGB-69F6",
-      "name": "BR-69F6 High-Output 7.1MW Long-Barrel Mega Beam Rifle",
-      "category": "weapon",
-      "primary_hardpoint": "HP-11",
-      "slot_group": "aux_weapon",
-      "adapter_id": "ADP-HP11-WEAPON",
-      "entropy_seed": "69f6f3a2209bd15dbea2f7e6ab1a08b11ea1dc0dfe2e6015fb167b79f4e692ac",
-      "synthesis_origin": "agentic_parametric_genome",
-      "parametric_genome": {
-        "output_mw": 7.1,
-        "barrel_length_mm": 42.59
-      },
-      "faction_compatibility": "universal_gundam_universe",
-      "compatible_hardpoints": [
-        "HP-11"
-      ],
-      "structural_specs": {
-        "mass_kg": 1096,
-        "primary_material": "gundarium_alloy_gamma",
-        "center_of_mass": [
-          0.0,
-          48.0,
-          -22.0
-        ]
-      },
-      "hardpoints": [
-        {
-          "station_id": "HP-11",
-          "gender": "female_chassis_socket",
-          "relative_position": [
-            -38.0,
-            24.0,
-            4.0
-          ],
-          "clearance_tolerance_mm": 0.2
-        }
-      ],
-      "cad_mesh_definition": {
-        "format": "binary_gltf_glb",
-        "asset_reference": {
-          "relative_url": "models/parts/agentic_beam_rifle_69f6f3.glb",
-          "sha256_hash": "6f013ff933e96850a7c5e5022442f76ef237af8946ebda5d87b47c7dd519bb9b",
-          "file_size_bytes": 67880,
-          "compression": "meshopt"
-        },
-        "bounding_box_aabb_mm": {
-          "min": [
-            -12.0,
-            -14.0,
-            -15.8
-          ],
-          "max": [
-            12.0,
-            68.58823529411765,
-            8.0
-          ]
-        }
-      },
-      "pbr_material": {
-        "color_hex": "#1a2530",
-        "roughness": 0.35,
-        "metalness": 0.85
-      },
-      "telemetry_and_lore": {
-        "operational_role": "Agentically synthesized 7.1MW mega-particle rifle (barrel=42.6mm).",
-        "reactor_power_draw_kw": 523,
-        "vernier_thrust_kgf": 0
-      }
-    },
-    {
-      "part_id": "agentic_waist_railguns_fa4890",
-      "serial_number": "GXM-AGR-FA48",
-      "name": "WS-FA48 Xiphias Mach-8.0 Folding Hip Electromagnetic Railguns (L+R)",
-      "category": "weapon",
-      "primary_hardpoint": "HP-13",
-      "slot_group": "waist_ordnance",
-      "adapter_id": "ADP-HP13-WAIST",
-      "entropy_seed": "fa4890699647803954e0b2ca063a21c677a52553f2dcbbf744c9221d085ddf28",
-      "synthesis_origin": "agentic_parametric_genome",
-      "parametric_genome": {
-        "muzzle_velocity_mach": 8.0,
-        "rail_length_scale": 1.145
-      },
-      "faction_compatibility": "universal_gundam_universe",
-      "compatible_hardpoints": [
-        "HP-13",
-        "HP-17"
-      ],
-      "structural_specs": {
-        "mass_kg": 3355,
-        "primary_material": "gundarium_alloy_gamma",
-        "center_of_mass": [
-          0.0,
-          48.0,
-          -22.0
-        ]
-      },
-      "hardpoints": [
-        {
-          "station_id": "HP-13",
-          "gender": "female_chassis_socket",
-          "relative_position": [
-            18.0,
-            2.0,
-            0.0
-          ],
-          "clearance_tolerance_mm": 0.2
-        },
-        {
-          "station_id": "HP-17",
-          "gender": "female_chassis_socket",
-          "relative_position": [
-            -18.0,
-            2.0,
-            0.0
-          ],
-          "clearance_tolerance_mm": 0.2
-        }
-      ],
-      "cad_mesh_definition": {
-        "format": "binary_gltf_glb",
-        "asset_reference": {
-          "relative_url": "models/parts/agentic_waist_railguns_fa4890.glb",
-          "sha256_hash": "1f8ea6bc4146668b915fe6489105885c2d7e2bafa1e155feb078c283bea2a347",
-          "file_size_bytes": 239152,
-          "compression": "meshopt"
-        },
-        "bounding_box_aabb_mm": {
-          "min": [
-            -32.39857895023643,
-            -18.776794304023802,
-            -13.516955103932753
-          ],
-          "max": [
-            32.39857895023643,
-            7.0,
-            45.60227307705003
-          ]
-        }
-      },
-      "pbr_material": {
-        "color_hex": "#1a2530",
-        "roughness": 0.35,
-        "metalness": 0.85
-      },
-      "telemetry_and_lore": {
-        "operational_role": "Agentically synthesized dual hip-skirt folding electromagnetic railguns (muzzle=Mach 8.0).",
-        "reactor_power_draw_kw": 539,
-        "vernier_thrust_kgf": 0
-      }
-    },
-    {
-      "part_id": "agentic_aero_wing_24ae0b",
-      "serial_number": "GXM-AGW-24AE",
-      "name": "Type-A/24AE Variable-Sweep Delta Wing Pack (102mm Span)",
-      "category": "modular_mission_pack",
-      "primary_hardpoint": "HP-00",
-      "slot_group": "dorsal_pack",
-      "adapter_id": "ADP-HP00-DORSAL",
-      "entropy_seed": "24ae0beef3d98537e31a977a1d0b27275a031a94f24f2f59935f5287e97d4072",
-      "synthesis_origin": "agentic_parametric_genome",
-      "parametric_genome": {
-        "wing_span_mm": 102.21,
-        "dihedral_deg": -29.07,
-        "rudder_height_mm": 31.44
-      },
-      "faction_compatibility": "universal_gundam_universe",
-      "compatible_hardpoints": [
-        "HP-00"
-      ],
-      "structural_specs": {
-        "mass_kg": 4069,
-        "primary_material": "gundarium_alloy_gamma",
-        "center_of_mass": [
-          0.0,
-          48.0,
-          -22.0
-        ]
-      },
-      "hardpoints": [
-        {
-          "station_id": "HP-00",
-          "gender": "male_dovetail_key",
-          "relative_position": [
-            0.0,
-            48.0,
-            -18.0
-          ],
-          "clearance_tolerance_mm": 0.2
-        }
-      ],
-      "cad_mesh_definition": {
-        "format": "binary_gltf_glb",
-        "asset_reference": {
-          "relative_url": "models/parts/agentic_aero_wing_24ae0b.glb",
-          "sha256_hash": "f9a882b2499ef4689efc54955bedfe16f180f90a3477ca97ed7f6d8226cd7559",
-          "file_size_bytes": 57380,
-          "compression": "meshopt"
-        },
-        "bounding_box_aabb_mm": {
-          "min": [
-            -48.457529069932335,
-            -12.853921568627452,
-            -33.0
-          ],
-          "max": [
-            48.457529069932335,
-            43.43529411764706,
-            14.559565291323697
-          ]
-        }
-      },
-      "pbr_material": {
-        "color_hex": "#1a2530",
-        "roughness": 0.35,
-        "metalness": 0.85
-      },
-      "telemetry_and_lore": {
-        "operational_role": "Agentically synthesized delta-sweep flight pack (span=102.2mm, dihedral=29.1 deg).",
-        "reactor_power_draw_kw": 427,
-        "vernier_thrust_kgf": 102564
       }
     }
   ]

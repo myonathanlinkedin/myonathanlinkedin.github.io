@@ -1728,14 +1728,14 @@
 
       if (n.includes('optic_cyan') || n.includes('plasma_core_cyan') || n.includes('lens_emerald')) {
         color = pc.optic; emissive = pc.optic; emissiveIntensity = 2.8; roughness = 0.12; metalness = 0.1; useArmorDetail = false;
-      } else if (n.includes('dovetail') || n.includes('bracket') || n.includes('clamp') || n.includes('rack_arm') || n.includes('yoke') || n.includes('grip') || n.includes('epac') || n.includes('gimbal') || n.includes('collar')) {
-        color = pc.frame; roughness = 0.44; metalness = 0.78; useArmorDetail = false;
+      } else if (n.includes('gold') || n.includes('blade') || n.includes('intake') || n.includes('cross_gold') || n.includes('vane') || n.includes('pin_gold') || n.includes('lock_gold') || n.includes('drum_gold') || n.includes('coupling_gold')) {
+        color = pc.gold; roughness = 0.26; metalness = 0.84; useArmorDetail = false;
+      } else if (n.includes('adapter_') || n.includes('dovetail') || n.includes('bracket') || n.includes('clamp') || n.includes('rack_arm') || n.includes('yoke') || n.includes('grip') || n.includes('epac') || n.includes('gimbal') || n.includes('collar')) {
+        color = 0x222b38; roughness = 0.36; metalness = 0.82; useArmorDetail = false;
       } else if (n.includes('shield_core_red') || n.includes('tank') || n.includes('booster') || n.includes('hatch_red') || n.includes('era_block')) {
         color = pc.accent; roughness = 0.38; metalness = 0.24;
       } else if (n.includes('fuselage') || n.includes('rack') || n.includes('core_chassis') || n.includes('hub_core') || n.includes('pylon') || n.includes('breach') || n.includes('missile_bay')) {
         color = pc.secondary; roughness = 0.38; metalness = 0.28;
-      } else if (n.includes('gold') || n.includes('blade') || n.includes('intake') || n.includes('cross_gold') || n.includes('vane')) {
-        color = pc.gold; roughness = 0.28; metalness = 0.82; useArmorDetail = false;
       } else if (n.includes('wing') || n.includes('disc') || n.includes('shield_frame') || n.includes('fin_binder') || n.includes('tower_shield') || n.includes('rudder') || n.includes('pectoral_armor') || n.includes('pod')) {
         color = pc.primary; roughness = 0.42; metalness = 0.16;
       } else if (n.includes('bell') || n.includes('thruster') || n.includes('vernier') || n.includes('nozzle')) {
@@ -1822,7 +1822,12 @@
       const legL     = makePivot('Rig_Leg_L',     lSign * 15.0,  96.0, 0.0, pelvis,  pelvis.userData.worldOrigin);
       const shinL    = makePivot('Rig_Shin_L',    lSign * 17.5,  60.5, 0.5, legL,    legL.userData.worldOrigin);
 
-      const rig = { pelvis, torso, head, armR, forearmR, armL, forearmL, legR, shinR, legL, shinL };
+      const rig = {
+        pelvis, torso, head, armR, forearmR, armL, forearmL, legR, shinR, legL, shinL,
+        rSign, lSign,
+        nativeRightWeaponMeshes: [],
+        nativeLeftHoldMeshes: []
+      };
       state.monoEyeNodes = [];
 
       const meshes = [];
@@ -1836,10 +1841,10 @@
         const isLeft  = (gc.x * lSign) > 1.5;
 
         let targetGroup = torso;
-        if (!n.includes('shield') && (n.includes('head') || n.includes('helmet') || n.includes('jaw') || n.includes('v_fin') || n.includes('mono_eye') || n.includes('visor') || n.includes('snout') || n.includes('chin') || n.includes('cheek') || n.includes('crest') || n.includes('commander_fin') || n.includes('commander_blade') || n.includes('neck') || n.includes('vulcan_gold'))) {
-          targetGroup = head;
-        } else if (n.includes('forearm') || n.includes('gauntlet') || n.includes('rg_cuff') || n.includes('fist') || n.includes('hand') || n.includes('wrist') || n.includes('elbow') || n.includes('mg_') || n.includes('hawk') || n.includes('saber') || n.includes('rifle') || (n.includes('shield') && !n.includes('shoulder') && gc.y < 125.0)) {
+        if (n.includes('forearm') || n.includes('gauntlet') || n.includes('rg_cuff') || n.includes('fist') || n.includes('hand') || n.includes('wrist') || n.includes('elbow') || n.includes('mg_') || n.includes('hawk') || n.includes('saber') || n.includes('rifle') || (n.includes('shield') && !n.includes('shoulder') && gc.y < 125.0)) {
           targetGroup = isRight ? forearmR : (isLeft ? forearmL : torso);
+        } else if (!n.includes('shield') && !n.includes('hawk') && (n.includes('head') || n.includes('helmet') || n.includes('jaw') || n.includes('v_fin') || n.includes('mono_eye') || n.includes('visor') || n.includes('snout') || n.includes('chin') || n.includes('cheek') || n.includes('crest') || n.includes('commander_fin') || n.includes('commander_blade') || n.includes('neck') || n.includes('vulcan_gold'))) {
+          targetGroup = head;
         } else if (n.includes('shoulder') || n.includes('pauldron') || n.includes('spike') || n.includes('horn') || n.includes('bicep') || n.includes('humerus') || n.includes('upper_arm') || n.includes('binder') || (n.includes('shield') && gc.y >= 125.0)) {
           targetGroup = isRight ? armR : (isLeft ? armL : torso);
         } else if (n.includes('shin') || n.includes('calf') || n.includes('tibia') || n.includes('knee') || n.includes('ankle') || n.includes('foot') || n.includes('boot') || n.includes('toe') || n.includes('heel') || n.includes('sole') || n.includes('instep') || n.includes('hover_jet') || n.includes('leg_hose') || n.includes('leg_thruster')) {
@@ -1860,6 +1865,12 @@
 
         if (n.includes('mono_eye_glow') || n.includes('mono_eye_bezel')) {
           state.monoEyeNodes.push(mesh);
+        }
+        if (n.includes('zaku_mg_') || n.includes('gouf_saber_') || n.includes('gouf_heat_saber') || n.includes('sazabi_rifle_')) {
+          rig.nativeRightWeaponMeshes.push(mesh);
+        }
+        if (n.includes('zaku_hawk_') || n.includes('gouf_knight_shield') || n.includes('gouf_shield_mount') || n.includes('sazabi_shield_')) {
+          rig.nativeLeftHoldMeshes.push(mesh);
         }
       });
 
@@ -1940,8 +1951,17 @@
      * 8. leg_thrusters  -> bilateral split onto rig.shinR & rig.shinL
      */
     function buildSocketRigForUnit(model, spec, rig) {
-      const headHeightY = spec.id === 'enemy_sazabi' ? 166.5 : 165.0;
-      const chestFrontZ = spec.isZeonEnemy ? 17.5 : 15.2;
+      const rSign = rig.rSign || 1.0;
+      const lSign = rig.lSign || -1.0;
+      const isSazabi = spec.id === 'enemy_sazabi';
+      const headHeightY = isSazabi ? 166.5 : 165.0;
+      const chestFrontZ = isSazabi ? 19.2 : (spec.isZeonEnemy ? 17.8 : 15.6);
+      const fistX = rSign * (isSazabi ? 37.6 : (spec.isZeonEnemy ? 34.8 : 36.2));
+      const fistY = isSazabi ? 88.0 : 88.8;
+      const fistZ = spec.isZeonEnemy ? 9.8 : 8.2;
+      const forearmOuterX = lSign * (isSazabi ? 43.2 : (spec.isZeonEnemy ? 40.8 : 40.5));
+      const forearmOuterY = 103.5;
+      const forearmOuterZ = spec.isZeonEnemy ? 4.4 : 3.8;
 
       const sockets = {
         // 1. HEAD / CRANIAL SENSOR & VULCAN ZONE (HP-01/02)
@@ -1950,7 +1970,7 @@
           adapterId: 'ADP-HP01-CRANIAL',
           worldPos: [0.0, headHeightY, 0.0],
           rot: [0, 0, 0],
-          scale: 1.0,
+          scale: isSazabi ? 1.05 : 1.0,
           dockedZ: 0.0,
           slideSign: 1.0,
           showBracket: false,
@@ -1963,7 +1983,7 @@
           adapterId: 'ADP-HP09-PECTORAL',
           worldPos: [0.0, 141.0, chestFrontZ],
           rot: [0, 0, 0],
-          scale: 1.0,
+          scale: isSazabi ? 1.08 : 1.0,
           dockedZ: 0.0,
           slideSign: 1.0,
           showBracket: false,
@@ -1995,55 +2015,33 @@
           alwaysVisible: true
         }),
 
-        // 5. RIGHT ARM / PRIMARY WEAPON ZONE (HP-11)
-        aux_weapon: spec.hasNativeHandsEmpty
-          ? createPhysicalAdapterSocket(rig.forearmR, {
-              slotGroup: 'aux_weapon',
-              adapterId: 'ADP-HP11-WEAPON',
-              worldPos: [36.2, 91.0, 9.5],
-              rot: [-Math.PI / 2 + 0.82, 0, Math.PI],
-              scale: 0.90,
-              showBracket: false,
-              dockedZ: 0.0,
-              slideSign: 1.0,
-              alwaysVisible: false
-            })
-          : createPhysicalAdapterSocket(rig.pelvis, {
-              slotGroup: 'aux_weapon',
-              adapterId: 'ADP-HP11-WEAPON',
-              worldPos: [21.0, 102.0, -23.5],
-              rot: [0.05, -0.18, -0.20],
-              scale: 0.84,
-              showBracket: false,
-              dockedZ: -2.0,
-              slideSign: -1.0,
-              alwaysVisible: false
-            }),
+        // 5. RIGHT MANIPULATOR FIST / PRIMARY WEAPON ZONE (HP-11 — Palm Trigger-Latch Adapter!)
+        // Pitched at +0.76 rad (+43.54 deg) in rest pose so Beam Aim (pelvis +0.02 + torso +0.04 - armR 0.44 - forearmR 0.38 = -0.76 rad)
+        // brings the rifle barrel to 0.00 rad (DEAD-LEVEL HORIZONTAL FORWARD AIM along +Z at chest/torso height) on ALL 4 models!
+        aux_weapon: createPhysicalAdapterSocket(rig.forearmR, {
+          slotGroup: 'aux_weapon',
+          adapterId: 'ADP-HP11-WEAPON',
+          worldPos: [fistX, fistY, fistZ],
+          rot: [0.76, 0, 0],
+          scale: 0.94,
+          showBracket: false,
+          dockedZ: 0.0,
+          slideSign: 1.0,
+          alwaysVisible: false
+        }),
 
-        // 6. LEFT FOREARM / COMPOSITE SHIELD ZONE (HP-07 — Compact lateral clamp, zero black box!)
-        aux_shield: spec.hasNativeHandsEmpty
-          ? createPhysicalAdapterSocket(rig.forearmL, {
-              slotGroup: 'aux_shield',
-              adapterId: 'ADP-HP07-FOREARM',
-              worldPos: [-40.2, 104.5, 3.2],
-              rot: [0, -Math.PI / 2, 0],
-              scale: 0.92,
-              showBracket: false,
-              dockedZ: -1.5,
-              slideSign: -1.0,
-              alwaysVisible: false
-            })
-          : createPhysicalAdapterSocket(rig.pelvis, {
-              slotGroup: 'aux_shield',
-              adapterId: 'ADP-HP07-FOREARM',
-              worldPos: [-21.0, 96.0, -23.5],
-              rot: [0.04, 0.24, 0.05],
-              scale: 0.84,
-              showBracket: false,
-              dockedZ: -2.0,
-              slideSign: -1.0,
-              alwaysVisible: false
-            }),
+        // 6. LEFT FOREARM OUTER LATERAL HARDPOINT / COMPOSITE SHIELD ZONE (HP-07 — C-Clamp & Standoff Strut Adapter!)
+        aux_shield: createPhysicalAdapterSocket(rig.forearmL, {
+          slotGroup: 'aux_shield',
+          adapterId: 'ADP-HP07-FOREARM',
+          worldPos: [forearmOuterX, forearmOuterY, forearmOuterZ],
+          rot: [0, 0, 0],
+          scale: 0.95,
+          showBracket: false,
+          dockedZ: 0.0,
+          slideSign: -1.0,
+          alwaysVisible: false
+        }),
 
         // 7. WAIST / HIP FOLDING RAILGUNS ZONE (HP-13/17)
         waist_ordnance: createPhysicalAdapterSocket(rig.pelvis, {
@@ -2051,7 +2049,7 @@
           adapterId: 'ADP-HP13-WAIST',
           worldPos: [0.0, 101.5, 0.0],
           rot: [0, 0, 0],
-          scale: 1.0,
+          scale: isSazabi ? 1.12 : 1.0,
           dockedZ: 0.0,
           slideSign: 1.0,
           showBracket: false,
@@ -2073,20 +2071,23 @@
       };
 
       // Attach dedicated bilateral limb containers onto armR/armL and shinR/shinL so shoulder & leg pods articulate independently with each limb!
+      // Note: In cad_compiler.py, _r is at +X and _l is at -X. On Zeon units (rSign = -1), armR is at -X and armL is at +X.
+      const shOutX = isSazabi ? 4.8 : (spec.isZeonEnemy ? 3.2 : 0.0);
       const shR = new THREE.Group();
-      shR.position.set(0.0 - rig.armR.userData.worldOrigin.x, 148.0 - rig.armR.userData.worldOrigin.y, 0.0 - rig.armR.userData.worldOrigin.z);
+      shR.position.set((rSign * shOutX) - rig.armR.userData.worldOrigin.x, 148.0 - rig.armR.userData.worldOrigin.y, 0.0 - rig.armR.userData.worldOrigin.z);
       rig.armR.add(shR);
       const shL = new THREE.Group();
-      shL.position.set(0.0 - rig.armL.userData.worldOrigin.x, 148.0 - rig.armL.userData.worldOrigin.y, 0.0 - rig.armL.userData.worldOrigin.z);
+      shL.position.set((lSign * shOutX) - rig.armL.userData.worldOrigin.x, 148.0 - rig.armL.userData.worldOrigin.y, 0.0 - rig.armL.userData.worldOrigin.z);
       rig.armL.add(shL);
       sockets.shoulder_pods.bilateralRightContainer = shR;
       sockets.shoulder_pods.bilateralLeftContainer = shL;
 
+      const legOutX = isSazabi ? 3.8 : (spec.isZeonEnemy ? 1.2 : 0.0);
       const legRCont = new THREE.Group();
-      legRCont.position.set(0.0 - rig.shinR.userData.worldOrigin.x, 38.0 - rig.shinR.userData.worldOrigin.y, -1.0 - rig.shinR.userData.worldOrigin.z);
+      legRCont.position.set((rSign * legOutX) - rig.shinR.userData.worldOrigin.x, 38.0 - rig.shinR.userData.worldOrigin.y, -1.0 - rig.shinR.userData.worldOrigin.z);
       rig.shinR.add(legRCont);
       const legLCont = new THREE.Group();
-      legLCont.position.set(0.0 - rig.shinL.userData.worldOrigin.x, 38.0 - rig.shinL.userData.worldOrigin.y, -1.0 - rig.shinL.userData.worldOrigin.z);
+      legLCont.position.set((lSign * legOutX) - rig.shinL.userData.worldOrigin.x, 38.0 - rig.shinL.userData.worldOrigin.y, -1.0 - rig.shinL.userData.worldOrigin.z);
       rig.shinL.add(legLCont);
       sockets.leg_thrusters.bilateralRightContainer = legRCont;
       sockets.leg_thrusters.bilateralLeftContainer = legLCont;
@@ -2186,6 +2187,7 @@
 
     function updateKinematicRigPose(rig, stance, t, delta) {
       if (!rig) return;
+      const s = rig.rSign || 1.0; // +1 on RX-78 (+X = Right), -1 on Zeon (-X = Right)
       const damp = Math.min(1.0, delta * 9.0);
       const lerpRot = (grp, rx, ry, rz) => {
         grp.rotation.x += (rx - grp.rotation.x) * damp;
@@ -2201,90 +2203,91 @@
       const sw = Math.sin(t * 1.1);
 
       if (stance === 'RifleBurst') {
-        // Aiming right-hand weapon forward with recoil pulse & braced combat legs
-        const recoil = Math.pow(Math.max(0, Math.sin(t * 7.5)), 4) * 0.08;
-        lerpPosY(rig.pelvis, -2.5 + br * 0.5);
-        lerpRot(rig.pelvis, 0.04, -0.18, 0);
-        lerpRot(rig.torso,  0.06 - recoil * 0.5, 0.22, 0);
-        lerpRot(rig.head,  -0.05, -0.06 + sw * 0.05, 0);
-        lerpRot(rig.armR,  -0.78 + recoil, -0.12, -0.08);
-        lerpRot(rig.forearmR, -0.35 + recoil * 1.2, 0, 0);
-        lerpRot(rig.armL,  -0.32, 0.24, 0.16);
-        lerpRot(rig.forearmL, -0.45, 0, 0);
-        lerpRot(rig.legR,   0.18, 0, -0.06);
-        lerpRot(rig.shinR, -0.22, 0, 0);
-        lerpRot(rig.legL,  -0.22, 0, 0.06);
-        lerpRot(rig.shinL,  0.18, 0, 0);
+        // 🎯 Beam Aim: Raises right weapon arm (-0.44 armR + -0.38 forearmR + 0.04 torso + 0.02 pelvis = -0.76 rad = -43.54 deg)
+        // to exactly cancel the +0.76 rad (+43.54 deg) rest wrist pitch -> DEAD-LEVEL HORIZONTAL AIM at chest height on ALL 4 models!
+        const recoil = Math.pow(Math.max(0, Math.sin(t * 7.5)), 4) * 0.05;
+        lerpPosY(rig.pelvis, -2.0 + br * 0.4);
+        lerpRot(rig.pelvis, 0.02, -s * 0.10, 0);
+        lerpRot(rig.torso,  0.04 - recoil * 0.3, s * 0.12, 0);
+        lerpRot(rig.head,   0.02, -s * 0.03 + sw * 0.03, 0);
+        lerpRot(rig.armR,  -0.44 + recoil * 0.5, -s * 0.04, s * 0.08);
+        lerpRot(rig.forearmR, -0.38 + recoil * 0.7, 0, 0);
+        lerpRot(rig.armL,  -0.22, -s * 0.08, -s * 0.15);
+        lerpRot(rig.forearmL, -0.28, 0, 0);
+        lerpRot(rig.legR,   0.14, 0, s * 0.05);
+        lerpRot(rig.shinR, -0.16, 0, 0);
+        lerpRot(rig.legL,  -0.16, 0, -s * 0.05);
+        lerpRot(rig.shinL,  0.16, 0, 0);
       } else if (stance === 'ShieldGuard') {
-        // Defensive left forearm shield block across chest, right weapon primed
-        lerpPosY(rig.pelvis, -3.5 + br * 0.4);
-        lerpRot(rig.pelvis, 0.06, 0.24, 0);
-        lerpRot(rig.torso,  0.08, -0.28, 0);
-        lerpRot(rig.head,  -0.06, 0.12, 0);
-        lerpRot(rig.armL,  -0.68, -0.48, 0.22);
-        lerpRot(rig.forearmL, -0.58, -0.32, 0);
-        lerpRot(rig.armR,   0.22, 0.15, -0.18);
-        lerpRot(rig.forearmR, -0.48, 0, 0);
-        lerpRot(rig.legL,  -0.24, 0, 0.06);
-        lerpRot(rig.shinL,  0.26, 0, 0);
-        lerpRot(rig.legR,   0.20, 0, -0.06);
-        lerpRot(rig.shinR, -0.18, 0, 0);
+        // 🛡️ Shield Guard: Left forearm shield angled forward-inward across chest, right weapon braced at flank
+        lerpPosY(rig.pelvis, -3.0 + br * 0.4);
+        lerpRot(rig.pelvis, 0.05, s * 0.18, 0);
+        lerpRot(rig.torso,  0.06, -s * 0.22, 0);
+        lerpRot(rig.head,  -0.04, s * 0.08, 0);
+        lerpRot(rig.armL,  -0.44, s * 0.28, -s * 0.12);
+        lerpRot(rig.forearmL, -0.42, s * 0.18, 0);
+        lerpRot(rig.armR,  -0.16, 0, s * 0.14);
+        lerpRot(rig.forearmR, -0.30, 0, 0);
+        lerpRot(rig.legL,  -0.20, 0, -s * 0.05);
+        lerpRot(rig.shinL,  0.22, 0, 0);
+        lerpRot(rig.legR,   0.18, 0, s * 0.05);
+        lerpRot(rig.shinR, -0.16, 0, 0);
       } else if (stance === 'BoostJump') {
-        // High-G AMBAC Aerial / Orbital Thruster Boost Hover Pose
+        // 🚀 AMBAC Boost: High-G Aerial / Orbital Thruster Hover Pose with outward-splayed limbs
         const hover = Math.sin(t * 2.8) * 3.5;
         lerpPosY(rig.pelvis, 8.5 + hover);
-        lerpRot(rig.pelvis, 0.14, sw * 0.08, 0);
-        lerpRot(rig.torso,  0.12, -sw * 0.06, 0);
-        lerpRot(rig.head,  -0.16, sw * 0.12, 0);
-        lerpRot(rig.armR,  -0.38, -0.15, -0.26);
-        lerpRot(rig.forearmR, -0.45, 0, 0);
-        lerpRot(rig.armL,  -0.32, 0.15, 0.26);
-        lerpRot(rig.forearmL, -0.42, 0, 0);
-        lerpRot(rig.legR,  -0.34, 0, -0.05);
-        lerpRot(rig.shinR,  0.52, 0, 0);
-        lerpRot(rig.legL,  -0.18, 0, 0.05);
-        lerpRot(rig.shinL,  0.34, 0, 0);
+        lerpRot(rig.pelvis, 0.12, sw * 0.06, 0);
+        lerpRot(rig.torso,  0.10, -sw * 0.05, 0);
+        lerpRot(rig.head,  -0.12, sw * 0.10, 0);
+        lerpRot(rig.armR,  -0.24, 0, s * 0.18);
+        lerpRot(rig.forearmR, -0.34, 0, 0);
+        lerpRot(rig.armL,  -0.22, 0, -s * 0.18);
+        lerpRot(rig.forearmL, -0.32, 0, 0);
+        lerpRot(rig.legR,  -0.30, 0, s * 0.05);
+        lerpRot(rig.shinR,  0.46, 0, 0);
+        lerpRot(rig.legL,  -0.16, 0, -s * 0.05);
+        lerpRot(rig.shinL,  0.30, 0, 0);
       } else if (stance === 'MeleeSlash') {
-        // Dynamic Close-Quarters Heat Saber / Beam Cleave Swing
+        // ⚔️ Saber Cleave: Dynamic Close-Quarters Heat Saber / Beam Slash
         const slash = Math.sin(t * 3.2);
-        lerpPosY(rig.pelvis, -2.2 + Math.abs(slash) * 1.2);
-        lerpRot(rig.pelvis, 0.05, slash * 0.18, 0);
-        lerpRot(rig.torso,  0.08, -slash * 0.34, 0);
-        lerpRot(rig.head,  -0.04, slash * 0.16, 0);
-        lerpRot(rig.armR,  -0.75 + slash * 0.45, -0.22, -0.25);
-        lerpRot(rig.forearmR, -0.40 + slash * 0.25, 0, 0);
-        lerpRot(rig.armL,   0.25, 0.22, 0.25);
-        lerpRot(rig.forearmL, -0.52, 0, 0);
-        lerpRot(rig.legR,  -0.25, 0, -0.06);
-        lerpRot(rig.shinR,  0.26, 0, 0);
-        lerpRot(rig.legL,   0.22, 0, 0.06);
-        lerpRot(rig.shinL, -0.18, 0, 0);
+        lerpPosY(rig.pelvis, -2.0 + Math.abs(slash) * 1.2);
+        lerpRot(rig.pelvis, 0.04, s * slash * 0.14, 0);
+        lerpRot(rig.torso,  0.06, -s * slash * 0.26, 0);
+        lerpRot(rig.head,  -0.03, s * slash * 0.12, 0);
+        lerpRot(rig.armR,  -0.36 + slash * 0.26, -s * 0.08, s * 0.16);
+        lerpRot(rig.forearmR, -0.32 + slash * 0.18, 0, 0);
+        lerpRot(rig.armL,  -0.14, 0, -s * 0.16);
+        lerpRot(rig.forearmL, -0.34, 0, 0);
+        lerpRot(rig.legR,  -0.22, 0, s * 0.05);
+        lerpRot(rig.shinR,  0.24, 0, 0);
+        lerpRot(rig.legL,   0.18, 0, -s * 0.05);
+        lerpRot(rig.shinL, -0.16, 0, 0);
       } else if (stance === 'PatrolMarch') {
-        // Heavy Bipedal Combat Stride Cycle
+        // 🦿 Combat Stride: Heavy Bipedal March Cycle
         const w = Math.sin(t * 3.6);
         const c = Math.cos(t * 3.6);
         lerpPosY(rig.pelvis, Math.abs(c) * 1.8 - 1.0);
-        lerpRot(rig.pelvis, 0.03, w * 0.08, 0);
-        lerpRot(rig.torso,  0.04, -w * 0.12, 0);
-        lerpRot(rig.head,   0.0,  w * 0.06, 0);
-        lerpRot(rig.armR,   w * 0.28, 0, -0.08);
-        lerpRot(rig.forearmR, -0.28 + Math.max(0, -w) * 0.2, 0, 0);
-        lerpRot(rig.armL,  -w * 0.28, 0, 0.08);
-        lerpRot(rig.forearmL, -0.28 + Math.max(0, w) * 0.2, 0, 0);
-        lerpRot(rig.legR,  -w * 0.34, 0, 0);
-        lerpRot(rig.shinR,  Math.max(0, w) * 0.42, 0, 0);
-        lerpRot(rig.legL,   w * 0.34, 0, 0);
-        lerpRot(rig.shinL,  Math.max(0, -w) * 0.42, 0, 0);
+        lerpRot(rig.pelvis, 0.03, w * 0.07, 0);
+        lerpRot(rig.torso,  0.04, -w * 0.10, 0);
+        lerpRot(rig.head,   0.0,  w * 0.05, 0);
+        lerpRot(rig.armR,  -0.10 + w * 0.22, 0, s * 0.08);
+        lerpRot(rig.forearmR, -0.24 + Math.max(0, -w) * 0.16, 0, 0);
+        lerpRot(rig.armL,  -0.10 - w * 0.22, 0, -s * 0.08);
+        lerpRot(rig.forearmL, -0.24 + Math.max(0, w) * 0.16, 0, 0);
+        lerpRot(rig.legR,  -w * 0.32, 0, 0);
+        lerpRot(rig.shinR,  Math.max(0, w) * 0.40, 0, 0);
+        lerpRot(rig.legL,   w * 0.32, 0, 0);
+        lerpRot(rig.shinL,  Math.max(0, -w) * 0.40, 0, 0);
       } else {
-        // Sentinel — Heroic Ready Breathing & Head/Optical Scan Pose
+        // ⚓ Sentinel: Heroic Katoki Ver.Ka Ready Stance & Optical Scan
         lerpPosY(rig.pelvis, br * 0.7);
         lerpRot(rig.pelvis, 0, sw * 0.03, 0);
         lerpRot(rig.torso,  br * 0.025, -sw * 0.05, 0);
         lerpRot(rig.head,   br * 0.02, Math.sin(t * 0.85) * 0.14, 0);
-        lerpRot(rig.armR,  -0.08 + br * 0.03, 0, -0.05);
-        lerpRot(rig.forearmR, -0.18 + br * 0.03, 0, 0);
-        lerpRot(rig.armL,  -0.06 + br * 0.03, 0, 0.05);
-        lerpRot(rig.forearmL, -0.15 + br * 0.03, 0, 0);
+        lerpRot(rig.armR,  -0.10 + br * 0.025, 0, s * 0.06);
+        lerpRot(rig.forearmR, -0.18 + br * 0.025, 0, 0);
+        lerpRot(rig.armL,  -0.08 + br * 0.025, 0, -s * 0.06);
+        lerpRot(rig.forearmL, -0.16 + br * 0.025, 0, 0);
         lerpRot(rig.legR,   0, 0, 0);
         lerpRot(rig.shinR,  0, 0, 0);
         lerpRot(rig.legL,   0, 0, 0);
@@ -2517,6 +2520,12 @@
         m.traverse(n => { if (n.geometry) n.geometry.dispose(); });
       });
       if (socket && !socket.alwaysVisible) socket.adapterVis.visible = false;
+      if (entry.slotGroup === 'aux_weapon' && state.kinematicRig?.nativeRightWeaponMeshes) {
+        state.kinematicRig.nativeRightWeaponMeshes.forEach(m => { m.visible = true; });
+      }
+      if (entry.slotGroup === 'aux_shield' && state.kinematicRig?.nativeLeftHoldMeshes) {
+        state.kinematicRig.nativeLeftHoldMeshes.forEach(m => { m.visible = true; });
+      }
       state.chassisParts = state.chassisParts.filter(n => n.parent !== null);
       state.equippedPacks.delete(partId);
       if (state.slotOccupancy[entry.slotGroup] === partId) {
@@ -2555,10 +2564,26 @@
         packModel.scale.set(...part._genomeScale);
       }
 
+      const rSign = state.kinematicRig?.rSign || 1.0;
+      const lSign = state.kinematicRig?.lSign || -1.0;
+      // On Zeon suits (rSign = -1, lSign = +1), right hand is at -X and outer left forearm faces +X,
+      // so mirror X on hand/forearm modular parts and temporarily hide the native hand weapon/shield!
+      if (slotGroup === 'aux_weapon') {
+        if (rSign < 0) packModel.scale.x *= -1;
+        if (state.kinematicRig?.nativeRightWeaponMeshes) {
+          state.kinematicRig.nativeRightWeaponMeshes.forEach(m => { m.visible = false; });
+        }
+      } else if (slotGroup === 'aux_shield') {
+        if (lSign > 0) packModel.scale.x *= -1;
+        if (state.kinematicRig?.nativeLeftHoldMeshes) {
+          state.kinematicRig.nativeLeftHoldMeshes.forEach(m => { m.visible = false; });
+        }
+      }
+
       const mountedModels = [];
 
       // For bilateral limb zones (shoulder_pods on armR/armL, leg_thrusters on shinR/shinL),
-      // split _r (X > 0) and _l (X < 0) sub-meshes onto their respective right & left limb bones!
+      // split sub-meshes onto their respective right & left limb bones using 3D spatial side (geomCenter.x * rSign)!
       if ((slotGroup === 'shoulder_pods' || slotGroup === 'leg_thrusters') && socket.bilateralRightContainer && socket.bilateralLeftContainer) {
         const rightGrp = new THREE.Group();
         const leftGrp = new THREE.Group();
@@ -2582,7 +2607,8 @@
           node.userData.isModularPack = true;
           state.chassisParts.push(node);
 
-          if (nm.endsWith('_l') || node.userData.geomCenter.x < -0.5) {
+          // Bind sub-mesh to whichever limb bone (armR/shinR vs armL/shinL) lies on the same side of X=0!
+          if ((node.userData.geomCenter.x * rSign) < 0) {
             leftGrp.add(node);
           } else {
             rightGrp.add(node);
@@ -2798,13 +2824,25 @@
     }
 
     // =========================================================================
-    // 12. VECTOR-ALIGNED EXPLODED VIEW (FOR ALL 4 UNITS & 8-ZONE PAYLOADS)
+    // 12. VECTOR-ALIGNED STAGGERED EXPLODED VIEW (TEARDOWN QUINTIC LAYERS)
+    // Outer 8-zone armor & modular packs separate BEFORE inner skeleton tiers
+    // using quintic smoothstep curves so parts never interpenetrate!
     // =========================================================================
+    const teardownSmoother = (t) => {
+      const c = Math.max(0.0, Math.min(1.0, t));
+      return c * c * c * (c * (c * 6.0 - 15.0) + 10.0);
+    };
+
     function applyExplodedDisplacement(factor) {
+      const fTier0 = teardownSmoother(factor / 0.45);
+      const fTier1 = teardownSmoother((factor - 0.12) / 0.52);
+      const fTier2 = teardownSmoother((factor - 0.24) / 0.56);
+      const fTier3 = teardownSmoother((factor - 0.36) / 0.64);
+
       if (state.socketRig && state.snapAnimations.length === 0) {
         Object.values(state.socketRig).forEach(sock => {
           const sign = sock.slideSign || -1.0;
-          sock.payloadContainer.position.z = sock.dockedZ + sign * factor * 28.0;
+          sock.payloadContainer.position.z = sock.dockedZ + sign * fTier0 * 28.0;
         });
       }
 
@@ -2818,20 +2856,38 @@
 
         if (node.userData.isModularPack) {
           dir.set(sideSign * 0.45, 0.15, -0.45);
-          node.position.copy(init).addScaledVector(dir, factor * 20.0);
+          node.position.copy(init).addScaledVector(dir, fTier0 * 24.0);
           return;
         }
 
-        if (n.includes('head') || n.includes('v_fin') || n.includes('mono_eye')) dir.set(0, 0.85, 0.25);
-        else if (n.includes('chest') || n.includes('cockpit') || n.includes('abdomen')) dir.set(0, 0.15, 0.95);
-        else if (n.includes('pauldron') || n.includes('arm') || n.includes('forearm') || n.includes('shield') || n.includes('rifle') || n.includes('elbow') || n.includes('fist')) dir.set((sideSign || 1) * 1.1, 0.12, 0.15);
-        else if (n.includes('foot') || n.includes('sole') || n.includes('ankle')) dir.set(sideSign * 0.45, -0.85, 0.25);
-        else if (n.includes('shin') || n.includes('calf') || n.includes('knee') || n.includes('tibia')) dir.set(sideSign * 0.65, -0.45, 0.2);
-        else if (n.includes('thigh') || n.includes('femur') || n.includes('hip')) dir.set(sideSign * 0.75, -0.15, 0);
-        else if (n.includes('backpack') || n.includes('wing') || n.includes('cannon') || n.includes('booster') || n.includes('tank') || n.includes('rotodome') || n.includes('fin_binder') || n.includes('vernier')) dir.set(sideSign * 0.35, 0.15, -1.25);
-        else dir.set(sideSign * 0.35, 0.25, -0.35);
+        let tierFactor = fTier2;
+        if (n.includes('head') || n.includes('v_fin') || n.includes('mono_eye')) {
+          dir.set(0, 0.85, 0.25);
+          tierFactor = fTier1;
+        } else if (n.includes('chest') || n.includes('cockpit') || n.includes('abdomen')) {
+          dir.set(0, 0.15, 0.95);
+          tierFactor = fTier1;
+        } else if (n.includes('pauldron') || n.includes('arm') || n.includes('forearm') || n.includes('shield') || n.includes('rifle') || n.includes('elbow') || n.includes('fist')) {
+          dir.set((sideSign || 1) * 1.1, 0.12, 0.15);
+          tierFactor = fTier1;
+        } else if (n.includes('foot') || n.includes('sole') || n.includes('ankle')) {
+          dir.set(sideSign * 0.45, -0.85, 0.25);
+          tierFactor = fTier2;
+        } else if (n.includes('shin') || n.includes('calf') || n.includes('knee') || n.includes('tibia')) {
+          dir.set(sideSign * 0.65, -0.45, 0.2);
+          tierFactor = fTier2;
+        } else if (n.includes('thigh') || n.includes('femur') || n.includes('hip')) {
+          dir.set(sideSign * 0.75, -0.15, 0);
+          tierFactor = fTier2;
+        } else if (n.includes('backpack') || n.includes('wing') || n.includes('cannon') || n.includes('booster') || n.includes('tank') || n.includes('rotodome') || n.includes('fin_binder') || n.includes('vernier')) {
+          dir.set(sideSign * 0.35, 0.15, -1.25);
+          tierFactor = fTier0;
+        } else {
+          dir.set(sideSign * 0.35, 0.25, -0.35);
+          tierFactor = fTier3;
+        }
 
-        node.position.copy(init).addScaledVector(dir, factor * 36.0);
+        node.position.copy(init).addScaledVector(dir, tierFactor * 36.0);
       });
     }
 
@@ -3320,6 +3376,11 @@
       }
       renderInventory();
       await loadUnit('vanguard_rx');
+      if (typeof renderer.compileAsync === 'function') {
+        renderer.compileAsync(scene, camera).catch(() => {});
+      } else {
+        renderer.compile(scene, camera);
+      }
     }
 
     const clock = new THREE.Clock();
