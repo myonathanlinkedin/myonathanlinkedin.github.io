@@ -4097,8 +4097,10 @@
         packModel = part._proceduralBuilder();
       } else {
         const cdnBase = state.catalog?.asset_cdn_base_url || MECHA_ASSETS_CDN;
-        const shaTag = (part.cad_mesh_definition?.asset_reference?.sha256_hash || Date.now().toString()).slice(0, 12);
-        const modelUrl = `${cdnBase}/${part.cad_mesh_definition.asset_reference.relative_url}?v=${shaTag}`;
+        const assetRef = part.cad_mesh_definition?.asset_reference || {};
+        const relUrl = assetRef.relative_url || assetRef.mesh_url || `models/parts/${part.part_id}.glb`;
+        const shaTag = (assetRef.sha256_hash || Date.now().toString()).slice(0, 12);
+        const modelUrl = `${cdnBase}/${relUrl}?v=${shaTag}`;
         const gltf = await new Promise((res, rej) => gltfLoader.load(modelUrl, res, undefined, rej));
         packModel = gltf.scene;
       }
