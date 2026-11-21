@@ -2,15 +2,15 @@
   "version": "2.0.0",
   "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
   "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
-  "last_synced": "2026-11-21T21:00:58.630222+00:00",
+  "last_synced": "2026-11-21T22:00:59.670706+00:00",
   "baselines": [
     {
       "id": "baseline_gundam_frame_v1",
       "faction": "hero_federation",
       "name": "RX-Type Advanced Movable Frame",
       "mesh_url": "models/baselines/baseline_gundam_frame_v1.glb",
-      "sha256_hash": "98cf612647d4bff85fc879b5d4da822f65a3e8c46e6fba094537aaec375911de",
-      "file_size_bytes": 2364652,
+      "sha256_hash": "310a3c59a5f69cc2e84aec0ba33dfb07b3cf1844fa3792f81d3933bddfa6d553",
+      "file_size_bytes": 2292644,
       "base_mass_kg": 24500,
       "bom_computed_mass_kg": 28758,
       "effective_k2_m2": 1.7462,
@@ -154,20 +154,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_a_aero.glb",
-          "sha256_hash": "41bdc7edd873387853f0382d6c4e0e9f5a5ebc3ef73b14760b6a221830f1d5f4",
-          "file_size_bytes": 218400,
+          "sha256_hash": "1a843cd44a27daa618f494332171d32d4337b37d0446827a6aad1e4107bdcb50",
+          "file_size_bytes": 218404,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -60.32602831829667,
+            -59.56569670674068,
             -22.0,
-            -34.0
+            -35.344400300951555
           ],
           "max": [
-            60.32602831829667,
+            59.56569670674068,
             37.0,
-            11.492109098140496
+            8.0
           ]
         }
       },
@@ -269,19 +269,19 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_s_space.glb",
-          "sha256_hash": "0c47c857e500cf465258fedd46ed23e3ec5fd3f421532b06089f61dfaa573d36",
-          "file_size_bytes": 200260,
+          "sha256_hash": "e4e0c1afe5b34f6e9ec0fe64718cdf784ad0547ec7c8c4b4474262dfb1fc3610",
+          "file_size_bytes": 292872,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -31.442405227368354,
-            -40.85408979621438,
-            -34.372349350912515
+            -34.95088651068396,
+            -37.41551237908266,
+            -31.262040291274207
           ],
           "max": [
-            31.442405227368354,
-            23.608679718217072,
+            34.95088651068396,
+            24.544624415700707,
             8.0
           ]
         }
@@ -537,20 +537,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_c_cqc.glb",
-          "sha256_hash": "0df0003cd16697993a1d48e8026494e7055ede3648c33cd28f2ad3146c1380dd",
-          "file_size_bytes": 121708,
+          "sha256_hash": "8775f50449e257b5fc9204b248968e6bd9534875df16782646f33c5c0987f8a6",
+          "file_size_bytes": 374596,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -15.200000000000001,
-            -51.15241772948784,
-            -15.216823180065909
+            -17.76578930955975,
+            -51.57169952494657,
+            -16.519668578092883
           ],
           "max": [
             12.0,
-            27.34557739612491,
-            20.308891398772705
+            27.39265770330618,
+            20.704601910623865
           ]
         }
       },
@@ -679,13 +679,13 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/armor_tower_shield_fed.glb",
-          "sha256_hash": "5040b4ef5ebe3c286e4e25c6136eacae748c9da3fecf8fbfd430ef296b519e37",
-          "file_size_bytes": 167704,
+          "sha256_hash": "5a27735d0eec7217f8f36d0a8822db52408ad25a021b16e5eebf71dc71d47ecc",
+          "file_size_bytes": 167820,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -14.5,
+            -12.716824774453599,
             -36.55733072702707,
             -17.044581562688208
           ],
@@ -761,7 +761,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/propulsion_vernier_wing_pod.glb",
-          "sha256_hash": "4e0310cdaefd6bf071b9ca87fd7002fe5cd7892c8cb76911aec4c88f9849e8ce",
+          "sha256_hash": "d0038bffc773d411ad1b2d3357e62d539a53a24be6b83a9f05204d394f83d57e",
           "file_size_bytes": 348324,
           "compression": "meshopt"
         },
@@ -769,7 +769,7 @@
           "min": [
             -46.18869082180539,
             -13.142373233232565,
-            -26.54117284256713
+            -27.18892122728392
           ],
           "max": [
             46.18869082180539,
@@ -925,20 +925,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/chest_chobham_reactive_armor.glb",
-          "sha256_hash": "2537b0020d394fb0761525061a38579550f5e8687502d55fadfd6f186a3729a3",
-          "file_size_bytes": 274716,
+          "sha256_hash": "05182327ce06c0fdb74c51d6bc31c0f4a20653bd857bc94f539fef416ed5e045",
+          "file_size_bytes": 247164,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -20.25559454766321,
+            -19.131248498066277,
             -7.0,
-            -1.2711481882758697
+            -0.7579024907162868
           ],
           "max": [
-            20.25559454766321,
-            11.981710365977184,
-            22.2
+            19.131248498066277,
+            9.84490497432337,
+            8.465930349023784
           ]
         }
       },
@@ -1007,20 +1007,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/shoulder_missile_pauldron_pods.glb",
-          "sha256_hash": "1dd0dcdd990228f58cf351566671afda5d32d2ba9b0a6c62cfd3b5748741fbbb",
-          "file_size_bytes": 217932,
+          "sha256_hash": "0d8982c612baf6f2aa0cc7a4812843cc17b3e0548ea2d0969e807e3ce0507a0c",
+          "file_size_bytes": 283620,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -64.77077106558413,
-            -7.418476369601312,
-            -11.200000000000001
+            -58.53931567471898,
+            -7.0,
+            -9.7
           ],
           "max": [
-            64.77077106558413,
-            15.78145961698776,
-            11.5
+            58.53931567471898,
+            11.66773272370773,
+            11.6
           ]
         }
       },
@@ -1037,9 +1037,9 @@
     },
     {
       "part_id": "waist_xiphias_hip_railguns",
-      "serial_number": "GXM-WPN-XIPH-12",
-      "name": "Xiphias-3 Folding Hip Electromagnetic Railguns (L+R)",
-      "category": "weapon",
+      "serial_number": "GXM-ARM-WSB-12",
+      "name": "FA-78 Side-Skirt Armored Thruster Binders & E-Pac Racks (L+R)",
+      "category": "armor",
       "primary_hardpoint": "HP-13",
       "slot_group": "waist_ordnance",
       "adapter_id": "ADP-HP13-WAIST",
@@ -1051,7 +1051,7 @@
         "HP-17"
       ],
       "structural_specs": {
-        "mass_kg": 2850,
+        "mass_kg": 2400,
         "bom_computed_mass_kg": 5498,
         "effective_k2_m2": 0.5985,
         "tolerance_stackup_mm": 0.14,
@@ -1089,20 +1089,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/waist_xiphias_hip_railguns.glb",
-          "sha256_hash": "2cdd1e60b57ccd7d1b955a0ee7d7e033503ce68240cdbc760b67af6778643272",
-          "file_size_bytes": 353856,
+          "sha256_hash": "bbbe02d490c8d5bed50a0ba57adcc026e5926bf5b255e2c3c47938d8f923a689",
+          "file_size_bytes": 261428,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -35.28214652821439,
-            -19.5100286989102,
-            -11.9667184719064
+            -35.402363490396716,
+            -19.325347527710182,
+            -9.32221950871398
           ],
           "max": [
-            35.28214652821439,
+            35.402363490396716,
             7.0,
-            36.943485137406455
+            8.785228545799118
           ]
         }
       },
@@ -1112,9 +1112,9 @@
         "metalness": 0.85
       },
       "telemetry_and_lore": {
-        "operational_role": "Strike-Freedom class dual folding hip-skirt electromagnetic rail cannons (Mach 8.4 muzzle velocity).",
-        "reactor_power_draw_kw": 520,
-        "vernier_thrust_kgf": 0
+        "operational_role": "Swept Ver.Ka armored hip-skirt stabilizer binders with recessed E-Pac magazines and lateral AMBAC micro-thrusters.",
+        "reactor_power_draw_kw": 260,
+        "vernier_thrust_kgf": 9200
       }
     },
     {
@@ -1171,8 +1171,8 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/leg_calf_vernier_missile_pods.glb",
-          "sha256_hash": "9c9c602a28fb958361e4a125f1739c2cc6fc4d3b8517ad16058c3b94c71dafc9",
-          "file_size_bytes": 194356,
+          "sha256_hash": "e6fd8c27707460260aa72559d3021d625c914e94939875707edeaea6057b91fd",
+          "file_size_bytes": 183788,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
@@ -1200,260 +1200,25 @@
       }
     },
     {
-      "part_id": "agentic_head_crest_f18218",
-      "serial_number": "GXM-AGH-F182",
-      "name": "HD-F182 Cranial 65mm CIWS Vulcan & High-Gain Sensor Crest",
-      "category": "modular_mission_pack",
-      "primary_hardpoint": "HP-01",
-      "slot_group": "head_sensor",
-      "adapter_id": "ADP-HP01-CRANIAL",
-      "entropy_seed": "f182186bb40d06b22e00c2104d92e33ab06cac4f63ae791ecbaa01d1fd9b2e93",
-      "synthesis_origin": "agentic_parametric_genome",
-      "parametric_genome": {
-        "ciws_caliber_mm": 65,
-        "crest_blade_height_mm": 21.56
-      },
-      "faction_compatibility": "universal_gundam_universe",
-      "compatible_hardpoints": [
-        "HP-01",
-        "HP-02"
-      ],
-      "structural_specs": {
-        "mass_kg": 884,
-        "primary_material": "gundarium_alloy_gamma",
-        "center_of_mass": [
-          0.0,
-          48.0,
-          -22.0
-        ]
-      },
-      "hardpoints": [
-        {
-          "station_id": "HP-01",
-          "gender": "female_chassis_socket",
-          "relative_position": [
-            14.0,
-            56.0,
-            4.0
-          ],
-          "clearance_tolerance_mm": 0.2
-        },
-        {
-          "station_id": "HP-02",
-          "gender": "female_chassis_socket",
-          "relative_position": [
-            -14.0,
-            56.0,
-            4.0
-          ],
-          "clearance_tolerance_mm": 0.2
-        }
-      ],
-      "cad_mesh_definition": {
-        "format": "binary_gltf_glb",
-        "asset_reference": {
-          "relative_url": "models/parts/agentic_head_crest_f18218.glb",
-          "sha256_hash": "920904a18b50ce1fa0d4f32c1a195c3951df201599289d1b5cf42d08e937b2e4",
-          "file_size_bytes": 216292,
-          "compression": "meshopt"
-        },
-        "bounding_box_aabb_mm": {
-          "min": [
-            -16.7,
-            -7.0,
-            -17.58235294117647
-          ],
-          "max": [
-            16.7,
-            30.76078431372549,
-            10.4
-          ]
-        }
-      },
-      "pbr_material": {
-        "color_hex": "#1a2530",
-        "roughness": 0.35,
-        "metalness": 0.85
-      },
-      "telemetry_and_lore": {
-        "operational_role": "Agentically synthesized cranial 65mm CIWS vulcan pod & 21.6mm LIDAR blade.",
-        "reactor_power_draw_kw": 236,
-        "vernier_thrust_kgf": 0
-      }
-    },
-    {
-      "part_id": "agentic_shoulder_pods_337ee5",
-      "serial_number": "GXM-AGS-337E",
-      "name": "SH-337E Twin 6-Tube Micro-Missile & Vernier Shoulder Pods (L+R)",
-      "category": "weapon",
-      "primary_hardpoint": "HP-03",
-      "slot_group": "shoulder_pods",
-      "adapter_id": "ADP-HP03-SHOULDER",
-      "entropy_seed": "337ee5955640e5c5c3cb7928f35e470df9d71d060ab29f34c47a5535e67dec6a",
-      "synthesis_origin": "agentic_parametric_genome",
-      "parametric_genome": {
-        "pod_height_scale": 0.964,
-        "warhead_tubes": 12
-      },
-      "faction_compatibility": "universal_gundam_universe",
-      "compatible_hardpoints": [
-        "HP-03",
-        "HP-05"
-      ],
-      "structural_specs": {
-        "mass_kg": 3270,
-        "primary_material": "gundarium_alloy_gamma",
-        "center_of_mass": [
-          0.0,
-          48.0,
-          -22.0
-        ]
-      },
-      "hardpoints": [
-        {
-          "station_id": "HP-03",
-          "gender": "female_chassis_socket",
-          "relative_position": [
-            34.0,
-            50.0,
-            0.0
-          ],
-          "clearance_tolerance_mm": 0.2
-        },
-        {
-          "station_id": "HP-05",
-          "gender": "female_chassis_socket",
-          "relative_position": [
-            -34.0,
-            50.0,
-            0.0
-          ],
-          "clearance_tolerance_mm": 0.2
-        }
-      ],
-      "cad_mesh_definition": {
-        "format": "binary_gltf_glb",
-        "asset_reference": {
-          "relative_url": "models/parts/agentic_shoulder_pods_337ee5.glb",
-          "sha256_hash": "a4485b59261dc15b33b4ff27803005eaf6dcc5c06b2e4caecd182a212ec31d21",
-          "file_size_bytes": 218076,
-          "compression": "meshopt"
-        },
-        "bounding_box_aabb_mm": {
-          "min": [
-            -64.77077106558413,
-            -7.151411220295666,
-            -11.410823529411765
-          ],
-          "max": [
-            64.77077106558413,
-            15.213327070776202,
-            11.716470588235294
-          ]
-        }
-      },
-      "pbr_material": {
-        "color_hex": "#1a2530",
-        "roughness": 0.35,
-        "metalness": 0.85
-      },
-      "telemetry_and_lore": {
-        "operational_role": "Agentically synthesized bilateral shoulder micro-missile bays & lateral AMBAC vernier thrusters.",
-        "reactor_power_draw_kw": 347,
-        "vernier_thrust_kgf": 40917
-      }
-    },
-    {
-      "part_id": "agentic_shield_aa6bbe",
-      "serial_number": "GXM-AGD-AA6B",
-      "name": "SD-AA6B Anti-Beam Gundarium Hexagonal Tower Shield",
-      "category": "armor",
-      "primary_hardpoint": "HP-07",
-      "slot_group": "aux_shield",
-      "adapter_id": "ADP-HP07-FOREARM",
-      "entropy_seed": "aa6bbe4cd839b377ace4eedcfbd6d9d6269cf6193665a7509c2bcde6aa66fa71",
-      "synthesis_origin": "agentic_parametric_genome",
-      "parametric_genome": {
-        "width_scale": 0.996,
-        "length_scale": 1.047
-      },
-      "faction_compatibility": "universal_gundam_universe",
-      "compatible_hardpoints": [
-        "HP-07"
-      ],
-      "structural_specs": {
-        "mass_kg": 2483,
-        "primary_material": "gundarium_alloy_gamma",
-        "center_of_mass": [
-          0.0,
-          48.0,
-          -22.0
-        ]
-      },
-      "hardpoints": [
-        {
-          "station_id": "HP-07",
-          "gender": "female_chassis_socket",
-          "relative_position": [
-            38.0,
-            24.0,
-            4.0
-          ],
-          "clearance_tolerance_mm": 0.2
-        }
-      ],
-      "cad_mesh_definition": {
-        "format": "binary_gltf_glb",
-        "asset_reference": {
-          "relative_url": "models/parts/agentic_shield_aa6bbe.glb",
-          "sha256_hash": "f225b2b806dce0f2438709a387f60147ac982bc4189b5dcd094c4c79f9d0dcd4",
-          "file_size_bytes": 167772,
-          "compression": "meshopt"
-        },
-        "bounding_box_aabb_mm": {
-          "min": [
-            -14.5,
-            -38.50705503246852,
-            -17.166233085998375
-          ],
-          "max": [
-            12.0,
-            30.335701815658926,
-            22.774538663213953
-          ]
-        }
-      },
-      "pbr_material": {
-        "color_hex": "#1a2530",
-        "roughness": 0.35,
-        "metalness": 0.85
-      },
-      "telemetry_and_lore": {
-        "operational_role": "Agentically synthesized multi-layer anti-beam shield (aspect=1.00x1.05).",
-        "reactor_power_draw_kw": 0,
-        "vernier_thrust_kgf": 0
-      }
-    },
-    {
-      "part_id": "agentic_beam_rifle_f980bc",
-      "serial_number": "GXM-AGB-F980",
-      "name": "BR-F980 High-Output 5.5MW Long-Barrel Mega Beam Rifle",
+      "part_id": "weapon_beam_saber_rx",
+      "serial_number": "GXM-WPN-BSBR-14",
+      "name": "RX-78 Iconic High-Output Beam Saber (Laser Sword)",
       "category": "weapon",
       "primary_hardpoint": "HP-11",
       "slot_group": "aux_weapon",
       "adapter_id": "ADP-HP11-WEAPON",
-      "entropy_seed": "f980bceb9aa955f2e13f5b616bbe9366f51e40bd2b822af61c7ef1e8f849ef7e",
-      "synthesis_origin": "agentic_parametric_genome",
-      "parametric_genome": {
-        "output_mw": 5.5,
-        "barrel_length_mm": 51.62
-      },
+      "entropy_seed": "4e979d5a0f973158773726fa8a04ebcaa764518ccf2a324251ee5547cd6d0246",
+      "synthesis_origin": "agentic_core_archetype",
       "faction_compatibility": "universal_gundam_universe",
       "compatible_hardpoints": [
         "HP-11"
       ],
       "structural_specs": {
-        "mass_kg": 1311,
+        "mass_kg": 680,
+        "bom_computed_mass_kg": 1953,
+        "effective_k2_m2": 0.0417,
+        "tolerance_stackup_mm": 0.1,
+        "bom_item_count": 2,
         "primary_material": "gundarium_alloy_gamma",
         "center_of_mass": [
           0.0,
@@ -1476,21 +1241,21 @@
       "cad_mesh_definition": {
         "format": "binary_gltf_glb",
         "asset_reference": {
-          "relative_url": "models/parts/agentic_beam_rifle_f980bc.glb",
-          "sha256_hash": "5319c7c7ee4d4eab8a96a419cf4f79c53ce1000137026dbccbf48bb83901a746",
-          "file_size_bytes": 205144,
+          "relative_url": "models/parts/weapon_beam_saber_rx.glb",
+          "sha256_hash": "8c024216cfa9cf92815e2b6da6a45d1769c110b2b4be5e3325103cb81d3a7f83",
+          "file_size_bytes": 61000,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
             -12.0,
-            -7.0,
-            -6.0
+            -11.220847198639133,
+            -6.012705636014573
           ],
           "max": [
             12.0,
-            15.458980933132963,
-            77.12352941176471
+            89.75998882491926,
+            67.3656157155199
           ]
         }
       },
@@ -1500,398 +1265,8 @@
         "metalness": 0.85
       },
       "telemetry_and_lore": {
-        "operational_role": "Agentically synthesized 5.5MW mega-particle rifle (barrel=51.6mm).",
-        "reactor_power_draw_kw": 435,
-        "vernier_thrust_kgf": 0
-      }
-    },
-    {
-      "part_id": "agentic_waist_railguns_796afa",
-      "serial_number": "GXM-AGR-796A",
-      "name": "WS-796A Xiphias Mach-8.4 Folding Hip Electromagnetic Railguns (L+R)",
-      "category": "weapon",
-      "primary_hardpoint": "HP-13",
-      "slot_group": "waist_ordnance",
-      "adapter_id": "ADP-HP13-WAIST",
-      "entropy_seed": "796afafead290a2257d9923690d5fd8e9d7320ae277141a9689d119897a85319",
-      "synthesis_origin": "agentic_parametric_genome",
-      "parametric_genome": {
-        "muzzle_velocity_mach": 8.4,
-        "rail_length_scale": 1.019
-      },
-      "faction_compatibility": "universal_gundam_universe",
-      "compatible_hardpoints": [
-        "HP-13",
-        "HP-17"
-      ],
-      "structural_specs": {
-        "mass_kg": 2991,
-        "primary_material": "gundarium_alloy_gamma",
-        "center_of_mass": [
-          0.0,
-          48.0,
-          -22.0
-        ]
-      },
-      "hardpoints": [
-        {
-          "station_id": "HP-13",
-          "gender": "female_chassis_socket",
-          "relative_position": [
-            18.0,
-            2.0,
-            0.0
-          ],
-          "clearance_tolerance_mm": 0.2
-        },
-        {
-          "station_id": "HP-17",
-          "gender": "female_chassis_socket",
-          "relative_position": [
-            -18.0,
-            2.0,
-            0.0
-          ],
-          "clearance_tolerance_mm": 0.2
-        }
-      ],
-      "cad_mesh_definition": {
-        "format": "binary_gltf_glb",
-        "asset_reference": {
-          "relative_url": "models/parts/agentic_waist_railguns_796afa.glb",
-          "sha256_hash": "c45d48adb839d4616e1275303da7d329ad2bd9cabc27e7a8cec29a2041dd3614",
-          "file_size_bytes": 353904,
-          "compression": "meshopt"
-        },
-        "bounding_box_aabb_mm": {
-          "min": [
-            -35.28214652821439,
-            -19.5100286989102,
-            -12.18962793363799
-          ],
-          "max": [
-            35.28214652821439,
-            7.0,
-            37.63164809584834
-          ]
-        }
-      },
-      "pbr_material": {
-        "color_hex": "#1a2530",
-        "roughness": 0.35,
-        "metalness": 0.85
-      },
-      "telemetry_and_lore": {
-        "operational_role": "Agentically synthesized dual hip-skirt folding electromagnetic railguns (muzzle=Mach 8.4).",
-        "reactor_power_draw_kw": 567,
-        "vernier_thrust_kgf": 0
-      }
-    },
-    {
-      "part_id": "agentic_aero_wing_a92bc1",
-      "serial_number": "GXM-AGW-A92B",
-      "name": "Type-A/A92B Variable-Sweep Delta Wing Pack (125mm Span)",
-      "category": "modular_mission_pack",
-      "primary_hardpoint": "HP-00",
-      "slot_group": "dorsal_pack",
-      "adapter_id": "ADP-HP00-DORSAL",
-      "entropy_seed": "a92bc1feb5f1deed05aa30b6a8c1f6685a380f750ced14765754bf51fccbd926",
-      "synthesis_origin": "agentic_parametric_genome",
-      "parametric_genome": {
-        "wing_span_mm": 125.16,
-        "dihedral_deg": -29.95,
-        "rudder_height_mm": 28.52
-      },
-      "faction_compatibility": "universal_gundam_universe",
-      "compatible_hardpoints": [
-        "HP-00"
-      ],
-      "structural_specs": {
-        "mass_kg": 4695,
-        "primary_material": "gundarium_alloy_gamma",
-        "center_of_mass": [
-          0.0,
-          48.0,
-          -22.0
-        ]
-      },
-      "hardpoints": [
-        {
-          "station_id": "HP-00",
-          "gender": "male_dovetail_key",
-          "relative_position": [
-            0.0,
-            48.0,
-            -18.0
-          ],
-          "clearance_tolerance_mm": 0.2
-        }
-      ],
-      "cad_mesh_definition": {
-        "format": "binary_gltf_glb",
-        "asset_reference": {
-          "relative_url": "models/parts/agentic_aero_wing_a92bc1.glb",
-          "sha256_hash": "7147f8b3e959216901dd993409d89259d28ac466bbd1663fcc17e7eb4ab65e12",
-          "file_size_bytes": 57364,
-          "compression": "meshopt"
-        },
-        "bounding_box_aabb_mm": {
-          "min": [
-            -61.74599463641883,
-            -13.726470588235294,
-            -33.0
-          ],
-          "max": [
-            61.74599463641883,
-            40.51764705882353,
-            21.210263565482443
-          ]
-        }
-      },
-      "pbr_material": {
-        "color_hex": "#1a2530",
-        "roughness": 0.35,
-        "metalness": 0.85
-      },
-      "telemetry_and_lore": {
-        "operational_role": "Agentically synthesized delta-sweep flight pack (span=125.2mm, dihedral=29.9 deg).",
-        "reactor_power_draw_kw": 556,
-        "vernier_thrust_kgf": 84070
-      }
-    },
-    {
-      "part_id": "agentic_leg_boosters_f8d1ae",
-      "serial_number": "GXM-AGL-F8D1",
-      "name": "LG-F8D1 FA-78 Dual Calf Missile & High-G Vernier Booster Pods (L+R)",
-      "category": "propulsion",
-      "primary_hardpoint": "HP-24",
-      "slot_group": "leg_thrusters",
-      "adapter_id": "ADP-HP24-CALF",
-      "entropy_seed": "f8d1ae40ee0a0edc854e95b36c4f6e57c56510006f4c453eee0195b6eb8ec087",
-      "synthesis_origin": "agentic_parametric_genome",
-      "parametric_genome": {
-        "pod_vertical_scale": 1.153,
-        "nozzle_count": 4
-      },
-      "faction_compatibility": "universal_gundam_universe",
-      "compatible_hardpoints": [
-        "HP-24",
-        "HP-26"
-      ],
-      "structural_specs": {
-        "mass_kg": 4255,
-        "primary_material": "gundarium_alloy_gamma",
-        "center_of_mass": [
-          0.0,
-          48.0,
-          -22.0
-        ]
-      },
-      "hardpoints": [
-        {
-          "station_id": "HP-24",
-          "gender": "female_chassis_socket",
-          "relative_position": [
-            20.0,
-            -62.0,
-            -2.0
-          ],
-          "clearance_tolerance_mm": 0.2
-        },
-        {
-          "station_id": "HP-26",
-          "gender": "female_chassis_socket",
-          "relative_position": [
-            -20.0,
-            -62.0,
-            -2.0
-          ],
-          "clearance_tolerance_mm": 0.2
-        }
-      ],
-      "cad_mesh_definition": {
-        "format": "binary_gltf_glb",
-        "asset_reference": {
-          "relative_url": "models/parts/agentic_leg_boosters_f8d1ae.glb",
-          "sha256_hash": "af4a1ba6f72dce4632813cebd1b7926d48d2ad60d760c4d2da506db70538da08",
-          "file_size_bytes": 194404,
-          "compression": "meshopt"
-        },
-        "bounding_box_aabb_mm": {
-          "min": [
-            -40.56213631736097,
-            -21.21838345119184,
-            -16.961433021034438
-          ],
-          "max": [
-            40.56213631736097,
-            17.088864158546873,
-            8.7
-          ]
-        }
-      },
-      "pbr_material": {
-        "color_hex": "#1a2530",
-        "roughness": 0.35,
-        "metalness": 0.85
-      },
-      "telemetry_and_lore": {
-        "operational_role": "Agentically synthesized bilateral lower-limb calf thruster & 6-tube missile pods.",
-        "reactor_power_draw_kw": 492,
-        "vernier_thrust_kgf": 86949
-      }
-    },
-    {
-      "part_id": "agentic_artillery_b43471",
-      "serial_number": "GXM-AGA-B434",
-      "name": "Type-H/B434 Twin 418mm Over-Shoulder Rail Cannon Pack",
-      "category": "modular_mission_pack",
-      "primary_hardpoint": "HP-00",
-      "slot_group": "dorsal_pack",
-      "adapter_id": "ADP-HP00-DORSAL",
-      "entropy_seed": "b434717e4a698ecf37ddbe33a8202db7a4029ae77778eb9c1c8dfcb21f569a23",
-      "synthesis_origin": "agentic_parametric_genome",
-      "parametric_genome": {
-        "caliber_mm": 418,
-        "barrel_length_mm": 49.67,
-        "shoulder_spread_mm": 25.97
-      },
-      "faction_compatibility": "universal_gundam_universe",
-      "compatible_hardpoints": [
-        "HP-00"
-      ],
-      "structural_specs": {
-        "mass_kg": 10294,
-        "primary_material": "gundarium_alloy_gamma",
-        "center_of_mass": [
-          0.0,
-          48.0,
-          -22.0
-        ]
-      },
-      "hardpoints": [
-        {
-          "station_id": "HP-00",
-          "gender": "male_dovetail_key",
-          "relative_position": [
-            0.0,
-            48.0,
-            -18.0
-          ],
-          "clearance_tolerance_mm": 0.2
-        }
-      ],
-      "cad_mesh_definition": {
-        "format": "binary_gltf_glb",
-        "asset_reference": {
-          "relative_url": "models/parts/agentic_artillery_b43471.glb",
-          "sha256_hash": "89fc3ebdde2fe926ac3e15fd182a27101f42381963b1d0a35d64ff591469ae85",
-          "file_size_bytes": 134060,
-          "compression": "meshopt"
-        },
-        "bounding_box_aabb_mm": {
-          "min": [
-            -31.979607843137252,
-            -10.05,
-            -17.029411764705884
-          ],
-          "max": [
-            31.979607843137252,
-            32.995,
-            58.67058823529412
-          ]
-        }
-      },
-      "pbr_material": {
-        "color_hex": "#1a2530",
-        "roughness": 0.35,
-        "metalness": 0.85
-      },
-      "telemetry_and_lore": {
-        "operational_role": "Agentically synthesized dual 418mm siege artillery system (barrel=49.7mm).",
-        "reactor_power_draw_kw": 1299,
-        "vernier_thrust_kgf": 24447
-      }
-    },
-    {
-      "part_id": "agentic_head_crest_f2c12c",
-      "serial_number": "GXM-AGH-F2C1",
-      "name": "HD-F2C1 Cranial 72mm CIWS Vulcan & High-Gain Sensor Crest",
-      "category": "modular_mission_pack",
-      "primary_hardpoint": "HP-01",
-      "slot_group": "head_sensor",
-      "adapter_id": "ADP-HP01-CRANIAL",
-      "entropy_seed": "f2c12c347c3f953e42ef14b5492eb97a4eb779ffecac59c778764736253c6115",
-      "synthesis_origin": "agentic_parametric_genome",
-      "parametric_genome": {
-        "ciws_caliber_mm": 72,
-        "crest_blade_height_mm": 21.59
-      },
-      "faction_compatibility": "universal_gundam_universe",
-      "compatible_hardpoints": [
-        "HP-01",
-        "HP-02"
-      ],
-      "structural_specs": {
-        "mass_kg": 885,
-        "primary_material": "gundarium_alloy_gamma",
-        "center_of_mass": [
-          0.0,
-          48.0,
-          -22.0
-        ]
-      },
-      "hardpoints": [
-        {
-          "station_id": "HP-01",
-          "gender": "female_chassis_socket",
-          "relative_position": [
-            14.0,
-            56.0,
-            4.0
-          ],
-          "clearance_tolerance_mm": 0.2
-        },
-        {
-          "station_id": "HP-02",
-          "gender": "female_chassis_socket",
-          "relative_position": [
-            -14.0,
-            56.0,
-            4.0
-          ],
-          "clearance_tolerance_mm": 0.2
-        }
-      ],
-      "cad_mesh_definition": {
-        "format": "binary_gltf_glb",
-        "asset_reference": {
-          "relative_url": "models/parts/agentic_head_crest_f2c12c.glb",
-          "sha256_hash": "921e164f0c6b8358ad8fd60e134219a284f9359f8455bb8c831d5c8a3b807eea",
-          "file_size_bytes": 216292,
-          "compression": "meshopt"
-        },
-        "bounding_box_aabb_mm": {
-          "min": [
-            -16.7,
-            -7.0,
-            -17.81764705882353
-          ],
-          "max": [
-            16.7,
-            30.7921568627451,
-            10.4
-          ]
-        }
-      },
-      "pbr_material": {
-        "color_hex": "#1a2530",
-        "roughness": 0.35,
-        "metalness": 0.85
-      },
-      "telemetry_and_lore": {
-        "operational_role": "Agentically synthesized cranial 72mm CIWS vulcan pod & 21.6mm LIDAR blade.",
-        "reactor_power_draw_kw": 263,
+        "operational_role": "Iconic Federation plasma laser sword with white cylindrical hilt and blazing magenta-pink I-field beam blade.",
+        "reactor_power_draw_kw": 380,
         "vernier_thrust_kgf": 0
       }
     }
