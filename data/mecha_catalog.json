@@ -2,15 +2,15 @@
   "version": "2.0.0",
   "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
   "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
-  "last_synced": "2026-11-21T10:43:12.636890+00:00",
+  "last_synced": "2026-11-21T10:59:13.327624+00:00",
   "baselines": [
     {
       "id": "baseline_gundam_frame_v1",
       "faction": "hero_federation",
       "name": "RX-Type Advanced Movable Frame",
       "mesh_url": "models/baselines/baseline_gundam_frame_v1.glb",
-      "sha256_hash": "6e982c39a6bcb84130220e3fefaa40bd9a49c8b904782f77645a67ab9a831724",
-      "file_size_bytes": 46292,
+      "sha256_hash": "c073a5ad4932d33cbb9404d45f863aeea778606be4c32ad1ad12d0fd2a9a875f",
+      "file_size_bytes": 69140,
       "base_mass_kg": 24500,
       "base_reactor_kw": 3450,
       "subsystem_count": 30,
@@ -49,8 +49,8 @@
       "faction": "antagonist_zeon_heavy",
       "name": "MS-Type Heavy Industrial Movable Frame",
       "mesh_url": "models/baselines/baseline_rival_heavy_frame_v1.glb",
-      "sha256_hash": "6be130d3d795aaa6002b3ecc1f40569051cd78464741687a1ecc681e9483dd0d",
-      "file_size_bytes": 35068,
+      "sha256_hash": "30f82aadd808f6cad904a152a22356cfa706c40fe307e0eb3fd8f798d6c6f6ee",
+      "file_size_bytes": 51676,
       "base_mass_kg": 31200,
       "base_reactor_kw": 4200,
       "subsystem_count": 22,
@@ -142,20 +142,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_a_aero.glb",
-          "sha256_hash": "a1f7c613b13b1d5f460658ef6604d3cc846910c8614d0f37cf93a31cfe5860ca",
-          "file_size_bytes": 6924,
+          "sha256_hash": "16bd9f4d3795ac2ca30c40e8eb5cc686e17709498aff01fe95a86a7a09b989de",
+          "file_size_bytes": 11640,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -26.0,
-            -18.0,
-            -12.0
+            -71.0,
+            128.0,
+            -35.0
           ],
           "max": [
-            26.0,
-            18.0,
-            12.0
+            71.0,
+            179.0,
+            -4.0
           ]
         }
       },
@@ -248,20 +248,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_s_space.glb",
-          "sha256_hash": "8cfa2760dc40f8ccd4c3e7a08dd4dd1ba7cabe7df4af624549633f8acdeb658d",
-          "file_size_bytes": 17132,
+          "sha256_hash": "be126fd55b717b33b774292026cd0d0f6af101467f3e8375f5d7dfe6d5bbbd3b",
+          "file_size_bytes": 21860,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -12.0,
-            -26.0,
-            -10.0
+            -31.2,
+            96.0,
+            -38.0
           ],
           "max": [
-            12.0,
-            26.0,
-            10.0
+            31.2,
+            166.0,
+            -4.0
           ]
         }
       },
@@ -332,20 +332,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_h_artillery.glb",
-          "sha256_hash": "c908f6ab4aaf5e1056dc7b9433a1a3735e7f3b0750216853ba8bb9af333b2430",
-          "file_size_bytes": 13124,
+          "sha256_hash": "3ceb8647140790a69b4fbb738f025e7c7bcee35957920905e9533337765cd647",
+          "file_size_bytes": 18656,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -14.0,
-            -36.0,
-            -12.0
+            -22.2,
+            0.0,
+            -33.0
           ],
           "max": [
-            14.0,
-            36.0,
-            12.0
+            22.2,
+            194.0,
+            18.5
           ]
         }
       },
@@ -416,20 +416,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_e_recon.glb",
-          "sha256_hash": "3b2abe7f11555ba6ebc94851d704ab23bfaa604169a8b96339175dad1774fa96",
-          "file_size_bytes": 7920,
+          "sha256_hash": "ce0c991b12d9681466086d89e7d45c9416901f6491468a38b1209238f2531fa1",
+          "file_size_bytes": 11064,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
             -24.0,
-            -11.0,
-            -24.0
+            137.0,
+            -42.0
           ],
           "max": [
             24.0,
-            11.0,
-            24.0
+            193.0,
+            6.0
           ]
         }
       },
@@ -489,20 +489,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_c_cqc.glb",
-          "sha256_hash": "541ac49c2afef09fe8d5dcfbbe3e172b62649ac0dd41e3a0a5756cd41bfd251a",
-          "file_size_bytes": 9252,
+          "sha256_hash": "34e73674a63c2d1c4a9ec03c9dc9ecef040e2710d27bc97d981281ab36ef45e8",
+          "file_size_bytes": 12424,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -12.0,
-            -34.0,
-            -4.5
+            -47.0,
+            74.0,
+            -12.0
           ],
           "max": [
             12.0,
-            34.0,
-            8.0
+            151.0,
+            26.5
           ]
         }
       },

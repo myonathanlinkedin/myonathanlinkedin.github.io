@@ -129,25 +129,33 @@
 
     .nav-links {
       display: flex;
-      gap: 6px;
+      gap: 8px;
       align-items: center;
     }
-    .nav-btn {
+    .nav-select {
       font-family: var(--font-mono);
       font-size: 11px;
       font-weight: 600;
-      text-decoration: none;
-      color: var(--text-muted);
-      padding: 4px 10px;
-      border-radius: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.03);
+      color: var(--accent-cyan);
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(0, 245, 255, 0.45);
+      border-radius: 8px;
+      padding: 6px 14px;
+      outline: none;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(0, 245, 255, 0.18);
       transition: all 0.2s ease;
+      letter-spacing: 0.5px;
     }
-    .nav-btn:hover, .nav-btn.active {
-      color: var(--text-main);
-      background: rgba(0, 245, 255, 0.12);
+    .nav-select:hover, .nav-select:focus {
       border-color: var(--accent-cyan);
+      box-shadow: 0 0 18px rgba(0, 245, 255, 0.4);
+      background: rgba(15, 23, 42, 0.98);
+    }
+    .nav-select option {
+      background: #0b132b;
+      color: #f1f5f9;
+      padding: 8px;
     }
 
     /* Left Drawer: Modular Catalog Inventory */
@@ -432,14 +440,17 @@
       GUNDAM-LIKE MECHA ENTHUSIAST
     </div>
     <div class="nav-links">
-      <a href="index.html" class="nav-btn">⚡ LAB HOME</a>
-      <a href="constellation.html" class="nav-btn">🌌 3D GALAXY</a>
-      <a href="office.html" class="nav-btn">🏢 3D STUDIO</a>
-      <a href="https://economic-analysis-three.vercel.app/?lang=en" target="_blank" rel="noopener" class="nav-btn">📊 MACRO APP ↗</a>
-      <a href="https://github.com/myonathanlinkedin/mini-papers" target="_blank" rel="noopener" class="nav-btn">📄 PAPERS ↗</a>
-      <a href="https://github.com/myonathanlinkedin" target="_blank" rel="noopener" class="nav-btn">🐙 GITHUB ↗</a>
-      <a href="https://linkedin.com/in/siyoyo" target="_blank" rel="noopener" class="nav-btn">💼 LINKEDIN ↗</a>
-      <a href="mecha.html" class="nav-btn active">🤖 MECHA HANGAR</a>
+      <select id="portfolio-navigator" class="nav-select" onchange="if(this.value){if(this.value.startsWith('http'))window.open(this.value,'_blank');else window.location.href=this.value;}">
+        <option value="" disabled>🌐 SYSTEMS PORTFOLIO NETWORK ▾</option>
+        <option value="index.html">⚡ Systems Engineering Lab Home</option>
+        <option value="constellation.html">🌌 3D Knowledge Universe</option>
+        <option value="office.html">🏢 3D Interactive Virtual Studio</option>
+        <option value="mecha.html" selected>🤖 Gundam-Like Mecha 3D Hangar (Active)</option>
+        <option value="https://economic-analysis-three.vercel.app/?lang=en">📊 Real-Time Macroeconomics Platform ↗</option>
+        <option value="https://github.com/myonathanlinkedin/mini-papers">📄 Systems Engineering Research Papers ↗</option>
+        <option value="https://github.com/myonathanlinkedin">🐙 GitHub Central Profile ↗</option>
+        <option value="https://linkedin.com/in/siyoyo">💼 LinkedIn Executive Profile ↗</option>
+      </select>
     </div>
   </header>
 
@@ -577,44 +588,186 @@
     const scene = new THREE.Scene();
     scene.fog = new THREE.FogExp2(0x030712, 0.0035);
 
-    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1.0, 1000.0);
-    camera.position.set(0.0, 90.0, 320.0);
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1.0, 1200.0);
+    camera.position.set(0.0, 120.0, 260.0);
 
     const controls = new OrbitControls(camera, canvas);
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
-    controls.target.set(0.0, 90.0, 0.0);
-    controls.maxPolarAngle = Math.PI / 2 + 0.1;
+    controls.target.set(0.0, 95.0, 0.0);
+    controls.maxPolarAngle = Math.PI / 2 + 0.05;
     controls.minDistance = 30.0;
     controls.maxDistance = 600.0;
 
-    // Hangar Lighting Rig
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
+    // Hangar Lighting Rig (Sci-Fi High-Intensity Studio Lighting)
+    const ambientLight = new THREE.HemisphereLight(0xe0f2fe, 0x0f172a, 1.25);
     scene.add(ambientLight);
 
-    const keyLight = new THREE.DirectionalLight(0x00f5ff, 2.2);
-    keyLight.position.set(120.0, 220.0, 160.0);
-    keyLight.castShadow = true;
-    scene.add(keyLight);
+    const keySpot = new THREE.SpotLight(0xffffff, 4.5, 700, Math.PI / 3.5, 0.4, 1.0);
+    keySpot.position.set(0.0, 240.0, 160.0);
+    keySpot.target.position.set(0.0, 95.0, 0.0);
+    keySpot.castShadow = true;
+    keySpot.shadow.bias = -0.0001;
+    scene.add(keySpot);
+    scene.add(keySpot.target);
 
-    const fillLight = new THREE.DirectionalLight(0xf59e0b, 1.2);
-    fillLight.position.set(-140.0, 160.0, -100.0);
+    // Front-Right Warm Amber Fill
+    const fillLight = new THREE.DirectionalLight(0xf59e0b, 1.6);
+    fillLight.position.set(150.0, 180.0, 120.0);
     scene.add(fillLight);
 
-    const rimLight = new THREE.DirectionalLight(0xffffff, 1.6);
-    rimLight.position.set(0.0, 280.0, -180.0);
-    scene.add(rimLight);
+    // Back-Left Cyan Cool Rim
+    const rimLightCyan = new THREE.DirectionalLight(0x00f5ff, 2.6);
+    rimLightCyan.position.set(-160.0, 200.0, -140.0);
+    scene.add(rimLightCyan);
+
+    // Back-Right White Silhouette
+    const rimLightWhite = new THREE.DirectionalLight(0xffffff, 1.8);
+    rimLightWhite.position.set(140.0, 220.0, -160.0);
+    scene.add(rimLightWhite);
 
     // Hangar Grid Floor
     const gridHelper = new THREE.GridHelper(400, 40, 0x00f5ff, 0x1e293b);
     gridHelper.position.y = 0.0;
     scene.add(gridHelper);
 
+    // Contact Shadow / Floor Glow Ring
+    const floorGeo = new THREE.RingGeometry(8, 48, 32);
+    const floorMat = new THREE.MeshBasicMaterial({
+      color: 0x00f5ff,
+      transparent: true,
+      opacity: 0.12,
+      side: THREE.DoubleSide
+    });
+    const floorRing = new THREE.Mesh(floorGeo, floorMat);
+    floorRing.rotation.x = Math.PI / 2;
+    floorRing.position.y = 0.1;
+    scene.add(floorRing);
+
     // Assembly Root Container
     const mechaRoot = new THREE.Group();
     scene.add(mechaRoot);
 
     const gltfLoader = new GLTFLoader();
+
+    // Dedicated PBR Material Stylizer for Authentic Gundam & Rival Mobile Suits
+    function applyMechaMaterial(node, faction) {
+      const name = (node.name || '').toLowerCase();
+      let color, roughness = 0.3, metalness = 0.5, emissive = 0x000000, emissiveIntensity = 0.0;
+
+      if (faction === 'hero') {
+        if (name.includes('v_fin') || name.includes('antenna') || name.includes('duct') || name.includes('helium') || name.includes('crest')) {
+          // Iconic V-Fin Antenna & Chest Intake Ducts (Gold / Warm Yellow)
+          color = 0xf59e0b;
+          roughness = 0.28;
+          metalness = 0.82;
+        } else if (name.includes('cockpit') || name.includes('sole') || name.includes('chin') || name.includes('red')) {
+          // Iconic Cockpit Block Hatch & Soles (Crimson Red)
+          color = 0xdc2626;
+          roughness = 0.35;
+          metalness = 0.20;
+        } else if (name.includes('thoracic') || name.includes('chest') || name.includes('torso') || name.includes('backpack')) {
+          // Iconic Federation Upper Thorax (Cobalt Navy Blue)
+          color = 0x1d4ed8;
+          roughness = 0.32;
+          metalness = 0.30;
+        } else if (name.includes('camera') || name.includes('eye') || name.includes('sensor')) {
+          // Dual Optic Visor (Glowing Emerald Cyan)
+          color = 0x00f5ff;
+          emissive = 0x00f5ff;
+          emissiveIntensity = 2.4;
+          roughness = 0.1;
+          metalness = 0.1;
+        } else if (name.includes('piston') || name.includes('vernier') || name.includes('thruster') || name.includes('bell')) {
+          // Hydraulic Rods & Thruster Bells (Polished Chrome Silver)
+          color = 0xf1f5f9;
+          roughness = 0.08;
+          metalness = 0.98;
+        } else if (name.includes('knuckle') || name.includes('pivot') || name.includes('gear') || name.includes('gimbal') || name.includes('clavicle') || name.includes('socket')) {
+          // Ver.Ka Internal Movable Frame Joints (Gunmetal Titanium)
+          color = 0x334155;
+          roughness = 0.45;
+          metalness = 0.88;
+        } else {
+          // Master Grade Outer Armor Plating (Polar White)
+          color = 0xf8fafc;
+          roughness = 0.26;
+          metalness = 0.14;
+        }
+      } else {
+        // Rival Heavy Antagonist Frame (Mono-Eye Zeon / Zaku / Dom Style)
+        if (name.includes('mono_eye') || name.includes('sensor')) {
+          // 180° Swept Mono-Eye Optics (Glowing Ruby Red)
+          color = 0xff0044;
+          emissive = 0xff0044;
+          emissiveIntensity = 3.0;
+          roughness = 0.1;
+          metalness = 0.1;
+        } else if (name.includes('spike') || name.includes('blade') || name.includes('shield') || name.includes('tread')) {
+          // Kinetic Ramming Spikes & Tower Shield (Charcoal Tungsten)
+          color = 0x1e293b;
+          roughness = 0.40;
+          metalness = 0.75;
+        } else if (name.includes('conduit') || name.includes('thruster') || name.includes('jet') || name.includes('socket')) {
+          // External Power Conduits & Verniers (Dark Titanium)
+          color = 0x475569;
+          roughness = 0.35;
+          metalness = 0.85;
+        } else {
+          // Heavy Armor Cowlings (Military Olive Drab)
+          color = 0x4a5d45;
+          roughness = 0.38;
+          metalness = 0.28;
+        }
+      }
+
+      node.material = new THREE.MeshStandardMaterial({
+        color: color,
+        roughness: roughness,
+        metalness: metalness,
+        emissive: emissive,
+        emissiveIntensity: emissiveIntensity,
+        wireframe: state.wireframeMode
+      });
+    }
+
+    function applyMissionPackMaterial(node, packType) {
+      const name = (node.name || '').toLowerCase();
+      let color = 0x334155, roughness = 0.35, metalness = 0.75, emissive = 0x000000, emissiveIntensity = 0.0;
+
+      if (name.includes('wing') || name.includes('fuselage') || name.includes('disc') || name.includes('shield')) {
+        color = 0xe2e8f0; // White / Light Composite Aerofoil
+        roughness = 0.28;
+        metalness = 0.20;
+      } else if (name.includes('bell') || name.includes('nozzle') || name.includes('thruster') || name.includes('vector')) {
+        color = 0xf8fafc;
+        roughness = 0.08;
+        metalness = 0.98;
+        emissive = 0x00f5ff;
+        emissiveIntensity = 0.8;
+      } else if (name.includes('cannon') || name.includes('barrel') || name.includes('bunker') || name.includes('stake') || name.includes('spade')) {
+        color = 0x1e293b; // Heavy Ordnance Gunmetal
+        roughness = 0.30;
+        metalness = 0.85;
+      } else if (name.includes('booster') || name.includes('tank')) {
+        color = 0xdc2626; // High-Visibility Propellant Tanks
+        roughness = 0.32;
+        metalness = 0.30;
+      } else if (name.includes('antenna') || name.includes('blade') || name.includes('intake')) {
+        color = 0xf59e0b; // Gold / Yellow Warning Trim
+        roughness = 0.30;
+        metalness = 0.80;
+      }
+
+      node.material = new THREE.MeshStandardMaterial({
+        color: color,
+        roughness: roughness,
+        metalness: metalness,
+        emissive: emissive,
+        emissiveIntensity: emissiveIntensity,
+        wireframe: state.wireframeMode
+      });
+    }
 
     // 1. Fetch Master Catalog Manifest
     async function initCatalog() {
@@ -663,12 +816,7 @@
             if (node.isMesh) {
               node.castShadow = true;
               node.receiveShadow = true;
-              node.material = new THREE.MeshStandardMaterial({
-                color: state.activeFaction === 'hero' ? 0x223042 : 0x2d1f1f,
-                roughness: 0.35,
-                metalness: 0.85,
-                wireframe: state.wireframeMode
-              });
+              applyMechaMaterial(node, state.activeFaction);
 
               // Cache local origin for exploded view
               node.userData.initialPosition = node.position.clone();
@@ -738,20 +886,14 @@
             if (node.isMesh) {
               node.castShadow = true;
               node.receiveShadow = true;
-              node.material = new THREE.MeshStandardMaterial({
-                color: 0x1e293b,
-                roughness: 0.25,
-                metalness: 0.9,
-                wireframe: state.wireframeMode
-              });
+              applyMissionPackMaterial(node, part.part_id);
               node.userData.initialPosition = node.position.clone();
               state.chassisParts.push(node);
             }
           });
 
-          // Mount to Dorsal Spine offset (HP-00) with adaptive standoff
-          const zOffset = state.activeFaction === 'hero' ? -18.0 : -22.0;
-          packModel.position.set(0.0, 95.0, zOffset);
+          // Mount to Dorsal Spine hardpoint (HP-00 at 0, 144, -12 mm)
+          packModel.position.set(0.0, 0.0, 0.0);
           mechaRoot.add(packModel);
           state.equippedPacks.set(part.part_id, packModel);
         } catch (e) {
@@ -792,13 +934,38 @@
       telEquippedCount.innerText = `${state.equippedPacks.size} packs mounted`;
     }
 
-    // 6. Exploded View Slider Handler
+    // 6. Vector-Aligned Mechanical Exploded View Handler (Ver.Ka Blueprint Separation)
     function applyExplodedDisplacement(factor) {
       state.chassisParts.forEach(node => {
         if (!node.userData.initialPosition) return;
-        const norm = node.userData.initialPosition.clone().normalize();
-        if (norm.lengthSq() === 0) norm.set(0, 1, 0);
-        node.position.copy(node.userData.initialPosition).addScaledVector(norm, factor * 45.0);
+        const name = (node.name || '').toLowerCase();
+        const init = node.userData.initialPosition;
+        const dir = new THREE.Vector3(0, 0, 0);
+
+        if (name.includes('head') || name.includes('v_fin') || name.includes('blade') || name.includes('eye')) {
+          dir.set(0.0, 1.4, 0.3); // Head canopy lifts up
+        } else if (name.includes('thoracic') || name.includes('chest') || name.includes('cockpit') || name.includes('conduit')) {
+          dir.set(0.0, 0.2, 1.6); // Torso armor pushes forward
+        } else if (name.includes('clavicle') || name.includes('shoulder') || name.includes('humerus') || name.includes('elbow') || name.includes('forearm') || name.includes('hand') || name.includes('shield') || name.includes('spike')) {
+          const sign = (init.x >= 0.0) ? 1.0 : -1.0;
+          dir.set(sign * 1.8, 0.1, 0.0); // Arm assemblies slide laterally
+        } else if (name.includes('foot') || name.includes('sole') || name.includes('ankle') || name.includes('tread')) {
+          const sign = (init.x >= 0.0) ? 0.6 : -0.6;
+          dir.set(sign, -1.4, 0.4); // Feet slide downward
+        } else if (name.includes('tibia') || name.includes('calf') || name.includes('knee')) {
+          const sign = (init.x >= 0.0) ? 0.8 : -0.8;
+          dir.set(sign, -0.8, 0.2); // Lower legs slide down & outward
+        } else if (name.includes('femur') || name.includes('thigh') || name.includes('hip')) {
+          const sign = (init.x >= 0.0) ? 1.0 : -1.0;
+          dir.set(sign, -0.3, 0.0); // Thighs slide laterally
+        } else if (name.includes('backpack') || name.includes('socket') || name.includes('vernier') || name.includes('booster') || name.includes('wing') || name.includes('cannon') || name.includes('rotodome')) {
+          dir.set(0.0, 0.2, -1.8); // Backpack / mission pack slides backward
+        } else {
+          dir.copy(init).normalize();
+          if (dir.lengthSq() === 0) dir.set(0.0, 1.0, 0.0);
+        }
+
+        node.position.copy(init).addScaledVector(dir, factor * 48.0);
       });
     }
 
@@ -817,11 +984,6 @@
       btnHero.className = 'faction-btn active hero';
       btnRival.className = 'faction-btn rival';
       
-      // Update standoff position for all currently equipped kitbash packs
-      state.equippedPacks.forEach((packModel) => {
-        packModel.position.set(0.0, 95.0, -18.0);
-      });
-
       await loadChassis(state.activeBaselineId);
       renderInventory();
     });
@@ -832,11 +994,6 @@
       state.activeBaselineId = 'baseline_rival_heavy_frame_v1';
       btnRival.className = 'faction-btn active rival';
       btnHero.className = 'faction-btn hero';
-      
-      // Update standoff position for all currently equipped kitbash packs
-      state.equippedPacks.forEach((packModel) => {
-        packModel.position.set(0.0, 95.0, -22.0);
-      });
 
       await loadChassis(state.activeBaselineId);
       renderInventory();
