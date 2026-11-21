@@ -3145,6 +3145,15 @@
       const spec = UNIT_REGISTRY[unitId] || UNIT_REGISTRY.vanguard_rx;
       const pc = spec.packColors;
       const n = (node.name || '').toLowerCase();
+      if (n.includes('aura_pink_glass')) {
+        return getSharedMechaMaterial({ color: 0xff2e97, emissive: 0xff1493, emissiveIntensity: 2.0, roughness: 0.10, metalness: 0.05, transparent: true, opacity: 0.46, isEmissive: true, envMapIntensity: 0.6 });
+      }
+      if (n.includes('blade_core_pink')) {
+        return getSharedMechaMaterial({ color: 0xffe4f3, emissive: 0xff4da6, emissiveIntensity: 2.6, roughness: 0.08, metalness: 0.05, isEmissive: true });
+      }
+      if (n.includes('hilt_white')) {
+        return getSharedMechaMaterial({ color: 0xf0f2ec, roughness: 0.34, metalness: 0.10, useDetail: false });
+      }
       if (n.includes('_glass')) {
         return getSharedMechaMaterial({ color: 0xbae6fd, roughness: 0.12, metalness: 0.10, transparent: true, opacity: 0.34, envMapIntensity: 1.0 });
       }
@@ -4220,9 +4229,9 @@
       const presets = [
         { name: 'Heavy Siege Assault', stance: 'RifleBurst', zones: ['dorsal_pack', 'aux_weapon', 'aux_shield', 'shoulder_pods', 'chest_armor', 'waist_ordnance', 'leg_thrusters'] },
         { name: 'High-Mobility Interceptor', stance: 'BoostJump', zones: ['dorsal_pack', 'aux_weapon', 'head_sensor', 'leg_thrusters', 'waist_ordnance'] },
-        { name: 'Close-Quarters Breacher', stance: 'ShieldGuard', zones: ['aux_shield', 'chest_armor', 'shoulder_pods', 'head_sensor', 'dorsal_pack'] },
+        { name: 'Close-Quarters Beam Saber Duelist', stance: 'MeleeSlash', zones: ['aux_weapon', 'aux_shield', 'chest_armor', 'shoulder_pods', 'head_sensor', 'dorsal_pack'] },
         { name: 'Tactical Recon Vanguard', stance: 'Sentinel', zones: ['dorsal_pack', 'head_sensor', 'aux_weapon', 'aux_shield', 'leg_thrusters'] },
-        { name: 'Full-Armor Striker', stance: 'MeleeSlash', zones: ['head_sensor', 'chest_armor', 'shoulder_pods', 'dorsal_pack', 'aux_weapon', 'aux_shield', 'waist_ordnance', 'leg_thrusters'] }
+        { name: 'Full-Armor Saber Striker', stance: 'MeleeSlash', zones: ['head_sensor', 'chest_armor', 'shoulder_pods', 'dorsal_pack', 'aux_weapon', 'aux_shield', 'waist_ordnance', 'leg_thrusters'] }
       ];
       const build = presets[state.agenticSynthNonce % presets.length];
       state.agenticSynthNonce++;
@@ -4237,7 +4246,9 @@
         const candidates = allParts.filter(p => resolvePartSlotGroup(p) === z);
         if (candidates.length === 0) continue;
         let chosen = null;
-        if (build.name === 'Close-Quarters Breacher' && z === 'aux_shield') {
+        if ((build.name.includes('Saber')) && z === 'aux_weapon') {
+          chosen = candidates.find(p => p.part_id === 'weapon_beam_saber_rx') || pickRandom(candidates);
+        } else if (build.name === 'Close-Quarters Beam Saber Duelist' && z === 'aux_shield') {
           chosen = candidates.find(p => p.part_id === 'mission_pack_type_c_cqc') || pickRandom(candidates);
         } else if (build.name === 'Heavy Siege Assault' && z === 'dorsal_pack') {
           chosen = candidates.find(p => p.part_id === 'mission_pack_type_h_artillery') || pickRandom(candidates);
