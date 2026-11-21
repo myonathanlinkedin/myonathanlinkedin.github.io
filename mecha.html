@@ -1956,7 +1956,7 @@
         <option value="HP-00">HP-00 Dorsal Backpack &amp; Wing Binders</option>
         <option value="HP-11">HP-11 Right Arm Primary Weapon</option>
         <option value="HP-07">HP-07 Left Forearm Composite Shield</option>
-        <option value="HP-13">HP-13/17 Waist Hip Folding Railguns</option>
+        <option value="HP-13">HP-13/17 Waist Side-Skirt Armored Binders</option>
         <option value="HP-24">HP-24/26 Leg Calf Booster &amp; Missile Pods</option>
       </select>
       <select id="parts-sort" class="hud-dropdown" style="max-width: 108px;">
@@ -3279,7 +3279,7 @@
         mesh.userData.pivotOrigin = origin.clone();
         targetGroup.add(mesh);
 
-        if (n.includes('mono_eye_glow') || n.includes('mono_eye_bezel')) {
+        if (n.includes('mono_eye_glow') || n.includes('mono_eye_bezel') || n.includes('mono_eye_ir_rim') || (n.includes('mono_eye') && !n.includes('track'))) {
           state.monoEyeNodes.push(mesh);
         }
         if (n.includes('zaku_mg_') || n.includes('gouf_saber_') || n.includes('gouf_heat_saber') || n.includes('sazabi_rifle_')) {
@@ -3846,7 +3846,7 @@
                 node.geometry.boundingBox.getCenter(node.userData.geomCenter);
               }
               const ln = (node.name || '').toLowerCase();
-              if (ln.includes('_gear_')) {
+              if (ln.includes('chest_gear_') || ln.includes('dorsal_gear_')) {
                 const gc = node.userData.geomCenter || new THREE.Vector3();
                 const dirSign = ln.includes('pinion') ? -1.42 : 1.0;
                 state.gearNodes.push({ node, center: gc.clone(), dirSign, angle: 0 });
