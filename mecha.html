@@ -5374,23 +5374,115 @@
     canvas.addEventListener('wheel', handoffToUser, { passive: true });
     window.addEventListener('keydown', (e) => { if (e.key !== 'Escape') handoffToUser(); });
 
+    function _shortCalloutName(partId) {
+      if (!partId || !state.catalog?.modular_parts) return '';
+      const p = state.catalog.modular_parts.find(x => x.part_id === partId);
+      if (!p || !p.name) return '';
+      const raw = String(p.name).trim();
+      return raw.length > 26 ? raw.slice(0, 25).trim() + '…' : raw;
+    }
+
     const CALLOUT_ANCHORS = [
-      { id: 'c_optics', world: [0, 165, 10], screenDx: -145, screenDy: -34, title: 'OPTICAL SENSOR ARRAY', sub: () => UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'RECESSED MONO-EYE • IR RIM' : 'DUAL GOLDEN CAM • TRACKING' },
-      { id: 'c_reactor', world: [0, 138, 12], screenDx: 155, screenDy: -28, title: 'MINOVSKY 3-GEAR CORE', sub: () => state.hatchOpen ? 'HATCH OPEN • 20T/14T SPIN' : (state.renderMode === 'glass' ? 'GLASS CUTAWAY • EXPOSED' : 'HATCH SEALED') },
-      { id: 'c_servo', world: [34, 118, 2], screenDx: 150, screenDy: 16, title: 'ROTARY SERVO DRUM', sub: () => '6-BOLT ANODIZED COLLAR' },
-      { id: 'c_weapon', world: [35, 88, 20], screenDx: 150, screenDy: 46, title: 'ADP-HP11 TRIGGER LATCH', sub: () => state.activeStance === 'RifleBurst' ? 'BEAM AIM • 0.0° LEVEL' : 'PALM ADAPTER • LOCKED' },
-      { id: 'c_shield', world: [-42, 102, 4], screenDx: -155, screenDy: 24, title: 'ADP-HP07 C-CLAMP STRUT', sub: () => 'OUTWARD NORMAL • 0.0mm CLIP' },
-      { id: 'c_knee', world: [-16, 63, 6], screenDx: -148, screenDy: 58, title: 'DOUBLE-PIVOT KNEE DRUM', sub: () => 'TEARDOWN HYDRAULIC DAMPER' }
+      {
+        id: 'c_optics',
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (rig?.head) { out.set(0, 10, 9); rig.head.localToWorld(out); return out; }
+          return out.set(0, 165, 10);
+        },
+        screenDx: -155, screenDy: -34,
+        title: () => state.slotOccupancy.head_sensor ? `HEAD: ${_shortCalloutName(state.slotOccupancy.head_sensor)}` : 'OPTICAL SENSOR ARRAY',
+        sub: () => state.slotOccupancy.head_sensor
+          ? 'ADP-HP01 CRANIAL • LOCKED'
+          : (UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'RECESSED MONO-EYE • IR RIM' : 'DUAL GOLDEN CAM • TRACKING')
+      },
+      {
+        id: 'c_reactor',
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (rig?.torso) { out.set(0, 24, 12); rig.torso.localToWorld(out); return out; }
+          return out.set(0, 138, 12);
+        },
+        screenDx: 160, screenDy: -28,
+        title: () => state.slotOccupancy.chest_armor
+          ? `CHEST: ${_shortCalloutName(state.slotOccupancy.chest_armor)}`
+          : (UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'ZEON REACTOR CORE' : 'MINOVSKY 3-GEAR CORE'),
+        sub: () => state.hatchOpen
+          ? (UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'HATCH OPEN • CORE EXPOSED' : 'HATCH OPEN • 20T/14T SPIN')
+          : (state.slotOccupancy.chest_armor ? 'ADP-HP09 PECTORAL • LOCKED' : (state.renderMode === 'glass' ? 'GLASS CUTAWAY • EXPOSED' : 'HATCH SEALED'))
+      },
+      {
+        id: 'c_servo',
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (state.slotOccupancy.shoulder_pods && rig?.armR) {
+            out.set((rig.rSign || 1) * 4, 6, 0); rig.armR.localToWorld(out); return out;
+          }
+          if (rig?.forearmR) { out.set(0, 0, 0); rig.forearmR.localToWorld(out); return out; }
+          return out.set(34 * (rig?.rSign || 1), 116, 2);
+        },
+        screenDx: 155, screenDy: 14,
+        title: () => state.slotOccupancy.shoulder_pods ? `SHOULDER: ${_shortCalloutName(state.slotOccupancy.shoulder_pods)}` : 'ROTARY SERVO DRUM',
+        sub: () => state.slotOccupancy.shoulder_pods ? 'ADP-HP03 PAULDRON • LOCKED' : '6-BOLT ANODIZED COLLAR'
+      },
+      {
+        id: 'c_weapon',
+        getWorld: (out) => {
+          const sock = state.socketRig?.aux_weapon?.socketRoot;
+          if (sock) { sock.getWorldPosition(out); return out; }
+          const rig = state.kinematicRig;
+          if (rig?.forearmR) { out.set(0, -26, 2); rig.forearmR.localToWorld(out); return out; }
+          return out.set(35 * (rig?.rSign || 1), 88, 4);
+        },
+        screenDx: 155, screenDy: 44,
+        title: () => state.slotOccupancy.aux_weapon ? `WEAPON: ${_shortCalloutName(state.slotOccupancy.aux_weapon)}` : 'ADP-HP11 PALM SOCKET',
+        sub: () => state.slotOccupancy.aux_weapon
+          ? (state.activeStance === 'RifleBurst' ? 'BEAM AIM • LOCKED' : 'PALM ADAPTER • LOCKED')
+          : 'STANDBY • NO WEAPON EQUIPPED'
+      },
+      {
+        id: 'c_shield',
+        getWorld: (out) => {
+          const sock = state.socketRig?.aux_shield?.socketRoot;
+          if (sock) { sock.getWorldPosition(out); return out; }
+          const rig = state.kinematicRig;
+          if (rig?.forearmL) { out.set(0, -14, 0); rig.forearmL.localToWorld(out); return out; }
+          return out.set(-38 * (rig?.rSign || 1), 102, 2);
+        },
+        screenDx: -160, screenDy: 24,
+        title: () => state.slotOccupancy.aux_shield ? `SHIELD: ${_shortCalloutName(state.slotOccupancy.aux_shield)}` : 'ADP-HP07 FOREARM MOUNT',
+        sub: () => state.slotOccupancy.aux_shield ? 'OUTWARD NORMAL • LOCKED' : 'STANDBY • NO SHIELD EQUIPPED'
+      },
+      {
+        id: 'c_knee',
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (state.slotOccupancy.leg_thrusters && rig?.shinL) {
+            out.set((rig.lSign || -1) * 8, -18, 0); rig.shinL.localToWorld(out); return out;
+          }
+          if (rig?.shinL) { out.set(0, 2, 6); rig.shinL.localToWorld(out); return out; }
+          return out.set(-16 * (rig?.rSign || 1), 62, 6);
+        },
+        screenDx: -155, screenDy: 56,
+        title: () => state.slotOccupancy.leg_thrusters ? `LEGS: ${_shortCalloutName(state.slotOccupancy.leg_thrusters)}` : 'DOUBLE-PIVOT KNEE DRUM',
+        sub: () => state.slotOccupancy.leg_thrusters ? 'ADP-HP24 CALF POD • LOCKED' : 'TEARDOWN HYDRAULIC DAMPER'
+      }
     ];
     const _projVec = new THREE.Vector3();
     let _lastCalloutSig = '';
+    let _lastCalloutFrameTs = 0;
     function updateCalloutLeaders(force = false) {
       if (!state.showCallouts || !calloutSvg || !calloutNodesEl) return;
+      const nowTs = performance.now();
+      // Live bone tracking at ~30Hz while animated so dots stay 100% locked onto moving hands/limbs!
+      if (!force && state.animPlaying && (nowTs - _lastCalloutFrameTs) < 33) return;
       const w = window.innerWidth, h = window.innerHeight;
-      const sig = `${Math.round(camera.position.x * 2)},${Math.round(camera.position.y * 2)},${Math.round(camera.position.z * 2)},${Math.round(controls.target.y)},${w}x${h},${state.hatchOpen ? 1 : 0},${state.renderMode},${state.activeStance},${state.activeEnv},${state.activeUnitId},${state.menus.left ? 1 : 0},${state.menus.right ? 1 : 0},${state.menus.allHidden ? 1 : 0}`;
-      if (!force && sig === _lastCalloutSig) return;
+      const occSig = Object.values(state.slotOccupancy).map(v => v || '').join('|');
+      const sig = `${Math.round(camera.position.x * 2)},${Math.round(camera.position.y * 2)},${Math.round(camera.position.z * 2)},${Math.round(controls.target.y)},${w}x${h},${state.hatchOpen ? 1 : 0},${state.renderMode},${state.activeStance},${state.activeEnv},${state.activeUnitId},${state.menus.left ? 1 : 0},${state.menus.right ? 1 : 0},${state.menus.allHidden ? 1 : 0},${Math.round(state.explodedFactor * 100)},${occSig}`;
+      if (!force && !state.animPlaying && sig === _lastCalloutSig) return;
       _lastCalloutSig = sig;
-      const rSign = state.kinematicRig?.rSign || 1.0;
+      _lastCalloutFrameTs = nowTs;
+      if (state.chassisModel) state.chassisModel.updateWorldMatrix(true, true);
       let svgHtml = '';
       let nodesHtml = '';
       const isStudio = state.activeEnv === 'studio';
@@ -5399,23 +5491,26 @@
       // Measure exact open side-drawer bounds + half-pill safety margin so NO callout card EVER clips!
       const leftRect = (state.menus.left && !state.menus.allHidden && leftDrawer) ? leftDrawer.getBoundingClientRect() : null;
       const rightRect = ((state.menus.right || state.menus.scene) && !state.menus.allHidden && rightStack) ? rightStack.getBoundingClientRect() : null;
-      const cardHalfW = 104;
+      const cardHalfW = 112;
       const minX = (leftRect && w > 960 && leftRect.right > 40) ? (leftRect.right + cardHalfW + 16) : (cardHalfW + 12);
       const maxX = (rightRect && w > 960 && rightRect.left < w - 40) ? (rightRect.left - cardHalfW - 16) : (w - cardHalfW - 12);
       for (const a of CALLOUT_ANCHORS) {
-        _projVec.set(a.world[0] * rSign, a.world[1], a.world[2]);
+        a.getWorld(_projVec);
         _projVec.project(camera);
         if (_projVec.z > 1.0) continue;
         const sx = (_projVec.x * 0.5 + 0.5) * w;
         const sy = (-_projVec.y * 0.5 + 0.5) * h;
-        const lx = Math.max(minX, Math.min(maxX, sx + a.screenDx));
+        const dxSign = sx < (w * 0.5) ? -1 : 1;
+        const dx = Math.abs(a.screenDx) * dxSign;
+        const lx = Math.max(minX, Math.min(maxX, sx + dx));
         const ly = Math.max(88, Math.min(h - 98, sy + a.screenDy));
         // Precision CAD elbow leader line (anchor -> knee -> tag)
         const kx = sx + (lx - sx) * 0.42;
+        const titleTxt = typeof a.title === 'function' ? a.title() : a.title;
         svgHtml += `<polyline points="${sx.toFixed(1)},${sy.toFixed(1)} ${kx.toFixed(1)},${ly.toFixed(1)} ${lx.toFixed(1)},${ly.toFixed(1)}" fill="none" stroke="${strokeCol}" stroke-width="1.35" opacity="0.88" />`
           + `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="4.8" fill="none" stroke="${dotCol}" stroke-width="1.2" opacity="0.65" />`
           + `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="2.6" fill="${dotCol}" />`;
-        nodesHtml += `<div class="callout-tag" style="left:${lx.toFixed(1)}px;top:${ly.toFixed(1)}px;"><span class="c-dot"></span>${a.title}<span class="c-sub">${a.sub()}</span></div>`;
+        nodesHtml += `<div class="callout-tag" style="left:${lx.toFixed(1)}px;top:${ly.toFixed(1)}px;"><span class="c-dot"></span>${escapePresetHtml(titleTxt)}<span class="c-sub">${escapePresetHtml(a.sub())}</span></div>`;
       }
       calloutSvg.innerHTML = svgHtml;
       calloutNodesEl.innerHTML = nodesHtml;
