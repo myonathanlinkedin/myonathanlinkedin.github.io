@@ -3948,8 +3948,15 @@
                 const dirSign = ln.includes('pinion') ? -1.42 : 1.0;
                 state.gearNodes.push({ node, center: gc.clone(), dirSign, angle: 0 });
               }
-              if (ln.includes('chest_cockpit_hatch') || ln.includes('chest_vent_duct') || ln.includes('chest_vent_louvers') || ln.includes('zaku_chest_center') || ln.includes('gouf_chest_center') || ln.includes('sazabi_chest_front')) {
-                const sideDir = ln.endsWith('_r') ? 1 : (ln.endsWith('_l') ? -1 : 0);
+              if (
+                ln.includes('chest_cockpit_hatch') || ln.includes('chest_vent_duct') || ln.includes('chest_vent_louvers') ||
+                ln.includes('zaku_cockpit_prow') || ln.includes('zaku_pectoral_') ||
+                ln.includes('gouf_cockpit_prow') || ln.includes('gouf_pectoral_') ||
+                ln.includes('sazabi_pectoral_') || ln.includes('sazabi_chest_vent_')
+              ) {
+                // Spatial X sign guarantees doors swing OUTWARD on both Federation (+X=R) and Zeon (-X=R) units!
+                const gcX = node.userData.geomCenter ? node.userData.geomCenter.x : 0;
+                const sideDir = gcX > 2.5 ? 1 : (gcX < -2.5 ? -1 : 0);
                 state.hingeNodes.push({ node, sideDir, basePos: null, baseRot: null });
               }
               state.chassisParts.push(node);
@@ -4063,6 +4070,7 @@
           enforceSinglePartPerSlotInvariant();
 
           applyRenderMode(state.renderMode);
+          if (state.hatchOpen) setHatchOpen(true, true);
           applyExplodedDisplacement(state.explodedFactor);
           updateTelemetry();
           renderInventory();
@@ -4739,21 +4747,26 @@
     const calloutSvg = document.getElementById('callout-svg');
     const calloutNodesEl = document.getElementById('callout-nodes');
 
-    function setHatchOpen(open) {
+    function setHatchOpen(open, silent = false) {
       state.hatchOpen = Boolean(open);
       btnHatchOpen?.classList.toggle('active', state.hatchOpen);
       btnDockHatch?.classList.toggle('active', state.hatchOpen);
       mechaRoot.traverse(node => {
         if (!node.isMesh || !node.userData.origMaterial) return;
         const ln = (node.name || '').toLowerCase();
-        if (ln.includes('chest_armor_blue') || ln.includes('chest_sternum_dark') || ln.includes('zaku_chest_olive') || ln.includes('gouf_chest_navy') || ln.includes('sazabi_chest_crimson')) {
+        if (
+          ln.includes('chest_armor_blue') || ln.includes('chest_sternum_dark') ||
+          ln.includes('zaku_chest_core_') || ln.includes('gouf_chest_core_') || ln.includes('sazabi_chest_core_')
+        ) {
           if (state.renderMode === 'standard' && !state.isolatedZone) {
             node.material = state.hatchOpen ? glassCutawayMat : node.userData.origMaterial;
           }
         }
       });
-      triggerStagePulse(state.hatchOpen ? 0xf97316 : 0x00e5ff);
-      showToast(state.hatchOpen ? '🔓 Maintenance Hatch OPEN — Internal 3-Gear Reactor Core Exposed!' : '🔒 Maintenance Hatch SEALED');
+      if (!silent) {
+        triggerStagePulse(state.hatchOpen ? 0xf97316 : 0x00e5ff);
+        showToast(state.hatchOpen ? '🔓 Maintenance Hatch OPEN — Internal Minovsky Gear Core Exposed!' : '🔒 Maintenance Hatch SEALED');
+      }
     }
     btnHatchOpen?.addEventListener('click', () => setHatchOpen(!state.hatchOpen));
     btnDockHatch?.addEventListener('click', () => setHatchOpen(!state.hatchOpen));
