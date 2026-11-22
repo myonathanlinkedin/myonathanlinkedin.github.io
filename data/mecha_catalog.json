@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
   "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
-  "last_synced": "2026-11-22T09:58:43.063048+00:00",
+  "last_synced": "2026-11-22T10:01:20.587545+00:00",
   "baselines": [
     {
       "id": "baseline_gundam_frame_v1",
@@ -3065,8 +3065,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_002_3bcb7e.glb",
-          "sha256_hash": "4aa1813d95b056970f647bfb312acd79be6f902a7c11066cde50e56413658bcb",
-          "file_size_bytes": 186300,
+          "sha256_hash": "6a93691ae963e744371a73968e6a148463b9aff57921fc39fe7fda7f65e4dbee",
+          "file_size_bytes": 186296,
           "compression": "meshopt"
         }
       },
@@ -5036,7 +5036,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_003_b4fba0.glb",
-          "sha256_hash": "b5b0cbe89a341d6b1d1930c3ba56ba2a2ec3a5b03eadaf293a9eddb3f9fa1147",
+          "sha256_hash": "82a182c187c5a532cc43c902fa08afe4619d01d8602c861f2487f8ef3cda6ab2",
           "file_size_bytes": 114648,
           "compression": "meshopt"
         }
@@ -7897,7 +7897,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_005_7d8a6c.glb",
-          "sha256_hash": "33fad6393a908d7b0776d6d4633fd042923dcd843ba7af0e21a377fe6bebbbf3",
+          "sha256_hash": "6442a19fc3ca5b75ba7c441a25e9abeef69de80245ba080a88015178926f0e72",
           "file_size_bytes": 162372,
           "compression": "meshopt"
         }
@@ -9323,7 +9323,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_006_7a2cd3.glb",
-          "sha256_hash": "3e6a58e29a4270d8f567c4248a2ee0128d735db861abfea710ade7b7e78d52c1",
+          "sha256_hash": "960200463628ca72594660046eeedd2a47ca60de67cb01466f06897962402e02",
           "file_size_bytes": 120364,
           "compression": "meshopt"
         }
@@ -10037,8 +10037,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_007_b1e019.glb",
-          "sha256_hash": "5cbb047bb80b35720c418b23fc9316ef3ae6df1aac73f7076ec5cd42e8558609",
-          "file_size_bytes": 175684,
+          "sha256_hash": "84096d72548466137d57fb0d5553dd9ab727d7a6a1fbdb5c7dd7b2e9a5ba2fe4",
+          "file_size_bytes": 175680,
           "compression": "meshopt"
         }
       },
@@ -12196,7 +12196,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_008_269577.glb",
-          "sha256_hash": "4856803fb64234a81e20b8308ec6ff82fcd1aa719b1d89df887c95f34eb421fc",
+          "sha256_hash": "8db675702b40b63ac43304d12c9c214c0ce0b803a42f02b184e20c40087b199e",
           "file_size_bytes": 155564,
           "compression": "meshopt"
         }
@@ -12913,8 +12913,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_009_a938f8.glb",
-          "sha256_hash": "307220ffdf6c2c052c6badc711feef50c150e30fe8acc2733cbe289b8ec78b54",
-          "file_size_bytes": 182440,
+          "sha256_hash": "8dc985b5e8a0f16eb7a9bb18b7f2d93318793e9b2b52bb2de5b1ea2dff016683",
+          "file_size_bytes": 182436,
           "compression": "meshopt"
         }
       },
@@ -14347,8 +14347,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_010_40af7b.glb",
-          "sha256_hash": "5d207b099126c0c54b7d0cf33a6614dd6960330485e6ee030f0aea532c2a7f93",
-          "file_size_bytes": 168964,
+          "sha256_hash": "57d6fe450a77d43b7085125c1710548c9f5baf7b94028a283467ecc4400dd758",
+          "file_size_bytes": 168960,
           "compression": "meshopt"
         }
       },
@@ -15064,7 +15064,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_010_c0335f.glb",
-          "sha256_hash": "c0a4f7b97e8a63cbe553769f798b28083472bef599cda526261a2e8a9bcabdd2",
+          "sha256_hash": "61a3a9fb2a294bc12ed32dc5e169ef5f5cee74316f1330dc4341dae9434a146a",
           "file_size_bytes": 132008,
           "compression": "meshopt"
         }
@@ -17214,8 +17214,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_012_64f23a.glb",
-          "sha256_hash": "db21c10bb4f2e69f1b1069ee2a501e7e71994fba4dc4bc9dac6ef772ddbe5a8a",
-          "file_size_bytes": 175680,
+          "sha256_hash": "c6477a38de2cdabb3d614002f7b1bea68d09a20231d95401e8b3912c54914e10",
+          "file_size_bytes": 175676,
           "compression": "meshopt"
         }
       },
@@ -18639,8 +18639,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_013_bccf74.glb",
-          "sha256_hash": "47d09c088575b32c6d71f180ccff5130b7fcc86770b93c1f9ad009cc1c2f0658",
-          "file_size_bytes": 186352,
+          "sha256_hash": "3ff656b26978016cd8227c3b3b392258cf9ee0fbdbf21fd72f33bdc44eccf456",
+          "file_size_bytes": 186348,
           "compression": "meshopt"
         }
       },
@@ -20788,8 +20788,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_014_b165e0.glb",
-          "sha256_hash": "6e46fe58b598dc252092ea7d2bd4d14815028a4fc05767701e41a9a7993277f6",
-          "file_size_bytes": 216516,
+          "sha256_hash": "0337af5238c8548255d3811a90251be645ecb2c222c7bf95214aa0b5525c28de",
+          "file_size_bytes": 216512,
           "compression": "meshopt"
         }
       },
@@ -21502,8 +21502,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_015_2585af.glb",
-          "sha256_hash": "0e49eec086f39934a8704695d143932299c8f82233eb16f08a74d5c374acff76",
-          "file_size_bytes": 180564,
+          "sha256_hash": "8ffe4a7ba45df8baf9438e859ca59f022c289e7546514b5c3bb31a8f23e607ef",
+          "file_size_bytes": 180560,
           "compression": "meshopt"
         }
       },
@@ -26515,7 +26515,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_018_2a7a13.glb",
-          "sha256_hash": "9f176af81ddfad74e96563fb69986eb2a98f70c56b3d8248f304c1176ea02e1d",
+          "sha256_hash": "5764f584c3362c558bd80d66ce0ba0c935fb421de3c682caf4822e91db02ccef",
           "file_size_bytes": 161296,
           "compression": "meshopt"
         }
@@ -27225,8 +27225,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_019_708a49.glb",
-          "sha256_hash": "a83a37b67ca6af96c246e69aec187983c272d0eadf1a69ac1c91079196892700",
-          "file_size_bytes": 180516,
+          "sha256_hash": "fb4e8561a69c61b6225dcdc5238a72f5d88e6f73b64a418341f73e4075349a9c",
+          "file_size_bytes": 180512,
           "compression": "meshopt"
         }
       },
@@ -31551,8 +31551,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_022_9692d3.glb",
-          "sha256_hash": "350258c3dc80263bd084cfad104d6a7c986d6de9f83e79cf55b2a04c9d7fbcc8",
-          "file_size_bytes": 175692,
+          "sha256_hash": "3b3125bfdbf3008fdfe0d2faa250a8202faa0b4a1051f9ab4d50f6232ed190c3",
+          "file_size_bytes": 175688,
           "compression": "meshopt"
         }
       },
@@ -33724,7 +33724,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_023_5cc990.glb",
-          "sha256_hash": "210b1cc3a567feed334ee1f289537c9ebbd2482a9041e152f260421f4bfa05d9",
+          "sha256_hash": "acc345f46e36c5b58a454f9c896b244c8dea3df486a00eff39940d420780f4f8",
           "file_size_bytes": 121452,
           "compression": "meshopt"
         }
@@ -36597,7 +36597,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_025_b9ae13.glb",
-          "sha256_hash": "3b3c036f33c6abcd5193ca80bf1f67f15dc79add58434b5464154f5955652d78",
+          "sha256_hash": "e26d15b3264b0c511029bc86b82d827a5c1db0d8a8c4ffb3a48269287bc37448",
           "file_size_bytes": 114656,
           "compression": "meshopt"
         }
@@ -38754,8 +38754,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_027_2e2384.glb",
-          "sha256_hash": "a020b8b279e12860d492745f19e72c01223ecb1f26ff333924a3b17b9d898b43",
-          "file_size_bytes": 182576,
+          "sha256_hash": "02aee91d2afb17e5bbaf45ad1f2a24b985d57fa1cca5036664942e4e9bc6ea16",
+          "file_size_bytes": 182572,
           "compression": "meshopt"
         }
       },
@@ -40214,8 +40214,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_028_f47fc8.glb",
-          "sha256_hash": "21394b48545cab8758638614017482a360689713f1582978e7ac7ff45196ada0",
-          "file_size_bytes": 186208,
+          "sha256_hash": "563d7e8b66640c7fd09bd5d94cf40e4e94c4a85d9da7b15b58e746bb03317491",
+          "file_size_bytes": 186204,
           "compression": "meshopt"
         }
       },
@@ -40947,7 +40947,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_028_04598d.glb",
-          "sha256_hash": "aa9c00141c25170e3a128407ab1f94f6e84028342147ddc03a9276e17fab3b7e",
+          "sha256_hash": "1571f6eeedb211970b39a39cc97df506f666aafa0c56ac0cb5cdab4c9dab125a",
           "file_size_bytes": 131992,
           "compression": "meshopt"
         }
@@ -41670,8 +41670,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_029_43195d.glb",
-          "sha256_hash": "2f87b0cc0edd25fdbfc6cd0ca714d98d117823ce3f47f3e32d7d4867d7a05d36",
-          "file_size_bytes": 180564,
+          "sha256_hash": "e23fc07e9ca4a95f23df36998d7244417bb6ae7395f5d6bb6ad645bf7fbd132d",
+          "file_size_bytes": 180560,
           "compression": "meshopt"
         }
       },
@@ -45294,7 +45294,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_031_b88430.glb",
-          "sha256_hash": "82fd7e4054b10271d2c45c852a2b81d3ac2a055fa32553530f0c6a2eef91cd95",
+          "sha256_hash": "4f124aaacbd21e58b21d7241c1c484a3a50ef4f18b18395c0c298a1412515280",
           "file_size_bytes": 172888,
           "compression": "meshopt"
         }
@@ -47493,6 +47493,186 @@
         ],
         "topology_hash": "5a6eddf0a52ceecc",
         "composition_key": "side_skirt_propellant_pods+forward_rail_prongs+titans_mk2"
+      }
+    },
+    {
+      "part_id": "llm_gen_leg_thrusters_033_052b54",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-LEG-275",
+      "name": "FA-78 Full Armor Gundam – Thunderbolt Hover Skirt Thruster",
+      "category": "propulsion",
+      "primary_hardpoint": "HP-24",
+      "slot_group": "leg_thrusters",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP24-CALF",
+      "entropy_seed": "22271fdc207f2388ff215afeff0eef200d6364f6d39f624447b368e7867c09be",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v3",
+      "llm_blueprint_params": {
+        "mass_kg": 720,
+        "thrust_kgf": 45000,
+        "reactor_draw_kw": 1200
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Verify bell‑cowl attachment flush with calf armor panels.",
+          "Confirm thrust vector alignment with onboard gyro stabilizer.",
+          "Test coolant flow through integrated heat‑sink channels.",
+          "Validate power draw does not exceed reactor's 1200 kW budget.",
+          "Run vibration analysis to ensure no resonance with full‑armor chassis."
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "18 sub-meshes, 3248 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "218,160 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'leg_thrusters' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "Bilateral calf standoff span x=[-44.3, 44.3]mm"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-44.3, -15.5, -10.5] max=[44.3, 15.3, 6.8]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=web_grounded_groq_bandai_cad_v3, params={'mass_kg': 720, 'thrust_kgf': 45000, 'reactor_draw_kw': 1200}"
+          },
+          {
+            "id": "CHK-06",
+            "check": "True 3D silhouette & concept uniqueness (anti-clone topology gate)",
+            "passed": true,
+            "detail": "Unique 3D silhouette 'fa78_thunderbolt_hover_skirt_thruster' (6 comps, 5 prim types, topo=ea26f33f)"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-24",
+        "HP-26"
+      ],
+      "structural_specs": {
+        "mass_kg": 720,
+        "bom_computed_mass_kg": 720,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-24",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -44.309,
+            -15.528,
+            -10.516
+          ],
+          "max": [
+            44.309,
+            15.26,
+            6.816
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_leg_thrusters_033_052b54.glb",
+          "sha256_hash": "1ab1db4171ca5db10e46ce5fa4054c062d127150265703fac801f4674488ef46",
+          "file_size_bytes": 218160,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides rapid low‑altitude burst thrust for the heavily‑armored Full Armor Gundam, enabling swift urban skimming and quick evasion despite its mass.",
+        "reactor_power_draw_kw": 1200,
+        "vernier_thrust_kgf": 45000
+      },
+      "llm_cad_blueprint": {
+        "concept_slug": "fa78_thunderbolt_hover_skirt_thruster",
+        "base_archetype": "hover_skirt_bell_thrusters",
+        "addon_module": "none",
+        "color_scheme": "char_crimson",
+        "proportion_profile": "high_mobility",
+        "composition_key": "hover_skirt_bell_thrusters+none+char_crimson"
+      },
+      "reference_sources": [
+        {
+          "title": "FA-78 Full Armor Gundam (Thunderbolt Ver.)",
+          "url": "https://gundam.fandom.com/wiki/FA-78_Full_Armor_Gundam_(Thunderbolt_Ver.)",
+          "source": "Gundam Wiki",
+          "summary": "A heavily armored and highly maneuverable Gundam-type mobile suit deployed by the Moore Brotherhood. There was another type of Full Armor Gundam with similar model number, the FA-78-1, but it had different details and equipment. Both mobile suits were developed under the ‘Full Armor Operation’, and their differences were a result of experimenting with various systems and equipment. The Full Armor Gundam was fitted with numerous pieces of body armor, a large backpack and had much more weaponry than other mobile suit"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "FA-78 Full Armor Gundam – Thunderbolt Hover Skirt Thruster",
+        "concept_slug": "fa78_thunderbolt_hover_skirt_thruster",
+        "concept_tokens": [
+          "full",
+          "hover",
+          "skirt",
+          "thruster",
+          "thunderbolt"
+        ],
+        "component_count": 6,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "revolved": 1,
+          "cylinder": 1,
+          "box": 2,
+          "vernier": 1,
+          "servo_drum": 1
+        },
+        "aabb_size_mm": [
+          88.6,
+          30.8,
+          17.3
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.347,
+          0.196
+        ],
+        "topology_hash": "ea26f33fdd4666c9",
+        "composition_key": "hover_skirt_bell_thrusters+none+char_crimson"
       }
     }
   ]
