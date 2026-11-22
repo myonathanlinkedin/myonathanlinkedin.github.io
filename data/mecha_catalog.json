@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
   "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
-  "last_synced": "2026-11-22T08:47:41.763909+00:00",
+  "last_synced": "2026-11-22T09:01:05.683710+00:00",
   "baselines": [
     {
       "id": "baseline_gundam_frame_v1",
@@ -3160,6 +3160,371 @@
           0.34
         ],
         "topology_hash": "b504f25b77ceacc1"
+      }
+    },
+    {
+      "part_id": "llm_gen_shoulder_pods_002_cf990a",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-SHL-026",
+      "name": "Arc‑Flux Converger Shoulder Pod",
+      "category": "weapon",
+      "primary_hardpoint": "HP-03",
+      "slot_group": "shoulder_pods",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP03-SHOULDER",
+      "entropy_seed": "79e6096fbfcc82a3b2098607f4c11668279eb05c483eec961e36d837ef41c725",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "groq_llm_freeform_cad_v2",
+      "llm_blueprint_params": {
+        "mass_kg": 1800,
+        "thrust_kgf": 0,
+        "reactor_draw_kw": 900
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Mount interface integrity verified",
+          "Thermal dissipation channels clear",
+          "Vernier alignment within 0.2° tolerance",
+          "Hydraulic pressure test passed",
+          "Electrical routing to reactor confirmed"
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "26 sub-meshes, 4136 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "255,328 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'shoulder_pods' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "Bilateral over-pauldron span x=[-56.5, 56.5]mm"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-56.5, -4.4, -8.0] max=[56.5, 34.0, 10.2]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=groq_llm_freeform_cad_v2, params={'mass_kg': 1800, 'thrust_kgf': 0, 'reactor_draw_kw': 900}"
+          },
+          {
+            "id": "CHK-06",
+            "check": "True 3D silhouette & concept uniqueness (anti-clone topology gate)",
+            "passed": true,
+            "detail": "Unique 3D silhouette 'arc_flux_converger_pod' (8 comps, 8 prim types, topo=2d4ad36a)"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-03",
+        "HP-05"
+      ],
+      "structural_specs": {
+        "mass_kg": 1800,
+        "bom_computed_mass_kg": 1800,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-03",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -56.5,
+            -4.37,
+            -8.0
+          ],
+          "max": [
+            56.5,
+            34.0,
+            10.242
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_shoulder_pods_002_cf990a.glb",
+          "sha256_hash": "2b47479c3f6d0ae872126c8debccd26f9c5d6f8d9b370448e95995f6f6e37ccd",
+          "file_size_bytes": 255328,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides high‑energy plasma lance firepower from the shoulder, delivering focused bursts for mid‑range anti‑mobile suit engagements.",
+        "reactor_power_draw_kw": 900,
+        "vernier_thrust_kgf": 0
+      },
+      "llm_cad_blueprint": {
+        "concept_slug": "arc_flux_converger_pod",
+        "components": [
+          {
+            "name": "base_mount_box",
+            "primitive": "box",
+            "material": "gunmetal",
+            "pos": [
+              46,
+              6,
+              -0.6
+            ],
+            "rot": [
+              0,
+              0,
+              0
+            ],
+            "mirror_x": false,
+            "params": {
+              "w": 8,
+              "h": 12,
+              "d": 6,
+              "bevel": 0.5,
+              "taper_top": 1.0
+            }
+          },
+          {
+            "name": "plasma_condenser_cyl",
+            "primitive": "cylinder",
+            "material": "red",
+            "pos": [
+              50,
+              12,
+              2
+            ],
+            "rot": [
+              0,
+              0,
+              0
+            ],
+            "mirror_x": false,
+            "params": {
+              "radius": 3,
+              "height": 14,
+              "axis": "z"
+            }
+          },
+          {
+            "name": "vernier_nozzle",
+            "primitive": "vernier",
+            "material": "vernier",
+            "pos": [
+              52,
+              18,
+              5
+            ],
+            "rot": [
+              0,
+              0,
+              0
+            ],
+            "mirror_x": false,
+            "params": {
+              "throat_r": 1.5,
+              "exit_r": 4.5,
+              "length": 8
+            }
+          },
+          {
+            "name": "spike_emitter",
+            "primitive": "spike",
+            "material": "optic",
+            "pos": [
+              54,
+              22,
+              8
+            ],
+            "rot": [
+              0,
+              0,
+              0
+            ],
+            "mirror_x": false,
+            "params": {
+              "base_r": 2,
+              "length": 12
+            }
+          },
+          {
+            "name": "fin_stabilizer_left",
+            "primitive": "fin",
+            "material": "dark",
+            "pos": [
+              55,
+              15,
+              0
+            ],
+            "rot": [
+              0,
+              0,
+              0
+            ],
+            "mirror_x": false,
+            "params": {
+              "points_2d": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  5
+                ],
+                [
+                  0,
+                  10
+                ]
+              ],
+              "depth": 2,
+              "axis": "x"
+            }
+          },
+          {
+            "name": "revolved_energy_ring",
+            "primitive": "revolved",
+            "material": "gold",
+            "pos": [
+              48,
+              10,
+              4
+            ],
+            "rot": [
+              0,
+              0,
+              0
+            ],
+            "mirror_x": false,
+            "params": {
+              "profile": [
+                [
+                  2,
+                  0
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  2.5,
+                  4
+                ],
+                [
+                  2,
+                  6
+                ]
+              ]
+            }
+          },
+          {
+            "name": "servo_drum_actuator",
+            "primitive": "servo_drum",
+            "material": "gunmetal",
+            "pos": [
+              51,
+              8,
+              -2
+            ],
+            "rot": [
+              0,
+              0,
+              0
+            ],
+            "mirror_x": false,
+            "params": {
+              "radius": 3,
+              "width": 5,
+              "axis": "y"
+            }
+          },
+          {
+            "name": "hydraulic_pump",
+            "primitive": "hydraulic",
+            "material": "gunmetal",
+            "pos": [
+              53,
+              14,
+              3
+            ],
+            "rot": [
+              0,
+              0,
+              0
+            ],
+            "mirror_x": false,
+            "params": {
+              "length": 10,
+              "radius": 1.5
+            }
+          }
+        ]
+      },
+      "geometry_fingerprint": {
+        "concept_slug": "arc_flux_converger_pod",
+        "concept_tokens": [
+          "arc",
+          "converger",
+          "flux",
+          "pod"
+        ],
+        "component_count": 8,
+        "primitive_types": 8,
+        "primitive_counts": {
+          "box": 1,
+          "cylinder": 1,
+          "vernier": 1,
+          "spike": 1,
+          "fin": 1,
+          "revolved": 1,
+          "servo_drum": 1,
+          "hydraulic": 1
+        },
+        "aabb_size_mm": [
+          113.0,
+          38.4,
+          18.2
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.34,
+          0.161
+        ],
+        "topology_hash": "2d4ad36ae93ab5f9"
       }
     }
   ]
