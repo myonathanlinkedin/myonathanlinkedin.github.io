@@ -4113,7 +4113,18 @@
       const lSign = state.kinematicRig?.lSign || -1.0;
       // On Zeon suits (rSign = -1, lSign = +1), right hand is at -X and outer left forearm faces +X,
       // so mirror X on hand/forearm modular parts and temporarily hide the native hand weapon/shield!
+      function resolveWeaponGripType(part) {
+        if (part?.weapon_grip_type) return part.weapon_grip_type;
+        const txt = `${part?.part_id || ''} ${part?.name || ''}`.toLowerCase();
+        if (/(saber|naginata|sword|blade|knife|dagger|axe|hawk|lance|spear|halberd)/.test(txt)) {
+          return 'melee_hilt_grip';
+        }
+        return 'firearm_pistol_grip';
+      }
+
       if (slotGroup === 'aux_weapon') {
+        const gripType = resolveWeaponGripType(part);
+        packModel.userData.weaponGripType = gripType;
         if (rSign < 0) packModel.scale.x *= -1;
         if (state.kinematicRig?.nativeRightWeaponMeshes) {
           state.kinematicRig.nativeRightWeaponMeshes.forEach(m => { m.visible = false; });

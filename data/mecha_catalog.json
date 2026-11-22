@@ -2,14 +2,18 @@
   "version": "2.0.0",
   "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
   "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
+<<<<<<< HEAD
   "last_synced": "2026-11-22T00:00:58.047308+00:00",
+=======
+  "last_synced": "2026-11-22T00:14:42.033795+00:00",
+>>>>>>> 488310b1 (feat(mecha): enforce explicit firearm_pistol_grip vs melee_hilt_grip separation across CAD, LLM architect, checklist & viewer)
   "baselines": [
     {
       "id": "baseline_gundam_frame_v1",
       "faction": "hero_federation",
       "name": "RX-Type Advanced Movable Frame",
       "mesh_url": "models/baselines/baseline_gundam_frame_v1.glb",
-      "sha256_hash": "b9d0213313c567661a55030974ddcc6377599b17400b265a0eda874a70a90908",
+      "sha256_hash": "c34640c1dbd986749c37c10bd85541a63f268b4a37250a92cef070eab9249448",
       "file_size_bytes": 2332744,
       "base_mass_kg": 24500,
       "bom_computed_mass_kg": 28758,
@@ -52,7 +56,7 @@
       "faction": "antagonist_zeon_heavy",
       "name": "MS-Type Heavy Industrial Movable Frame",
       "mesh_url": "models/baselines/baseline_rival_heavy_frame_v1.glb",
-      "sha256_hash": "5e61ff7fcb28a3740ce5112d8f90501e4e772a626d5f41a84f931bb8af7d553b",
+      "sha256_hash": "6cd632867c755d5616b75dd76dd901a9e1958b7a991a8d6d4dc276be9c740505",
       "file_size_bytes": 588536,
       "base_mass_kg": 31200,
       "base_reactor_kw": 4200,
@@ -96,6 +100,7 @@
       "category": "modular_mission_pack",
       "primary_hardpoint": "HP-00",
       "slot_group": "dorsal_pack",
+      "weapon_grip_type": null,
       "adapter_id": "ADP-HP00-DORSAL",
       "entropy_seed": "776e70096b43b82d369c6b4b7b94c9bae0c6965f61224b0313c3d1b079cf6040",
       "synthesis_origin": "agentic_core_archetype",
@@ -154,7 +159,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_a_aero.glb",
-          "sha256_hash": "1a843cd44a27daa618f494332171d32d4337b37d0446827a6aad1e4107bdcb50",
+          "sha256_hash": "e6d23eed3cea66f17cc3f3f45bc2aff786621c015b593c81d06c0d15f497a263",
           "file_size_bytes": 218404,
           "compression": "meshopt"
         },
@@ -189,6 +194,7 @@
       "category": "modular_mission_pack",
       "primary_hardpoint": "HP-00",
       "slot_group": "dorsal_pack",
+      "weapon_grip_type": null,
       "adapter_id": "ADP-HP00-DORSAL",
       "entropy_seed": "bbe7a9bdcdbcc00f021927140f9503fa70b3477a4e17093bab76702b0774bae2",
       "synthesis_origin": "agentic_core_archetype",
@@ -269,7 +275,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_s_space.glb",
-          "sha256_hash": "e4e0c1afe5b34f6e9ec0fe64718cdf784ad0547ec7c8c4b4474262dfb1fc3610",
+          "sha256_hash": "b5f37c31342aa987516c5bbbcf9c2991aecdde00b3cc65d8f8c7ee8829a3b18e",
           "file_size_bytes": 292872,
           "compression": "meshopt"
         },
@@ -304,6 +310,7 @@
       "category": "modular_mission_pack",
       "primary_hardpoint": "HP-00",
       "slot_group": "dorsal_pack",
+      "weapon_grip_type": null,
       "adapter_id": "ADP-HP00-DORSAL",
       "entropy_seed": "fc308090afc1122148565f4eec3710492940bf8781b27fe9a47f8fa5ccf1f894",
       "synthesis_origin": "agentic_core_archetype",
@@ -362,7 +369,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_h_artillery.glb",
-          "sha256_hash": "4d93b3964cb895495a98440a78c18f158b6b8b029e92289c3a926847881fc475",
+          "sha256_hash": "35d25e58c58530259b924a00811909ddee5809a19a927214fa3fea8bd7c97c92",
           "file_size_bytes": 284604,
           "compression": "meshopt"
         },
@@ -397,6 +404,7 @@
       "category": "modular_mission_pack",
       "primary_hardpoint": "HP-00",
       "slot_group": "dorsal_pack",
+      "weapon_grip_type": null,
       "adapter_id": "ADP-HP00-DORSAL",
       "entropy_seed": "b39bb7bffe273cfbd58e891c8aa6ec11b60b5eed82a96f601fbc743f97c372c7",
       "synthesis_origin": "agentic_core_archetype",
@@ -455,7 +463,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_e_recon.glb",
-          "sha256_hash": "7428945a331fadde9d4d24f7173fe23b6c2f5dfa031287bc54c4e458d1fbf826",
+          "sha256_hash": "c092e08df6e1d06c28e09f9a25c6a0c658a4b4a8fce9b5b3f95eecd3a74d90b2",
           "file_size_bytes": 149500,
           "compression": "meshopt"
         },
@@ -490,6 +498,7 @@
       "category": "modular_mission_pack",
       "primary_hardpoint": "HP-07",
       "slot_group": "aux_shield",
+      "weapon_grip_type": null,
       "adapter_id": "ADP-HP07-FOREARM",
       "entropy_seed": "a753c03c86a3ee88d2b1be35b38fedaa00bf4abcce11b3d30febfe2acc97d131",
       "synthesis_origin": "agentic_core_archetype",
@@ -537,7 +546,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_c_cqc.glb",
-          "sha256_hash": "8775f50449e257b5fc9204b248968e6bd9534875df16782646f33c5c0987f8a6",
+          "sha256_hash": "c9970626965d074f4be62fdb1ac99699d7490918516def87ba27da046f91c83f",
           "file_size_bytes": 374596,
           "compression": "meshopt"
         },
@@ -572,6 +581,7 @@
       "category": "weapon",
       "primary_hardpoint": "HP-11",
       "slot_group": "aux_weapon",
+      "weapon_grip_type": "firearm_pistol_grip",
       "adapter_id": "ADP-HP11-WEAPON",
       "entropy_seed": "012e964af77f548f0ceeb97a85e54b7ed5404f73014f0019022499b4b9657538",
       "synthesis_origin": "agentic_core_archetype",
@@ -608,7 +618,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/weapon_beam_rifle_rx.glb",
-          "sha256_hash": "e757cc8d1ea261f30deb8f0711dea892cda4614407877fdc4e8495d328e47427",
+          "sha256_hash": "88123fbb617a13d37668403f523529435f90cc363452d94755e3453fa67962ec",
           "file_size_bytes": 205148,
           "compression": "meshopt"
         },
@@ -643,6 +653,7 @@
       "category": "armor",
       "primary_hardpoint": "HP-07",
       "slot_group": "aux_shield",
+      "weapon_grip_type": null,
       "adapter_id": "ADP-HP07-FOREARM",
       "entropy_seed": "d59f8cc1655896a815e3bdd1803bda72c645c80c56a62ebf3ebf1ac9dcc13f5f",
       "synthesis_origin": "agentic_core_archetype",
@@ -679,7 +690,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/armor_tower_shield_fed.glb",
-          "sha256_hash": "5a27735d0eec7217f8f36d0a8822db52408ad25a021b16e5eebf71dc71d47ecc",
+          "sha256_hash": "69d1b74798145e8e96f49e33f8f60a21244c2fa65e75d330595ce7b20b65afee",
           "file_size_bytes": 167820,
           "compression": "meshopt"
         },
@@ -714,6 +725,7 @@
       "category": "propulsion",
       "primary_hardpoint": "HP-00",
       "slot_group": "dorsal_pack",
+      "weapon_grip_type": null,
       "adapter_id": "ADP-HP00-DORSAL",
       "entropy_seed": "87a3cfdb6ccd6d5120d521778925f1fc979ce14e34bf67349ab7291aa02e135a",
       "synthesis_origin": "agentic_core_archetype",
@@ -761,7 +773,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/propulsion_vernier_wing_pod.glb",
-          "sha256_hash": "09d943eb48a4eace0a362073b12a6894a9dae0af0743edd1eec471eef679e771",
+          "sha256_hash": "915375915fb8a8a7aa1cc9efdc6c89149be8591934f83a8678e178e12f9f0351",
           "file_size_bytes": 348320,
           "compression": "meshopt"
         },
@@ -796,6 +808,7 @@
       "category": "modular_mission_pack",
       "primary_hardpoint": "HP-01",
       "slot_group": "head_sensor",
+      "weapon_grip_type": null,
       "adapter_id": "ADP-HP01-CRANIAL",
       "entropy_seed": "9ca5edecbb732104b31d33ffb582573162624470be3e74ec01d72860c249d4a8",
       "synthesis_origin": "agentic_core_archetype",
@@ -843,7 +856,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/head_vulcan_crest_pod.glb",
-          "sha256_hash": "92acb61c975c7595e180b7cb82a5f1a72f9011f055a3ee61e088725c4b1e3eeb",
+          "sha256_hash": "ee3780e0a0761f08cc6579d3490fff9eb2c0b509a7fc657d42d1d75f2e0836ad",
           "file_size_bytes": 216252,
           "compression": "meshopt"
         },
@@ -878,6 +891,7 @@
       "category": "armor",
       "primary_hardpoint": "HP-09",
       "slot_group": "chest_armor",
+      "weapon_grip_type": null,
       "adapter_id": "ADP-HP09-PECTORAL",
       "entropy_seed": "d28b1d5ddc348ad2c7773047a2f15473a0a83b48fa62aa1a5e833e168eced03b",
       "synthesis_origin": "agentic_core_archetype",
@@ -925,7 +939,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/chest_chobham_reactive_armor.glb",
-          "sha256_hash": "c9a3c6d90f832fe2b1879b70be740b9242e8c61cd3f17f0dcfd2059cb44d75c4",
+          "sha256_hash": "ef658915350baf501b2d0e7ee615d1fa02bd6e33ec8b67082748bc1007b44ad9",
           "file_size_bytes": 247156,
           "compression": "meshopt"
         },
@@ -960,6 +974,7 @@
       "category": "weapon",
       "primary_hardpoint": "HP-03",
       "slot_group": "shoulder_pods",
+      "weapon_grip_type": null,
       "adapter_id": "ADP-HP03-SHOULDER",
       "entropy_seed": "878d00e829c2669b44f80020b0cc353bbc63be89d303fa510421925c70add171",
       "synthesis_origin": "agentic_core_archetype",
@@ -1007,7 +1022,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/shoulder_missile_pauldron_pods.glb",
-          "sha256_hash": "0d8982c612baf6f2aa0cc7a4812843cc17b3e0548ea2d0969e807e3ce0507a0c",
+          "sha256_hash": "479a2ebb10a68444ce6b215b4b58051ca8c841ab522eaea446e1e16970ca1b56",
           "file_size_bytes": 283620,
           "compression": "meshopt"
         },
@@ -1042,6 +1057,7 @@
       "category": "armor",
       "primary_hardpoint": "HP-13",
       "slot_group": "waist_ordnance",
+      "weapon_grip_type": null,
       "adapter_id": "ADP-HP13-WAIST",
       "entropy_seed": "1d7f0d69cdfc636896831605af94c9dc39589a049b422de83918f7a8ef3e0151",
       "synthesis_origin": "agentic_core_archetype",
@@ -1089,7 +1105,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/waist_xiphias_hip_railguns.glb",
-          "sha256_hash": "bbbe02d490c8d5bed50a0ba57adcc026e5926bf5b255e2c3c47938d8f923a689",
+          "sha256_hash": "b94e9c5294d74faba3af392b9701b508e297825849ddcf8d74a24aeb3f3cbb30",
           "file_size_bytes": 261428,
           "compression": "meshopt"
         },
@@ -1124,6 +1140,7 @@
       "category": "propulsion",
       "primary_hardpoint": "HP-24",
       "slot_group": "leg_thrusters",
+      "weapon_grip_type": null,
       "adapter_id": "ADP-HP24-CALF",
       "entropy_seed": "6f5800186b2ea90f82102bd547bb52765f47ea00ba5702623a782e8d58db4f06",
       "synthesis_origin": "agentic_core_archetype",
@@ -1171,7 +1188,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/leg_calf_vernier_missile_pods.glb",
-          "sha256_hash": "e6fd8c27707460260aa72559d3021d625c914e94939875707edeaea6057b91fd",
+          "sha256_hash": "098b63a204701da95a9835f6218c9f1c91fb43c7d353fa82f1e2895171f33d95",
           "file_size_bytes": 183788,
           "compression": "meshopt"
         },
@@ -1206,6 +1223,7 @@
       "category": "weapon",
       "primary_hardpoint": "HP-11",
       "slot_group": "aux_weapon",
+      "weapon_grip_type": "melee_hilt_grip",
       "adapter_id": "ADP-HP11-WEAPON",
       "entropy_seed": "4e979d5a0f973158773726fa8a04ebcaa764518ccf2a324251ee5547cd6d0246",
       "synthesis_origin": "agentic_core_archetype",
@@ -1242,7 +1260,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/weapon_beam_saber_rx.glb",
-          "sha256_hash": "8c024216cfa9cf92815e2b6da6a45d1769c110b2b4be5e3325103cb81d3a7f83",
+          "sha256_hash": "188131afa1571ada80b81c3f69989083f2fbbc5eae5b552888ebfaff166b0dda",
           "file_size_bytes": 61000,
           "compression": "meshopt"
         },
@@ -1380,7 +1398,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_weapon_hyper_bazooka.glb",
-          "sha256_hash": "ea573e97baac0191cdf2299c10ff1c8350f3e4f1ce71129a9c8cb1690631187b",
+          "sha256_hash": "f2a3961d520113994dfaa895d613c706ee4758750f29a9aa13cbccf3c8340d13",
           "file_size_bytes": 132904,
           "compression": "meshopt"
         },
@@ -1390,7 +1408,8 @@
         "operational_role": "Delivers long-range, high-velocity hyper projectiles to suppress enemy formations while preserving auxiliary power balance.",
         "reactor_power_draw_kw": 180,
         "vernier_thrust_kgf": 0
-      }
+      },
+      "weapon_grip_type": "firearm_pistol_grip"
     },
     {
       "part_id": "llm_weapon_beam_naginata",
@@ -1503,7 +1522,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_weapon_beam_naginata.glb",
-          "sha256_hash": "e378ddce54e006098fe019d4228431c955b3d057876db886928c613b9279bc47",
+          "sha256_hash": "11278a83697761a7bb347b6095a21547c9814ee9459b9f9fa7ba7c1a74fb169e",
           "file_size_bytes": 67064,
           "compression": "meshopt"
         }
@@ -1517,7 +1536,8 @@
         "operational_role": "Provides long-reach high-energy beam melee capability for precision strikes against armored targets while maintaining modular compatibility with existing auxiliary slots.",
         "reactor_power_draw_kw": 1220,
         "vernier_thrust_kgf": 0
-      }
+      },
+      "weapon_grip_type": "melee_hilt_grip"
     },
     {
       "part_id": "llm_shield_twin_gatling",
@@ -1629,7 +1649,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_shield_twin_gatling.glb",
-          "sha256_hash": "f5ab27d10541a3d25ea76ba4e7a4f7d6d2c457729f68982dc8d7a6edcca4762a",
+          "sha256_hash": "5691ce52e87a990990aeccc1d707f081068f98894c641133cecced70e0d0c0dc",
           "file_size_bytes": 151936,
           "compression": "meshopt"
         }
@@ -1755,7 +1775,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_shoulder_rail_cannons.glb",
-          "sha256_hash": "671fe3b09f666b7d4f453f671d7781f227706057eea4a2ea580341404a66d306",
+          "sha256_hash": "c8ee858e007b87bfbcf47c428b323c58494f20ccfbe84f03da42afc032236ff6",
           "file_size_bytes": 372536,
           "compression": "meshopt"
         }
@@ -1882,7 +1902,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_leg_overboost_verniers.glb",
-          "sha256_hash": "f718846300d32a8a48e07c0d68104ca658971f264255daba7058e7d28602ffc0",
+          "sha256_hash": "2391d7361d71a30689ccc35960eb4338f2333bb2625d99690140317ec1509a4c",
           "file_size_bytes": 121068,
           "compression": "meshopt"
         }
@@ -2008,7 +2028,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_head_commander_crest.glb",
-          "sha256_hash": "2792089bfd9d9b3a4c2078ab03ffda761e613f90423dd9dd1f1d5625c65df942",
+          "sha256_hash": "0502d95949eb8711c39cbab6fb7373d8021744f2506d0cb0c6ffa0c253281020",
           "file_size_bytes": 153776,
           "compression": "meshopt"
         }
@@ -2134,7 +2154,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_chest_reactive_plastron.glb",
-          "sha256_hash": "34d22b677ad080a6456c0ef97f170ffa021dca23c64a9be7d938d9a815df9805",
+          "sha256_hash": "fce2d601b8a96056be8014a8521b5db072d0af5dc1f1d8edcad12f43a0b0c176",
           "file_size_bytes": 223328,
           "compression": "meshopt"
         }
@@ -2261,7 +2281,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_waist_plasma_skirts.glb",
-          "sha256_hash": "29003218a97936c5ab3c4c914374aba17dc3d02c4b21b54cbeeb572d6921ed09",
+          "sha256_hash": "5b536cfbe45dbb3009025d5542c56609c138fe79df13d7e916dbc0d11d8fa30e",
           "file_size_bytes": 199536,
           "compression": "meshopt"
         }
@@ -2387,7 +2407,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_dorsal_funnel_containers.glb",
-          "sha256_hash": "6d7deb94efe322228b57d34b7153b303225e901855d2050263c1b5feb5e57514",
+          "sha256_hash": "65e0f985fdc240ff4d79c4f516956b7ae3b14fe2c0603f0557c2502cc4875ac7",
           "file_size_bytes": 144500,
           "compression": "meshopt"
         }
