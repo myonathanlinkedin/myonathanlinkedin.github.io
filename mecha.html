@@ -1956,14 +1956,14 @@
     <!-- 8-Zone Body Filter Chips -->
     <div id="category-chips" class="category-chips-scroll">
       <button class="cat-chip active" data-category="all">ALL (<span id="cat-count-all">0</span>)</button>
-      <button class="cat-chip" data-category="head_sensor">👑 HEAD</button>
-      <button class="cat-chip" data-category="chest_armor">🛡️ CHEST</button>
-      <button class="cat-chip" data-category="shoulder_pods">🚀 SHOULDER</button>
-      <button class="cat-chip" data-category="dorsal_pack">🎒 BACKPACK</button>
-      <button class="cat-chip" data-category="aux_weapon">🔫 R-WEAPON</button>
-      <button class="cat-chip" data-category="aux_shield">🔰 L-SHIELD</button>
-      <button class="cat-chip" data-category="waist_ordnance">⚡ WAIST</button>
-      <button class="cat-chip" data-category="leg_thrusters">🦵 LEGS</button>
+      <button class="cat-chip" data-category="head_sensor">👑 HEAD (<span id="cat-count-head_sensor">0</span>)</button>
+      <button class="cat-chip" data-category="chest_armor">🛡️ CHEST (<span id="cat-count-chest_armor">0</span>)</button>
+      <button class="cat-chip" data-category="shoulder_pods">🚀 SHOULDER (<span id="cat-count-shoulder_pods">0</span>)</button>
+      <button class="cat-chip" data-category="dorsal_pack">🎒 BACKPACK (<span id="cat-count-dorsal_pack">0</span>)</button>
+      <button class="cat-chip" data-category="aux_weapon">🔫 R-WEAPON (<span id="cat-count-aux_weapon">0</span>)</button>
+      <button class="cat-chip" data-category="aux_shield">🔰 L-SHIELD (<span id="cat-count-aux_shield">0</span>)</button>
+      <button class="cat-chip" data-category="waist_ordnance">⚡ WAIST (<span id="cat-count-waist_ordnance">0</span>)</button>
+      <button class="cat-chip" data-category="leg_thrusters">🦵 LEGS (<span id="cat-count-leg_thrusters">0</span>)</button>
     </div>
 
     <!-- Hardpoint Station & Sort Controls -->
@@ -4091,6 +4091,15 @@
       const allParts = state.catalog.modular_parts;
       const countAllEl = document.getElementById('cat-count-all');
       if (countAllEl) countAllEl.innerText = allParts.length;
+      const zoneCounts = {};
+      allParts.forEach(p => {
+        const sg = resolvePartSlotGroup(p);
+        zoneCounts[sg] = (zoneCounts[sg] || 0) + 1;
+      });
+      Object.keys(BODY_ZONES).forEach(zKey => {
+        const el = document.getElementById(`cat-count-${zKey}`);
+        if (el) el.innerText = zoneCounts[zKey] || 0;
+      });
 
       let filtered = allParts.filter(part => {
         if (state.equippedOnly && !state.equippedPacks.has(part.part_id)) return false;
