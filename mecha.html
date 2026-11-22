@@ -2338,6 +2338,8 @@
       autoTour: false,
       autoTourStep: 0,
       autoTourTimer: 0.0,
+      unitLoadToken: 0,
+      batchLoadToken: 0,
       gpuTier: 'HIGH',
       gearNodes: [],
       hingeNodes: [],
@@ -3355,7 +3357,7 @@
         if (n.includes('mono_eye_glow') || n.includes('mono_eye_bezel') || n.includes('mono_eye_ir_rim') || (n.includes('mono_eye') && !n.includes('track'))) {
           state.monoEyeNodes.push(mesh);
         }
-        if (n.includes('zaku_mg_') || n.includes('gouf_saber_') || n.includes('gouf_heat_saber') || n.includes('sazabi_rifle_')) {
+        if (n.includes('zaku_mg_') || n.includes('gouf_saber_') || n.includes('gouf_heat_saber') || n.includes('gouf_forearm_heat_rod') || n.includes('sazabi_rifle_')) {
           rig.nativeRightWeaponMeshes.push(mesh);
         }
         if (n.includes('zaku_hawk_') || n.includes('gouf_knight_shield') || n.includes('gouf_shield_mount') || n.includes('sazabi_shield_')) {
@@ -3853,6 +3855,8 @@
     // =========================================================================
     async function loadUnit(unitId) {
       const spec = UNIT_REGISTRY[unitId] || UNIT_REGISTRY.vanguard_rx;
+      const myUnitToken = ++state.unitLoadToken;
+      state.batchLoadToken++;
       state.activeUnitId = spec.id;
 
       document.querySelectorAll('#unit-roster .unit-btn').forEach(b => {
@@ -3863,7 +3867,13 @@
       loadingOverlay.style.display = 'flex';
       loadingOverlay.style.opacity = '1';
 
-      const previouslyEquipped = Array.from(state.equippedPacks.values()).map(entry => entry.part);
+      // Deduplicate by slotGroup so switching units can NEVER carry >1 weapon or >1 kit per zone!
+      const prevBySlot = new Map();
+      for (const entry of state.equippedPacks.values()) {
+        const sg = entry.slotGroup || resolvePartSlotGroup(entry.part);
+        prevBySlot.set(sg, entry.part);
+      }
+      const previouslyEquipped = Array.from(prevBySlot.values());
 
       clearBlueprintEdges();
       state.snapAnimations = [];
@@ -3890,6 +3900,17 @@
         const vTag = encodeURIComponent(state.catalog?.last_synthesized_utc || Date.now());
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         gltfLoader.load(bustUrl, async (gltf) => {
+          if (state.unitLoadToken !== myUnitToken) {
+            gltf.scene?.traverse?.(n => { if (n.geometry) n.geometry.dispose(); });
+            resolve(null);
+            return;
+          }
+          // Guarantee mechaRoot contains ZERO stale chassis models from overlapping loads
+          while (mechaRoot.children.length > 0) {
+            const stale = mechaRoot.children[0];
+            mechaRoot.remove(stale);
+            stale.traverse?.(n => { if (n.geometry) n.geometry.dispose(); });
+          }
           const model = gltf.scene;
           state.chassisModel = model;
 
@@ -4035,8 +4056,11 @@
 
           // Seamlessly re-lock any equipped modular parts onto the new unit's 8 body zones!
           for (const part of previouslyEquipped) {
+            if (state.unitLoadToken !== myUnitToken) return resolve(null);
             await mountPartOnAdapter(part, true);
           }
+          if (state.unitLoadToken !== myUnitToken) return resolve(null);
+          enforceSinglePartPerSlotInvariant();
 
           applyRenderMode(state.renderMode);
           applyExplodedDisplacement(state.explodedFactor);
@@ -4361,6 +4385,7 @@
 
       state.equippedPacks.set(part.part_id, { part, models: mountedModels, slotGroup, adapterId });
       state.slotOccupancy[slotGroup] = part.part_id;
+      enforceSinglePartPerSlotInvariant();
 
       if (silent) {
         socket.payloadContainer.position.z = socket.dockedZ;
@@ -4382,12 +4407,59 @@
       }
     }
 
+    // Ironclad 4-Unit Invariant: guarantees STRICTLY <= 1 weapon in right hand, <= 1 shield in left hand,
+    // <= 1 part in EVERY ONE of the 8 zones, and native Zeon weapons strictly hidden whenever aux_weapon is locked!
+    function enforceSinglePartPerSlotInvariant() {
+      if (!state.socketRig) return;
+      const keepBySlot = new Map();
+      for (const [eid, entry] of state.equippedPacks.entries()) {
+        const sg = entry.slotGroup || resolvePartSlotGroup(entry.part);
+        keepBySlot.set(sg, eid);
+      }
+      for (const [eid, entry] of [...state.equippedPacks.entries()]) {
+        const sg = entry.slotGroup || resolvePartSlotGroup(entry.part);
+        const winner = state.slotOccupancy[sg] || keepBySlot.get(sg);
+        if (eid !== winner) {
+          (entry.models || []).forEach(m => {
+            if (m.parent) m.parent.remove(m);
+            m.traverse?.(n => { if (n.geometry) n.geometry.dispose(); });
+          });
+          state.equippedPacks.delete(eid);
+        }
+      }
+      for (const [sg, sock] of Object.entries(state.socketRig)) {
+        const activeId = state.slotOccupancy[sg];
+        const entry = activeId ? state.equippedPacks.get(activeId) : null;
+        const allowed = new Set(entry ? (entry.models || []) : []);
+        for (const container of [sock.payloadContainer, sock.bilateralRightContainer, sock.bilateralLeftContainer]) {
+          if (!container) continue;
+          for (const ch of [...container.children]) {
+            if (!allowed.has(ch)) {
+              container.remove(ch);
+              ch.traverse?.(n => { if (n.geometry) n.geometry.dispose(); });
+            }
+          }
+        }
+      }
+      const hasAuxWeapon = !!state.slotOccupancy.aux_weapon && state.equippedPacks.has(state.slotOccupancy.aux_weapon);
+      if (state.kinematicRig?.nativeRightWeaponMeshes) {
+        state.kinematicRig.nativeRightWeaponMeshes.forEach(m => { m.visible = !hasAuxWeapon; });
+      }
+      const hasAuxShield = !!state.slotOccupancy.aux_shield && state.equippedPacks.has(state.slotOccupancy.aux_shield);
+      if (state.kinematicRig?.nativeLeftHoldMeshes) {
+        state.kinematicRig.nativeLeftHoldMeshes.forEach(m => { m.visible = !hasAuxShield; });
+      }
+      state.chassisParts = state.chassisParts.filter(n => n.parent !== null);
+    }
+
     async function toggleEquipPart(part) {
+      state.batchLoadToken++;
       if (state.equippedPacks.has(part.part_id)) {
         dismountPart(part.part_id, false);
       } else {
         await mountPartOnAdapter(part, false);
       }
+      enforceSinglePartPerSlotInvariant();
       renderInventory();
       updateTelemetry();
       applyRenderMode(state.renderMode);
@@ -4397,13 +4469,17 @@
     // 1-Click 8-Zone Full Armor Loadout (Snaps 1 part into EVERY body zone: Head, Chest, Shoulders, Back, R-Weapon, L-Shield, Waist, Legs!)
     async function equipFullBodyLoadout() {
       if (!state.catalog?.modular_parts) return;
+      const myBatchToken = ++state.batchLoadToken;
       const zonesOrder = ['head_sensor', 'chest_armor', 'shoulder_pods', 'dorsal_pack', 'aux_weapon', 'aux_shield', 'waist_ordnance', 'leg_thrusters'];
       for (const z of zonesOrder) {
+        if (state.batchLoadToken !== myBatchToken) return;
         const candidate = state.catalog.modular_parts.find(p => resolvePartSlotGroup(p) === z);
         if (candidate && !state.equippedPacks.has(candidate.part_id)) {
           await mountPartOnAdapter(candidate, false);
         }
       }
+      if (state.batchLoadToken !== myBatchToken) return;
+      enforceSinglePartPerSlotInvariant();
       renderInventory();
       updateTelemetry();
       applyRenderMode(state.renderMode);
@@ -4413,8 +4489,10 @@
     }
 
     function clearAllEquippedParts() {
+      state.batchLoadToken++;
       const ids = Array.from(state.equippedPacks.keys());
       ids.forEach(id => dismountPart(id, true));
+      enforceSinglePartPerSlotInvariant();
       renderInventory();
       updateTelemetry();
       battleAudio.playGunplaUnlatch();
@@ -4424,6 +4502,7 @@
     // Smart Multi-Zone Tactical Build Randomizer (Cycles Distinct Gundam Combat Archetypes Across All 8 Zones!)
     async function synthesizeLiveAgenticPart() {
       if (!state.catalog?.modular_parts || state.catalog.modular_parts.length === 0) return;
+      const myBatchToken = ++state.batchLoadToken;
 
       const presets = [
         { name: 'Heavy Siege Assault', stance: 'RifleBurst', zones: ['dorsal_pack', 'aux_weapon', 'aux_shield', 'shoulder_pods', 'chest_armor', 'waist_ordnance', 'leg_thrusters'] },
@@ -4442,6 +4521,7 @@
       const pickRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
       let mountedCount = 0;
       for (const z of build.zones) {
+        if (state.batchLoadToken !== myBatchToken) return;
         const candidates = allParts.filter(p => resolvePartSlotGroup(p) === z);
         if (candidates.length === 0) continue;
         let chosen = null;
@@ -4463,6 +4543,8 @@
           mountedCount++;
         }
       }
+      if (state.batchLoadToken !== myBatchToken) return;
+      enforceSinglePartPerSlotInvariant();
 
       playAnimation(build.stance);
       renderInventory();
