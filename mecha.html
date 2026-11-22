@@ -2319,6 +2319,7 @@
         waist_ordnance: null,
         leg_thrusters: null
       },
+      slotLoadToken: {},             // Monotonic per-slot async load token (0% chance of multi-weapon stacking!)
       socketRig: null,               // 8-zone physical adapter socket controllers
       kinematicRig: null,            // 11-bone procedural kinematic rig for all 4 Mobile Suits
       activeStance: 'Sentinel',
@@ -3871,7 +3872,10 @@
         state.chassisModel = null;
       }
       state.equippedPacks.clear();
-      Object.keys(state.slotOccupancy).forEach(k => { state.slotOccupancy[k] = null; });
+      Object.keys(state.slotOccupancy).forEach(k => {
+        state.slotOccupancy[k] = null;
+        state.slotLoadToken[k] = (state.slotLoadToken[k] || 0) + 1;
+      });
       state.socketRig = null;
       state.kinematicRig = null;
       state.monoEyeNode = null;
@@ -4172,6 +4176,8 @@
     function dismountPart(partId, silent = false) {
       const entry = state.equippedPacks.get(partId);
       if (!entry) return;
+      // Invalidate any in-flight async GLB download for this slot so it cannot re-attach after unequip!
+      state.slotLoadToken[entry.slotGroup] = (state.slotLoadToken[entry.slotGroup] || 0) + 1;
       const socket = state.socketRig?.[entry.slotGroup];
       (entry.models || []).forEach(m => {
         if (m.parent) m.parent.remove(m);
@@ -4201,11 +4207,17 @@
       const socket = state.socketRig[slotGroup] || state.socketRig.dorsal_pack;
       const adapterId = part.adapter_id || socket.adapterId;
 
-      // Enforce 1-slot mutual exclusion per anatomical body zone
-      const existingId = state.slotOccupancy[slotGroup];
-      if (existingId && existingId !== part.part_id) {
-        dismountPart(existingId, true);
+      // Monotonic per-slot token prevents rapid multi-clicks from stacking 2-3 weapons in the same hand!
+      const myToken = (state.slotLoadToken[slotGroup] = (state.slotLoadToken[slotGroup] || 0) + 1);
+
+      // Enforce strict 1-slot mutual exclusion BEFORE async download
+      for (const [eid, eVal] of [...state.equippedPacks.entries()]) {
+        if (eVal.slotGroup === slotGroup && eid !== part.part_id) {
+          dismountPart(eid, true);
+        }
       }
+      // Restore our load token after internal dismountPart cleared previous occupants
+      state.slotLoadToken[slotGroup] = myToken;
 
       let packModel = null;
       if (part._proceduralBuilder) {
@@ -4219,6 +4231,31 @@
         const gltf = await new Promise((res, rej) => gltfLoader.load(modelUrl, res, undefined, rej));
         packModel = gltf.scene;
       }
+
+      // Abort stale async download if the user clicked a newer weapon/kit or unequipped while fetching!
+      if (state.slotLoadToken[slotGroup] !== myToken) {
+        packModel?.traverse?.(n => { if (n.geometry) n.geometry.dispose(); });
+        return;
+      }
+
+      // Hard-purge any residual meshes inside this slot's Three.js containers (0% chance of stacked weapons!)
+      const purgeContainer = (grp) => {
+        if (!grp) return;
+        while (grp.children.length > 0) {
+          const ch = grp.children[0];
+          grp.remove(ch);
+          ch.traverse?.(n => { if (n.geometry) n.geometry.dispose(); });
+        }
+      };
+      purgeContainer(socket.payloadContainer);
+      purgeContainer(socket.bilateralRightContainer);
+      purgeContainer(socket.bilateralLeftContainer);
+      for (const [eid, eVal] of [...state.equippedPacks.entries()]) {
+        if (eVal.slotGroup === slotGroup) {
+          state.equippedPacks.delete(eid);
+        }
+      }
+      state.chassisParts = state.chassisParts.filter(n => n.parent !== null);
 
       if (part._genomeScale) {
         packModel.scale.set(...part._genomeScale);
