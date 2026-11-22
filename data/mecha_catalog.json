@@ -2,14 +2,14 @@
   "version": "2.0.0",
   "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
   "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
-  "last_synced": "2026-11-21T23:11:33.929601+00:00",
+  "last_synced": "2026-11-22T00:00:58.047308+00:00",
   "baselines": [
     {
       "id": "baseline_gundam_frame_v1",
       "faction": "hero_federation",
       "name": "RX-Type Advanced Movable Frame",
       "mesh_url": "models/baselines/baseline_gundam_frame_v1.glb",
-      "sha256_hash": "c34640c1dbd986749c37c10bd85541a63f268b4a37250a92cef070eab9249448",
+      "sha256_hash": "b9d0213313c567661a55030974ddcc6377599b17400b265a0eda874a70a90908",
       "file_size_bytes": 2332744,
       "base_mass_kg": 24500,
       "bom_computed_mass_kg": 28758,
@@ -52,7 +52,7 @@
       "faction": "antagonist_zeon_heavy",
       "name": "MS-Type Heavy Industrial Movable Frame",
       "mesh_url": "models/baselines/baseline_rival_heavy_frame_v1.glb",
-      "sha256_hash": "6cd632867c755d5616b75dd76dd901a9e1958b7a991a8d6d4dc276be9c740505",
+      "sha256_hash": "5e61ff7fcb28a3740ce5112d8f90501e4e772a626d5f41a84f931bb8af7d553b",
       "file_size_bytes": 588536,
       "base_mass_kg": 31200,
       "base_reactor_kw": 4200,
@@ -154,7 +154,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_a_aero.glb",
-          "sha256_hash": "e6d23eed3cea66f17cc3f3f45bc2aff786621c015b593c81d06c0d15f497a263",
+          "sha256_hash": "1a843cd44a27daa618f494332171d32d4337b37d0446827a6aad1e4107bdcb50",
           "file_size_bytes": 218404,
           "compression": "meshopt"
         },
@@ -269,7 +269,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_s_space.glb",
-          "sha256_hash": "b5f37c31342aa987516c5bbbcf9c2991aecdde00b3cc65d8f8c7ee8829a3b18e",
+          "sha256_hash": "e4e0c1afe5b34f6e9ec0fe64718cdf784ad0547ec7c8c4b4474262dfb1fc3610",
           "file_size_bytes": 292872,
           "compression": "meshopt"
         },
@@ -362,7 +362,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_h_artillery.glb",
-          "sha256_hash": "35d25e58c58530259b924a00811909ddee5809a19a927214fa3fea8bd7c97c92",
+          "sha256_hash": "4d93b3964cb895495a98440a78c18f158b6b8b029e92289c3a926847881fc475",
           "file_size_bytes": 284604,
           "compression": "meshopt"
         },
@@ -455,7 +455,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_e_recon.glb",
-          "sha256_hash": "c092e08df6e1d06c28e09f9a25c6a0c658a4b4a8fce9b5b3f95eecd3a74d90b2",
+          "sha256_hash": "7428945a331fadde9d4d24f7173fe23b6c2f5dfa031287bc54c4e458d1fbf826",
           "file_size_bytes": 149500,
           "compression": "meshopt"
         },
@@ -537,7 +537,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_c_cqc.glb",
-          "sha256_hash": "c9970626965d074f4be62fdb1ac99699d7490918516def87ba27da046f91c83f",
+          "sha256_hash": "8775f50449e257b5fc9204b248968e6bd9534875df16782646f33c5c0987f8a6",
           "file_size_bytes": 374596,
           "compression": "meshopt"
         },
@@ -608,7 +608,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/weapon_beam_rifle_rx.glb",
-          "sha256_hash": "88123fbb617a13d37668403f523529435f90cc363452d94755e3453fa67962ec",
+          "sha256_hash": "e757cc8d1ea261f30deb8f0711dea892cda4614407877fdc4e8495d328e47427",
           "file_size_bytes": 205148,
           "compression": "meshopt"
         },
@@ -679,7 +679,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/armor_tower_shield_fed.glb",
-          "sha256_hash": "69d1b74798145e8e96f49e33f8f60a21244c2fa65e75d330595ce7b20b65afee",
+          "sha256_hash": "5a27735d0eec7217f8f36d0a8822db52408ad25a021b16e5eebf71dc71d47ecc",
           "file_size_bytes": 167820,
           "compression": "meshopt"
         },
@@ -761,7 +761,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/propulsion_vernier_wing_pod.glb",
-          "sha256_hash": "915375915fb8a8a7aa1cc9efdc6c89149be8591934f83a8678e178e12f9f0351",
+          "sha256_hash": "09d943eb48a4eace0a362073b12a6894a9dae0af0743edd1eec471eef679e771",
           "file_size_bytes": 348320,
           "compression": "meshopt"
         },
@@ -843,7 +843,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/head_vulcan_crest_pod.glb",
-          "sha256_hash": "ee3780e0a0761f08cc6579d3490fff9eb2c0b509a7fc657d42d1d75f2e0836ad",
+          "sha256_hash": "92acb61c975c7595e180b7cb82a5f1a72f9011f055a3ee61e088725c4b1e3eeb",
           "file_size_bytes": 216252,
           "compression": "meshopt"
         },
@@ -925,7 +925,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/chest_chobham_reactive_armor.glb",
-          "sha256_hash": "ef658915350baf501b2d0e7ee615d1fa02bd6e33ec8b67082748bc1007b44ad9",
+          "sha256_hash": "c9a3c6d90f832fe2b1879b70be740b9242e8c61cd3f17f0dcfd2059cb44d75c4",
           "file_size_bytes": 247156,
           "compression": "meshopt"
         },
@@ -1007,7 +1007,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/shoulder_missile_pauldron_pods.glb",
-          "sha256_hash": "479a2ebb10a68444ce6b215b4b58051ca8c841ab522eaea446e1e16970ca1b56",
+          "sha256_hash": "0d8982c612baf6f2aa0cc7a4812843cc17b3e0548ea2d0969e807e3ce0507a0c",
           "file_size_bytes": 283620,
           "compression": "meshopt"
         },
@@ -1089,7 +1089,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/waist_xiphias_hip_railguns.glb",
-          "sha256_hash": "b94e9c5294d74faba3af392b9701b508e297825849ddcf8d74a24aeb3f3cbb30",
+          "sha256_hash": "bbbe02d490c8d5bed50a0ba57adcc026e5926bf5b255e2c3c47938d8f923a689",
           "file_size_bytes": 261428,
           "compression": "meshopt"
         },
@@ -1171,7 +1171,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/leg_calf_vernier_missile_pods.glb",
-          "sha256_hash": "098b63a204701da95a9835f6218c9f1c91fb43c7d353fa82f1e2895171f33d95",
+          "sha256_hash": "e6fd8c27707460260aa72559d3021d625c914e94939875707edeaea6057b91fd",
           "file_size_bytes": 183788,
           "compression": "meshopt"
         },
@@ -1242,7 +1242,7 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/weapon_beam_saber_rx.glb",
-          "sha256_hash": "188131afa1571ada80b81c3f69989083f2fbbc5eae5b552888ebfaff166b0dda",
+          "sha256_hash": "8c024216cfa9cf92815e2b6da6a45d1769c110b2b4be5e3325103cb81d3a7f83",
           "file_size_bytes": 61000,
           "compression": "meshopt"
         },
@@ -1380,7 +1380,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_weapon_hyper_bazooka.glb",
-          "sha256_hash": "f2a3961d520113994dfaa895d613c706ee4758750f29a9aa13cbccf3c8340d13",
+          "sha256_hash": "ea573e97baac0191cdf2299c10ff1c8350f3e4f1ce71129a9c8cb1690631187b",
           "file_size_bytes": 132904,
           "compression": "meshopt"
         },
@@ -1390,6 +1390,1017 @@
         "operational_role": "Delivers long-range, high-velocity hyper projectiles to suppress enemy formations while preserving auxiliary power balance.",
         "reactor_power_draw_kw": 180,
         "vernier_thrust_kgf": 0
+      }
+    },
+    {
+      "part_id": "llm_weapon_beam_naginata",
+      "blueprint_family": "beam_naginata",
+      "serial_number": "GXM-LLM-NAG-16",
+      "name": "RX-78 Beam Naginata Auxiliary Weapon Pack",
+      "category": "weapon",
+      "primary_hardpoint": "HP-11",
+      "slot_group": "aux_weapon",
+      "adapter_id": "ADP-HP11-WEAPON",
+      "entropy_seed": "e2e102ee9bda3724ad45876ca7ecb2267db6c3fae7082ca287f8236514cab05d",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "groq_llm_cad_architect",
+      "llm_blueprint_params": {
+        "shaft_length_mm": 42.0,
+        "blade_length_mm": 52.0,
+        "emitter_radius_mm": 2.6,
+        "mass_kg": 1380.0,
+        "reactor_draw_kw": 1220.0
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Verify shaft and blade joint tolerances within ±0.05 mm.",
+          "Confirm emitter radius aligns with beam conduit housing without interference.",
+          "Run mass distribution analysis to keep center of gravity within 0.3 m of original design.",
+          "Conduct reactor draw test to ensure power draw stays below 1.45 MW under full load.",
+          "Perform vibration and shock qualification for launch and atmospheric entry phases."
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "9 sub-meshes, 1152 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "43,348 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'aux_weapon' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "Canonical weapon reach max_z=63.4mm, max_y=46.6mm"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-9.8, -44.6, -60.4] max=[9.8, 46.6, 63.4]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=groq_llm_cad_architect, params={'shaft_length_mm': 42.0, 'blade_length_mm': 52.0, 'emitter_radius_mm': 2.6, 'mass_kg': 1380.0, 'reactor_draw_kw': 1220.0}"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-11",
+        "HP-12"
+      ],
+      "structural_specs": {
+        "mass_kg": 1380,
+        "bom_computed_mass_kg": 1380,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-11",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -5.68,
+            -44.677,
+            -42.96
+          ],
+          "max": [
+            8.134,
+            52.791,
+            57.376
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_weapon_beam_naginata.glb",
+          "sha256_hash": "e378ddce54e006098fe019d4228431c955b3d057876db886928c613b9279bc47",
+          "file_size_bytes": 67064,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides long-reach high-energy beam melee capability for precision strikes against armored targets while maintaining modular compatibility with existing auxiliary slots.",
+        "reactor_power_draw_kw": 1220,
+        "vernier_thrust_kgf": 0
+      }
+    },
+    {
+      "part_id": "llm_shield_twin_gatling",
+      "blueprint_family": "twin_gatling_shield",
+      "serial_number": "GXM-LLM-GAT-17",
+      "name": "Twin-Gatling Shield Aux-Unit HP-07",
+      "category": "armor",
+      "primary_hardpoint": "HP-07",
+      "slot_group": "aux_shield",
+      "adapter_id": "ADP-HP07-FOREARM",
+      "entropy_seed": "85f1bebc37c37af475b8507a0af64c3bfb10dfd9e660f491c2f0f88643786693",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "groq_llm_cad_architect",
+      "llm_blueprint_params": {
+        "shield_height_mm": 49.0,
+        "barrel_length_mm": 29.0,
+        "mass_kg": 3950.0,
+        "reactor_draw_kw": 410.0
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Verify twin gatling barrel alignment within ±0.2 mm tolerance.",
+          "Confirm shield height meets 44‑54 mm envelope and does not impede joint articulation.",
+          "Run mass distribution analysis to keep total mass under 4400 kg and balance forearm load.",
+          "Test reactor draw at 410 kW for thermal stability under continuous fire.",
+          "Perform electromagnetic interference sweep with adjacent electronic packs."
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "9 sub-meshes, 1752 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "151,936 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'aux_shield' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "Forearm outward -X clearance max_x=-1.7mm, min_x=-16.7mm"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-16.7, -26.9, -15.0] max=[-1.7, 34.0, 18.4]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=groq_llm_cad_architect, params={'shield_height_mm': 49.0, 'barrel_length_mm': 29.0, 'mass_kg': 3950.0, 'reactor_draw_kw': 410.0}"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-07",
+        "HP-08"
+      ],
+      "structural_specs": {
+        "mass_kg": 3950,
+        "bom_computed_mass_kg": 3950,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-07",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -16.72,
+            -26.894,
+            -15.001
+          ],
+          "max": [
+            -1.7,
+            34.036,
+            18.445
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_shield_twin_gatling.glb",
+          "sha256_hash": "f5ab27d10541a3d25ea76ba4e7a4f7d6d2c457729f68982dc8d7a6edcca4762a",
+          "file_size_bytes": 151936,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides rapid-fire twin gatling defense while augmenting forearm shield integrity for close-range interception.",
+        "reactor_power_draw_kw": 410,
+        "vernier_thrust_kgf": 0
+      }
+    },
+    {
+      "part_id": "llm_shoulder_rail_cannons",
+      "blueprint_family": "shoulder_rail_cannon",
+      "serial_number": "GXM-LLM-RLC-18",
+      "name": "HP-03A Shoulder Rail Cannon Mk.II",
+      "category": "weapon",
+      "primary_hardpoint": "HP-03",
+      "slot_group": "shoulder_pods",
+      "adapter_id": "ADP-HP03-SHOULDER",
+      "entropy_seed": "a5e8f641d5910f4e3e21e78740c0f3a9b602eb6f24bdd452fd936ea5bb2f316b",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "groq_llm_cad_architect",
+      "llm_blueprint_params": {
+        "rail_length_mm": 38.5,
+        "pod_width_mm": 10.3,
+        "mass_kg": 3900.0,
+        "reactor_draw_kw": 950.0
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Verify rail barrel material grade meets 1800 MPa tensile threshold.",
+          "Confirm pod mounting interface tolerances within ±0.05 mm.",
+          "Run thermal load simulation for continuous fire at 950 kW draw.",
+          "Validate recoil dampening system response under 12 G peak forces.",
+          "Perform electromagnetic interference shielding compliance with adjacent sensor pods."
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "8 sub-meshes, 3584 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "372,536 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'shoulder_pods' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "Bilateral over-pauldron span x=[-56.6, 56.6]mm"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-56.6, -4.4, -12.5] max=[56.6, 12.2, 40.6]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=groq_llm_cad_architect, params={'rail_length_mm': 38.5, 'pod_width_mm': 10.3, 'mass_kg': 3900.0, 'reactor_draw_kw': 950.0}"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-03",
+        "HP-05"
+      ],
+      "structural_specs": {
+        "mass_kg": 3900,
+        "bom_computed_mass_kg": 3900,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-03",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -56.65,
+            -4.37,
+            -12.5
+          ],
+          "max": [
+            56.65,
+            12.195,
+            40.575
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_shoulder_rail_cannons.glb",
+          "sha256_hash": "671fe3b09f666b7d4f453f671d7781f227706057eea4a2ea580341404a66d306",
+          "file_size_bytes": 372536,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Long-range kinetic rail cannon for precision anti-armor fire, integrated with shoulder pod stabilization and rapid recoil compensation.",
+        "reactor_power_draw_kw": 950,
+        "vernier_thrust_kgf": 0
+      }
+    },
+    {
+      "part_id": "llm_leg_overboost_verniers",
+      "blueprint_family": "overboost_leg_verniers",
+      "serial_number": "GXM-LLM-OBV-19",
+      "name": "RX-78-2 Overboost Leg Vernier Kit – HP-24 Calf Thruster",
+      "category": "propulsion",
+      "primary_hardpoint": "HP-24",
+      "slot_group": "leg_thrusters",
+      "adapter_id": "ADP-HP24-CALF",
+      "entropy_seed": "dc9dd677661f79f2051dab37d6d989891bbc523b0cfe79b85af314dae381c83c",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "groq_llm_cad_architect",
+      "llm_blueprint_params": {
+        "cowling_height_mm": 25.5,
+        "bell_exit_r_mm": 3.8,
+        "mass_kg": 3450.0,
+        "thrust_kgf": 102000.0,
+        "reactor_draw_kw": 440.0
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Verify structural integrity of calf mounting brackets under peak thrust loads.",
+          "Confirm coolant flow rate meets reactor draw specifications at max output.",
+          "Test vernier nozzle articulation range for seamless vector transition.",
+          "Conduct vibration analysis to ensure cowling resonance stays below 150 Hz.",
+          "Validate mass distribution does not shift center of gravity beyond design limits."
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "6 sub-meshes, 1736 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "121,068 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'leg_thrusters' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "Bilateral calf standoff span x=[-40.0, 40.0]mm"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-40.0, -20.9, -13.6] max=[40.0, 13.1, 6.0]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=groq_llm_cad_architect, params={'cowling_height_mm': 25.5, 'bell_exit_r_mm': 3.8, 'mass_kg': 3450.0, 'thrust_kgf': 102000.0, 'reactor_draw_kw': 440.0}"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-24",
+        "HP-26"
+      ],
+      "structural_specs": {
+        "mass_kg": 3450,
+        "bom_computed_mass_kg": 3450,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-24",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -39.974,
+            -20.903,
+            -13.568
+          ],
+          "max": [
+            39.974,
+            13.111,
+            5.957
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_leg_overboost_verniers.glb",
+          "sha256_hash": "f718846300d32a8a48e07c0d68104ca658971f264255daba7058e7d28602ffc0",
+          "file_size_bytes": 121068,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Delivers rapid overboost thrust to calf thrusters, boosting sprint speed and jump height while preserving precise vernier vector control for high‑mobility engagements.",
+        "reactor_power_draw_kw": 440,
+        "vernier_thrust_kgf": 102000
+      }
+    },
+    {
+      "part_id": "llm_head_commander_crest",
+      "blueprint_family": "commander_twin_blade_crest",
+      "serial_number": "GXM-LLM-CMD-21",
+      "name": "Commander Twin Blade Crest - Head Sensor Module",
+      "category": "modular_mission_pack",
+      "primary_hardpoint": "HP-01",
+      "slot_group": "head_sensor",
+      "adapter_id": "ADP-HP01-CRANIAL",
+      "entropy_seed": "52c0554a59bb781983ce1306f4f4c03b4f59c3fa4b32ad8c8ec53271e94fc3bc",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "groq_llm_cad_architect",
+      "llm_blueprint_params": {
+        "fin_height_mm": 17.0,
+        "pod_length_mm": 11.2,
+        "mass_kg": 640.0,
+        "reactor_draw_kw": 240.0
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Verify fin height tolerance ±0.5mm",
+          "Confirm pod length dimensional integrity",
+          "Validate mass distribution within ±5kg",
+          "Test reactor draw under 240kW load",
+          "Ensure sensor module alignment to cranial mount"
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "8 sub-meshes, 1440 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "153,776 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'head_sensor' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "Cranial clearance max_x=16.4mm, max_y=25.4mm"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-16.4, -2.2, -16.1] max=[16.4, 25.4, 3.8]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=groq_llm_cad_architect, params={'fin_height_mm': 17.0, 'pod_length_mm': 11.2, 'mass_kg': 640.0, 'reactor_draw_kw': 240.0}"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-01",
+        "HP-02"
+      ],
+      "structural_specs": {
+        "mass_kg": 640,
+        "bom_computed_mass_kg": 640,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-01",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -16.4,
+            -2.161,
+            -16.1
+          ],
+          "max": [
+            16.4,
+            25.416,
+            3.8
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_head_commander_crest.glb",
+          "sha256_hash": "2792089bfd9d9b3a4c2078ab03ffda761e613f90423dd9dd1f1d5625c65df942",
+          "file_size_bytes": 153776,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides advanced cranial targeting, sensor fusion, and dual-blade integration for rapid strike and defensive countermeasures.",
+        "reactor_power_draw_kw": 240,
+        "vernier_thrust_kgf": 0
+      }
+    },
+    {
+      "part_id": "llm_chest_reactive_plastron",
+      "blueprint_family": "reactive_collar_plastron",
+      "serial_number": "GXM-LLM-PLS-21",
+      "name": "RX-78-9 Reactive Collar Plastron Mk.II",
+      "category": "armor",
+      "primary_hardpoint": "HP-09",
+      "slot_group": "chest_armor",
+      "adapter_id": "ADP-HP09-PECTORAL",
+      "entropy_seed": "1c80b641a182572597576917331ae9ee5a893a0c70de807a9baec386bb5c512a",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "groq_llm_cad_architect",
+      "llm_blueprint_params": {
+        "plate_thickness_mm": 3.8,
+        "collar_height_mm": 5.8,
+        "mass_kg": 3400.0,
+        "reactor_draw_kw": 400.0
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Verify plate thickness uniformity within ±0.05 mm.",
+          "Confirm collar height alignment with adjacent torso joints.",
+          "Perform mass distribution analysis to keep CG within spec.",
+          "Test reactor draw integration under peak load conditions.",
+          "Conduct ballistic impact simulation on plastron composite."
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "11 sub-meshes, 2208 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "223,328 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'chest_armor' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "Chest standoff z=[0.3, 8.7]mm (inward wrap)"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-18.1, -5.1, 0.3] max=[18.1, 13.0, 8.7]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=groq_llm_cad_architect, params={'plate_thickness_mm': 3.8, 'collar_height_mm': 5.8, 'mass_kg': 3400.0, 'reactor_draw_kw': 400.0}"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-09",
+        "HP-10"
+      ],
+      "structural_specs": {
+        "mass_kg": 3400,
+        "bom_computed_mass_kg": 3400,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-09",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -18.115,
+            -5.15,
+            0.3
+          ],
+          "max": [
+            18.115,
+            12.961,
+            8.696
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_chest_reactive_plastron.glb",
+          "sha256_hash": "34d22b677ad080a6456c0ef97f170ffa021dca23c64a9be7d938d9a815df9805",
+          "file_size_bytes": 223328,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Delivers adaptive energy dispersion to the chest armor, boosting survivability against beams and projectiles while controlling draw.",
+        "reactor_power_draw_kw": 400,
+        "vernier_thrust_kgf": 0
+      }
+    },
+    {
+      "part_id": "llm_waist_plasma_skirts",
+      "blueprint_family": "waist_plasma_rail_skirts",
+      "serial_number": "GXM-LLM-WST-23",
+      "name": "RX-78-3 Waist Plasma Rail Skirt Mk.II",
+      "category": "armor",
+      "primary_hardpoint": "HP-13",
+      "slot_group": "waist_ordnance",
+      "adapter_id": "ADP-HP13-WAIST",
+      "entropy_seed": "36e6cf763c7e3d3093f9be698bff12eb2df6eed37ba7ff5d169969971620c0b7",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "groq_llm_cad_architect",
+      "llm_blueprint_params": {
+        "pod_length_mm": 24.0,
+        "rail_ext_mm": 11.0,
+        "mass_kg": 2550.0,
+        "thrust_kgf": 18000.0,
+        "reactor_draw_kw": 410.0
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Verify plasma rail skirt mounting interface aligns with waist ordnance attachment points.",
+          "Confirm pod length tolerances meet 24.0 mm ±0.5 mm specification.",
+          "Test thrust output to ensure 18,000 kgf within ±5 % margin.",
+          "Validate reactor draw of 410 kW does not exceed power budget.",
+          "Inspect weld integrity of skirt panels for structural fatigue."
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "10 sub-meshes, 2072 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "199,536 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'waist_ordnance' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "Bilateral waist swivel standoff x=[-33.3, 33.3]mm"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-33.3, -8.3, -17.8] max=[33.3, 4.7, 20.1]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=groq_llm_cad_architect, params={'pod_length_mm': 24.0, 'rail_ext_mm': 11.0, 'mass_kg': 2550.0, 'thrust_kgf': 18000.0, 'reactor_draw_kw': 410.0}"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-13",
+        "HP-17"
+      ],
+      "structural_specs": {
+        "mass_kg": 2550,
+        "bom_computed_mass_kg": 2550,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-13",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -33.257,
+            -8.318,
+            -17.822
+          ],
+          "max": [
+            33.257,
+            4.67,
+            20.15
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_waist_plasma_skirts.glb",
+          "sha256_hash": "29003218a97936c5ab3c4c914374aba17dc3d02c4b21b54cbeeb572d6921ed09",
+          "file_size_bytes": 199536,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Deploys waist-mounted plasma rail skirts to provide rapid lateral thrust and shielded plasma discharge for close-quarters maneuvering.",
+        "reactor_power_draw_kw": 410,
+        "vernier_thrust_kgf": 18000
+      }
+    },
+    {
+      "part_id": "llm_dorsal_funnel_containers",
+      "blueprint_family": "heavy_funnel_container",
+      "serial_number": "GXM-LLM-FNL-23",
+      "name": "HP-00 Dorsal Heavy Funnel Container Mk.II",
+      "category": "propulsion",
+      "primary_hardpoint": "HP-00",
+      "slot_group": "dorsal_pack",
+      "adapter_id": "ADP-HP00-DORSAL",
+      "entropy_seed": "49aaa2e7c998e7802250c9573d4b345066011f4e3c0001742adf56a40833e314",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "groq_llm_cad_architect",
+      "llm_blueprint_params": {
+        "container_height_mm": 32.0,
+        "funnel_length_mm": 16.5,
+        "mass_kg": 4850.0,
+        "thrust_kgf": 148000.0,
+        "reactor_draw_kw": 960.0
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Verify structural reinforcement of dorsal frame for 148,000 kgf thrust load.",
+          "Confirm funnel deployment actuators meet 16.5 mm length clearance with adjacent packs.",
+          "Run thermal analysis to ensure reactor draw of 960 kW stays within cooling envelope.",
+          "Perform mass distribution audit to keep total mass under 5,400 kg with 4,850 kg baseline.",
+          "Conduct vibration damping test on container mounts for 32 mm height profile."
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "10 sub-meshes, 1740 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "144,500 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'dorsal_pack' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "UHIS dovetail plug present, dorsal min_z=-16.9mm"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-39.3, -15.8, -16.9] max=[39.3, 33.8, 8.0]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=groq_llm_cad_architect, params={'container_height_mm': 32.0, 'funnel_length_mm': 16.5, 'mass_kg': 4850.0, 'thrust_kgf': 148000.0, 'reactor_draw_kw': 960.0}"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-00"
+      ],
+      "structural_specs": {
+        "mass_kg": 4850,
+        "bom_computed_mass_kg": 4850,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-00",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -39.289,
+            -15.785,
+            -16.923
+          ],
+          "max": [
+            39.289,
+            33.822,
+            8.0
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_dorsal_funnel_containers.glb",
+          "sha256_hash": "6d7deb94efe322228b57d34b7153b303225e901855d2050263c1b5feb5e57514",
+          "file_size_bytes": 144500,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides high-capacity funnel storage and rapid deployment thrust for sustained heavy-beam assaults from the dorsal pack.",
+        "reactor_power_draw_kw": 960,
+        "vernier_thrust_kgf": 148000
       }
     }
   ]
