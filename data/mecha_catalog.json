@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
   "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
-  "last_synced": "2026-11-22T08:47:41.763909+00:00",
+  "last_synced": "2026-11-22T09:07:24.409362+00:00",
   "baselines": [
     {
       "id": "baseline_gundam_frame_v1",
@@ -852,20 +852,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/head_vulcan_crest_pod.glb",
-          "sha256_hash": "92acb61c975c7595e180b7cb82a5f1a72f9011f055a3ee61e088725c4b1e3eeb",
-          "file_size_bytes": 216252,
+          "sha256_hash": "e44c2ad493113befa8dad3ed82dc728ae5c68c4f273bb602605c4746842d624f",
+          "file_size_bytes": 216316,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -16.7,
+            -14.299999999999999,
             -7.0,
-            -18.8
+            -18.4
           ],
           "max": [
-            16.7,
-            26.7,
-            10.4
+            14.299999999999999,
+            26.3,
+            10.2
           ]
         }
       },
@@ -2012,20 +2012,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -16.4,
-            -2.161,
-            -16.1
+            -13.4,
+            -2.252,
+            -15.5
           ],
           "max": [
-            16.4,
-            25.416,
-            3.8
+            13.4,
+            24.816,
+            4.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_head_commander_crest.glb",
-          "sha256_hash": "2792089bfd9d9b3a4c2078ab03ffda761e613f90423dd9dd1f1d5625c65df942",
-          "file_size_bytes": 153776,
+          "sha256_hash": "e973857930d1f9d606c05f673ef6c06a1061bf7fc75ceb7099a294264d40db76",
+          "file_size_bytes": 153848,
           "compression": "meshopt"
         }
       },
@@ -2417,6 +2417,329 @@
         "operational_role": "Provides high-capacity funnel storage and rapid deployment thrust for sustained heavy-beam assaults from the dorsal pack.",
         "reactor_power_draw_kw": 960,
         "vernier_thrust_kgf": 148000
+      }
+    },
+    {
+      "part_id": "llm_gen_head_sensor_002_f12ec8",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-HED-024",
+      "name": "Ez-8 Ground Sensor Hood",
+      "category": "modular_mission_pack",
+      "primary_hardpoint": "HP-01",
+      "slot_group": "head_sensor",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP01-CRANIAL",
+      "entropy_seed": "56bd8e62e42de59a030b0bd1eb851797437c1eb5df2f3e15d8070edee0c7893d",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v3",
+      "llm_blueprint_params": {
+        "mass_kg": 1200,
+        "thrust_kgf": 15000,
+        "reactor_draw_kw": 800
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Visor alignment calibrated to 0.02° tolerance",
+          "Twin sensor ears bolted with torque 12Nm",
+          "Armor plating flush with head frame",
+          "Wiring harness routed through internal conduit",
+          "Thermal dissipation tested under 1200kW load"
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "12 sub-meshes, 1872 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "185,328 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'head_sensor' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "Cranial flush clearance max_x=13.8mm, max_y=20.7mm"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-13.8, -1.7, -15.5] max=[13.8, 20.7, 6.8]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=web_grounded_groq_bandai_cad_v3, params={'mass_kg': 1200, 'thrust_kgf': 15000, 'reactor_draw_kw': 800}"
+          },
+          {
+            "id": "CHK-06",
+            "check": "True 3D silhouette & concept uniqueness (anti-clone topology gate)",
+            "passed": true,
+            "detail": "Unique 3D silhouette 'ez8_ground_sensor_hood' (6 comps, 3 prim types, topo=ff008211)"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-01",
+        "HP-02"
+      ],
+      "structural_specs": {
+        "mass_kg": 1200,
+        "bom_computed_mass_kg": 1200,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-01",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -13.78,
+            -1.689,
+            -15.5
+          ],
+          "max": [
+            13.78,
+            20.7,
+            6.808
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_head_sensor_002_f12ec8.glb",
+          "sha256_hash": "90440c2e0a82a6bca2cbd93723d0732372d3402ca39ed5b2fe89b0abd01f3a77",
+          "file_size_bytes": 185328,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides enhanced long-range targeting and battlefield awareness for the Ez-8 ground-type MS, integrating dual sensor ears and a forward-sloped visor for sniper precision.",
+        "reactor_power_draw_kw": 800,
+        "vernier_thrust_kgf": 15000
+      },
+      "llm_cad_blueprint": {
+        "concept_slug": "ez8_ground_sensor_hood",
+        "base_archetype": "sniper_optical_visor_hood",
+        "addon_module": "twin_sensor_ears",
+        "color_scheme": "full_armor_tactical",
+        "proportion_profile": "heavy_fortress",
+        "composition_key": "sniper_optical_visor_hood+twin_sensor_ears+full_armor_tactical",
+        "components": [
+          {
+            "name": "visor_hood_canopy",
+            "primitive": "box",
+            "material": "blue",
+            "pos": [
+              0,
+              10.6,
+              -1.0
+            ],
+            "rot": [
+              8,
+              0,
+              0
+            ],
+            "mirror_x": false,
+            "params": {
+              "w": 14.17,
+              "h": 4.36,
+              "d": 14.17,
+              "bevel": 0.55
+            }
+          },
+          {
+            "name": "sniper_optic_bar",
+            "primitive": "box",
+            "material": "optic",
+            "pos": [
+              0,
+              10.5,
+              5.6
+            ],
+            "rot": [
+              8,
+              0,
+              0
+            ],
+            "mirror_x": false,
+            "params": {
+              "w": 10.68,
+              "h": 2.29,
+              "d": 2.18,
+              "bevel": 0.22
+            }
+          },
+          {
+            "name": "rangefinder_tube",
+            "primitive": "cylinder",
+            "material": "gunmetal",
+            "pos": [
+              11.6,
+              1.4,
+              -0.6
+            ],
+            "rot": [
+              0,
+              0,
+              0
+            ],
+            "mirror_x": true,
+            "params": {
+              "radius": 2.18,
+              "height": 12.21,
+              "axis": "z"
+            }
+          },
+          {
+            "name": "rangefinder_lens",
+            "primitive": "cylinder",
+            "material": "optic",
+            "pos": [
+              11.6,
+              1.4,
+              5.2
+            ],
+            "rot": [
+              0,
+              0,
+              0
+            ],
+            "mirror_x": true,
+            "params": {
+              "radius": 1.58,
+              "height": 1.42,
+              "axis": "z"
+            }
+          },
+          {
+            "name": "rear_cooling_fin",
+            "primitive": "fin",
+            "material": "gunmetal",
+            "pos": [
+              0,
+              12.2,
+              -6.5
+            ],
+            "rot": [
+              0,
+              0,
+              0
+            ],
+            "mirror_x": false,
+            "params": {
+              "points_2d": [
+                [
+                  -3.5,
+                  0
+                ],
+                [
+                  3.5,
+                  0
+                ],
+                [
+                  -6,
+                  8.5
+                ],
+                [
+                  -9,
+                  6.5
+                ]
+              ],
+              "depth": 2.2,
+              "axis": "x"
+            }
+          },
+          {
+            "name": "addon_ear_optic_pod",
+            "primitive": "box",
+            "material": "optic",
+            "pos": [
+              12.4,
+              1.2,
+              3.2
+            ],
+            "rot": [
+              0,
+              0,
+              0
+            ],
+            "mirror_x": true,
+            "params": {
+              "w": 2.62,
+              "h": 3.05,
+              "d": 2.83,
+              "bevel": 0.25
+            }
+          }
+        ]
+      },
+      "reference_sources": [
+        {
+          "title": "RX-79［G］Ez-8 Gundam Ez8",
+          "url": "https://gundam.fandom.com/wiki/RX-79%EF%BC%BBG%EF%BC%BDEz-8_Gundam_Ez8",
+          "source": "Gundam Wiki",
+          "summary": "During the battle with the Apsaras II, Shiro Amada's Gundam Ground Type was heavily damaged, necessitating major repair and overhaul. Based on the combat data collected up until that point, as well as feedback from Shiro Amada himself, the Gundam received various modifications. The result became known as Gundam Ez8, short for \"Extra-zero-8\", which stood for \"08th MS Team extra unit\". The Ez8's chest armor received major changes. Its chest armor plating was made using two Zaku II shoulder shields welded together, wh"
+        }
+      ],
+      "geometry_fingerprint": {
+        "concept_slug": "ez8_ground_sensor_hood",
+        "concept_tokens": [
+          "ground",
+          "hood",
+          "sensor"
+        ],
+        "component_count": 6,
+        "primitive_types": 3,
+        "primitive_counts": {
+          "box": 3,
+          "cylinder": 2,
+          "fin": 1
+        },
+        "aabb_size_mm": [
+          27.6,
+          22.4,
+          22.3
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.812,
+          0.809
+        ],
+        "topology_hash": "ff008211fe278cda",
+        "composition_key": "sniper_optical_visor_hood+twin_sensor_ears+full_armor_tactical"
       }
     }
   ]
