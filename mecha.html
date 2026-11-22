@@ -1957,6 +1957,30 @@
       box-shadow: 0 8px 26px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 185, 129, 0.35);
     }
 
+    /* Full-Screen Wallpaper Camera Shutter Flash Overlay */
+    #shutter-flash {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: #ffffff;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s ease-out;
+    }
+
+    #shutter-flash.flash {
+      opacity: 0.82;
+      transition: none;
+    }
+
+    body.wallpaper-capture-clean .corner-marker,
+    body.wallpaper-capture-clean #hud-vis-bar,
+    body.wallpaper-capture-clean #callout-layer,
+    body.wallpaper-capture-clean #btn-restore-top {
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
     .nav-action-pill {
       font-family: var(--font-mono);
       font-size: 9.2px;
@@ -2092,22 +2116,29 @@
         flex-shrink: 0;
       }
 
-      #nav-header #btn-open-guide {
+      #nav-header #btn-wallpaper-shot {
         order: 7;
         padding: 3.5px 6px;
         font-size: 8.1px;
         flex-shrink: 0;
       }
 
-      #nav-header #btn-bgm-toggle {
+      #nav-header #btn-open-guide {
         order: 8;
         padding: 3.5px 6px;
         font-size: 8.1px;
         flex-shrink: 0;
       }
 
-      #nav-header #btn-bgm-track {
+      #nav-header #btn-bgm-toggle {
         order: 9;
+        padding: 3.5px 6px;
+        font-size: 8.1px;
+        flex-shrink: 0;
+      }
+
+      #nav-header #btn-bgm-track {
+        order: 10;
         padding: 3.5px 6px;
         font-size: 8.1px;
         max-width: none;
@@ -2270,6 +2301,7 @@
     </select>
     <span class="nav-sep"></span>
     <button id="btn-open-loadouts" class="nav-action-pill" title="Hangar Custom Kit Presets (Save &amp; Load in Browser LocalStorage)">💾 <span class="pill-full">Kit Loadouts</span><span class="pill-short">Loadouts</span></button>
+    <button id="btn-wallpaper-shot" class="nav-action-pill" style="border-color:rgba(0,229,255,0.45);color:var(--accent-cyan);" title="Capture Full-Screen Zero-HUD HD Wallpaper (Hotkey: P)">📸 <span class="pill-full">Wallpaper</span><span class="pill-short">Wall</span></button>
     <button id="btn-open-guide" class="nav-action-pill" title="About this Autonomous Agentic Hangar">ℹ️ Guide</button>
     <button id="btn-bgm-toggle" class="nav-action-pill" title="Toggle Mecha Battle Background Music">🔇 BGM</button>
     <button id="btn-bgm-track" class="nav-action-pill" title="Switch Mecha Battle Track">🎵 Track</button>
@@ -2679,9 +2711,13 @@
       <button id="btn-dock-hatch" class="action-btn" title="Open Hinged Chest/Reactor Petals">🔓 HATCH</button>
       <button id="btn-dock-isolate" class="action-btn" title="Toggle Ghost Shell Zone Isolation">👻 ISOLATE</button>
       <button id="btn-reset-view" class="action-btn" title="Auto-Fit Reset Camera">↺ FIT</button>
+      <button id="btn-dock-wallpaper" class="action-btn" style="border-color: rgba(0, 229, 255, 0.5); color: var(--accent-cyan);" title="Capture Full-Screen Zero-HUD HD Wallpaper (Hotkey: P)">📸 WALLPAPER</button>
       <button id="btn-hide-bottom" class="panel-close-x" title="Close Bottom Dock">✕</button>
     </div>
   </footer>
+
+  <!-- Camera Shutter Flash Overlay for Full-Screen Wallpaper Capture -->
+  <div id="shutter-flash" aria-hidden="true"></div>
 
   <!-- Three.js Lightweight 60FPS Mobile-First WebGL Engine -->
   <script type="module">
@@ -6308,11 +6344,136 @@
       document.getElementById('btn-bgm-track')
     );
 
+    // =========================================================================
+    // 15. FULL-SCREEN ZERO-HUD HD WALLPAPER CAPTURE (HIDE-ALL + AUTO DOWNLOAD)
+    // =========================================================================
+    const shutterFlashEl = document.getElementById('shutter-flash');
+    let isCapturingWallpaper = false;
+
+    async function captureFullscreenWallpaper() {
+      if (isCapturingWallpaper) return;
+      isCapturingWallpaper = true;
+
+      const wasAllHidden = state.menus.allHidden;
+      try {
+        // 1. Visual Full-Screen Hide-All Cinema Moment + Camera Shutter Flash
+        document.body.classList.add('wallpaper-capture-clean');
+        if (!wasAllHidden) toggleAllMenus();
+
+        if (shutterFlashEl) {
+          shutterFlashEl.classList.add('flash');
+          requestAnimationFrame(() => requestAnimationFrame(() => shutterFlashEl.classList.remove('flash')));
+        }
+        battleAudio?.playGunplaSnapClick();
+
+        // 2. Compute Crisp Native Full-Screen Monitor / Phone Wallpaper Resolution
+        const maxTex = Math.min(renderer.capabilities?.maxTextureSize || 4096, 4096);
+        const sw = Math.max(window.screen?.width || 1920, 360);
+        const sh = Math.max(window.screen?.height || 1080, 360);
+        const screenDpr = Math.min(window.devicePixelRatio || 1, 2);
+        let targetW, targetH;
+        if (sw >= sh) {
+          const ratio = sw / sh;
+          targetW = Math.min(maxTex, 3840, Math.max(Math.round(sw * screenDpr), 1920));
+          targetH = Math.max(720, Math.round(targetW / ratio));
+        } else {
+          const ratio = sw / sh;
+          targetH = Math.min(maxTex, 2560, Math.max(Math.round(sh * screenDpr), 1920));
+          targetW = Math.max(720, Math.round(targetH * ratio));
+        }
+
+        // 3. Synchronously Render Pure 3D WebGL Frame (0% HUD, 0% UI Chrome!)
+        const prevW = window.innerWidth;
+        const prevH = window.innerHeight;
+        const prevAspect = camera.aspect;
+        const prevDpr = renderer.getPixelRatio();
+        let dataUrl = null;
+        try {
+          camera.aspect = targetW / targetH;
+          camera.updateProjectionMatrix();
+          renderer.setPixelRatio(1);
+          renderer.setSize(targetW, targetH, false);
+          renderer.render(scene, camera);
+          dataUrl = renderer.domElement.toDataURL('image/png');
+        } finally {
+          camera.aspect = prevAspect;
+          camera.updateProjectionMatrix();
+          renderer.setPixelRatio(prevDpr);
+          renderer.setSize(prevW, prevH, false);
+          renderer.render(scene, camera);
+        }
+
+        if (!dataUrl) throw new Error('Canvas export returned empty image');
+
+        const unitSpec = UNIT_REGISTRY[state.activeUnitId] || UNIT_REGISTRY.vanguard_rx;
+        const safeUnit = unitSpec.name.replace(/[^a-zA-Z0-9]+/g, '_').replace(/^_|_$/g, '');
+        const now = new Date();
+        const pad2 = (n) => String(n).padStart(2, '0');
+        const ts = `${now.getFullYear()}${pad2(now.getMonth() + 1)}${pad2(now.getDate())}_${pad2(now.getHours())}${pad2(now.getMinutes())}${pad2(now.getSeconds())}`;
+        const fileName = `Mecha_Wallpaper_${safeUnit}_${targetW}x${targetH}_${ts}.png`;
+
+        // 4. Instant Download (or Native Share Sheet on Mobile for Direct "Use as Wallpaper")
+        let sharedOnMobile = false;
+        if (isMobileViewport() && navigator.share && navigator.canShare) {
+          try {
+            const resp = await fetch(dataUrl);
+            const blob = await resp.blob();
+            const file = new File([blob], fileName, { type: 'image/png' });
+            if (navigator.canShare({ files: [file] })) {
+              await navigator.share({
+                files: [file],
+                title: `${unitSpec.name} — 3D Mecha Wallpaper (${targetW}×${targetH})`,
+                text: 'Full-Screen Zero-HUD 3D Mecha Wallpaper'
+              });
+              sharedOnMobile = true;
+            }
+          } catch (shareErr) {
+            if (shareErr && shareErr.name === 'AbortError') sharedOnMobile = false;
+          }
+        }
+
+        if (!sharedOnMobile) {
+          const link = document.createElement('a');
+          link.href = dataUrl;
+          link.download = fileName;
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+        }
+
+        // 5. Smoothly Restore HUD after Brief Full-Screen Preview Moment
+        setTimeout(() => {
+          document.body.classList.remove('wallpaper-capture-clean');
+          if (!wasAllHidden && state.menus.allHidden) toggleAllMenus();
+          showToast(
+            sharedOnMobile
+              ? `📸 Wallpaper Ready (${targetW}×${targetH})!`
+              : `📸 Wallpaper Saved (${targetW}×${targetH})! Klik kanan file → Set as Desktop Background`,
+            true
+          );
+          isCapturingWallpaper = false;
+        }, 700);
+      } catch (err) {
+        console.error('Wallpaper capture failed:', err);
+        document.body.classList.remove('wallpaper-capture-clean');
+        if (!wasAllHidden && state.menus.allHidden) toggleAllMenus();
+        showToast('⚠️ Failed to capture wallpaper PNG');
+        isCapturingWallpaper = false;
+      }
+    }
+
+    document.getElementById('btn-wallpaper-shot')?.addEventListener('click', captureFullscreenWallpaper);
+    document.getElementById('btn-dock-wallpaper')?.addEventListener('click', captureFullscreenWallpaper);
+    window.addEventListener('keydown', (e) => {
+      if (document.activeElement && ['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+      if (e.key === 'p' || e.key === 'P') captureFullscreenWallpaper();
+    });
+
     // Expose Debug/QA API
     window.__mechaDebug = {
       state, loadUnit, playAnimation, setCameraPreset, applyRenderMode, applyEnvironment,
       toggleAllMenus, toggleSingleMenu, toggleEquipPart, equipFullBodyLoadout, clearAllEquippedParts, synthesizeLiveAgenticPart,
-      openLoadoutModal, closeLoadoutModal, saveCurrentBuildAsPreset, equipPreset, getSavedPresets,
+      openLoadoutModal, closeLoadoutModal, saveCurrentBuildAsPreset, equipPreset, getSavedPresets, captureFullscreenWallpaper,
       equipPartById: async (partId) => {
         const p = state.catalog?.modular_parts?.find(x => x.part_id === partId);
         if (p) await toggleEquipPart(p);
