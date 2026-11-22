@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
   "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
-  "last_synced": "2026-11-22T13:06:43.614105+00:00",
+  "last_synced": "2026-11-22T15:01:43.084604+00:00",
   "baselines": [
     {
       "id": "baseline_gundam_frame_v1",
@@ -2900,7 +2900,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_002_0efcae.glb",
-          "sha256_hash": "37011bdf9f4984e1fcf24ed30e99ee55f199c1accf4cf0b553cadcec4093ef1d",
+          "sha256_hash": "26f84eba1de18aa919175e0d9475d116b57bb64cb32651b01736d01c43f48cc7",
           "file_size_bytes": 306032,
           "compression": "meshopt"
         }
@@ -3630,8 +3630,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_002_3bcb7e.glb",
-          "sha256_hash": "1844544919feb56d04b1520b9f4f87b42d3ff7d7a7d01f3c90cfa66389b0275a",
-          "file_size_bytes": 186416,
+          "sha256_hash": "18b9c78969514eea170d24813ec2c0d93984ded04b78e8cc430b81ca061c899a",
+          "file_size_bytes": 186412,
           "compression": "meshopt"
         }
       },
@@ -3822,7 +3822,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_002_def7cf.glb",
-          "sha256_hash": "b27df24c41ac38573b52a00d1c567a6b83a85c48df9c7f5ac97ac39977851d2f",
+          "sha256_hash": "4f326f49f1779fa8d74c7105b0b60fa1b2d3e04450162b30a650e866544dc675",
           "file_size_bytes": 123340,
           "compression": "meshopt"
         }
@@ -4553,7 +4553,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_003_b4fba0.glb",
-          "sha256_hash": "935ea86faeb77aac6421156db3cd0417977ede7fcba999ecce9fa7b071386af4",
+          "sha256_hash": "1bd417592bdeff233dc48626255d5ba4c25b07076c521b0eef9fcec6c95aa675",
           "file_size_bytes": 114700,
           "compression": "meshopt"
         }
@@ -5828,7 +5828,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_004_94ad25.glb",
-          "sha256_hash": "de48a13aa644f9529576872c19dddecd306beb5e2be772a6bd53ffbc2e726193",
+          "sha256_hash": "ca45a0d5eb0bb5c636978f8f467ad5017aec23c13ee48bc19db0120a86bd844e",
           "file_size_bytes": 240164,
           "compression": "meshopt"
         }
@@ -7281,8 +7281,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_010_af33d9.glb",
-          "sha256_hash": "de96db2083ae859318f7038242c7aced2ebd547939d4dc48e27b5254c69a74e4",
-          "file_size_bytes": 241176,
+          "sha256_hash": "592c468368a8bb744b722552e2673c0c4d512ba7ba669fbaccfcecda75283e26",
+          "file_size_bytes": 241172,
           "compression": "meshopt"
         }
       },
@@ -8204,7 +8204,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_005_525d34.glb",
-          "sha256_hash": "f60e89b1e91edd9ff3263ef3c9cb1e45889b9161410f6af24f3176a4792c1463",
+          "sha256_hash": "3688c2520c9a83e509b5fada62ca9a4dd7e553b3d359704193d37552ffb45113",
           "file_size_bytes": 171004,
           "compression": "meshopt"
         }
@@ -9505,7 +9505,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_007_b1e019.glb",
-          "sha256_hash": "f3fc2ee93d0772dd2a04b16e67289acbd9e89019857b56bf17c084da1edb82f2",
+          "sha256_hash": "5556482324ce1b797248d73bd750144e035ffc758fadfd911471d395509c10b0",
           "file_size_bytes": 175776,
           "compression": "meshopt"
         }
@@ -11170,8 +11170,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_006_20535a.glb",
-          "sha256_hash": "c672da494eacea06077be1908fef44ccd37ebb9c38435e69cd82c8d8c3e8783a",
-          "file_size_bytes": 167916,
+          "sha256_hash": "3462b1d6b669b3a1c81ea2db68eee31b29a8b98af4f1924ff7c74738b6aadc9f",
+          "file_size_bytes": 167920,
           "compression": "meshopt"
         }
       },
@@ -11722,8 +11722,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_011_f7a53f.glb",
-          "sha256_hash": "0a198ab43abb27e4dddd5dd5a4cd8dff9f51400c5357edcd55125facfca4568d",
-          "file_size_bytes": 200084,
+          "sha256_hash": "c8a887e77ffe8be6c21d386a41add9176068420973b0474e73c4e05190ef8f44",
+          "file_size_bytes": 200088,
           "compression": "meshopt"
         }
       },
@@ -13953,7 +13953,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_009_a938f8.glb",
-          "sha256_hash": "af660c3b6bb66794598d8aef181aad89c469dd8fd046d1ca1783f106daf3619b",
+          "sha256_hash": "497931b6d3f9fc9acd9a201e2ec4a8b7e96abd809999c269846b2898f9be3fd9",
           "file_size_bytes": 182660,
           "compression": "meshopt"
         }
@@ -14136,7 +14136,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_009_f00f57.glb",
-          "sha256_hash": "b25661f569dbcab3b9d2120865ffa5817a61252dc3f0ac05f5c63d75f2ab6c8d",
+          "sha256_hash": "039b9ee0b208e41d5510ac0ea37fe296192fc8a20ec5b12efb081d75f9f3540a",
           "file_size_bytes": 116544,
           "compression": "meshopt"
         }
@@ -14688,7 +14688,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_015_ea522d.glb",
-          "sha256_hash": "dbd62f0c2e0640483557e29f3f038ea1a73c1419a76ec3ce86538a751de3b6c4",
+          "sha256_hash": "7142fa0cae81ec16969decf4d65769d79a0bfc6e623831e01d9c0e79422ef6f9",
           "file_size_bytes": 288676,
           "compression": "meshopt"
         }
@@ -15615,8 +15615,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_013_94439e.glb",
-          "sha256_hash": "4bb22df0e99589594fe3b596a09251101e3781fcdb2dac66dacb9f8799d9e4a6",
-          "file_size_bytes": 158068,
+          "sha256_hash": "cd0e353991a55fc7241a9b50c749a24bea0d846459d089017c262e336082182b",
+          "file_size_bytes": 158072,
           "compression": "meshopt"
         }
       },
@@ -16909,8 +16909,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_010_40af7b.glb",
-          "sha256_hash": "6a6f74cb759941552e94cc806d533c4d35a287004d3e4c2e49b5675a72073d2f",
-          "file_size_bytes": 169076,
+          "sha256_hash": "d49b7cf3922e34beacd2e25cf9d81b4409489dbcdfd130c5a5cb2c32b4dac7d4",
+          "file_size_bytes": 169072,
           "compression": "meshopt"
         }
       },
@@ -17648,7 +17648,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_014_3a3c14.glb",
-          "sha256_hash": "eafe392505d66d84540fb6fd51d0de98f6e391d759b21c8cc3f0c50cd943bb60",
+          "sha256_hash": "8cdc78343bd484708233108834bed16a30d8a5ad9c008a8f29fbebcb1078603a",
           "file_size_bytes": 336012,
           "compression": "meshopt"
         }
@@ -19138,8 +19138,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_020_a07b53.glb",
-          "sha256_hash": "7df3ebd18891a3fd3d9e56f1c6bcef90b684b97e224963e7cc0a1383bad1e5fa",
-          "file_size_bytes": 236040,
+          "sha256_hash": "abd5e39f3419d4b1d16ac195c9c03df4ded9e2fe65fdc129b33a4eff5cf31652",
+          "file_size_bytes": 236044,
           "compression": "meshopt"
         }
       },
@@ -20610,7 +20610,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_022_f0a3bd.glb",
-          "sha256_hash": "e5e83243fb2c5d32a184697b7dbbe9c48e28496ed2891c915c170c733647b4ee",
+          "sha256_hash": "ddaed1081ad5941b7cfbbccf6f65667d0509f19672790660bd5f8eb128159d6f",
           "file_size_bytes": 322492,
           "compression": "meshopt"
         }
@@ -21360,8 +21360,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_015_2585af.glb",
-          "sha256_hash": "d43e6dc2164f51f99029b80d8548da4af3057a0e8d13a30bb2ff44754b089996",
-          "file_size_bytes": 180544,
+          "sha256_hash": "65e32c8b287d69dd6a4621c02d6dce73c5653d83b7b3612958f541332ebd4070",
+          "file_size_bytes": 180548,
           "compression": "meshopt"
         }
       },
@@ -22095,8 +22095,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_023_206d63.glb",
-          "sha256_hash": "5294073b5af8ba84e71b87d3e9dba11b49b201ced79583349352a5efcadc449a",
-          "file_size_bytes": 188580,
+          "sha256_hash": "fbfb9779ce8da79db39e0650e3d6be271f3f23a6735cf08b28d63c095c449e51",
+          "file_size_bytes": 188588,
           "compression": "meshopt"
         }
       },
@@ -23015,8 +23015,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_023_98abde.glb",
-          "sha256_hash": "c2204992cf63038dddde469cd113cb9513aff83bf99ffa176ecf23ddad213e43",
-          "file_size_bytes": 169676,
+          "sha256_hash": "97df41a96f0baf8f85377d8c27f463ca1f5357eebf2114ec5fb820a2aeceb6d6",
+          "file_size_bytes": 169680,
           "compression": "meshopt"
         }
       },
@@ -23571,7 +23571,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_025_4b4065.glb",
-          "sha256_hash": "47203d708a6b4384736143c12979f0b1f9a5b91d6445f2b3bb2174c1fcfa60c7",
+          "sha256_hash": "ca52a908c2971189ea0c72a21979892d8db64bb06f6c2d998037edbec8d0d7b3",
           "file_size_bytes": 252748,
           "compression": "meshopt"
         }
@@ -25072,7 +25072,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_024_e890a6.glb",
-          "sha256_hash": "bb381814daa85a314a562db11a33026eb8686a009658171c0bc39c983141873a",
+          "sha256_hash": "85a60d1dd42bdd6dba6c0c27adf18e6524a218dba5c8c0a07a905ca39f2a4fa1",
           "file_size_bytes": 257616,
           "compression": "meshopt"
         }
@@ -26000,7 +26000,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_028_7f68b1.glb",
-          "sha256_hash": "370519fd8ba72d2740a95e513084892b9c95d1dcb2d68592cea6bb680612a770",
+          "sha256_hash": "9cddf05a0b96d82e0574bc5548ff4f51cd5df62f07239a8d0f68adc6968e3c8b",
           "file_size_bytes": 206544,
           "compression": "meshopt"
         }
@@ -27496,7 +27496,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_034_d3aacd.glb",
-          "sha256_hash": "bd794b369fdf945a388d2f6b675d1465e4243cfd3909d23fac3875acda86e7c0",
+          "sha256_hash": "4e29fdfc78020698ad8b6fafb99569dc6988dc0ae0eda23251cbb8bcc5c4271b",
           "file_size_bytes": 140516,
           "compression": "meshopt"
         }
@@ -28060,7 +28060,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_034_8f9106.glb",
-          "sha256_hash": "f03728ca296789b83670dea680980e6a84bf397663024a0323ac33730de81d1e",
+          "sha256_hash": "75abd6584d9e68e155e35b646883b82bfcaef1399171a9c31a81ae453087b27b",
           "file_size_bytes": 399760,
           "compression": "meshopt"
         }
@@ -28824,8 +28824,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_035_0ccb01.glb",
-          "sha256_hash": "8aeed3b866339ad2057afb8a37989c41915dec655e61843010ff72b9d01e688a",
-          "file_size_bytes": 187528,
+          "sha256_hash": "388a03667355f2c425b11b9135f2c7fca4d9b7e211dc441d0b292ff0990f10cc",
+          "file_size_bytes": 187536,
           "compression": "meshopt"
         }
       },
@@ -29592,8 +29592,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_037_2bd246.glb",
-          "sha256_hash": "39078772c42262842c29cb8fddad0515d21f7b7e8022d375214731524f39e76b",
-          "file_size_bytes": 317584,
+          "sha256_hash": "d686df0d5bd5978dfb5407408c60eddc9353c72d10c559fa18729fab656d4a2e",
+          "file_size_bytes": 317580,
           "compression": "meshopt"
         }
       },
@@ -29785,8 +29785,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_034_be26f1.glb",
-          "sha256_hash": "b6a556415e7c724700e6527348ba47906e014a10f77b3a7ade1389ca898a40bf",
-          "file_size_bytes": 234072,
+          "sha256_hash": "7ad28650d609871e93eb2688f777dd1b5128ab00e7bbeabbfd48a74d612f6a82",
+          "file_size_bytes": 234068,
           "compression": "meshopt"
         }
       },
@@ -32073,8 +32073,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_039_6a32be.glb",
-          "sha256_hash": "da834539d43f8cb9288790acdaebf988c6b3b3455986be9aadd2c73846af3d68",
-          "file_size_bytes": 176452,
+          "sha256_hash": "a8ed4269b6b02281fee331394e901c4b02af9be6d12fc83636be5503a3ee731b",
+          "file_size_bytes": 176448,
           "compression": "meshopt"
         }
       },
@@ -34974,8 +34974,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_039_d1fd28.glb",
-          "sha256_hash": "eea9a5c1e336a7340b19d3f5f33bd91462d93e7118c701de8f632b9a7ec86f58",
-          "file_size_bytes": 145380,
+          "sha256_hash": "bbedecf091b4eb6ee3537a85edf9c583dacc958bb46929338cf983aefa075359",
+          "file_size_bytes": 145384,
           "compression": "meshopt"
         }
       },
@@ -36696,8 +36696,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_045_376581.glb",
-          "sha256_hash": "2512c54e6a348a09896663423a7c526c69feff925345db6d92a51e7beac3b859",
-          "file_size_bytes": 248460,
+          "sha256_hash": "e5df7a3922755307c3cd972e818ee267f90a1e8ad293ff6bbdd5f6f485a80ca4",
+          "file_size_bytes": 248456,
           "compression": "meshopt"
         }
       },
@@ -37483,7 +37483,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_040_c2aca2.glb",
-          "sha256_hash": "c2584c28983a695d2959b23bd1ab2b12b3178ddf2b92c6df358ad616750201f8",
+          "sha256_hash": "e3abe7ac20945e70aa5387716ec64b7f015eefd0f075fdd9cafe5e6bb40db9e1",
           "file_size_bytes": 168312,
           "compression": "meshopt"
         }
@@ -38838,7 +38838,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_043_699b9b.glb",
-          "sha256_hash": "4ec3d346267d6aa4e1dc2e786e45b9167014191c3d49a4d67acb2b4fdc286668",
+          "sha256_hash": "9269a2f7a35c2568903006f14487b563bf0eded1505fb37b66c96c238faa57f3",
           "file_size_bytes": 335048,
           "compression": "meshopt"
         }
@@ -39617,8 +39617,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_043_b3ae4a.glb",
-          "sha256_hash": "13ce4a816da782a839b26834e69a7848c097f1c00b67550e162f1e324d2321fe",
-          "file_size_bytes": 193320,
+          "sha256_hash": "f628657e15a575054531bdf7cf30eb156d004df4e6445dadc5da41ef3bd07695",
+          "file_size_bytes": 193328,
           "compression": "meshopt"
         }
       },
@@ -40373,7 +40373,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_047_4324eb.glb",
-          "sha256_hash": "7d113a8b766b51e831ac73d5e699124fc6b5dfc878e00be4445fc0c638db7446",
+          "sha256_hash": "9a63ec252192218ba39b0fb52d01a0efd3232fcfc1438d10dc80f0612d51a2f9",
           "file_size_bytes": 474964,
           "compression": "meshopt"
         }
@@ -41148,8 +41148,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_046_d0c1fc.glb",
-          "sha256_hash": "3f97b8087a4293579d1a86f128694e67640ea25aba9873914804f3cb6c4119e5",
-          "file_size_bytes": 258676,
+          "sha256_hash": "4d0116ecd65c21e7067c655b778762b0e0f14b84ded8350e389fcf35730999ac",
+          "file_size_bytes": 258672,
           "compression": "meshopt"
         }
       },
@@ -41337,7 +41337,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_046_96c6e1.glb",
-          "sha256_hash": "0731716baa83d118537827b42693ecb2446ab9126c3785c911ae235f8e2aa8d6",
+          "sha256_hash": "3d9dc62bf776930ab234f2d01f48bbdc51f766def0bdb391e8435abadd1f7ecc",
           "file_size_bytes": 307096,
           "compression": "meshopt"
         }
@@ -42110,7 +42110,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_044_67dcc9.glb",
-          "sha256_hash": "e512a0db61947b51187ef19d07dd6449ea7dd86d537d79037069382b649d41b5",
+          "sha256_hash": "e31819269b9834e6a5b4d21d19f2e06a521cd1774f2add6d17b5e985b38cf1a1",
           "file_size_bytes": 127268,
           "compression": "meshopt"
         }
@@ -42883,7 +42883,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_047_8b1ea2.glb",
-          "sha256_hash": "80d636a90ff224d082e52056156d1537c46eb628261dcd26dbc33904e587e9af",
+          "sha256_hash": "87286542c4b34b5276bbd434226e8ce59bd6a716c74ad85efd9672ed25dd4a96",
           "file_size_bytes": 269384,
           "compression": "meshopt"
         }
@@ -44235,8 +44235,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_048_901c3a.glb",
-          "sha256_hash": "ce7e4cd71c8ede0c7b8de4f459ae871cec8b5db0c8da2fcf47d9932c2f908a38",
-          "file_size_bytes": 259196,
+          "sha256_hash": "a0fe254526abf41b83102d15f41d1b91157b5e8948039347b8434ea0b977de06",
+          "file_size_bytes": 259204,
           "compression": "meshopt"
         }
       },
@@ -44621,7 +44621,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_045_bc349d.glb",
-          "sha256_hash": "00d58609bf5cf5b011ec68874271c66bc74e7e2d5ea08985f9e76044996d0179",
+          "sha256_hash": "1c8c8dabee589774477445dba70be0eb2d05449deb4885d21912dd6b371e8254",
           "file_size_bytes": 330976,
           "compression": "meshopt"
         }
@@ -44816,8 +44816,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_046_ee7629.glb",
-          "sha256_hash": "fa2f67f5c637c2db355e0e1b09014f5fd620c3fee0ea2fa41bf2e62d8dd1c3d5",
-          "file_size_bytes": 222752,
+          "sha256_hash": "145425e7193ff6564ce0ef36ad0b4c00730d964e509b68a203c6c8d99bb71c23",
+          "file_size_bytes": 222764,
           "compression": "meshopt"
         }
       },
@@ -45401,8 +45401,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_049_d0f77d.glb",
-          "sha256_hash": "6bb0656745b4c09473458c9397212ea3259505c78011af2a553350fd2e6ac518",
-          "file_size_bytes": 324316,
+          "sha256_hash": "f29dbad003ca4c4300d24abf2009a13760428cce4090ff1d977c3d92d4d93646",
+          "file_size_bytes": 324312,
           "compression": "meshopt"
         }
       },
@@ -46153,8 +46153,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_046_8e1677.glb",
-          "sha256_hash": "7b36d04b4655b96be75c47054277e28a7804f6f0161c4a153fca3953327cce96",
-          "file_size_bytes": 360000,
+          "sha256_hash": "daf979d443e9fb5ba3cc583e6f35918fa7175499f73970d53304d74c0eb20817",
+          "file_size_bytes": 360004,
           "compression": "meshopt"
         }
       },
@@ -46346,7 +46346,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_048_e827fc.glb",
-          "sha256_hash": "83720e41e54eb9a98daa4ef2165a0570bd60d1fe208cf7b95738a06e4581dc5a",
+          "sha256_hash": "7715ea2afe585b930ccb78c43076a0292d415c1133428ac6023777a3f193cac8",
           "file_size_bytes": 239620,
           "compression": "meshopt"
         }
@@ -46726,7 +46726,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_049_de057b.glb",
-          "sha256_hash": "ec1ccb4d89a8d33a1f8507041807a150f617969dc8996da972f19486e308400e",
+          "sha256_hash": "af23fc0a02d04f1600c17c09a04b4b52732da37f8065853e9202f30124056178",
           "file_size_bytes": 427476,
           "compression": "meshopt"
         }
@@ -50815,6 +50815,1835 @@
         ],
         "topology_hash": "680442526ec29462",
         "composition_key": "demolition_cage_bumper_plastron+lower_abdominal_era+strike_freedom_royal+g_bdecd8"
+      }
+    },
+    {
+      "part_id": "llm_gen_shoulder_pods_034_c8604f",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-SHL-282",
+      "name": "Justice Gundam Assault Ram Shoulder Pods",
+      "category": "weapon",
+      "primary_hardpoint": "HP-03",
+      "slot_group": "shoulder_pods",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP03-SHOULDER",
+      "entropy_seed": "f9d079578598b5060c45c2115220f9a7d16c11ba9e7dd49a2a4dd5dd5e655929",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 950,
+        "thrust_kgf": 0,
+        "reactor_draw_kw": 300
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Structural bolt integrity verified",
+          "Sensor pod alignment calibrated",
+          "Missile cap clearance checked",
+          "Spike reinforcement stress tested",
+          "Paint scheme matches Justice palette"
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "24 sub-meshes, 3384 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "306,716 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'shoulder_pods' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "Bilateral over-pauldron span x=[-62.6, 62.6]mm"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-62.6, -4.4, -8.5] max=[62.6, 26.3, 11.7]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=web_grounded_groq_bandai_cad_v5_true_infinite, params={'mass_kg': 950, 'thrust_kgf': 0, 'reactor_draw_kw': 300}"
+          },
+          {
+            "id": "CHK-06",
+            "check": "True 3D silhouette & concept uniqueness (anti-clone topology gate)",
+            "passed": true,
+            "detail": "Unique 3D silhouette 'justice_assault_shoulder_ram' (9 comps, 5 prim types, topo=0c61182e)"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-03",
+        "HP-05"
+      ],
+      "structural_specs": {
+        "mass_kg": 950,
+        "bom_computed_mass_kg": 950,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-03",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -62.626,
+            -4.37,
+            -8.496
+          ],
+          "max": [
+            62.626,
+            26.333,
+            11.665
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_shoulder_pods_034_c8604f.glb",
+          "sha256_hash": "b5769c06263d34df7e201fb02f0f486bf3e4371dc9e089c5031a8528a97359c9",
+          "file_size_bytes": 306716,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides forward-firing missile salvo capability and enhanced sensor targeting while reinforcing the shoulder for high-impact CQC assaults, complementing the Justice’s HiMAT thrust",
+        "reactor_power_draw_kw": 300,
+        "vernier_thrust_kgf": 0
+      },
+      "llm_cad_blueprint": {
+        "concept_slug": "justice_assault_shoulder_ram",
+        "base_archetype": "radar_dish_recon_pauldrons",
+        "addon_module": "outer_shield_winglet+upper_missile_cap",
+        "color_scheme": "gouf_cobalt",
+        "proportion_profile": "high_mobility",
+        "composition_key": "radar_dish_recon_pauldrons+outer_shield_winglet+upper_missile_cap+gouf_cobalt+g_3e8238",
+        "addon_modules": [
+          "outer_shield_winglet",
+          "upper_missile_cap"
+        ],
+        "graft_seed": "3e8238"
+      },
+      "reference_sources": [
+        {
+          "title": "ZGMF-X09A Justice Gundam",
+          "url": "https://gundam.fandom.com/wiki/ZGMF-X09A_Justice_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "One of ZAFT's five ZGMF-X Gundam units produced in C.E. 71 using technology derived from the four captured Alliance's Gundams, the ZGMF-X09A Justice Gundam was designed as an assault mobile suit. The Justice's main feature is the Fatum-00 unit on its back. This complex armament unit normally serves as the main thrusters, granting overwhelming acceleration as well as mobility when deployed horizontally and this configuration is also known as 'High-Mobility Aerial Tactics (HiMAT) Mode'. It also grants flight capabili"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "Justice Gundam Assault Ram Shoulder Pods",
+        "concept_slug": "justice_assault_shoulder_ram",
+        "concept_tokens": [
+          "assault",
+          "justice",
+          "pods",
+          "ram"
+        ],
+        "component_count": 9,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "box": 3,
+          "revolved": 1,
+          "spike": 1,
+          "fin": 3,
+          "cylinder": 1
+        },
+        "aabb_size_mm": [
+          125.3,
+          30.7,
+          20.2
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.245,
+          0.161
+        ],
+        "topology_hash": "0c61182eb35171b3",
+        "composition_key": "radar_dish_recon_pauldrons+outer_shield_winglet+upper_missile_cap+gouf_cobalt+g_3e8238"
+      }
+    },
+    {
+      "part_id": "llm_gen_waist_ordnance_034_86e87f",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-WST-283",
+      "name": "Justice Fatum-00 Hip Propulsion & Rail Pack",
+      "category": "armor",
+      "primary_hardpoint": "HP-13",
+      "slot_group": "waist_ordnance",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP13-WAIST",
+      "entropy_seed": "8e8c9c46351786d092088daf880f21cc65dfd7828fd97dec1a4a7c4f4c18dc21",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1200,
+        "thrust_kgf": 50000,
+        "reactor_draw_kw": 800
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Integrated Fatum-00 thrust vectoring verified",
+          "Railgun barrel alignment within ±0.5°",
+          "Propellant pod pressure tolerance tested",
+          "Aero fin aerodynamic profile meets 0.8 drag coefficient",
+          "Structural integrity of waist mounting meets 10,000 N load"
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "28 sub-meshes, 2888 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "228,176 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'waist_ordnance' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "Bilateral waist swivel standoff x=[-38.3, 38.3]mm"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-38.3, -11.8, -11.7] max=[38.3, 10.9, 25.1]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=web_grounded_groq_bandai_cad_v5_true_infinite, params={'mass_kg': 1200, 'thrust_kgf': 50000, 'reactor_draw_kw': 800}"
+          },
+          {
+            "id": "CHK-06",
+            "check": "True 3D silhouette & concept uniqueness (anti-clone topology gate)",
+            "passed": true,
+            "detail": "Unique 3D silhouette 'justice_fatum_hip_propulsion_rail' (10 comps, 4 prim types, topo=a2229730)"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-13",
+        "HP-17"
+      ],
+      "structural_specs": {
+        "mass_kg": 1200,
+        "bom_computed_mass_kg": 1200,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-13",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -38.333,
+            -11.786,
+            -11.669
+          ],
+          "max": [
+            38.333,
+            10.853,
+            25.142
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_waist_ordnance_034_86e87f.glb",
+          "sha256_hash": "6422fcec04546ae9fac468cfe2e5cc258e2ec86604cfc2a460a0c964f2197f81",
+          "file_size_bytes": 228176,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides high‑mobility thrust and railgun firepower for rapid assault and aerial maneuvers.",
+        "reactor_power_draw_kw": 800,
+        "vernier_thrust_kgf": 50000
+      },
+      "llm_cad_blueprint": {
+        "concept_slug": "justice_fatum_hip_propulsion_rail",
+        "base_archetype": "saber_quickdraw_holster_binders",
+        "addon_module": "forward_rail_prongs+side_grenade_cylinders",
+        "color_scheme": "barbatos_iron",
+        "proportion_profile": "heavy_fortress",
+        "composition_key": "saber_quickdraw_holster_binders+forward_rail_prongs+side_grenade_cylinders+barbatos_iron+g_ea6b84",
+        "addon_modules": [
+          "forward_rail_prongs",
+          "side_grenade_cylinders"
+        ],
+        "graft_seed": "ea6b84"
+      },
+      "reference_sources": [
+        {
+          "title": "ZGMF-X09A Justice Gundam",
+          "url": "https://gundam.fandom.com/wiki/ZGMF-X09A_Justice_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "One of ZAFT's five ZGMF-X Gundam units produced in C.E. 71 using technology derived from the four captured Alliance's Gundams, the ZGMF-X09A Justice Gundam was designed as an assault mobile suit. The Justice's main feature is the Fatum-00 unit on its back. This complex armament unit normally serves as the main thrusters, granting overwhelming acceleration as well as mobility when deployed horizontally and this configuration is also known as 'High-Mobility Aerial Tactics (HiMAT) Mode'. It also grants flight capabili"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "Justice Fatum-00 Hip Propulsion & Rail Pack",
+        "concept_slug": "justice_fatum_hip_propulsion_rail",
+        "concept_tokens": [
+          "fatum",
+          "hip",
+          "justice",
+          "propulsion",
+          "rail"
+        ],
+        "component_count": 10,
+        "primitive_types": 4,
+        "primitive_counts": {
+          "fin": 2,
+          "cylinder": 5,
+          "box": 2,
+          "hydraulic": 1
+        },
+        "aabb_size_mm": [
+          76.7,
+          22.6,
+          36.8
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.295,
+          0.48
+        ],
+        "topology_hash": "a22297308b9d45df",
+        "composition_key": "saber_quickdraw_holster_binders+forward_rail_prongs+side_grenade_cylinders+barbatos_iron+g_ea6b84"
+      }
+    },
+    {
+      "part_id": "llm_gen_leg_thrusters_034_9aa40c",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-LEG-284",
+      "name": "MSN-00100 Hyaku Shiki Movable Frame Calf Thrusters",
+      "category": "propulsion",
+      "primary_hardpoint": "HP-24",
+      "slot_group": "leg_thrusters",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP24-CALF",
+      "entropy_seed": "e23c0801c22127acc8f3107d01a9835536b07fa8aa1189617d3d631d478c5114",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1850,
+        "thrust_kgf": 45000,
+        "reactor_draw_kw": 850
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Verify triple armored cooling louvers align with Hyaku Shiki heat dissipation specs",
+          "Confirm twin flush lower bells maintain symmetry with movable frame pivot points",
+          "Check upper_calf_fuel_cell integration does not obstruct transformation joints",
+          "Ensure outer_aero_stabilizer flush fit with tapered high-mobility outer calf cowlings",
+          "Validate titanium accent override contrast against hyaku_shiki_gold base scheme"
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "30 sub-meshes, 4128 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "303,920 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'leg_thrusters' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "Bilateral calf standoff span x=[-45.5, 45.5]mm"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-45.5, -17.7, -13.9] max=[45.5, 17.3, 7.3]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=web_grounded_groq_bandai_cad_v5_true_infinite, params={'mass_kg': 1850, 'thrust_kgf': 45000, 'reactor_draw_kw': 850}"
+          },
+          {
+            "id": "CHK-06",
+            "check": "True 3D silhouette & concept uniqueness (anti-clone topology gate)",
+            "passed": true,
+            "detail": "Unique 3D silhouette 'hyaku_shiki_movable_frame_calf' (9 comps, 5 prim types, topo=936796a4)"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-24",
+        "HP-26"
+      ],
+      "structural_specs": {
+        "mass_kg": 1850,
+        "bom_computed_mass_kg": 1850,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-24",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -45.471,
+            -17.722,
+            -13.876
+          ],
+          "max": [
+            45.471,
+            17.348,
+            7.288
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_leg_thrusters_034_9aa40c.glb",
+          "sha256_hash": "f912f4af417b2d303e06dfb17171f3b4504d7cf6ed12e403864b924fbdfbd914",
+          "file_size_bytes": 303920,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "High-mobility transformable leg assembly integrating movable frame tech with triple cooling louvers for sustained high-G maneuvers.",
+        "reactor_power_draw_kw": 850,
+        "vernier_thrust_kgf": 45000
+      },
+      "llm_cad_blueprint": {
+        "concept_slug": "hyaku_shiki_movable_frame_calf",
+        "base_archetype": "heavy_gouf_flare_thruster_greaves",
+        "addon_module": "outer_aero_stabilizer+upper_calf_fuel_cell",
+        "color_scheme": "hyaku_shiki_gold",
+        "proportion_profile": "high_mobility",
+        "composition_key": "heavy_gouf_flare_thruster_greaves+outer_aero_stabilizer+upper_calf_fuel_cell+hyaku_shiki_gold+acc_titanium+g_539850@s1.0400",
+        "addon_modules": [
+          "outer_aero_stabilizer",
+          "upper_calf_fuel_cell"
+        ],
+        "accent_override": "titanium",
+        "morph_scale": 1.04,
+        "graft_seed": "539850"
+      },
+      "reference_sources": [
+        {
+          "title": "MSN-00100 Hyaku Shiki",
+          "url": "https://gundam.fandom.com/wiki/MSN-00100_Hyaku_Shiki",
+          "source": "Gundam Wiki",
+          "summary": "The Hyaku Shiki is a mobile suit built by Anaheim Electronics as part of the \"Zeta Project\". It was originally designed as the prototype transformable mobile suit, MSN-001 Delta Gundam which incorporated Anaheim Electronics' own \"movable frame\" technology and backpack-mounted wing binders for additional mobility. However, defects in the frame design led to problems in its transformation and the machine's development was soon abandoned. When the AEUG captured the Titans' RX-178 Gundam Mk-II, the movable frame techno"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "MSN-00100 Hyaku Shiki Movable Frame Calf Thrusters",
+        "concept_slug": "hyaku_shiki_movable_frame_calf",
+        "concept_tokens": [
+          "frame",
+          "hyaku",
+          "movable",
+          "msn",
+          "shiki",
+          "thrusters"
+        ],
+        "component_count": 9,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "box": 3,
+          "vernier": 2,
+          "servo_drum": 1,
+          "fin": 2,
+          "cylinder": 1
+        },
+        "aabb_size_mm": [
+          90.9,
+          35.1,
+          21.2
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.386,
+          0.233
+        ],
+        "topology_hash": "936796a45331a7f9",
+        "composition_key": "heavy_gouf_flare_thruster_greaves+outer_aero_stabilizer+upper_calf_fuel_cell+hyaku_shiki_gold+acc_titanium+g_539850@s1.0400"
+      }
+    },
+    {
+      "part_id": "llm_gen_aux_weapon_034_2a2822",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-WPN-285",
+      "name": "RX-78-2 Auxiliary Twin Beam Scattergun",
+      "category": "weapon",
+      "primary_hardpoint": "HP-11",
+      "slot_group": "aux_weapon",
+      "weapon_grip_type": "firearm_pistol_grip",
+      "adapter_id": "ADP-HP11-WEAPON",
+      "entropy_seed": "b9c0e65095e6a2ebaf1a488d9352a847a8bb17828d0592b70a2ef2dd7f64de8d",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 800,
+        "thrust_kgf": 0,
+        "reactor_draw_kw": 1200
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Verify side drum capacitor integration does not exceed joint stress limits.",
+          "Confirm underbarrel grenade launcher clearance with shoulder magnum mounts.",
+          "Test heat dissipation of twin beam scattergun under continuous fire.",
+          "Validate power draw stays within 1500 kW reactor budget.",
+          "Ensure morph_scale maintains symmetry with adjacent torso panels."
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "12 sub-meshes, 1712 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "164,844 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'aux_weapon' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "GUN grip (firearm_pistol_grip): y=[-5.2, 15.0]mm, muzzle max_z=42.2mm"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-4.6, -5.2, -3.0] max=[4.6, 15.0, 42.2]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=web_grounded_groq_bandai_cad_v5_true_infinite, params={'mass_kg': 800, 'thrust_kgf': 0, 'reactor_draw_kw': 1200}"
+          },
+          {
+            "id": "CHK-06",
+            "check": "True 3D silhouette & concept uniqueness (anti-clone topology gate)",
+            "passed": true,
+            "detail": "Unique 3D silhouette 'rx78_aux_scatter_grenade' (10 comps, 3 prim types, topo=f019938d)"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-11",
+        "HP-12"
+      ],
+      "structural_specs": {
+        "mass_kg": 800,
+        "bom_computed_mass_kg": 800,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-11",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -4.558,
+            -5.187,
+            -3.0
+          ],
+          "max": [
+            4.558,
+            14.987,
+            42.16
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_aux_weapon_034_2a2822.glb",
+          "sha256_hash": "66e22e944fb648f59c0a89bc4be0e845e511cbc1d14bb784a3c76fc58209be7e",
+          "file_size_bytes": 164844,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides high‑rate, short‑range beam fire and grenade support for suppressing enemy mobile suits and clearing entrenched positions.",
+        "reactor_power_draw_kw": 1200,
+        "vernier_thrust_kgf": 0
+      },
+      "llm_cad_blueprint": {
+        "concept_slug": "rx78_aux_scatter_grenade",
+        "base_archetype": "twin_beam_shotgun_scatter",
+        "addon_module": "extended_sniper_scope",
+        "color_scheme": "wing_zero_pearl",
+        "proportion_profile": "extended_spec",
+        "composition_key": "twin_beam_shotgun_scatter+extended_sniper_scope+wing_zero_pearl+g_363b9c",
+        "graft_seed": "363b9c"
+      },
+      "reference_sources": [
+        {
+          "title": "RX-78-02 Gundam",
+          "url": "https://gundam.fandom.com/wiki/RX-78-02_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "Its estimate generator output was from 1000&nbsp;kW to 1400&nbsp;kW, its target output was to be at least 150% of the RCX-76 . The operation tests of the RX-78-02, a prototype MS of the Earth Federation, were carried out in secret, but civilian Amuro Ray coincidentally became its pilot when Zeon Forces assaulted Side 7. The RX-78-02 utilizes its wide array of portable weapons such as its beam rifle and hyper bazooka. It also has fixed weaponry such as two shoulder magnums on the left shoulder, a gatling gun on the "
+        },
+        {
+          "title": "Gundam (fictional robot)",
+          "url": "https://en.wikipedia.org/wiki/Gundam_(fictional_robot)",
+          "source": "Wikipedia",
+          "summary": "The RX-78-2 Gundam (Japanese: RX-78-2 ガンダム, Hepburn: Āru Ekkusu Nanajū Hachi no Ni Gandamu) is a piloted mecha introduced in 1979 in Yoshiyuki Tomino's and Sunrise's anime series Mobile Suit Gundam. In the series, it is a prototype weapon used by the Earth Federation. The mecha ends up in the hands of Amuro Ray, the son of Tem Ray, who designed the Gundam. Amuro Ray goes on to pilot the mecha for the Earth Federation"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RX-78-2 Auxiliary Twin Beam Scattergun",
+        "concept_slug": "rx78_aux_scatter_grenade",
+        "concept_tokens": [
+          "beam",
+          "grenade",
+          "scatter",
+          "scattergun"
+        ],
+        "component_count": 10,
+        "primitive_types": 3,
+        "primitive_counts": {
+          "box": 4,
+          "cylinder": 5,
+          "fin": 1
+        },
+        "aabb_size_mm": [
+          9.1,
+          20.2,
+          45.2
+        ],
+        "aabb_ratios": [
+          0.202,
+          0.447,
+          1.0
+        ],
+        "topology_hash": "f019938d5391da57",
+        "composition_key": "twin_beam_shotgun_scatter+extended_sniper_scope+wing_zero_pearl+g_363b9c"
+      }
+    },
+    {
+      "part_id": "llm_gen_dorsal_pack_034_16d47f",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-DPK-286",
+      "name": "Tallgeese II Dorsal Propulsion Pack",
+      "category": "propulsion",
+      "primary_hardpoint": "HP-00",
+      "slot_group": "dorsal_pack",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP00-DORSAL",
+      "entropy_seed": "101fa7b19654c9b2a7a2775e64493776eec206926abb5d0c6a51316a3287b067",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 2100,
+        "thrust_kgf": 52000,
+        "reactor_draw_kw": 420
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Verify twin propellant tank alignment",
+          "Confirm center stabilizer tail attachment",
+          "Test quad micro vernier thruster calibration",
+          "Check dorsal pack weight distribution",
+          "Validate color scheme application"
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "28 sub-meshes, 2780 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "253,896 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'dorsal_pack' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "UHIS dovetail plug present, dorsal min_z=-22.2mm"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-57.3, -33.1, -22.2] max=[57.3, 46.6, 14.9]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=web_grounded_groq_bandai_cad_v5_true_infinite, params={'mass_kg': 2100, 'thrust_kgf': 52000, 'reactor_draw_kw': 420}"
+          },
+          {
+            "id": "CHK-06",
+            "check": "True 3D silhouette & concept uniqueness (anti-clone topology gate)",
+            "passed": true,
+            "detail": "Unique 3D silhouette 'tallgeese_ii_dorsal_pack' (11 comps, 4 prim types, topo=be744712)"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-00"
+      ],
+      "structural_specs": {
+        "mass_kg": 2100,
+        "bom_computed_mass_kg": 2100,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-00",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -57.33,
+            -33.083,
+            -22.17
+          ],
+          "max": [
+            57.33,
+            46.633,
+            14.89
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_dorsal_pack_034_16d47f.glb",
+          "sha256_hash": "d5fa2fbee9c32055608918f09472b31ae45b5fcd55dd23d7a42861ff88805c5b",
+          "file_size_bytes": 253896,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides orbital endurance and high agility for Tallgeese II, with twin propellant tanks, a stabilizer tail, and quad micro verniers for maneuvering.",
+        "reactor_power_draw_kw": 420,
+        "vernier_thrust_kgf": 52000
+      },
+      "llm_cad_blueprint": {
+        "concept_slug": "tallgeese_ii_dorsal_pack",
+        "base_archetype": "six_wing_seraph_angel_binders",
+        "addon_module": "twin_over_shoulder_cannons",
+        "color_scheme": "wing_zero_pearl",
+        "proportion_profile": "heavy_fortress",
+        "composition_key": "six_wing_seraph_angel_binders+twin_over_shoulder_cannons+wing_zero_pearl+g_e0b85a",
+        "graft_seed": "e0b85a"
+      },
+      "reference_sources": [
+        {
+          "title": "OZ-00MS2 Tallgeese II",
+          "url": "https://gundam.fandom.com/wiki/OZ-00MS2_Tallgeese_II",
+          "source": "Gundam Wiki",
+          "summary": "The OZ-00MS2 Tallgeese II was built exclusively for Treize Khushrenada, the leader of the World Nation. It was assembled from spare parts of the OZ-00MS Tallgeese, but has a different head crest, a new face mask that resembled the Gundam's, and the colors on part of its chests, shoulders, waist, \"Super Vernier\" thruster units, and shield have been changed to blue. This blue color was said to reflect Treize's intention to sortie as a representative of the Earth. Although certain sections of the Tallgeese II were mad"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "Tallgeese II Dorsal Propulsion Pack",
+        "concept_slug": "tallgeese_ii_dorsal_pack",
+        "concept_tokens": [
+          "propulsion",
+          "tallgeese"
+        ],
+        "component_count": 11,
+        "primitive_types": 4,
+        "primitive_counts": {
+          "box": 4,
+          "fin": 4,
+          "vernier": 1,
+          "cylinder": 2
+        },
+        "aabb_size_mm": [
+          114.7,
+          79.7,
+          37.1
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.695,
+          0.323
+        ],
+        "topology_hash": "be7447125b4203a8",
+        "composition_key": "six_wing_seraph_angel_binders+twin_over_shoulder_cannons+wing_zero_pearl+g_e0b85a"
+      }
+    },
+    {
+      "part_id": "llm_gen_head_sensor_035_c72b7f",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-HED-287",
+      "name": "ASW-G-08 Barbatos Cranial Reactor Sync Unit",
+      "category": "modular_mission_pack",
+      "primary_hardpoint": "HP-01",
+      "slot_group": "head_sensor",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP01-CRANIAL",
+      "entropy_seed": "ccf7c7003a12d717209b800086685c219ae188c539343d2990242450111562ba",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 850,
+        "thrust_kgf": 0,
+        "reactor_draw_kw": 1200
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Verify flush integration of twin split V-fins with psychoframe resonance channels.",
+          "Confirm structural integrity of rear cooling crest against reactor heat dissipation.",
+          "Check symmetry of twin sensor ears for balanced telemetry reception.",
+          "Ensure gunmetal accent override matches Barbatos iron color scheme tolerance.",
+          "Validate morph_scale 1.01 maintains 1/100 Bandai kit flush fitment."
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "19 sub-meshes, 3024 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "245,744 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'head_sensor' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "Cranial flush clearance max_x=15.1mm, max_y=23.8mm"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-15.1, -1.9, -15.5] max=[15.1, 23.8, 6.0]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=web_grounded_groq_bandai_cad_v5_true_infinite, params={'mass_kg': 850, 'thrust_kgf': 0, 'reactor_draw_kw': 1200}"
+          },
+          {
+            "id": "CHK-06",
+            "check": "True 3D silhouette & concept uniqueness (anti-clone topology gate)",
+            "passed": true,
+            "detail": "Unique 3D silhouette 'barbatos_cranial_reactor_sync' (10 comps, 4 prim types, topo=5c909375)"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-01",
+        "HP-02"
+      ],
+      "structural_specs": {
+        "mass_kg": 850,
+        "bom_computed_mass_kg": 850,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-01",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -15.139,
+            -1.898,
+            -15.512
+          ],
+          "max": [
+            15.139,
+            23.826,
+            6.001
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_head_sensor_035_c72b7f.glb",
+          "sha256_hash": "db47325ac4bdd10fea513750cbbdfec6b878f262b3cbc2c38a621eddff9a8263",
+          "file_size_bytes": 245744,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "High-torque cranial sensor array integrating Chryse Guard reactor telemetry with degraded armor plating for sustained Calamity War combat operations.",
+        "reactor_power_draw_kw": 1200,
+        "vernier_thrust_kgf": 0
+      },
+      "llm_cad_blueprint": {
+        "concept_slug": "barbatos_cranial_reactor_sync",
+        "base_archetype": "unicorn_destroy_split_vfin",
+        "addon_module": "rear_cooling_crest+twin_sensor_ears",
+        "color_scheme": "barbatos_iron",
+        "proportion_profile": "heavy_fortress",
+        "composition_key": "unicorn_destroy_split_vfin+rear_cooling_crest+twin_sensor_ears+barbatos_iron+acc_gunmetal+g_d983a6@s1.0100",
+        "addon_modules": [
+          "rear_cooling_crest",
+          "twin_sensor_ears"
+        ],
+        "accent_override": "gunmetal",
+        "morph_scale": 1.01,
+        "graft_seed": "d983a6"
+      },
+      "reference_sources": [
+        {
+          "title": "ASW-G-08 Gundam Barbatos",
+          "url": "https://gundam.fandom.com/wiki/ASW-G-08_Gundam_Barbatos",
+          "source": "Gundam Wiki",
+          "summary": "The ASW-G-08 Gundam Barbatos is one of 72 \"Gundam\" frames that was produced and used in the Calamity War, roughly 300 years ago. After it was recovered, Chryse Guard Security used it as a power reactor. A new cockpit similar to the one used by the TK-53 CGS Mobile Workers was installed prior to its redeployment by the 3rd Group. Poor maintenance over the centuries since the Calamity War has degraded the Barbatos' armor and full combat potential. However because it is difficult to run them in parallel operation, onl"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "ASW-G-08 Barbatos Cranial Reactor Sync Unit",
+        "concept_slug": "barbatos_cranial_reactor_sync",
+        "concept_tokens": [
+          "asw",
+          "barbatos",
+          "cranial",
+          "reactor",
+          "sync"
+        ],
+        "component_count": 10,
+        "primitive_types": 4,
+        "primitive_counts": {
+          "box": 3,
+          "fin": 4,
+          "cylinder": 2,
+          "servo_drum": 1
+        },
+        "aabb_size_mm": [
+          30.3,
+          25.7,
+          21.5
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.85,
+          0.71
+        ],
+        "topology_hash": "5c909375fcd99661",
+        "composition_key": "unicorn_destroy_split_vfin+rear_cooling_crest+twin_sensor_ears+barbatos_iron+acc_gunmetal+g_d983a6@s1.0100"
+      }
+    },
+    {
+      "part_id": "llm_gen_chest_armor_035_d75052",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-CHS-288",
+      "name": "ZGMF-X13A Providence V‑Crest Chest Plastron",
+      "category": "armor",
+      "primary_hardpoint": "HP-09",
+      "slot_group": "chest_armor",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP09-PECTORAL",
+      "entropy_seed": "0ac6147d0908a3f623507793cdcd657ba4a806ede6f1ebbfc9b9d7d663d4e54f",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1300,
+        "thrust_kgf": 5000,
+        "reactor_draw_kw": 1200
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Verify Phase‑Shift armor alignment",
+          "Confirm emitter mounting torque",
+          "Check vent clearance for heat dissipation",
+          "Validate upper collar structural reinforcement",
+          "Run neutron jammer cancellation field test"
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "19 sub-meshes, 3296 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "329,128 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'chest_armor' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "Chest standoff z=[0.5, 14.1]mm (inward wrap)"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-17.5, -5.9, 0.5] max=[17.5, 12.3, 14.1]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=web_grounded_groq_bandai_cad_v5_true_infinite, params={'mass_kg': 1300, 'thrust_kgf': 5000, 'reactor_draw_kw': 1200}"
+          },
+          {
+            "id": "CHK-06",
+            "check": "True 3D silhouette & concept uniqueness (anti-clone topology gate)",
+            "passed": true,
+            "detail": "Unique 3D silhouette 'providence_phase_shift_vcrest' (10 comps, 2 prim types, topo=f5479496)"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-09",
+        "HP-10"
+      ],
+      "structural_specs": {
+        "mass_kg": 1300,
+        "bom_computed_mass_kg": 1300,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-09",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -17.527,
+            -5.862,
+            0.5
+          ],
+          "max": [
+            17.527,
+            12.308,
+            14.147
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_chest_armor_035_d75052.glb",
+          "sha256_hash": "432e4f6ffa779f9403cdd7bf572e20db688f934d2abd67444ba65b8acc2541d7",
+          "file_size_bytes": 329128,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Close‑combat chest module integrating Phase‑Shift V‑Crest armor, a central Neutron Jammer Canceller emitter, and vented twin‑hydraulic braces for rapid beam‑saber deployment.",
+        "reactor_power_draw_kw": 1200,
+        "vernier_thrust_kgf": 5000
+      },
+      "llm_cad_blueprint": {
+        "concept_slug": "providence_phase_shift_vcrest",
+        "base_archetype": "twin_chest_gatling_ports",
+        "addon_module": "lower_abdominal_era+upper_collar_gorget",
+        "color_scheme": "barbatos_iron",
+        "proportion_profile": "standard",
+        "composition_key": "twin_chest_gatling_ports+lower_abdominal_era+upper_collar_gorget+barbatos_iron+g_baadfc",
+        "addon_modules": [
+          "lower_abdominal_era",
+          "upper_collar_gorget"
+        ],
+        "graft_seed": "baadfc"
+      },
+      "reference_sources": [
+        {
+          "title": "ZGMF-X13A Providence Gundam",
+          "url": "https://gundam.fandom.com/wiki/ZGMF-X13A_Providence_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "Like the other ZGMF-X Series Gundams created by ZAFT in C.E. 71, the ZGMF-X13A Providence Gundam is equipped with a Neutron Jammer Canceller and is powered by a nuclear reactor. It is also armored with Phase Shift armor and features armaments reverse engineered from the stolen mobile suits of the Earth Alliance. Initially designed as a close combat unit with large beam sabers, the Providence is later changed into a DRAGOON system equipped unit when Rau Le Creuset is designated as its pilot and because it could be p"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "ZGMF-X13A Providence V‑Crest Chest Plastron",
+        "concept_slug": "providence_phase_shift_vcrest",
+        "concept_tokens": [
+          "crest",
+          "phase",
+          "plastron",
+          "providence",
+          "shift",
+          "vcrest",
+          "zgmf"
+        ],
+        "component_count": 10,
+        "primitive_types": 2,
+        "primitive_counts": {
+          "box": 7,
+          "cylinder": 3
+        },
+        "aabb_size_mm": [
+          35.1,
+          18.2,
+          13.6
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.518,
+          0.389
+        ],
+        "topology_hash": "f547949618948017",
+        "composition_key": "twin_chest_gatling_ports+lower_abdominal_era+upper_collar_gorget+barbatos_iron+g_baadfc"
+      }
+    },
+    {
+      "part_id": "llm_gen_shoulder_pods_035_cbd2d0",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-SHL-289",
+      "name": "ASW-G-66 Kimaris Space AA Missile Pods",
+      "category": "weapon",
+      "primary_hardpoint": "HP-03",
+      "slot_group": "shoulder_pods",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP03-SHOULDER",
+      "entropy_seed": "04e9ac80bcbd0593060fa5511c6f313acc77c23cbd08bff4dc0865589d655b09",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1200,
+        "thrust_kgf": 50000,
+        "reactor_draw_kw": 1200
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Structural integrity of twin AA turrets under high G-loads",
+          "Thermal management of dual Ahab reactor heat sinks",
+          "Compatibility of upper missile cap with pod mounting",
+          "Sensor pod alignment with targeting systems",
+          "Vernier thrust vectoring calibration"
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "28 sub-meshes, 4320 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "397,304 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'shoulder_pods' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "Bilateral over-pauldron span x=[-61.2, 61.2]mm"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-61.2, -12.8, -11.0] max=[61.2, 27.3, 10.3]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=web_grounded_groq_bandai_cad_v5_true_infinite, params={'mass_kg': 1200, 'thrust_kgf': 50000, 'reactor_draw_kw': 1200}"
+          },
+          {
+            "id": "CHK-06",
+            "check": "True 3D silhouette & concept uniqueness (anti-clone topology gate)",
+            "passed": true,
+            "detail": "Unique 3D silhouette 'kimaris_space_aa_missile_pods' (9 comps, 3 prim types, topo=badd63c5)"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-03",
+        "HP-05"
+      ],
+      "structural_specs": {
+        "mass_kg": 1200,
+        "bom_computed_mass_kg": 1200,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-03",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -61.214,
+            -12.785,
+            -10.955
+          ],
+          "max": [
+            61.214,
+            27.264,
+            10.3
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_shoulder_pods_035_cbd2d0.glb",
+          "sha256_hash": "24ea5aa66649f8bad48fbce46407b736e4b759e458145c669b90398bbc474d7b",
+          "file_size_bytes": 397304,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "High-energy anti-missile and missile pods optimized for low-orbit space combat, leveraging dual Ahab reactors for sustained firepower.",
+        "reactor_power_draw_kw": 1200,
+        "vernier_thrust_kgf": 50000
+      },
+      "llm_cad_blueprint": {
+        "concept_slug": "kimaris_space_aa_missile_pods",
+        "base_archetype": "swept_samurai_wing_pauldrons",
+        "addon_module": "upper_missile_cap",
+        "color_scheme": "banshee_obsidian",
+        "proportion_profile": "heavy_fortress",
+        "composition_key": "swept_samurai_wing_pauldrons+upper_missile_cap+banshee_obsidian+g_a8e465",
+        "graft_seed": "a8e465"
+      },
+      "reference_sources": [
+        {
+          "title": "ASW-G-66 Gundam Kimaris",
+          "url": "https://gundam.fandom.com/wiki/ASW-G-66_Gundam_Kimaris",
+          "source": "Gundam Wiki",
+          "summary": "One of the \"Gundam Frames\" that was produced and used in the Calamity War roughly 300 years ago, the ASW-G-66 Gundam Kimaris is able to achieve a high energy output because it possesses two Ahab Reactors. Only a total of 72 Gundam Frames were ever produced because it is difficult to run two Ahab Reactors in parallel operation. Due to its versatile Gundam Frame, the Gundam Kimaris can be used in any environment, but it is particularly adept at space combat and has outstanding stability in low orbit combat despite th"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "ASW-G-66 Kimaris Space AA Missile Pods",
+        "concept_slug": "kimaris_space_aa_missile_pods",
+        "concept_tokens": [
+          "asw",
+          "kimaris",
+          "missile",
+          "pods",
+          "space"
+        ],
+        "component_count": 9,
+        "primitive_types": 3,
+        "primitive_counts": {
+          "box": 5,
+          "fin": 2,
+          "vernier": 2
+        },
+        "aabb_size_mm": [
+          122.4,
+          40.0,
+          21.3
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.327,
+          0.174
+        ],
+        "topology_hash": "badd63c50ff7d9ec",
+        "composition_key": "swept_samurai_wing_pauldrons+upper_missile_cap+banshee_obsidian+g_a8e465"
+      }
+    },
+    {
+      "part_id": "llm_gen_waist_ordnance_035_37e5ee",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-WST-290",
+      "name": "RX-105 Ξ Gundam (HF) Waist Ambac & Aero Pack",
+      "category": "armor",
+      "primary_hardpoint": "HP-13",
+      "slot_group": "waist_ordnance",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP13-WAIST",
+      "entropy_seed": "e7fa3a13f6576fd6d42c6edd2b313a55c7f591616d6590bc9debcee28d51a0db",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1850,
+        "thrust_kgf": 45000,
+        "reactor_draw_kw": 850
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Verify flush integration of Minovsky Craft-derived propellant cells with main frame waist plate.",
+          "Confirm swept outer aero fins maintain symmetric balance for high-G beam barrier flips.",
+          "Check rear ambac verniers for 360-degree rotational clearance without skirt interference.",
+          "Ensure gunmetal accent trim aligns with Zeon olive ace base for authentic HF variant aesthetic.",
+          "Validate structural load distribution for high-mobility profile at 1.015 morph scale."
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "22 sub-meshes, 3312 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "236,768 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'waist_ordnance' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "Bilateral waist swivel standoff x=[-38.6, 38.6]mm"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-38.6, -7.8, -9.0] max=[38.6, 8.9, 23.0]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=web_grounded_groq_bandai_cad_v5_true_infinite, params={'mass_kg': 1850, 'thrust_kgf': 45000, 'reactor_draw_kw': 850}"
+          },
+          {
+            "id": "CHK-06",
+            "check": "True 3D silhouette & concept uniqueness (anti-clone topology gate)",
+            "passed": true,
+            "detail": "Unique 3D silhouette 'rx105_xi_gundam_hf_waist_ambac' (8 comps, 5 prim types, topo=4d9b3c8e)"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-13",
+        "HP-17"
+      ],
+      "structural_specs": {
+        "mass_kg": 1850,
+        "bom_computed_mass_kg": 1850,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-13",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -38.599,
+            -7.805,
+            -9.0
+          ],
+          "max": [
+            38.599,
+            8.896,
+            23.0
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_waist_ordnance_035_37e5ee.glb",
+          "sha256_hash": "bae54fbe3bb9be9ee19936fc6f5a91afdd0d0b5900c671f2674a6d9158a0785f",
+          "file_size_bytes": 236768,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "High-mobility waist assembly integrating Minovsky Craft-derived propulsion cells with swept aero fins for agile beam barrier deployment maneuvers.",
+        "reactor_power_draw_kw": 850,
+        "vernier_thrust_kgf": 45000
+      },
+      "llm_cad_blueprint": {
+        "concept_slug": "rx105_xi_gundam_hf_waist_ambac",
+        "base_archetype": "twin_hip_missile_pods",
+        "addon_module": "forward_rail_prongs",
+        "color_scheme": "sazabi_verka",
+        "proportion_profile": "standard",
+        "composition_key": "twin_hip_missile_pods+forward_rail_prongs+sazabi_verka+g_e19cc0",
+        "graft_seed": "e19cc0"
+      },
+      "reference_sources": [
+        {
+          "title": "RX-105 Ξ Gundam (HF)",
+          "url": "https://gundam.fandom.com/wiki/RX-105_%CE%9E_Gundam_(HF)",
+          "source": "Gundam Wiki",
+          "summary": "After completion of the last model of Project Zeta, the RX-104FF Penelope, Anaheim Electronics secretly developed and built an improved variant, the RX-105 Ξ Gundam, and sold it to the terrorist group of Mafty Navue Erin. The Ξ Gundam features a Minovsky Craft unit similar to the Penelope but integrates it into its main frame, resulting in a sleeker design and lighter mass. Unlike Penelope, the Ξ Gundam doesn't transform but deploys a Beam Barrier by flipping its chest armor up. The Beam Barrier is a device that cr"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RX-105 Ξ Gundam (HF) Waist Ambac & Aero Pack",
+        "concept_slug": "rx105_xi_gundam_hf_waist_ambac",
+        "concept_tokens": [
+          "aero",
+          "ambac"
+        ],
+        "component_count": 8,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "box": 2,
+          "spike": 2,
+          "fin": 2,
+          "servo_drum": 1,
+          "cylinder": 1
+        },
+        "aabb_size_mm": [
+          77.2,
+          16.7,
+          32.0
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.216,
+          0.415
+        ],
+        "topology_hash": "4d9b3c8e79f19f19",
+        "composition_key": "twin_hip_missile_pods+forward_rail_prongs+sazabi_verka+g_e19cc0"
+      }
+    },
+    {
+      "part_id": "llm_gen_leg_thrusters_035_c23092",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-LEG-291",
+      "name": "Freedom Gundam HP-24 Aero Fuel Thruster Kit",
+      "category": "propulsion",
+      "primary_hardpoint": "HP-24",
+      "slot_group": "leg_thrusters",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP24-CALF",
+      "entropy_seed": "7865758e052a4ee12c8301c549473b33c1e4aac8d56f2a907989b2bf602e29cf",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1300,
+        "thrust_kgf": 85000,
+        "reactor_draw_kw": 1200
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Verify aero fin alignment within 0.2° tolerance",
+          "Confirm fuel cell integration seals at 150 MPa",
+          "Test dual ankle vernier articulation range 0‑45°",
+          "Structural stress analysis under 1.5 g load passes",
+          "Electrical routing to reactor draw within 5% variance"
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "32 sub-meshes, 3656 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "294,528 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'leg_thrusters' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "Bilateral calf standoff span x=[-45.5, 45.5]mm"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-45.5, -16.6, -13.9] max=[45.5, 20.4, 8.2]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=web_grounded_groq_bandai_cad_v5_true_infinite, params={'mass_kg': 1300, 'thrust_kgf': 85000, 'reactor_draw_kw': 1200}"
+          },
+          {
+            "id": "CHK-06",
+            "check": "True 3D silhouette & concept uniqueness (anti-clone topology gate)",
+            "passed": true,
+            "detail": "Unique 3D silhouette 'freedom_leg_thruster_aero_fuel' (10 comps, 4 prim types, topo=3fb8b06f)"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-24",
+        "HP-26"
+      ],
+      "structural_specs": {
+        "mass_kg": 1300,
+        "bom_computed_mass_kg": 1300,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-24",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -45.471,
+            -16.648,
+            -13.876
+          ],
+          "max": [
+            45.471,
+            20.376,
+            8.234
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_leg_thrusters_035_c23092.glb",
+          "sha256_hash": "be21433e4f53ac0b6555c5439e7dbc32b43dcbd24447da553c8fbb2d91d35804",
+          "file_size_bytes": 294528,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides high‑mobility atmospheric thrust and extended flight endurance for the Freedom Gundam, enabling rapid maneuvering and sustained high‑speed aerial combat.",
+        "reactor_power_draw_kw": 1200,
+        "vernier_thrust_kgf": 85000
+      },
+      "llm_cad_blueprint": {
+        "concept_slug": "freedom_leg_thruster_aero_fuel",
+        "base_archetype": "aero_fin_interceptor_greaves",
+        "addon_module": "dual_ankle_verniers+outer_aero_stabilizer+upper_calf_fuel_cell",
+        "color_scheme": "strike_freedom_royal",
+        "proportion_profile": "high_mobility",
+        "composition_key": "aero_fin_interceptor_greaves+dual_ankle_verniers+outer_aero_stabilizer+upper_calf_fuel_cell+strike_freedom_royal+acc_gold+g_33786e@s1.0400",
+        "addon_modules": [
+          "dual_ankle_verniers",
+          "outer_aero_stabilizer",
+          "upper_calf_fuel_cell"
+        ],
+        "accent_override": "gold",
+        "morph_scale": 1.04,
+        "graft_seed": "33786e"
+      },
+      "reference_sources": [
+        {
+          "title": "ZGMF-X10A Freedom Gundam",
+          "url": "https://gundam.fandom.com/wiki/ZGMF-X10A_Freedom_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "One of ZAFT's ZGMF-X Series of Gundam units built in C.E. 71 using technology derived from the four captured Earth Alliance's Gundams, the ZGMF-X10A Freedom Gundam has Phase Shift Armor and its armaments include CIWS, beam sabers, shield, plasma beam cannons, railguns, and a beam rifle. When the latter three weapons are used simultaneously, the Freedom is said to be in 'Full Burst Mode'. The mobile suit has full flight capabilities in the atmosphere and the rear-mounted wings can be deployed in \"High Mobility Aeria"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "Freedom Gundam HP-24 Aero Fuel Thruster Kit",
+        "concept_slug": "freedom_leg_thruster_aero_fuel",
+        "concept_tokens": [
+          "aero",
+          "freedom",
+          "fuel",
+          "thruster"
+        ],
+        "component_count": 10,
+        "primitive_types": 4,
+        "primitive_counts": {
+          "box": 3,
+          "fin": 3,
+          "vernier": 3,
+          "cylinder": 1
+        },
+        "aabb_size_mm": [
+          90.9,
+          37.0,
+          22.1
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.407,
+          0.243
+        ],
+        "topology_hash": "3fb8b06f34cd1381",
+        "composition_key": "aero_fin_interceptor_greaves+dual_ankle_verniers+outer_aero_stabilizer+upper_calf_fuel_cell+strike_freedom_royal+acc_gold+g_33786e@s1.0400"
       }
     }
   ]
