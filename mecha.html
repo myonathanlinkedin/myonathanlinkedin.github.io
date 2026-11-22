@@ -3227,7 +3227,19 @@
         return getSharedMechaMaterial({ color: 0x64748b, roughness: 0.30, metalness: 0.78 });
       }
       let color = pc.frame, roughness = 0.40, metalness = 0.65, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true;
-      if (n.includes('optic_cyan') || n.includes('plasma_core_cyan') || n.includes('lens_emerald')) {
+      if (n.includes('psycho_emerald')) {
+        color = 0x10b981; emissive = 0x059669; emissiveIntensity = 1.85; roughness = 0.14; metalness = 0.15; useDetail = false;
+      } else if (n.includes('amber_optic')) {
+        color = 0xf59e0b; emissive = 0xd97706; emissiveIntensity = 1.9; roughness = 0.14; metalness = 0.15; useDetail = false;
+      } else if (n.includes('titanium_silver')) {
+        color = 0xdbe4ee; roughness = 0.22; metalness = 0.88; useDetail = false;
+      } else if (n.includes('crimson_gloss')) {
+        color = 0x9f1239; roughness = 0.24; metalness = 0.42; useDetail = true;
+      } else if (n.includes('cobalt_anodized')) {
+        color = 0x1d4ed8; roughness = 0.26; metalness = 0.62; useDetail = true;
+      } else if (n.includes('zeon_olive_coat')) {
+        color = 0x556b45; roughness = 0.46; metalness = 0.18; useDetail = true;
+      } else if (n.includes('optic_cyan') || n.includes('plasma_core_cyan') || n.includes('lens_emerald')) {
         color = pc.optic; emissive = pc.optic; emissiveIntensity = 2.0; roughness = 0.12; metalness = 0.1; useDetail = false;
       } else if (n.includes('gold') || n.includes('blade') || n.includes('intake') || n.includes('cross_gold') || n.includes('vane') || n.includes('pin_gold') || n.includes('lock_gold') || n.includes('drum_gold') || n.includes('coupling_gold')) {
         color = pc.gold; roughness = 0.26; metalness = 0.84; useDetail = false;
@@ -3244,7 +3256,7 @@
       } else if (n.includes('barrel') || n.includes('receiver') || n.includes('sleeve') || n.includes('cylinder') || n.includes('stake') || n.includes('rail')) {
         color = 0x334155; roughness = 0.34; metalness = 0.80; useDetail = false;
       }
-      const isEmissive = n.includes('optic_cyan') || n.includes('plasma_core_cyan') || n.includes('lens_emerald');
+      const isEmissive = n.includes('optic_cyan') || n.includes('plasma_core_cyan') || n.includes('lens_emerald') || n.includes('psycho_emerald') || n.includes('amber_optic');
       return getSharedMechaMaterial({ color, roughness, metalness, emissive, emissiveIntensity, useDetail, isEmissive });
     }
 
@@ -4311,7 +4323,7 @@
       function resolveWeaponGripType(part) {
         if (part?.weapon_grip_type) return part.weapon_grip_type;
         const txt = `${part?.part_id || ''} ${part?.name || ''}`.toLowerCase();
-        if (/(saber|naginata|sword|blade|knife|dagger|axe|hawk|lance|spear|halberd)/.test(txt)) {
+        if (/(saber|naginata|sword|blade|knife|dagger|axe|hawk|lance|spear|halberd|glaive|mace|hammer|scythe)/.test(txt)) {
           return 'melee_hilt_grip';
         }
         return 'firearm_pistol_grip';
