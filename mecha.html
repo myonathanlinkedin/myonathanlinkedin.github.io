@@ -2742,7 +2742,7 @@
       glbUrl: `${MECHA_ASSETS_CDN}/models/baselines/baseline_gundam_frame_v1.glb`,
       isZeonEnemy: false,
       hasNativeHandsEmpty: true,
-      dorsalZ: -22.2,
+      dorsalZ: -19.0,
       defaultStance: 'Sentinel',
       packColors: {
         primary: 0xc4cedb,    // Eye-comfortable Satin Gundarium Grey-White (zero blinding glare!)
@@ -2769,7 +2769,7 @@
         glbUrl: `${MECHA_ASSETS_CDN}/models/enemies/enemy_zaku_ms06.glb`,
         isZeonEnemy: true,
         hasNativeHandsEmpty: false,
-        dorsalZ: -26.5,
+        dorsalZ: -22.8,
         monoEyeColor: 0xff2268,
         monoEyeCenterY: 165.0,
         monoEyeTrackZ: 1.0,
@@ -2796,7 +2796,7 @@
         glbUrl: `${MECHA_ASSETS_CDN}/models/enemies/enemy_gouf_ms07.glb`,
         isZeonEnemy: true,
         hasNativeHandsEmpty: false,
-        dorsalZ: -26.5,
+        dorsalZ: -22.8,
         monoEyeColor: 0xff2266,
         monoEyeCenterY: 165.0,
         monoEyeTrackZ: 1.0,
@@ -2823,7 +2823,7 @@
         glbUrl: `${MECHA_ASSETS_CDN}/models/enemies/enemy_sazabi_msn04.glb`,
         isZeonEnemy: true,
         hasNativeHandsEmpty: false,
-        dorsalZ: -27.5,
+        dorsalZ: -24.4,
         monoEyeColor: 0x22ff88,
         monoEyeCenterY: 165.0,
         monoEyeTrackZ: 1.2,
@@ -4061,16 +4061,17 @@
           alwaysVisible: false
         }),
 
-        // 4. DORSAL BACKPACK / STRIKER PACK ZONE (HP-00)
+        // 4. DORSAL BACKPACK / STRIKER PACK ZONE (HP-00 — native Mobile Suit backpack IS the adapter directly!)
         dorsal_pack: createPhysicalAdapterSocket(rig.torso, {
           slotGroup: 'dorsal_pack',
           adapterId: 'ADP-HP00-DORSAL',
-          worldPos: [0.0, 141.5, spec.dorsalZ || -24.5],
+          worldPos: [0.0, 141.5, spec.dorsalZ || -19.0],
           rot: [0, 0, 0],
           scale: 1.0,
-          dockedZ: -5.4,
+          dockedZ: 0.0,
           slideSign: -1.0,
-          alwaysVisible: true
+          showBracket: false,
+          alwaysVisible: false
         }),
 
         // 5. RIGHT MANIPULATOR FIST / PRIMARY WEAPON ZONE (HP-11 — Palm Trigger-Latch Adapter!)
