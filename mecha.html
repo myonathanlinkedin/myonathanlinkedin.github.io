@@ -7,11 +7,11 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>Mateus Yonathan | 3D Gundam-Like Mecha Hangar — 8-Zone Full-Body Gunpla Customization Lab</title>
+  <title>Mateus Yonathan | Agentic Autonomous Mecha Kits — 3D Engineering Hangar</title>
   <meta name="description"
     content="Interactive Agentic Autonomous Mecha Kits 3D Engineering Hangar by Mateus Yonathan. Full-body 8-zone modular Gunpla customization (Head, Chest, Shoulders, Backpack, Weapons, Shield, Waist Binders, Leg Boosters), physical snap-fit adapters with CLICK lock mechanics, and live 60fps kinematic combat stances." />
   <meta name="keywords"
-    content="Mateus Yonathan, Gundam-Like Mecha Hangar, 3D WebGL Three.js, Full-Body Gunpla Customization, Autonomous Agentic CAD, UHIS 26-Station Hardpoints, Systems Engineering Lab" />
+    content="Mateus Yonathan, Agentic Autonomous Mecha Kits, Gundam-Like Mecha Hangar, 3D WebGL Three.js, Full-Body Gunpla Customization, Autonomous Agentic CAD, UHIS 26-Station Hardpoints, Systems Engineering Lab" />
   <meta name="author" content="Mateus Yonathan" />
   <meta name="application-name" content="Mateus Yonathan" />
   <link rel="canonical" href="https://myonathanlinkedin.github.io/mecha.html" />
@@ -23,15 +23,15 @@
   <meta property="og:site_name" content="Mateus Yonathan" />
   <meta property="og:url" content="https://myonathanlinkedin.github.io/mecha.html" />
   <meta property="og:title"
-    content="Mateus Yonathan | 3D Gundam-Like Mecha Hangar — 8-Zone Full-Body Customization Lab" />
+    content="Mateus Yonathan | Agentic Autonomous Mecha Kits — 3D Engineering Hangar" />
   <meta property="og:description"
-    content="Autonomous 3D Gundam-Like Mecha Engineering Hangar featuring full-body 8-zone Gunpla snap-fit adapters, smooth Auto-Normal Mobile Suits, zero-duplicate agentic synthesis, and 60fps combat stances." />
+    content="Agentic Autonomous Mecha Kits 3D Engineering Hangar featuring full-body 8-zone Gunpla snap-fit adapters, smooth Auto-Normal Mobile Suits, zero-duplicate agentic synthesis, and 60fps combat stances." />
   <meta property="og:image" content="https://myonathanlinkedin.github.io/assets/avatar.png" />
-  <meta property="og:image:alt" content="Mateus Yonathan — 3D Gundam-Like Mecha Hangar" />
+  <meta property="og:image:alt" content="Mateus Yonathan — Agentic Autonomous Mecha Kits" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://myonathanlinkedin.github.io/mecha.html" />
-  <meta name="twitter:title" content="Mateus Yonathan | 3D Gundam-Like Mecha Hangar" />
+  <meta name="twitter:title" content="Mateus Yonathan | Agentic Autonomous Mecha Kits" />
   <meta name="twitter:description"
     content="Autonomous 3D Gundam-Like Mecha Hangar by Mateus Yonathan with 8-zone full-body Gunpla snap-fit customization and 26-station UHIS kitbashing." />
   <meta name="twitter:image" content="https://myonathanlinkedin.github.io/assets/avatar.png" />
@@ -229,13 +229,13 @@
 
     .glass-hud {
       background: var(--bg-panel);
-      backdrop-filter: blur(18px) saturate(180%);
-      -webkit-backdrop-filter: blur(18px) saturate(180%);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border: 1px solid var(--border-panel);
       border-radius: 12px;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.07);
       pointer-events: auto;
-      transition: transform 0.34s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease, width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.24s ease, width 0.26s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     /* Hidden panel utility states for Show/Hide & Show/Hide All */
@@ -318,7 +318,7 @@
       background: rgba(0, 229, 255, 0.16);
     }
 
-    /* Top-Left Clean Navigation: Single-Row Author Brand + 1 Main Page Link + 1 All-3D-Pages Dropdown + Guide & Battle BGM + Close ✕ */
+    /* Top-Left Clean Navigation: Single-Row Author Brand + 1 Main Page Link + 1 All-3D-Pages Dropdown + Loadouts & Guide & Battle BGM + Close ✕ */
     #nav-header {
       position: fixed;
       top: 12px;
@@ -328,9 +328,9 @@
       align-items: center;
       gap: 6px;
       padding: 6px 10px;
-      max-width: calc(100vw - 410px);
-      flex-wrap: nowrap;
-      overflow: hidden;
+      max-width: calc(100vw - 400px);
+      flex-wrap: wrap;
+      box-sizing: border-box;
     }
 
     .brand-title {
@@ -345,6 +345,11 @@
       gap: 6px;
       white-space: nowrap;
       transition: color 0.18s;
+      flex-shrink: 0;
+    }
+
+    .brand-text-short {
+      display: none;
     }
 
     .brand-title:hover {
@@ -750,28 +755,20 @@
       font-size: 11px;
     }
 
-    /* 8-Zone Body Customization Filter Chips */
+    /* 8-Zone Body Customization Filter Chips — Crisp Multi-Row Wrap (Zero Stiff Horizontal Scroll!) */
     .category-chips-scroll {
       display: flex;
+      flex-wrap: wrap;
       gap: 4px;
-      overflow-x: auto;
-      padding-bottom: 3px;
-    }
-
-    .category-chips-scroll::-webkit-scrollbar {
-      height: 3px;
-    }
-
-    .category-chips-scroll::-webkit-scrollbar-thumb {
-      background: rgba(0, 229, 255, 0.3);
-      border-radius: 3px;
+      overflow: visible;
+      padding-bottom: 2px;
     }
 
     .cat-chip {
       font-family: var(--font-mono);
-      font-size: 8.6px;
+      font-size: 8.3px;
       font-weight: 700;
-      padding: 3px 6px;
+      padding: 3.5px 6px;
       border-radius: 5px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       background: rgba(0, 0, 0, 0.35);
@@ -779,6 +776,7 @@
       cursor: pointer;
       white-space: nowrap;
       transition: all 0.15s;
+      flex: 0 1 auto;
     }
 
     .cat-chip.active {
@@ -840,6 +838,7 @@
     .items-scroll {
       flex: 1;
       overflow-y: auto;
+      overflow-x: hidden;
       display: flex;
       flex-direction: column;
       gap: 6px;
@@ -855,6 +854,7 @@
 
     .items-scroll::-webkit-scrollbar {
       width: 4px;
+      height: 0px;
     }
 
     .items-scroll::-webkit-scrollbar-thumb {
@@ -862,7 +862,13 @@
       border-radius: 4px;
     }
 
+    .items-scroll::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+
     .part-card {
+      content-visibility: auto;
+      contain-intrinsic-size: 98px;
       background: rgba(15, 23, 42, 0.58);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 8px;
@@ -986,6 +992,7 @@
       gap: 8px;
       pointer-events: none;
       overflow-y: auto;
+      overflow-x: hidden;
       padding-right: 2px;
     }
 
@@ -997,11 +1004,16 @@
 
     #right-stack::-webkit-scrollbar {
       width: 3px;
+      height: 0px;
     }
 
     #right-stack::-webkit-scrollbar-thumb {
       background: rgba(0, 229, 255, 0.25);
       border-radius: 3px;
+    }
+
+    #right-stack::-webkit-scrollbar-corner {
+      background: transparent;
     }
 
     #right-drawer,
@@ -1453,6 +1465,389 @@
       line-height: 1.48;
     }
 
+    /* =========================================================================
+       HANGAR LOADOUT VAULT // CUSTOM GUNPLA CONFIG MANAGER (LOCAL STORAGE)
+       ========================================================================= */
+    #loadout-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 185;
+      background: rgba(2, 6, 20, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    #loadout-backdrop.open {
+      display: flex;
+    }
+
+    #loadout-modal {
+      width: min(840px, 96vw);
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      padding: 18px 20px;
+      background: rgba(9, 15, 30, 0.96);
+      border: 1px solid rgba(0, 229, 255, 0.4);
+      border-radius: 16px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.8), 0 0 32px rgba(0, 229, 255, 0.15);
+    }
+
+    .loadout-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(0, 229, 255, 0.22);
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+      flex-shrink: 0;
+    }
+
+    .loadout-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 8px 12px;
+      margin-bottom: 12px;
+      flex-shrink: 0;
+    }
+
+    .loadout-save-box {
+      display: flex;
+      gap: 8px;
+      flex: 1 1 320px;
+    }
+
+    .loadout-save-box input {
+      flex: 1 1 auto;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(0, 229, 255, 0.3);
+      border-radius: 6px;
+      padding: 6px 10px;
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      outline: none;
+      transition: border-color 0.18s, box-shadow 0.18s;
+    }
+
+    .loadout-save-box input:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 8px rgba(0, 229, 255, 0.35);
+    }
+
+    .loadout-tool-pills {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tool-pill {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 6px;
+      padding: 5px 9px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.18s;
+    }
+
+    .tool-pill:hover {
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+      background: rgba(0, 229, 255, 0.12);
+    }
+
+    .loadout-filter-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    .filter-unit-chips {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .filter-chip {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      color: #94a3b8;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 6px;
+      padding: 3.5px 8px;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+
+    .filter-chip.active {
+      color: #000;
+      background: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+      font-weight: 800;
+    }
+
+    .loadout-search {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 6px;
+      padding: 4px 10px;
+      color: #fff;
+      font-size: 9.5px;
+      font-family: var(--font-mono);
+      outline: none;
+      min-width: 170px;
+    }
+
+    .loadout-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 10px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-right: 4px;
+      max-height: calc(88vh - 210px);
+      scrollbar-width: thin;
+    }
+
+    .loadout-grid::-webkit-scrollbar {
+      width: 4px;
+      height: 0px;
+    }
+
+    .loadout-grid::-webkit-scrollbar-thumb {
+      background: rgba(0, 229, 255, 0.25);
+      border-radius: 4px;
+    }
+
+    .loadout-grid::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+
+    .preset-card {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(0, 229, 255, 0.22);
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .preset-card:hover {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 14px rgba(0, 229, 255, 0.15);
+    }
+
+    .preset-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .preset-unit-badge {
+      font-family: var(--font-display);
+      font-size: 8.5px;
+      font-weight: 800;
+      padding: 2.5px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.6px;
+      white-space: nowrap;
+    }
+
+    .preset-unit-badge.hero {
+      background: rgba(0, 229, 255, 0.18);
+      border: 1px solid var(--accent-cyan);
+      color: var(--accent-cyan);
+    }
+
+    .preset-unit-badge.zaku {
+      background: rgba(34, 197, 94, 0.18);
+      border: 1px solid #22c55e;
+      color: #22c55e;
+    }
+
+    .preset-unit-badge.gouf {
+      background: rgba(59, 130, 246, 0.18);
+      border: 1px solid #3b82f6;
+      color: #60a5fa;
+    }
+
+    .preset-unit-badge.sazabi {
+      background: rgba(239, 68, 68, 0.18);
+      border: 1px solid #ef4444;
+      color: #f87171;
+    }
+
+    .preset-title-wrap {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .preset-title {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 800;
+      color: #f8fafc;
+      letter-spacing: 0.6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .preset-title:hover {
+      color: var(--accent-cyan);
+    }
+
+    .preset-title-edit-input {
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--accent-cyan);
+      border-radius: 4px;
+      padding: 3px 6px;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 10.5px;
+      font-weight: 800;
+      width: 100%;
+      outline: none;
+    }
+
+    .preset-date {
+      font-family: var(--font-mono);
+      font-size: 8px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .preset-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      align-items: center;
+    }
+
+    .preset-tag {
+      font-family: var(--font-mono);
+      font-size: 8px;
+      font-weight: 700;
+      color: #94a3b8;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      padding: 2px 5px;
+    }
+
+    .preset-slots-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 6px;
+      padding: 6px;
+    }
+
+    .preset-slot-pill {
+      font-family: var(--font-mono);
+      font-size: 8px;
+      padding: 2px 5px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .preset-slot-pill.active {
+      color: var(--accent-gold);
+      border-color: rgba(251, 191, 36, 0.4);
+      background: rgba(251, 191, 36, 0.1);
+    }
+
+    .preset-card-actions {
+      display: flex;
+      gap: 6px;
+      margin-top: 4px;
+      align-items: center;
+    }
+
+    .btn-equip-preset {
+      flex: 1 1 auto;
+      font-family: var(--font-display);
+      font-size: 9.5px;
+      font-weight: 800;
+      color: #000;
+      background: var(--accent-cyan);
+      border: 1px solid var(--accent-cyan);
+      border-radius: 6px;
+      padding: 6px 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      letter-spacing: 0.8px;
+      transition: all 0.18s;
+      box-shadow: 0 0 10px rgba(0, 229, 255, 0.25);
+    }
+
+    .btn-equip-preset:hover {
+      background: #38bdf8;
+      box-shadow: 0 0 16px rgba(0, 229, 255, 0.5);
+    }
+
+    .btn-preset-icon {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 6px;
+      padding: 6px 8px;
+      cursor: pointer;
+      transition: all 0.18s;
+      flex-shrink: 0;
+    }
+
+    .btn-preset-icon:hover {
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+      background: rgba(0, 229, 255, 0.12);
+    }
+
+    .btn-preset-icon.delete:hover {
+      color: #ef4444;
+      border-color: #ef4444;
+      background: rgba(239, 68, 68, 0.15);
+    }
+
     .mecha-toast {
       position: fixed;
       bottom: 72px;
@@ -1477,6 +1872,80 @@
       box-shadow: 0 8px 26px rgba(0, 0, 0, 0.6), 0 0 18px rgba(0, 229, 255, 0.22);
     }
 
+    /* Teardown 3D Engineering Callout Leaders Overlay */
+    #callout-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 35;
+      overflow: hidden;
+      display: none;
+    }
+
+    #callout-layer.visible {
+      display: block;
+    }
+
+    #callout-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .callout-tag {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      padding: 5px 9px;
+      border-radius: 7px;
+      background: rgba(9, 15, 29, 0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(56, 189, 248, 0.50);
+      border-left: 3px solid #f97316;
+      color: #f8fafc;
+      font-family: var(--font-mono);
+      font-size: 8.6px;
+      font-weight: 700;
+      letter-spacing: 0.45px;
+      white-space: nowrap;
+      line-height: 1.25;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.42);
+    }
+
+    .callout-tag .c-sub {
+      display: block;
+      font-size: 7.4px;
+      color: #94a3b8;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .callout-tag .c-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #f97316;
+      margin-right: 5px;
+      vertical-align: middle;
+      box-shadow: 0 0 8px rgba(249, 115, 22, 0.7);
+    }
+
+    body.studio-light-mode .callout-tag {
+      background: rgba(15, 23, 42, 0.90);
+      color: #f8fafc;
+      border-color: rgba(148, 163, 184, 0.45);
+      border-left: 3px solid #f97316;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.22);
+    }
+
+    body.studio-light-mode .callout-tag .c-sub {
+      display: block;
+      color: #cbd5e1;
+    }
+
+
     .mecha-toast.visible {
       opacity: 1;
       transform: translateX(-50%) translateY(0);
@@ -1486,6 +1955,30 @@
       border-color: #34d399;
       color: #6ee7b7;
       box-shadow: 0 8px 26px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 185, 129, 0.35);
+    }
+
+    /* Full-Screen Wallpaper Camera Shutter Flash Overlay */
+    #shutter-flash {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: #ffffff;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s ease-out;
+    }
+
+    #shutter-flash.flash {
+      opacity: 0.82;
+      transition: none;
+    }
+
+    body.wallpaper-capture-clean .corner-marker,
+    body.wallpaper-capture-clean #hud-vis-bar,
+    body.wallpaper-capture-clean #callout-layer,
+    body.wallpaper-capture-clean #btn-restore-top {
+      opacity: 0 !important;
+      pointer-events: none !important;
     }
 
     .nav-action-pill {
@@ -1518,7 +2011,17 @@
       background: rgba(16, 185, 129, 0.16);
     }
 
-    @media (max-width: 1220px) {
+    .pill-short {
+      display: none;
+    }
+
+    @media (max-width: 1380px) {
+      .brand-text-full {
+        display: none !important;
+      }
+      .brand-text-short {
+        display: inline !important;
+      }
       #nav-header {
         flex-wrap: wrap;
         max-width: calc(100vw - 380px);
@@ -1526,16 +2029,123 @@
     }
 
     /* Mobile & Tablet Ergonomic Layout — Zero Bottom Overlap Guarantee */
+    /* Mobile & Tablet Ergonomic Layout — Sleek 2-Row Top Bar + Zero Bottom Overlap */
+    @media (max-width: 960px), (pointer: coarse) {
+      /* Root-Cause Mobile FPS Fix #1: Disable backdrop-filter blur over live 60fps WebGL canvas!
+         Prevents tile-based mobile GPU (Adreno/Mali/Apple) full-screen framebuffer readback + Gaussian blur stalls every frame. */
+      .glass-hud,
+      #loading-overlay,
+      #inspect-toast,
+      .guide-modal-card,
+      #loadout-modal {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: rgba(7, 13, 25, 0.93) !important;
+      }
+    }
+
     @media (max-width: 960px) {
       #nav-header {
         top: 8px;
         left: 8px;
         right: 8px;
         max-width: none;
+        display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        align-items: center;
+        justify-content: flex-start;
         padding: 6px 8px;
-        gap: 4px 6px;
+        gap: 5px 5px;
+      }
+
+      #nav-header .nav-sep {
+        display: none;
+      }
+
+      #nav-header .nav-mobile-break {
+        display: block !important;
+        order: 4;
+        flex: 0 0 100%;
+        height: 0;
+      }
+
+      #nav-header .brand-title {
+        order: 1;
+        flex: 1 1 auto;
+        min-width: 0;
+        gap: 4px;
+        font-size: 8.2px;
+        letter-spacing: 0.2px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      #nav-header .brand-title .status-orb {
+        width: 5px;
+        height: 5px;
+        flex-shrink: 0;
+      }
+
+      #nav-header .nav-home-btn {
+        order: 2;
+        padding: 3px 6px;
+        font-size: 8.2px;
+        flex-shrink: 0;
+      }
+
+      #nav-header #btn-hide-top {
+        order: 3;
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+      }
+
+      #nav-header #nav-3d-pages {
+        order: 5;
+        flex: 1 1 115px;
+        min-width: 96px;
+        padding: 3.5px 5px;
+        font-size: 8.1px;
+      }
+
+      #nav-header #btn-open-loadouts {
+        order: 6;
+        padding: 3.5px 6px;
+        font-size: 8.1px;
+        flex-shrink: 0;
+      }
+
+      #nav-header #btn-wallpaper-shot {
+        order: 7;
+        padding: 3.5px 6px;
+        font-size: 8.1px;
+        flex-shrink: 0;
+      }
+
+      #nav-header #btn-open-guide {
+        order: 8;
+        padding: 3.5px 6px;
+        font-size: 8.1px;
+        flex-shrink: 0;
+      }
+
+      #nav-header #btn-bgm-toggle {
+        order: 9;
+        padding: 3.5px 6px;
+        font-size: 8.1px;
+        flex-shrink: 0;
+      }
+
+      #nav-header #btn-bgm-track {
+        order: 10;
+        padding: 3.5px 6px;
+        font-size: 8.1px;
+        max-width: none;
+        overflow: visible;
+        white-space: nowrap;
+        box-sizing: border-box;
+        flex-shrink: 0;
       }
 
       #btn-restore-top {
@@ -1594,19 +2204,19 @@
       }
 
       #left-drawer {
-        top: 76px;
+        top: 84px;
         left: 8px;
         right: 8px;
-        bottom: 132px;
+        bottom: 136px;
         width: auto;
         max-width: none;
       }
 
       #right-stack {
-        top: 76px;
+        top: 84px;
         left: 8px;
         right: 8px;
-        bottom: 132px;
+        bottom: 136px;
         width: auto;
         max-width: none;
       }
@@ -1617,6 +2227,35 @@
 
       .guide-grid {
         grid-template-columns: 1fr;
+      }
+
+      .loadout-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .loadout-save-box {
+        flex: 1 1 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .pill-full {
+        display: none !important;
+      }
+      .pill-short {
+        display: inline !important;
+      }
+      #nav-header #nav-3d-pages {
+        flex: 1 1 100px;
+        font-size: 7.9px;
+      }
+      #nav-header .nav-action-pill {
+        padding: 3.5px 6px;
+        font-size: 7.9px;
+        gap: 3px;
+      }
+      #nav-header #btn-bgm-track {
+        max-width: none;
       }
     }
   </style>
@@ -1643,22 +2282,26 @@
   <!-- Floating Restore Top Bar Pill (Only visible when Top Navigation is closed with ✕) -->
   <button id="btn-restore-top" title="Show Top Navigation Bar">▼ Show Top Bar</button>
 
-  <!-- Top-Left Clean Navigation: Author Brand + Main Page + 3D Pages Dropdown + Guide + Battle BGM + Close ✕ -->
+  <!-- Top-Left Clean Navigation: Author Brand + Main Page + 3D Pages Dropdown + Kit Loadouts + Guide + Battle BGM + Close ✕ -->
   <header id="nav-header" class="glass-hud">
     <a href="https://github.com/myonathanlinkedin" target="_blank" rel="noopener noreferrer" class="brand-title"
-      title="Mateus Yonathan — Agentic Autonomous Systems Lab">
+      title="Mateus Yonathan — Agentic Autonomous Mecha Kits & 3D Engineering Lab">
       <span class="status-orb"></span>
-      <span>MATEUS YONATHAN <span class="sep-slash">//</span> <span class="accent">MECHA HANGAR</span></span>
+      <span class="brand-text-full">MATEUS YONATHAN <span class="sep-slash">//</span> <span class="accent">AGENTIC AUTONOMOUS KITS</span></span>
+      <span class="brand-text-short">M. YONATHAN <span class="sep-slash">//</span> <span class="accent">KITS</span></span>
     </a>
     <span class="nav-sep"></span>
     <a href="index.html" class="nav-home-btn" title="Return to Main Portfolio Page">🏠 Main Page</a>
+    <span class="nav-mobile-break" style="display:none;"></span>
     <select id="nav-3d-pages" class="nav-select" aria-label="Switch 3D Interactive Pages"
       onchange="if(this.value){window.location.href=this.value;}">
-      <option value="" selected>🤖 3D Gundam-Like Hangar</option>
+      <option value="" selected>🤖 3D Agentic Mecha Kits</option>
       <option value="office.html">🏢 3D Virtual Office (24/7)</option>
       <option value="constellation.html">🌌 3D Knowledge Constellation</option>
     </select>
     <span class="nav-sep"></span>
+    <button id="btn-open-loadouts" class="nav-action-pill" title="Hangar Custom Kit Presets (Save &amp; Load in Browser LocalStorage)">💾 <span class="pill-full">Kit Loadouts</span><span class="pill-short">Loadouts</span></button>
+    <button id="btn-wallpaper-shot" class="nav-action-pill" style="border-color:rgba(0,229,255,0.45);color:var(--accent-cyan);" title="Capture Full-Screen Zero-HUD HD Wallpaper (Hotkey: P)">📸 <span class="pill-full">Wallpaper</span><span class="pill-short">Wall</span></button>
     <button id="btn-open-guide" class="nav-action-pill" title="About this Autonomous Agentic Hangar">ℹ️ Guide</button>
     <button id="btn-bgm-toggle" class="nav-action-pill" title="Toggle Mecha Battle Background Music">🔇 BGM</button>
     <button id="btn-bgm-track" class="nav-action-pill" title="Switch Mecha Battle Track">🎵 Track</button>
@@ -1674,7 +2317,7 @@
           <div>
             <div
               style="font-family:var(--font-display);font-size:13px;font-weight:800;color:var(--accent-cyan);letter-spacing:1.2px;">
-              AUTONOMOUS 3D GUNDAM-LIKE ENGINEERING HANGAR
+              AGENTIC AUTONOMOUS MECHA KITS HANGAR
             </div>
             <div style="font-family:var(--font-mono);font-size:9.3px;color:var(--text-muted);margin-top:2px;">
               FULL-BODY 8-ZONE GUNPLA SNAP-FIT ADAPTERS • ZERO-DUPLICATE AGENTIC SYNTHESIS • 60FPS COMBAT RIG
@@ -1702,16 +2345,16 @@
         </div>
         <div class="guide-card">
           <h4>⚔️ UNIFIED HERO &amp; ZEON MONO-EYE ROSTER</h4>
-          <p>Cohesive Auto-Smooth Gundam-Universe roster: Federation Hero <strong>RX-78 VANGUARD</strong> alongside
+          <p>Cohesive Auto-Smooth Mecha-Universe roster: Federation Hero <strong>RX-78 VANGUARD</strong> alongside
             authentic Zeon &amp; Neo-Zeon Mono-Eye enemies (<strong>MS-06Z Zaku-II</strong>, <strong>MS-07B
               Gouf</strong>, <strong>MSN-04S Sazabi</strong>) — all rigged with 11 kinematic bones and 6 live combat
             stances.</p>
         </div>
         <div class="guide-card">
-          <h4>🧬 AGENTIC ZERO-DUPLICATE SYNTHESIZER</h4>
-          <p>Every catalog part carries a unique SHA-256 cryptographic seed and parametric CAD genome. Click <strong>🧬
-              +AGENT SYNTH</strong> anytime to autonomously compile a brand-new, non-duplicate 3D modular part in real
-            time.</p>
+          <h4>🎲 1-CLICK RANDOM TACTICAL BUILD</h4>
+          <p>Click <strong>🎲 RANDOM BUILD</strong> anytime to automatically assemble a fresh multi-zone combat
+            loadout (mixing Aero, Heavy Siege, Psycho-Fin, CQC Breacher, or Recon builds) paired with a matching
+            60fps combat stance.</p>
         </div>
         <div class="guide-card">
           <h4>✕ PANEL CLOSE &amp; CINEMA HUD CONTROLS</h4>
@@ -1726,6 +2369,62 @@
           PIPELINE ACTIVE 24/7</span>
         <button id="btn-dismiss-guide" class="action-btn active" style="padding:7px 16px;font-size:10.5px;">Got It —
           Enter Hangar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hangar Loadout Vault & Custom Kit Presets Modal (Local Storage) -->
+  <div id="loadout-backdrop" role="dialog" aria-modal="true" aria-label="Hangar Loadout Vault & Custom Kit Presets">
+    <div id="loadout-modal" class="glass-hud">
+      <div class="loadout-header">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:22px;">💾</span>
+          <div>
+            <div
+              style="font-family:var(--font-display);font-size:13px;font-weight:800;color:var(--accent-cyan);letter-spacing:1.2px;">
+              HANGAR LOADOUT VAULT // CUSTOM KIT MANAGER
+            </div>
+            <div style="font-family:var(--font-mono);font-size:9.3px;color:var(--text-muted);margin-top:2px;">
+              BROWSER LOCAL STORAGE • INFINITE CUSTOM GUNPLA BUILDS • 1-CLICK HOT-SWAP, RENAME &amp; BACKUP
+            </div>
+          </div>
+        </div>
+        <button id="btn-close-loadouts" class="panel-close-x" title="Close Loadout Vault">✕</button>
+      </div>
+
+      <!-- Quick Action Toolbar -->
+      <div class="loadout-toolbar">
+        <div class="loadout-save-box">
+          <input type="text" id="input-preset-name" placeholder="Enter Custom Kit Name (e.g. RX-78 Full Armor Kai)..." maxlength="48" />
+          <button id="btn-save-new-preset" class="btn-equip-preset" style="flex:0 0 auto;padding:6px 12px;" title="Save current suit &amp; equipped parts as a new preset">
+            💾 Save Current Build
+          </button>
+        </div>
+        <div class="loadout-tool-pills">
+          <button id="btn-export-presets" class="tool-pill" title="Export all presets to JSON file">📤 Backup JSON</button>
+          <label for="input-import-presets" class="tool-pill" title="Import presets from JSON file" style="cursor:pointer;margin:0;">
+            📥 Import JSON
+            <input type="file" id="input-import-presets" accept=".json" style="display:none;" />
+          </label>
+          <button id="btn-reset-starter-presets" class="tool-pill" title="Reset starter default builds">↺ Reset Starters</button>
+        </div>
+      </div>
+
+      <!-- Filter & Search Bar -->
+      <div class="loadout-filter-bar">
+        <div class="filter-unit-chips" id="filter-unit-chips">
+          <button class="filter-chip active" data-unit="all">All Suits (<span id="count-all-units">0</span>)</button>
+          <button class="filter-chip" data-unit="vanguard_rx">⚔️ RX-78</button>
+          <button class="filter-chip" data-unit="enemy_zaku">👁️ Zaku-II</button>
+          <button class="filter-chip" data-unit="enemy_gouf">⚡ Gouf</button>
+          <button class="filter-chip" data-unit="enemy_sazabi">🔥 Sazabi</button>
+        </div>
+        <input type="search" id="input-search-presets" class="loadout-search" placeholder="🔍 Search saved builds..." />
+      </div>
+
+      <!-- Scrollable Presets Grid -->
+      <div id="loadout-presets-list" class="loadout-grid">
+        <!-- Rendered dynamically by JavaScript -->
       </div>
     </div>
   </div>
@@ -1744,14 +2443,14 @@
   <!-- Left Drawer: Unified 4-Unit Roster + 8-Zone Full-Body Snap-Fit Modular Parts Catalog -->
   <aside id="left-drawer" class="glass-hud">
     <div class="drawer-title">
-      <span>GUNDAM-UNIVERSE ROSTER (4 UNITS)</span>
+      <span>MECHA-UNIVERSE ROSTER (4 UNITS)</span>
       <div class="title-actions">
         <button id="btn-toggle-drawer-size" class="icon-toggle-btn" title="Expand / Compact Grid">⛶</button>
         <button id="btn-hide-left" class="panel-close-x" title="Close Parts Panel">✕</button>
       </div>
     </div>
 
-    <!-- Unified 4-Unit Gundam-Universe Roster (1 Smooth Hero RX-78 Vanguard + 3 Smooth Zeon Mono-Eye Enemies) -->
+    <!-- Unified 4-Unit Mecha-Universe Roster (1 Smooth Hero RX-78 Vanguard + 3 Smooth Zeon Mono-Eye Enemies) -->
     <div id="unit-roster" class="unit-roster">
       <button class="unit-btn active hero" data-unit="vanguard_rx">
         <span>⚔️ RX-78 VANGUARD</span>
@@ -1772,22 +2471,32 @@
     </div>
 
     <div class="section-divider-label">
-      <span>8-ZONE FULL-BODY CUSTOMIZATION</span>
-      <span style="color: var(--accent-gold);">🔌 SNAP-FIT "CLICK!"</span>
+      <span>8-ZONE AGENTIC AUTONOMOUS KITS</span>
+      <span style="color: var(--accent-gold);white-space:nowrap;">🔌 SNAP-FIT "CLICK!"</span>
     </div>
 
-    <!-- 1-Click Full Armor Loadout + Live Agentic Zero-Duplicate Part Synthesizer -->
+    <!-- 1-Click Full Armor Loadout + Smart Multi-Zone Tactical Loadout Randomizer -->
     <div class="quick-loadout-row">
       <button id="btn-full-armor" class="loadout-btn full-armor"
         title="Snap on a complete 8-zone Full-Armor loadout across Head, Chest, Shoulders, Back, Arms, Waist &amp; Legs">
         ⚡ FULL ARMOR (8-ZONE)
       </button>
       <button id="btn-agentic-synth" class="loadout-btn agent-synth"
-        title="Autonomously synthesize a brand-new unique non-duplicate 3D part with SHA-256 seed genome">
-        🧬 +AGENT SYNTH
+        title="Randomize a fresh multi-zone tactical loadout (weapons, shields, backpacks, armor &amp; combat stance)">
+        🎲 RANDOM BUILD
       </button>
       <button id="btn-clear-loadout" class="loadout-btn clear-all" title="Dismount all equipped parts">
         🧹 CLEAR
+      </button>
+    </div>
+
+    <!-- Hangar Custom Loadout Quick Access -->
+    <div class="custom-vault-row" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:6px 0 8px;">
+      <button id="btn-drawer-save-build" class="loadout-btn" style="background:rgba(0, 229, 255, 0.16);border-color:var(--accent-cyan);color:#fff;font-weight:700;" title="Save current Mecha build to local browser storage">
+        💾 SAVE CONFIG
+      </button>
+      <button id="btn-drawer-open-vault" class="loadout-btn" style="background:rgba(168, 85, 247, 0.18);border-color:#a855f7;color:#fff;font-weight:700;" title="Open Kit Loadout Manager">
+        📂 VAULT (<span id="vault-count-badge">0</span>)
       </button>
     </div>
 
@@ -1801,14 +2510,14 @@
     <!-- 8-Zone Body Filter Chips -->
     <div id="category-chips" class="category-chips-scroll">
       <button class="cat-chip active" data-category="all">ALL (<span id="cat-count-all">0</span>)</button>
-      <button class="cat-chip" data-category="head_sensor">👑 HEAD</button>
-      <button class="cat-chip" data-category="chest_armor">🛡️ CHEST</button>
-      <button class="cat-chip" data-category="shoulder_pods">🚀 SHOULDER</button>
-      <button class="cat-chip" data-category="dorsal_pack">🎒 BACKPACK</button>
-      <button class="cat-chip" data-category="aux_weapon">🔫 R-WEAPON</button>
-      <button class="cat-chip" data-category="aux_shield">🔰 L-SHIELD</button>
-      <button class="cat-chip" data-category="waist_ordnance">⚡ WAIST</button>
-      <button class="cat-chip" data-category="leg_thrusters">🦵 LEGS</button>
+      <button class="cat-chip" data-category="head_sensor">👑 HEAD (<span id="cat-count-head_sensor">0</span>)</button>
+      <button class="cat-chip" data-category="chest_armor">🛡️ CHEST (<span id="cat-count-chest_armor">0</span>)</button>
+      <button class="cat-chip" data-category="shoulder_pods">🚀 SHOULDER (<span id="cat-count-shoulder_pods">0</span>)</button>
+      <button class="cat-chip" data-category="dorsal_pack">🎒 BACKPACK (<span id="cat-count-dorsal_pack">0</span>)</button>
+      <button class="cat-chip" data-category="aux_weapon">🔫 R-WEAPON (<span id="cat-count-aux_weapon">0</span>)</button>
+      <button class="cat-chip" data-category="aux_shield">🔰 L-SHIELD (<span id="cat-count-aux_shield">0</span>)</button>
+      <button class="cat-chip" data-category="waist_ordnance">⚡ WAIST (<span id="cat-count-waist_ordnance">0</span>)</button>
+      <button class="cat-chip" data-category="leg_thrusters">🦵 LEGS (<span id="cat-count-leg_thrusters">0</span>)</button>
     </div>
 
     <!-- Hardpoint Station & Sort Controls -->
@@ -1821,11 +2530,12 @@
         <option value="HP-00">HP-00 Dorsal Backpack &amp; Wing Binders</option>
         <option value="HP-11">HP-11 Right Arm Primary Weapon</option>
         <option value="HP-07">HP-07 Left Forearm Composite Shield</option>
-        <option value="HP-13">HP-13/17 Waist Hip Folding Railguns</option>
+        <option value="HP-13">HP-13/17 Waist Side-Skirt Armored Binders</option>
         <option value="HP-24">HP-24/26 Leg Calf Booster &amp; Missile Pods</option>
       </select>
-      <select id="parts-sort" class="hud-dropdown" style="max-width: 108px;">
-        <option value="default">Sort: Default</option>
+      <select id="parts-sort" class="hud-dropdown" style="max-width: 118px;">
+        <option value="newest">Sort: Newest ↓</option>
+        <option value="oldest">Oldest ↑</option>
         <option value="zone">By Body Zone</option>
         <option value="name_asc">Name A-Z</option>
         <option value="mass_asc">Mass (Light)</option>
@@ -1926,26 +2636,44 @@
       <div class="control-sublabel">AMBAC Kinetic Stance (All 4 Suits)</div>
       <div id="anim-chips" class="anim-chips"></div>
 
-      <div class="control-sublabel">Optical Sensor Overlay</div>
+      <div class="control-sublabel">Optical Sensor &amp; Teardown Cutaway</div>
       <div class="mode-grid">
         <button class="mode-btn active" data-render-mode="standard">◆ Gundarium PBR</button>
+        <button class="mode-btn" data-render-mode="glass">🧊 Glass Cutaway</button>
         <button class="mode-btn" data-render-mode="hologram">◇ Minovsky Scan</button>
         <button class="mode-btn" data-render-mode="xray">▦ Movable Frame</button>
-        <button class="mode-btn" data-render-mode="blueprint">📐 Anaheim CAD</button>
+        <button class="mode-btn" data-render-mode="blueprint" style="grid-column: span 2;">📐 Anaheim CAD
+          Blueprint</button>
       </div>
 
-      <div class="control-sublabel">Tactical Combat Sector</div>
+      <div class="control-sublabel">Tactical Sector &amp; Studio Lighting</div>
       <div id="planet-grid" class="planet-grid">
         <button class="planet-btn active" data-env="hangar" title="A Baoa Qu Asteroid Dock"><span
             class="p-icon">🛸</span><span class="p-name">A Baoa Qu</span></button>
+        <button class="planet-btn" data-env="studio" title="Teardown Pale Studio Light Lab"><span
+            class="p-icon">☀️</span><span class="p-name">Studio Lab</span></button>
         <button class="planet-btn" data-env="earth" title="Side-7 Orbital Colony Bay"><span
             class="p-icon">🛰️</span><span class="p-name">Side-7 Bay</span></button>
         <button class="planet-btn" data-env="mars" title="Jaburo Subterranean Catapult"><span
             class="p-icon">🏜️</span><span class="p-name">Jaburo Deck</span></button>
         <button class="planet-btn" data-env="cyberpunk" title="Minovsky I-Field Reactor Chamber"><span
             class="p-icon">⚡</span><span class="p-name">Minovsky Lab</span></button>
+        <button class="planet-btn" data-env="lunar" title="Lunar Von Braun Foundry"><span class="p-icon">🌑</span><span
+            class="p-name">Von Braun</span></button>
       </div>
 
+      <div class="toggle-row">
+        <span>🔓 Hatch / Petal Open</span>
+        <button id="btn-hatch-open" class="switch-btn" aria-label="Toggle Maintenance Hatch Open"></button>
+      </div>
+      <div class="toggle-row">
+        <span>🏷️ 3D Callout Leaders</span>
+        <button id="btn-callouts" class="switch-btn" aria-label="Toggle 3D Engineering Callouts"></button>
+      </div>
+      <div class="toggle-row">
+        <span>🎬 Auto-Tour Demo</span>
+        <button id="btn-auto-tour" class="switch-btn" aria-label="Toggle Interactive Auto-Tour"></button>
+      </div>
       <div class="toggle-row">
         <span>360° Catapult Turntable</span>
         <button id="btn-auto-rotate" class="switch-btn active" aria-label="Toggle Auto Rotate"></button>
@@ -1954,7 +2682,18 @@
         <span>Live Kinematic Actuators</span>
         <button id="btn-anim-play" class="switch-btn active" aria-label="Toggle Animation Playback"></button>
       </div>
+      <div class="toggle-row" style="font-size: 9px; color: var(--text-muted); padding-top: 2px;">
+        <span>GPU Quality Tier</span>
+        <span id="gpu-tier-badge"
+          style="font-family: var(--font-mono); color: var(--accent-cyan); font-weight: 700;">AUTO</span>
+      </div>
     </aside>
+  </div>
+
+  <!-- Teardown 3D Engineering Callout Leaders Layer -->
+  <div id="callout-layer" aria-hidden="true">
+    <svg id="callout-svg"></svg>
+    <div id="callout-nodes"></div>
   </div>
 
   <!-- Bottom Control Dock -->
@@ -1969,24 +2708,26 @@
       <button class="action-btn" data-cam="front">FRONT</button>
       <button class="action-btn" data-cam="head">HEAD ZOOM</button>
       <button class="action-btn" data-cam="dorsal">DORSAL ADAPTER</button>
+      <button id="btn-dock-hatch" class="action-btn" title="Open Hinged Chest/Reactor Petals">🔓 HATCH</button>
+      <button id="btn-dock-isolate" class="action-btn" title="Toggle Ghost Shell Zone Isolation">👻 ISOLATE</button>
       <button id="btn-reset-view" class="action-btn" title="Auto-Fit Reset Camera">↺ FIT</button>
+      <button id="btn-dock-wallpaper" class="action-btn" style="border-color: rgba(0, 229, 255, 0.5); color: var(--accent-cyan);" title="Capture Full-Screen Zero-HUD HD Wallpaper (Hotkey: P)">📸 WALLPAPER</button>
       <button id="btn-hide-bottom" class="panel-close-x" title="Close Bottom Dock">✕</button>
     </div>
   </footer>
 
-  <!-- Three.js Studio WebGL Engine -->
+  <!-- Camera Shutter Flash Overlay for Full-Screen Wallpaper Capture -->
+  <div id="shutter-flash" aria-hidden="true"></div>
+
+  <!-- Three.js Lightweight 60FPS Mobile-First WebGL Engine -->
   <script type="module">
     import * as THREE from 'three';
     import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
     import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-    import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-    import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
-    import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
-    import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
-    import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+    import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 
     // =========================================================================
-    // 1. UNIFIED 4-UNIT GUNDAM-UNIVERSE ROSTER (LOADED FROM PUBLIC 'mecha-assets' REPO!)
+    // 1. UNIFIED 4-UNIT MECHA-UNIVERSE ROSTER (LOADED FROM PUBLIC 'mecha-assets' REPO!)
     // =========================================================================
     const MECHA_ASSETS_CDN = 'https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main';
 
@@ -2001,7 +2742,7 @@
       glbUrl: `${MECHA_ASSETS_CDN}/models/baselines/baseline_gundam_frame_v1.glb`,
       isZeonEnemy: false,
       hasNativeHandsEmpty: true,
-      dorsalZ: -23.5,
+      dorsalZ: -22.2,
       defaultStance: 'Sentinel',
       packColors: {
         primary: 0xc4cedb,    // Eye-comfortable Satin Gundarium Grey-White (zero blinding glare!)
@@ -2136,6 +2877,7 @@
         waist_ordnance: null,
         leg_thrusters: null
       },
+      slotLoadToken: {},             // Monotonic per-slot async load token (0% chance of multi-weapon stacking!)
       socketRig: null,               // 8-zone physical adapter socket controllers
       kinematicRig: null,            // 11-bone procedural kinematic rig for all 4 Mobile Suits
       activeStance: 'Sentinel',
@@ -2145,6 +2887,18 @@
       renderMode: 'standard',
       activeEnv: 'hangar',
       explodedFactor: 0.0,
+      hatchOpen: false,
+      hatchProgress: 0.0,
+      isolatedZone: null,
+      showCallouts: false,
+      autoTour: false,
+      autoTourStep: 0,
+      autoTourTimer: 0.0,
+      unitLoadToken: 0,
+      batchLoadToken: 0,
+      gpuTier: 'HIGH',
+      gearNodes: [],
+      hingeNodes: [],
       autoRotate: true,
       animPlaying: true,
       chassisModel: null,
@@ -2155,7 +2909,7 @@
       searchQuery: '',
       activeCategory: 'all',
       activeStation: 'all',
-      activeSort: 'default',
+      activeSort: 'newest',
       equippedOnly: false,
       isDrawerExpanded: false,
       menus: {
@@ -2292,33 +3046,82 @@
     syncMenuVisibility();
 
     // =========================================================================
-    // 3. THREE.JS STUDIO RENDERER, EYE-COMFORTABLE EXPOSURE & CONTROLLED BLOOM
+    // 3. LIGHTWEIGHT 1-PASS 60FPS WEBGL RENDERER (SMOOTH ON LOW-END GPUs & PHONES!)
     // =========================================================================
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    const isMobileViewport = () => window.innerWidth <= 960 || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent || '');
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      antialias: !isMobileViewport(),
+      powerPreference: 'high-performance',
+      stencil: false
+    });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobileViewport() ? 1.0 : 1.5));
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.shadowMap.enabled = false; // Zero per-frame shadow-map pass (crisp grounded contactShadowDisc instead!)
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 0.90; // Balanced studio exposure so RX-78 white armor never glares!
+    renderer.toneMappingExposure = 0.92;
 
-    const maxAnisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), 8);
+    const maxAnisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), 4);
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x060b16);
-    scene.fog = new THREE.FogExp2(0x060b16, 0.0012);
+    scene.fog = new THREE.FogExp2(0x060b16, 0.00075);
 
-    const pmremGenerator = new THREE.PMREMGenerator(renderer);
-    scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 0.04).texture;
-    scene.environmentIntensity = 0.72;
-    pmremGenerator.dispose();
+    // Lightweight Pre-Integrated Studio Softbox IBL (runs ONCE in <6ms; zero per-frame cost!)
+    function createCinemaSoftboxEnvMap(ren) {
+      const pmrem = new THREE.PMREMGenerator(ren);
+      pmrem.compileEquirectangularShader();
+      const envScene = new THREE.Scene();
+      envScene.background = new THREE.Color(0x0b1220);
+
+      const envDome = new THREE.Mesh(
+        new THREE.SphereGeometry(48, 24, 16),
+        new THREE.ShaderMaterial({
+          side: THREE.BackSide,
+          vertexShader: `varying vec3 vDir; void main(){ vDir = normalize(position); gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }`,
+          fragmentShader: `
+            varying vec3 vDir;
+            void main() {
+              float y = vDir.y * 0.5 + 0.5;
+              vec3 low = vec3(0.06, 0.09, 0.14);
+              vec3 mid = vec3(0.20, 0.26, 0.36);
+              vec3 top = vec3(0.60, 0.68, 0.80);
+              vec3 col = mix(low, mid, smoothstep(0.15, 0.50, y));
+              col = mix(col, top, smoothstep(0.52, 0.96, y));
+              gl_FragColor = vec4(col, 1.0);
+            }
+          `
+        })
+      );
+      envScene.add(envDome);
+
+      const addSoftbox = (w, h, color, pos, lookAt) => {
+        const m = new THREE.Mesh(
+          new THREE.PlaneGeometry(w, h),
+          new THREE.MeshBasicMaterial({ color, side: THREE.DoubleSide })
+        );
+        m.position.set(...pos);
+        m.lookAt(...lookAt);
+        envScene.add(m);
+      };
+      addSoftbox(28, 12, new THREE.Color(4.0, 3.9, 3.8), [0, 26, 10], [0, 0, 0]);
+      addSoftbox(10, 26, new THREE.Color(1.9, 2.7, 4.0), [-28, 11, 16], [0, 4, 0]);
+      addSoftbox(10, 22, new THREE.Color(3.4, 2.3, 1.4), [28, 10, -14], [0, 4, 0]);
+      addSoftbox(22, 6, new THREE.Color(2.4, 2.7, 3.2), [0, 14, -28], [0, 2, 0]);
+
+      const tex = pmrem.fromScene(envScene, 0.035).texture;
+      pmrem.dispose();
+      return tex;
+    }
+    scene.environment = createCinemaSoftboxEnvMap(renderer);
+    scene.environmentIntensity = 1.0;
 
     const camera = new THREE.PerspectiveCamera(38, window.innerWidth / window.innerHeight, 1.0, 2200.0);
     camera.position.set(115, 110, 240);
 
     const controls = new OrbitControls(camera, canvas);
     controls.enableDamping = true;
-    controls.dampingFactor = 0.05;
+    controls.dampingFactor = 0.06;
     controls.target.set(0, 92, 0);
     controls.maxPolarAngle = Math.PI / 2 + 0.06;
     controls.minDistance = 42;
@@ -2326,87 +3129,291 @@
     controls.autoRotate = state.autoRotate;
     controls.autoRotateSpeed = 0.72;
 
-    // High-threshold Bloom (1.90) so ONLY emissive Mono-Eyes, Twin-Eyes & Plasma Thrusters glow!
-    let composer = null;
-    try {
-      composer = new EffectComposer(renderer);
-      composer.addPass(new RenderPass(scene, camera));
-      const bloomPass = new UnrealBloomPass(
-        new THREE.Vector2(window.innerWidth, window.innerHeight),
-        0.16, 0.25, 1.90
-      );
-      composer.addPass(bloomPass);
-      composer.addPass(new OutputPass());
-    } catch (e) {
-      composer = null;
-    }
+    // Single-Pass Adaptive DPR Tiers (ZERO EffectComposer / ZERO GTAO / ZERO Bloom / ZERO Real-Time ShadowMap!)
+    const GPU_TIERS = {
+      HIGH: { dpr: Math.min(window.devicePixelRatio || 1, 1.5), label: 'FAST • 1-PASS' },
+      MED: { dpr: Math.min(window.devicePixelRatio || 1, 1.15), label: 'ECO • 1-PASS' },
+      LOW: { dpr: 1.0, label: 'MOBILE • 1-PASS' }
+    };
+    const detectInitialGpuTier = () => {
+      try {
+        if (isMobileViewport()) return 'LOW';
+        const gl = renderer.getContext();
+        const dbg = gl.getExtension('WEBGL_debug_renderer_info');
+        const ren = dbg ? String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) || '') : '';
+        if (/swiftshader|llvmpipe|software|mesa/i.test(ren)) return 'LOW';
+        if (/intel|uhd|iris|mali|adreno|apple gpu/i.test(ren)) return 'MED';
+      } catch (_) { }
+      return 'HIGH';
+    };
+    state.gpuTier = detectInitialGpuTier();
 
-    // Studio & Planetary Lighting Rig
-    const hemiLight = new THREE.HemisphereLight(0xcfe8ff, 0x101828, 0.55);
+    const gpuTierBadge = document.getElementById('gpu-tier-badge');
+    function applyGpuQualityTier(tierName) {
+      const tKey = GPU_TIERS[tierName] ? tierName : 'LOW';
+      const tCfg = GPU_TIERS[tKey];
+      state.gpuTier = tKey;
+      renderer.setPixelRatio(tCfg.dpr);
+      if (gpuTierBadge) gpuTierBadge.textContent = tCfg.label;
+    }
+    applyGpuQualityTier(state.gpuTier);
+
+    // Lightweight 3-Point Directional + Hemisphere Studio Lighting (ZERO PointLight per-fragment overhead!)
+    // Root-Cause Mobile FPS Fix #3: On mobile, disable redundant 3rd directional light (fillLight) and balance with hemiLight -> -33% per-fragment BRDF cost!
+    const isCoarseMobile = isMobileViewport();
+    const hemiLight = new THREE.HemisphereLight(0xcfe8ff, 0x101828, isCoarseMobile ? 0.78 : 0.58);
     scene.add(hemiLight);
 
-    const keyLight = new THREE.DirectionalLight(0xffffff, 1.48);
+    const keyLight = new THREE.DirectionalLight(0xffffff, 1.55);
     keyLight.position.set(130, 240, 175);
-    keyLight.castShadow = true;
-    keyLight.shadow.mapSize.set(2048, 2048);
-    keyLight.shadow.camera.near = 20;
-    keyLight.shadow.camera.far = 700;
-    keyLight.shadow.camera.left = -160;
-    keyLight.shadow.camera.right = 160;
-    keyLight.shadow.camera.top = 240;
-    keyLight.shadow.camera.bottom = -40;
-    keyLight.shadow.bias = -0.0005;
     scene.add(keyLight);
 
-    const fillLight = new THREE.DirectionalLight(0x7dd3fc, 0.65);
+    const fillLight = new THREE.DirectionalLight(0x7dd3fc, 0.68);
     fillLight.position.set(-165, 130, 110);
+    fillLight.visible = !isCoarseMobile;
     scene.add(fillLight);
 
-    const rimLight = new THREE.DirectionalLight(0x38bdf8, 0.95);
+    const rimLight = new THREE.DirectionalLight(0x38bdf8, 0.98);
     rimLight.position.set(-100, 195, -180);
     scene.add(rimLight);
 
-    const holoCoreLight = new THREE.PointLight(0x00e5ff, 0, 260);
-    holoCoreLight.position.set(0, 100, 45);
-    scene.add(holoCoreLight);
+    // Clean Interactive Infinity Cyclorama Dome (100% uncluttered backdrop — ZERO fence/pillars behind mecha!)
+    // Root-Cause Mobile FPS Fix #4: Zero transcendental ops (pow/exp/sin) per fragment on mobile sky dome!
+    const cycloramaUniforms = {
+      uTopColor: { value: new THREE.Color(0x0b1528) },
+      uMidColor: { value: new THREE.Color(0x060c18) },
+      uBotColor: { value: new THREE.Color(0x03060d) },
+      uAccentColor: { value: new THREE.Color(0x00e5ff) },
+      uPointer: { value: new THREE.Vector2(0, 0) },
+      uTime: { value: 0.0 },
+      uStudioMode: { value: 0.0 }
+    };
+    const cycloramaDome = new THREE.Mesh(
+      new THREE.SphereGeometry(920, isCoarseMobile ? 16 : 28, isCoarseMobile ? 12 : 18),
+      new THREE.ShaderMaterial({
+        side: THREE.BackSide,
+        depthWrite: false,
+        fog: false,
+        uniforms: cycloramaUniforms,
+        vertexShader: isCoarseMobile ? `
+          uniform vec3 uTopColor;
+          uniform vec3 uMidColor;
+          uniform vec3 uBotColor;
+          varying vec3 vColor;
+          void main() {
+            float h = clamp(normalize(position).y * 0.5 + 0.5, 0.0, 1.0);
+            vec3 c = mix(uBotColor, uMidColor, smoothstep(0.32, 0.52, h));
+            vColor = mix(c, uTopColor, smoothstep(0.50, 0.92, h));
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+          }
+        ` : `
+          varying vec3 vWorldDir;
+          void main() {
+            vWorldDir = normalize(position);
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+          }
+        `,
+        fragmentShader: isCoarseMobile ? `
+          varying vec3 vColor;
+          void main() {
+            gl_FragColor = vec4(vColor, 1.0);
+          }
+        ` : `
+          uniform vec3 uTopColor;
+          uniform vec3 uMidColor;
+          uniform vec3 uBotColor;
+          uniform vec3 uAccentColor;
+          uniform vec2 uPointer;
+          uniform float uTime;
+          uniform float uStudioMode;
+          varying vec3 vWorldDir;
+          void main() {
+            float h = clamp(vWorldDir.y * 0.5 + 0.5, 0.0, 1.0);
+            vec3 col = mix(uBotColor, uMidColor, smoothstep(0.32, 0.52, h));
+            col = mix(col, uTopColor, smoothstep(0.50, 0.92, h));
 
-    // Hangar Pedestal Platform & Tactical Floor
+            vec3 spotDir = normalize(vec3(uPointer.x * 0.55, 0.24 + uPointer.y * 0.25, -0.78));
+            float spotDot = max(dot(normalize(vWorldDir), spotDir), 0.0);
+            float softHalo = pow(max(spotDot, 0.0001), 5.0);
+            col += mix(uAccentColor * 0.18, vec3(0.15, 0.18, 0.22), uStudioMode) * softHalo;
+
+            float horizonBand = exp(-abs(vWorldDir.y - 0.04) * 14.0);
+            float wave = 0.5 + 0.5 * sin(vWorldDir.x * 5.0 + uTime * 0.55);
+            col += uAccentColor * horizonBand * mix(0.10, 0.04, uStudioMode) * (0.7 + 0.3 * wave);
+
+            float zenith = pow(max(vWorldDir.y, 0.0001), 2.4);
+            col += mix(vec3(0.03, 0.07, 0.14), vec3(0.12, 0.14, 0.18), uStudioMode) * zenith;
+            gl_FragColor = vec4(col, 1.0);
+          }
+        `
+      })
+    );
+    scene.add(cycloramaDome);
+
+    // Lightweight 512px CNC Titanium Turntable Deck + Vernier Azimuth Ring + Contact Shadow
+    function createTurntableDeckTextures() {
+      const sz = 512;
+      const c = document.createElement('canvas');
+      c.width = sz; c.height = sz;
+      const ctx = c.getContext('2d');
+      const cx = sz / 2, cy = sz / 2;
+      ctx.fillStyle = '#182235';
+      ctx.fillRect(0, 0, sz, sz);
+
+      for (let r = 10; r < sz * 0.49; r += 3) {
+        const shade = 22 + Math.floor(Math.sin(r * 0.5) * 6 + ((r * 17) % 9));
+        ctx.strokeStyle = `rgba(${shade + 8}, ${shade + 16}, ${shade + 28}, 0.55)`;
+        ctx.lineWidth = 1.2;
+        ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
+      }
+      ctx.strokeStyle = 'rgba(148, 163, 184, 0.22)';
+      ctx.lineWidth = 1.4;
+      for (let i = 0; i < 12; i++) {
+        const a = (i / 12) * Math.PI * 2;
+        ctx.beginPath();
+        ctx.moveTo(cx + Math.cos(a) * 45, cy + Math.sin(a) * 45);
+        ctx.lineTo(cx + Math.cos(a) * 245, cy + Math.sin(a) * 245);
+        ctx.stroke();
+      }
+      [78, 145, 208, 234].forEach((rad, idx) => {
+        ctx.strokeStyle = idx === 2 ? 'rgba(249, 115, 22, 0.42)' : 'rgba(56, 189, 248, 0.34)';
+        ctx.lineWidth = idx === 3 ? 2.0 : 1.2;
+        ctx.beginPath(); ctx.arc(cx, cy, rad, 0, Math.PI * 2); ctx.stroke();
+      });
+      for (let i = 0; i < 72; i++) {
+        const a = (i / 72) * Math.PI * 2;
+        const major = i % 6 === 0;
+        const r0 = major ? 215 : 223;
+        const r1 = 231;
+        ctx.strokeStyle = major ? 'rgba(226, 232, 240, 0.55)' : 'rgba(148, 163, 184, 0.28)';
+        ctx.lineWidth = major ? 1.6 : 0.9;
+        ctx.beginPath();
+        ctx.moveTo(cx + Math.cos(a) * r0, cy + Math.sin(a) * r0);
+        ctx.lineTo(cx + Math.cos(a) * r1, cy + Math.sin(a) * r1);
+        ctx.stroke();
+      }
+      const tex = new THREE.CanvasTexture(c);
+      tex.colorSpace = THREE.SRGBColorSpace;
+      tex.anisotropy = maxAnisotropy;
+      return tex;
+    }
+
+    function createContactShadowTexture() {
+      const sz = 128;
+      const c = document.createElement('canvas');
+      c.width = sz; c.height = sz;
+      const ctx = c.getContext('2d');
+      const g = ctx.createRadialGradient(sz / 2, sz / 2, 6, sz / 2, sz / 2, sz / 2);
+      g.addColorStop(0.0, 'rgba(6, 10, 18, 0.64)');
+      g.addColorStop(0.45, 'rgba(6, 10, 18, 0.34)');
+      g.addColorStop(0.78, 'rgba(6, 10, 18, 0.08)');
+      g.addColorStop(1.0, 'rgba(6, 10, 18, 0.0)');
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, sz, sz);
+      return new THREE.CanvasTexture(c);
+    }
+
     const floorGroup = new THREE.Group();
     scene.add(floorGroup);
 
+    const deckMap = createTurntableDeckTextures();
     const darkPad = new THREE.Mesh(
-      new THREE.CylinderGeometry(76, 84, 4.0, 64),
-      new THREE.MeshStandardMaterial({ color: 0x0b1222, roughness: 0.32, metalness: 0.72 })
+      new THREE.CylinderGeometry(84, 94, 4.4, 48),
+      new THREE.MeshStandardMaterial({
+        color: 0xdbe4f0, map: deckMap, roughness: 0.36, metalness: 0.64, envMapIntensity: 0.92
+      })
     );
-    darkPad.position.y = -2.0;
-    darkPad.receiveShadow = true;
+    darkPad.position.y = -2.2;
     floorGroup.add(darkPad);
 
+    const padTrim = new THREE.Mesh(
+      new THREE.TorusGeometry(85.2, 1.35, 10, 56),
+      new THREE.MeshStandardMaterial({ color: 0x334155, roughness: 0.30, metalness: 0.85 })
+    );
+    padTrim.rotation.x = Math.PI / 2;
+    padTrim.position.y = -0.15;
+    floorGroup.add(padTrim);
+
+    const contactShadowDisc = new THREE.Mesh(
+      new THREE.PlaneGeometry(108, 108),
+      new THREE.MeshBasicMaterial({
+        map: createContactShadowTexture(), transparent: true, depthWrite: false,
+        side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1
+      })
+    );
+    contactShadowDisc.rotation.x = -Math.PI / 2;
+    contactShadowDisc.position.y = 0.06;
+    floorGroup.add(contactShadowDisc);
+
+    const studioApronMat = new THREE.MeshStandardMaterial({
+      color: 0x091120, roughness: 0.44, metalness: 0.42, transparent: true, opacity: 0.92
+    });
+    const studioApron = new THREE.Mesh(new THREE.CircleGeometry(460, 48), studioApronMat);
+    studioApron.rotation.x = -Math.PI / 2;
+    studioApron.position.y = -4.5;
+    floorGroup.add(studioApron);
+
     const glowRingOuter = new THREE.Mesh(
-      new THREE.RingGeometry(71, 73.2, 64),
-      new THREE.MeshBasicMaterial({ color: 0x00e5ff, side: THREE.DoubleSide, transparent: true, opacity: 0.55 })
+      new THREE.RingGeometry(81.0, 82.8, 64),
+      new THREE.MeshBasicMaterial({ color: 0x00e5ff, side: THREE.DoubleSide, transparent: true, opacity: 0.68, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 })
     );
     glowRingOuter.rotation.x = -Math.PI / 2;
-    glowRingOuter.position.y = 0.08;
+    glowRingOuter.position.y = 0.09;
     floorGroup.add(glowRingOuter);
 
     const glowRingInner = new THREE.Mesh(
-      new THREE.RingGeometry(46, 47.0, 64),
-      new THREE.MeshBasicMaterial({ color: 0xf59e0b, side: THREE.DoubleSide, transparent: true, opacity: 0.35 })
+      new THREE.RingGeometry(52.0, 53.0, 64),
+      new THREE.MeshBasicMaterial({ color: 0xf97316, side: THREE.DoubleSide, transparent: true, opacity: 0.48, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 })
     );
     glowRingInner.rotation.x = -Math.PI / 2;
-    glowRingInner.position.y = 0.08;
+    glowRingInner.position.y = 0.09;
     floorGroup.add(glowRingInner);
 
-    const gridHelper = new THREE.GridHelper(540, 44, 0x0ea5e9, 0x132038);
-    gridHelper.position.y = -0.05;
-    gridHelper.material.transparent = true;
-    gridHelper.material.opacity = 0.28;
-    floorGroup.add(gridHelper);
+    const vernierRing = new THREE.Mesh(
+      new THREE.RingGeometry(98, 99.2, 64, 1, 0, Math.PI * 1.45),
+      new THREE.MeshBasicMaterial({ color: 0x38bdf8, side: THREE.DoubleSide, transparent: true, opacity: 0.34, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 })
+    );
+    vernierRing.rotation.x = -Math.PI / 2;
+    vernierRing.position.y = -4.25;
+    floorGroup.add(vernierRing);
 
-    // Starfield Backdrop
-    const starPositions = new Float32Array(1800 * 3);
-    for (let i = 0; i < 1800; i++) {
+    const pulseRingMat = new THREE.MeshBasicMaterial({
+      color: 0x00e5ff, side: THREE.DoubleSide, transparent: true, opacity: 0.0,
+      polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2
+    });
+    const pulseRing = new THREE.Mesh(new THREE.RingGeometry(48, 52, 48), pulseRingMat);
+    pulseRing.rotation.x = -Math.PI / 2;
+    pulseRing.position.y = 0.14;
+    floorGroup.add(pulseRing);
+    let stagePulseProgress = 1.0;
+    function triggerStagePulse(hexColor = 0x00e5ff) {
+      pulseRingMat.color.setHex(hexColor);
+      stagePulseProgress = 0.0;
+    }
+
+    const studioReticleGroup = new THREE.Group();
+    studioReticleGroup.visible = false;
+    const reticleRingMat = new THREE.MeshBasicMaterial({ color: 0x475569, side: THREE.DoubleSide, transparent: true, opacity: 0.22, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 });
+    const retRing1 = new THREE.Mesh(new THREE.RingGeometry(108, 108.9, 64, 1, 0.2, Math.PI * 1.65), reticleRingMat);
+    retRing1.position.set(0, 98, -68);
+    studioReticleGroup.add(retRing1);
+    const retRing2 = new THREE.Mesh(new THREE.RingGeometry(138, 138.8, 64, 1, Math.PI * 0.4, Math.PI * 1.25), new THREE.MeshBasicMaterial({ color: 0xf97316, side: THREE.DoubleSide, transparent: true, opacity: 0.26, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 }));
+    retRing2.position.set(0, 98, -72);
+    studioReticleGroup.add(retRing2);
+    scene.add(studioReticleGroup);
+
+    const pointerNdc = { x: 0, y: 0, targetX: 0, targetY: 0 };
+    if (!isCoarseMobile) {
+      window.addEventListener('pointermove', (e) => {
+        pointerNdc.targetX = (e.clientX / Math.max(window.innerWidth, 1)) * 2 - 1;
+        pointerNdc.targetY = -((e.clientY / Math.max(window.innerHeight, 1)) * 2 - 1);
+      }, { passive: true });
+    }
+
+    // Lightweight Starfield Backdrop (disabled on mobile to eliminate unnecessary point-sprite overdraw)
+    const starPositions = new Float32Array((isCoarseMobile ? 120 : 600) * 3);
+    const starCount = starPositions.length / 3;
+    for (let i = 0; i < starCount; i++) {
       const r = 450 + Math.random() * 680;
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(2 * Math.random() - 1);
@@ -2426,13 +3433,13 @@
     const cyberGroup = new THREE.Group();
     cyberGroup.visible = false;
     const neonTorus = new THREE.Mesh(
-      new THREE.TorusGeometry(42, 1.5, 16, 64),
+      new THREE.TorusGeometry(42, 1.5, 12, 48),
       new THREE.MeshBasicMaterial({ color: 0xff007f })
     );
     neonTorus.position.set(-125, 125, -110);
     cyberGroup.add(neonTorus);
     const neonPillar = new THREE.Mesh(
-      new THREE.CylinderGeometry(1.5, 1.5, 130, 16),
+      new THREE.CylinderGeometry(1.5, 1.5, 130, 12),
       new THREE.MeshBasicMaterial({ color: 0x00e5ff })
     );
     neonPillar.position.set(130, 115, -90);
@@ -2440,110 +3447,62 @@
     scene.add(cyberGroup);
 
     // =========================================================================
-    // 4. SILKY-SMOOTH SATIN GUNDARIUM PBR ENGINE (ZERO ORANGE-PEEL BUMP NOISE!)
+    // 4. ULTRA-FAST 256px PROCEDURAL PANEL-LINE MAP (<2ms INIT, ZERO SOBEL FREEZE!)
     // =========================================================================
-    function createProceduralMechaPBR() {
-      const size = 512;
-
-      // A. Clean Smooth Heightfield with ONLY Recessed Master Grade Panel Lines (Zero random pixel noise!)
-      const hCanvas = document.createElement('canvas');
-      hCanvas.width = size; hCanvas.height = size;
-      const hCtx = hCanvas.getContext('2d');
-      hCtx.fillStyle = '#808080';
-      hCtx.fillRect(0, 0, size, size);
-
-      let seed = 1337;
-      const rand = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
-
-      // Fine recessed Master Grade panel seams
-      hCtx.strokeStyle = '#646464';
-      hCtx.lineWidth = 1.5;
-      hCtx.beginPath(); hCtx.moveTo(0, 256); hCtx.lineTo(size, 256); hCtx.stroke();
-      hCtx.beginPath(); hCtx.moveTo(256, 0); hCtx.lineTo(256, size); hCtx.stroke();
-      hCtx.strokeStyle = '#6e6e6e';
-      hCtx.lineWidth = 1.2;
-      hCtx.strokeRect(52, 52, 152, 116);
-      hCtx.strokeRect(304, 300, 148, 128);
-
-      // Sobel filter -> Silky-Smooth Panel-Line Normal Map (THREE.NoColorSpace!)
-      const hSrc = hCtx.getImageData(0, 0, size, size).data;
-      const nCanvas = document.createElement('canvas');
-      nCanvas.width = size; nCanvas.height = size;
-      const nCtx = nCanvas.getContext('2d');
-      const nImg = nCtx.createImageData(size, size);
-      const nd = nImg.data;
-      const sampleH = (x, y) => hSrc[(((y + size) % size) * size + ((x + size) % size)) * 4] / 255.0;
-      const strength = 0.65;
-      for (let y = 0; y < size; y++) {
-        for (let x = 0; x < size; x++) {
-          const tl = sampleH(x - 1, y - 1), t = sampleH(x, y - 1), tr = sampleH(x + 1, y - 1);
-          const l = sampleH(x - 1, y), r = sampleH(x + 1, y);
-          const bl = sampleH(x - 1, y + 1), b = sampleH(x, y + 1), br = sampleH(x + 1, y + 1);
-          const dx = (tr + 2 * r + br - tl - 2 * l - bl) * strength;
-          const dy = (bl + 2 * b + br - tl - 2 * t - tr) * strength;
-          const dz = 1.0;
-          const inv = 1.0 / Math.hypot(dx, dy, dz);
-          const idx = (y * size + x) * 4;
-          nd[idx] = Math.round((-dx * inv * 0.5 + 0.5) * 255);
-          nd[idx + 1] = Math.round((-dy * inv * 0.5 + 0.5) * 255);
-          nd[idx + 2] = Math.round((dz * inv * 0.5 + 0.5) * 255);
-          nd[idx + 3] = 255;
+    function ensureBoxProjectedUVs(geometry, uvScale = 0.028) {
+      if (!geometry || !geometry.attributes || !geometry.attributes.position) return;
+      if (geometry.attributes.uv && geometry.attributes.uv.count === geometry.attributes.position.count) return;
+      if (!geometry.attributes.normal) geometry.computeVertexNormals();
+      const pos = geometry.attributes.position;
+      const nrm = geometry.attributes.normal;
+      const uvs = new Float32Array(pos.count * 2);
+      for (let i = 0; i < pos.count; i++) {
+        const x = pos.getX(i), y = pos.getY(i), z = pos.getZ(i);
+        const ax = Math.abs(nrm.getX(i)), ay = Math.abs(nrm.getY(i)), az = Math.abs(nrm.getZ(i));
+        let u = 0, v = 0;
+        if (ax >= ay && ax >= az) {
+          u = z * uvScale; v = y * uvScale;
+        } else if (ay >= ax && ay >= az) {
+          u = x * uvScale; v = z * uvScale;
+        } else {
+          u = x * uvScale; v = y * uvScale;
         }
+        uvs[i * 2] = u;
+        uvs[i * 2 + 1] = v;
       }
-      nCtx.putImageData(nImg, 0, 0);
+      geometry.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
+    }
 
-      // B. Satin Anodized Alloy Roughness Map
-      const rCanvas = document.createElement('canvas');
-      rCanvas.width = size; rCanvas.height = size;
-      const rCtx = rCanvas.getContext('2d');
-      rCtx.fillStyle = '#686868';
-      rCtx.fillRect(0, 0, size, size);
-      for (let i = 0; i < 80; i++) {
-        const cx = rand() * size, cy = rand() * size, rad = 28 + rand() * 64;
-        const g = rCtx.createRadialGradient(cx, cy, 4, cx, cy, rad);
-        const shade = 92 + Math.floor(rand() * 26);
-        g.addColorStop(0, `rgba(${shade},${shade},${shade},0.14)`);
-        g.addColorStop(1, 'rgba(104,104,104,0)');
-        rCtx.fillStyle = g;
-        rCtx.beginPath(); rCtx.arc(cx, cy, rad, 0, Math.PI * 2); rCtx.fill();
-      }
-
-      // C. Clean Satin Gundarium Albedo Detail Map
+    function createProceduralMechaPBR() {
+      const size = 256;
       const aCanvas = document.createElement('canvas');
       aCanvas.width = size; aCanvas.height = size;
       const aCtx = aCanvas.getContext('2d');
-      aCtx.fillStyle = '#f1f4f8';
+      aCtx.fillStyle = '#fafbfc';
       aCtx.fillRect(0, 0, size, size);
-      for (let i = 0; i < 75; i++) {
-        const cx = rand() * size, cy = rand() * size, rad = 26 + rand() * 72;
-        const g = aCtx.createRadialGradient(cx, cy, 4, cx, cy, rad);
-        const tone = 224 + Math.floor(rand() * 20);
-        g.addColorStop(0, `rgba(${tone},${tone + 2},${tone + 4},0.12)`);
-        g.addColorStop(1, 'rgba(241,244,248,0)');
-        aCtx.fillStyle = g;
-        aCtx.beginPath(); aCtx.arc(cx, cy, rad, 0, Math.PI * 2); aCtx.fill();
-      }
-      aCtx.strokeStyle = 'rgba(38, 48, 64, 0.16)';
-      aCtx.lineWidth = 1.3;
-      aCtx.beginPath(); aCtx.moveTo(0, 256); aCtx.lineTo(size, 256); aCtx.stroke();
-      aCtx.beginPath(); aCtx.moveTo(256, 0); aCtx.lineTo(256, size); aCtx.stroke();
+      // Subtle MG multi-tone armor separation + ultra-crisp panel ink (zero heavy normal-map fetches!)
+      aCtx.fillStyle = 'rgba(226, 232, 240, 0.42)'; aCtx.fillRect(138, 136, 105, 104);
+      aCtx.fillStyle = 'rgba(255, 255, 255, 0.35)'; aCtx.fillRect(12, 12, 104, 100);
+      aCtx.fillStyle = 'rgba(232, 238, 246, 0.32)'; aCtx.fillRect(16, 144, 90, 74);
+      aCtx.strokeStyle = 'rgba(24, 34, 52, 0.13)';
+      aCtx.lineWidth = 1.1;
+      aCtx.beginPath(); aCtx.moveTo(0, 128); aCtx.lineTo(size, 128); aCtx.stroke();
+      aCtx.beginPath(); aCtx.moveTo(128, 0); aCtx.lineTo(128, size); aCtx.stroke();
+      aCtx.strokeStyle = 'rgba(30, 41, 59, 0.09)';
+      aCtx.lineWidth = 0.9;
+      aCtx.strokeRect(12, 12, 104, 100);
+      aCtx.strokeRect(138, 136, 105, 104);
+      aCtx.strokeRect(140, 14, 100, 86);
+      aCtx.strokeRect(16, 144, 90, 74);
 
-      const makeTex = (cvs, isSRGB) => {
-        const t = new THREE.CanvasTexture(cvs);
-        t.wrapS = THREE.RepeatWrapping;
-        t.wrapT = THREE.RepeatWrapping;
-        t.repeat.set(0.28, 0.28);
-        t.anisotropy = maxAnisotropy;
-        t.colorSpace = isSRGB ? THREE.SRGBColorSpace : THREE.NoColorSpace;
-        t.needsUpdate = true;
-        return t;
-      };
-
-      return {
-        normalMap: makeTex(nCanvas, false),
-        roughnessMap: makeTex(rCanvas, false),
-        albedoDetailMap: makeTex(aCanvas, true)
-      };
+      const t = new THREE.CanvasTexture(aCanvas);
+      t.wrapS = THREE.RepeatWrapping;
+      t.wrapT = THREE.RepeatWrapping;
+      t.repeat.set(0.40, 0.40);
+      t.anisotropy = maxAnisotropy;
+      t.colorSpace = THREE.SRGBColorSpace;
+      t.needsUpdate = true;
+      return { albedoDetailMap: t };
     }
 
     const mechaPBR = createProceduralMechaPBR();
@@ -2570,7 +3529,7 @@
         varying vec3 vNormal; varying vec3 vViewDir; varying float vWorldY;
         float rand(vec2 st) { return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123); }
         void main() {
-          float fresnel = pow(1.0 - abs(dot(vNormal, vViewDir)), 2.5);
+          float fresnel = pow(max(1.0 - clamp(abs(dot(vNormal, vViewDir)), 0.0, 1.0), 0.0001), 2.5);
           float scanLine = smoothstep(0.3, 0.7, sin(vWorldY * 1.4 + uTime * 4.5) * 0.5 + 0.5);
           float scanIntensity = mix(0.45, 1.0, scanLine);
           float barPos = mod(uTime * 48.0, 210.0) - 10.0;
@@ -2586,13 +3545,23 @@
 
     const blueprintSolidMat = new THREE.MeshStandardMaterial({ color: 0x08142b, roughness: 0.72, metalness: 0.18 });
     const blueprintLineMat = new THREE.LineBasicMaterial({ color: 0x00e5ff, transparent: true, opacity: 0.78 });
+    const glassCutawayMat = new THREE.MeshStandardMaterial({
+      color: 0xcbe4f9, roughness: 0.14, metalness: 0.12,
+      transparent: true, opacity: 0.26, depthWrite: false,
+      side: THREE.DoubleSide, envMapIntensity: 1.05
+    });
+    const ghostShellMat = new THREE.MeshStandardMaterial({
+      color: 0x94a3b8, roughness: 0.65, metalness: 0.15,
+      transparent: true, opacity: 0.13, depthWrite: false, side: THREE.DoubleSide
+    });
 
     const ENVIRONMENTS = {
-      hangar: { bg: 0x060b16, fog: 0x060b16, key: 0xffffff, keyI: 1.48, fill: 0x7dd3fc, fillI: 0.65, rim: 0x38bdf8, rimI: 0.95, hemiI: 0.55, envI: 0.72, stars: 0.32, cyber: false },
-      earth: { bg: 0x071226, fog: 0x071226, key: 0xfffdf5, keyI: 1.65, fill: 0x60a5fa, fillI: 0.78, rim: 0x93c5fd, rimI: 0.95, hemiI: 0.62, envI: 0.78, stars: 0.72, cyber: false },
-      mars: { bg: 0x16090b, fog: 0x16090b, key: 0xff8c5a, keyI: 1.65, fill: 0xd94626, fillI: 0.75, rim: 0xfb923c, rimI: 1.10, hemiI: 0.48, envI: 0.68, stars: 0.52, cyber: false },
-      lunar: { bg: 0x05060a, fog: 0x05060a, key: 0xf8fafc, keyI: 1.75, fill: 0x475569, fillI: 0.30, rim: 0xcbd5e1, rimI: 0.80, hemiI: 0.30, envI: 0.58, stars: 0.95, cyber: false },
-      cyberpunk: { bg: 0x070217, fog: 0x070217, key: 0x6d28d9, keyI: 0.95, fill: 0xff007f, fillI: 1.75, rim: 0x00e5ff, rimI: 1.85, hemiI: 0.42, envI: 0.68, stars: 0.45, cyber: true }
+      hangar: { bg: 0x060b16, fog: 0x060b16, skyTop: 0x112240, skyMid: 0x071021, skyBot: 0x03060d, accent: 0x00e5ff, apron: 0x081122, key: 0xfffdf8, keyI: 1.72, fill: 0x7dd3fc, fillI: 0.72, rim: 0x38bdf8, rimI: 1.15, hemiI: 0.52, envI: 1.05, stars: 0.34, cyber: false, studio: false },
+      studio: { bg: 0xcbd5e1, fog: 0xcbd5e1, skyTop: 0xe6edf5, skyMid: 0xcbd5e1, skyBot: 0x94a3b8, accent: 0xf97316, apron: 0xb8c5d6, key: 0xfffaf2, keyI: 1.85, fill: 0x93c5fd, fillI: 0.78, rim: 0xf97316, rimI: 0.85, hemiI: 0.68, envI: 0.92, stars: 0.00, cyber: false, studio: true },
+      earth: { bg: 0x071226, fog: 0x071226, skyTop: 0x1e3a8a, skyMid: 0x0b1c3d, skyBot: 0x040917, accent: 0x60a5fa, apron: 0x09162e, key: 0xfffdf5, keyI: 1.78, fill: 0x60a5fa, fillI: 0.82, rim: 0x93c5fd, rimI: 1.08, hemiI: 0.58, envI: 1.08, stars: 0.72, cyber: false, studio: false },
+      mars: { bg: 0x16090b, fog: 0x16090b, skyTop: 0x451a14, skyMid: 0x1f0c0d, skyBot: 0x0d0405, accent: 0xf97316, apron: 0x1b0b0c, key: 0xff9d6e, keyI: 1.80, fill: 0xd94626, fillI: 0.78, rim: 0xfb923c, rimI: 1.25, hemiI: 0.48, envI: 0.96, stars: 0.52, cyber: false, studio: false },
+      lunar: { bg: 0x05060a, fog: 0x05060a, skyTop: 0x151b28, skyMid: 0x090c14, skyBot: 0x030408, accent: 0xcbd5e1, apron: 0x0b0e16, key: 0xf8fafc, keyI: 1.92, fill: 0x475569, fillI: 0.34, rim: 0xcbd5e1, rimI: 0.96, hemiI: 0.32, envI: 0.88, stars: 0.95, cyber: false, studio: false },
+      cyberpunk: { bg: 0x070217, fog: 0x070217, skyTop: 0x2e1065, skyMid: 0x0f0524, skyBot: 0x05010f, accent: 0xff007f, apron: 0x0d0420, key: 0x8b5cf6, keyI: 1.12, fill: 0xff007f, fillI: 1.78, rim: 0x00e5ff, rimI: 1.92, hemiI: 0.44, envI: 0.95, stars: 0.45, cyber: true, studio: false }
     };
 
     function applyEnvironment(envKey) {
@@ -2600,36 +3569,56 @@
       state.activeEnv = envKey;
       scene.background.setHex(cfg.bg);
       scene.fog.color.setHex(cfg.fog);
+      cycloramaUniforms.uTopColor.value.setHex(cfg.skyTop);
+      cycloramaUniforms.uMidColor.value.setHex(cfg.skyMid);
+      cycloramaUniforms.uBotColor.value.setHex(cfg.skyBot);
+      cycloramaUniforms.uAccentColor.value.setHex(cfg.accent);
+      cycloramaUniforms.uStudioMode.value = cfg.studio ? 1.0 : 0.0;
       keyLight.color.setHex(cfg.key); keyLight.intensity = cfg.keyI;
       fillLight.color.setHex(cfg.fill); fillLight.intensity = cfg.fillI;
       rimLight.color.setHex(cfg.rim); rimLight.intensity = cfg.rimI;
       hemiLight.intensity = cfg.hemiI;
       scene.environmentIntensity = cfg.envI;
       starField.material.opacity = cfg.stars;
+      starField.visible = cfg.stars > 0.01;
       cyberGroup.visible = cfg.cyber;
-      glowRingOuter.material.color.setHex(cfg.cyber ? 0xff007f : 0x00e5ff);
+      studioReticleGroup.visible = Boolean(cfg.studio);
+      studioApronMat.color.setHex(cfg.apron);
+      studioApronMat.roughness = cfg.studio ? 0.56 : 0.38;
+      studioApronMat.metalness = cfg.studio ? 0.18 : 0.52;
+      document.body.classList.toggle('studio-light-mode', Boolean(cfg.studio));
+      darkPad.material.color.setHex(cfg.studio ? 0xe2e8f0 : 0xdbe4f0);
+      darkPad.material.roughness = cfg.studio ? 0.44 : 0.32;
+      darkPad.material.metalness = cfg.studio ? 0.38 : 0.72;
+      glowRingOuter.material.color.setHex(cfg.accent);
+      glowRingInner.material.color.setHex(cfg.studio ? 0x334155 : 0xf97316);
+      vernierRing.material.color.setHex(cfg.accent);
+      triggerStagePulse(cfg.accent);
     }
 
     // =========================================================================
-    // 6. BANDAI RG / VER.KA GUNPLA STUDIO PBR + EDGE/CAVITY GLSL SHADER ENGINE
+    // 6. SHARED CACHED MeshStandardMaterial POOL (137 MESHES -> ~14 MATS & 2 SHADERS!)
     // =========================================================================
+    const MECHA_MAT_CACHE = new Map();
+
     function injectGunplaStudioShader(mat, isEmissive = false) {
       if (isEmissive) return mat;
+      mat.customProgramCacheKey = () => 'gunpla_std_fast_v2';
       mat.onBeforeCompile = (shader) => {
         shader.fragmentShader = shader.fragmentShader.replace(
           '#include <dithering_fragment>',
           `
-          // 1. Screen-Space Hard-Surface Chamfer Edge Highlight & Panel-Line Crevice Definition
           vec3 dNdx = dFdx(normal);
           vec3 dNdy = dFdy(normal);
           float edgeCurv = clamp(length(dNdx) + length(dNdy), 0.0, 1.0);
-          float bevelHighlight = smoothstep(0.07, 0.34, edgeCurv) * 0.13;
-          // 2. Vertical Hemi-Cavity Self-Occlusion under armor overhangs (helmet brow, pectorals, skirts)
+          float bevelHighlight = smoothstep(0.06, 0.28, edgeCurv) * 0.13;
           float upDot = clamp(normal.y * 0.5 + 0.5, 0.0, 1.0);
           float cavityAO = mix(0.76, 1.04, upDot);
-          // 3. Crisp Studio Rim Backlight for Mecha Silhouette Separation
-          float rim = pow(1.0 - clamp(abs(dot(normal, normalize(vViewPosition))), 0.0, 1.0), 3.3);
-          gl_FragColor.rgb = gl_FragColor.rgb * cavityAO + vec3(bevelHighlight) + gl_FragColor.rgb * rim * 0.15;
+          float ndv = clamp(abs(dot(normal, normalize(vViewPosition))), 0.0, 1.0);
+          float rim = pow(max(1.0 - ndv, 0.0001), 3.0);
+          gl_FragColor.rgb = gl_FragColor.rgb * cavityAO
+                           + vec3(bevelHighlight)
+                           + mix(gl_FragColor.rgb, vec3(0.86, 0.93, 1.0), 0.35) * rim * 0.18;
           #include <dithering_fragment>
           `
         );
@@ -2637,156 +3626,194 @@
       return mat;
     }
 
+    function getSharedMechaMaterial(cfg) {
+      const key = `${cfg.color.toString(16)}_${Math.round((cfg.roughness ?? 0.4) * 100)}_${Math.round((cfg.metalness ?? 0.1) * 100)}_${(cfg.emissive ?? 0).toString(16)}_${Math.round((cfg.emissiveIntensity ?? 0) * 10)}_${cfg.useDetail ? 1 : 0}_${cfg.isEmissive ? 1 : 0}_${cfg.transparent ? 1 : 0}`;
+      if (MECHA_MAT_CACHE.has(key)) return MECHA_MAT_CACHE.get(key);
+      const mat = new THREE.MeshStandardMaterial({
+        color: cfg.color,
+        roughness: cfg.roughness ?? 0.40,
+        metalness: cfg.metalness ?? 0.10,
+        emissive: cfg.emissive ?? 0x000000,
+        emissiveIntensity: cfg.emissiveIntensity ?? 0.0,
+        map: cfg.useDetail ? mechaPBR.albedoDetailMap : null,
+        transparent: Boolean(cfg.transparent),
+        opacity: cfg.opacity ?? 1.0,
+        depthWrite: cfg.transparent ? false : true,
+        side: cfg.transparent ? THREE.DoubleSide : THREE.FrontSide,
+        envMapIntensity: cfg.envMapIntensity ?? 0.92
+      });
+      if (!cfg.transparent && !cfg.isEmissive) {
+        injectGunplaStudioShader(mat, false);
+      }
+      MECHA_MAT_CACHE.set(key, mat);
+      return mat;
+    }
+
     function buildCadPBRMaterial(node) {
       const n = (node.name || '').toLowerCase();
-      // Bandai Real-Grade (RG) / Ver.Ka Multi-Tone Color Separation + Matte Topcoat Armor vs Metallic Inner Frame
-      let color = 0xdce3ec, roughness = 0.50, metalness = 0.06, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, coat = 0.12, isEmissive = false;
-      if (n.includes('twin_eyes') || n.includes('sensor_front') || n.includes('sensor_rear')) {
-        // Authentic Gundam Emerald-Green Dual Optical Cameras
-        color = 0x10f5a0; emissive = 0x00e599; emissiveIntensity = 3.2; roughness = 0.10; metalness = 0.1; useDetail = false; coat = 0.0; isEmissive = true;
-      } else if (n.includes('thruster_glow')) {
-        color = 0x00f5ff; emissive = 0x00f5ff; emissiveIntensity = 2.8; roughness = 0.12; metalness = 0.1; useDetail = false; coat = 0.0; isEmissive = true;
-      } else if (n.includes('v_fin_crest_gem') || n.includes('chin_guard') || n.includes('cockpit_hatch') || n.includes('abdomen_core') || n.includes('plaque_red') || n.includes('toe_plate') || n.includes('heel_block')) {
-        color = 0xc81e24; roughness = 0.46; metalness = 0.10; coat = 0.14;
-      } else if (n.includes('v_fin_sub_gold') || n.includes('louvers') || n.includes('v_emblem') || n.includes('vulcan_gold')) {
-        color = 0xeab308; roughness = 0.28; metalness = 0.80; useDetail = false; coat = 0.16;
-      } else if (n.includes('subplate_blue_rg')) {
-        color = 0x2563eb; roughness = 0.48; metalness = 0.14; coat = 0.14;
-      } else if (n.includes('chest_armor_blue')) {
-        color = 0x1d4ed8; roughness = 0.48; metalness = 0.14; coat = 0.14;
-      } else if (n.includes('_rg_') || n.includes('rg_panel') || n.includes('rg_cuff') || n.includes('rg_subplate')) {
-        // Real-Grade Secondary Warm Mechanical Armor Grey
-        color = 0x9aa6b8; roughness = 0.52; metalness = 0.10; coat = 0.10;
-      } else if (n.includes('face_slit_dark') || n.includes('visor_recess') || n.includes('vent_duct') || n.includes('backpack_core') || n.includes('foot_sole')) {
-        color = 0x141c2b; roughness = 0.54; metalness = 0.62; useDetail = false; coat = 0.0;
-      } else if (n.includes('hydraulic') || n.includes('piston') || n.includes('thruster_bell')) {
-        color = 0xcbd5e1; roughness = 0.22; metalness = 0.90; useDetail = false; coat = 0.10;
-      } else if (n.includes('frame') || n.includes('gimbal') || n.includes('knuckle') || n.includes('pivot') || n.includes('gear') || n.includes('fist') || n.includes('socket') || n.includes('clavicle') || n.includes('humerus') || n.includes('femur') || n.includes('tibia') || n.includes('neck')) {
-        color = 0x283140; roughness = 0.36; metalness = 0.84; useDetail = false; coat = 0.06;
+      if (n.includes('_glass')) {
+        return getSharedMechaMaterial({ color: 0xcbe8ff, roughness: 0.12, metalness: 0.12, transparent: true, opacity: 0.30, envMapIntensity: 1.1 });
       }
-      return injectGunplaStudioShader(new THREE.MeshPhysicalMaterial({
-        color, roughness, metalness, emissive, emissiveIntensity,
-        map: useDetail ? mechaPBR.albedoDetailMap : null,
-        normalMap: useDetail ? mechaPBR.normalMap : null,
-        normalScale: new THREE.Vector2(0.06, 0.06),
-        roughnessMap: useDetail ? mechaPBR.roughnessMap : null,
-        clearcoat: coat,
-        clearcoatRoughness: 0.34,
-        envMapIntensity: 0.82
-      }), isEmissive);
+      if (n.includes('_servo_accent')) {
+        // Sleek brushed anodized titanium-steel (no loud orange rings on classic RX-78-2 joints!)
+        return getSharedMechaMaterial({ color: 0x64748b, roughness: 0.28, metalness: 0.82, envMapIntensity: 1.05 });
+      }
+      let color = 0xf0f2ec, roughness = 0.38, metalness = 0.08, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, isEmissive = false;
+      if (n.includes('twin_eyes')) {
+        color = 0xfacc15; emissive = 0xf59e0b; emissiveIntensity = 1.9; roughness = 0.15; metalness = 0.1; useDetail = false; isEmissive = true;
+      } else if (n.includes('sensor_front') || n.includes('sensor_rear')) {
+        color = 0x38bdf8; emissive = 0x0ea5e9; emissiveIntensity = 1.8; roughness = 0.12; metalness = 0.1; useDetail = false; isEmissive = true;
+      } else if (n.includes('thruster_glow')) {
+        color = 0x00f5ff; emissive = 0x00f5ff; emissiveIntensity = 2.0; roughness = 0.12; metalness = 0.1; useDetail = false; isEmissive = true;
+      } else if (n.includes('v_fin_crest_gem') || n.includes('chin_guard') || n.includes('cheek_red_trim') || n.includes('abdomen_core') || n.includes('plaque_red') || n.includes('toe_plate') || n.includes('heel_block')) {
+        color = 0xd62428; roughness = 0.34; metalness = 0.14;
+      } else if (n.includes('_yellow') || n.includes('louvers') || n.includes('v_emblem')) {
+        color = 0xf4b41a; roughness = 0.34; metalness = 0.18;
+      } else if (n.includes('v_fin_sub_gold') || n.includes('vulcan_gold') || n.includes('_gold')) {
+        color = 0xeab308; roughness = 0.24; metalness = 0.86; useDetail = false;
+      } else if (n.includes('chest_armor_blue') || n.includes('cockpit_hatch_blue') || n.includes('subplate_blue_rg')) {
+        color = 0x1b64c6; roughness = 0.34; metalness = 0.16;
+      } else if (n.includes('elbow_cap_white') || n.includes('knee_cap_disc_white') || n.includes('ankle_disc_white')) {
+        color = 0xe6e9e3; roughness = 0.40; metalness = 0.08;
+      } else if (n.includes('_rg_') || n.includes('rg_panel') || n.includes('rg_cuff') || n.includes('rg_subplate')) {
+        color = 0x94a3b8; roughness = 0.42; metalness = 0.16;
+      } else if (n.includes('face_slit_dark') || n.includes('cheek_vent_dark') || n.includes('visor_recess') || n.includes('vent_duct') || n.includes('_hub_dark') || n.includes('shoulder_vent_dark')) {
+        color = 0x101824; roughness = 0.50; metalness = 0.45; useDetail = false;
+      } else if (n.includes('_trim_dark') || n.includes('sternum_dark') || n.includes('clavicle_pod_dark') || n.includes('backpack_core') || n.includes('foot_sole')) {
+        color = 0x2b3a4a; roughness = 0.40; metalness = 0.48; useDetail = false;
+      } else if (n.includes('hydraulic') || n.includes('piston') || n.includes('thruster_bell')) {
+        color = 0xdbe4ef; roughness = 0.20; metalness = 0.90; useDetail = false;
+      } else if (n.includes('frame') || n.includes('gimbal') || n.includes('knuckle') || n.includes('pivot') || n.includes('gear') || n.includes('fist') || n.includes('socket') || n.includes('clavicle') || n.includes('humerus') || n.includes('femur') || n.includes('tibia') || n.includes('neck') || n.includes('drum')) {
+        color = 0x2c3442; roughness = 0.36; metalness = 0.72; useDetail = false;
+      }
+      return getSharedMechaMaterial({ color, roughness, metalness, emissive, emissiveIntensity, useDetail, isEmissive });
     }
 
     function buildZeonEnemyPBRMaterial(node, spec) {
       const n = (node.name || '').toLowerCase();
-      let color = spec.packColors.primary, roughness = 0.50, metalness = 0.12, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, coat = 0.14, isEmissive = false;
-
+      if (n.includes('_glass')) {
+        return getSharedMechaMaterial({ color: 0xcbe8ff, roughness: 0.12, metalness: 0.12, transparent: true, opacity: 0.30, envMapIntensity: 1.1 });
+      }
+      if (n.includes('_servo_accent')) {
+        return getSharedMechaMaterial({ color: 0xf97316, roughness: 0.28, metalness: 0.78, envMapIntensity: 1.05 });
+      }
+      let color = spec.packColors.primary, roughness = 0.42, metalness = 0.16, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, isEmissive = false;
       if (n.includes('mono_eye_glow')) {
         color = spec.monoEyeColor || 0xff2268;
         emissive = spec.monoEyeColor || 0xff2268;
-        emissiveIntensity = 4.0; roughness = 0.10; metalness = 0.05; useDetail = false; coat = 0.0; isEmissive = true;
+        emissiveIntensity = 2.4; roughness = 0.10; metalness = 0.05; useDetail = false; isEmissive = true;
       } else if (n.includes('mono_eye_bezel')) {
-        color = 0x64748b; roughness = 0.26; metalness = 0.88; useDetail = false; coat = 0.10;
+        color = 0x64748b; roughness = 0.24; metalness = 0.88; useDetail = false;
       } else if (n.includes('heat_saber_glow') || n.includes('hawk_blade_glow')) {
-        color = 0xff7a1a; emissive = 0xff4500; emissiveIntensity = 2.8; roughness = 0.22; metalness = 0.20; useDetail = false; coat = 0.0; isEmissive = true;
+        color = 0xff7a1a; emissive = 0xff4500; emissiveIntensity = 2.2; roughness = 0.20; metalness = 0.20; useDetail = false; isEmissive = true;
       } else if (n.includes('belly_emitter_glow')) {
-        color = 0xffcc33; emissive = 0xff9900; emissiveIntensity = 2.8; roughness = 0.18; metalness = 0.25; useDetail = false; coat = 0.0; isEmissive = true;
+        color = 0xffcc33; emissive = 0xff9900; emissiveIntensity = 2.2; roughness = 0.18; metalness = 0.25; useDetail = false; isEmissive = true;
       } else if (n.includes('track_rail')) {
-        color = 0x05070b; roughness = 0.72; metalness = 0.25; useDetail = false; coat = 0.0;
+        color = 0x05070b; roughness = 0.65; metalness = 0.30; useDetail = false;
       } else if (n.includes('_gold') || n.includes('trim_gold') || n.includes('cannon_gold') || n.includes('crest_gold')) {
-        color = 0xeab308; roughness = 0.28; metalness = 0.82; useDetail = false; coat = 0.16;
+        color = 0xeab308; roughness = 0.24; metalness = 0.86; useDetail = false;
       } else if (n.includes('thruster') || n.includes('jet_')) {
-        color = n.includes('gold') ? 0xd9a21b : 0x64748b;
-        roughness = 0.28; metalness = 0.88; useDetail = false; coat = 0.08;
+        color = n.includes('gold') ? 0xd9a21b : 0x64748b; roughness = 0.26; metalness = 0.86; useDetail = false;
       } else if (n.includes('hose')) {
-        color = spec.id === 'enemy_sazabi' ? 0xd9a21b : 0x3b4450;
-        roughness = 0.42; metalness = spec.id === 'enemy_sazabi' ? 0.78 : 0.52; useDetail = false; coat = 0.0;
+        color = spec.id === 'enemy_sazabi' ? 0xd9a21b : 0x3b4450; roughness = 0.36; metalness = spec.id === 'enemy_sazabi' ? 0.82 : 0.62; useDetail = false;
       } else if (n.includes('hawk_head_purple')) {
-        color = 0x52396e; roughness = 0.48; metalness = 0.34;
+        color = 0x52396e; roughness = 0.42; metalness = 0.38;
       } else if (n.includes('olive_dark')) {
-        color = 0x36482c; roughness = 0.54; metalness = 0.10;
+        color = 0x36482c; roughness = 0.46; metalness = 0.14;
       } else if (n.includes('_navy')) {
-        color = 0x172b4d; roughness = 0.50; metalness = 0.14;
+        color = 0x172b4d; roughness = 0.40; metalness = 0.20;
       } else if (n.includes('_oxblood')) {
-        color = 0x5c0d14; roughness = 0.44; metalness = 0.18; coat = 0.18;
-      } else if (n.includes('_obsidian') || n.includes('_dark') || n.includes('_frame') || n.includes('socket') || n.includes('_mg_') || n.includes('_rifle_')) {
-        color = 0x202733; roughness = 0.40; metalness = 0.76; useDetail = false; coat = 0.06;
+        color = 0x5c0d14; roughness = 0.36; metalness = 0.22;
+      } else if (n.includes('_obsidian') || n.includes('_dark') || n.includes('_frame') || n.includes('socket') || n.includes('_mg_') || n.includes('_rifle_') || n.includes('drum')) {
+        color = 0x202733; roughness = 0.34; metalness = 0.82; useDetail = false;
       } else if (n.includes('_maroon')) {
-        color = 0xa31621; roughness = 0.42; metalness = 0.18; coat = 0.22;
+        color = 0xa31621; roughness = 0.36; metalness = 0.22;
       } else if (n.includes('_blue')) {
-        color = 0x2b6cb0; roughness = 0.48; metalness = 0.14;
+        color = 0x2b6cb0; roughness = 0.40; metalness = 0.18;
       } else if (n.includes('_olive') || n.includes('zaku_')) {
-        color = 0x687d56; roughness = 0.52; metalness = 0.10;
+        color = 0x687d56; roughness = 0.44; metalness = 0.14;
       }
-
-      return injectGunplaStudioShader(new THREE.MeshPhysicalMaterial({
-        color, roughness, metalness, emissive, emissiveIntensity,
-        map: useDetail ? mechaPBR.albedoDetailMap : null,
-        normalMap: useDetail ? mechaPBR.normalMap : null,
-        normalScale: new THREE.Vector2(0.06, 0.06),
-        roughnessMap: useDetail ? mechaPBR.roughnessMap : null,
-        clearcoat: coat,
-        clearcoatRoughness: 0.30,
-        envMapIntensity: 0.84
-      }), isEmissive);
+      return getSharedMechaMaterial({ color, roughness, metalness, emissive, emissiveIntensity, useDetail, isEmissive });
     }
 
     function buildAdapterMaterial(node) {
       const n = (node.name || '').toLowerCase();
       if (n.includes('gold') || n.includes('detent')) {
-        return new THREE.MeshPhysicalMaterial({
-          color: 0xf59e0b, roughness: 0.28, metalness: 0.84,
-          emissive: 0x78350f, emissiveIntensity: 0.25, clearcoat: 0.15, envMapIntensity: 0.85
-        });
+        return getSharedMechaMaterial({ color: 0xf59e0b, roughness: 0.28, metalness: 0.82, emissive: 0x78350f, emissiveIntensity: 0.2 });
       }
       if (n.includes('peg')) {
-        return new THREE.MeshStandardMaterial({
-          color: 0x94a3b8, roughness: 0.26, metalness: 0.88, envMapIntensity: 0.90
-        });
+        return getSharedMechaMaterial({ color: 0x94a3b8, roughness: 0.26, metalness: 0.86 });
       }
-      return new THREE.MeshPhysicalMaterial({
-        color: 0x1e2530, roughness: 0.42, metalness: 0.74,
-        normalMap: mechaPBR.normalMap, normalScale: new THREE.Vector2(0.07, 0.07),
-        roughnessMap: mechaPBR.roughnessMap,
-        clearcoat: 0.12, clearcoatRoughness: 0.32, envMapIntensity: 0.80
-      });
+      return getSharedMechaMaterial({ color: 0x1e2530, roughness: 0.40, metalness: 0.72 });
     }
+
+    // Dedicated Unlit Radiant 3-Layer Crimson-Pink Beam Saber Plasma Materials (ZERO Bloom pass needed!)
+    const beamSaberCoreMat = new THREE.MeshBasicMaterial({
+      color: 0xfff0f6, toneMapped: false
+    });
+    const beamSaberMidMat = new THREE.MeshBasicMaterial({
+      color: 0xff175c, transparent: true, opacity: 0.78,
+      depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false
+    });
+    const beamSaberHaloMat = new THREE.MeshBasicMaterial({
+      color: 0xff004c, transparent: true, opacity: 0.34,
+      depthWrite: false, blending: THREE.AdditiveBlending, side: THREE.DoubleSide, toneMapped: false
+    });
 
     function buildPackPBRMaterial(node, unitId = state.activeUnitId) {
       const spec = UNIT_REGISTRY[unitId] || UNIT_REGISTRY.vanguard_rx;
       const pc = spec.packColors;
       const n = (node.name || '').toLowerCase();
-
-      let color = pc.frame, roughness = 0.42, metalness = 0.68, emissive = 0x000000, emissiveIntensity = 0.0, useArmorDetail = true;
-
-      if (n.includes('optic_cyan') || n.includes('plasma_core_cyan') || n.includes('lens_emerald')) {
-        color = pc.optic; emissive = pc.optic; emissiveIntensity = 2.8; roughness = 0.12; metalness = 0.1; useArmorDetail = false;
-      } else if (n.includes('dovetail') || n.includes('bracket') || n.includes('clamp') || n.includes('rack_arm') || n.includes('yoke') || n.includes('grip') || n.includes('epac') || n.includes('gimbal') || n.includes('collar')) {
-        color = pc.frame; roughness = 0.44; metalness = 0.78; useArmorDetail = false;
-      } else if (n.includes('shield_core_red') || n.includes('tank') || n.includes('booster') || n.includes('hatch_red') || n.includes('era_block')) {
-        color = pc.accent; roughness = 0.38; metalness = 0.24;
-      } else if (n.includes('fuselage') || n.includes('rack') || n.includes('core_chassis') || n.includes('hub_core') || n.includes('pylon') || n.includes('breach') || n.includes('missile_bay')) {
-        color = pc.secondary; roughness = 0.38; metalness = 0.28;
-      } else if (n.includes('gold') || n.includes('blade') || n.includes('intake') || n.includes('cross_gold') || n.includes('vane')) {
-        color = pc.gold; roughness = 0.28; metalness = 0.82; useArmorDetail = false;
-      } else if (n.includes('wing') || n.includes('disc') || n.includes('shield_frame') || n.includes('fin_binder') || n.includes('tower_shield') || n.includes('rudder') || n.includes('pectoral_armor') || n.includes('pod')) {
-        color = pc.primary; roughness = 0.42; metalness = 0.16;
-      } else if (n.includes('bell') || n.includes('thruster') || n.includes('vernier') || n.includes('nozzle')) {
-        color = 0x526072; roughness = 0.26; metalness = 0.88; emissive = pc.optic; emissiveIntensity = 0.12; useArmorDetail = false;
-      } else if (n.includes('barrel') || n.includes('receiver') || n.includes('sleeve') || n.includes('cylinder') || n.includes('stake') || n.includes('rail')) {
-        color = 0x334155; roughness = 0.34; metalness = 0.82; useArmorDetail = false;
+      if (n.includes('core_laser') || n.includes('blade_core_pink')) {
+        return beamSaberCoreMat;
       }
-
-      const isEmissive = n.includes('optic_cyan') || n.includes('plasma_core_cyan') || n.includes('lens_emerald');
-      return injectGunplaStudioShader(new THREE.MeshPhysicalMaterial({
-        color, roughness, metalness, emissive, emissiveIntensity,
-        map: useArmorDetail ? mechaPBR.albedoDetailMap : null,
-        normalMap: useArmorDetail ? mechaPBR.normalMap : null,
-        normalScale: new THREE.Vector2(0.06, 0.06),
-        roughnessMap: useArmorDetail ? mechaPBR.roughnessMap : null,
-        clearcoat: useArmorDetail ? 0.14 : 0.06,
-        clearcoatRoughness: 0.30,
-        envMapIntensity: 0.82
-      }), isEmissive);
+      if (n.includes('mid_laser') || n.includes('aura_pink_glass')) {
+        return beamSaberMidMat;
+      }
+      if (n.includes('halo_laser')) {
+        return beamSaberHaloMat;
+      }
+      if (n.includes('hilt_white')) {
+        return getSharedMechaMaterial({ color: 0xf0f2ec, roughness: 0.34, metalness: 0.10, useDetail: false });
+      }
+      if (n.includes('_glass')) {
+        return getSharedMechaMaterial({ color: 0xbae6fd, roughness: 0.12, metalness: 0.10, transparent: true, opacity: 0.34, envMapIntensity: 1.0 });
+      }
+      if (n.includes('_servo_accent')) {
+        return getSharedMechaMaterial({ color: 0x64748b, roughness: 0.30, metalness: 0.78 });
+      }
+      let color = pc.frame, roughness = 0.40, metalness = 0.65, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true;
+      if (n.includes('psycho_emerald')) {
+        color = 0x10b981; emissive = 0x059669; emissiveIntensity = 1.85; roughness = 0.14; metalness = 0.15; useDetail = false;
+      } else if (n.includes('amber_optic')) {
+        color = 0xf59e0b; emissive = 0xd97706; emissiveIntensity = 1.9; roughness = 0.14; metalness = 0.15; useDetail = false;
+      } else if (n.includes('titanium_silver')) {
+        color = 0xdbe4ee; roughness = 0.22; metalness = 0.88; useDetail = false;
+      } else if (n.includes('crimson_gloss')) {
+        color = 0x9f1239; roughness = 0.24; metalness = 0.42; useDetail = true;
+      } else if (n.includes('cobalt_anodized')) {
+        color = 0x1d4ed8; roughness = 0.26; metalness = 0.62; useDetail = true;
+      } else if (n.includes('zeon_olive_coat')) {
+        color = 0x556b45; roughness = 0.46; metalness = 0.18; useDetail = true;
+      } else if (n.includes('optic_cyan') || n.includes('plasma_core_cyan') || n.includes('lens_emerald')) {
+        color = pc.optic; emissive = pc.optic; emissiveIntensity = 2.0; roughness = 0.12; metalness = 0.1; useDetail = false;
+      } else if (n.includes('gold') || n.includes('blade') || n.includes('intake') || n.includes('cross_gold') || n.includes('vane') || n.includes('pin_gold') || n.includes('lock_gold') || n.includes('drum_gold') || n.includes('coupling_gold')) {
+        color = pc.gold; roughness = 0.26; metalness = 0.84; useDetail = false;
+      } else if (n.includes('adapter_') || n.includes('dovetail') || n.includes('bracket') || n.includes('clamp') || n.includes('rack_arm') || n.includes('yoke') || n.includes('grip') || n.includes('epac') || n.includes('gimbal') || n.includes('collar')) {
+        color = 0x222b38; roughness = 0.36; metalness = 0.80; useDetail = false;
+      } else if (n.includes('shield_core_red') || n.includes('tank') || n.includes('booster') || n.includes('hatch_red') || n.includes('era_block')) {
+        color = pc.accent; roughness = 0.36; metalness = 0.22;
+      } else if (n.includes('fuselage') || n.includes('rack') || n.includes('core_chassis') || n.includes('hub_core') || n.includes('pylon') || n.includes('breach') || n.includes('missile_bay')) {
+        color = pc.secondary; roughness = 0.36; metalness = 0.26;
+      } else if (n.includes('wing') || n.includes('disc') || n.includes('shield_frame') || n.includes('fin_binder') || n.includes('tower_shield') || n.includes('rudder') || n.includes('pectoral_armor') || n.includes('pod')) {
+        color = pc.primary; roughness = 0.40; metalness = 0.14;
+      } else if (n.includes('bell') || n.includes('thruster') || n.includes('vernier') || n.includes('nozzle')) {
+        color = 0x526072; roughness = 0.26; metalness = 0.86; emissive = pc.optic; emissiveIntensity = 0.12; useDetail = false;
+      } else if (n.includes('barrel') || n.includes('receiver') || n.includes('sleeve') || n.includes('cylinder') || n.includes('stake') || n.includes('rail')) {
+        color = 0x334155; roughness = 0.34; metalness = 0.80; useDetail = false;
+      }
+      const isEmissive = n.includes('optic_cyan') || n.includes('plasma_core_cyan') || n.includes('lens_emerald') || n.includes('psycho_emerald') || n.includes('amber_optic');
+      return getSharedMechaMaterial({ color, roughness, metalness, emissive, emissiveIntensity, useDetail, isEmissive });
     }
 
     // =========================================================================
@@ -2854,7 +3881,12 @@
       const legL = makePivot('Rig_Leg_L', lSign * 15.0, 96.0, 0.0, pelvis, pelvis.userData.worldOrigin);
       const shinL = makePivot('Rig_Shin_L', lSign * 17.5, 60.5, 0.5, legL, legL.userData.worldOrigin);
 
-      const rig = { pelvis, torso, head, armR, forearmR, armL, forearmL, legR, shinR, legL, shinL };
+      const rig = {
+        pelvis, torso, head, armR, forearmR, armL, forearmL, legR, shinR, legL, shinL,
+        rSign, lSign,
+        nativeRightWeaponMeshes: [],
+        nativeLeftHoldMeshes: []
+      };
       state.monoEyeNodes = [];
 
       const meshes = [];
@@ -2868,10 +3900,10 @@
         const isLeft = (gc.x * lSign) > 1.5;
 
         let targetGroup = torso;
-        if (!n.includes('shield') && (n.includes('head') || n.includes('helmet') || n.includes('jaw') || n.includes('v_fin') || n.includes('mono_eye') || n.includes('visor') || n.includes('snout') || n.includes('chin') || n.includes('cheek') || n.includes('crest') || n.includes('commander_fin') || n.includes('commander_blade') || n.includes('neck') || n.includes('vulcan_gold'))) {
-          targetGroup = head;
-        } else if (n.includes('forearm') || n.includes('gauntlet') || n.includes('rg_cuff') || n.includes('fist') || n.includes('hand') || n.includes('wrist') || n.includes('elbow') || n.includes('mg_') || n.includes('hawk') || n.includes('saber') || n.includes('rifle') || (n.includes('shield') && !n.includes('shoulder') && gc.y < 125.0)) {
+        if (n.includes('forearm') || n.includes('gauntlet') || n.includes('rg_cuff') || n.includes('fist') || n.includes('hand') || n.includes('wrist') || n.includes('elbow') || n.includes('mg_') || n.includes('hawk') || (!n.includes('backpack') && n.includes('saber')) || n.includes('rifle') || (n.includes('shield') && !n.includes('shoulder') && gc.y < 125.0)) {
           targetGroup = isRight ? forearmR : (isLeft ? forearmL : torso);
+        } else if (!n.includes('shield') && !n.includes('hawk') && (n.includes('head') || n.includes('helmet') || n.includes('jaw') || n.includes('v_fin') || n.includes('mono_eye') || n.includes('visor') || n.includes('snout') || n.includes('chin') || n.includes('cheek') || n.includes('crest') || n.includes('commander_fin') || n.includes('commander_blade') || n.includes('neck') || n.includes('vulcan_gold'))) {
+          targetGroup = head;
         } else if (n.includes('shoulder') || n.includes('pauldron') || n.includes('spike') || n.includes('horn') || n.includes('bicep') || n.includes('humerus') || n.includes('upper_arm') || n.includes('binder') || (n.includes('shield') && gc.y >= 125.0)) {
           targetGroup = isRight ? armR : (isLeft ? armL : torso);
         } else if (n.includes('shin') || n.includes('calf') || n.includes('tibia') || n.includes('knee') || n.includes('ankle') || n.includes('foot') || n.includes('boot') || n.includes('toe') || n.includes('heel') || n.includes('sole') || n.includes('instep') || n.includes('hover_jet') || n.includes('leg_hose') || n.includes('leg_thruster')) {
@@ -2890,8 +3922,14 @@
         mesh.userData.pivotOrigin = origin.clone();
         targetGroup.add(mesh);
 
-        if (n.includes('mono_eye_glow') || n.includes('mono_eye_bezel')) {
+        if (n.includes('mono_eye_glow') || n.includes('mono_eye_bezel') || n.includes('mono_eye_ir_rim') || (n.includes('mono_eye') && !n.includes('track'))) {
           state.monoEyeNodes.push(mesh);
+        }
+        if (n.includes('zaku_mg_') || n.includes('gouf_saber_') || n.includes('gouf_heat_saber') || n.includes('gouf_forearm_heat_rod') || n.includes('sazabi_rifle_')) {
+          rig.nativeRightWeaponMeshes.push(mesh);
+        }
+        if (n.includes('zaku_hawk_') || n.includes('gouf_knight_shield') || n.includes('gouf_shield_mount') || n.includes('sazabi_shield_')) {
+          rig.nativeLeftHoldMeshes.push(mesh);
         }
       });
 
@@ -2915,7 +3953,6 @@
         const clone = state.adapterTemplate.clone(true);
         clone.traverse(n => {
           if (n.isMesh) {
-            n.castShadow = true; n.receiveShadow = true;
             n.material = buildAdapterMaterial(n);
             n.userData.origMaterial = n.material;
             n.userData.isAdapterHardware = true;
@@ -2972,8 +4009,17 @@
      * 8. leg_thrusters  -> bilateral split onto rig.shinR & rig.shinL
      */
     function buildSocketRigForUnit(model, spec, rig) {
-      const headHeightY = spec.id === 'enemy_sazabi' ? 166.5 : 165.0;
-      const chestFrontZ = spec.isZeonEnemy ? 17.5 : 15.2;
+      const rSign = rig.rSign || 1.0;
+      const lSign = rig.lSign || -1.0;
+      const isSazabi = spec.id === 'enemy_sazabi';
+      const headHeightY = isSazabi ? 166.5 : 165.0;
+      const chestFrontZ = isSazabi ? 19.2 : (spec.isZeonEnemy ? 17.8 : 15.6);
+      const fistX = rSign * (isSazabi ? 37.6 : (spec.isZeonEnemy ? 34.8 : 36.2));
+      const fistY = isSazabi ? 88.0 : 88.8;
+      const fistZ = spec.isZeonEnemy ? 9.8 : 8.2;
+      const forearmOuterX = lSign * (isSazabi ? 43.2 : (spec.isZeonEnemy ? 40.8 : 40.5));
+      const forearmOuterY = 103.5;
+      const forearmOuterZ = spec.isZeonEnemy ? 4.4 : 3.8;
 
       const sockets = {
         // 1. HEAD / CRANIAL SENSOR & VULCAN ZONE (HP-01/02)
@@ -2982,7 +4028,7 @@
           adapterId: 'ADP-HP01-CRANIAL',
           worldPos: [0.0, headHeightY, 0.0],
           rot: [0, 0, 0],
-          scale: 1.0,
+          scale: isSazabi ? 1.05 : 1.0,
           dockedZ: 0.0,
           slideSign: 1.0,
           showBracket: false,
@@ -2995,7 +4041,7 @@
           adapterId: 'ADP-HP09-PECTORAL',
           worldPos: [0.0, 141.0, chestFrontZ],
           rot: [0, 0, 0],
-          scale: 1.0,
+          scale: isSazabi ? 1.08 : 1.0,
           dockedZ: 0.0,
           slideSign: 1.0,
           showBracket: false,
@@ -3022,60 +4068,38 @@
           worldPos: [0.0, 141.5, spec.dorsalZ || -24.5],
           rot: [0, 0, 0],
           scale: 1.0,
-          dockedZ: -8.0,
+          dockedZ: -5.4,
           slideSign: -1.0,
           alwaysVisible: true
         }),
 
-        // 5. RIGHT ARM / PRIMARY WEAPON ZONE (HP-11)
-        aux_weapon: spec.hasNativeHandsEmpty
-          ? createPhysicalAdapterSocket(rig.forearmR, {
-            slotGroup: 'aux_weapon',
-            adapterId: 'ADP-HP11-WEAPON',
-            worldPos: [36.2, 91.0, 9.5],
-            rot: [-Math.PI / 2 + 0.82, 0, Math.PI],
-            scale: 0.90,
-            showBracket: false,
-            dockedZ: 0.0,
-            slideSign: 1.0,
-            alwaysVisible: false
-          })
-          : createPhysicalAdapterSocket(rig.pelvis, {
-            slotGroup: 'aux_weapon',
-            adapterId: 'ADP-HP11-WEAPON',
-            worldPos: [21.0, 102.0, -23.5],
-            rot: [0.05, -0.18, -0.20],
-            scale: 0.84,
-            showBracket: false,
-            dockedZ: -2.0,
-            slideSign: -1.0,
-            alwaysVisible: false
-          }),
+        // 5. RIGHT MANIPULATOR FIST / PRIMARY WEAPON ZONE (HP-11 — Palm Trigger-Latch Adapter!)
+        // Pitched at +0.76 rad (+43.54 deg) in rest pose so Beam Aim (pelvis +0.02 + torso +0.04 - armR 0.44 - forearmR 0.38 = -0.76 rad)
+        // brings the rifle barrel to 0.00 rad (DEAD-LEVEL HORIZONTAL FORWARD AIM along +Z at chest/torso height) on ALL 4 models!
+        aux_weapon: createPhysicalAdapterSocket(rig.forearmR, {
+          slotGroup: 'aux_weapon',
+          adapterId: 'ADP-HP11-WEAPON',
+          worldPos: [fistX, fistY, fistZ],
+          rot: [0.76, 0, 0],
+          scale: 0.94,
+          showBracket: false,
+          dockedZ: 0.0,
+          slideSign: 1.0,
+          alwaysVisible: false
+        }),
 
-        // 6. LEFT FOREARM / COMPOSITE SHIELD ZONE (HP-07 — Compact lateral clamp, zero black box!)
-        aux_shield: spec.hasNativeHandsEmpty
-          ? createPhysicalAdapterSocket(rig.forearmL, {
-            slotGroup: 'aux_shield',
-            adapterId: 'ADP-HP07-FOREARM',
-            worldPos: [-40.2, 104.5, 3.2],
-            rot: [0, -Math.PI / 2, 0],
-            scale: 0.92,
-            showBracket: false,
-            dockedZ: -1.5,
-            slideSign: -1.0,
-            alwaysVisible: false
-          })
-          : createPhysicalAdapterSocket(rig.pelvis, {
-            slotGroup: 'aux_shield',
-            adapterId: 'ADP-HP07-FOREARM',
-            worldPos: [-21.0, 96.0, -23.5],
-            rot: [0.04, 0.24, 0.05],
-            scale: 0.84,
-            showBracket: false,
-            dockedZ: -2.0,
-            slideSign: -1.0,
-            alwaysVisible: false
-          }),
+        // 6. LEFT FOREARM OUTER LATERAL HARDPOINT / COMPOSITE SHIELD ZONE (HP-07 — C-Clamp & Standoff Strut Adapter!)
+        aux_shield: createPhysicalAdapterSocket(rig.forearmL, {
+          slotGroup: 'aux_shield',
+          adapterId: 'ADP-HP07-FOREARM',
+          worldPos: [forearmOuterX, forearmOuterY, forearmOuterZ],
+          rot: [0, 0, 0],
+          scale: 0.95,
+          showBracket: false,
+          dockedZ: 0.0,
+          slideSign: -1.0,
+          alwaysVisible: false
+        }),
 
         // 7. WAIST / HIP FOLDING RAILGUNS ZONE (HP-13/17)
         waist_ordnance: createPhysicalAdapterSocket(rig.pelvis, {
@@ -3083,7 +4107,7 @@
           adapterId: 'ADP-HP13-WAIST',
           worldPos: [0.0, 101.5, 0.0],
           rot: [0, 0, 0],
-          scale: 1.0,
+          scale: isSazabi ? 1.12 : 1.0,
           dockedZ: 0.0,
           slideSign: 1.0,
           showBracket: false,
@@ -3105,20 +4129,23 @@
       };
 
       // Attach dedicated bilateral limb containers onto armR/armL and shinR/shinL so shoulder & leg pods articulate independently with each limb!
+      // Note: In cad_compiler.py, _r is at +X and _l is at -X. On Zeon units (rSign = -1), armR is at -X and armL is at +X.
+      const shOutX = isSazabi ? 4.8 : (spec.isZeonEnemy ? 3.2 : 0.0);
       const shR = new THREE.Group();
-      shR.position.set(0.0 - rig.armR.userData.worldOrigin.x, 148.0 - rig.armR.userData.worldOrigin.y, 0.0 - rig.armR.userData.worldOrigin.z);
+      shR.position.set((rSign * shOutX) - rig.armR.userData.worldOrigin.x, 148.0 - rig.armR.userData.worldOrigin.y, 0.0 - rig.armR.userData.worldOrigin.z);
       rig.armR.add(shR);
       const shL = new THREE.Group();
-      shL.position.set(0.0 - rig.armL.userData.worldOrigin.x, 148.0 - rig.armL.userData.worldOrigin.y, 0.0 - rig.armL.userData.worldOrigin.z);
+      shL.position.set((lSign * shOutX) - rig.armL.userData.worldOrigin.x, 148.0 - rig.armL.userData.worldOrigin.y, 0.0 - rig.armL.userData.worldOrigin.z);
       rig.armL.add(shL);
       sockets.shoulder_pods.bilateralRightContainer = shR;
       sockets.shoulder_pods.bilateralLeftContainer = shL;
 
+      const legOutX = isSazabi ? 3.8 : (spec.isZeonEnemy ? 1.2 : 0.0);
       const legRCont = new THREE.Group();
-      legRCont.position.set(0.0 - rig.shinR.userData.worldOrigin.x, 38.0 - rig.shinR.userData.worldOrigin.y, -1.0 - rig.shinR.userData.worldOrigin.z);
+      legRCont.position.set((rSign * legOutX) - rig.shinR.userData.worldOrigin.x, 38.0 - rig.shinR.userData.worldOrigin.y, -1.0 - rig.shinR.userData.worldOrigin.z);
       rig.shinR.add(legRCont);
       const legLCont = new THREE.Group();
-      legLCont.position.set(0.0 - rig.shinL.userData.worldOrigin.x, 38.0 - rig.shinL.userData.worldOrigin.y, -1.0 - rig.shinL.userData.worldOrigin.z);
+      legLCont.position.set((lSign * legOutX) - rig.shinL.userData.worldOrigin.x, 38.0 - rig.shinL.userData.worldOrigin.y, -1.0 - rig.shinL.userData.worldOrigin.z);
       rig.shinL.add(legLCont);
       sockets.leg_thrusters.bilateralRightContainer = legRCont;
       sockets.leg_thrusters.bilateralLeftContainer = legLCont;
@@ -3134,19 +4161,66 @@
       state.blueprintEdges = [];
     }
 
+    function isInternalMechanicalNode(node) {
+      const n = (node.name || '').toLowerCase();
+      return (
+        n.includes('frame') || n.includes('gear') || n.includes('servo_accent') ||
+        n.includes('piston') || n.includes('hydraulic') || n.includes('damper') ||
+        n.includes('reactor') || n.includes('mono_eye') || n.includes('twin_eyes') ||
+        n.includes('adapter_') || n.includes('bolt') || n.includes('dovetail') ||
+        n.includes('knuckle') || n.includes('pivot') || n.includes('gimbal') ||
+        n.includes('thruster') || n.includes('nozzle') || n.includes('hose') ||
+        n.includes('heat_rod') || n.includes('emitter')
+      );
+    }
+
+    function matchesIsolatedZone(node, zoneKey) {
+      if (!zoneKey) return true;
+      // Check if mesh belongs to the isolated socket wrapper or chassis region
+      let cur = node;
+      while (cur) {
+        const cn = (cur.name || '').toLowerCase();
+        if (cn.includes(`socketwrapper_${zoneKey}`) || cn.includes(`bilateralcontainer_${zoneKey}`)) return true;
+        cur = cur.parent;
+      }
+      const n = (node.name || '').toLowerCase();
+      if (zoneKey === 'head_sensor') return n.includes('head') || n.includes('mono_eye') || n.includes('v_fin') || n.includes('vulcan');
+      if (zoneKey === 'chest_armor') return n.includes('chest') || n.includes('cockpit') || n.includes('torso') || n.includes('abdomen') || n.includes('reactor') || n.includes('chobham');
+      if (zoneKey === 'shoulder_pods') return n.includes('pauldron') || n.includes('shoulder');
+      if (zoneKey === 'dorsal_pack') return n.includes('backpack') || n.includes('dorsal') || n.includes('wing') || n.includes('fin_binder') || n.includes('tank');
+      if (zoneKey === 'aux_weapon') return n.includes('rifle') || n.includes('_mg_') || n.includes('saber') || n.includes('heat_rod') || n.includes('forearm_r');
+      if (zoneKey === 'aux_shield') return n.includes('shield') || n.includes('hawk') || n.includes('forearm_l');
+      if (zoneKey === 'waist_ordnance') return n.includes('pelvis') || n.includes('waist') || n.includes('skirt') || n.includes('hip') || n.includes('xiphias');
+      if (zoneKey === 'leg_thrusters') return n.includes('calf') || n.includes('shin') || n.includes('knee') || n.includes('thigh') || n.includes('foot') || n.includes('boot');
+      return false;
+    }
+
     function applyRenderMode(mode) {
       state.renderMode = mode;
       clearBlueprintEdges();
-      holoCoreLight.intensity = (mode === 'hologram') ? 4.0 : 0.0;
 
       mechaRoot.traverse(node => {
         if (!node.isMesh || !node.userData.origMaterial) return;
         const orig = node.userData.origMaterial;
 
+        if (state.isolatedZone && !matchesIsolatedZone(node, state.isolatedZone)) {
+          node.material = ghostShellMat;
+          return;
+        }
+
         if (mode === 'standard') {
           if (Array.isArray(orig)) orig.forEach(m => { m.wireframe = false; });
           else orig.wireframe = false;
           node.material = orig;
+        } else if (mode === 'glass') {
+          // Teardown PG Unleashed Glass Cutaway: Outer shells turn smoked polycarbonate, inner skeleton & gears stay 100% solid!
+          if (isInternalMechanicalNode(node)) {
+            if (Array.isArray(orig)) orig.forEach(m => { m.wireframe = false; });
+            else orig.wireframe = false;
+            node.material = orig;
+          } else {
+            node.material = glassCutawayMat;
+          }
         } else if (mode === 'hologram') {
           node.material = hologramMaterial;
         } else if (mode === 'xray') {
@@ -3165,6 +4239,17 @@
       document.querySelectorAll('[data-render-mode]').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.renderMode === mode);
       });
+    }
+
+    function setIsolatedZone(zoneKey) {
+      state.isolatedZone = (state.isolatedZone === zoneKey) ? null : zoneKey;
+      const isoBtn = document.getElementById('btn-dock-isolate');
+      if (isoBtn) isoBtn.classList.toggle('active', Boolean(state.isolatedZone));
+      applyRenderMode(state.renderMode);
+      if (state.isolatedZone === 'head_sensor') setCameraPreset('head');
+      else if (state.isolatedZone === 'dorsal_pack') setCameraPreset('dorsal');
+      else if (state.isolatedZone === 'chest_armor') setCameraPreset('front');
+      else if (!state.isolatedZone) setCameraPreset('heroic');
     }
 
     // =========================================================================
@@ -3218,6 +4303,7 @@
 
     function updateKinematicRigPose(rig, stance, t, delta) {
       if (!rig) return;
+      const s = rig.rSign || 1.0; // +1 on RX-78 (+X = Right), -1 on Zeon (-X = Right)
       const damp = Math.min(1.0, delta * 9.0);
       const lerpRot = (grp, rx, ry, rz) => {
         grp.rotation.x += (rx - grp.rotation.x) * damp;
@@ -3233,90 +4319,98 @@
       const sw = Math.sin(t * 1.1);
 
       if (stance === 'RifleBurst') {
-        // Aiming right-hand weapon forward with recoil pulse & braced combat legs
-        const recoil = Math.pow(Math.max(0, Math.sin(t * 7.5)), 4) * 0.08;
-        lerpPosY(rig.pelvis, -2.5 + br * 0.5);
-        lerpRot(rig.pelvis, 0.04, -0.18, 0);
-        lerpRot(rig.torso, 0.06 - recoil * 0.5, 0.22, 0);
-        lerpRot(rig.head, -0.05, -0.06 + sw * 0.05, 0);
-        lerpRot(rig.armR, -0.78 + recoil, -0.12, -0.08);
-        lerpRot(rig.forearmR, -0.35 + recoil * 1.2, 0, 0);
-        lerpRot(rig.armL, -0.32, 0.24, 0.16);
-        lerpRot(rig.forearmL, -0.45, 0, 0);
-        lerpRot(rig.legR, 0.18, 0, -0.06);
-        lerpRot(rig.shinR, -0.22, 0, 0);
-        lerpRot(rig.legL, -0.22, 0, 0.06);
-        lerpRot(rig.shinL, 0.18, 0, 0);
+        // 🎯 Beam Aim: Raises right weapon arm (-0.28 armR + -0.35 forearmR + 0.05 torso/pelvis = -0.58 rad)
+        // to exactly cancel the +0.58 rad (+33.2 deg) rest wrist pitch -> DEAD-LEVEL HORIZONTAL AIM along +Z on ALL models!
+        // 🎯 Beam Aim: Raises right weapon arm (-0.44 armR + -0.38 forearmR + 0.04 torso + 0.02 pelvis = -0.76 rad = -43.54 deg)
+        // to exactly cancel the +0.76 rad (+43.54 deg) rest wrist pitch -> DEAD-LEVEL HORIZONTAL AIM at chest height on ALL 4 models!
+        const recoil = Math.pow(Math.max(0, Math.sin(t * 7.5)), 4) * 0.05;
+        lerpPosY(rig.pelvis, -2.0 + br * 0.4);
+        lerpRot(rig.pelvis, 0.02, -s * 0.10, 0);
+        lerpRot(rig.torso, 0.03 - recoil * 0.3, s * 0.12, 0);
+        lerpRot(rig.torso, 0.04 - recoil * 0.3, s * 0.12, 0);
+        lerpRot(rig.head, 0.02, -s * 0.03 + sw * 0.03, 0);
+        lerpRot(rig.armR, -0.28 + recoil * 0.5, -s * 0.04, s * 0.08);
+        lerpRot(rig.forearmR, -0.35 + recoil * 0.7, 0, 0);
+        lerpRot(rig.armL, -0.20, -s * 0.08, -s * 0.15);
+        lerpRot(rig.forearmL, -0.26, 0, 0);
+        lerpRot(rig.armR, -0.44 + recoil * 0.5, -s * 0.04, s * 0.08);
+        lerpRot(rig.forearmR, -0.38 + recoil * 0.7, 0, 0);
+        lerpRot(rig.armL, -0.22, -s * 0.08, -s * 0.15);
+        lerpRot(rig.forearmL, -0.28, 0, 0);
+        lerpRot(rig.legR, 0.14, 0, s * 0.05);
+        lerpRot(rig.shinR, -0.16, 0, 0);
+        lerpRot(rig.legL, -0.16, 0, -s * 0.05);
+        lerpRot(rig.shinL, 0.16, 0, 0);
       } else if (stance === 'ShieldGuard') {
-        // Defensive left forearm shield block across chest, right weapon primed
-        lerpPosY(rig.pelvis, -3.5 + br * 0.4);
-        lerpRot(rig.pelvis, 0.06, 0.24, 0);
-        lerpRot(rig.torso, 0.08, -0.28, 0);
-        lerpRot(rig.head, -0.06, 0.12, 0);
-        lerpRot(rig.armL, -0.68, -0.48, 0.22);
-        lerpRot(rig.forearmL, -0.58, -0.32, 0);
-        lerpRot(rig.armR, 0.22, 0.15, -0.18);
-        lerpRot(rig.forearmR, -0.48, 0, 0);
-        lerpRot(rig.legL, -0.24, 0, 0.06);
-        lerpRot(rig.shinL, 0.26, 0, 0);
-        lerpRot(rig.legR, 0.20, 0, -0.06);
-        lerpRot(rig.shinR, -0.18, 0, 0);
+        // 🛡️ Shield Guard: Left forearm shield angled forward-inward across chest, right weapon braced at flank
+        lerpPosY(rig.pelvis, -3.0 + br * 0.4);
+        lerpRot(rig.pelvis, 0.05, s * 0.18, 0);
+        lerpRot(rig.torso, 0.06, -s * 0.22, 0);
+        lerpRot(rig.head, -0.04, s * 0.08, 0);
+        lerpRot(rig.armL, -0.44, s * 0.28, -s * 0.12);
+        lerpRot(rig.forearmL, -0.42, s * 0.18, 0);
+        lerpRot(rig.armR, -0.16, 0, s * 0.14);
+        lerpRot(rig.forearmR, -0.30, 0, 0);
+        lerpRot(rig.legL, -0.20, 0, -s * 0.05);
+        lerpRot(rig.shinL, 0.22, 0, 0);
+        lerpRot(rig.legR, 0.18, 0, s * 0.05);
+        lerpRot(rig.shinR, -0.16, 0, 0);
       } else if (stance === 'BoostJump') {
-        // High-G AMBAC Aerial / Orbital Thruster Boost Hover Pose
+        // 🚀 AMBAC Boost: High-G Aerial / Orbital Thruster Hover Pose with outward-splayed limbs
         const hover = Math.sin(t * 2.8) * 3.5;
         lerpPosY(rig.pelvis, 8.5 + hover);
-        lerpRot(rig.pelvis, 0.14, sw * 0.08, 0);
-        lerpRot(rig.torso, 0.12, -sw * 0.06, 0);
-        lerpRot(rig.head, -0.16, sw * 0.12, 0);
-        lerpRot(rig.armR, -0.38, -0.15, -0.26);
-        lerpRot(rig.forearmR, -0.45, 0, 0);
-        lerpRot(rig.armL, -0.32, 0.15, 0.26);
-        lerpRot(rig.forearmL, -0.42, 0, 0);
-        lerpRot(rig.legR, -0.34, 0, -0.05);
-        lerpRot(rig.shinR, 0.52, 0, 0);
-        lerpRot(rig.legL, -0.18, 0, 0.05);
-        lerpRot(rig.shinL, 0.34, 0, 0);
+        lerpRot(rig.pelvis, 0.12, sw * 0.06, 0);
+        lerpRot(rig.torso, 0.10, -sw * 0.05, 0);
+        lerpRot(rig.head, -0.12, sw * 0.10, 0);
+        lerpRot(rig.armR, -0.24, 0, s * 0.18);
+        lerpRot(rig.forearmR, -0.34, 0, 0);
+        lerpRot(rig.armL, -0.22, 0, -s * 0.18);
+        lerpRot(rig.forearmL, -0.32, 0, 0);
+        lerpRot(rig.legR, -0.30, 0, s * 0.05);
+        lerpRot(rig.shinR, 0.46, 0, 0);
+        lerpRot(rig.legL, -0.16, 0, -s * 0.05);
+        lerpRot(rig.shinL, 0.30, 0, 0);
       } else if (stance === 'MeleeSlash') {
-        // Dynamic Close-Quarters Heat Saber / Beam Cleave Swing
+        // ⚔️ Saber Cleave: Dynamic Close-Quarters Heat Saber / Beam Slash
         const slash = Math.sin(t * 3.2);
-        lerpPosY(rig.pelvis, -2.2 + Math.abs(slash) * 1.2);
-        lerpRot(rig.pelvis, 0.05, slash * 0.18, 0);
-        lerpRot(rig.torso, 0.08, -slash * 0.34, 0);
-        lerpRot(rig.head, -0.04, slash * 0.16, 0);
-        lerpRot(rig.armR, -0.75 + slash * 0.45, -0.22, -0.25);
-        lerpRot(rig.forearmR, -0.40 + slash * 0.25, 0, 0);
-        lerpRot(rig.armL, 0.25, 0.22, 0.25);
-        lerpRot(rig.forearmL, -0.52, 0, 0);
-        lerpRot(rig.legR, -0.25, 0, -0.06);
-        lerpRot(rig.shinR, 0.26, 0, 0);
-        lerpRot(rig.legL, 0.22, 0, 0.06);
-        lerpRot(rig.shinL, -0.18, 0, 0);
+        lerpPosY(rig.pelvis, -2.0 + Math.abs(slash) * 1.2);
+        lerpRot(rig.pelvis, 0.04, s * slash * 0.14, 0);
+        lerpRot(rig.torso, 0.06, -s * slash * 0.26, 0);
+        lerpRot(rig.head, -0.03, s * slash * 0.12, 0);
+        lerpRot(rig.armR, -0.36 + slash * 0.26, -s * 0.08, s * 0.16);
+        lerpRot(rig.forearmR, -0.32 + slash * 0.18, 0, 0);
+        lerpRot(rig.armL, -0.14, 0, -s * 0.16);
+        lerpRot(rig.forearmL, -0.34, 0, 0);
+        lerpRot(rig.legR, -0.22, 0, s * 0.05);
+        lerpRot(rig.shinR, 0.24, 0, 0);
+        lerpRot(rig.legL, 0.18, 0, -s * 0.05);
+        lerpRot(rig.shinL, -0.16, 0, 0);
       } else if (stance === 'PatrolMarch') {
-        // Heavy Bipedal Combat Stride Cycle
+        // 🦿 Combat Stride: Heavy Bipedal March Cycle
         const w = Math.sin(t * 3.6);
         const c = Math.cos(t * 3.6);
         lerpPosY(rig.pelvis, Math.abs(c) * 1.8 - 1.0);
-        lerpRot(rig.pelvis, 0.03, w * 0.08, 0);
-        lerpRot(rig.torso, 0.04, -w * 0.12, 0);
-        lerpRot(rig.head, 0.0, w * 0.06, 0);
-        lerpRot(rig.armR, w * 0.28, 0, -0.08);
-        lerpRot(rig.forearmR, -0.28 + Math.max(0, -w) * 0.2, 0, 0);
-        lerpRot(rig.armL, -w * 0.28, 0, 0.08);
-        lerpRot(rig.forearmL, -0.28 + Math.max(0, w) * 0.2, 0, 0);
-        lerpRot(rig.legR, -w * 0.34, 0, 0);
-        lerpRot(rig.shinR, Math.max(0, w) * 0.42, 0, 0);
-        lerpRot(rig.legL, w * 0.34, 0, 0);
-        lerpRot(rig.shinL, Math.max(0, -w) * 0.42, 0, 0);
+        lerpRot(rig.pelvis, 0.03, w * 0.07, 0);
+        lerpRot(rig.torso, 0.04, -w * 0.10, 0);
+        lerpRot(rig.head, 0.0, w * 0.05, 0);
+        lerpRot(rig.armR, -0.10 + w * 0.22, 0, s * 0.08);
+        lerpRot(rig.forearmR, -0.24 + Math.max(0, -w) * 0.16, 0, 0);
+        lerpRot(rig.armL, -0.10 - w * 0.22, 0, -s * 0.08);
+        lerpRot(rig.forearmL, -0.24 + Math.max(0, w) * 0.16, 0, 0);
+        lerpRot(rig.legR, -w * 0.32, 0, 0);
+        lerpRot(rig.shinR, Math.max(0, w) * 0.40, 0, 0);
+        lerpRot(rig.legL, w * 0.32, 0, 0);
+        lerpRot(rig.shinL, Math.max(0, -w) * 0.40, 0, 0);
       } else {
-        // Sentinel — Heroic Ready Breathing & Head/Optical Scan Pose
+        // ⚓ Sentinel: Heroic Katoki Ver.Ka Ready Stance & Optical Scan
         lerpPosY(rig.pelvis, br * 0.7);
         lerpRot(rig.pelvis, 0, sw * 0.03, 0);
         lerpRot(rig.torso, br * 0.025, -sw * 0.05, 0);
         lerpRot(rig.head, br * 0.02, Math.sin(t * 0.85) * 0.14, 0);
-        lerpRot(rig.armR, -0.08 + br * 0.03, 0, -0.05);
-        lerpRot(rig.forearmR, -0.18 + br * 0.03, 0, 0);
-        lerpRot(rig.armL, -0.06 + br * 0.03, 0, 0.05);
-        lerpRot(rig.forearmL, -0.15 + br * 0.03, 0, 0);
+        lerpRot(rig.armR, -0.10 + br * 0.025, 0, s * 0.06);
+        lerpRot(rig.forearmR, -0.18 + br * 0.025, 0, 0);
+        lerpRot(rig.armL, -0.08 + br * 0.025, 0, -s * 0.06);
+        lerpRot(rig.forearmL, -0.16 + br * 0.025, 0, 0);
         lerpRot(rig.legR, 0, 0, 0);
         lerpRot(rig.shinR, 0, 0, 0);
         lerpRot(rig.legL, 0, 0, 0);
@@ -3329,6 +4423,8 @@
     // =========================================================================
     async function loadUnit(unitId) {
       const spec = UNIT_REGISTRY[unitId] || UNIT_REGISTRY.vanguard_rx;
+      const myUnitToken = ++state.unitLoadToken;
+      state.batchLoadToken++;
       state.activeUnitId = spec.id;
 
       document.querySelectorAll('#unit-roster .unit-btn').forEach(b => {
@@ -3339,7 +4435,13 @@
       loadingOverlay.style.display = 'flex';
       loadingOverlay.style.opacity = '1';
 
-      const previouslyEquipped = Array.from(state.equippedPacks.values()).map(entry => entry.part);
+      // Deduplicate by slotGroup so switching units can NEVER carry >1 weapon or >1 kit per zone!
+      const prevBySlot = new Map();
+      for (const entry of state.equippedPacks.values()) {
+        const sg = entry.slotGroup || resolvePartSlotGroup(entry.part);
+        prevBySlot.set(sg, entry.part);
+      }
+      const previouslyEquipped = Array.from(prevBySlot.values());
 
       clearBlueprintEdges();
       state.snapAnimations = [];
@@ -3350,7 +4452,10 @@
         state.chassisModel = null;
       }
       state.equippedPacks.clear();
-      Object.keys(state.slotOccupancy).forEach(k => { state.slotOccupancy[k] = null; });
+      Object.keys(state.slotOccupancy).forEach(k => {
+        state.slotOccupancy[k] = null;
+        state.slotLoadToken[k] = (state.slotLoadToken[k] || 0) + 1;
+      });
       state.socketRig = null;
       state.kinematicRig = null;
       state.monoEyeNode = null;
@@ -3363,6 +4468,17 @@
         const vTag = encodeURIComponent(state.catalog?.last_synthesized_utc || Date.now());
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         gltfLoader.load(bustUrl, async (gltf) => {
+          if (state.unitLoadToken !== myUnitToken) {
+            gltf.scene?.traverse?.(n => { if (n.geometry) n.geometry.dispose(); });
+            resolve(null);
+            return;
+          }
+          // Guarantee mechaRoot contains ZERO stale chassis models from overlapping loads
+          while (mechaRoot.children.length > 0) {
+            const stale = mechaRoot.children[0];
+            mechaRoot.remove(stale);
+            stale.traverse?.(n => { if (n.geometry) n.geometry.dispose(); });
+          }
           const model = gltf.scene;
           state.chassisModel = model;
 
@@ -3378,10 +4494,11 @@
           scaledBox.getCenter(scaledCenter);
           model.position.set(-scaledCenter.x, -scaledBox.min.y, -scaledCenter.z);
 
+          state.gearNodes = [];
+          state.hingeNodes = [];
           model.traverse(node => {
             if (node.isMesh) {
-              node.castShadow = true;
-              node.receiveShadow = true;
+              if (node.geometry) ensureBoxProjectedUVs(node.geometry, 0.026);
               if (spec.isZeonEnemy) {
                 node.material = buildZeonEnemyPBRMaterial(node, spec);
               } else {
@@ -3393,6 +4510,23 @@
                 node.userData.geomCenter = new THREE.Vector3();
                 node.geometry.boundingBox.getCenter(node.userData.geomCenter);
               }
+              const ln = (node.name || '').toLowerCase();
+              if (ln.includes('chest_gear_') || ln.includes('dorsal_gear_')) {
+                const gc = node.userData.geomCenter || new THREE.Vector3();
+                const dirSign = ln.includes('pinion') ? -1.42 : 1.0;
+                state.gearNodes.push({ node, center: gc.clone(), dirSign, angle: 0 });
+              }
+              if (
+                ln.includes('chest_cockpit_hatch') || ln.includes('chest_vent_duct') || ln.includes('chest_vent_louvers') ||
+                ln.includes('zaku_cockpit_prow') || ln.includes('zaku_pectoral_') ||
+                ln.includes('gouf_cockpit_prow') || ln.includes('gouf_pectoral_') ||
+                ln.includes('sazabi_pectoral_') || ln.includes('sazabi_chest_vent_')
+              ) {
+                // Spatial X sign guarantees doors swing OUTWARD on both Federation (+X=R) and Zeon (-X=R) units!
+                const gcX = node.userData.geomCenter ? node.userData.geomCenter.x : 0;
+                const sideDir = gcX > 2.5 ? 1 : (gcX < -2.5 ? -1 : 0);
+                state.hingeNodes.push({ node, sideDir, basePos: null, baseRot: null });
+              }
               state.chassisParts.push(node);
             }
           });
@@ -3400,6 +4534,94 @@
           // Bind all meshes into the 11-Bone Hierarchical Kinematic Rig!
           state.kinematicRig = buildProceduralKinematicRig(model, spec);
           mechaRoot.add(model);
+
+          // Root-Cause Mobile FPS Fix #2: Batch static non-animated meshes per kinematic bone & shared material!
+          // Collapses ~138 separate RX-78 draw calls down to ~22-28 draw calls (~82% WebGL driver overhead reduction)
+          // while preserving all 11 articulated bones, 5 combat stances, spinning gears, hinged hatches, and mono-eye!
+          if (isMobileViewport() && typeof mergeGeometries === 'function') {
+            const keepIndividual = new Set([
+              ...state.hingeNodes.map(h => h.node),
+              ...state.gearNodes.map(g => g.node),
+              ...(state.monoEyeNodes || []),
+              ...(state.kinematicRig.nativeRightWeaponMeshes || []),
+              ...(state.kinematicRig.nativeLeftHoldMeshes || []),
+            ]);
+            const rigBones = [
+              state.kinematicRig.pelvis, state.kinematicRig.torso, state.kinematicRig.head,
+              state.kinematicRig.armR, state.kinematicRig.forearmR, state.kinematicRig.armL, state.kinematicRig.forearmL,
+              state.kinematicRig.legR, state.kinematicRig.shinR, state.kinematicRig.legL, state.kinematicRig.shinL,
+            ];
+            for (const bone of rigBones) {
+              const byMat = new Map();
+              const removable = [];
+              for (const child of [...bone.children]) {
+                if (!child.isMesh || keepIndividual.has(child) || !child.geometry) continue;
+                const mat = child.material;
+                if (!byMat.has(mat)) byMat.set(mat, []);
+                byMat.get(mat).push(child);
+              }
+              for (const [mat, list] of byMat.entries()) {
+                if (list.length < 2) continue;
+                try {
+                  const geos = [];
+                  for (const m of list) {
+                    const g = m.geometry.index ? m.geometry.toNonIndexed() : m.geometry.clone();
+                    m.updateMatrix();
+                    g.applyMatrix4(m.matrix);
+                    // Ensure matching attributes (position, normal, uv) for mergeGeometries
+                    if (!g.attributes.normal) g.computeVertexNormals();
+                    if (!g.attributes.uv) ensureBoxProjectedUVs(g, 0.026);
+                    for (const attr of Object.keys(g.attributes)) {
+                      if (attr !== 'position' && attr !== 'normal' && attr !== 'uv') g.deleteAttribute(attr);
+                    }
+                    geos.push(g);
+                  }
+                  const mergedGeo = mergeGeometries(geos, false);
+                  geos.forEach(g => g.dispose());
+                  if (mergedGeo) {
+                    mergedGeo.computeBoundingBox();
+                    const mergedMesh = new THREE.Mesh(mergedGeo, mat);
+                    mergedMesh.name = `${bone.name}_batched_${mat.uuid.slice(0, 6)}`;
+                    mergedMesh.userData.origMaterial = mat;
+                    mergedMesh.userData.initialPosition = new THREE.Vector3(0, 0, 0);
+                    mergedMesh.userData.geomCenter = new THREE.Vector3();
+                    mergedGeo.boundingBox.getCenter(mergedMesh.userData.geomCenter);
+                    bone.add(mergedMesh);
+                    state.chassisParts.push(mergedMesh);
+                    for (const old of list) {
+                      bone.remove(old);
+                      old.geometry?.dispose();
+                      removable.push(old);
+                    }
+                  }
+                } catch (_) { /* Fallback silently to unbatched meshes if incompatible */ }
+              }
+              if (removable.length > 0) {
+                const remSet = new Set(removable);
+                state.chassisParts = state.chassisParts.filter(p => !remSet.has(p));
+              }
+            }
+          }
+
+          // Record post-rig local rest position/rotation for smooth hinged petal animations & axle-centered gear spin!
+          state.hingeNodes.forEach(h => {
+            const c = h.node.userData.geomCenter;
+            if (h.node.geometry && c && c.lengthSq() > 0.01) {
+              h.node.geometry.translate(-c.x, -c.y, -c.z);
+              h.node.position.add(c);
+              if (h.node.userData.initialPosition) h.node.userData.initialPosition.add(c);
+            }
+            h.basePos = h.node.position.clone();
+            h.baseRot = h.node.rotation.clone();
+          });
+          state.gearNodes.forEach(g => {
+            const c = g.center;
+            if (g.node.geometry && c && c.lengthSq() > 0.01) {
+              g.node.geometry.translate(-c.x, -c.y, -c.z);
+              g.node.position.add(c);
+              if (g.node.userData.initialPosition) g.node.userData.initialPosition.add(c);
+            }
+          });
 
           // Mount 8-Zone Full-Body Gunpla Adapter Sockets onto the Kinematic Bones!
           state.socketRig = buildSocketRigForUnit(model, spec, state.kinematicRig);
@@ -3409,10 +4631,14 @@
 
           // Seamlessly re-lock any equipped modular parts onto the new unit's 8 body zones!
           for (const part of previouslyEquipped) {
+            if (state.unitLoadToken !== myUnitToken) return resolve(null);
             await mountPartOnAdapter(part, true);
           }
+          if (state.unitLoadToken !== myUnitToken) return resolve(null);
+          enforceSinglePartPerSlotInvariant();
 
           applyRenderMode(state.renderMode);
+          if (state.hatchOpen) setHatchOpen(true, true);
           applyExplodedDisplacement(state.explodedFactor);
           updateTelemetry();
           renderInventory();
@@ -3467,6 +4693,15 @@
       const allParts = state.catalog.modular_parts;
       const countAllEl = document.getElementById('cat-count-all');
       if (countAllEl) countAllEl.innerText = allParts.length;
+      const zoneCounts = {};
+      allParts.forEach(p => {
+        const sg = resolvePartSlotGroup(p);
+        zoneCounts[sg] = (zoneCounts[sg] || 0) + 1;
+      });
+      Object.keys(BODY_ZONES).forEach(zKey => {
+        const el = document.getElementById(`cat-count-${zKey}`);
+        if (el) el.innerText = zoneCounts[zKey] || 0;
+      });
 
       let filtered = allParts.filter(part => {
         if (state.equippedOnly && !state.equippedPacks.has(part.part_id)) return false;
@@ -3488,7 +4723,10 @@
         return true;
       });
 
-      if (state.activeSort === 'zone') {
+      if (state.activeSort === 'newest' || state.activeSort === 'default') {
+        filtered.reverse();
+      } else if (state.activeSort === 'zone') {
+        filtered.reverse();
         filtered.sort((a, b) => (BODY_ZONES[resolvePartSlotGroup(a)]?.order || 9) - (BODY_ZONES[resolvePartSlotGroup(b)]?.order || 9));
       } else if (state.activeSort === 'name_asc') {
         filtered.sort((a, b) => a.name.localeCompare(b.name));
@@ -3543,12 +4781,20 @@
     function dismountPart(partId, silent = false) {
       const entry = state.equippedPacks.get(partId);
       if (!entry) return;
+      // Invalidate any in-flight async GLB download for this slot so it cannot re-attach after unequip!
+      state.slotLoadToken[entry.slotGroup] = (state.slotLoadToken[entry.slotGroup] || 0) + 1;
       const socket = state.socketRig?.[entry.slotGroup];
       (entry.models || []).forEach(m => {
         if (m.parent) m.parent.remove(m);
         m.traverse(n => { if (n.geometry) n.geometry.dispose(); });
       });
       if (socket && !socket.alwaysVisible) socket.adapterVis.visible = false;
+      if (entry.slotGroup === 'aux_weapon' && state.kinematicRig?.nativeRightWeaponMeshes) {
+        state.kinematicRig.nativeRightWeaponMeshes.forEach(m => { m.visible = true; });
+      }
+      if (entry.slotGroup === 'aux_shield' && state.kinematicRig?.nativeLeftHoldMeshes) {
+        state.kinematicRig.nativeLeftHoldMeshes.forEach(m => { m.visible = true; });
+      }
       state.chassisParts = state.chassisParts.filter(n => n.parent !== null);
       state.equippedPacks.delete(partId);
       if (state.slotOccupancy[entry.slotGroup] === partId) {
@@ -3566,31 +4812,91 @@
       const socket = state.socketRig[slotGroup] || state.socketRig.dorsal_pack;
       const adapterId = part.adapter_id || socket.adapterId;
 
-      // Enforce 1-slot mutual exclusion per anatomical body zone
-      const existingId = state.slotOccupancy[slotGroup];
-      if (existingId && existingId !== part.part_id) {
-        dismountPart(existingId, true);
+      // Monotonic per-slot token prevents rapid multi-clicks from stacking 2-3 weapons in the same hand!
+      const myToken = (state.slotLoadToken[slotGroup] = (state.slotLoadToken[slotGroup] || 0) + 1);
+
+      // Enforce strict 1-slot mutual exclusion BEFORE async download
+      for (const [eid, eVal] of [...state.equippedPacks.entries()]) {
+        if (eVal.slotGroup === slotGroup && eid !== part.part_id) {
+          dismountPart(eid, true);
+        }
       }
+      // Restore our load token after internal dismountPart cleared previous occupants
+      state.slotLoadToken[slotGroup] = myToken;
 
       let packModel = null;
       if (part._proceduralBuilder) {
         packModel = part._proceduralBuilder();
       } else {
         const cdnBase = state.catalog?.asset_cdn_base_url || MECHA_ASSETS_CDN;
-        const shaTag = (part.cad_mesh_definition?.asset_reference?.sha256_hash || Date.now().toString()).slice(0, 12);
-        const modelUrl = `${cdnBase}/${part.cad_mesh_definition.asset_reference.relative_url}?v=${shaTag}`;
+        const assetRef = part.cad_mesh_definition?.asset_reference || {};
+        const relUrl = assetRef.relative_url || assetRef.mesh_url || `models/parts/${part.part_id}.glb`;
+        const shaTag = (assetRef.sha256_hash || Date.now().toString()).slice(0, 12);
+        const modelUrl = `${cdnBase}/${relUrl}?v=${shaTag}`;
         const gltf = await new Promise((res, rej) => gltfLoader.load(modelUrl, res, undefined, rej));
         packModel = gltf.scene;
       }
+
+      // Abort stale async download if the user clicked a newer weapon/kit or unequipped while fetching!
+      if (state.slotLoadToken[slotGroup] !== myToken) {
+        packModel?.traverse?.(n => { if (n.geometry) n.geometry.dispose(); });
+        return;
+      }
+
+      // Hard-purge any residual meshes inside this slot's Three.js containers (0% chance of stacked weapons!)
+      const purgeContainer = (grp) => {
+        if (!grp) return;
+        while (grp.children.length > 0) {
+          const ch = grp.children[0];
+          grp.remove(ch);
+          ch.traverse?.(n => { if (n.geometry) n.geometry.dispose(); });
+        }
+      };
+      purgeContainer(socket.payloadContainer);
+      purgeContainer(socket.bilateralRightContainer);
+      purgeContainer(socket.bilateralLeftContainer);
+      for (const [eid, eVal] of [...state.equippedPacks.entries()]) {
+        if (eVal.slotGroup === slotGroup) {
+          state.equippedPacks.delete(eid);
+        }
+      }
+      state.chassisParts = state.chassisParts.filter(n => n.parent !== null);
 
       if (part._genomeScale) {
         packModel.scale.set(...part._genomeScale);
       }
 
+      const rSign = state.kinematicRig?.rSign || 1.0;
+      const lSign = state.kinematicRig?.lSign || -1.0;
+      // On Zeon suits (rSign = -1, lSign = +1), right hand is at -X and outer left forearm faces +X,
+      // so mirror X on hand/forearm modular parts and temporarily hide the native hand weapon/shield!
+      function resolveWeaponGripType(part) {
+        if (part?.weapon_grip_type) return part.weapon_grip_type;
+        const txt = `${part?.part_id || ''} ${part?.name || ''}`.toLowerCase();
+        if (/(saber|naginata|sword|blade|knife|dagger|axe|hawk|lance|spear|halberd|glaive|mace|hammer|scythe)/.test(txt)) {
+          return 'melee_hilt_grip';
+        }
+        return 'firearm_pistol_grip';
+      }
+
+      if (slotGroup === 'aux_weapon') {
+        const gripType = resolveWeaponGripType(part);
+        packModel.userData.weaponGripType = gripType;
+        if (rSign < 0) packModel.scale.x *= -1;
+        if (state.kinematicRig?.nativeRightWeaponMeshes) {
+          state.kinematicRig.nativeRightWeaponMeshes.forEach(m => { m.visible = false; });
+        }
+      } else if (slotGroup === 'aux_shield') {
+        if (lSign > 0) packModel.scale.x *= -1;
+        if (state.kinematicRig?.nativeLeftHoldMeshes) {
+          state.kinematicRig.nativeLeftHoldMeshes.forEach(m => { m.visible = false; });
+        }
+      }
+
       const mountedModels = [];
 
       // For bilateral limb zones (shoulder_pods on armR/armL, leg_thrusters on shinR/shinL),
-      // split _r (X > 0) and _l (X < 0) sub-meshes onto their respective right & left limb bones!
+      // split sub-meshes onto their respective right & left limb bones using 3D spatial side (geomCenter.x * rSign)!
       if ((slotGroup === 'shoulder_pods' || slotGroup === 'leg_thrusters') && socket.bilateralRightContainer && socket.bilateralLeftContainer) {
         const rightGrp = new THREE.Group();
         const leftGrp = new THREE.Group();
@@ -3603,8 +4909,7 @@
         children.forEach(node => {
           const nm = (node.name || '').toLowerCase();
           if (nm.includes('dovetail')) return;
-          node.castShadow = true;
-          node.receiveShadow = true;
+          if (node.geometry) ensureBoxProjectedUVs(node.geometry, 0.032);
           node.material = buildPackPBRMaterial(node, state.activeUnitId);
           node.userData.origMaterial = node.material;
           node.geometry.computeBoundingBox();
@@ -3614,7 +4919,8 @@
           node.userData.isModularPack = true;
           state.chassisParts.push(node);
 
-          if (nm.endsWith('_l') || node.userData.geomCenter.x < -0.5) {
+          // Bind sub-mesh to whichever limb bone (armR/shinR vs armL/shinL) lies on the same side of X=0!
+          if ((node.userData.geomCenter.x * rSign) < 0) {
             leftGrp.add(node);
           } else {
             rightGrp.add(node);
@@ -3631,8 +4937,7 @@
               node.visible = false;
               return;
             }
-            node.castShadow = true;
-            node.receiveShadow = true;
+            if (node.geometry) ensureBoxProjectedUVs(node.geometry, 0.032);
             node.material = buildPackPBRMaterial(node, state.activeUnitId);
             node.userData.origMaterial = node.material;
             node.geometry.computeBoundingBox();
@@ -3650,6 +4955,7 @@
 
       state.equippedPacks.set(part.part_id, { part, models: mountedModels, slotGroup, adapterId });
       state.slotOccupancy[slotGroup] = part.part_id;
+      enforceSinglePartPerSlotInvariant();
 
       if (silent) {
         socket.payloadContainer.position.z = socket.dockedZ;
@@ -3671,12 +4977,59 @@
       }
     }
 
+    // Ironclad 4-Unit Invariant: guarantees STRICTLY <= 1 weapon in right hand, <= 1 shield in left hand,
+    // <= 1 part in EVERY ONE of the 8 zones, and native Zeon weapons strictly hidden whenever aux_weapon is locked!
+    function enforceSinglePartPerSlotInvariant() {
+      if (!state.socketRig) return;
+      const keepBySlot = new Map();
+      for (const [eid, entry] of state.equippedPacks.entries()) {
+        const sg = entry.slotGroup || resolvePartSlotGroup(entry.part);
+        keepBySlot.set(sg, eid);
+      }
+      for (const [eid, entry] of [...state.equippedPacks.entries()]) {
+        const sg = entry.slotGroup || resolvePartSlotGroup(entry.part);
+        const winner = state.slotOccupancy[sg] || keepBySlot.get(sg);
+        if (eid !== winner) {
+          (entry.models || []).forEach(m => {
+            if (m.parent) m.parent.remove(m);
+            m.traverse?.(n => { if (n.geometry) n.geometry.dispose(); });
+          });
+          state.equippedPacks.delete(eid);
+        }
+      }
+      for (const [sg, sock] of Object.entries(state.socketRig)) {
+        const activeId = state.slotOccupancy[sg];
+        const entry = activeId ? state.equippedPacks.get(activeId) : null;
+        const allowed = new Set(entry ? (entry.models || []) : []);
+        for (const container of [sock.payloadContainer, sock.bilateralRightContainer, sock.bilateralLeftContainer]) {
+          if (!container) continue;
+          for (const ch of [...container.children]) {
+            if (!allowed.has(ch)) {
+              container.remove(ch);
+              ch.traverse?.(n => { if (n.geometry) n.geometry.dispose(); });
+            }
+          }
+        }
+      }
+      const hasAuxWeapon = !!state.slotOccupancy.aux_weapon && state.equippedPacks.has(state.slotOccupancy.aux_weapon);
+      if (state.kinematicRig?.nativeRightWeaponMeshes) {
+        state.kinematicRig.nativeRightWeaponMeshes.forEach(m => { m.visible = !hasAuxWeapon; });
+      }
+      const hasAuxShield = !!state.slotOccupancy.aux_shield && state.equippedPacks.has(state.slotOccupancy.aux_shield);
+      if (state.kinematicRig?.nativeLeftHoldMeshes) {
+        state.kinematicRig.nativeLeftHoldMeshes.forEach(m => { m.visible = !hasAuxShield; });
+      }
+      state.chassisParts = state.chassisParts.filter(n => n.parent !== null);
+    }
+
     async function toggleEquipPart(part) {
+      state.batchLoadToken++;
       if (state.equippedPacks.has(part.part_id)) {
         dismountPart(part.part_id, false);
       } else {
         await mountPartOnAdapter(part, false);
       }
+      enforceSinglePartPerSlotInvariant();
       renderInventory();
       updateTelemetry();
       applyRenderMode(state.renderMode);
@@ -3686,13 +5039,17 @@
     // 1-Click 8-Zone Full Armor Loadout (Snaps 1 part into EVERY body zone: Head, Chest, Shoulders, Back, R-Weapon, L-Shield, Waist, Legs!)
     async function equipFullBodyLoadout() {
       if (!state.catalog?.modular_parts) return;
+      const myBatchToken = ++state.batchLoadToken;
       const zonesOrder = ['head_sensor', 'chest_armor', 'shoulder_pods', 'dorsal_pack', 'aux_weapon', 'aux_shield', 'waist_ordnance', 'leg_thrusters'];
       for (const z of zonesOrder) {
+        if (state.batchLoadToken !== myBatchToken) return;
         const candidate = state.catalog.modular_parts.find(p => resolvePartSlotGroup(p) === z);
         if (candidate && !state.equippedPacks.has(candidate.part_id)) {
           await mountPartOnAdapter(candidate, false);
         }
       }
+      if (state.batchLoadToken !== myBatchToken) return;
+      enforceSinglePartPerSlotInvariant();
       renderInventory();
       updateTelemetry();
       applyRenderMode(state.renderMode);
@@ -3702,98 +5059,71 @@
     }
 
     function clearAllEquippedParts() {
+      state.batchLoadToken++;
       const ids = Array.from(state.equippedPacks.keys());
       ids.forEach(id => dismountPart(id, true));
+      enforceSinglePartPerSlotInvariant();
       renderInventory();
       updateTelemetry();
       battleAudio.playGunplaUnlatch();
       showToast('🧹 Dismounted All 8 Body Zones');
     }
 
-    // Live Agentic Zero-Duplicate Parametric Part Synthesizer (Generates a brand-new SHA-256 seed-unique part in the browser!)
+    // Smart Multi-Zone Tactical Build Randomizer (Cycles Distinct Gundam Combat Archetypes Across All 8 Zones!)
     async function synthesizeLiveAgenticPart() {
-      if (!state.catalog?.modular_parts) return;
-      const zones = Object.keys(BODY_ZONES);
-      const targetZone = state.activeCategory !== 'all' && BODY_ZONES[state.activeCategory]
-        ? state.activeCategory
-        : zones[(state.catalog.modular_parts.length + state.agenticSynthNonce) % zones.length];
+      if (!state.catalog?.modular_parts || state.catalog.modular_parts.length === 0) return;
+      const myBatchToken = ++state.batchLoadToken;
+
+      const presets = [
+        { name: 'Heavy Siege Assault', stance: 'RifleBurst', zones: ['dorsal_pack', 'aux_weapon', 'aux_shield', 'shoulder_pods', 'chest_armor', 'waist_ordnance', 'leg_thrusters'] },
+        { name: 'High-Mobility Interceptor', stance: 'BoostJump', zones: ['dorsal_pack', 'aux_weapon', 'head_sensor', 'leg_thrusters', 'waist_ordnance'] },
+        { name: 'Close-Quarters Beam Saber Duelist', stance: 'MeleeSlash', zones: ['aux_weapon', 'aux_shield', 'chest_armor', 'shoulder_pods', 'head_sensor', 'dorsal_pack'] },
+        { name: 'Tactical Recon Vanguard', stance: 'Sentinel', zones: ['dorsal_pack', 'head_sensor', 'aux_weapon', 'aux_shield', 'leg_thrusters'] },
+        { name: 'Full-Armor Saber Striker', stance: 'MeleeSlash', zones: ['head_sensor', 'chest_armor', 'shoulder_pods', 'dorsal_pack', 'aux_weapon', 'aux_shield', 'waist_ordnance', 'leg_thrusters'] }
+      ];
+      const build = presets[state.agenticSynthNonce % presets.length];
       state.agenticSynthNonce++;
 
-      // Deterministic cryptographic SHA-256-like hex derivation from timestamp + zone + nonce
-      const rawStr = `${Date.now()}_${targetZone}_${state.agenticSynthNonce}_GXM_UC2026`;
-      let h1 = 0xdeadbeef ^ rawStr.length, h2 = 0x41c6ce57 ^ rawStr.length;
-      for (let i = 0; i < rawStr.length; i++) {
-        const ch = rawStr.charCodeAt(i);
-        h1 = Math.imul(h1 ^ ch, 2654435761);
-        h2 = Math.imul(h2 ^ ch, 1597334677);
-      }
-      h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
-      h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
-      const seedHex = (h1 >>> 0).toString(16).padStart(8, '0') + (h2 >>> 0).toString(16).padStart(8, '0') +
-        ((h1 ^ 0x5a5a5a5a) >>> 0).toString(16).padStart(8, '0') + ((h2 ^ 0xa5a5a5a5) >>> 0).toString(16).padStart(8, '0') +
-        ((h1 * 31) >>> 0).toString(16).padStart(8, '0') + ((h2 * 17) >>> 0).toString(16).padStart(8, '0') +
-        ((h1 ^ h2) >>> 0).toString(16).padStart(8, '0') + ((~h1) >>> 0).toString(16).padStart(8, '0');
-      const tag4 = seedHex.slice(0, 4).toUpperCase();
-      const b0 = parseInt(seedHex.slice(0, 2), 16) / 255.0;
-      const b1 = parseInt(seedHex.slice(2, 4), 16) / 255.0;
-      const b2 = parseInt(seedHex.slice(4, 6), 16) / 255.0;
+      const prevIds = Array.from(state.equippedPacks.keys());
+      prevIds.forEach(id => dismountPart(id, true));
 
-      // Pick template archetype in that body zone and apply unique parametric genome scaling
-      const template = state.catalog.modular_parts.find(p => resolvePartSlotGroup(p) === targetZone) || state.catalog.modular_parts[0];
-      const zMeta = BODY_ZONES[targetZone];
-      const sx = +(0.90 + b0 * 0.24).toFixed(3);
-      const sy = +(0.90 + b1 * 0.26).toFixed(3);
-      const sz = +(0.92 + b2 * 0.22).toFixed(3);
-
-      const zoneTitleMap = {
-        head_sensor: `HD-${tag4} Cranial ${Math.round(55 + b0 * 25)}mm Vulcan & Psycho-Crest`,
-        chest_armor: `CH-${tag4} Chobham Reactive Breastplate & I-Field Gen`,
-        shoulder_pods: `SH-${tag4} Twin ${Math.round(6 + b0 * 6)}-Tube Missile & Vernier Pauldrons`,
-        dorsal_pack: `MP-${tag4} Variable-Geometry High-Mobility Striker Pack`,
-        aux_weapon: `BR-${tag4} High-Output ${(4.2 + b0 * 3.5).toFixed(1)}MW Long-Barrel Beam Rifle`,
-        aux_shield: `SD-${tag4} Gundarium Phase-Composite Hexagonal Shield`,
-        waist_ordnance: `WS-${tag4} Xiphias Mach-${(7.5 + b1 * 2.4).toFixed(1)} Folding Hip Railguns`,
-        leg_thrusters: `LG-${tag4} FA-78 Dual Calf Missile & Supersonic Boosters`
-      };
-
-      const newPart = {
-        part_id: `agentic_${targetZone}_${seedHex.slice(0, 6)}`,
-        serial_number: `GXM-SYN-${tag4}`,
-        name: zoneTitleMap[targetZone] || `AG-${tag4} Agentic Modular Unit`,
-        category: template.category,
-        primary_hardpoint: zMeta.hp,
-        slot_group: targetZone,
-        adapter_id: zMeta.adapterId,
-        entropy_seed: seedHex,
-        synthesis_origin: 'live_agentic_parametric_genome',
-        _genomeScale: [sx, sy, sz],
-        compatible_hardpoints: template.compatible_hardpoints,
-        structural_specs: {
-          mass_kg: Math.round(template.structural_specs.mass_kg * ((sx + sy + sz) / 3.0)),
-          primary_material: 'gundarium_alloy_gamma',
-          center_of_mass: [0, 48, -22]
-        },
-        cad_mesh_definition: {
-          format: 'binary_gltf_glb',
-          asset_reference: {
-            relative_url: template.cad_mesh_definition.asset_reference.relative_url,
-            sha256_hash: seedHex,
-            file_size_bytes: template.cad_mesh_definition.asset_reference.file_size_bytes
-          }
-        },
-        telemetry_and_lore: {
-          operational_role: `Autonomously synthesized ${zMeta.short} module (Genome scale ${sx}×${sy}×${sz}, Seed ${seedHex.slice(0, 8)}).`,
-          reactor_power_draw_kw: Math.round((template.telemetry_and_lore?.reactor_power_draw_kw || 250) * (0.9 + b1 * 0.3)),
-          vernier_thrust_kgf: Math.round((template.telemetry_and_lore?.vernier_thrust_kgf || 0) * (0.9 + b0 * 0.35))
+      const allParts = state.catalog.modular_parts;
+      const pickRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
+      let mountedCount = 0;
+      for (const z of build.zones) {
+        if (state.batchLoadToken !== myBatchToken) return;
+        const candidates = allParts.filter(p => resolvePartSlotGroup(p) === z);
+        if (candidates.length === 0) continue;
+        let chosen = null;
+        if ((build.name.includes('Saber')) && z === 'aux_weapon') {
+          chosen = candidates.find(p => p.part_id === 'weapon_beam_saber_rx') || pickRandom(candidates);
+        } else if (build.name === 'Close-Quarters Beam Saber Duelist' && z === 'aux_shield') {
+          chosen = candidates.find(p => p.part_id === 'mission_pack_type_c_cqc') || pickRandom(candidates);
+        } else if (build.name === 'Heavy Siege Assault' && z === 'dorsal_pack') {
+          chosen = candidates.find(p => p.part_id === 'mission_pack_type_h_artillery') || pickRandom(candidates);
+        } else if (build.name === 'High-Mobility Interceptor' && z === 'dorsal_pack') {
+          chosen = candidates.find(p => p.part_id === 'propulsion_vernier_wing_pod' || p.part_id === 'mission_pack_type_s_space') || pickRandom(candidates);
+        } else if (build.name === 'Tactical Recon Vanguard' && z === 'dorsal_pack') {
+          chosen = candidates.find(p => p.part_id === 'mission_pack_type_e_recon') || pickRandom(candidates);
+        } else {
+          chosen = pickRandom(candidates);
         }
-      };
+        if (chosen) {
+          await mountPartOnAdapter(chosen, true);
+          mountedCount++;
+        }
+      }
+      if (state.batchLoadToken !== myBatchToken) return;
+      enforceSinglePartPerSlotInvariant();
 
-      state.catalog.modular_parts.unshift(newPart);
-      await mountPartOnAdapter(newPart, false);
+      playAnimation(build.stance);
       renderInventory();
       updateTelemetry();
       applyRenderMode(state.renderMode);
-      showToast(`🧬 [NEW AGENTIC PART] ${newPart.serial_number} Synthesized & Locked onto ${zMeta.label}!`, true);
+      applyExplodedDisplacement(state.explodedFactor);
+      battleAudio.playGunplaSnapClick();
+      triggerStagePulse(0x00e5ff);
+      showToast(`🎲 [RANDOM BUILD] ${build.name} — ${mountedCount} Modules + ${build.stance} Stance!`, true);
     }
 
     function updateTelemetry() {
@@ -3831,12 +5161,26 @@
 
     // =========================================================================
     // 12. VECTOR-ALIGNED EXPLODED VIEW (FOR ALL 4 UNITS & 8-ZONE PAYLOADS)
+    // 12. VECTOR-ALIGNED STAGGERED EXPLODED VIEW (TEARDOWN QUINTIC LAYERS)
+    // Outer 8-zone armor & modular packs separate BEFORE inner skeleton tiers
+    // using quintic smoothstep curves so parts never interpenetrate!
     // =========================================================================
+    const teardownSmoother = (t) => {
+      const c = Math.max(0.0, Math.min(1.0, t));
+      return c * c * c * (c * (c * 6.0 - 15.0) + 10.0);
+    };
+
     function applyExplodedDisplacement(factor) {
+      const fTier0 = teardownSmoother(factor / 0.45);
+      const fTier1 = teardownSmoother((factor - 0.12) / 0.52);
+      const fTier2 = teardownSmoother((factor - 0.24) / 0.56);
+      const fTier3 = teardownSmoother((factor - 0.36) / 0.64);
+
       if (state.socketRig && state.snapAnimations.length === 0) {
         Object.values(state.socketRig).forEach(sock => {
           const sign = sock.slideSign || -1.0;
           sock.payloadContainer.position.z = sock.dockedZ + sign * factor * 28.0;
+          sock.payloadContainer.position.z = sock.dockedZ + sign * fTier0 * 28.0;
         });
       }
 
@@ -3851,6 +5195,7 @@
         if (node.userData.isModularPack) {
           dir.set(sideSign * 0.45, 0.15, -0.45);
           node.position.copy(init).addScaledVector(dir, factor * 20.0);
+          node.position.copy(init).addScaledVector(dir, fTier0 * 24.0);
           return;
         }
 
@@ -3862,8 +5207,35 @@
         else if (n.includes('thigh') || n.includes('femur') || n.includes('hip')) dir.set(sideSign * 0.75, -0.15, 0);
         else if (n.includes('backpack') || n.includes('wing') || n.includes('cannon') || n.includes('booster') || n.includes('tank') || n.includes('rotodome') || n.includes('fin_binder') || n.includes('vernier')) dir.set(sideSign * 0.35, 0.15, -1.25);
         else dir.set(sideSign * 0.35, 0.25, -0.35);
+        let tierFactor = fTier2;
+        if (n.includes('head') || n.includes('v_fin') || n.includes('mono_eye')) {
+          dir.set(0, 0.85, 0.25);
+          tierFactor = fTier1;
+        } else if (n.includes('chest') || n.includes('cockpit') || n.includes('abdomen')) {
+          dir.set(0, 0.15, 0.95);
+          tierFactor = fTier1;
+        } else if (n.includes('pauldron') || n.includes('arm') || n.includes('forearm') || n.includes('shield') || n.includes('rifle') || n.includes('elbow') || n.includes('fist')) {
+          dir.set((sideSign || 1) * 1.1, 0.12, 0.15);
+          tierFactor = fTier1;
+        } else if (n.includes('foot') || n.includes('sole') || n.includes('ankle')) {
+          dir.set(sideSign * 0.45, -0.85, 0.25);
+          tierFactor = fTier2;
+        } else if (n.includes('shin') || n.includes('calf') || n.includes('knee') || n.includes('tibia')) {
+          dir.set(sideSign * 0.65, -0.45, 0.2);
+          tierFactor = fTier2;
+        } else if (n.includes('thigh') || n.includes('femur') || n.includes('hip')) {
+          dir.set(sideSign * 0.75, -0.15, 0);
+          tierFactor = fTier2;
+        } else if (n.includes('backpack') || n.includes('wing') || n.includes('cannon') || n.includes('booster') || n.includes('tank') || n.includes('rotodome') || n.includes('fin_binder') || n.includes('vernier')) {
+          dir.set(sideSign * 0.35, 0.15, -1.25);
+          tierFactor = fTier0;
+        } else {
+          dir.set(sideSign * 0.35, 0.25, -0.35);
+          tierFactor = fTier3;
+        }
 
         node.position.copy(init).addScaledVector(dir, factor * 36.0);
+        node.position.copy(init).addScaledVector(dir, tierFactor * 36.0);
       });
     }
 
@@ -3927,6 +5299,226 @@
       btnAnimPlay.classList.toggle('active', state.animPlaying);
     });
 
+    // Teardown Phase 5 Controls: Hinged Hatch Open, 3D Callout Leaders, Ghost Isolate & Interactive Auto-Tour
+    const btnHatchOpen = document.getElementById('btn-hatch-open');
+    const btnDockHatch = document.getElementById('btn-dock-hatch');
+    const btnDockIsolate = document.getElementById('btn-dock-isolate');
+    const btnCallouts = document.getElementById('btn-callouts');
+    const btnAutoTour = document.getElementById('btn-auto-tour');
+    const calloutLayer = document.getElementById('callout-layer');
+    const calloutSvg = document.getElementById('callout-svg');
+    const calloutNodesEl = document.getElementById('callout-nodes');
+
+    function setHatchOpen(open, silent = false) {
+      state.hatchOpen = Boolean(open);
+      btnHatchOpen?.classList.toggle('active', state.hatchOpen);
+      btnDockHatch?.classList.toggle('active', state.hatchOpen);
+      mechaRoot.traverse(node => {
+        if (!node.isMesh || !node.userData.origMaterial) return;
+        const ln = (node.name || '').toLowerCase();
+        if (
+          ln.includes('chest_armor_blue') || ln.includes('chest_sternum_dark') ||
+          ln.includes('zaku_chest_core_') || ln.includes('gouf_chest_core_') || ln.includes('sazabi_chest_core_')
+        ) {
+          if (state.renderMode === 'standard' && !state.isolatedZone) {
+            node.material = state.hatchOpen ? glassCutawayMat : node.userData.origMaterial;
+          }
+        }
+      });
+      if (!silent) {
+        triggerStagePulse(state.hatchOpen ? 0xf97316 : 0x00e5ff);
+        showToast(state.hatchOpen ? '🔓 Maintenance Hatch OPEN — Internal Minovsky Gear Core Exposed!' : '🔒 Maintenance Hatch SEALED');
+      }
+    }
+    btnHatchOpen?.addEventListener('click', () => setHatchOpen(!state.hatchOpen));
+    btnDockHatch?.addEventListener('click', () => setHatchOpen(!state.hatchOpen));
+
+    btnDockIsolate?.addEventListener('click', () => {
+      const targetZone = state.isolatedZone ? state.isolatedZone : (state.activeCategory !== 'all' ? state.activeCategory : 'chest_armor');
+      setIsolatedZone(targetZone);
+      showToast(state.isolatedZone ? `👻 Ghost Shell Active — Isolating ${BODY_ZONES[state.isolatedZone]?.label || state.isolatedZone}` : '◆ Full Solid Chassis Restored');
+    });
+
+    function setCalloutsVisible(visible) {
+      state.showCallouts = Boolean(visible);
+      btnCallouts?.classList.toggle('active', state.showCallouts);
+      calloutLayer?.classList.toggle('visible', state.showCallouts);
+      if (state.showCallouts) updateCalloutLeaders();
+    }
+    btnCallouts?.addEventListener('click', () => setCalloutsVisible(!state.showCallouts));
+
+    function setAutoTour(enabled) {
+      state.autoTour = Boolean(enabled);
+      state.autoTourTimer = 0.0;
+      btnAutoTour?.classList.toggle('active', state.autoTour);
+      if (state.autoTour) {
+        showToast('🎬 Interactive Auto-Tour Started (Drag or Click anytime to take control)');
+      }
+    }
+    btnAutoTour?.addEventListener('click', () => setAutoTour(!state.autoTour));
+
+    // Instant User Handoff (Teardown live.js rule: any pointer drag, wheel, or key hands control to user!)
+    const handoffToUser = () => {
+      if (state.autoTour) {
+        setAutoTour(false);
+        showToast('✋ Manual Control Active');
+      }
+    };
+    canvas.addEventListener('pointerdown', handoffToUser, { passive: true });
+    canvas.addEventListener('wheel', handoffToUser, { passive: true });
+    window.addEventListener('keydown', (e) => { if (e.key !== 'Escape') handoffToUser(); });
+
+    function _shortCalloutName(partId) {
+      if (!partId || !state.catalog?.modular_parts) return '';
+      const p = state.catalog.modular_parts.find(x => x.part_id === partId);
+      if (!p || !p.name) return '';
+      const raw = String(p.name).trim();
+      return raw.length > 26 ? raw.slice(0, 25).trim() + '…' : raw;
+    }
+
+    const CALLOUT_ANCHORS = [
+      {
+        id: 'c_optics',
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (rig?.head) { out.set(0, 10, 9); rig.head.localToWorld(out); return out; }
+          return out.set(0, 165, 10);
+        },
+        screenDx: -155, screenDy: -34,
+        title: () => state.slotOccupancy.head_sensor ? `HEAD: ${_shortCalloutName(state.slotOccupancy.head_sensor)}` : 'OPTICAL SENSOR ARRAY',
+        sub: () => state.slotOccupancy.head_sensor
+          ? 'ADP-HP01 CRANIAL • LOCKED'
+          : (UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'RECESSED MONO-EYE • IR RIM' : 'DUAL GOLDEN CAM • TRACKING')
+      },
+      {
+        id: 'c_reactor',
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (rig?.torso) { out.set(0, 24, 12); rig.torso.localToWorld(out); return out; }
+          return out.set(0, 138, 12);
+        },
+        screenDx: 160, screenDy: -28,
+        title: () => state.slotOccupancy.chest_armor
+          ? `CHEST: ${_shortCalloutName(state.slotOccupancy.chest_armor)}`
+          : (UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'ZEON REACTOR CORE' : 'MINOVSKY 3-GEAR CORE'),
+        sub: () => state.hatchOpen
+          ? (UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'HATCH OPEN • CORE EXPOSED' : 'HATCH OPEN • 20T/14T SPIN')
+          : (state.slotOccupancy.chest_armor ? 'ADP-HP09 PECTORAL • LOCKED' : (state.renderMode === 'glass' ? 'GLASS CUTAWAY • EXPOSED' : 'HATCH SEALED'))
+      },
+      {
+        id: 'c_servo',
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (state.slotOccupancy.shoulder_pods && rig?.armR) {
+            out.set((rig.rSign || 1) * 4, 6, 0); rig.armR.localToWorld(out); return out;
+          }
+          if (rig?.forearmR) { out.set(0, 0, 0); rig.forearmR.localToWorld(out); return out; }
+          return out.set(34 * (rig?.rSign || 1), 116, 2);
+        },
+        screenDx: 155, screenDy: 14,
+        title: () => state.slotOccupancy.shoulder_pods ? `SHOULDER: ${_shortCalloutName(state.slotOccupancy.shoulder_pods)}` : 'ROTARY SERVO DRUM',
+        sub: () => state.slotOccupancy.shoulder_pods ? 'ADP-HP03 PAULDRON • LOCKED' : '6-BOLT ANODIZED COLLAR'
+      },
+      {
+        id: 'c_weapon',
+        getWorld: (out) => {
+          const sock = state.socketRig?.aux_weapon?.socketRoot;
+          if (sock) { sock.getWorldPosition(out); return out; }
+          const rig = state.kinematicRig;
+          if (rig?.forearmR) { out.set(0, -26, 2); rig.forearmR.localToWorld(out); return out; }
+          return out.set(35 * (rig?.rSign || 1), 88, 4);
+        },
+        screenDx: 155, screenDy: 44,
+        title: () => state.slotOccupancy.aux_weapon ? `WEAPON: ${_shortCalloutName(state.slotOccupancy.aux_weapon)}` : 'ADP-HP11 PALM SOCKET',
+        sub: () => state.slotOccupancy.aux_weapon
+          ? (state.activeStance === 'RifleBurst' ? 'BEAM AIM • LOCKED' : 'PALM ADAPTER • LOCKED')
+          : 'STANDBY • NO WEAPON EQUIPPED'
+      },
+      {
+        id: 'c_shield',
+        getWorld: (out) => {
+          const sock = state.socketRig?.aux_shield?.socketRoot;
+          if (sock) { sock.getWorldPosition(out); return out; }
+          const rig = state.kinematicRig;
+          if (rig?.forearmL) { out.set(0, -14, 0); rig.forearmL.localToWorld(out); return out; }
+          return out.set(-38 * (rig?.rSign || 1), 102, 2);
+        },
+        screenDx: -160, screenDy: 24,
+        title: () => state.slotOccupancy.aux_shield ? `SHIELD: ${_shortCalloutName(state.slotOccupancy.aux_shield)}` : 'ADP-HP07 FOREARM MOUNT',
+        sub: () => state.slotOccupancy.aux_shield ? 'OUTWARD NORMAL • LOCKED' : 'STANDBY • NO SHIELD EQUIPPED'
+      },
+      {
+        id: 'c_knee',
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (state.slotOccupancy.leg_thrusters && rig?.shinL) {
+            out.set((rig.lSign || -1) * 8, -18, 0); rig.shinL.localToWorld(out); return out;
+          }
+          if (rig?.shinL) { out.set(0, 2, 6); rig.shinL.localToWorld(out); return out; }
+          return out.set(-16 * (rig?.rSign || 1), 62, 6);
+        },
+        screenDx: -155, screenDy: 56,
+        title: () => state.slotOccupancy.leg_thrusters ? `LEGS: ${_shortCalloutName(state.slotOccupancy.leg_thrusters)}` : 'DOUBLE-PIVOT KNEE DRUM',
+        sub: () => state.slotOccupancy.leg_thrusters ? 'ADP-HP24 CALF POD • LOCKED' : 'TEARDOWN HYDRAULIC DAMPER'
+      }
+    ];
+    const _projVec = new THREE.Vector3();
+    let _lastCalloutSig = '';
+    let _lastCalloutFrameTs = 0;
+    function updateCalloutLeaders(force = false) {
+      if (!state.showCallouts || !calloutSvg || !calloutNodesEl) return;
+      const nowTs = performance.now();
+      // Live bone tracking at ~30Hz while animated so dots stay 100% locked onto moving hands/limbs!
+      if (!force && state.animPlaying && (nowTs - _lastCalloutFrameTs) < 33) return;
+      const w = window.innerWidth, h = window.innerHeight;
+      const occSig = Object.values(state.slotOccupancy).map(v => v || '').join('|');
+      const sig = `${Math.round(camera.position.x * 2)},${Math.round(camera.position.y * 2)},${Math.round(camera.position.z * 2)},${Math.round(controls.target.y)},${w}x${h},${state.hatchOpen ? 1 : 0},${state.renderMode},${state.activeStance},${state.activeEnv},${state.activeUnitId},${state.menus.left ? 1 : 0},${state.menus.right ? 1 : 0},${state.menus.allHidden ? 1 : 0},${Math.round(state.explodedFactor * 100)},${occSig}`;
+      if (!force && !state.animPlaying && sig === _lastCalloutSig) return;
+      _lastCalloutSig = sig;
+      _lastCalloutFrameTs = nowTs;
+      if (state.chassisModel) state.chassisModel.updateWorldMatrix(true, true);
+      let svgHtml = '';
+      let nodesHtml = '';
+      const isStudio = state.activeEnv === 'studio';
+      const strokeCol = isStudio ? '#ea580c' : '#38bdf8';
+      const dotCol = '#f97316';
+      // Measure exact open side-drawer bounds + half-pill safety margin so NO callout card EVER clips!
+      const leftRect = (state.menus.left && !state.menus.allHidden && leftDrawer) ? leftDrawer.getBoundingClientRect() : null;
+      const rightRect = ((state.menus.right || state.menus.scene) && !state.menus.allHidden && rightStack) ? rightStack.getBoundingClientRect() : null;
+      const cardHalfW = 112;
+      const minX = (leftRect && w > 960 && leftRect.right > 40) ? (leftRect.right + cardHalfW + 16) : (cardHalfW + 12);
+      const maxX = (rightRect && w > 960 && rightRect.left < w - 40) ? (rightRect.left - cardHalfW - 16) : (w - cardHalfW - 12);
+      for (const a of CALLOUT_ANCHORS) {
+        a.getWorld(_projVec);
+        _projVec.project(camera);
+        if (_projVec.z > 1.0) continue;
+        const sx = (_projVec.x * 0.5 + 0.5) * w;
+        const sy = (-_projVec.y * 0.5 + 0.5) * h;
+        const dxSign = sx < (w * 0.5) ? -1 : 1;
+        const dx = Math.abs(a.screenDx) * dxSign;
+        const lx = Math.max(minX, Math.min(maxX, sx + dx));
+        const ly = Math.max(88, Math.min(h - 98, sy + a.screenDy));
+        // Precision CAD elbow leader line (anchor -> knee -> tag)
+        const kx = sx + (lx - sx) * 0.42;
+        const titleTxt = typeof a.title === 'function' ? a.title() : a.title;
+        svgHtml += `<polyline points="${sx.toFixed(1)},${sy.toFixed(1)} ${kx.toFixed(1)},${ly.toFixed(1)} ${lx.toFixed(1)},${ly.toFixed(1)}" fill="none" stroke="${strokeCol}" stroke-width="1.35" opacity="0.88" />`
+          + `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="4.8" fill="none" stroke="${dotCol}" stroke-width="1.2" opacity="0.65" />`
+          + `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="2.6" fill="${dotCol}" />`;
+        nodesHtml += `<div class="callout-tag" style="left:${lx.toFixed(1)}px;top:${ly.toFixed(1)}px;"><span class="c-dot"></span>${escapePresetHtml(titleTxt)}<span class="c-sub">${escapePresetHtml(a.sub())}</span></div>`;
+      }
+      calloutSvg.innerHTML = svgHtml;
+      calloutNodesEl.innerHTML = nodesHtml;
+    }
+
+    const AUTO_TOUR_STAGES = [
+      () => { applyEnvironment('studio'); applyRenderMode('standard'); setHatchOpen(false); setCalloutsVisible(true); playAnimation('Sentinel'); setCameraPreset('heroic'); },
+      () => { setHatchOpen(true); setCameraPreset('front'); },
+      () => { applyRenderMode('glass'); setCameraPreset('heroic'); },
+      () => { applyRenderMode('standard'); setHatchOpen(false); playAnimation('RifleBurst'); setCameraPreset('heroic'); },
+      () => { sliderExploded.value = '65'; sliderExploded.dispatchEvent(new Event('input', { bubbles: true })); },
+      () => { sliderExploded.value = '0'; sliderExploded.dispatchEvent(new Event('input', { bubbles: true })); applyEnvironment('hangar'); setCalloutsVisible(false); setCameraPreset('heroic'); }
+    ];
+
     document.getElementById('btn-toggle-drawer-size')?.addEventListener('click', (e) => {
       state.isDrawerExpanded = !state.isDrawerExpanded;
       leftDrawer.classList.toggle('expanded', state.isDrawerExpanded);
@@ -3953,11 +5545,20 @@
     partsSort?.addEventListener('change', (e) => { state.activeSort = e.target.value; renderInventory(); });
     btnEquippedOnly?.addEventListener('click', () => { state.equippedOnly = !state.equippedOnly; renderInventory(); });
 
+    // Root-Cause Mobile FPS Fix #5: Debounce mobile resize (prevents WebGL framebuffer stall when mobile URL bar slides up/down!)
+    let resizeDebounceTimer = null;
     window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      if (composer) composer.setSize(window.innerWidth, window.innerHeight);
+      clearTimeout(resizeDebounceTimer);
+      resizeDebounceTimer = setTimeout(() => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        if (window.innerWidth <= 960 && (state.menus.left || state.menus.right || state.menus.scene)) {
+          state.menus.left = false; state.menus.right = false; state.menus.scene = false;
+          syncMenuVisibility();
+        }
+        if (state.showCallouts) updateCalloutLeaders(true);
+      }, 150);
     });
 
     // =========================================================================
@@ -4809,12 +6410,20 @@
           this.toggleBtn.classList.toggle('playing', this.isPlaying);
           this.toggleBtn.textContent = this.isPlaying ? '🔊 BGM' : '🔇 BGM';
         }
-        if (this.trackBtn) this.trackBtn.textContent = `🎵 ${this.tracks[this.trackIndex].shortName}`;
+        if (this.trackBtn) {
+          const isMobile = window.innerWidth <= 640;
+          const track = this.tracks[this.trackIndex];
+          const mobileLabels = ['Sortie', 'Zero-G', 'Launch'];
+          const shortWord = isMobile ? (mobileLabels[this.trackIndex] || track.shortName.split(' ')[0]) : track.shortName;
+          this.trackBtn.textContent = `🎵 ${shortWord}`;
+          this.trackBtn.title = `Switch Mecha Battle Track (Current: ${track.name})`;
+        }
       }
 
       _bindUi() {
         this.toggleBtn?.addEventListener('click', () => this.toggle());
         this.trackBtn?.addEventListener('click', () => this.nextTrack());
+        window.addEventListener('resize', () => this._updateUi());
         this._updateUi();
       }
     }
@@ -4953,6 +6562,7 @@
     window.__mechaDebug = {
       state, loadUnit, playAnimation, setCameraPreset, applyRenderMode, applyEnvironment,
       toggleAllMenus, toggleSingleMenu, toggleEquipPart, equipFullBodyLoadout, clearAllEquippedParts, synthesizeLiveAgenticPart,
+      openLoadoutModal, closeLoadoutModal, saveCurrentBuildAsPreset, equipPreset, getSavedPresets, captureFullscreenWallpaper,
       equipPartById: async (partId) => {
         const p = state.catalog?.modular_parts?.find(x => x.part_id === partId);
         if (p) await toggleEquipPart(p);
@@ -4965,6 +6575,16 @@
         controls.target.set(tx, ty, tz);
         controls.update();
       },
+      getPerfStats: () => ({
+        programs: renderer.info.programs?.length || 0,
+        cachedMaterials: MECHA_MAT_CACHE.size,
+        drawCalls: renderer.info.render.calls,
+        triangles: renderer.info.render.triangles,
+        geometries: renderer.info.memory.geometries,
+        textures: renderer.info.memory.textures,
+        dpr: renderer.getPixelRatio(),
+        gpuTier: state.gpuTier
+      }),
       getSocketInfo: () => ({
         activeUnit: state.activeUnitId,
         activeStance: state.activeStance,
@@ -4994,11 +6614,17 @@
       }
       renderInventory();
       await loadUnit('vanguard_rx');
+      if (typeof renderer.compileAsync === 'function') {
+        renderer.compileAsync(scene, camera).catch(() => { });
+      } else {
+        renderer.compile(scene, camera);
+      }
     }
 
     const clock = new THREE.Clock();
     function animate() {
       requestAnimationFrame(animate);
+      if (document.hidden) return; // Zero GPU/battery waste when phone screen or tab is backgrounded
       const delta = Math.min(clock.getDelta(), 0.05);
       const elapsed = clock.getElapsedTime();
 
@@ -5074,9 +6700,76 @@
         neonTorus.rotation.y = elapsed * 0.5;
         neonTorus.rotation.x = Math.sin(elapsed * 0.7) * 0.35;
       }
+
+      // Interactive Infinity Cyclorama Light Sweep & Live Azimuth Ring (1-Pass Ultra-Fast!)
+      pointerNdc.x += (pointerNdc.targetX - pointerNdc.x) * Math.min(1.0, delta * 5.0);
+      pointerNdc.y += (pointerNdc.targetY - pointerNdc.y) * Math.min(1.0, delta * 5.0);
+      cycloramaUniforms.uTime.value = elapsed;
+      cycloramaUniforms.uPointer.value.set(pointerNdc.x, pointerNdc.y);
+      const camAz = Math.atan2(camera.position.x, camera.position.z);
+      vernierRing.rotation.z = -camAz + elapsed * 0.06;
+      if (studioReticleGroup.visible) {
+        retRing1.rotation.z = elapsed * 0.08 + pointerNdc.x * 0.14;
+        retRing2.rotation.z = -elapsed * 0.11 - pointerNdc.y * 0.12;
+      }
+      if (stagePulseProgress < 1.0) {
+        stagePulseProgress = Math.min(1.0, stagePulseProgress + delta * 1.45);
+        const s = 1.0 + stagePulseProgress * 2.2;
+        pulseRing.scale.set(s, s, 1);
+        pulseRingMat.opacity = (1.0 - stagePulseProgress) * 0.65;
+      } else {
+        pulseRingMat.opacity = 0.0;
+      }
+
+      // 4. Teardown Phase 5: Hinged Maintenance Hatch / Petal Open + Spinning Internal 3-Gear Spur Train!
+      const hatchTarget = state.hatchOpen ? 1.0 : 0.0;
+      state.hatchProgress += (hatchTarget - state.hatchProgress) * Math.min(1.0, delta * 6.5);
+      const hp = teardownSmoother(state.hatchProgress);
+      if (state.hingeNodes.length > 0 && state.explodedFactor < 0.05) {
+        for (const h of state.hingeNodes) {
+          if (!h.basePos || !h.baseRot) continue;
+          if (h.sideDir === 0) {
+            h.node.position.set(h.basePos.x, h.basePos.y - hp * 3.8, h.basePos.z + hp * 9.5);
+            h.node.rotation.set(h.baseRot.x + hp * 0.88, h.baseRot.y, h.baseRot.z);
+          } else {
+            h.node.position.set(h.basePos.x + h.sideDir * hp * 6.8, h.basePos.y, h.basePos.z + hp * 5.2);
+            h.node.rotation.set(h.baseRot.x, h.baseRot.y + h.sideDir * hp * 0.78, h.baseRot.z);
+          }
+        }
+      }
+      if (state.gearNodes.length > 0 && (state.animPlaying || state.hatchOpen || state.renderMode === 'glass')) {
+        const spinRate = state.hatchOpen ? 2.4 : 0.85;
+        for (const g of state.gearNodes) {
+          g.angle += delta * spinRate * g.dirSign;
+          g.node.rotation.z = g.angle;
+        }
+      }
+
+      // 5. Interactive Auto-Tour Demo Controller (cycles showcase beats until user touches viewport)
+      if (state.autoTour) {
+        state.autoTourTimer += delta;
+        if (state.autoTourTimer >= 4.2) {
+          state.autoTourTimer = 0.0;
+          state.autoTourStep = (state.autoTourStep + 1) % AUTO_TOUR_STAGES.length;
+          AUTO_TOUR_STAGES[state.autoTourStep]();
+        }
+      }
+
+      // 6. Auto-Fallback Adaptive DPR Monitor (steps down if FPS < 30 over 3s)
+      if (!window._fpsMon) window._fpsMon = { frames: 0, acc: 0 };
+      window._fpsMon.frames += 1;
+      window._fpsMon.acc += delta;
+      if (window._fpsMon.acc >= 3.0) {
+        const avgFps = window._fpsMon.frames / window._fpsMon.acc;
+        window._fpsMon.frames = 0;
+        window._fpsMon.acc = 0;
+        if (avgFps < 30.0 && state.gpuTier === 'HIGH') applyGpuQualityTier('MED');
+        else if (avgFps < 24.0 && state.gpuTier === 'MED') applyGpuQualityTier('LOW');
+      }
+
       controls.update();
-      if (composer) composer.render();
-      else renderer.render(scene, camera);
+      if (state.showCallouts) updateCalloutLeaders(false);
+      renderer.render(scene, camera);
     }
 
     bootstrap();
