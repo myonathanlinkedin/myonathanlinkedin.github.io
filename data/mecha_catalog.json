@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
   "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
-  "last_synced": "2026-11-22T08:00:58.946967+00:00",
+  "last_synced": "2026-11-22T08:20:24.796436+00:00",
   "baselines": [
     {
       "id": "baseline_gundam_frame_v1",
@@ -2417,6 +2417,133 @@
         "operational_role": "Provides high-capacity funnel storage and rapid deployment thrust for sustained heavy-beam assaults from the dorsal pack.",
         "reactor_power_draw_kw": 960,
         "vernier_thrust_kgf": 148000
+      }
+    },
+    {
+      "part_id": "llm_evo_shoulder_rail_cannon_g02_44aa8c",
+      "blueprint_family": "shoulder_rail_cannon",
+      "serial_number": "GXM-LLM-RLC-24",
+      "name": "HP-03B Shoulder Rail Cannon Mk.III – Hyper Velocity Variant",
+      "category": "weapon",
+      "primary_hardpoint": "HP-03",
+      "slot_group": "shoulder_pods",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP03-SHOULDER",
+      "entropy_seed": "3f20a128b313e2ad0bbc119a4fbe3df823196ab8b590fa26017b76776d46475a",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "groq_llm_cad_architect",
+      "llm_blueprint_params": {
+        "rail_length_mm": 38.7,
+        "pod_width_mm": 9.9,
+        "mass_kg": 3892.5,
+        "reactor_draw_kw": 845.3
+      },
+      "agentic_checklist_report": {
+        "status": "ALL_CHECKS_PASSED",
+        "llm_plan": [
+          "Verify rail barrel alignment within ±0.2 mm tolerance across full extension.",
+          "Confirm pod structural integrity under 150 kN shear load using composite stress analysis.",
+          "Test thermal dissipation of barrel with continuous fire at 85 % reactor draw.",
+          "Validate integration with existing shoulder actuator firmware for synchronized recoil compensation.",
+          "Conduct full-system power budgeting to ensure reactor draw stays below 950 kW during peak operation."
+        ],
+        "verified_gates": [
+          {
+            "id": "CHK-01",
+            "check": "Watertight multi-mesh geometry compiled",
+            "passed": true,
+            "detail": "8 sub-meshes, 3584 triangles"
+          },
+          {
+            "id": "CHK-02",
+            "check": "GLB size within mobile budget (<= 480 KB)",
+            "passed": true,
+            "detail": "372,536 bytes"
+          },
+          {
+            "id": "CHK-03",
+            "check": "Zone 'shoulder_pods' anti-sinking & orientation clearance",
+            "passed": true,
+            "detail": "Bilateral over-pauldron span x=[-56.5, 56.5]mm"
+          },
+          {
+            "id": "CHK-04",
+            "check": "Zero NaN/Inf numerical geometry corruption",
+            "passed": true,
+            "detail": "AABB min=[-56.5, -4.4, -12.5] max=[56.5, 12.2, 40.8]"
+          },
+          {
+            "id": "CHK-05",
+            "check": "Parametric dimensions strictly inside ISO engineering bounds",
+            "passed": true,
+            "detail": "source=groq_llm_cad_architect, params={'rail_length_mm': 38.7, 'pod_width_mm': 9.9, 'mass_kg': 3892.5, 'reactor_draw_kw': 845.3}"
+          }
+        ]
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-03",
+        "HP-05"
+      ],
+      "structural_specs": {
+        "mass_kg": 3892,
+        "bom_computed_mass_kg": 3892,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-03",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -56.45,
+            -4.37,
+            -12.5
+          ],
+          "max": [
+            56.45,
+            12.195,
+            40.765
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_evo_shoulder_rail_cannon_g02_44aa8c.glb",
+          "sha256_hash": "6a463ba5b3f03ae2b016412744426a611c3379300aa34e55f8aa62a0b7cb9c2c",
+          "file_size_bytes": 372536,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides rapid, high-precision shoulder-mounted rail fire for mid-range suppression while maintaining maneuverability and low reactor draw.",
+        "reactor_power_draw_kw": 845,
+        "vernier_thrust_kgf": 0
       }
     }
   ]
