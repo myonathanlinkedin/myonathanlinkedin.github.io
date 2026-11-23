@@ -5767,7 +5767,10 @@
         const relUrl = assetRef.relative_url || assetRef.mesh_url || `models/parts/${part.part_id}.glb`;
         const shaTag = (assetRef.sha256_hash || Date.now().toString()).slice(0, 12);
         const modelUrl = `${cdnBase}/${relUrl}?v=${shaTag}`;
-        const gltf = await new Promise((res, rej) => gltfLoader.load(modelUrl, res, undefined, rej));
+        const glbResp = await fetch(modelUrl, { cache: 'no-store' });
+        if (!glbResp.ok) throw new Error(`GLB HTTP ${glbResp.status}: ${modelUrl}`);
+        const glbBuf = await glbResp.arrayBuffer();
+        const gltf = await new Promise((res, rej) => gltfLoader.parse(glbBuf, '', res, rej));
         packModel = gltf.scene;
       }
 
@@ -7787,11 +7790,11 @@
 
     async function bootstrap() {
       try {
-        const res = await fetch(`${MECHA_ASSETS_CDN}/data/mecha_catalog.json?t=${Date.now()}`, { cache: 'no-store' });
-        if (!res.ok) throw new Error('Public mecha-assets catalog not reachable');
+        const res = await fetch(`data/mecha_catalog.json?t=${Date.now()}`, { cache: 'no-store' });
+        if (!res.ok) throw new Error('Local mecha catalog not reachable');
         state.catalog = await res.json();
       } catch {
-        const res = await fetch('data/mecha_catalog.json', { cache: 'no-store' });
+        const res = await fetch(`${MECHA_ASSETS_CDN}/data/mecha_catalog.json?t=${Date.now()}`, { cache: 'no-store' });
         state.catalog = await res.json();
       }
       renderInventory();
