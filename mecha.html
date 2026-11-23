@@ -22,8 +22,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Mateus Yonathan" />
   <meta property="og:url" content="https://myonathanlinkedin.github.io/mecha.html" />
-  <meta property="og:title"
-    content="Mateus Yonathan | Agentic Autonomous Mecha Kits — 3D Engineering Hangar" />
+  <meta property="og:title" content="Mateus Yonathan | Agentic Autonomous Mecha Kits — 3D Engineering Hangar" />
   <meta property="og:description"
     content="Agentic Autonomous Mecha Kits 3D Engineering Hangar featuring full-body 8-zone Gunpla snap-fit adapters, smooth Auto-Normal Mobile Suits, zero-duplicate agentic synthesis, and 60fps combat stances." />
   <meta property="og:image" content="https://myonathanlinkedin.github.io/assets/avatar.png" />
@@ -2019,9 +2018,11 @@
       .brand-text-full {
         display: none !important;
       }
+
       .brand-text-short {
         display: inline !important;
       }
+
       #nav-header {
         flex-wrap: wrap;
         max-width: calc(100vw - 380px);
@@ -2030,7 +2031,9 @@
 
     /* Mobile & Tablet Ergonomic Layout — Zero Bottom Overlap Guarantee */
     /* Mobile & Tablet Ergonomic Layout — Sleek 2-Row Top Bar + Zero Bottom Overlap */
-    @media (max-width: 960px), (pointer: coarse) {
+    @media (max-width: 960px),
+    (pointer: coarse) {
+
       /* Root-Cause Mobile FPS Fix #1: Disable backdrop-filter blur over live 60fps WebGL canvas!
          Prevents tile-based mobile GPU (Adreno/Mali/Apple) full-screen framebuffer readback + Gaussian blur stalls every frame. */
       .glass-hud,
@@ -2242,18 +2245,22 @@
       .pill-full {
         display: none !important;
       }
+
       .pill-short {
         display: inline !important;
       }
+
       #nav-header #nav-3d-pages {
         flex: 1 1 100px;
         font-size: 7.9px;
       }
+
       #nav-header .nav-action-pill {
         padding: 3.5px 6px;
         font-size: 7.9px;
         gap: 3px;
       }
+
       #nav-header #btn-bgm-track {
         max-width: none;
       }
@@ -2287,8 +2294,10 @@
     <a href="https://github.com/myonathanlinkedin" target="_blank" rel="noopener noreferrer" class="brand-title"
       title="Mateus Yonathan — Agentic Autonomous Mecha Kits & 3D Engineering Lab">
       <span class="status-orb"></span>
-      <span class="brand-text-full">MATEUS YONATHAN <span class="sep-slash">//</span> <span class="accent">AGENTIC AUTONOMOUS KITS</span></span>
-      <span class="brand-text-short">M. YONATHAN <span class="sep-slash">//</span> <span class="accent">KITS</span></span>
+      <span class="brand-text-full">MATEUS YONATHAN <span class="sep-slash">//</span> <span class="accent">AGENTIC
+          AUTONOMOUS KITS</span></span>
+      <span class="brand-text-short">M. YONATHAN <span class="sep-slash">//</span> <span
+          class="accent">KITS</span></span>
     </a>
     <span class="nav-sep"></span>
     <a href="index.html" class="nav-home-btn" title="Return to Main Portfolio Page">🏠 Main Page</a>
@@ -2300,8 +2309,13 @@
       <option value="constellation.html">🌌 3D Knowledge Constellation</option>
     </select>
     <span class="nav-sep"></span>
-    <button id="btn-open-loadouts" class="nav-action-pill" title="Hangar Custom Kit Presets (Save &amp; Load in Browser LocalStorage)">💾 <span class="pill-full">Kit Loadouts</span><span class="pill-short">Loadouts</span></button>
-    <button id="btn-wallpaper-shot" class="nav-action-pill" style="border-color:rgba(0,229,255,0.45);color:var(--accent-cyan);" title="Capture Full-Screen Zero-HUD HD Wallpaper (Hotkey: P)">📸 <span class="pill-full">Wallpaper</span><span class="pill-short">Wall</span></button>
+    <button id="btn-open-loadouts" class="nav-action-pill"
+      title="Hangar Custom Kit Presets (Save &amp; Load in Browser LocalStorage)">💾 <span class="pill-full">Kit
+        Loadouts</span><span class="pill-short">Loadouts</span></button>
+    <button id="btn-wallpaper-shot" class="nav-action-pill"
+      style="border-color:rgba(0,229,255,0.45);color:var(--accent-cyan);"
+      title="Capture Full-Screen Zero-HUD HD Wallpaper (Hotkey: P)">📸 <span class="pill-full">Wallpaper</span><span
+        class="pill-short">Wall</span></button>
     <button id="btn-open-guide" class="nav-action-pill" title="About this Autonomous Agentic Hangar">ℹ️ Guide</button>
     <button id="btn-bgm-toggle" class="nav-action-pill" title="Toggle Mecha Battle Background Music">🔇 BGM</button>
     <button id="btn-bgm-track" class="nav-action-pill" title="Switch Mecha Battle Track">🎵 Track</button>
@@ -2395,18 +2409,23 @@
       <!-- Quick Action Toolbar -->
       <div class="loadout-toolbar">
         <div class="loadout-save-box">
-          <input type="text" id="input-preset-name" placeholder="Enter Custom Kit Name (e.g. RX-78 Full Armor Kai)..." maxlength="48" />
-          <button id="btn-save-new-preset" class="btn-equip-preset" style="flex:0 0 auto;padding:6px 12px;" title="Save current suit &amp; equipped parts as a new preset">
+          <input type="text" id="input-preset-name" placeholder="Enter Custom Kit Name (e.g. RX-78 Full Armor Kai)..."
+            maxlength="48" />
+          <button id="btn-save-new-preset" class="btn-equip-preset" style="flex:0 0 auto;padding:6px 12px;"
+            title="Save current suit &amp; equipped parts as a new preset">
             💾 Save Current Build
           </button>
         </div>
         <div class="loadout-tool-pills">
-          <button id="btn-export-presets" class="tool-pill" title="Export all presets to JSON file">📤 Backup JSON</button>
-          <label for="input-import-presets" class="tool-pill" title="Import presets from JSON file" style="cursor:pointer;margin:0;">
+          <button id="btn-export-presets" class="tool-pill" title="Export all presets to JSON file">📤 Backup
+            JSON</button>
+          <label for="input-import-presets" class="tool-pill" title="Import presets from JSON file"
+            style="cursor:pointer;margin:0;">
             📥 Import JSON
             <input type="file" id="input-import-presets" accept=".json" style="display:none;" />
           </label>
-          <button id="btn-reset-starter-presets" class="tool-pill" title="Reset starter default builds">↺ Reset Starters</button>
+          <button id="btn-reset-starter-presets" class="tool-pill" title="Reset starter default builds">↺ Reset
+            Starters</button>
         </div>
       </div>
 
@@ -2492,10 +2511,14 @@
 
     <!-- Hangar Custom Loadout Quick Access -->
     <div class="custom-vault-row" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:6px 0 8px;">
-      <button id="btn-drawer-save-build" class="loadout-btn" style="background:rgba(0, 229, 255, 0.16);border-color:var(--accent-cyan);color:#fff;font-weight:700;" title="Save current Mecha build to local browser storage">
+      <button id="btn-drawer-save-build" class="loadout-btn"
+        style="background:rgba(0, 229, 255, 0.16);border-color:var(--accent-cyan);color:#fff;font-weight:700;"
+        title="Save current Mecha build to local browser storage">
         💾 SAVE CONFIG
       </button>
-      <button id="btn-drawer-open-vault" class="loadout-btn" style="background:rgba(168, 85, 247, 0.18);border-color:#a855f7;color:#fff;font-weight:700;" title="Open Kit Loadout Manager">
+      <button id="btn-drawer-open-vault" class="loadout-btn"
+        style="background:rgba(168, 85, 247, 0.18);border-color:#a855f7;color:#fff;font-weight:700;"
+        title="Open Kit Loadout Manager">
         📂 VAULT (<span id="vault-count-badge">0</span>)
       </button>
     </div>
@@ -2511,13 +2534,20 @@
     <div id="category-chips" class="category-chips-scroll">
       <button class="cat-chip active" data-category="all">ALL (<span id="cat-count-all">0</span>)</button>
       <button class="cat-chip" data-category="head_sensor">👑 HEAD (<span id="cat-count-head_sensor">0</span>)</button>
-      <button class="cat-chip" data-category="chest_armor">🛡️ CHEST (<span id="cat-count-chest_armor">0</span>)</button>
-      <button class="cat-chip" data-category="shoulder_pods">🚀 SHOULDER (<span id="cat-count-shoulder_pods">0</span>)</button>
-      <button class="cat-chip" data-category="dorsal_pack">🎒 BACKPACK (<span id="cat-count-dorsal_pack">0</span>)</button>
-      <button class="cat-chip" data-category="aux_weapon">🔫 R-WEAPON (<span id="cat-count-aux_weapon">0</span>)</button>
-      <button class="cat-chip" data-category="aux_shield">🔰 L-SHIELD (<span id="cat-count-aux_shield">0</span>)</button>
-      <button class="cat-chip" data-category="waist_ordnance">⚡ WAIST (<span id="cat-count-waist_ordnance">0</span>)</button>
-      <button class="cat-chip" data-category="leg_thrusters">🦵 LEGS (<span id="cat-count-leg_thrusters">0</span>)</button>
+      <button class="cat-chip" data-category="chest_armor">🛡️ CHEST (<span
+          id="cat-count-chest_armor">0</span>)</button>
+      <button class="cat-chip" data-category="shoulder_pods">🚀 SHOULDER (<span
+          id="cat-count-shoulder_pods">0</span>)</button>
+      <button class="cat-chip" data-category="dorsal_pack">🎒 BACKPACK (<span
+          id="cat-count-dorsal_pack">0</span>)</button>
+      <button class="cat-chip" data-category="aux_weapon">🔫 R-WEAPON (<span
+          id="cat-count-aux_weapon">0</span>)</button>
+      <button class="cat-chip" data-category="aux_shield">🔰 L-SHIELD (<span
+          id="cat-count-aux_shield">0</span>)</button>
+      <button class="cat-chip" data-category="waist_ordnance">⚡ WAIST (<span
+          id="cat-count-waist_ordnance">0</span>)</button>
+      <button class="cat-chip" data-category="leg_thrusters">🦵 LEGS (<span
+          id="cat-count-leg_thrusters">0</span>)</button>
     </div>
 
     <!-- Hardpoint Station & Sort Controls -->
@@ -2711,7 +2741,9 @@
       <button id="btn-dock-hatch" class="action-btn" title="Open Hinged Chest/Reactor Petals">🔓 HATCH</button>
       <button id="btn-dock-isolate" class="action-btn" title="Toggle Ghost Shell Zone Isolation">👻 ISOLATE</button>
       <button id="btn-reset-view" class="action-btn" title="Auto-Fit Reset Camera">↺ FIT</button>
-      <button id="btn-dock-wallpaper" class="action-btn" style="border-color: rgba(0, 229, 255, 0.5); color: var(--accent-cyan);" title="Capture Full-Screen Zero-HUD HD Wallpaper (Hotkey: P)">📸 WALLPAPER</button>
+      <button id="btn-dock-wallpaper" class="action-btn"
+        style="border-color: rgba(0, 229, 255, 0.5); color: var(--accent-cyan);"
+        title="Capture Full-Screen Zero-HUD HD Wallpaper (Hotkey: P)">📸 WALLPAPER</button>
       <button id="btn-hide-bottom" class="panel-close-x" title="Close Bottom Dock">✕</button>
     </div>
   </footer>
@@ -3719,11 +3751,11 @@
       } else if (n.includes('hawk_head_purple')) {
         color = 0x52396e; roughness = 0.42; metalness = 0.38;
       } else if (n.includes('olive_dark')) {
-        color = 0x36482c; roughness = 0.46; metalness = 0.14;
+        color = 0x3b5030; roughness = 0.44; metalness = 0.14;
       } else if (n.includes('_navy')) {
-        color = 0x172b4d; roughness = 0.40; metalness = 0.20;
+        color = 0x1e4a8c; roughness = 0.38; metalness = 0.18;
       } else if (n.includes('_oxblood')) {
-        color = 0x5c0d14; roughness = 0.36; metalness = 0.22;
+        color = 0x6b1018; roughness = 0.36; metalness = 0.20;
       } else if (n.includes('_obsidian') || n.includes('_dark') || n.includes('_frame') || n.includes('socket') || n.includes('_mg_') || n.includes('_rifle_') || n.includes('drum')) {
         color = 0x202733; roughness = 0.34; metalness = 0.82; useDetail = false;
       } else if (n.includes('_maroon')) {
