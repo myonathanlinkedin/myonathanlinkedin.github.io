@@ -5189,13 +5189,12 @@
     async function equipFullBodyLoadout() {
       if (!state.catalog?.modular_parts) return;
       const myBatchToken = ++state.batchLoadToken;
-      state.weaponDrawAnim = null;
       const zonesOrder = ['head_sensor', 'chest_armor', 'shoulder_pods', 'dorsal_pack', 'aux_weapon', 'aux_shield', 'waist_ordnance', 'leg_thrusters'];
       for (const z of zonesOrder) {
         if (state.batchLoadToken !== myBatchToken) return;
         const candidate = state.catalog.modular_parts.find(p => resolvePartSlotGroup(p) === z);
         if (candidate && !state.equippedPacks.has(candidate.part_id)) {
-          await mountPartOnAdapter(candidate, true);
+          await mountPartOnAdapter(candidate, false);
         }
       }
       if (state.batchLoadToken !== myBatchToken) return;
@@ -5223,7 +5222,6 @@
     async function synthesizeLiveAgenticPart() {
       if (!state.catalog?.modular_parts || state.catalog.modular_parts.length === 0) return;
       const myBatchToken = ++state.batchLoadToken;
-      state.weaponDrawAnim = null;
 
       const presets = [
         { name: 'Heavy Siege Assault', stance: 'RifleBurst', zones: ['dorsal_pack', 'aux_weapon', 'aux_shield', 'shoulder_pods', 'chest_armor', 'waist_ordnance', 'leg_thrusters'] },
@@ -5267,14 +5265,14 @@
       if (state.batchLoadToken !== myBatchToken) return;
       enforceSinglePartPerSlotInvariant();
 
-      // RANDOM BUILD preserves the Gundam's current combat stance / movement scene untouched!
+      playAnimation(build.stance);
       renderInventory();
       updateTelemetry();
       applyRenderMode(state.renderMode);
       applyExplodedDisplacement(state.explodedFactor);
       battleAudio.playGunplaSnapClick();
       triggerStagePulse(0x00e5ff);
-      showToast(`🎲 [RANDOM BUILD] ${build.name} — ${mountedCount} Modules Mounted!`, true);
+      showToast(`🎲 [RANDOM BUILD] ${build.name} — ${mountedCount} Modules + ${build.stance} Stance!`, true);
     }
 
     function updateTelemetry() {
@@ -5942,7 +5940,6 @@
 
       // 3. Mount all saved parts with invariant guarantee
       const myBatchToken = ++state.batchLoadToken;
-      state.weaponDrawAnim = null;
       const allParts = state.catalog?.modular_parts || [];
 
       for (const [zone, partId] of Object.entries(preset.slots || {})) {
@@ -5950,7 +5947,7 @@
         if (state.batchLoadToken !== myBatchToken) return;
         const candidate = allParts.find(p => p.part_id === partId || p.concept_slug === partId);
         if (candidate && !state.equippedPacks.has(candidate.part_id)) {
-          await mountPartOnAdapter(candidate, true);
+          await mountPartOnAdapter(candidate, false);
         }
       }
 
