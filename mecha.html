@@ -5326,7 +5326,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent(state.catalog?.last_synthesized_utc || Date.now());
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_skirts360');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         gltfLoader.load(bustUrl, async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
