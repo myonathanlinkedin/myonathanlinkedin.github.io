@@ -1979,7 +1979,7 @@ class CentralHubStar {
       uTime: { value: 0.0 },
       uAlpha: { value: 1.0 },
     };
-    this.coreGeo = new THREE.SphereGeometry(4.2, 32, 24);
+    this.coreGeo = new THREE.SphereGeometry(2.1, 32, 24);
     this.coreMat = new THREE.ShaderMaterial({
       uniforms: this.coreUniforms,
       vertexShader: SHADERS.hubCoreVertex,
@@ -1994,7 +1994,7 @@ class CentralHubStar {
       uAlpha: { value: 1.0 },
       uGlowBoost: { value: 1.22 },
     };
-    this.flareGeo = new THREE.PlaneGeometry(46.0, 46.0);
+    this.flareGeo = new THREE.PlaneGeometry(23.0, 23.0);
     this.flareMat = new THREE.ShaderMaterial({
       uniforms: this.flareUniforms,
       vertexShader: SHADERS.hubFlareVertex,
@@ -2007,7 +2007,7 @@ class CentralHubStar {
     this.flareMesh.renderOrder = 10;
     this.group.add(this.flareMesh);
 
-    this.ringGeo = new THREE.RingGeometry(6.4, 7.1, 64);
+    this.ringGeo = new THREE.RingGeometry(3.2, 3.55, 64);
     this.ringMat = new THREE.MeshBasicMaterial({
       color: 0xfbbf24,
       side: THREE.DoubleSide,
