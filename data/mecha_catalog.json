@@ -155,19 +155,19 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_a_aero.glb",
-          "sha256_hash": "839a292331fa79c8e35cf9555360110668e816a03ec4c9aa198ff4869546966b",
-          "file_size_bytes": 160160,
+          "sha256_hash": "6efeb09bfaded2014765f2931882541fd4859bd3fe70f38f0c6607cd60749185",
+          "file_size_bytes": 228852,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -59.56569670674068,
-            -22.0,
-            -35.344400300951555
+            -60.348614786661095,
+            -20.7,
+            -34.53092701479996
           ],
           "max": [
-            59.56569670674068,
-            37.0,
+            60.348614786661095,
+            39.2,
             8.0
           ]
         }
@@ -271,8 +271,8 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_s_space.glb",
-          "sha256_hash": "7dc5384ab3d64d4cb69df7c7826a5790e037be1e0f9c5b6257587065d4d021f6",
-          "file_size_bytes": 195632,
+          "sha256_hash": "6db65d471fd2bd04660d4f3bf75fd426ccf12f5d064fb77ef1b5fe74fb6549bb",
+          "file_size_bytes": 204168,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
@@ -365,18 +365,18 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_h_artillery.glb",
-          "sha256_hash": "ad205b2eb870f874ec7f1b8e0d0f6b1b81e3aa09d60d72e8ff9876a3f38d988b",
-          "file_size_bytes": 206776,
+          "sha256_hash": "f4ae3d98eec139d18efe32e086bc3f9aa0020a00ef23836801ef64418e4598d0",
+          "file_size_bytes": 221008,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -25.2,
+            -25.3,
             -20.55,
             -20.0
           ],
           "max": [
-            25.2,
+            25.3,
             35.277,
             63.0
           ]
@@ -459,18 +459,18 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_e_recon.glb",
-          "sha256_hash": "f04f7f64682ac999aabb1c8698f64b27ac4ebebe5e17c2d99d6e91cd7cbe91cb",
-          "file_size_bytes": 182208,
+          "sha256_hash": "d92e0859218aa83831391d1707f962a11596dbd4427f3dd24066a40ad1087f79",
+          "file_size_bytes": 195860,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -16.472306438854325,
-            -15.045911561343399,
+            -15.0,
+            -15.445911561343397,
             -43.5
           ],
           "max": [
-            16.472306438854325,
+            15.0,
             36.8,
             8.0
           ]
@@ -769,8 +769,8 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/propulsion_vernier_wing_pod.glb",
-          "sha256_hash": "d6ae9a8f0d551b868b3ca080cf07051e36ce157e3f2f580a40e0611f1a5e8b5c",
-          "file_size_bytes": 337416,
+          "sha256_hash": "71e40b0d49c5a63ad18e92b2cd8b0cb257f38ed9fbac8ca40869e04b90b0d613",
+          "file_size_bytes": 315404,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
@@ -2391,20 +2391,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -40.855,
+            -41.445,
             -13.976,
-            -27.898
+            -28.198
           ],
           "max": [
-            40.855,
-            33.133,
+            41.445,
+            33.14,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_dorsal_funnel_containers.glb",
-          "sha256_hash": "d55cd0df5f4dc6d31cf298b6ef519a83d3c3cfcecba5065b421997efc001a1b9",
-          "file_size_bytes": 132556,
+          "sha256_hash": "71dd9dbedc6397d9d8ea20f419dcde443e981736bdb79ba419769cbe16c4fbc5",
+          "file_size_bytes": 167912,
           "compression": "meshopt"
         }
       },
@@ -2703,7 +2703,7 @@
           "min": [
             -17.298,
             -5.529,
-            0.5
+            0.17
           ],
           "max": [
             17.298,
@@ -2713,8 +2713,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_002_712be8.glb",
-          "sha256_hash": "3910ae73599da7ce8d791f9e2f8b4e2f9f78d6ff9526d71095f526b32edb4ab2",
-          "file_size_bytes": 118504,
+          "sha256_hash": "8ccd184e139913c9791d497137a659f021b5de6550f5a4cf5bd180fbce2687a7",
+          "file_size_bytes": 120248,
           "compression": "meshopt"
         }
       },
@@ -3073,20 +3073,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -43.852,
-            -32.513,
-            -22.57
+            -45.442,
+            -34.099,
+            -23.98
           ],
           "max": [
-            43.852,
-            37.554,
+            45.442,
+            38.763,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_002_34fc8c.glb",
-          "sha256_hash": "f01e246d8a3e7cf9e1b7cae59161011b7440a73f194a55b8dca9dc56af3999d9",
-          "file_size_bytes": 184088,
+          "sha256_hash": "cdd8d8f44e1998861fcfa384a22d0535cf98ec45ee43bec21d12ed8bb28741b6",
+          "file_size_bytes": 250792,
           "compression": "meshopt"
         }
       },
@@ -4176,7 +4176,7 @@
           "min": [
             -17.405,
             -4.449,
-            0.5
+            0.17
           ],
           "max": [
             17.405,
@@ -4186,8 +4186,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_004_f57167.glb",
-          "sha256_hash": "5fc497251eca2de294ef5788b7d140ff873e04f8d4f7e584c0722022eff0d6ca",
-          "file_size_bytes": 100736,
+          "sha256_hash": "90814c1b9ee3e48e7be6c9cd4e648c01a1238e57ce5b2534064d5211404e0258",
+          "file_size_bytes": 102480,
           "compression": "meshopt"
         }
       },
@@ -4368,14 +4368,14 @@
           ],
           "max": [
             59.54,
-            26.042,
+            28.358,
             7.4
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_003_73c32f.glb",
-          "sha256_hash": "cb2eeccf26a5e398f4de5e27f671bdf3a683f95c9569b9414eb257ed76b62815",
-          "file_size_bytes": 173200,
+          "sha256_hash": "44a665fe0ed1162ea8944d59afaa61940f228a6d840795ff5a788db9b81f87e5",
+          "file_size_bytes": 235228,
           "compression": "meshopt"
         }
       },
@@ -4541,20 +4541,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -21.032,
-            -26.927,
-            -25.941
+            -24.296,
+            -25.567,
+            -27.426
           ],
           "max": [
-            21.032,
-            11.55,
+            24.296,
+            11.05,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_003_b4fba0.glb",
-          "sha256_hash": "f20805672e4db4015cb1ed1d983c6c3ef5e3a38e863cfff0c5a05a09359511bf",
-          "file_size_bytes": 123996,
+          "sha256_hash": "b981be263c9befc535bf1b40319022f94917ab8cad5aafa8e84a7a4ceef90a1b",
+          "file_size_bytes": 201152,
           "compression": "meshopt"
         }
       },
@@ -5452,20 +5452,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -14.955,
+            -14.843,
             -2.034,
-            -12.8
+            -12.4
           ],
           "max": [
-            14.955,
-            20.624,
-            4.4
+            14.843,
+            19.482,
+            4.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_004_dbb39b.glb",
-          "sha256_hash": "e4366881f4f791ca374cfddc7d8d0e58fe2316c9595225569df25f82724549aa",
-          "file_size_bytes": 106420,
+          "sha256_hash": "f701c0e312832c3c4cf36c90051be80b9be59a5359ac4286be7a0c5c67fd882a",
+          "file_size_bytes": 150564,
           "compression": "meshopt"
         }
       },
@@ -5633,7 +5633,7 @@
           "min": [
             -18.285,
             -5.548,
-            0.5
+            0.17
           ],
           "max": [
             18.285,
@@ -5643,8 +5643,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_005_8a2d16.glb",
-          "sha256_hash": "658ddb42e0f2d196672f722323da939dcbf19720333f8c79661acd7685620280",
-          "file_size_bytes": 126752,
+          "sha256_hash": "cc1115931ef85a5e41589d3c8d4ba4ceb716e7d80869e5a1edb640680bff174e",
+          "file_size_bytes": 128500,
           "compression": "meshopt"
         }
       },
@@ -5991,20 +5991,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -16.592,
-            -13.257,
+            -20.141,
+            -13.821,
             -39.02
           ],
           "max": [
-            16.592,
-            33.336,
+            20.141,
+            34.31,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_004_262274.glb",
-          "sha256_hash": "2c88dc2004168b1f4d7d0a7e2cafb693c74e925ee1daae334b08b64bc38cb8a9",
-          "file_size_bytes": 158264,
+          "sha256_hash": "12efbedc29aed0c31e356d4ca95d2e1ed36c7b7d73f4f4f09f0b8a1a2bdc70f7",
+          "file_size_bytes": 210348,
           "compression": "meshopt"
         }
       },
@@ -7083,7 +7083,7 @@
           "min": [
             -17.834,
             -5.755,
-            0.5
+            0.17
           ],
           "max": [
             17.834,
@@ -7093,8 +7093,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_007_8490b0.glb",
-          "sha256_hash": "afcba6b3ae9c9e4a01960e501c2fafcd2beb96ba74b3e6816cf3c38f0c450c49",
-          "file_size_bytes": 129912,
+          "sha256_hash": "f74a15be48203ff8a96ae5c5643a65fa66ebd3b5688aa5b9475e8f4063a3c4ae",
+          "file_size_bytes": 131656,
           "compression": "meshopt"
         }
       },
@@ -7456,20 +7456,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -26.977,
-            -15.6,
-            -26.094
+            -27.577,
+            -16.223,
+            -30.127
           ],
           "max": [
-            26.977,
-            33.523,
+            27.577,
+            36.629,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_005_7d8a6c.glb",
-          "sha256_hash": "fdde6174d5a04705e41aca26d2745da4b667894027994a0c756079cc4365ce48",
-          "file_size_bytes": 190512,
+          "sha256_hash": "07a547f083ae6469791daf2c64a0233cfdaead2f02c9c00bae80cf23e3d3ade7",
+          "file_size_bytes": 282616,
           "compression": "meshopt"
         }
       },
@@ -8379,20 +8379,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -15.553,
+            -15.437,
             -2.467,
-            -12.84
+            -12.728
           ],
           "max": [
-            15.553,
-            21.097,
-            4.44
+            15.437,
+            19.91,
+            4.328
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_009_6e10b6.glb",
-          "sha256_hash": "2c2c54854685f30f7440cb416401995b3b798336eda826e438d7a413258e2dab",
-          "file_size_bytes": 106516,
+          "sha256_hash": "276d716e5ba18cced82f9c1bcc53f59d1015625ce8fb0318c8d0e9df7332718b",
+          "file_size_bytes": 150652,
           "compression": "meshopt"
         }
       },
@@ -8561,7 +8561,7 @@
           "min": [
             -18.285,
             -5.548,
-            0.5
+            0.17
           ],
           "max": [
             18.285,
@@ -8571,8 +8571,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_006_908d4a.glb",
-          "sha256_hash": "acb6153c1f9f1f1321d7398ec46e3e035b1da25c53bee2fb85545f8074098bc6",
-          "file_size_bytes": 122940,
+          "sha256_hash": "10b80a9172eda649b2100c136f32eedb79672a9ef41b708aae6e84517fc3462c",
+          "file_size_bytes": 124688,
           "compression": "meshopt"
         }
       },
@@ -8929,20 +8929,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -22.294,
-            -28.336,
-            -27.017
+            -25.754,
+            -27.101,
+            -28.591
           ],
           "max": [
-            22.294,
-            12.21,
+            25.754,
+            11.68,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_006_7a2cd3.glb",
-          "sha256_hash": "40b8abae7e801764420b2aaad34414b7755d558c966e8352c6db34fa70008bb1",
-          "file_size_bytes": 133968,
+          "sha256_hash": "05300712e9174ae92e03ea2ba110074b948ea6e6e1c50d1dcb0545bf1807429d",
+          "file_size_bytes": 211108,
           "compression": "meshopt"
         }
       },
@@ -10042,7 +10042,7 @@
           "min": [
             -17.298,
             -5.529,
-            0.5
+            0.17
           ],
           "max": [
             17.298,
@@ -10052,8 +10052,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_008_4f0c7a.glb",
-          "sha256_hash": "70f172e7370b137cc61f791c837d205fb9d1ae79f27b1ad1f2f530dd5d2a8ace",
-          "file_size_bytes": 106768,
+          "sha256_hash": "4c3f9825c88c52966b2e892351f3f93125b7337ace0013c1ac3dfa291e3ecf6b",
+          "file_size_bytes": 108516,
           "compression": "meshopt"
         }
       },
@@ -10416,20 +10416,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -26.977,
-            -15.6,
-            -26.094
+            -27.577,
+            -16.223,
+            -30.127
           ],
           "max": [
-            26.977,
-            33.523,
+            27.577,
+            36.629,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_008_269577.glb",
-          "sha256_hash": "d4d0eed73e50424b8be3815c8a72497e6c541ccdf15953542d368ae1d41d31d8",
-          "file_size_bytes": 162756,
+          "sha256_hash": "d9d3ede32daeb8bf4d21bd437fee94123d4cf1b3ef98f4e1bbbf457eefd7c15c",
+          "file_size_bytes": 254852,
           "compression": "meshopt"
         }
       },
@@ -11345,20 +11345,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -15.553,
+            -15.437,
             -2.467,
-            -12.84
+            -12.728
           ],
           "max": [
-            15.553,
-            21.097,
-            4.44
+            15.437,
+            19.91,
+            4.328
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_008_c2f219.glb",
-          "sha256_hash": "f6d7fc30ae3332746b5d75f4f2efaa490a11aed5601e7c92dc995a88145f3f4b",
-          "file_size_bytes": 95412,
+          "sha256_hash": "e7d2518dce3d9f114c2e89bdf1b0fd7178f1828a62956db86ea80a0f7d60f0c9",
+          "file_size_bytes": 139556,
           "compression": "meshopt"
         }
       },
@@ -11526,7 +11526,7 @@
           "min": [
             -18.228,
             -4.694,
-            0.5
+            0.17
           ],
           "max": [
             18.228,
@@ -11536,8 +11536,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_010_e150e5.glb",
-          "sha256_hash": "d44988a6367bb7701b0746bd13000238b6a0da7458245339adde03caff833ec0",
-          "file_size_bytes": 114404,
+          "sha256_hash": "ec804c179cd7e5e266992dda51be9f563b611e72d218a7f82b51d19ce6aa1808",
+          "file_size_bytes": 116148,
           "compression": "meshopt"
         }
       },
@@ -11716,14 +11716,14 @@
           ],
           "max": [
             60.758,
-            27.845,
+            30.37,
             8.12
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_011_f7a53f.glb",
-          "sha256_hash": "61e3b158e08265f127ef0292d2cfb406f393fa6af16b20ac7c47a28695173307",
-          "file_size_bytes": 173224,
+          "sha256_hash": "683435f30decedad14af334f07348f1b8d0a3869c0352326e410e0ed67134e96",
+          "file_size_bytes": 235256,
           "compression": "meshopt"
         }
       },
@@ -11896,20 +11896,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -16.592,
-            -13.257,
+            -20.141,
+            -13.821,
             -39.02
           ],
           "max": [
-            16.592,
-            33.336,
+            20.141,
+            34.31,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_009_758435.glb",
-          "sha256_hash": "ea983026cfad04655e8bafcafcb9f7bc3cfa9030d63431bc68470fea405dadab",
-          "file_size_bytes": 138940,
+          "sha256_hash": "0184d33717c158f48f8a738b1f5a73a2f6e7cad5432e0dc8b58eb12c6420a0b4",
+          "file_size_bytes": 190732,
           "compression": "meshopt"
         }
       },
@@ -13016,7 +13016,7 @@
           "min": [
             -18.55,
             -6.055,
-            0.5
+            0.17
           ],
           "max": [
             18.55,
@@ -13026,8 +13026,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_009_47a45d.glb",
-          "sha256_hash": "a5165c80e236c31801efabb724441e256567ccf2c8d5b2fd85e076ddce38ae27",
-          "file_size_bytes": 129648,
+          "sha256_hash": "bfa52f7dc0fb59b4f433aea3147ba8a255ec6a80c9d9d3a840052c996cd8468a",
+          "file_size_bytes": 131392,
           "compression": "meshopt"
         }
       },
@@ -13387,20 +13387,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -19.769,
-            -25.311,
-            -24.864
+            -22.851,
+            -24.033,
+            -26.283
           ],
           "max": [
-            19.769,
-            10.89,
+            22.851,
+            10.42,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_010_c0335f.glb",
-          "sha256_hash": "46e2f288d95ffba43a81e6d475955212937b202288788fcbbcd9774f7696e6c4",
-          "file_size_bytes": 143496,
+          "sha256_hash": "9702381983747879d8ec6cef21fb59bb49c9573d48b1b1a9ad226b9a6366171d",
+          "file_size_bytes": 220860,
           "compression": "meshopt"
         }
       },
@@ -14491,7 +14491,7 @@
           "min": [
             -17.405,
             -4.449,
-            0.5
+            0.17
           ],
           "max": [
             17.405,
@@ -14501,8 +14501,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_012_279280.glb",
-          "sha256_hash": "3599418ad610883a728fc99911051fcff0aef72e7c7dd773db6347bdb280eacb",
-          "file_size_bytes": 101096,
+          "sha256_hash": "c9213a0a2f9e4a25dfa0184658081de26804b581a89d84761b92e8060318cf1e",
+          "file_size_bytes": 102840,
           "compression": "meshopt"
         }
       },
@@ -14862,20 +14862,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -46.654,
-            -34.593,
-            -23.5
+            -48.346,
+            -36.281,
+            -25.0
           ],
           "max": [
-            46.654,
-            39.956,
+            48.346,
+            41.242,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_012_749904.glb",
-          "sha256_hash": "8d18d13f85cefa129fde646608b7303eab958565287a94c6736d4f1811d2c399",
-          "file_size_bytes": 163004,
+          "sha256_hash": "bf45c77217a01bfc3a9a49ab4914601dc03a25820f4a9c25bdffae8f4fc9454a",
+          "file_size_bytes": 230016,
           "compression": "meshopt"
         }
       },
@@ -15972,7 +15972,7 @@
           "min": [
             -18.285,
             -5.548,
-            0.5
+            0.17
           ],
           "max": [
             18.285,
@@ -15982,8 +15982,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_014_0ec77b.glb",
-          "sha256_hash": "a4587db4a88240578aab3c63f8ba9d394482edf2534b4fa984456e8a315c3c66",
-          "file_size_bytes": 134640,
+          "sha256_hash": "c454ee260be8637be4315bf4fe5e09531442b35f522531e656d6e6409f7b747a",
+          "file_size_bytes": 136388,
           "compression": "meshopt"
         }
       },
@@ -16162,14 +16162,14 @@
           ],
           "max": [
             58.727,
-            24.839,
+            27.016,
             6.98
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_017_3524ad.glb",
-          "sha256_hash": "f0763940ba2b07eaa2b853af416089558d45921a82a26b19788bd58002a56809",
-          "file_size_bytes": 212884,
+          "sha256_hash": "a995b3528a2a5c50fde166a4551065b5cb42d847026432c5d88afeaced6cf3ce",
+          "file_size_bytes": 274896,
           "compression": "meshopt"
         }
       },
@@ -16345,20 +16345,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -19.24,
-            -15.372,
+            -23.355,
+            -16.026,
             -43.8
           ],
           "max": [
-            19.24,
-            38.496,
+            23.355,
+            39.785,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_013_3adb86.glb",
-          "sha256_hash": "5524f0454040bb8f0481a8714c39affeda7923fedb4dfb3091f465ce70b95338",
-          "file_size_bytes": 165392,
+          "sha256_hash": "656f7aa8357bb3056b2d24d55a4c38adb847a866eed6a55bbf6c5db7d0812b6c",
+          "file_size_bytes": 218924,
           "compression": "meshopt"
         }
       },
@@ -17454,7 +17454,7 @@
           "min": [
             -17.527,
             -4.449,
-            0.5
+            0.17
           ],
           "max": [
             17.527,
@@ -17464,8 +17464,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_016_161ab1.glb",
-          "sha256_hash": "1befa714f9472660e24dc23d0fb1e29c6de48efe6cf8c133139cc9ddd65120bb",
-          "file_size_bytes": 102604,
+          "sha256_hash": "6bf9930ee75bd6529276f7ef3b2d6e1baab94d2f112069411564af76d4583f7c",
+          "file_size_bytes": 104352,
           "compression": "meshopt"
         }
       },
@@ -17823,20 +17823,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -26.977,
-            -15.6,
-            -26.094
+            -27.577,
+            -16.223,
+            -30.127
           ],
           "max": [
-            26.977,
-            33.523,
+            27.577,
+            36.629,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_014_b165e0.glb",
-          "sha256_hash": "214e6390a7b747c6c29e3eeb95cbe3ccc56b29ad60fb8750e4b2e43b8b16d30a",
-          "file_size_bytes": 162796,
+          "sha256_hash": "0e54fb118ce8516336ae6b7033ff4b63c2cc40b8127347a192b371c867945eeb",
+          "file_size_bytes": 254892,
           "compression": "meshopt"
         }
       },
@@ -18759,20 +18759,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -15.553,
+            -15.437,
             -2.467,
-            -12.84
+            -12.728
           ],
           "max": [
-            15.553,
-            21.097,
-            4.44
+            15.437,
+            19.91,
+            4.328
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_015_19040b.glb",
-          "sha256_hash": "163470e846682b99b5bff56405bd85aef2664b8ae3704e52c46b6729c162ede6",
-          "file_size_bytes": 85376,
+          "sha256_hash": "d6b6bf1e3a14455169c0bacee0880c1bac5df4c03b5c7d7e85c14b22408eed86",
+          "file_size_bytes": 129488,
           "compression": "meshopt"
         }
       },
@@ -18940,7 +18940,7 @@
           "min": [
             -18.285,
             -5.548,
-            0.5
+            0.17
           ],
           "max": [
             18.285,
@@ -18950,8 +18950,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_018_b5b99b.glb",
-          "sha256_hash": "e9bc5f2a8f56b7decf4f5a8a0b220c1f68b16a5b4ab72dbfa4f1b87997675f86",
-          "file_size_bytes": 145824,
+          "sha256_hash": "60e2ed0d1ae1c7d0492782c3c3e6142dd40f7e041d3a2f309c6c104b6d8298ec",
+          "file_size_bytes": 147572,
           "compression": "meshopt"
         }
       },
@@ -19132,14 +19132,14 @@
           ],
           "max": [
             60.758,
-            27.845,
+            30.37,
             8.12
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_020_a07b53.glb",
-          "sha256_hash": "2a9630db3cbd5212c4a26f7cc610284efc922ed8823562485c67711152ec5413",
-          "file_size_bytes": 173240,
+          "sha256_hash": "91feb4537ee21d2dcf36098581e3d059a728e88603f07a33cf5c81239a0f8afd",
+          "file_size_bytes": 235272,
           "compression": "meshopt"
         }
       },
@@ -19313,20 +19313,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.651,
-            -14.103,
+            -21.426,
+            -14.703,
             -41.0
           ],
           "max": [
-            17.651,
-            35.4,
+            21.426,
+            36.5,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_015_36cbe1.glb",
-          "sha256_hash": "687e3bbc1b665d2c42cef470a258028b4abc8e0c541c3379145e3ba53202caea",
-          "file_size_bytes": 139316,
+          "sha256_hash": "326aa6af5823a7bdb9361d51cf47075c5a04b7b6cf5e570a04eb8ce09841e364",
+          "file_size_bytes": 190600,
           "compression": "meshopt"
         }
       },
@@ -20413,7 +20413,7 @@
           "min": [
             -17.405,
             -4.449,
-            0.5
+            0.17
           ],
           "max": [
             17.405,
@@ -20423,8 +20423,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_022_1f49a0.glb",
-          "sha256_hash": "67e1071e26168c74ad784207014a05d19ccfd31388699fa007ce3682e7408efe",
-          "file_size_bytes": 89560,
+          "sha256_hash": "385d16015ecc155bd4746729ee7887837f87357658312f31033521911f7379af",
+          "file_size_bytes": 91304,
           "compression": "meshopt"
         }
       },
@@ -20786,20 +20786,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -43.852,
-            -32.513,
-            -22.57
+            -45.442,
+            -34.099,
+            -23.98
           ],
           "max": [
-            43.852,
-            37.554,
+            45.442,
+            38.763,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_017_f98cb5.glb",
-          "sha256_hash": "f7c86c7b538cfd2f3e505be95450e1292182fd6b2e874a0f9af1445fc32743dc",
-          "file_size_bytes": 164688,
+          "sha256_hash": "68476eefbbf53f9fa24f63b8374cf6f3c0515530e3b100a8975e0bc5f212b48a",
+          "file_size_bytes": 231120,
           "compression": "meshopt"
         }
       },
@@ -21899,7 +21899,7 @@
           "min": [
             -18.228,
             -4.694,
-            0.5
+            0.17
           ],
           "max": [
             18.228,
@@ -21909,8 +21909,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_027_6b331c.glb",
-          "sha256_hash": "cd951e3de5f082226ebae8dbe2c1ab54955da0ddf49195d6ca58fca0c5f23801",
-          "file_size_bytes": 125840,
+          "sha256_hash": "6e88cac01ee33cc1d6fd3e39738f039e1f8cd84893eaad70a8edcd44c1fc09c2",
+          "file_size_bytes": 127588,
           "compression": "meshopt"
         }
       },
@@ -22089,14 +22089,14 @@
           ],
           "max": [
             60.758,
-            27.845,
+            30.37,
             8.12
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_023_206d63.glb",
-          "sha256_hash": "c1baafdb51b5cc87aed606977d575195918ff01645a68c288fe181d23c8fc7a1",
-          "file_size_bytes": 173272,
+          "sha256_hash": "05141233c2cce685370f5d8836838800f85371608aad9b4208c29bde52b5bbe7",
+          "file_size_bytes": 235304,
           "compression": "meshopt"
         }
       },
@@ -22270,20 +22270,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -26.977,
-            -15.6,
-            -26.094
+            -27.577,
+            -16.223,
+            -30.127
           ],
           "max": [
-            26.977,
-            33.523,
+            27.577,
+            36.629,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_018_2a7a13.glb",
-          "sha256_hash": "01dc073ff6e54164e8fc2c8886e60ae967a3a8384f2f770775697bd3f73e2118",
-          "file_size_bytes": 172752,
+          "sha256_hash": "8327270992bbe851a21f6a06a5eeed5700d15b8d9ce45ce386abe9bc32ad3be7",
+          "file_size_bytes": 264848,
           "compression": "meshopt"
         }
       },
@@ -23374,7 +23374,7 @@
           "min": [
             -17.944,
             -4.532,
-            0.5
+            0.17
           ],
           "max": [
             17.944,
@@ -23384,8 +23384,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_033_9a229b.glb",
-          "sha256_hash": "b9672917a0690830565576edd856b10591d4af415b8f37bbcce7178531b71316",
-          "file_size_bytes": 77784,
+          "sha256_hash": "4db85db55c1861a6ecf978a0413b02e481faaf9b807c166920b7b891833ecc92",
+          "file_size_bytes": 79528,
           "compression": "meshopt"
         }
       },
@@ -23746,20 +23746,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -49.456,
-            -36.673,
-            -24.43
+            -51.249,
+            -38.462,
+            -26.02
           ],
           "max": [
-            49.456,
-            42.359,
+            51.249,
+            43.722,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_016_09b4bc.glb",
-          "sha256_hash": "dbb7c8a2b0e43b83409e2bcefcefa597abffb3bc639dacec7938cfa57fbe6ab3",
-          "file_size_bytes": 190348,
+          "sha256_hash": "40752a8be7fb9e2613c2e89063d1d3f0a8ef5335309bed238cdce8b80554b375",
+          "file_size_bytes": 257404,
           "compression": "meshopt"
         }
       },
@@ -24688,20 +24688,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -14.506,
+            -14.398,
             -1.709,
-            -12.542
+            -12.154
           ],
           "max": [
-            14.506,
-            20.269,
-            4.142
+            14.398,
+            19.162,
+            3.754
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_024_f98297.glb",
-          "sha256_hash": "d4dc0fe89cc247a6d309294f86bf4b763edb206c974607d7db95409c06bb5b3f",
-          "file_size_bytes": 100228,
+          "sha256_hash": "9676a15064c7cbbd425e40893278258d5937060685d4cde4a4067a72938c1afd",
+          "file_size_bytes": 144328,
           "compression": "meshopt"
         }
       },
@@ -24871,7 +24871,7 @@
           "min": [
             -17.614,
             -4.48,
-            0.5
+            0.17
           ],
           "max": [
             17.614,
@@ -24881,8 +24881,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_036_9bec5a.glb",
-          "sha256_hash": "92b1aceb6dda5df86119208bbc16d79ea4a4e7780b3b77f8069f2b627c3cb771",
-          "file_size_bytes": 125492,
+          "sha256_hash": "554669147ba4c9b9d476ac7aba71ff61311bfe8e80ad9cd8a9e968a4f2d4ae5a",
+          "file_size_bytes": 127240,
           "compression": "meshopt"
         }
       },
@@ -25242,20 +25242,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -26.977,
-            -15.6,
-            -26.094
+            -27.577,
+            -16.223,
+            -30.127
           ],
           "max": [
-            26.977,
-            33.523,
+            27.577,
+            36.629,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_031_b88430.glb",
-          "sha256_hash": "f99412773e4d969084af0d739ffe4560f18ca1880c6ad25139a82fde7e465bca",
-          "file_size_bytes": 182152,
+          "sha256_hash": "349003e863927c75a34d272066cd790ef8b38637e614bdd177e304eb4154338d",
+          "file_size_bytes": 274312,
           "compression": "meshopt"
         }
       },
@@ -26355,7 +26355,7 @@
           "min": [
             -18.663,
             -4.804,
-            0.5
+            0.17
           ],
           "max": [
             18.663,
@@ -26365,8 +26365,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_024_64ca2f.glb",
-          "sha256_hash": "b9b7d84698091fac62583f4d307379f9c6482c3f53bf2d1eaa82340d4d21ef7d",
-          "file_size_bytes": 81752,
+          "sha256_hash": "db227f7b4781d185c7c95ce4c45ae7e0c08eccf0a75320e94aa5f5ed6798e011",
+          "file_size_bytes": 83496,
           "compression": "meshopt"
         }
       },
@@ -26727,20 +26727,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -43.852,
-            -32.513,
-            -22.57
+            -45.442,
+            -34.099,
+            -23.98
           ],
           "max": [
-            43.852,
-            37.554,
+            45.442,
+            38.763,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_021_f51c35.glb",
-          "sha256_hash": "377c6776c0a75d9a99e356a76b1a428fae83aba1c479270eccfba3132b50fd30",
-          "file_size_bytes": 192312,
+          "sha256_hash": "b4b8d0796bb19a72f65751240373d3a16d2c2114705d807c2aa147fa64cb7f18",
+          "file_size_bytes": 258752,
           "compression": "meshopt"
         }
       },
@@ -27670,20 +27670,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -14.955,
+            -14.843,
             -2.034,
-            -12.8
+            -12.4
           ],
           "max": [
-            14.955,
-            20.624,
-            4.4
+            14.843,
+            19.482,
+            4.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_035_515104.glb",
-          "sha256_hash": "50a6b31970abd3bf25165bb5f1a21ce79138f90de2ef4463f9cee8c3e3822b10",
-          "file_size_bytes": 106484,
+          "sha256_hash": "8a3470abb87f0f9839285355aa9c55822ce73881e67f0f4494750daa75c1d087",
+          "file_size_bytes": 150624,
           "compression": "meshopt"
         }
       },
@@ -27853,7 +27853,7 @@
           "min": [
             -17.527,
             -4.449,
-            0.5
+            0.17
           ],
           "max": [
             17.527,
@@ -27863,8 +27863,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_028_aeb897.glb",
-          "sha256_hash": "5ded7414cb92a9cf8ea55437fd85d645d692a271115c10e7dc86e5ce0c70d0d3",
-          "file_size_bytes": 125476,
+          "sha256_hash": "ccfe753d3f77c72cb17e5f02c21504646b2b1abf19d3ec74b117c95c67818b0e",
+          "file_size_bytes": 127224,
           "compression": "meshopt"
         }
       },
@@ -28225,20 +28225,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -22.294,
-            -28.336,
-            -27.017
+            -25.754,
+            -27.101,
+            -28.591
           ],
           "max": [
-            22.294,
-            12.21,
+            25.754,
+            11.68,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_023_5cc990.glb",
-          "sha256_hash": "7ec11addf044daab2ba71eaf5d61d20af5aa2d322638f1feb29a22ebea26697e",
-          "file_size_bytes": 123996,
+          "sha256_hash": "b75dc189275777cf3ebf297c97c6fea33ffa454ba005e8cd95b104e453741d87",
+          "file_size_bytes": 201120,
           "compression": "meshopt"
         }
       },
@@ -29356,7 +29356,7 @@
           "min": [
             -18.124,
             -4.6,
-            0.5
+            0.17
           ],
           "max": [
             18.124,
@@ -29366,8 +29366,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_034_995203.glb",
-          "sha256_hash": "072f6b6f5027c7c50bc2ef5266c79a4042c00e340e7439d0415f2f64a2a7208a",
-          "file_size_bytes": 81648,
+          "sha256_hash": "1a54abb743c0351f98948b27734cff2dd8cdcd267588827ef2fc95e2d8e39013",
+          "file_size_bytes": 83396,
           "compression": "meshopt"
         }
       },
@@ -29732,20 +29732,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -26.73,
-            -15.457,
-            -25.928
+            -27.324,
+            -16.074,
+            -29.924
           ],
           "max": [
-            26.73,
-            33.22,
+            27.324,
+            36.298,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_034_be26f1.glb",
-          "sha256_hash": "0cc0defe9de0f24d7007e83905ab3f098a5578b7580f0474b3165b5303ab4644",
-          "file_size_bytes": 182320,
+          "sha256_hash": "af623962d698ebff528cb156edaf9a056273131a18c27cd4e2501b1d2be42232",
+          "file_size_bytes": 274432,
           "compression": "meshopt"
         }
       },
@@ -30853,7 +30853,7 @@
           "min": [
             -18.013,
             -5.83,
-            0.5
+            0.17
           ],
           "max": [
             18.013,
@@ -30863,8 +30863,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_040_311476.glb",
-          "sha256_hash": "c57a863814984784bbb985443fda7db6addfe2af56c9de7aa27493d1de4f5cd1",
-          "file_size_bytes": 129648,
+          "sha256_hash": "9ec00889a98f93c97b9f8f098f9934aeb95a90f730477b3dc705b6fa3a955397",
+          "file_size_bytes": 131396,
           "compression": "meshopt"
         }
       },
@@ -31232,20 +31232,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -21.873,
-            -28.004,
-            -26.659
+            -25.268,
+            -26.59,
+            -28.203
           ],
           "max": [
-            21.873,
-            11.99,
+            25.268,
+            11.47,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_033_58b5ab.glb",
-          "sha256_hash": "7d311602ee922c61e6924eea1f6431679ebc534a787deb755dfbd5da1728e70c",
-          "file_size_bytes": 143396,
+          "sha256_hash": "7df193333bf98cf864c417e68e585b77a0004c5bb70a5f50f5bda96be612dedc",
+          "file_size_bytes": 220756,
           "compression": "meshopt"
         }
       },
@@ -32362,7 +32362,7 @@
           "min": [
             -17.757,
             -5.324,
-            0.5
+            0.17
           ],
           "max": [
             17.757,
@@ -32372,8 +32372,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_044_140072.glb",
-          "sha256_hash": "9aee2b55d344f30fa2247ec5159f2b90c7227e0f394f8e7776702557ffb1a403",
-          "file_size_bytes": 126808,
+          "sha256_hash": "6ae155273487f605259c4c7c148e9f67c14f51ce87b7d8a45ebe0c16527b2d7f",
+          "file_size_bytes": 128556,
           "compression": "meshopt"
         }
       },
@@ -32738,20 +32738,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.357,
-            -14.667,
+            -22.283,
+            -15.291,
             -42.32
           ],
           "max": [
-            18.357,
-            36.776,
+            22.283,
+            37.96,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_036_d70417.glb",
-          "sha256_hash": "7f6b2f392a7f8b58d83f962db41cb9eeaca8d2920fb336692657f291379ef8d6",
-          "file_size_bytes": 157588,
+          "sha256_hash": "91fc081de53bc0eaf2e743cfff10d00ccce802e161bed0b34e489cffc45c8bac",
+          "file_size_bytes": 210084,
           "compression": "meshopt"
         }
       },
@@ -33878,7 +33878,7 @@
           "min": [
             -18.013,
             -5.83,
-            0.5
+            0.17
           ],
           "max": [
             18.013,
@@ -33888,8 +33888,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_038_05d63b.glb",
-          "sha256_hash": "51f370de26856a4dc335f4c8d04a163438d4f839762b8a8fafac54420533f5f6",
-          "file_size_bytes": 110556,
+          "sha256_hash": "14c927ca2725a2d7d299ba76eaa85c85cc6fe71cf7024b3ea9fc0b0b988fe366",
+          "file_size_bytes": 112304,
           "compression": "meshopt"
         }
       },
@@ -34254,20 +34254,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -21.452,
-            -27.465,
-            -26.3
+            -24.782,
+            -26.078,
+            -27.815
           ],
           "max": [
-            21.452,
-            11.77,
+            24.782,
+            11.26,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_038_3521f0.glb",
-          "sha256_hash": "1b5e7307dd98568fad0009af16f295784ea1c2534d366ae6b8a5586c1d5408e4",
-          "file_size_bytes": 133980,
+          "sha256_hash": "0c598e223adb85867a56108c6ca473aa8716bb412e9b6dcb6d2a5f676b1a593f",
+          "file_size_bytes": 211116,
           "compression": "meshopt"
         }
       },
@@ -35387,7 +35387,7 @@
           "min": [
             -18.214,
             -4.634,
-            0.5
+            0.17
           ],
           "max": [
             18.214,
@@ -35397,8 +35397,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_039_f773e4.glb",
-          "sha256_hash": "50fc0c0d8269c2cd9bdfa34b09d633c167dc18b589ce461c377d6a03a1ea6890",
-          "file_size_bytes": 100716,
+          "sha256_hash": "226d2e654cac4c832f8c19e4b52c0a1881a6f10859a5d852fedb147dde0f9d61",
+          "file_size_bytes": 102464,
           "compression": "meshopt"
         }
       },
@@ -35765,20 +35765,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.534,
-            -14.808,
+            -22.498,
+            -15.438,
             -42.65
           ],
           "max": [
-            18.534,
-            37.12,
+            22.498,
+            38.325,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_037_aa5093.glb",
-          "sha256_hash": "e987f4c548b2196ec9a24d90da48ade3902c8489c5fec6a30997d2101d2f3550",
-          "file_size_bytes": 157636,
+          "sha256_hash": "bf581f5ff8a1b741f5acfeffc7f74c71fcfb15544f374cfd2662690c40c7de6a",
+          "file_size_bytes": 210008,
           "compression": "meshopt"
         }
       },
@@ -36901,7 +36901,7 @@
           "min": [
             -18.192,
             -5.905,
-            0.5
+            0.17
           ],
           "max": [
             18.192,
@@ -36911,8 +36911,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_042_d236f9.glb",
-          "sha256_hash": "d1be138020b7cfced6fd160c384ff78d0e0d53e4ac7624d1ca37832e1c419db7",
-          "file_size_bytes": 110600,
+          "sha256_hash": "ea675fc0de2d97443a13ad49419645cfbacbebbde7c70e526ef74999090ffd16",
+          "file_size_bytes": 112348,
           "compression": "meshopt"
         }
       },
@@ -37284,20 +37284,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -25.492,
-            -14.741,
-            -25.098
+            -26.059,
+            -15.33,
+            -28.909
           ],
           "max": [
-            25.492,
-            31.707,
+            26.059,
+            34.643,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_040_c2aca2.glb",
-          "sha256_hash": "6e59f55704f9d94900063e6f6727bb57b5d47453ae34eace6ddd608c6ceda8b3",
-          "file_size_bytes": 172908,
+          "sha256_hash": "4c7e72a3aaf74c331355eff8f86ad615581a1f1582bfcb9e92f30795b16a2c2a",
+          "file_size_bytes": 265584,
           "compression": "meshopt"
         }
       },
@@ -38232,20 +38232,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -15.254,
+            -15.14,
             -2.251,
-            -12.84
+            -12.564
           ],
           "max": [
-            15.254,
-            20.86,
-            4.44
+            15.14,
+            19.696,
+            4.164
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_046_928f3c.glb",
-          "sha256_hash": "cd2db3c74d2a217189b581a6368def6672ad510ab1af4a564801a10178b98fcd",
-          "file_size_bytes": 106472,
+          "sha256_hash": "df7ddfa2eba493296ae562e365b7710b44578064a777ee4f7e612ad90460a1bd",
+          "file_size_bytes": 150560,
           "compression": "meshopt"
         }
       },
@@ -38425,7 +38425,7 @@
           "min": [
             -17.406,
             -5.175,
-            0.5
+            0.17
           ],
           "max": [
             17.406,
@@ -38435,8 +38435,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_041_c799a2.glb",
-          "sha256_hash": "152f54645a167ab14615c38556e2f7f819c21ca397199e4d63b99cf117113088",
-          "file_size_bytes": 126828,
+          "sha256_hash": "1b05019d91385b6d6e05b79b2720d6f445ed0a7fdebe93c5ea0068a7cc6bb320",
+          "file_size_bytes": 128576,
           "compression": "meshopt"
         }
       },
@@ -38799,20 +38799,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -21.873,
-            -28.004,
-            -26.659
+            -25.268,
+            -26.59,
+            -28.203
           ],
           "max": [
-            21.873,
-            11.99,
+            25.268,
+            11.47,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_041_a9a894.glb",
-          "sha256_hash": "2700345a8030ab7e2f0192c189fc683c737cbe8104e9ed374c596c8906ad1355",
-          "file_size_bytes": 133984,
+          "sha256_hash": "629a7c8dcd940a2a9a7c8ebc6ad83ff43179875b9a9852b8c5ff05246651db62",
+          "file_size_bytes": 211232,
           "compression": "meshopt"
         }
       },
@@ -39934,7 +39934,7 @@
           "min": [
             -17.877,
             -4.572,
-            0.5
+            0.17
           ],
           "max": [
             17.877,
@@ -39944,8 +39944,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_049_1e60fe.glb",
-          "sha256_hash": "1782773bc14931940084709bb8e43f270f361c18cccdcfe0d0bedafbbd2ae8f0",
-          "file_size_bytes": 117856,
+          "sha256_hash": "6e7b7982e3a8449a1e352990a7a576fa2fd44d051a72926b976aefd1eda783fc",
+          "file_size_bytes": 119600,
           "compression": "meshopt"
         }
       },
@@ -40300,20 +40300,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.534,
-            -14.808,
+            -22.498,
+            -15.438,
             -42.65
           ],
           "max": [
-            18.534,
-            37.12,
+            22.498,
+            38.325,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_042_4be007.glb",
-          "sha256_hash": "dc5073526747e2d67e6e853fea4f4f0ed827804a682255afb61a5950d64d6a42",
-          "file_size_bytes": 165904,
+          "sha256_hash": "6f284c95d23c20c6cf889d987d4998c03bf333fc47f455d2f528e464040398dd",
+          "file_size_bytes": 218184,
           "compression": "meshopt"
         }
       },
@@ -41427,7 +41427,7 @@
           "min": [
             -17.304,
             -4.776,
-            0.5
+            0.17
           ],
           "max": [
             17.304,
@@ -41437,8 +41437,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_046_9f62e1.glb",
-          "sha256_hash": "899d083a1366a9055ee1d2a4d0f440c1c37361a6629e59fd01490497f6723925",
-          "file_size_bytes": 123308,
+          "sha256_hash": "528ff1d69253f2035dd334fc0daa6a4f97e8e09b1bb4f26459ea8d80f64d747e",
+          "file_size_bytes": 125056,
           "compression": "meshopt"
         }
       },
@@ -41806,20 +41806,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -22.084,
-            -28.274,
-            -26.838
+            -25.511,
+            -26.846,
+            -28.398
           ],
           "max": [
-            22.084,
-            12.1,
+            25.511,
+            11.575,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_044_67dcc9.glb",
-          "sha256_hash": "51c9ca53817d7369573697ad4f20cb027acc5795cd397f881d1d47428d66dc71",
-          "file_size_bytes": 133996,
+          "sha256_hash": "f9cf1ddf102e11c9081b4fa2b32baa5ab1c06b0267c8545b194bae1385aad551",
+          "file_size_bytes": 211264,
           "compression": "meshopt"
         }
       },
@@ -42949,7 +42949,7 @@
           "min": [
             -17.878,
             -4.964,
-            0.5
+            0.17
           ],
           "max": [
             17.878,
@@ -42959,8 +42959,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_047_2f412c.glb",
-          "sha256_hash": "96e269849275821f131f92a3f369e0281dc1f07328249dbb2cf6d87216ceb1eb",
-          "file_size_bytes": 180356,
+          "sha256_hash": "05b98f34da7aa1b81e75d2989c756719baed601950f8b2a057db73b92df3815e",
+          "file_size_bytes": 182100,
           "compression": "meshopt"
         }
       },
@@ -43325,20 +43325,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -47.588,
-            -35.286,
-            -23.81
+            -49.314,
+            -37.008,
+            -25.34
           ],
           "max": [
-            47.588,
-            40.757,
+            49.314,
+            42.069,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_045_2e22f3.glb",
-          "sha256_hash": "342960cab572c58c60389b8fc3b05701546de1fec90ef5c3d3131a4af1838c06",
-          "file_size_bytes": 190396,
+          "sha256_hash": "378784a492972af09b4281231d6b4af801adbe110a895b2c9539163a4bae762c",
+          "file_size_bytes": 257756,
           "compression": "meshopt"
         }
       },
@@ -44273,14 +44273,14 @@
           ],
           "max": [
             60.352,
-            27.244,
+            29.699,
             7.88
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_045_bc349d.glb",
-          "sha256_hash": "fa43788ca273e1eda685eddf7aee8d2d6df483b554743fc25b61c62bc8a5d3c9",
-          "file_size_bytes": 173288,
+          "sha256_hash": "75d397701676e470e52483d692001f01e946d2d739d6f19fa1dbe566a72b1d43",
+          "file_size_bytes": 235372,
           "compression": "meshopt"
         }
       },
@@ -44458,20 +44458,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -54.42,
-            -27.302,
-            -21.024
+            -50.773,
+            -33.077,
+            -26.639
           ],
           "max": [
-            54.42,
-            43.804,
+            50.773,
+            45.333,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_046_ee7629.glb",
-          "sha256_hash": "4d25ddbd6cc06d8b87f1592ca322e006b39d55b4343da493b7dde80dc8a008bc",
-          "file_size_bytes": 140516,
+          "sha256_hash": "09e7c3bc908a9746de60f8156c1ee774c938df60c19eff9f8d395254c54b7972",
+          "file_size_bytes": 208372,
           "compression": "meshopt"
         }
       },
@@ -45391,20 +45391,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -21.84,
-            -15.127,
-            -22.176
+            -24.045,
+            -15.723,
+            -22.7
           ],
           "max": [
-            21.84,
-            29.96,
-            11.725
+            24.045,
+            34.666,
+            20.875
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_047_183565.glb",
-          "sha256_hash": "61c94dcd67503f7530872693bdb5d6bba9c3df3244a5a7e6784c2c81a5dbd681",
-          "file_size_bytes": 192680,
+          "sha256_hash": "fd58c7326027fda19296f79dd3b547c8596f94ad4e615368d567799b0e7b0ffa",
+          "file_size_bytes": 245568,
           "compression": "meshopt"
         }
       },
@@ -45955,20 +45955,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -28.828,
-            -14.569,
-            -20.852
+            -32.738,
+            -15.181,
+            -23.076
           ],
           "max": [
-            28.828,
-            34.315,
+            32.738,
+            33.947,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_048_e827fc.glb",
-          "sha256_hash": "80430b19c9615c796af004eab5f101976858bbaf27c6ec21001974f4509628c7",
-          "file_size_bytes": 216164,
+          "sha256_hash": "93b14bfa4ab6bc2b20ddbaf433d10bedd56bfea47fc286a77736b944003b24d1",
+          "file_size_bytes": 323072,
           "compression": "meshopt"
         }
       },
@@ -46883,20 +46883,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -15.105,
+            -14.992,
             -2.142,
-            -12.84
+            -12.482
           ],
           "max": [
-            15.105,
-            20.742,
-            4.44
+            14.992,
+            19.589,
+            4.082
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_030_e50368.glb",
-          "sha256_hash": "2658370658d886622915dccf63752c766c5e67ee594aea3dce388e791e0b5197",
-          "file_size_bytes": 116416,
+          "sha256_hash": "e84e9d7ec82cc068c73c1b3de7c1308be71d462dbbe5629780494eb80096edaa",
+          "file_size_bytes": 160496,
           "compression": "meshopt"
         }
       },
@@ -47070,7 +47070,7 @@
           "min": [
             -17.581,
             -5.25,
-            0.5
+            0.17
           ],
           "max": [
             17.581,
@@ -47080,8 +47080,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_030_519fa5.glb",
-          "sha256_hash": "4e9a299fb7c1b0677cd4c34adc9ff910e2b513a513f38f88a7b791dba06d5d29",
-          "file_size_bytes": 158160,
+          "sha256_hash": "1b94dd44d73a51fe142bc4daef0697de4ca8781826695f0e641fb738ba238bc0",
+          "file_size_bytes": 159904,
           "compression": "meshopt"
         }
       },
@@ -47608,7 +47608,7 @@
           "min": [
             -18.228,
             -4.694,
-            0.5
+            0.17
           ],
           "max": [
             18.228,
@@ -47618,8 +47618,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_031_e292c7.glb",
-          "sha256_hash": "462a0126841a44e0f61b68c51d01f894bafaa2fef373424497b1d514f0658e6f",
-          "file_size_bytes": 117920,
+          "sha256_hash": "826534fda0848e11c0dacf686a59ebeedd019628d4dd844020184fc44d89537b",
+          "file_size_bytes": 119668,
           "compression": "meshopt"
         }
       },
@@ -48333,7 +48333,7 @@
           "min": [
             -17.645,
             -4.902,
-            0.5
+            0.17
           ],
           "max": [
             17.645,
@@ -48343,8 +48343,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_032_a8f79b.glb",
-          "sha256_hash": "d95a1f9cc8e20fe985097ef2f09fa97c4126fe6ae2eb33ad183fa4840d00b4e6",
-          "file_size_bytes": 132992,
+          "sha256_hash": "a65095a4fc856c2859bf54a1b8de613d2d4a480d6dd9f0ff3e6443d1ffd54c40",
+          "file_size_bytes": 134740,
           "compression": "meshopt"
         }
       },
@@ -49244,7 +49244,7 @@
           "min": [
             -17.613,
             -4.866,
-            0.5
+            0.17
           ],
           "max": [
             17.613,
@@ -49254,8 +49254,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_033_68aaae.glb",
-          "sha256_hash": "31d41f8d5ea4128a2f8e783aa0bed03bce11ec5b8b4e8a25d404b98c218076a9",
-          "file_size_bytes": 187720,
+          "sha256_hash": "3b6c2d814c96bb4538b21f037db3c73013f35a0b429ff720460af057d4b330dc",
+          "file_size_bytes": 189464,
           "compression": "meshopt"
         }
       },
@@ -49958,20 +49958,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -50.857,
-            -37.713,
-            -24.895
+            -52.701,
+            -39.553,
+            -26.53
           ],
           "max": [
-            50.857,
-            43.56,
+            52.701,
+            44.961,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_033_e0203a.glb",
-          "sha256_hash": "f780a3b20e6fb0b6302ad2243d1a2f57f9f92fe96cd3ae8d31b48559911c0eb1",
-          "file_size_bytes": 209104,
+          "sha256_hash": "c8dc8fa7a9f29fb81330a2066182fa7f44a7a435d2662f6585588c60496e8935",
+          "file_size_bytes": 275000,
           "compression": "meshopt"
         }
       },
@@ -50138,20 +50138,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -15.179,
+            -15.066,
             -2.197,
-            -12.84
+            -12.523
           ],
           "max": [
-            15.179,
-            20.801,
-            4.44
+            15.066,
+            19.642,
+            4.123
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_034_71aabe.glb",
-          "sha256_hash": "4988549f55728bfed74630d9dd5b25725cfee515d8e006df374aff95bd7b47d6",
-          "file_size_bytes": 105344,
+          "sha256_hash": "866595d7f7c69a3994fa188e77a566d7bdd24278d75031e020d78ca2e40b1272",
+          "file_size_bytes": 149432,
           "compression": "meshopt"
         }
       },
@@ -50322,7 +50322,7 @@
           "min": [
             -17.405,
             -4.449,
-            0.5
+            0.17
           ],
           "max": [
             17.405,
@@ -50332,8 +50332,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_034_ecf168.glb",
-          "sha256_hash": "852c1b2a63c6cb3a2b924784aac09065c3193c38f3105b59d1c4b7402a878a95",
-          "file_size_bytes": 112036,
+          "sha256_hash": "ab927122d5890ff25bc06ffa078f027f0dcc2bc520c2cacae7bfd527625fef40",
+          "file_size_bytes": 113784,
           "compression": "meshopt"
         }
       },
@@ -50505,14 +50505,14 @@
           ],
           "max": [
             58.727,
-            24.839,
+            27.016,
             6.98
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_034_fe3e2e.glb",
-          "sha256_hash": "e9290bdd4a917c61643cde2de2cbd35d023d8f753d9ef6e42e164366c5195b15",
-          "file_size_bytes": 202352,
+          "sha256_hash": "417c81d616c8ab701b62c63114bcf123fdf90626ab1de8f11381610f9c732033",
+          "file_size_bytes": 264388,
           "compression": "meshopt"
         }
       },
@@ -51220,20 +51220,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -52.835,
-            -26.504,
-            -20.636
+            -49.294,
+            -32.111,
+            -26.088
           ],
           "max": [
-            52.835,
-            42.526,
+            49.294,
+            44.011,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_034_3546b9.glb",
-          "sha256_hash": "f3dba7d07697fdaa3e9345b7849cf7a88270dcd754fca69de26523fa4c0f07e1",
-          "file_size_bytes": 159076,
+          "sha256_hash": "5af6f3d5756d7a3c56c77d6886e8c0bf72f7b868e28649dbe1587ccc8cb6191d",
+          "file_size_bytes": 227380,
           "compression": "meshopt"
         }
       },
@@ -51583,7 +51583,7 @@
           "min": [
             -18.228,
             -4.694,
-            0.5
+            0.17
           ],
           "max": [
             18.228,
@@ -51593,8 +51593,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_035_b11036.glb",
-          "sha256_hash": "8c53c8d6ec553f40fbe7504c12c96cfb1d6f932c0e692a8c26d3a34e0589d5f5",
-          "file_size_bytes": 137256,
+          "sha256_hash": "82a2413efd315443bc14be5836cab823890a4f5f6c6c98f46bb470fce32c2854",
+          "file_size_bytes": 139004,
           "compression": "meshopt"
         }
       },
@@ -52659,20 +52659,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -22.672,
-            -15.703,
-            -22.716
+            -24.961,
+            -16.322,
+            -23.26
           ],
           "max": [
-            22.672,
-            31.101,
-            12.305
+            24.961,
+            35.986,
+            21.975
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_035_ba0676.glb",
-          "sha256_hash": "497196fb047a88180ec58af9fdd31d488361174c808be7275d2651e9b9322243",
-          "file_size_bytes": 183008,
+          "sha256_hash": "8755a5f6f140928efdd3361b5fda102ae252bdd4adc242febd45790b8425347c",
+          "file_size_bytes": 235616,
           "compression": "meshopt"
         }
       },
@@ -53019,20 +53019,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.06,
+            -17.204,
             -4.461,
-            0.5
+            0.17
           ],
           "max": [
-            17.06,
+            17.204,
             8.861,
             12.542
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_036_4b55e6.glb",
-          "sha256_hash": "08358d36718a2b80bd203344b5ec84e3f4152ad462b9b49a2c27506a38388536",
-          "file_size_bytes": 143884,
+          "sha256_hash": "2df725f26040ec62a411e22bc103b357aee155f278ca9c1b0caca2ec028c049c",
+          "file_size_bytes": 145632,
           "compression": "meshopt"
         }
       },
@@ -54113,20 +54113,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -29.959,
-            -15.141,
-            -21.356
+            -34.022,
+            -15.777,
+            -23.628
           ],
           "max": [
-            29.959,
-            35.661,
+            34.022,
+            35.278,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_036_01972f.glb",
-          "sha256_hash": "81c10fc84f63dc2c8e7902b9ac6b8f96621a0dda48798d12f30668bd791cd62d",
-          "file_size_bytes": 215600,
+          "sha256_hash": "d45ce2d32b447975cbe2e6790ce2acf835413defeab89a22d2a0ab5cacb4ffc9",
+          "file_size_bytes": 322580,
           "compression": "meshopt"
         }
       },
@@ -54477,7 +54477,7 @@
           "min": [
             -18.318,
             -5.128,
-            0.5
+            0.17
           ],
           "max": [
             18.318,
@@ -54487,8 +54487,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_037_4e458a.glb",
-          "sha256_hash": "a1a9322dbf0fd943e41b2319c0b1ad1cac9882aeb038eb5ac1fa6d3dfb69c5c2",
-          "file_size_bytes": 199028,
+          "sha256_hash": "b399415cef23b93ed0efaa6159aaa1e7b9de2a80c104a8ede66284731c15c34e",
+          "file_size_bytes": 200776,
           "compression": "meshopt"
         }
       },
@@ -55562,20 +55562,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -21.662,
-            -27.735,
-            -26.479
+            -25.026,
+            -26.335,
+            -28.009
           ],
           "max": [
-            21.662,
-            11.88,
+            25.026,
+            11.365,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_037_f0ade9.glb",
-          "sha256_hash": "3210528386c7c359947ed6b2301fa4811361af688e8a486cebf1c20be75558ee",
-          "file_size_bytes": 152296,
+          "sha256_hash": "87aa857d6bac246ec2fa2160529c79861cf2dbe8f7b8accc00972a5941a3048e",
+          "file_size_bytes": 229348,
           "compression": "meshopt"
         }
       },
@@ -55925,7 +55925,7 @@
           "min": [
             -17.834,
             -5.755,
-            0.5
+            0.17
           ],
           "max": [
             17.834,
@@ -55935,8 +55935,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_038_6a9d6f.glb",
-          "sha256_hash": "6643164bd14581d0e93f4d6d2b046dc9be1058112bb37e0ad83c367af8a5a08d",
-          "file_size_bytes": 121988,
+          "sha256_hash": "2cfd0f4b5a50cf7dfb9c9ea598e9178b57699c7e7b084e52b7958f82686a17a9",
+          "file_size_bytes": 123736,
           "compression": "meshopt"
         }
       },
@@ -57015,20 +57015,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.651,
-            -14.103,
+            -21.426,
+            -14.703,
             -41.0
           ],
           "max": [
-            17.651,
-            35.4,
+            21.426,
+            36.5,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_038_4e098a.glb",
-          "sha256_hash": "bf08f9ca92a17ac0f8a9a123d325830f1e9b7035fae8dd1adf0b8a7e01e0f85c",
-          "file_size_bytes": 185132,
+          "sha256_hash": "ab97535321ae9743ec797b40c368f61d147796ba04c2532564838ba0168bc7fb",
+          "file_size_bytes": 236404,
           "compression": "meshopt"
         }
       },
@@ -57381,7 +57381,7 @@
           "min": [
             -18.285,
             -5.548,
-            0.5
+            0.17
           ],
           "max": [
             18.285,
@@ -57391,8 +57391,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_039_cc5979.glb",
-          "sha256_hash": "debe5d0ed0ae71b470c89eb65169e1b512ca44e1936f838ff4b98d529533a840",
-          "file_size_bytes": 157600,
+          "sha256_hash": "f9fd9bc9c5977d2d16d3aaa4c7c72ad6143dec2c0f3e5d2d70d602cdb9911f36",
+          "file_size_bytes": 159344,
           "compression": "meshopt"
         }
       },
@@ -58458,20 +58458,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -21.84,
-            -15.127,
-            -22.176
+            -24.045,
+            -15.723,
+            -22.7
           ],
           "max": [
-            21.84,
-            29.96,
-            11.725
+            24.045,
+            34.666,
+            20.875
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_039_d98878.glb",
-          "sha256_hash": "5c3589c7fbf8bc942766fac09177564f581e748df001efadfa777237f0d4c115",
-          "file_size_bytes": 192028,
+          "sha256_hash": "ecc618b33f03944dfac4e0fff3832617d98a4b2ec31abe10e1b61525aaf590d3",
+          "file_size_bytes": 244920,
           "compression": "meshopt"
         }
       },
@@ -58819,20 +58819,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.06,
+            -17.204,
             -4.65,
-            0.5
+            0.17
           ],
           "max": [
-            17.06,
+            17.204,
             9.05,
             12.8
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_040_ab419c.glb",
-          "sha256_hash": "96400e7b1ee67fcb4aaf1c2763455ac3d7ee30332888431c163c2c021d14ded8",
-          "file_size_bytes": 143640,
+          "sha256_hash": "d697fba5fc49ef21cd88d98d49004be841a54b4f3f11da47cd1a1f0bc5c79f1a",
+          "file_size_bytes": 145388,
           "compression": "meshopt"
         }
       },
@@ -59928,20 +59928,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -28.828,
-            -14.569,
-            -20.852
+            -32.738,
+            -15.181,
+            -23.076
           ],
           "max": [
-            28.828,
-            34.315,
+            32.738,
+            33.947,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_040_a1f46e.glb",
-          "sha256_hash": "7c6c240d2f9b38ac9c3085fb20f4bbf91f5047a3350952ad3bb83b65be131537",
-          "file_size_bytes": 216212,
+          "sha256_hash": "1cd8243dc57beacf29fa585f3556a92bd8b502be82e1532cddcc51eeb4983336",
+          "file_size_bytes": 323120,
           "compression": "meshopt"
         }
       },
@@ -60289,7 +60289,7 @@
           "min": [
             -17.613,
             -4.866,
-            0.5
+            0.17
           ],
           "max": [
             17.613,
@@ -60299,8 +60299,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_041_57e322.glb",
-          "sha256_hash": "5ec085a8819e0ab35fc2cec7feb599d76d45bc7193665b9a39cb63241e87ed54",
-          "file_size_bytes": 198920,
+          "sha256_hash": "c37e89c4d8f635bbb2db656697ecc3d4623c536c2f56aa2ab6ad99e18cb18b58",
+          "file_size_bytes": 200664,
           "compression": "meshopt"
         }
       },
@@ -61374,20 +61374,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -49.665,
-            -24.909,
-            -19.861
+            -46.336,
+            -30.18,
+            -24.985
           ],
           "max": [
-            49.665,
-            39.97,
+            46.336,
+            41.366,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_041_0704ba.glb",
-          "sha256_hash": "03a7945cf33be12aa8161787cd60ea54e9912860dbd80e0cca2fa72a3a7283b6",
-          "file_size_bytes": 160368,
+          "sha256_hash": "d64278fd6f476edb40055f776c3cd66c8e394f538e443797edd2ac35cd389f2f",
+          "file_size_bytes": 228696,
           "compression": "meshopt"
         }
       },
@@ -61732,7 +61732,7 @@
           "min": [
             -18.228,
             -4.694,
-            0.5
+            0.17
           ],
           "max": [
             18.228,
@@ -61742,8 +61742,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_042_5cbfeb.glb",
-          "sha256_hash": "1b803711e519f747b62f49fd8663aa79a6ce8e1a6db1c551307fea6d2fc5bbbe",
-          "file_size_bytes": 117740,
+          "sha256_hash": "1f0b5447f3431e8eb30f52c0483b21001faa5335b83d2f880c3e348e80236958",
+          "file_size_bytes": 119488,
           "compression": "meshopt"
         }
       },
@@ -62807,20 +62807,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -43.852,
-            -32.513,
-            -22.57
+            -45.442,
+            -34.099,
+            -23.98
           ],
           "max": [
-            43.852,
-            37.554,
+            45.442,
+            38.763,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_042_437a13.glb",
-          "sha256_hash": "b55a1189d978c5af5bf8004104e1dff4276349eea3f961018914604d21fdd5f6",
-          "file_size_bytes": 210904,
+          "sha256_hash": "0d8753b45a5ae435f046f2edfe9ce9bb7bfb610328dfc5e2bdf9f0e66315d546",
+          "file_size_bytes": 277344,
           "compression": "meshopt"
         }
       },
@@ -63171,7 +63171,7 @@
           "min": [
             -17.834,
             -5.755,
-            0.5
+            0.17
           ],
           "max": [
             17.834,
@@ -63181,8 +63181,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_043_170908.glb",
-          "sha256_hash": "7101f5dcad3dc48972164b133d7cc1f0a26b6ee740bc1a5e366130a806d91649",
-          "file_size_bytes": 141692,
+          "sha256_hash": "4fc102ca8b1b1d400e7ce3989be51a1e5361d6c2a1ef98deb5a9b2ba7d0400ea",
+          "file_size_bytes": 143436,
           "compression": "meshopt"
         }
       },
@@ -64262,20 +64262,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -22.048,
-            -15.271,
-            -22.311
+            -24.274,
+            -15.873,
+            -22.84
           ],
           "max": [
-            22.048,
-            30.245,
-            11.87
+            24.274,
+            34.996,
+            21.15
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_043_686f01.glb",
-          "sha256_hash": "62e84b0b51dd9299569d645547063abef37828bf7f852c1f8fc30ab28709b248",
-          "file_size_bytes": 210592,
+          "sha256_hash": "f73bea2445874f53ebce51f092e6c1225ea4a5b917d1cfd01e53f802ed177f0f",
+          "file_size_bytes": 263448,
           "compression": "meshopt"
         }
       },
@@ -64625,20 +64625,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.06,
+            -17.204,
             -4.461,
-            0.5
+            0.17
           ],
           "max": [
-            17.06,
+            17.204,
             8.861,
             12.542
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_044_c79fbd.glb",
-          "sha256_hash": "b3b7df5ec6df077fdd3a3238ab33f7c0e27b1d5459503753111d2837a13f9efa",
-          "file_size_bytes": 125068,
+          "sha256_hash": "d73dc873fb893eccc7e089c978662c86b90f71c627d9bc1a1e22dc276787cf8c",
+          "file_size_bytes": 126820,
           "compression": "meshopt"
         }
       },
@@ -65710,20 +65710,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -25.74,
-            -14.884,
-            -25.264
+            -26.312,
+            -15.479,
+            -29.112
           ],
           "max": [
-            25.74,
-            32.01,
+            26.312,
+            34.974,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_044_519166.glb",
-          "sha256_hash": "02e9049ea5a018ef5698fdb0d973ce7788ca575dd19183b6f5d5ae09ee15dacf",
-          "file_size_bytes": 209324,
+          "sha256_hash": "14077ac08eae8258d618b537230af22241b72e0bec030af16c3b071777cfc351",
+          "file_size_bytes": 301380,
           "compression": "meshopt"
         }
       },
@@ -66077,7 +66077,7 @@
           "min": [
             -17.944,
             -4.532,
-            0.5
+            0.17
           ],
           "max": [
             17.944,
@@ -66087,8 +66087,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_045_470b8e.glb",
-          "sha256_hash": "316c027c6c328d7811a582b371ea72e7eb86f0ef1862ef647c35e8abc83c6532",
-          "file_size_bytes": 92616,
+          "sha256_hash": "c4f0d4a8294a88d0b82c7fb518ba03f21b1b26df977ddf44437a844dfa8e6c70",
+          "file_size_bytes": 94364,
           "compression": "meshopt"
         }
       },
@@ -67175,20 +67175,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -52.835,
-            -26.504,
-            -20.636
+            -49.294,
+            -32.111,
+            -26.088
           ],
           "max": [
-            52.835,
-            42.526,
+            49.294,
+            44.011,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_045_380acf.glb",
-          "sha256_hash": "c71af725958fb1559c49ddb47dd0c0a75b950c455ac1052e9a4e53ee222a0fb7",
-          "file_size_bytes": 158196,
+          "sha256_hash": "a7cab0ae14da941ba589a8682502bfd51a4310166661c9c1be3370d7c8d29725",
+          "file_size_bytes": 226500,
           "compression": "meshopt"
         }
       },
@@ -67560,7 +67560,7 @@
           "min": [
             -17.613,
             -4.866,
-            0.5
+            0.17
           ],
           "max": [
             17.613,
@@ -67570,8 +67570,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_046_f71f06.glb",
-          "sha256_hash": "07836be912f5293f9f3bc20e19d038d3c874af411acb2043272a7a4d19eb2314",
-          "file_size_bytes": 180376,
+          "sha256_hash": "84bbc405728e9cb02415f660e4b4b7a598eac3616d54c82c3dc5fe661257625c",
+          "file_size_bytes": 182124,
           "compression": "meshopt"
         }
       },
@@ -68710,20 +68710,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -26.567,
-            -13.427,
-            -19.904
+            -30.17,
+            -13.991,
+            -21.972
           ],
           "max": [
-            26.567,
-            31.624,
+            30.17,
+            31.285,
             8.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_046_57409e.glb",
-          "sha256_hash": "dc35535b9675abcb106b2b7772824097d80af5509dedccb4450380403069a33f",
-          "file_size_bytes": 207424,
+          "sha256_hash": "3d3de2d3b69803319c55a887a85d873b2226b5ed774a502c063162700cb6a692",
+          "file_size_bytes": 314996,
           "compression": "meshopt"
         }
       },
@@ -68980,7 +68980,7 @@
       "part_id": "llm_gen_chest_armor_047_896b7e",
       "blueprint_family": "llm_freeform_cad",
       "serial_number": "GXM-GEN-CHS-384",
-      "name": "F91 High‑Mobility Vented ERA Pectoral",
+      "name": "F91 High\u2011Mobility Vented ERA Pectoral",
       "category": "armor",
       "primary_hardpoint": "HP-09",
       "slot_group": "chest_armor",
@@ -69092,20 +69092,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.176,
+            -17.204,
             -4.449,
-            0.5
+            0.17
           ],
           "max": [
-            17.176,
+            17.204,
             10.128,
             13.948
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_047_896b7e.glb",
-          "sha256_hash": "c9bdb54fc7f89496b5ddffef7ca89c0d6d0517f17c6047475b9ce3bbaed2d8f5",
-          "file_size_bytes": 160168,
+          "sha256_hash": "1272079b4a7fa458ba308bf69cadd2fb33488e101fefaa242116fc1d8e9f9ead",
+          "file_size_bytes": 139008,
           "compression": "meshopt"
         }
       },
@@ -69115,21 +69115,17 @@
         "metalness": 0.85
       },
       "telemetry_and_lore": {
-        "operational_role": "Provides lightweight, high‑mobility chest protection with rapid vent cooling and ERA plating, enhancing F91’s agility while mitigating heat buildup during sustained beam fire.",
+        "operational_role": "Provides lightweight, high\u2011mobility chest protection with rapid vent cooling and ERA plating, enhancing F91\u2019s agility while mitigating heat buildup during sustained beam fire.",
         "reactor_power_draw_kw": 300,
         "vernier_thrust_kgf": 0
       },
       "llm_cad_blueprint": {
         "concept_slug": "f91_high_mobility_vented_era",
         "base_archetype": "twin_chest_gatling_ports",
-        "addon_module": "lower_abdominal_era+twin_pectoral_vents",
+        "addon_module": "lower_abdominal_era",
         "color_scheme": "nu_vanguard",
         "proportion_profile": "high_mobility",
         "composition_key": "twin_chest_gatling_ports+lower_abdominal_era+twin_pectoral_vents+nu_vanguard+acc_cobalt+g_f57a63@s0.9800",
-        "addon_modules": [
-          "lower_abdominal_era",
-          "twin_pectoral_vents"
-        ],
         "accent_override": "cobalt",
         "morph_scale": 0.98,
         "graft_seed": "f57a63"
@@ -69139,11 +69135,11 @@
           "title": "F91 Gundam F91",
           "url": "https://gundam.fandom.com/wiki/F91_Gundam_F91",
           "source": "Gundam Wiki",
-          "summary": "Based on F90V Gundam F90 VSBR Type, the F91 Gundam F91 is a prototype machine created under SNRI’s ‘Formula Project’. The Formula Project, also known as F Project, is a miniaturized MS development program meant to address technological problems such as the upsizing and increasing cost of MS, and to rectify Anaheim Electronics’ monopolization of the MS industry. The F91 was developed to reached the ‘performance limit tidemark of present day MS’, and as such, its capabilities exceed that of contemporary machines. SNR"
+          "summary": "Based on F90V Gundam F90 VSBR Type, the F91 Gundam F91 is a prototype machine created under SNRI\u2019s \u2018Formula Project\u2019. The Formula Project, also known as F Project, is a miniaturized MS development program meant to address technological problems such as the upsizing and increasing cost of MS, and to rectify Anaheim Electronics\u2019 monopolization of the MS industry. The F91 was developed to reached the \u2018performance limit tidemark of present day MS\u2019, and as such, its capabilities exceed that of contemporary machines. SNR"
         }
       ],
       "geometry_fingerprint": {
-        "name": "F91 High‑Mobility Vented ERA Pectoral",
+        "name": "F91 High\u2011Mobility Vented ERA Pectoral",
         "concept_slug": "f91_high_mobility_vented_era",
         "concept_tokens": [
           "era",
@@ -69175,7 +69171,7 @@
       "part_id": "llm_gen_shoulder_pods_047_142e5a",
       "blueprint_family": "llm_freeform_cad",
       "serial_number": "GXM-GEN-SHL-385",
-      "name": "MS-18E Kämpfer Einhauen Ram Shoulder Pods",
+      "name": "MS-18E K\u00e4mpfer Einhauen Ram Shoulder Pods",
       "category": "weapon",
       "primary_hardpoint": "HP-03",
       "slot_group": "shoulder_pods",
@@ -69287,20 +69283,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -62.506,
+            -62.314,
             -13.33,
             -16.0
           ],
           "max": [
-            62.506,
-            27.561,
+            62.314,
+            27.506,
             14.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_047_142e5a.glb",
-          "sha256_hash": "830883e2b2c37c353000f2860ba738876a331a98b087bb79f8007b4c873fe43a",
-          "file_size_bytes": 253152,
+          "sha256_hash": "d1d8d39305856e3c75b1573b3630aa60219fc67049392a203a0226201f0ce95c",
+          "file_size_bytes": 277268,
           "compression": "meshopt"
         }
       },
@@ -69317,22 +69313,18 @@
       "llm_cad_blueprint": {
         "concept_slug": "kampfer_einhauen_ram_pods",
         "base_archetype": "wing_shield_binder_pauldrons",
-        "addon_module": "forward_sensor_pod+upper_missile_cap",
+        "addon_module": "forward_sensor_pod",
         "color_scheme": "banshee_obsidian",
         "proportion_profile": "standard",
         "composition_key": "wing_shield_binder_pauldrons+forward_sensor_pod+upper_missile_cap+banshee_obsidian+g_9404b0",
-        "addon_modules": [
-          "forward_sensor_pod",
-          "upper_missile_cap"
-        ],
         "graft_seed": "9404b0"
       },
       "reference_sources": [
         {
-          "title": "MS-18E Kämpfer",
+          "title": "MS-18E K\u00e4mpfer",
           "url": "https://gundam.fandom.com/wiki/MS-18E_K%C3%A4mpfer",
           "source": "Gundam Wiki",
-          "summary": "The \"E\" in the MS-18E Kämpfer's model number was an abbreviation for the German word \"Einhauen,\" which translates to \"to smash in,\" and this summed up the mobile suit's role as a fast assault unit meant to strike quickly and cause massive damage before making a fast escape. The Kämpfer was a very focused design, never intended to work outside of its role. Within this role it was an exceptional unit, rivaling the Federation's RX series in firepower and speed. It was equipped with numerous thrusters and verniers to a"
+          "summary": "The \"E\" in the MS-18E K\u00e4mpfer's model number was an abbreviation for the German word \"Einhauen,\" which translates to \"to smash in,\" and this summed up the mobile suit's role as a fast assault unit meant to strike quickly and cause massive damage before making a fast escape. The K\u00e4mpfer was a very focused design, never intended to work outside of its role. Within this role it was an exceptional unit, rivaling the Federation's RX series in firepower and speed. It was equipped with numerous thrusters and verniers to a"
         },
         {
           "title": "List of Gundam Build Fighters Try characters",
@@ -69342,7 +69334,7 @@
         }
       ],
       "geometry_fingerprint": {
-        "name": "MS-18E Kämpfer Einhauen Ram Shoulder Pods",
+        "name": "MS-18E K\u00e4mpfer Einhauen Ram Shoulder Pods",
         "concept_slug": "kampfer_einhauen_ram_pods",
         "concept_tokens": [
           "einhauen",
@@ -69378,7 +69370,7 @@
       "part_id": "llm_gen_waist_ordnance_047_b9b91c",
       "blueprint_family": "llm_freeform_cad",
       "serial_number": "GXM-GEN-WST-386",
-      "name": "MS-18E Kämpfer Ambac‑Rail‑Thruster Pack",
+      "name": "MS-18E K\u00e4mpfer Ambac\u2011Rail\u2011Thruster Pack",
       "category": "armor",
       "primary_hardpoint": "HP-13",
       "slot_group": "waist_ordnance",
@@ -69491,7 +69483,7 @@
         "bounding_box_aabb_mm": {
           "min": [
             -32.691,
-            -9.196,
+            -8.937,
             -28.524
           ],
           "max": [
@@ -69502,8 +69494,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_047_b9b91c.glb",
-          "sha256_hash": "a65cb95726f0dee957db61cef4af24d2d6576e87254848198e16dcad2f9e1d65",
-          "file_size_bytes": 205076,
+          "sha256_hash": "fbc4e12b0b3570069ba96e69fdbd970d90c02a30f832411f8fc52ee87f43a749",
+          "file_size_bytes": 206292,
           "compression": "meshopt"
         }
       },
@@ -69513,35 +69505,31 @@
         "metalness": 0.85
       },
       "telemetry_and_lore": {
-        "operational_role": "Fast assault waist pack delivering high‑velocity railgun bursts, vernier thrusters, and aerodynamic fin for rapid strike and retreat.",
+        "operational_role": "Fast assault waist pack delivering high\u2011velocity railgun bursts, vernier thrusters, and aerodynamic fin for rapid strike and retreat.",
         "reactor_power_draw_kw": 1200,
         "vernier_thrust_kgf": 120000
       },
       "llm_cad_blueprint": {
         "concept_slug": "kampfer_waist_ambac_rail_thruster_pack",
         "base_archetype": "side_skirt_propellant_pods",
-        "addon_module": "forward_rail_prongs+outer_aero_skirt_fin",
+        "addon_module": "forward_rail_prongs",
         "color_scheme": "kampfer_midnight",
         "proportion_profile": "high_mobility",
         "composition_key": "side_skirt_propellant_pods+forward_rail_prongs+outer_aero_skirt_fin+kampfer_midnight+acc_gold+g_a7370b@s1.0200",
-        "addon_modules": [
-          "forward_rail_prongs",
-          "outer_aero_skirt_fin"
-        ],
         "accent_override": "gold",
         "morph_scale": 1.02,
         "graft_seed": "a7370b"
       },
       "reference_sources": [
         {
-          "title": "MS-18E Kämpfer",
+          "title": "MS-18E K\u00e4mpfer",
           "url": "https://gundam.fandom.com/wiki/MS-18E_K%C3%A4mpfer",
           "source": "Gundam Wiki",
-          "summary": "The \"E\" in the MS-18E Kämpfer's model number was an abbreviation for the German word \"Einhauen,\" which translates to \"to smash in,\" and this summed up the mobile suit's role as a fast assault unit meant to strike quickly and cause massive damage before making a fast escape. The Kämpfer was a very focused design, never intended to work outside of its role. Within this role it was an exceptional unit, rivaling the Federation's RX series in firepower and speed. It was equipped with numerous thrusters and verniers to a"
+          "summary": "The \"E\" in the MS-18E K\u00e4mpfer's model number was an abbreviation for the German word \"Einhauen,\" which translates to \"to smash in,\" and this summed up the mobile suit's role as a fast assault unit meant to strike quickly and cause massive damage before making a fast escape. The K\u00e4mpfer was a very focused design, never intended to work outside of its role. Within this role it was an exceptional unit, rivaling the Federation's RX series in firepower and speed. It was equipped with numerous thrusters and verniers to a"
         }
       ],
       "geometry_fingerprint": {
-        "name": "MS-18E Kämpfer Ambac‑Rail‑Thruster Pack",
+        "name": "MS-18E K\u00e4mpfer Ambac\u2011Rail\u2011Thruster Pack",
         "concept_slug": "kampfer_waist_ambac_rail_thruster_pack",
         "concept_tokens": [
           "ambac",
@@ -69695,13 +69683,13 @@
           "max": [
             42.16,
             20.657,
-            4.436
+            4.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_047_7c15db.glb",
-          "sha256_hash": "9b87eba4fdad82a614e0b8fe0f14a76a8303562fdd9c32a8a7d1acc2a9897cae",
-          "file_size_bytes": 202748,
+          "sha256_hash": "de9fb2af08b97290c5fad6563f9fd00c36df9686902a591a6912e4605cb55365",
+          "file_size_bytes": 190512,
           "compression": "meshopt"
         }
       },
@@ -69718,14 +69706,10 @@
       "llm_cad_blueprint": {
         "concept_slug": "fa78_thunderbolt_calf_propellant_array",
         "base_archetype": "calf_propellant_tank_boosters",
-        "addon_module": "dual_ankle_verniers+forward_knee_spike",
+        "addon_module": "dual_ankle_verniers",
         "color_scheme": "hyaku_shiki_gold",
         "proportion_profile": "extended_spec",
         "composition_key": "calf_propellant_tank_boosters+dual_ankle_verniers+forward_knee_spike+hyaku_shiki_gold+g_b80e09",
-        "addon_modules": [
-          "dual_ankle_verniers",
-          "forward_knee_spike"
-        ],
         "graft_seed": "b80e09"
       },
       "reference_sources": [
@@ -69733,7 +69717,7 @@
           "title": "FA-78 Full Armor Gundam (Thunderbolt Ver.)",
           "url": "https://gundam.fandom.com/wiki/FA-78_Full_Armor_Gundam_(Thunderbolt_Ver.)",
           "source": "Gundam Wiki",
-          "summary": "A heavily armored and highly maneuverable Gundam-type mobile suit deployed by the Moore Brotherhood. There was another type of Full Armor Gundam with similar model number, the FA-78-1, but it had different details and equipment. Both mobile suits were developed under the ‘Full Armor Operation’, and their differences were a result of experimenting with various systems and equipment. The Full Armor Gundam was fitted with numerous pieces of body armor, a large backpack and had much more weaponry than other mobile suit"
+          "summary": "A heavily armored and highly maneuverable Gundam-type mobile suit deployed by the Moore Brotherhood. There was another type of Full Armor Gundam with similar model number, the FA-78-1, but it had different details and equipment. Both mobile suits were developed under the \u2018Full Armor Operation\u2019, and their differences were a result of experimenting with various systems and equipment. The Full Armor Gundam was fitted with numerous pieces of body armor, a large backpack and had much more weaponry than other mobile suit"
         }
       ],
       "geometry_fingerprint": {
@@ -69789,10 +69773,10 @@
       "agentic_checklist_report": {
         "status": "ALL_CHECKS_PASSED",
         "llm_plan": [
-          "Verify dual emitter alignment within ±0.2° for symmetric blade projection.",
-          "Confirm pommel boost integration does not exceed GN‑Drive thermal budget.",
-          "Test twin guard wing lock integrity under 3 g lateral loads.",
-          "Validate color scheme paint adhesion on plasma‑exposed surfaces.",
+          "Verify dual emitter alignment within \u00b10.2\u00b0 for symmetric blade projection.",
+          "Confirm pommel boost integration does not exceed GN\u2011Drive thermal budget.",
+          "Test twin guard wing lock integrity under 3\u202fg lateral loads.",
+          "Validate color scheme paint adhesion on plasma\u2011exposed surfaces.",
           "Run kinetic recoil simulation to ensure chassis stress < 85% of rating."
         ],
         "verified_gates": [
@@ -69896,8 +69880,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_047_2d841a.glb",
-          "sha256_hash": "e05657d577751f91bbdba9f2e2a23a778cb319328019e87447ceb18f0cfb3cdb",
-          "file_size_bytes": 123852,
+          "sha256_hash": "df1719d3b6355281abca7fad99787930f09c07379d2a0b40d69e43f4e2bd1d4b",
+          "file_size_bytes": 119988,
           "compression": "meshopt"
         }
       },
@@ -69907,21 +69891,17 @@
         "metalness": 0.85
       },
       "telemetry_and_lore": {
-        "operational_role": "Close‑range auxiliary melee weapon delivering twin plasma blades for rapid thrusts and parries, enhancing Exia's high‑mobility combat doctrine.",
+        "operational_role": "Close\u2011range auxiliary melee weapon delivering twin plasma blades for rapid thrusts and parries, enhancing Exia's high\u2011mobility combat doctrine.",
         "reactor_power_draw_kw": 1200,
         "vernier_thrust_kgf": 150000
       },
       "llm_cad_blueprint": {
         "concept_slug": "exia_aux_double_beam_glaive",
         "base_archetype": "double_beam_glaive_twinblade",
-        "addon_module": "pommel_vernier_boost+twin_guard_wings",
+        "addon_module": "pommel_vernier_boost",
         "color_scheme": "exia_gn_cyan",
         "proportion_profile": "high_mobility",
         "composition_key": "double_beam_glaive_twinblade+pommel_vernier_boost+twin_guard_wings+exia_gn_cyan+g_52dce6@s1.0200",
-        "addon_modules": [
-          "pommel_vernier_boost",
-          "twin_guard_wings"
-        ],
         "morph_scale": 1.02,
         "graft_seed": "52dce6"
       },
@@ -69991,11 +69971,11 @@
       "agentic_checklist_report": {
         "status": "ALL_CHECKS_PASSED",
         "llm_plan": [
-          "Structural integrity of spike assembly verified under 10,000 N impact.",
+          "Structural integrity of spike assembly verified under 10,000\u202fN impact.",
           "GN Drive power coupling within 5% tolerance.",
-          "I‑Field emitter shielding meets 2000 V safety.",
-          "Vernier pair alignment accuracy ±0.5°.",
-          "Thermal management system maintains <80 °C under full load."
+          "I\u2011Field emitter shielding meets 2000\u202fV safety.",
+          "Vernier pair alignment accuracy \u00b10.5\u00b0.",
+          "Thermal management system maintains <80\u202f\u00b0C under full load."
         ],
         "verified_gates": [
           {
@@ -70086,20 +70066,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -16.285,
+            -16.557,
             -19.31,
             -16.077
           ],
           "max": [
             -1.7,
-            22.274,
+            18.529,
             18.038
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_shield_047_1e1bbe.glb",
-          "sha256_hash": "e725fde88337b7e0d555916f385a6e81ac916474dd110b577e0db605b9b82877",
-          "file_size_bytes": 154432,
+          "sha256_hash": "0b2b4d170df60b4b82d34ab7f15c90f34c0613166d491489cb6c57857a987517",
+          "file_size_bytes": 78916,
           "compression": "meshopt"
         }
       },
@@ -70109,22 +70089,17 @@
         "metalness": 0.85
       },
       "telemetry_and_lore": {
-        "operational_role": "Provides a reinforced forearm shield with spike ramming capability and integrated I‑Field emitter for close‑quarters defense and melee offense, leveraging Exia's GN Drive for susta",
+        "operational_role": "Provides a reinforced forearm shield with spike ramming capability and integrated I\u2011Field emitter for close\u2011quarters defense and melee offense, leveraging Exia's GN Drive for susta",
         "reactor_power_draw_kw": 1200,
         "vernier_thrust_kgf": 0
       },
       "llm_cad_blueprint": {
         "concept_slug": "exia_spiked_knuckle_breacher",
         "base_archetype": "spiked_knuckle_breacher_buckler",
-        "addon_module": "center_ifield_emitter+top_ram_spikes+underslung_vernier_pair",
+        "addon_module": "center_ifield_emitter",
         "color_scheme": "exia_gn_cyan",
         "proportion_profile": "standard",
         "composition_key": "spiked_knuckle_breacher_buckler+center_ifield_emitter+top_ram_spikes+underslung_vernier_pair+exia_gn_cyan+acc_cobalt+g_470af4@s1.0200",
-        "addon_modules": [
-          "center_ifield_emitter",
-          "top_ram_spikes",
-          "underslung_vernier_pair"
-        ],
         "accent_override": "cobalt",
         "morph_scale": 1.02,
         "graft_seed": "470af4"
@@ -70291,20 +70266,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -22.048,
-            -15.271,
-            -22.311
+            -24.274,
+            -15.873,
+            -22.84
           ],
           "max": [
-            22.048,
-            30.245,
-            11.87
+            24.274,
+            34.996,
+            21.15
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_047_70ff09.glb",
-          "sha256_hash": "70a14ed7bf649fd5e2266db5b8071307ebf37df4580c7b3f550e2cfecbbce591",
-          "file_size_bytes": 201440,
+          "sha256_hash": "596dcb639e26c4fd233c030d09f716b01f1dccced8f9ff56c43e3f3fee07d8cf",
+          "file_size_bytes": 254384,
           "compression": "meshopt"
         }
       },
@@ -70387,7 +70362,7 @@
       "agentic_checklist_report": {
         "status": "ALL_CHECKS_PASSED",
         "llm_plan": [
-          "Verify twin V‑Fin antennae attachment integrity",
+          "Verify twin V\u2011Fin antennae attachment integrity",
           "Confirm dual temple vulcans cooling flow",
           "Test sensor ear signal latency",
           "Check gold accent plating adhesion",
@@ -70494,8 +70469,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_048_52c4ff.glb",
-          "sha256_hash": "bfdbe2ae40a4d7b177a7dbc2da41e5a62cf7ac157af23619bc5f9a13e4a0205e",
-          "file_size_bytes": 181440,
+          "sha256_hash": "86c1fd2e2d55d7a9bffdfb98d6da1e78d1f31d9fb9cf15832d963413b066d1b6",
+          "file_size_bytes": 146620,
           "compression": "meshopt"
         }
       },
@@ -70505,32 +70480,27 @@
         "metalness": 0.85
       },
       "telemetry_and_lore": {
-        "operational_role": "Provides enhanced situational awareness and thermal regulation for the TR-1 Hazel Custom, integrating twin V‑Fin antennae, dual temple vulcans, and sensor ears to boost long‑range ",
+        "operational_role": "Provides enhanced situational awareness and thermal regulation for the TR-1 Hazel Custom, integrating twin V\u2011Fin antennae, dual temple vulcans, and sensor ears to boost long\u2011range ",
         "reactor_power_draw_kw": 300,
         "vernier_thrust_kgf": 0
       },
       "llm_cad_blueprint": {
         "concept_slug": "hazel_custom_reinforced_cranial_array",
         "base_archetype": "unicorn_destroy_split_vfin",
-        "addon_module": "dual_temple_vulcans+twin_sensor_ears+twin_vfin_antennae",
+        "addon_module": "dual_temple_vulcans",
         "color_scheme": "unicorn_destroy",
         "proportion_profile": "heavy_fortress",
         "composition_key": "unicorn_destroy_split_vfin+dual_temple_vulcans+twin_sensor_ears+twin_vfin_antennae+unicorn_destroy+acc_gold+g_cabb1d@s1.0100",
-        "addon_modules": [
-          "dual_temple_vulcans",
-          "twin_sensor_ears",
-          "twin_vfin_antennae"
-        ],
         "accent_override": "gold",
         "morph_scale": 1.01,
         "graft_seed": "cabb1d"
       },
       "reference_sources": [
         {
-          "title": "RX-121-1 Gundam TR-1 ［Hazel Custom］",
+          "title": "RX-121-1 Gundam TR-1 \uff3bHazel Custom\uff3d",
           "url": "https://gundam.fandom.com/wiki/RX-121-1_Gundam_TR-1_%EF%BC%BBHazel_Custom%EF%BC%BD",
           "source": "Gundam Wiki",
-          "summary": "The TR-1 [Hazel Custom] is the upgraded form of the Gundam TR-1 [Hazel], which was heavily damaged during combat with a Stutzer-series mobile suit—modified units used by Zeon Remnants. The damaged Hazel was repaired and reinforced using spare parts stored aboard the Aswan, as well as components from a GM Quel stationed at Confeito. Through these extensive modifications, the unit was reborn as a true Gundam—not just in name, but in form, appearance, and internal structure. Drawing on operational data and accumulated"
+          "summary": "The TR-1 [Hazel Custom] is the upgraded form of the Gundam TR-1 [Hazel], which was heavily damaged during combat with a Stutzer-series mobile suit\u2014modified units used by Zeon Remnants. The damaged Hazel was repaired and reinforced using spare parts stored aboard the Aswan, as well as components from a GM Quel stationed at Confeito. Through these extensive modifications, the unit was reborn as a true Gundam\u2014not just in name, but in form, appearance, and internal structure. Drawing on operational data and accumulated"
         }
       ],
       "geometry_fingerprint": {
@@ -70683,7 +70653,7 @@
           "min": [
             -17.645,
             -4.902,
-            0.5
+            0.17
           ],
           "max": [
             17.645,
@@ -70693,8 +70663,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_048_eeb07f.glb",
-          "sha256_hash": "db7ce826e1e79e49a563e489bcfc5e323f6b58ac7893cd9d63f96e2d8fec47cc",
-          "file_size_bytes": 120384,
+          "sha256_hash": "9ec9da0f2d4cacbe9ef088c2fd7080829db1282e42959edca14da41c47f822a5",
+          "file_size_bytes": 122132,
           "compression": "meshopt"
         }
       },
@@ -70758,7 +70728,7 @@
       "part_id": "llm_gen_shoulder_pods_048_f5d985",
       "blueprint_family": "llm_freeform_cad",
       "serial_number": "GXM-GEN-SHL-393",
-      "name": "RX-93-ν2 Hi-ν Fin Funnel Recon Shoulder Pods",
+      "name": "RX-93-\u03bd2 Hi-\u03bd Fin Funnel Recon Shoulder Pods",
       "category": "weapon",
       "primary_hardpoint": "HP-03",
       "slot_group": "shoulder_pods",
@@ -70870,20 +70840,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -60.07,
+            -60.156,
             -4.37,
-            -14.921
+            -9.974
           ],
           "max": [
-            60.07,
-            21.083,
-            8.992
+            60.156,
+            20.891,
+            8.774
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_048_f5d985.glb",
-          "sha256_hash": "b0587b6910420f576673f59d0cda4ce796bae3e79b89ab0056c7447b17070708",
-          "file_size_bytes": 261456,
+          "sha256_hash": "177718936b91c158dfd4541be3c011909fca6a078729fe9fd070d005957c4cb4",
+          "file_size_bytes": 229520,
           "compression": "meshopt"
         }
       },
@@ -70900,26 +70870,22 @@
       "llm_cad_blueprint": {
         "concept_slug": "hi_nu_fin_funnel_recon_pauldrons",
         "base_archetype": "spiked_assault_ram_pauldrons",
-        "addon_module": "forward_sensor_pod+rear_surge_vernier",
+        "addon_module": "forward_sensor_pod",
         "color_scheme": "wing_zero_pearl",
         "proportion_profile": "heavy_fortress",
         "composition_key": "spiked_assault_ram_pauldrons+forward_sensor_pod+rear_surge_vernier+wing_zero_pearl+g_49d715",
-        "addon_modules": [
-          "forward_sensor_pod",
-          "rear_surge_vernier"
-        ],
         "graft_seed": "49d715"
       },
       "reference_sources": [
         {
-          "title": "RX-93-ν2 Hi-ν Gundam",
+          "title": "RX-93-\u03bd2 Hi-\u03bd Gundam",
           "url": "https://gundam.fandom.com/wiki/RX-93-%CE%BD2_Hi-%CE%BD_Gundam",
           "source": "Gundam Wiki",
-          "summary": "Originally developed in the Anaheim Electronics facility near Von Braun, the RX-93-ν2 Hi-ν Gundam's basic design was an update of past Gundam Type mobile suits, returning to the basics of Federation-made mobile suits and going against the trend of larger and more complex mobile suit designs at the time. Its most notable feature was a set of six all-range weapons mounted on its back, known as \"Fin Funnels\", which were capable of both attack and defense. This made it the first full spec Newtype-use Gundam type mobile"
+          "summary": "Originally developed in the Anaheim Electronics facility near Von Braun, the RX-93-\u03bd2 Hi-\u03bd Gundam's basic design was an update of past Gundam Type mobile suits, returning to the basics of Federation-made mobile suits and going against the trend of larger and more complex mobile suit designs at the time. Its most notable feature was a set of six all-range weapons mounted on its back, known as \"Fin Funnels\", which were capable of both attack and defense. This made it the first full spec Newtype-use Gundam type mobile"
         }
       ],
       "geometry_fingerprint": {
-        "name": "RX-93-ν2 Hi-ν Fin Funnel Recon Shoulder Pods",
+        "name": "RX-93-\u03bd2 Hi-\u03bd Fin Funnel Recon Shoulder Pods",
         "concept_slug": "hi_nu_fin_funnel_recon_pauldrons",
         "concept_tokens": [
           "fin",
@@ -70950,5 +70916,5 @@
       }
     }
   ],
-  "last_synthesized_utc": "2026-11-23T19:29:54Z"
+  "last_synthesized_utc": "2026-11-23T22:26:18Z"
 }
