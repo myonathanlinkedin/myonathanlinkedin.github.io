@@ -4571,6 +4571,7 @@
         nativeRightWeaponMeshes: [],
         nativeLeftHoldMeshes: [],
         nativeBackpackMeshes: [],
+        nativeLowerPropellantMeshes: [],
         backpackSaberHilts: { r: null, l: null }
       };
       state.monoEyeNodes = [];
@@ -4631,6 +4632,15 @@
           (n.includes('sazabi_thruster_') && !n.includes('shoulder'))
         ) {
           rig.nativeBackpackMeshes.push(mesh);
+        }
+        // Lower dorsal propellant tanks & rocket cones that hang down into the rear-waist envelope:
+        // automatically hidden when EITHER dorsal_pack OR waist_ordnance is equipped so Sazabi's stock
+        // rear rocket tanks/cones never overlap with waist_ordnance pods or dorsal packs!
+        if (
+          n.includes('sazabi_tank_') ||
+          (n.includes('sazabi_thruster_') && !n.includes('shoulder'))
+        ) {
+          rig.nativeLowerPropellantMeshes.push(mesh);
         }
         if (n.includes('backpack_saber_hilt_r')) {
           rig.backpackSaberHilts.r = mesh;
@@ -5705,6 +5715,10 @@
       if (entry.slotGroup === 'dorsal_pack' && state.kinematicRig?.nativeBackpackMeshes) {
         state.kinematicRig.nativeBackpackMeshes.forEach(m => { m.visible = true; });
       }
+      if (entry.slotGroup === 'waist_ordnance' && state.kinematicRig?.nativeLowerPropellantMeshes) {
+        const hasDorsal = !!(state.slotOccupancy.dorsal_pack && state.equippedPacks.has(state.slotOccupancy.dorsal_pack));
+        state.kinematicRig.nativeLowerPropellantMeshes.forEach(m => { m.visible = !hasDorsal; });
+      }
       state.chassisParts = state.chassisParts.filter(n => n.parent !== null);
       state.equippedPacks.delete(partId);
       if (state.slotOccupancy[entry.slotGroup] === partId) {
@@ -5806,6 +5820,11 @@
         // Detach/hide stock Mobile Suit backpack so custom Striker/mission pack docks cleanly onto torso backplate!
         if (state.kinematicRig?.nativeBackpackMeshes) {
           state.kinematicRig.nativeBackpackMeshes.forEach(m => { m.visible = false; });
+        }
+      } else if (slotGroup === 'waist_ordnance') {
+        // Hide hanging lower propellant tanks/thrusters on Sazabi so they never overlap with waist_ordnance pods!
+        if (state.kinematicRig?.nativeLowerPropellantMeshes) {
+          state.kinematicRig.nativeLowerPropellantMeshes.forEach(m => { m.visible = false; });
         }
       }
 
@@ -6033,8 +6052,12 @@
         state.kinematicRig.nativeRightWeaponMeshes.forEach(m => { m.visible = !hasAuxWeapon; });
       }
       const hasDorsalPack = !!state.slotOccupancy.dorsal_pack && state.equippedPacks.has(state.slotOccupancy.dorsal_pack);
+      const hasWaistOrdnance = !!state.slotOccupancy.waist_ordnance && state.equippedPacks.has(state.slotOccupancy.waist_ordnance);
       if (state.kinematicRig?.nativeBackpackMeshes) {
         state.kinematicRig.nativeBackpackMeshes.forEach(m => { m.visible = !hasDorsalPack; });
+      }
+      if (state.kinematicRig?.nativeLowerPropellantMeshes) {
+        state.kinematicRig.nativeLowerPropellantMeshes.forEach(m => { m.visible = !hasDorsalPack && !hasWaistOrdnance; });
       }
       const auxWeaponEntry = hasAuxWeapon ? state.equippedPacks.get(state.slotOccupancy.aux_weapon) : null;
       const isMeleeHeld = !!(auxWeaponEntry && resolveWeaponGripType(auxWeaponEntry.part) === 'melee_hilt_grip');
