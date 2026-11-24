@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
   "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
-  "last_synced": "2026-11-24T15:02:03.644227+00:00",
+  "last_synced": "2026-11-24T17:01:52.596521+00:00",
   "baselines": [
     {
       "id": "baseline_gundam_frame_v1",
@@ -90,7 +90,7 @@
       ]
     }
   ],
-  "last_synthesized_utc": "2026-11-24T15:02:03Z",
+  "last_synthesized_utc": "2026-11-24T17:01:52Z",
   "manifest_tier": "public_cdn_sanitized",
   "modular_parts": [
     {
@@ -58691,6 +58691,1241 @@
         ],
         "topology_hash": "8b26ca888fa165db",
         "composition_key": "six_cell_grenade_rack_skirts+forward_rail_prongs+outer_aero_skirt_fin+sazabi_verka+g_33daeb"
+      }
+    },
+    {
+      "part_id": "llm_gen_leg_thrusters_058_6c8d6f",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-LEG-475",
+      "name": "Zaku II High‑Mobility Calf Thruster Kit",
+      "category": "propulsion",
+      "primary_hardpoint": "HP-24",
+      "slot_group": "leg_thrusters",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP24-CALF",
+      "entropy_seed": "619b042af3eb5d31bb35676946bfab499c56b8c86c6bf87831a749ee4258ebfd",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 950,
+        "thrust_kgf": 12000,
+        "reactor_draw_kw": 850
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-24",
+        "HP-26"
+      ],
+      "structural_specs": {
+        "mass_kg": 950,
+        "bom_computed_mass_kg": 950,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-24",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -41.0,
+            -16.395,
+            -11.591
+          ],
+          "max": [
+            41.0,
+            15.224,
+            8.691
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_leg_thrusters_058_6c8d6f.glb",
+          "sha256_hash": "20dd37c0b740411d5762ad7c51181d58304c8d775897e873eecf7daa5fe25a20",
+          "file_size_bytes": 356440,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides rapid burst thrust and on‑leg propellant cartridges for sustained high‑mobility maneuvers while reducing refill time.",
+        "reactor_power_draw_kw": 850,
+        "vernier_thrust_kgf": 12000
+      },
+      "reference_sources": [
+        {
+          "title": "MS-06R-1A Zaku II High Mobility Type",
+          "url": "https://gundam.fandom.com/wiki/MS-06R-1A_Zaku_II_High_Mobility_Type",
+          "source": "Gundam Wiki",
+          "summary": "After the successful release of the MS-06R-1 Zaku II High Mobility Test Type the Zeon engineers began to receive feedback from the pilots on ways the mobile suit's design could be improved. The biggest difference from the R-1 is that the fuel tanks on the back and legs have been modified into cartridges to solve the problem of propellant consumption. In particular, those of the legs are changed into cylindrical cartridges. This not only simplifies replenishment in the mother ship, but also allows for replenishment "
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "Zaku II High‑Mobility Calf Thruster Kit",
+        "concept_slug": "zaku_ii_hm_cylindrical_thruster_kit",
+        "concept_tokens": [
+          "cylindrical",
+          "mobility",
+          "thruster",
+          "zaku"
+        ],
+        "component_count": 12,
+        "primitive_types": 6,
+        "primitive_counts": {
+          "sculpted_pod": 1,
+          "box": 4,
+          "cylinder": 3,
+          "recessed_vent_grille": 1,
+          "servo_drum": 1,
+          "vernier": 2
+        },
+        "aabb_size_mm": [
+          82.0,
+          31.6,
+          20.3
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.386,
+          0.247
+        ],
+        "topology_hash": "8204face6faf7d3b",
+        "composition_key": "heavy_gouf_flare_thruster_greaves+forward_knee_spike+outer_aero_stabilizer+kampfer_midnight+g_4119fe"
+      }
+    },
+    {
+      "part_id": "llm_gen_aux_weapon_058_1a9b97",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-WPN-476",
+      "name": "RX-78-02 Auxiliary Twin Beam Scattergun Kit",
+      "category": "weapon",
+      "primary_hardpoint": "HP-11",
+      "slot_group": "aux_weapon",
+      "weapon_grip_type": "firearm_pistol_grip",
+      "adapter_id": "ADP-HP11-WEAPON",
+      "entropy_seed": "dcf7bf1abcba74cff3468dbeab1048d981ebc0e2ff6c47a80f415cf677cd073a",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 850,
+        "thrust_kgf": 0,
+        "reactor_draw_kw": 320
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-11",
+        "HP-12"
+      ],
+      "structural_specs": {
+        "mass_kg": 850,
+        "bom_computed_mass_kg": 850,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-11",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -4.621,
+            -5.015,
+            -1.2
+          ],
+          "max": [
+            4.621,
+            12.791,
+            43.22
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_aux_weapon_058_1a9b97.glb",
+          "sha256_hash": "41557021930be17fe28c6e9742deed0234fbba00b9f19b087859ffe46c38ddda",
+          "file_size_bytes": 98328,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides high‑rate, short‑range beam firepower for close‑quarters engagements, supplementing the Gundam’s shoulder magnums and enabling rapid suppression of enemy mobile suits.",
+        "reactor_power_draw_kw": 320,
+        "vernier_thrust_kgf": 0
+      },
+      "reference_sources": [
+        {
+          "title": "RX-78-02 Gundam",
+          "url": "https://gundam.fandom.com/wiki/RX-78-02_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "Its estimate generator output was from 1000&nbsp;kW to 1400&nbsp;kW, its target output was to be at least 150% of the RCX-76 . The operation tests of the RX-78-02, a prototype MS of the Earth Federation, were carried out in secret, but civilian Amuro Ray coincidentally became its pilot when Zeon Forces assaulted Side 7. The RX-78-02 utilizes its wide array of portable weapons such as its beam rifle and hyper bazooka. It also has fixed weaponry such as two shoulder magnums on the left shoulder, a gatling gun on the "
+        },
+        {
+          "title": "Gundam (fictional robot)",
+          "url": "https://en.wikipedia.org/wiki/Gundam_(fictional_robot)",
+          "source": "Wikipedia",
+          "summary": "The RX-78-2 Gundam (Japanese: RX-78-2 ガンダム, Hepburn: Āru Ekkusu Nanajū Hachi no Ni Gandamu) is a piloted mecha introduced in 1979 in Yoshiyuki Tomino's and Sunrise's anime series Mobile Suit Gundam. In the series, it is a prototype weapon used by the Earth Federation. The mecha ends up in the hands of Amuro Ray, the son of Tem Ray, who designed the Gundam. Amuro Ray goes on to pilot the mecha for the Earth Federation"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RX-78-02 Auxiliary Twin Beam Scattergun Kit",
+        "concept_slug": "rx78_aux_twin_beam_scattergun",
+        "concept_tokens": [
+          "beam",
+          "scattergun"
+        ],
+        "component_count": 10,
+        "primitive_types": 4,
+        "primitive_counts": {
+          "sculpted_pod": 1,
+          "cylinder": 4,
+          "box": 4,
+          "machined_sensor_bezel": 1
+        },
+        "aabb_size_mm": [
+          9.2,
+          17.8,
+          44.4
+        ],
+        "aabb_ratios": [
+          0.208,
+          0.401,
+          1.0
+        ],
+        "topology_hash": "a2e815d42495410b",
+        "composition_key": "twin_beam_shotgun_scatter+extended_sniper_scope+underbarrel_grenade_launcher+federation_rx+acc_optic+g_ad918b@s1.0200"
+      }
+    },
+    {
+      "part_id": "llm_gen_aux_shield_058_8ab3bb",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-SHD-477",
+      "name": "MS-07B-3 Gouf Custom Aux Shield",
+      "category": "armor",
+      "primary_hardpoint": "HP-07",
+      "slot_group": "aux_shield",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP07-FOREARM",
+      "entropy_seed": "60a9b80e5cc6abe197e89024b78158dec6ae5790cbacc3d0e0ca2708bf543e75",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1200,
+        "thrust_kgf": 0,
+        "reactor_draw_kw": 200
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-07",
+        "HP-08"
+      ],
+      "structural_specs": {
+        "mass_kg": 1200,
+        "bom_computed_mass_kg": 1200,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-07",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -17.029,
+            -25.853,
+            -16.175
+          ],
+          "max": [
+            -1.7,
+            19.841,
+            17.318
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_aux_shield_058_8ab3bb.glb",
+          "sha256_hash": "54ece67651f71a4940abd40315d4b53944ed84e5a5c3013a6bfac7132c244c35",
+          "file_size_bytes": 173412,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides a robust forearm shield with integrated I-field emitter and missile microbay for deploying finger vulcans, enhancing close-range defense and limited-range offense.",
+        "reactor_power_draw_kw": 200,
+        "vernier_thrust_kgf": 0
+      },
+      "reference_sources": [
+        {
+          "title": "MS-07B-3 Gouf Custom",
+          "url": "https://gundam.fandom.com/wiki/MS-07B-3_Gouf_Custom",
+          "source": "Gundam Wiki",
+          "summary": "The MS-07B-3 Gouf Custom was one of the MS-07 Gouf series machines produced at the very end of the One Year War, and it was based on the MS-07B Gouf. Despite the mass-produced B-type Gouf having better mobility than the MS-06J Zaku II Ground Type it was replacing, its fixed armaments - namely the finger vulcans and heat rod - suffered from short effective combat range, limited ammunition, and low effectiveness against heavy armor. As a result, it lost the versatility that was an advantage of mobile suit. The body a"
+        },
+        {
+          "title": "List of Gundam Build Fighters characters",
+          "url": "https://en.wikipedia.org/wiki/List_of_Gundam_Build_Fighters_characters",
+          "source": "Wikipedia",
+          "summary": "This is a list of fictional characters from the Japanese anime series Gundam Build Fighters."
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "MS-07B-3 Gouf Custom Aux Shield",
+        "concept_slug": "gouf_custom_aux_shield",
+        "concept_tokens": [
+          "gouf",
+          "shield"
+        ],
+        "component_count": 15,
+        "primitive_types": 6,
+        "primitive_counts": {
+          "curved_armor_plate": 1,
+          "stepped_armor_panel": 1,
+          "machined_sensor_bezel": 1,
+          "servo_drum": 1,
+          "cylinder": 6,
+          "box": 5
+        },
+        "aabb_size_mm": [
+          15.3,
+          45.7,
+          33.5
+        ],
+        "aabb_ratios": [
+          0.335,
+          1.0,
+          0.733
+        ],
+        "topology_hash": "296c4e6924b3c25c",
+        "composition_key": "heavy_tower_bunker_shield+center_ifield_emitter+side_missile_microbay+gouf_cobalt+acc_cobalt+g_b72a44@s1.0200"
+      }
+    },
+    {
+      "part_id": "llm_gen_dorsal_pack_058_60a6b9",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-DPK-478",
+      "name": "FA-010S Full Armor ZZ Gundam Dorsal Endurance Pack",
+      "category": "propulsion",
+      "primary_hardpoint": "HP-00",
+      "slot_group": "dorsal_pack",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP00-DORSAL",
+      "entropy_seed": "d316abc3954c941df6d8839f2c4536f466b168960771725bdfac1be6438eb490",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 4200,
+        "thrust_kgf": 185000,
+        "reactor_draw_kw": 1450
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-00"
+      ],
+      "structural_specs": {
+        "mass_kg": 4200,
+        "bom_computed_mass_kg": 4200,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-00",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -30.005,
+            -14.434,
+            -21.972
+          ],
+          "max": [
+            30.005,
+            29.387,
+            8.0
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_dorsal_pack_058_60a6b9.glb",
+          "sha256_hash": "004a5fe29b0c6932505b305eed6169320412e24823a64bcf29d3ebc0ec9aedd2",
+          "file_size_bytes": 376064,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Heavy orbital endurance pack integrating anti-beam armor, extended propellant tanks, and thruster manifolds for sustained high-firepower engagement.",
+        "reactor_power_draw_kw": 1450,
+        "vernier_thrust_kgf": 185000
+      },
+      "reference_sources": [
+        {
+          "title": "FA-010S Full Armor ZZ Gundam",
+          "url": "https://gundam.fandom.com/wiki/FA-010S_Full_Armor_ZZ_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "﻿While it was a successful plan, the MSZ-010S Enhanced ZZ Gundam was not a permanent fix to MSZ-010 ΖΖ Gundam's structural issues. With that in mind, Anaheim Electronics constructed a Full Armor System for the Enhanced ZZ Gundam, granting it additional armor with anti-beam coating that can withstand regular beam shots for around 3 seconds. This armor also incorporated sensors, propellant tanks, thrusters, as well as weapons in the form of missiles and an extra high mega cannon for higher firepower. There is also an"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "FA-010S Full Armor ZZ Gundam Dorsal Endurance Pack",
+        "concept_slug": "fa010s_full_armor_zz_dorsal_endurance",
+        "concept_tokens": [
+          "endurance",
+          "full"
+        ],
+        "component_count": 22,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "box": 9,
+          "servo_drum": 1,
+          "cylinder": 10,
+          "fin": 1,
+          "vernier": 1
+        },
+        "aabb_size_mm": [
+          60.0,
+          43.8,
+          30.0
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.73,
+          0.499
+        ],
+        "topology_hash": "d3ae3bf97d8efb07",
+        "composition_key": "orbital_funnel_ring_halo+lower_propellant_tanks+twin_over_shoulder_cannons+tallgeese_imperial+g_2e16cb"
+      }
+    },
+    {
+      "part_id": "llm_gen_head_sensor_059_7d5e35",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-HED-479",
+      "name": "RGM-79SP GM Sniper II Head Sensor Kit",
+      "category": "modular_mission_pack",
+      "primary_hardpoint": "HP-01",
+      "slot_group": "head_sensor",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP01-CRANIAL",
+      "entropy_seed": "3dcf3ad8ab42323e8d3ab142c7a3307ef3bddd5c57f7f8eb1ab9f92b64194e2a",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 720,
+        "thrust_kgf": 12000,
+        "reactor_draw_kw": 350
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-01",
+        "HP-02"
+      ],
+      "structural_specs": {
+        "mass_kg": 720,
+        "bom_computed_mass_kg": 720,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-01",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -15.155,
+            -1.7,
+            -12.5
+          ],
+          "max": [
+            15.155,
+            25.1,
+            4.6
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_head_sensor_059_7d5e35.glb",
+          "sha256_hash": "fe2fbd2ef3dedce10de6929c98c6724dc93368c16018c3bcf906b59121398a4c",
+          "file_size_bytes": 123756,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides ultra‑long‑range targeting with compound laser sensors and integrated range‑finder ears, enhancing sniper precision while maintaining low profile.",
+        "reactor_power_draw_kw": 350,
+        "vernier_thrust_kgf": 12000
+      },
+      "reference_sources": [
+        {
+          "title": "RGM-79SP GM Sniper II",
+          "url": "https://gundam.fandom.com/wiki/RGM-79SP_GM_Sniper_II",
+          "source": "Gundam Wiki",
+          "summary": "Based on the RGM-79G GM Command series and the concept of the RGM-79SC GM Sniper Custom, the RGM-79SP GM Sniper II is a high-performance machine capable of using specialized weaponry at maximum capacity for ultra-long range engagements. It was the last and most advanced of the Federation's line of GM Sniper mobile suits during the One Year War. It was also one of the last GM-type units to be developed during the war. The GM Sniper II's specialized head visor has built-in compound sensors with specialized laser sens"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RGM-79SP GM Sniper II Head Sensor Kit",
+        "concept_slug": "gm_sniper_ii_head_optics",
+        "concept_tokens": [
+          "optics",
+          "rgm",
+          "sensor",
+          "sniper"
+        ],
+        "component_count": 9,
+        "primitive_types": 3,
+        "primitive_counts": {
+          "box": 5,
+          "fin": 2,
+          "cylinder": 2
+        },
+        "aabb_size_mm": [
+          30.3,
+          26.8,
+          17.1
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.884,
+          0.564
+        ],
+        "topology_hash": "313b1a1357ddd1c4",
+        "composition_key": "zeon_commander_mohawk_crest+dual_temple_vulcans+twin_vfin_antennae+unicorn_awakened_gn+g_2b1e8a"
+      }
+    },
+    {
+      "part_id": "llm_gen_chest_armor_059_db579d",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-CHS-480",
+      "name": "FA-78-1 Full Armor Chest Plastron",
+      "category": "armor",
+      "primary_hardpoint": "HP-09",
+      "slot_group": "chest_armor",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP09-PECTORAL",
+      "entropy_seed": "b661940d3cb601c52606f88df4409a07659863316ec9641ee38122c08516c04f",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 3000,
+        "thrust_kgf": 50000,
+        "reactor_draw_kw": 1200
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-09",
+        "HP-10"
+      ],
+      "structural_specs": {
+        "mass_kg": 3000,
+        "bom_computed_mass_kg": 3000,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-09",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -17.575,
+            -4.308,
+            0.2
+          ],
+          "max": [
+            17.575,
+            8.711,
+            11.402
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_chest_armor_059_db579d.glb",
+          "sha256_hash": "93b4e15837b514b75220458fc69fe7b05d4741be5f9b299226e3f2539dca5d24",
+          "file_size_bytes": 211652,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides reinforced reactive armor and integrated mega emitter for enhanced frontal defense and energy weapon support, optimized for Newtype pilots.",
+        "reactor_power_draw_kw": 1200,
+        "vernier_thrust_kgf": 50000
+      },
+      "reference_sources": [
+        {
+          "title": "FA-78-1 Full Armor Gundam",
+          "url": "https://gundam.fandom.com/wiki/FA-78-1_Full_Armor_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "The FA-78-1 Full Armor Gundam was the RX-78-2 Gundam equipped with a set of optional armor, weapons, and auxiliary propulsion systems designed as part of the FSWS Plan, an enhancement plan for the RX-78 Gundam series. The plan was intended to improve the performance of RX-78 type units for use by Newtype pilots. The FA-78-1 equipment was planned to be equipped by the Gundam after it had undergone Magnet Coating treatment. This equipment was fully modular and could be easily equipped or removed. The optional armor t"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "FA-78-1 Full Armor Chest Plastron",
+        "concept_slug": "fa78_1_full_armor_chest",
+        "concept_tokens": [
+          "full",
+          "plastron"
+        ],
+        "component_count": 9,
+        "primitive_types": 4,
+        "primitive_counts": {
+          "sculpted_pod": 1,
+          "box": 5,
+          "servo_drum": 1,
+          "cylinder": 2
+        },
+        "aabb_size_mm": [
+          35.1,
+          13.0,
+          11.2
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.37,
+          0.319
+        ],
+        "topology_hash": "06553001fa8dc299",
+        "composition_key": "full_armor_chobham_era_plastron+center_mega_emitter+twin_pectoral_vents+full_armor_tactical+acc_titanium+g_ceb39b@s1.0000"
+      }
+    },
+    {
+      "part_id": "llm_gen_shoulder_pods_059_3b2bbb",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-SHL-481",
+      "name": "YMS-15 Gyan Razor Shield Shoulder Pods",
+      "category": "weapon",
+      "primary_hardpoint": "HP-03",
+      "slot_group": "shoulder_pods",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP03-SHOULDER",
+      "entropy_seed": "b8c4c286e50a4af876990058a9ccecfa24edec70697c5812401989ea942bab36",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 950,
+        "thrust_kgf": 0,
+        "reactor_draw_kw": 300
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-03",
+        "HP-05"
+      ],
+      "structural_specs": {
+        "mass_kg": 950,
+        "bom_computed_mass_kg": 950,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-03",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -55.889,
+            -4.038,
+            -14.143
+          ],
+          "max": [
+            55.889,
+            20.343,
+            9.864
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_shoulder_pods_059_3b2bbb.glb",
+          "sha256_hash": "6c4e604c315e91306a8067e55f3bb12a1e0892f31ea9c4de49df016d4a0153b4",
+          "file_size_bytes": 314952,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides rapid melee engagement with a reinforced beam‑saber shield and integrated needle‑missile rack for burst close‑range offense and defensive mine deployment.",
+        "reactor_power_draw_kw": 300,
+        "vernier_thrust_kgf": 0
+      },
+      "reference_sources": [
+        {
+          "title": "YMS-15 Gyan",
+          "url": "https://gundam.fandom.com/wiki/YMS-15_Gyan",
+          "source": "Gundam Wiki",
+          "summary": "The YMS-15 Gyan was developed by Zimmad in the late stages of the One Year War for the Principality of Zeon's second phase mainstay mobile suit development project as a rival to the MS-14 Gelgoog. Gyan was a high-performance MS that emphasized close-combat. Therefore, its armaments were very innovative and simple, consisting of only a custom beam saber and a weapon rack shield with built-in space mines and needle missiles that can be used for both defense and offense. This is because it was designed based on the ta"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "YMS-15 Gyan Razor Shield Shoulder Pods",
+        "concept_slug": "gyan_razor_shield_pods",
+        "concept_tokens": [
+          "gyan",
+          "pods",
+          "razor",
+          "shield",
+          "yms"
+        ],
+        "component_count": 12,
+        "primitive_types": 4,
+        "primitive_counts": {
+          "fin": 2,
+          "box": 5,
+          "cylinder": 4,
+          "vernier": 1
+        },
+        "aabb_size_mm": [
+          111.8,
+          24.4,
+          24.0
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.218,
+          0.215
+        ],
+        "topology_hash": "b911d5581871431a",
+        "composition_key": "spiked_assault_ram_pauldrons+forward_sensor_pod+rear_surge_vernier+banshee_obsidian+g_a0f772"
+      }
+    },
+    {
+      "part_id": "llm_gen_waist_ordnance_059_7bade9",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-WST-482",
+      "name": "GAT-X105 Strike Gundam Aile-Mode Waist Ambac Cluster",
+      "category": "armor",
+      "primary_hardpoint": "HP-13",
+      "slot_group": "waist_ordnance",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP13-WAIST",
+      "entropy_seed": "67bb8855aca413f69060e95caa45437a74dc9681ddbe669177740c3022ebfa58",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 850,
+        "thrust_kgf": 45000,
+        "reactor_draw_kw": 420
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-13",
+        "HP-17"
+      ],
+      "structural_specs": {
+        "mass_kg": 850,
+        "bom_computed_mass_kg": 850,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-13",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -33.185,
+            -11.114,
+            -30.857
+          ],
+          "max": [
+            33.185,
+            4.179,
+            -8.512
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_waist_ordnance_059_7bade9.glb",
+          "sha256_hash": "8eae0914f9c3945846d2814c647c0bbca176a14938457686a91631a0a17f504c",
+          "file_size_bytes": 295728,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "High-mobility waist assembly integrating propellant cells and ambac verniers to support Aile Strike's agile aerial maneuvering and extended operation time.",
+        "reactor_power_draw_kw": 420,
+        "vernier_thrust_kgf": 45000
+      },
+      "reference_sources": [
+        {
+          "title": "GAT-X105 Strike Gundam",
+          "url": "https://gundam.fandom.com/wiki/GAT-X105_Strike_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "The GAT-X105 Strike Gundam is the most versatile of the five Gundams in the Earth Alliance's G Project and can be easily configured for various types of combat. Using its Striker Packs, it can be outfitted for high mobility combat (Aile Strike), long-range assault (Launcher Strike), or melee combat (Sword Strike). In addition, the Striker packs are also equipped with backup batteries that can extend the Strike's operation time. Built on the X100 series frame first adopted by the GAT-X102 Duel Gundam, the Strike als"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "GAT-X105 Strike Gundam Aile-Mode Waist Ambac Cluster",
+        "concept_slug": "strike_aile_waist_ambac_cluster",
+        "concept_tokens": [
+          "aile",
+          "ambac",
+          "cluster",
+          "gat",
+          "mode",
+          "strike"
+        ],
+        "component_count": 10,
+        "primitive_types": 4,
+        "primitive_counts": {
+          "box": 4,
+          "cylinder": 3,
+          "revolved": 1,
+          "vernier": 2
+        },
+        "aabb_size_mm": [
+          66.4,
+          15.3,
+          22.3
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.23,
+          0.337
+        ],
+        "topology_hash": "642ffc926ff1bbb7",
+        "composition_key": "side_skirt_propellant_pods+forward_rail_prongs+outer_aero_skirt_fin+wing_zero_pearl+g_9c9853"
+      }
+    },
+    {
+      "part_id": "llm_gen_leg_thrusters_059_8893b5",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-LEG-483",
+      "name": "AMX-004 Qubeley Aero Leg Thruster Kit",
+      "category": "propulsion",
+      "primary_hardpoint": "HP-24",
+      "slot_group": "leg_thrusters",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP24-CALF",
+      "entropy_seed": "8d37ac7d1405c7855bb150859e6b4fb5e4b7078cf6b1ac28bed3a51e8dfbea14",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 950,
+        "thrust_kgf": 12000,
+        "reactor_draw_kw": 850
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-24",
+        "HP-26"
+      ],
+      "structural_specs": {
+        "mass_kg": 950,
+        "bom_computed_mass_kg": 950,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-24",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -41.22,
+            -16.137,
+            -11.07
+          ],
+          "max": [
+            41.22,
+            10.754,
+            8.095
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_leg_thrusters_059_8893b5.glb",
+          "sha256_hash": "34d95b07b558d8886b5f033e47c4ec5270f277c4f509f5ea40df7c4c867f94ec",
+          "file_size_bytes": 287828,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides high‑speed atmospheric maneuverability and AMBAC‑enhanced balance for Newtype pilots, delivering rapid vector thrust and precise ankle control.",
+        "reactor_power_draw_kw": 850,
+        "vernier_thrust_kgf": 12000
+      },
+      "reference_sources": [
+        {
+          "title": "AMX-004 Qubeley",
+          "url": "https://gundam.fandom.com/wiki/AMX-004_Qubeley",
+          "source": "Gundam Wiki",
+          "summary": "The AMX-004 Qubeley is a next generation mobile suit designed for Newtypes that features numerous technological innovations which allow it to fight on par with other advanced mobile suits that appeared during the Gryps Conflict and the First Neo Zeon War. Developed from the data gathered from the MS-09R4 Schnee Weiss and the AMX-001 Prototype Qubeley, the Qubeley featured four independently movable shoulder binders, two binders per shoulder, to assist in AMBAC (Active Mass Balance Auto Control), granting phenomenal"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "AMX-004 Qubeley Aero Leg Thruster Kit",
+        "concept_slug": "qubeley_aero_leg_thruster_kit",
+        "concept_tokens": [
+          "aero",
+          "amx",
+          "qubeley",
+          "thruster"
+        ],
+        "component_count": 10,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "sculpted_pod": 1,
+          "box": 4,
+          "cylinder": 2,
+          "fin": 1,
+          "vernier": 2
+        },
+        "aabb_size_mm": [
+          82.4,
+          26.9,
+          19.2
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.326,
+          0.232
+        ],
+        "topology_hash": "a0d0473e733a01a7",
+        "composition_key": "aero_fin_interceptor_greaves+forward_knee_spike+upper_calf_fuel_cell+hyaku_shiki_gold+g_1e82e9"
+      }
+    },
+    {
+      "part_id": "llm_gen_aux_weapon_059_cf9684",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-WPN-484",
+      "name": "RX-78-02 Auxiliary Battleaxe Tomahawk Kit",
+      "category": "weapon",
+      "primary_hardpoint": "HP-11",
+      "slot_group": "aux_weapon",
+      "weapon_grip_type": "melee_hilt_grip",
+      "adapter_id": "ADP-HP11-WEAPON",
+      "entropy_seed": "5ab82b462fffd67a01a929002f89c61019c5dfe5e534edaed0a2c201947a7a5a",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 2000,
+        "thrust_kgf": 50000,
+        "reactor_draw_kw": 1200
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-11",
+        "HP-12"
+      ],
+      "structural_specs": {
+        "mass_kg": 2000,
+        "bom_computed_mass_kg": 2000,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-11",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -4.728,
+            -30.005,
+            -27.851
+          ],
+          "max": [
+            9.731,
+            55.986,
+            60.667
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_aux_weapon_059_cf9684.glb",
+          "sha256_hash": "afbc7a2ec40e3fce7a05b4f95edb37dfc19c17f09364f1d2ad90815eda2e47cb",
+          "file_size_bytes": 106476,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "A close‑quarters plasma battleaxe with a counter‑weight spike, delivering high‑damage strikes and breaching fortified positions while maintaining mobility.",
+        "reactor_power_draw_kw": 1200,
+        "vernier_thrust_kgf": 50000
+      },
+      "reference_sources": [
+        {
+          "title": "RX-78-02 Gundam",
+          "url": "https://gundam.fandom.com/wiki/RX-78-02_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "Its estimate generator output was from 1000&nbsp;kW to 1400&nbsp;kW, its target output was to be at least 150% of the RCX-76 . The operation tests of the RX-78-02, a prototype MS of the Earth Federation, were carried out in secret, but civilian Amuro Ray coincidentally became its pilot when Zeon Forces assaulted Side 7. The RX-78-02 utilizes its wide array of portable weapons such as its beam rifle and hyper bazooka. It also has fixed weaponry such as two shoulder magnums on the left shoulder, a gatling gun on the "
+        },
+        {
+          "title": "Gundam (fictional robot)",
+          "url": "https://en.wikipedia.org/wiki/Gundam_(fictional_robot)",
+          "source": "Wikipedia",
+          "summary": "The RX-78-2 Gundam (Japanese: RX-78-2 ガンダム, Hepburn: Āru Ekkusu Nanajū Hachi no Ni Gandamu) is a piloted mecha introduced in 1979 in Yoshiyuki Tomino's and Sunrise's anime series Mobile Suit Gundam. In the series, it is a prototype weapon used by the Earth Federation. The mecha ends up in the hands of Amuro Ray, the son of Tem Ray, who designed the Gundam. Amuro Ray goes on to pilot the mecha for the Earth Federation"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RX-78-02 Auxiliary Battleaxe Tomahawk Kit",
+        "concept_slug": "rx78_02_aux_battleaxe_tomahawk",
+        "concept_tokens": [
+          "battleaxe",
+          "tomahawk"
+        ],
+        "component_count": 8,
+        "primitive_types": 4,
+        "primitive_counts": {
+          "cylinder": 3,
+          "servo_drum": 1,
+          "box": 2,
+          "beam_blade": 2
+        },
+        "aabb_size_mm": [
+          14.5,
+          86.0,
+          88.5
+        ],
+        "aabb_ratios": [
+          0.163,
+          0.971,
+          1.0
+        ],
+        "topology_hash": "6565864b456c0dc0",
+        "composition_key": "double_beam_glaive_twinblade+none+kampfer_midnight+g_e2a409"
       }
     }
   ]
