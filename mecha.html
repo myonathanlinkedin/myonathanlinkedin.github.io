@@ -5205,19 +5205,19 @@
       tactical_white: [3, 1]
     };
 
-    function createAtlasDecalGeometry(cellKey, width, height) {
+    function createAtlasDecalGeometry(cellKey, width, height, segsX = 6, segsY = 6) {
       const [col, row] = DECAL_CELLS[cellKey] || [0, 0];
-      const geo = new THREE.PlaneGeometry(width, height);
+      const geo = new THREE.PlaneGeometry(width, height, segsX, segsY);
       const u0 = col * 0.25 + 0.008;
       const u1 = (col + 1) * 0.25 - 0.008;
       const v1 = 1.0 - row * 0.5 - 0.01;
       const v0 = 1.0 - (row + 1) * 0.5 + 0.01;
       const uv = geo.attributes.uv;
-      // PlaneGeometry UV order: (0,1), (1,1), (0,0), (1,0)
-      uv.setXY(0, u0, v1);
-      uv.setXY(1, u1, v1);
-      uv.setXY(2, u0, v0);
-      uv.setXY(3, u1, v0);
+      for (let i = 0; i < uv.count; i++) {
+        const u = u0 + uv.getX(i) * (u1 - u0);
+        const v = v0 + uv.getY(i) * (v1 - v0);
+        uv.setXY(i, u, v);
+      }
       uv.needsUpdate = true;
       return geo;
     }
@@ -5277,8 +5277,8 @@
           // Chest: Zeon Crest on Left (+X), MS-07B stencil on Right (-X)
           { bone: rig.torso, cell: 'zeon_crest', origin: [14.0, 143.0, 40.0], dir: [0, 0, -1], w: 9.4, h: 11.4, nameTag: 'decal_chest_zeon' },
           { bone: rig.torso, cell: 'ms07b', origin: [-14.0, 142.0, 40.0], dir: [0, 0, -1], w: 11.0, h: 9.2, nameTag: 'decal_chest_ms07b' },
-          // Curved Knight Shield (+X, Rig_Forearm_L): prominent Zeon Heraldic Crest!
-          { bone: rig.forearmL, cell: 'zeon_crest', origin: [74.0, 102.0, 12.0], dir: [-1, 0, -0.18], w: 16.0, h: 19.5, nameTag: 'decal_shield_zeon' },
+          // Curved Knight Shield (+X, Rig_Forearm_L): prominent Zeon Heraldic Crest conforming to 24-deg curve!
+          { bone: rig.forearmL, cell: 'zeon_crest', origin: [81.6, 104.5, 13.5], dir: [-0.9418, -0.3090, -0.1324], w: 15.0, h: 18.2, nameTag: 'decal_shield_zeon' },
           // Lower Calves: white tactical triangles (matching Image 3!)
           { bone: rig.shinR, cell: 'tactical_white', origin: [-19.5, 25.0, 38.0], dir: [0, 0, -1], w: 7.4, h: 8.4, nameTag: 'decal_calf_r' },
           { bone: rig.shinL, cell: 'tactical_white', origin: [19.5, 25.0, 38.0], dir: [0, 0, -1], w: 7.4, h: 8.4, nameTag: 'decal_calf_l' }
@@ -5288,8 +5288,8 @@
           // Chest: Neo-Zeon Commander Sigil (Left +X) + MSN-04S stencil (Right -X)
           { bone: rig.torso, cell: 'neo_zeon', origin: [15.5, 143.0, 42.0], dir: [0, 0, -1], w: 10.2, h: 12.4, nameTag: 'decal_chest_neozeon' },
           { bone: rig.torso, cell: 'msn04s', origin: [-15.5, 142.0, 42.0], dir: [0, 0, -1], w: 11.5, h: 9.2, nameTag: 'decal_chest_msn04s' },
-          // Left Curved Commander Shield (+X, Rig_Forearm_L): iconic large Neo-Zeon Crest!
-          { bone: rig.forearmL, cell: 'neo_zeon', origin: [86.0, 91.5, 15.5], dir: [-1, 0, -0.18], w: 16.5, h: 20.0, nameTag: 'decal_shield_neozeon' },
+          // Left Curved Commander Shield (+X, Rig_Forearm_L): seated strictly INSIDE curved gold crest adapter bezel!
+          { bone: rig.forearmL, cell: 'neo_zeon', origin: [86.4, 101.1, 14.6], dir: [-0.9418, -0.3090, -0.1324], w: 12.0, h: 14.8, nameTag: 'decal_shield_neozeon' },
           // Bell-Bottom Calves & Front Skirt: white tactical markings (matching Image 3!)
           { bone: rig.shinR, cell: 'tactical_white', origin: [-21.0, 26.0, 44.0], dir: [0, 0, -1], w: 8.0, h: 9.0, nameTag: 'decal_calf_r' },
           { bone: rig.shinL, cell: 'tactical_white', origin: [21.0, 26.0, 44.0], dir: [0, 0, -1], w: 8.0, h: 9.0, nameTag: 'decal_calf_l' },
@@ -5337,22 +5337,73 @@
         const basisWorld = new THREE.Matrix4().makeBasis(rightAxis, trueUp, worldNrm);
         qTarget.setFromRotationMatrix(basisWorld);
 
-        // Convert hit position (lifted +0.35 mm along outward normal) and orientation into ds.bone's local space!
-        const worldPos = hit.point.clone().addScaledVector(worldNrm, 0.35);
+        // Convert hit position (lifted +0.16 mm along outward normal) and orientation into ds.bone's local space,
+        // then conform EVERY vertex of the 6x6 subdivided decal grid directly onto the curved 3D armor mesh (ZERO peeling!)
+        const boneWorldScale = new THREE.Vector3();
+        ds.bone.getWorldScale(boneWorldScale);
+        const unitScale = Math.max(0.001, boneWorldScale.x);
+        const liftDist = 0.16 * unitScale;
+        const probeOffset = 8.0 * unitScale;
+        const maxConformDelta = 3.2 * unitScale;
+
+        const worldPos = hit.point.clone().addScaledVector(worldNrm, liftDist);
         invBoneMat.copy(ds.bone.matrixWorld).invert();
         const localPos = worldPos.clone().applyMatrix4(invBoneMat);
         const boneWorldQuat = new THREE.Quaternion();
         ds.bone.getWorldQuaternion(boneWorldQuat);
         const localQuat = boneWorldQuat.invert().multiply(qTarget);
 
-        const dMesh = new THREE.Mesh(createAtlasDecalGeometry(ds.cell, ds.w, ds.h), decalMat);
+        const dGeo = createAtlasDecalGeometry(ds.cell, ds.w, ds.h, 6, 6);
+        const invDecalWorldMat = new THREE.Matrix4().compose(worldPos, qTarget, boneWorldScale).invert();
+        const posAttr = dGeo.attributes.position;
+        const probeDir = worldNrm.clone().negate();
+        const probeStart = new THREE.Vector3();
+        const snappedWorld = new THREE.Vector3();
+        const snappedLocal = new THREE.Vector3();
+        const vNrm = new THREE.Vector3();
+        const vNrmMat = new THREE.Matrix3();
+        const preferredTarget = [hit.object];
+
+        for (let vi = 0; vi < posAttr.count; vi++) {
+          const lx = posAttr.getX(vi) * unitScale;
+          const ly = posAttr.getY(vi) * unitScale;
+          probeStart.copy(hit.point)
+            .addScaledVector(rightAxis, lx)
+            .addScaledVector(trueUp, ly)
+            .addScaledVector(worldNrm, probeOffset);
+          raycaster.set(probeStart, probeDir);
+          let vHits = raycaster.intersectObjects(preferredTarget, false);
+          if (!vHits || vHits.length === 0 || Math.abs(vHits[0].distance - probeOffset) > maxConformDelta) {
+            vHits = raycaster.intersectObjects(targets, false);
+          }
+          if (vHits && vHits.length > 0 && vHits[0].face && Math.abs(vHits[0].distance - probeOffset) <= maxConformDelta) {
+            const vh = vHits[0];
+            vNrmMat.getNormalMatrix(vh.object.matrixWorld);
+            vNrm.copy(vh.face.normal).applyMatrix3(vNrmMat).normalize();
+            if (vNrm.dot(probeDir) > 0) vNrm.negate();
+            snappedWorld.copy(vh.point).addScaledVector(vNrm, liftDist);
+            snappedLocal.copy(snappedWorld).applyMatrix4(invDecalWorldMat);
+            posAttr.setXYZ(vi, snappedLocal.x, snappedLocal.y, snappedLocal.z);
+          }
+        }
+        posAttr.needsUpdate = true;
+        dGeo.computeVertexNormals();
+        dGeo.computeBoundingSphere();
+
+        const dMesh = new THREE.Mesh(dGeo, decalMat);
         dMesh.name = ds.nameTag;
         dMesh.position.copy(localPos);
         dMesh.quaternion.copy(localQuat);
         dMesh.userData.isDecal = true;
         dMesh.userData.initialPosition = localPos.clone();
+        const hitBaseMeta = hit.object.userData.explodeMeta || classifyExplodeRole(
+          hit.object.name,
+          (hit.object.userData.rootGeomCenter || hit.object.userData.geomCenter || new THREE.Vector3()).x
+        );
+        dMesh.userData.explodeMeta = { ...hitBaseMeta, drawTrail: false };
         dMesh.renderOrder = 2;
         ds.bone.add(dMesh);
+        state.chassisParts.push(dMesh);
         // Bind shield decals to their parent detachable shield group so decals never float when shields detach!
         if (unitId === 'enemy_zaku' && ds.nameTag === 'decal_shield_zeon') {
           rig.nativeShoulderShieldMeshes.push(dMesh);
