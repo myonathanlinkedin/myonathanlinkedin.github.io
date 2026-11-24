@@ -5139,11 +5139,11 @@
       };
 
       // Attach dedicated bilateral limb containers onto armR/armL and shinR/shinL so shoulder & leg pods articulate independently with each limb!
-      // Calibrated to exact measured outer pauldron X (RX-78=40.6, Zaku R=39.5/L=46.6, Gouf=48.1, Sazabi=50.3) & outer calf X (RX-78=29.8, Zaku=33.0, Gouf=33.8, Sazabi=38.9)!
-      const shOutR = isSazabi ? 9.6 : (isGouf ? 7.4 : (isZaku ? 0.0 : 0.0));
-      const shOutL = isSazabi ? 9.6 : (isGouf ? 7.4 : (isZaku ? 5.8 : 0.0));
-      const shYR = isSazabi ? 152.5 : (isGouf ? 151.0 : (isZaku ? 146.5 : 148.0));
-      const shYL = isSazabi ? 152.5 : (isGouf ? 151.0 : (isZaku ? 150.5 : 148.0));
+      // Calibrated to exact measured outer pauldron X at clamp height (RX-78=40.6, Zaku R=39.5/L=45.8, Gouf=46.2, Sazabi=49.0) & outer calf X (RX-78=29.8, Zaku=33.0, Gouf=33.8, Sazabi=38.9)!
+      const shOutR = isSazabi ? 8.4 : (isGouf ? 5.6 : (isZaku ? 0.0 : 0.0));
+      const shOutL = isSazabi ? 8.4 : (isGouf ? 5.6 : (isZaku ? 5.2 : 0.0));
+      const shYR = isSazabi ? 151.5 : (isGouf ? 149.5 : (isZaku ? 146.5 : 148.0));
+      const shYL = isSazabi ? 151.5 : (isGouf ? 149.5 : (isZaku ? 149.5 : 148.0));
       const shR = new THREE.Group();
       shR.position.set((rSign * shOutR) - rig.armR.userData.worldOrigin.x, shYR - rig.armR.userData.worldOrigin.y, 0.0 - rig.armR.userData.worldOrigin.z);
       rig.armR.add(shR);
