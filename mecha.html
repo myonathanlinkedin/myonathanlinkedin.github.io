@@ -4650,7 +4650,7 @@
         if (n.includes('zaku_mg_') || n.includes('gouf_saber_') || n.includes('gouf_heat_saber') || n.includes('gouf_forearm_heat_rod') || n.includes('sazabi_rifle_')) {
           rig.nativeRightWeaponMeshes.push(mesh);
         }
-        if (n.includes('zaku_hawk_') || n.includes('gouf_knight_shield') || n.includes('gouf_shield_mount') || n.includes('sazabi_shield_')) {
+        if (n.includes('zaku_hawk_') || n.includes('gouf_knight_shield') || n.includes('gouf_shield_') || n.includes('sazabi_shield_')) {
           rig.nativeLeftHoldMeshes.push(mesh);
         }
         // Detachable stock Mobile Suit backpack (automatically hidden when equipping a custom dorsal_pack
@@ -4747,7 +4747,7 @@
       if (n.includes('zaku_mg_') || n.includes('zaku_hawk_') || n.includes('gouf_saber_') || n.includes('gouf_heat_saber') || n.includes('sazabi_rifle_')) {
         return mk('weapon_fwd', side, n.includes('mg_') || n.includes('haft') || n.includes('hilt') || n.includes('rifle'));
       }
-      if (n.includes('gouf_knight_shield') || n.includes('gouf_shield_mount') || n.includes('gouf_forearm_heat_rod') || n.includes('sazabi_shield_')) {
+      if (n.includes('gouf_knight_shield') || n.includes('gouf_shield_') || n.includes('gouf_forearm_heat_rod') || n.includes('sazabi_shield_')) {
         return mk('forearm_shield_out', side, n.includes('knight_shield') || n.includes('sazabi_shield_maroon') || n.includes('links_dark'));
       }
       if (n.includes('zaku_shoulder_shield') || n.includes('zaku_shield_hinge')) {
@@ -5289,7 +5289,7 @@
           { bone: rig.torso, cell: 'neo_zeon', origin: [15.5, 143.0, 42.0], dir: [0, 0, -1], w: 10.2, h: 12.4, nameTag: 'decal_chest_neozeon' },
           { bone: rig.torso, cell: 'msn04s', origin: [-15.5, 142.0, 42.0], dir: [0, 0, -1], w: 11.5, h: 9.2, nameTag: 'decal_chest_msn04s' },
           // Left Curved Commander Shield (+X, Rig_Forearm_L): iconic large Neo-Zeon Crest!
-          { bone: rig.forearmL, cell: 'neo_zeon', origin: [80.0, 104.0, 16.0], dir: [-1, 0, -0.22], w: 17.5, h: 21.5, nameTag: 'decal_shield_neozeon' },
+          { bone: rig.forearmL, cell: 'neo_zeon', origin: [86.0, 91.5, 15.5], dir: [-1, 0, -0.18], w: 16.5, h: 20.0, nameTag: 'decal_shield_neozeon' },
           // Bell-Bottom Calves & Front Skirt: white tactical markings (matching Image 3!)
           { bone: rig.shinR, cell: 'tactical_white', origin: [-21.0, 26.0, 44.0], dir: [0, 0, -1], w: 8.0, h: 9.0, nameTag: 'decal_calf_r' },
           { bone: rig.shinL, cell: 'tactical_white', origin: [21.0, 26.0, 44.0], dir: [0, 0, -1], w: 8.0, h: 9.0, nameTag: 'decal_calf_l' },
