@@ -3878,18 +3878,18 @@
         aCtx.lineTo(rx + Math.cos(ang) * len, ry + Math.sin(ang) * len);
         aCtx.stroke();
       }
-      // Crisp Gunpla panel ink lines + corner micro-fastener dots
-      aCtx.strokeStyle = 'rgba(18, 26, 40, 0.17)';
-      aCtx.lineWidth = 1.05 * scale;
+      // Crisp Gunpla panel ink lines + corner micro-fastener dots (high readability on bright & light armor!)
+      aCtx.strokeStyle = 'rgba(18, 26, 40, 0.28)';
+      aCtx.lineWidth = 1.15 * scale;
       aCtx.beginPath(); aCtx.moveTo(0, 128 * scale); aCtx.lineTo(size, 128 * scale); aCtx.stroke();
       aCtx.beginPath(); aCtx.moveTo(128 * scale, 0); aCtx.lineTo(128 * scale, size); aCtx.stroke();
-      aCtx.strokeStyle = 'rgba(24, 34, 52, 0.12)';
-      aCtx.lineWidth = 0.85 * scale;
+      aCtx.strokeStyle = 'rgba(24, 34, 52, 0.20)';
+      aCtx.lineWidth = 0.95 * scale;
       aCtx.strokeRect(12 * scale, 12 * scale, 104 * scale, 100 * scale);
       aCtx.strokeRect(138 * scale, 136 * scale, 105 * scale, 104 * scale);
       aCtx.strokeRect(140 * scale, 14 * scale, 100 * scale, 86 * scale);
       aCtx.strokeRect(16 * scale, 144 * scale, 90 * scale, 74 * scale);
-      aCtx.fillStyle = 'rgba(22, 32, 48, 0.18)';
+      aCtx.fillStyle = 'rgba(22, 32, 48, 0.28)';
       [[18, 18], [110, 18], [18, 106], [110, 106], [144, 142], [236, 142], [144, 234], [236, 234]].forEach(([px, py]) => {
         aCtx.beginPath(); aCtx.arc(px * scale, py * scale, 1.3 * scale, 0, Math.PI * 2); aCtx.fill();
       });
@@ -4190,7 +4190,7 @@
       const flakeStrength = isPolymer ? 0.0 : (isGloss ? 0.14 : (isMetal ? 0.11 : (isWhite ? 0.04 : 0.07)));
       const grainStrength = isPolymer ? 0.11 : (isMetal ? 0.14 : 0.085);
       const rimGain = isPolymer ? 0.05 : (isMetal ? 0.18 : (isGloss ? 0.15 : 0.11));
-      const cacheTag = `gunpla_pbr_studio_v5_${materialClass}`;
+      const cacheTag = `gunpla_pbr_studio_v6_lumadapt_${materialClass}`;
       mat.customProgramCacheKey = () => cacheTag;
       mat.onBeforeCompile = (shader) => {
         shader.vertexShader = shader.vertexShader
@@ -4242,13 +4242,28 @@
             }`
           )
           .replace(
+            '#include <map_fragment>',
+            `#ifdef USE_MAP
+              vec4 sampledDiffuseColor = texture2D( map, vMapUv );
+              // Luminance-Adaptive Panel-Line Ink Boost: prevents bright white/silver/yellow/orange/cyan/green
+              // albedos from washing out subtle 2K panel lines & rivets under ACES Filmic highlights!
+              float mPreLum = dot(diffuseColor.rgb, vec3(0.299, 0.587, 0.114));
+              float mInkGain = 1.0 + smoothstep(0.22, 0.78, mPreLum) * 2.15;
+              sampledDiffuseColor.rgb = pow(max(sampledDiffuseColor.rgb, vec3(0.001)), vec3(mInkGain));
+              diffuseColor *= sampledDiffuseColor;
+            #endif`
+          )
+          .replace(
             '#include <color_fragment>',
             `#include <color_fragment>
             float mAO = clamp(vBakedMask.r, 0.14, 1.0);
             float mConvex = clamp(vBakedMask.g, 0.0, 1.0);
             float mCavity = clamp(vBakedMask.b, 0.0, 1.0);
             vec3 mWN = normalize(vMechaWorldNormal);
-            // Multi-scale world-space triplanar micro-surface fields (eliminates flat cartoon fills on ANY color & part size!)
+            float mBaseLum = dot(diffuseColor.rgb, vec3(0.299, 0.587, 0.114));
+            float mBright = smoothstep(0.28, 0.72, mBaseLum);
+
+            // Multi-scale world-space triplanar micro-surface fields (readable across dark, medium AND bright colors!)
             float macroTone = mechaNoise3(vMechaWorldPos * 0.19);
             float wearN1 = mechaNoise3(vMechaWorldPos * 0.65);
             float wearN2 = mechaNoise3(vMechaWorldPos * 2.60);
@@ -4260,30 +4275,38 @@
             float screenCurv = clamp((length(dFdx(mWN)) + length(dFdy(mWN))) * 1.45, 0.0, 1.0);
             float bakedEdge = smoothstep(0.66, 0.94, mConvex);
             float bevelEdge = smoothstep(0.16, 0.58, screenCurv);
-            float sharpCorner = max(bakedEdge, bevelEdge * 0.80);
-            float mEdgeChip = sharpCorner * (0.45 + 0.55 * smoothstep(0.32, 0.84, wearFbm)) * ${edgeChipStrength.toFixed(3)};
+            float sharpCorner = max(bakedEdge, bevelEdge * 0.82);
+            float mEdgeChip = sharpCorner * (0.45 + 0.55 * smoothstep(0.30, 0.82, wearFbm)) * ${edgeChipStrength.toFixed(3)};
 
-            // Subtle Bandai Metal Build panel tonal modulation + fine metallic lacquer flake + CNC brushed grain
-            float toneMod = 1.0 + (macroTone - 0.5) * 0.11 + (microGrain - 0.5) * ${(grainStrength * 0.72).toFixed(3)};
+            // Luminance-adaptive contrast: keep bright surfaces below ACES clipping shoulder & amplify dark micro-grain/panel shifts!
+            float toneAmp = mix(0.11, 0.21, mBright);
+            float grainAmp = mix(${(grainStrength * 0.75).toFixed(3)}, ${(grainStrength * 1.55).toFixed(3)}, mBright);
+            float brightHeadroom = mix(1.0, 0.86, mBright);
+            float toneMod = brightHeadroom * (1.0 + (macroTone - 0.5) * toneAmp + (microGrain - 0.5) * grainAmp);
             diffuseColor.rgb *= toneMod;
-            diffuseColor.rgb += (diffuseColor.rgb * 0.42 + vec3(0.22)) * flakeSparkle * ${flakeStrength.toFixed(3)};
+            // Suppress additive sparkle on bright colors so highlights never wash out texture detail
+            diffuseColor.rgb += (diffuseColor.rgb * 0.38 + vec3(0.18)) * flakeSparkle * ${flakeStrength.toFixed(3)} * (1.0 - mBright * 0.72);
 
-            // Deep recessed enamel panel-wash & crevice darkening strictly inside cavities and occluded seams
-            float mCreviceGrime = clamp(mCavity * 0.84 + pow(1.0 - mAO, 1.55) * 0.74, 0.0, 1.0) * (0.78 + 0.28 * wearN1) * ${cavityWashStrength.toFixed(3)};
-            diffuseColor.rgb = mix(diffuseColor.rgb, diffuseColor.rgb * 0.30, mCreviceGrime);
-            vec3 chipTint = ${isWhite ? 'vec3(0.36, 0.40, 0.46)' : 'min(diffuseColor.rgb * 1.48 + vec3(0.24), vec3(0.94))'};
+            // Deep recessed enamel panel-wash & crevice darkening (stronger on bright armor so grooves read sharply!)
+            float mCreviceGrime = clamp(mCavity * 0.86 + pow(1.0 - mAO, 1.48) * 0.78, 0.0, 1.0) * (0.80 + 0.28 * wearN1) * ${cavityWashStrength.toFixed(3)} * (1.0 + mBright * 0.35);
+            diffuseColor.rgb = mix(diffuseColor.rgb, diffuseColor.rgb * 0.26, clamp(mCreviceGrime, 0.0, 0.88));
+            // On bright armor, bevel edge wear exposes crisp dark primer/graphite instead of white-on-white blowout!
+            vec3 darkChipTint = vec3(0.24, 0.28, 0.34);
+            vec3 lightChipTint = min(diffuseColor.rgb * 1.45 + vec3(0.22), vec3(0.90));
+            vec3 chipTint = mix(lightChipTint, darkChipTint, ${isWhite ? '1.0' : 'mBright'});
             diffuseColor.rgb = mix(diffuseColor.rgb, chipTint, mEdgeChip);`
           )
           .replace(
             '#include <roughnessmap_fragment>',
             `#include <roughnessmap_fragment>
-            float mGrainRough = (microGrain - 0.5) * ${(grainStrength * 1.35).toFixed(3)} + (wearN2 - 0.5) * 0.065;
-            roughnessFactor = clamp(roughnessFactor + mCreviceGrime * 0.34 - mEdgeChip * 0.26 - flakeSparkle * ${(flakeStrength * 0.55).toFixed(3)} + mGrainRough, 0.08, 0.96);`
+            float mGrainRough = (microGrain - 0.5) * ${(grainStrength * 1.45).toFixed(3)} + (wearN2 - 0.5) * 0.075;
+            float mBrightRoughFloor = mix(0.08, 0.24, mBright);
+            roughnessFactor = clamp(roughnessFactor + mCreviceGrime * 0.34 - mEdgeChip * 0.22 - flakeSparkle * ${(flakeStrength * 0.50).toFixed(3)} * (1.0 - mBright * 0.65) + mGrainRough, mBrightRoughFloor, 0.96);`
           )
           .replace(
             '#include <metalnessmap_fragment>',
             `#include <metalnessmap_fragment>
-            metalnessFactor = clamp(mix(metalnessFactor, ${isMetal ? '0.96' : '0.82'}, mEdgeChip * 0.85) * (1.0 - mCreviceGrime * 0.26) + flakeSparkle * ${(flakeStrength * 0.65).toFixed(3)}, 0.0, 0.98);`
+            metalnessFactor = clamp(mix(metalnessFactor, ${isMetal ? '0.96' : '0.82'}, mEdgeChip * 0.85) * (1.0 - mCreviceGrime * 0.26) + flakeSparkle * ${(flakeStrength * 0.60).toFixed(3)} * (1.0 - mBright * 0.65), 0.0, 0.98);`
           )
           .replace(
             '#include <aomap_fragment>',
@@ -4300,8 +4323,9 @@
             `
             float ndv = clamp(abs(dot(normal, normalize(vViewPosition))), 0.0, 1.0);
             float fresnelRim = pow(max(1.0 - ndv, 0.0001), 3.2);
+            float rimAtten = 1.0 - mBright * 0.65;
             vec3 rimTint = mix(gl_FragColor.rgb, vec3(0.80, 0.90, 1.0), ${isMetal ? '0.52' : (isGloss ? '0.44' : '0.32')});
-            gl_FragColor.rgb += rimTint * fresnelRim * ${rimGain.toFixed(3)} * mAO;
+            gl_FragColor.rgb += rimTint * fresnelRim * ${rimGain.toFixed(3)} * rimAtten * mAO;
             #include <dithering_fragment>
             `
           );
@@ -4544,7 +4568,7 @@
         return beamSaberHaloMat;
       }
       if (n.includes('hilt_white')) {
-        return getSharedMechaMaterial({ color: 0xf0f2ec, roughness: 0.34, metalness: 0.14, useDetail: true, materialClass: 'armor_white' });
+        return getSharedMechaMaterial({ color: 0xcfd7e0, roughness: 0.36, metalness: 0.14, useDetail: true, materialClass: 'armor_white' });
       }
       if (n.includes('_glass')) {
         return getSharedMechaMaterial({ color: 0xbae6fd, roughness: 0.08, metalness: 0.10, transparent: true, opacity: 0.34, envMapIntensity: 1.42, materialClass: 'glass_optic' });
@@ -4554,24 +4578,25 @@
       }
       let color = pc.frame, roughness = 0.36, metalness = 0.76, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, materialClass = 'metal_gunmetal';
       if (n.includes('psycho_emerald')) {
-        // Metallic Candy-Anodized Emerald-Jade Armor (full 2K panel lines, metallic flake, clearcoat & bevel catchlights — zero flat neon green!)
-        color = 0x059669; emissive = 0x064e3b; emissiveIntensity = 0.16; roughness = 0.22; metalness = 0.64; useDetail = true; materialClass = 'armor_gloss';
+        // Deep Anodized Jade-Emerald Armor (ZERO emissive washout -> razor-sharp 2K panel lines, dark grooves & metallic clearcoat!)
+        color = 0x047857; roughness = 0.26; metalness = 0.58; useDetail = true; materialClass = 'armor_gloss';
       } else if (n.includes('amber_optic')) {
-        // Anodized Metallic Copper-Amber Armor (full 2K panel lines, metallic flake, clearcoat & bevel catchlights — zero flat cartoon orange!)
-        color = 0xd97706; emissive = 0x78350f; emissiveIntensity = 0.14; roughness = 0.23; metalness = 0.68; useDetail = true; materialClass = 'armor_gloss';
+        // Deep Anodized Burnt Copper-Amber Armor (ZERO emissive washout -> crisp panel lines & bevel definition!)
+        color = 0xb45309; roughness = 0.26; metalness = 0.62; useDetail = true; materialClass = 'armor_gloss';
       } else if (n.includes('titanium_silver')) {
-        color = 0xdbe4ee; roughness = 0.20; metalness = 0.90; useDetail = false; materialClass = 'metal_brushed';
+        // Satin Brushed Titanium Alloy (non-clipping albedo + 2K panel lines + CNC micro-grain!)
+        color = 0xaab7c6; roughness = 0.26; metalness = 0.86; useDetail = true; materialClass = 'metal_brushed';
       } else if (n.includes('crimson_gloss')) {
-        color = 0x9f1239; roughness = 0.21; metalness = 0.48; useDetail = true; materialClass = 'armor_gloss';
+        color = 0x9f1239; roughness = 0.22; metalness = 0.46; useDetail = true; materialClass = 'armor_gloss';
       } else if (n.includes('cobalt_anodized')) {
-        color = 0x1d4ed8; roughness = 0.23; metalness = 0.60; useDetail = true; materialClass = 'armor_gloss';
+        color = 0x1d4ed8; roughness = 0.24; metalness = 0.56; useDetail = true; materialClass = 'armor_gloss';
       } else if (n.includes('zeon_olive_coat')) {
         color = 0x4d623f; roughness = 0.42; metalness = 0.22; useDetail = true; materialClass = 'armor_painted';
       } else if (n.includes('optic_cyan') || n.includes('plasma_core_cyan') || n.includes('lens_emerald')) {
-        // Glossy Anodized Sapphire-Cyan Optical Housing (reflective depth + controlled internal glow — zero flat neon cyan!)
-        color = pc.optic; emissive = pc.optic; emissiveIntensity = 0.42; roughness = 0.16; metalness = 0.52; useDetail = true; materialClass = 'armor_gloss';
+        // Deep Anodized Sapphire-Cyan Optical Housing (minimal internal tint so panel lines & bevels never blow out!)
+        color = 0x0284c7; emissive = 0x0369a1; emissiveIntensity = 0.16; roughness = 0.22; metalness = 0.54; useDetail = true; materialClass = 'armor_gloss';
       } else if (n.includes('gold') || n.includes('blade') || n.includes('intake') || n.includes('cross_gold') || n.includes('vane') || n.includes('pin_gold') || n.includes('lock_gold') || n.includes('drum_gold') || n.includes('coupling_gold')) {
-        color = pc.gold; roughness = 0.22; metalness = 0.89; useDetail = false; materialClass = 'metal_gold';
+        color = 0xc99214; roughness = 0.25; metalness = 0.86; useDetail = true; materialClass = 'metal_gold';
       } else if (n.includes('grip') || n.includes('epac')) {
         color = 0x1c232e; roughness = 0.60; metalness = 0.22; useDetail = false; materialClass = 'polymer_matte';
       } else if (n.includes('adapter_') || n.includes('dovetail') || n.includes('bracket') || n.includes('clamp') || n.includes('rack_arm') || n.includes('yoke') || n.includes('gimbal') || n.includes('collar')) {
