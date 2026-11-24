@@ -4660,6 +4660,176 @@
       return rig;
     }
 
+    /**
+     * Deterministic 540-mesh Exploded-View Classifier shared by BOTH the mobile
+     * draw-call batcher (`07_camera_stances_loader.js`) and `applyExplodedDisplacement`
+     * (`08_catalog_equip_exploded.js`).
+     * - Always derives outward `sideSign` from TRUE 3D spatial `rootX` (never `_l`/`_r`
+     *   suffixes, which are opposite-handed between RX-78 and Zeon suits!).
+     * - Prevents mobile batching from merging inner skeleton struts with outer armor
+     *   shells or merging opposite-direction sub-assemblies on the same bone.
+     */
+    function classifyExplodeRole(meshName, rootX = 0) {
+      const n = (meshName || '').toLowerCase();
+      const side = rootX > 1.0 ? 1.0 : (rootX < -1.0 ? -1.0 : 0.0);
+
+      const isInner = (
+        n.includes('adapter_inner_') ||
+        n.includes('_inner_') ||
+        n.includes('upper_thoracic_frame') ||
+        n.includes('torso_cockpit_sphere') ||
+        n.includes('pelvic_core_hub') ||
+        n.includes('pelvis_rear_chassis_frame') ||
+        n.includes('skirt_side_hinge_frame') ||
+        n.includes('_core_frame') ||
+        n.includes('_axle_frame') ||
+        n.includes('_joint_frame') ||
+        n.includes('_ball_frame') ||
+        n.includes('_collar_frame') ||
+        n.includes('clavicle') ||
+        (n.includes('shoulder_gimbal') && !n.includes('sazabi_shoulder_gimbal')) ||
+        n.includes('humerus_bone') ||
+        n.includes('forearm_frame') ||
+        n.includes('femur_inner') ||
+        n.includes('tibia_lower') ||
+        n.includes('hip_dropdown') ||
+        n.includes('elbow_knuckle') ||
+        n.includes('elbow_drum') ||
+        n.includes('knee_double_pivot') ||
+        n.includes('knee_drum') ||
+        n.includes('ankle_universal_gimbal') ||
+        n.includes('waist_hydraulic') ||
+        n.includes('hydraulic_piston') ||
+        n.includes('chest_gear_') ||
+        n.includes('chest_reactor_ring')
+      );
+      if (isInner) {
+        return { group: 'inner', side: 0, drawTrail: false, batchKey: 'inner' };
+      }
+
+      const mk = (group, s, drawTrail) => ({ group, side: s, drawTrail, batchKey: `${group}_${s}` });
+
+      // 1. Handheld weapons & forearm/shoulder shields FIRST (prevents zaku_hawk_head matching 'head'!)
+      if (n.includes('zaku_mg_') || n.includes('zaku_hawk_') || n.includes('gouf_saber_') || n.includes('gouf_heat_saber') || n.includes('sazabi_rifle_')) {
+        return mk('weapon_fwd', side, n.includes('mg_') || n.includes('haft') || n.includes('hilt') || n.includes('rifle'));
+      }
+      if (n.includes('gouf_knight_shield') || n.includes('gouf_shield_mount') || n.includes('gouf_forearm_heat_rod') || n.includes('sazabi_shield_')) {
+        return mk('forearm_shield_out', side, n.includes('knight_shield') || n.includes('sazabi_shield_maroon') || n.includes('links_dark'));
+      }
+      if (n.includes('zaku_shoulder_shield') || n.includes('zaku_shield_hinge')) {
+        return mk('shoulder_shield_out', side, n.includes('shoulder_shield'));
+      }
+
+      // 2. Head assembly (lifts strictly +Y off neck ball-joint)
+      if (
+        n.includes('head') || n.includes('v_fin') || n.includes('mono_eye') || n.includes('helmet') ||
+        n.includes('snout') || n.includes('commander_fin') || n.includes('commander_blade') ||
+        n.includes('visor_pillar') || n.includes('cheek_hose') || n.includes('face_slit') ||
+        n.includes('cheek_vent') || n.includes('cheek_red') || n.includes('chin_guard') ||
+        n.includes('sensor_front') || n.includes('sensor_rear') || n.includes('twin_eyes') ||
+        n.includes('vulcan_gold') || n.includes('visor_recess')
+      ) {
+        return mk('head_up', 0, n.includes('cranium') || n.includes('helmet') || n.includes('head_dome') || n.includes('head_cast'));
+      }
+
+      // 3. Neck collar ring (+Y 12)
+      if (n.includes('chest_collar_yellow') || n.includes('sazabi_collar_obsidian')) {
+        return mk('collar_up', 0, true);
+      }
+
+      // 4. Chest, pectoral, abdomen, belly cannon, waist belt & waist hoses (+Z 24)
+      if (
+        n.includes('chest') || n.includes('pectoral') || n.includes('cockpit') || n.includes('abdomen') ||
+        n.includes('cuirass') || n.includes('torso_armor') || n.includes('waist_belt') ||
+        n.includes('waist_hose') || n.includes('belly_cannon') || n.includes('belly_emitter')
+      ) {
+        return mk('chest_fwd', 0, n.includes('chest_armor') || n.includes('chest_core') || n.includes('abdomen') || n.includes('cuirass'));
+      }
+
+      // 5. Pelvis skirts (rear -Z, front/crotch +Z, side outward +-X)
+      if (n.includes('skirt_rear') || n.includes('rear_bazooka_latch')) {
+        return mk('skirt_rear', 0, n.includes('skirt_rear') && !n.includes('trim'));
+      }
+      if (n.includes('skirt_front') || n.includes('skirt_waist') || n.includes('codpiece') || n.includes('crotch') || n.includes('v_plaque') || n.includes('v_emblem')) {
+        return mk('skirt_front', 0, n.includes('skirt_front') || n.includes('crotch_armor') || n.includes('codpiece'));
+      }
+      if (n.includes('skirt_side')) {
+        return mk('skirt_side', side, !n.includes('trim'));
+      }
+
+      // 6. Backpack & Stage-2 coaxial sub-parts (sabers + thruster bells)
+      if (n.includes('backpack_saber_hilt')) {
+        return mk('bp_saber_s2', side, true);
+      }
+      if (n.includes('backpack_thruster_bell') || n.includes('backpack_thruster_glow')) {
+        return mk('bp_rx_bell_s2', side, n.includes('bell'));
+      }
+      if (n.includes('zaku_thruster') || n.includes('gouf_thruster')) {
+        return mk('bp_zg_bell_s2', side, true);
+      }
+      if (n.includes('sazabi_thruster_gold')) {
+        return mk('bp_sz_bell_s2', side, true);
+      }
+      if (
+        n.includes('backpack') || n.includes('hp00_dorsal') || n.includes('sazabi_funnel') ||
+        n.includes('sazabi_tank') || n.includes('sazabi_vernier') || n.includes('sazabi_booster') ||
+        n.includes('sazabi_hose_socket')
+      ) {
+        return mk('backpack_back', 0, n.includes('backpack_core') || n.includes('backpack_obsidian') || n.includes('backpack_dark') || n.includes('funnel_pod'));
+      }
+
+      // 7. Shoulders & Sazabi shoulder-binder verniers
+      if (n.includes('sazabi_shoulder_thruster_gold')) {
+        return mk('sz_sh_bell_s2', side, true);
+      }
+      if (n.includes('pauldron') || n.includes('shoulder') || n.includes('horn_') || n.includes('spike')) {
+        return mk('shoulder_out', side, n.includes('pauldron_armor') || n.includes('pauldron_dome') || n.includes('pauldron_blue') || n.includes('shoulder_cowl') || n.includes('shoulder_binder'));
+      }
+
+      // 8. Fists (-Y 12)
+      if (n.includes('manipulator_fist') || n.includes('_fist_')) {
+        return mk('fist_down', side, true);
+      }
+
+      // 9. Arms (outward +-X 20)
+      if (n.includes('upper_arm') || n.includes('bicep') || n.includes('forearm') || n.includes('gauntlet') || n.includes('elbow_cap') || n.includes('rg_cuff')) {
+        return mk('arm_out', side, n.includes('upper_arm') || n.includes('bicep') || n.includes('gauntlet') || n.includes('forearm_olive') || n.includes('forearm_blue') || n.includes('forearm_maroon'));
+      }
+
+      // 10. Knees (+Z 18 or side disc +-X 14)
+      if (n.includes('knee_cap_disc') || n.includes('knee_cap_hub')) {
+        return mk('knee_disc', side, n.includes('disc'));
+      }
+      if (n.includes('knee')) {
+        return mk('knee_fwd', side, true);
+      }
+
+      // 11. Thighs (outward +-X 18)
+      if (n.includes('thigh')) {
+        return mk('thigh_out', side, !n.includes('trim'));
+      }
+
+      // 12. Sazabi calf hover jets (Stage-2 coaxial) & Calves/Shins (outward +-X 18)
+      if (n.includes('sazabi_calf_jet_gold')) {
+        return mk('sz_calf_jet_s2', side, true);
+      }
+      if (n.includes('shin') || n.includes('calf') || n.includes('hover_jet') || n.includes('leg_hose')) {
+        return mk('calf_out', side, n.includes('shin_armor') || n.includes('calf_olive') || n.includes('calf_blue') || n.includes('calf_maroon'));
+      }
+
+      // 13. Ankles (+Z 16)
+      if (n.includes('ankle_guard') || n.includes('ankle_disc') || n.includes('ankle_cuff')) {
+        return mk('ankle_fwd', side, n.includes('guard') || n.includes('cuff'));
+      }
+
+      // 14. Boots / Feet (-Y 16)
+      if (n.includes('foot') || n.includes('sole') || n.includes('boot') || n.includes('toe') || n.includes('heel') || n.includes('instep')) {
+        return mk('boot_down', side, n.includes('instep') || n.includes('boot') || n.includes('toe_plate'));
+      }
+
+      return mk('arm_out', side, false);
+    }
+
     function createPhysicalAdapterSocket(parentNode, opts) {
       const origin = parentNode.userData?.worldOrigin || new THREE.Vector3(0, 0, 0);
       const wrapper = new THREE.Group();
@@ -5436,6 +5606,8 @@
                 node.geometry.computeBoundingBox();
                 node.userData.geomCenter = new THREE.Vector3();
                 node.geometry.boundingBox.getCenter(node.userData.geomCenter);
+                node.userData.rootGeomCenter = node.userData.geomCenter.clone();
+                node.userData.explodeMeta = classifyExplodeRole(node.name, node.userData.geomCenter.x);
               }
               if (ln.includes('chest_gear_') || ln.includes('dorsal_gear_')) {
                 const gc = node.userData.geomCenter || new THREE.Vector3();
@@ -5485,15 +5657,18 @@
               state.kinematicRig.legR, state.kinematicRig.shinR, state.kinematicRig.legL, state.kinematicRig.shinL,
             ];
             for (const bone of rigBones) {
-              const byMat = new Map();
+              const byKey = new Map();
               const removable = [];
               for (const child of [...bone.children]) {
                 if (!child.isMesh || child.userData?.isDecal || keepIndividual.has(child) || !child.geometry) continue;
                 const mat = child.material;
-                if (!byMat.has(mat)) byMat.set(mat, []);
-                byMat.get(mat).push(child);
+                const exMeta = child.userData.explodeMeta || classifyExplodeRole(child.name, (child.userData.rootGeomCenter || child.userData.geomCenter || new THREE.Vector3()).x);
+                child.userData.explodeMeta = exMeta;
+                const batchGroupKey = `${mat.uuid}::${exMeta.batchKey}`;
+                if (!byKey.has(batchGroupKey)) byKey.set(batchGroupKey, { mat, exMeta, list: [] });
+                byKey.get(batchGroupKey).list.push(child);
               }
-              for (const [mat, list] of byMat.entries()) {
+              for (const { mat, exMeta, list } of byKey.values()) {
                 if (list.length < 2) continue;
                 try {
                   const geos = [];
@@ -5515,11 +5690,15 @@
                   if (mergedGeo) {
                     mergedGeo.computeBoundingBox();
                     const mergedMesh = new THREE.Mesh(mergedGeo, mat);
-                    mergedMesh.name = `${bone.name}_batched_${mat.uuid.slice(0, 6)}`;
+                    mergedMesh.name = `${bone.name}_${exMeta.batchKey}_batched_${mat.uuid.slice(0, 6)}`;
                     mergedMesh.userData.origMaterial = mat;
                     mergedMesh.userData.initialPosition = new THREE.Vector3(0, 0, 0);
                     mergedMesh.userData.geomCenter = new THREE.Vector3();
                     mergedGeo.boundingBox.getCenter(mergedMesh.userData.geomCenter);
+                    mergedMesh.userData.explodeMeta = {
+                      ...exMeta,
+                      drawTrail: list.some(m => m.userData.explodeMeta?.drawTrail)
+                    };
                     bone.add(mergedMesh);
                     state.chassisParts.push(mergedMesh);
                     for (const old of list) {
@@ -5544,6 +5723,7 @@
               h.node.geometry.translate(-c.x, -c.y, -c.z);
               h.node.position.add(c);
               if (h.node.userData.initialPosition) h.node.userData.initialPosition.add(c);
+              h.node.userData.geomCenter = new THREE.Vector3(0, 0, 0);
             }
             h.basePos = h.node.position.clone();
             h.baseRot = h.node.rotation.clone();
@@ -6347,10 +6527,8 @@
 
       state.chassisParts.forEach(node => {
         if (!node.userData.initialPosition) return;
-        const n = (node.name || '').toLowerCase();
         const init = node.userData.initialPosition;
         const gc = node.userData.geomCenter || new THREE.Vector3();
-        const sideSign = n.endsWith('_l') || gc.x < -1.0 ? -1.0 : (n.endsWith('_r') || gc.x > 1.0 ? 1.0 : 0.0);
 
         // Keep equipped modular pack sub-meshes rigid inside their parent socket container (SolidWorks Subassembly Rule!)
         if (node.userData.isModularPack) {
@@ -6358,135 +6536,131 @@
           return;
         }
 
-        // Layer 0: Keep Bandai PG Unleashed Inner Movable Frame Skeleton & Inner Snap-Fit Adapters 100% INTACT!
-        const isInnerSkeleton = (
-          n.includes('adapter_inner_') ||
-          n.includes('_inner_') ||
-          n.includes('upper_thoracic_frame') ||
-          n.includes('torso_cockpit_sphere') ||
-          n.includes('pelvic_core_hub') ||
-          n.includes('pelvis_rear_chassis_frame') ||
-          n.includes('skirt_side_hinge_frame') ||
-          n.includes('_core_frame') ||
-          n.includes('_axle_frame') ||
-          n.includes('_joint_frame') ||
-          n.includes('_ball_frame') ||
-          n.includes('_collar_frame') ||
-          n.includes('clavicle') ||
-          n.includes('shoulder_gimbal') ||
-          n.includes('humerus_bone') ||
-          n.includes('forearm_frame') ||
-          n.includes('femur_inner') ||
-          n.includes('tibia_lower') ||
-          n.includes('hip_dropdown') ||
-          n.includes('elbow_knuckle') ||
-          n.includes('elbow_drum') ||
-          n.includes('knee_double_pivot') ||
-          n.includes('knee_drum') ||
-          n.includes('ankle_universal_gimbal') ||
-          n.includes('waist_hydraulic') ||
-          n.includes('hydraulic_piston') ||
-          n.includes('chest_gear_') ||
-          n.includes('chest_reactor_ring')
+        const meta = node.userData.explodeMeta || classifyExplodeRole(
+          node.name,
+          (node.userData.rootGeomCenter || gc).x
         );
-        if (isInnerSkeleton) {
+        const sideSign = meta.side || 0;
+
+        // Layer 0: Keep Bandai PG Unleashed Inner Movable Frame Skeleton & Inner Snap-Fit Adapters 100% INTACT!
+        if (meta.group === 'inner') {
           node.position.copy(init);
           return;
         }
 
-        // Layer 1 & 2: STRICT ORTHOGONAL PRINCIPAL-AXIS SEPARATION (+X/-X/+Y/-Y/+Z/-Z) — ZERO messy diagonal scatter!
+        // Layer 1 & 2: STRICT ORTHOGONAL & COAXIAL SEPARATION across ALL 4 Mobile Suits (RX-78, Zaku-II, Gouf, Sazabi)!
         const offset = new THREE.Vector3(0, 0, 0);
         const trailOriginOffset = new THREE.Vector3(0, 0, 0);
-        let drawTrail = false;
+        const drawTrail = !!meta.drawTrail;
 
-        if (n.includes('head') || n.includes('v_fin') || n.includes('mono_eye') || n.includes('helmet') || n.includes('snout') || n.includes('commander_fin') || n.includes('commander_blade')) {
-          // Entire Head Assembly lifts strictly straight UP (+Y) off neck ball-joint adapter!
-          offset.set(0, fTier1 * 24.0, 0);
-          drawTrail = n.includes('cranium') || n.includes('helmet') || n.includes('head_cast');
-        } else if (n.includes('chest_collar_yellow')) {
-          offset.set(0, fTier1 * 12.0, 0);
-          drawTrail = true;
-        } else if (n.includes('chest') || n.includes('cockpit') || n.includes('abdomen') || n.includes('cuirass') || n.includes('torso_armor') || n.includes('waist_belt')) {
-          // Chest & abdomen outer armor slides strictly straight FORWARD (+Z) off upper_thoracic_frame & spine!
-          offset.set(0, 0, fTier1 * 24.0);
-          drawTrail = n.includes('chest_armor') || n.includes('abdomen') || n.includes('cuirass');
-        } else if (n.includes('skirt_rear') || n.includes('rear_bazooka_latch')) {
-          offset.set(0, 0, -fTier1 * 22.0);
-          drawTrail = n.includes('skirt_rear');
-        } else if (n.includes('skirt_front') || n.includes('skirt_waist') || n.includes('codpiece') || n.includes('crotch') || n.includes('v_plaque') || n.includes('v_emblem')) {
-          offset.set(0, 0, fTier1 * 22.0);
-          drawTrail = n.includes('skirt_front') || n.includes('crotch_armor') || n.includes('codpiece');
-        } else if (n.includes('skirt_side')) {
-          offset.set((sideSign || 1) * fTier1 * 22.0, 0, 0);
-          drawTrail = n.includes('skirt_side') && !n.includes('trim');
-        } else if (n.includes('backpack_saber_hilt')) {
-          // Stage 1: moves straight BACK (-Z) with backpack; Stage 2: slides straight UP (+Y) out of gold saber socket!
-          const bpZ = -fTier0 * 28.0;
-          trailOriginOffset.set(0, 0, bpZ);
-          offset.set(0, fTier2 * 12.0, bpZ);
-          drawTrail = true;
-        } else if (n.includes('backpack_thruster_bell') || n.includes('backpack_thruster_glow')) {
-          // Stage 1: moves straight BACK (-Z) with backpack; Stage 2: slides COAXIALLY along 22 deg axis out of exposed gold gimbal lock ring!
-          const bpZ = -fTier0 * 28.0;
-          const axDist = fTier2 * 11.0;
-          trailOriginOffset.set(0, 0, bpZ);
-          offset.set(0, -axDist * 0.927, bpZ - axDist * 0.375);
-          drawTrail = n.includes('bell');
-        } else if (n.includes('zaku_thruster') || n.includes('gouf_thruster')) {
-          // Stage 1: moves straight BACK (-Z) with backpack; Stage 2: slides COAXIALLY along 24 deg axis out of exposed gold gimbal lock ring!
-          const bpZ = -fTier0 * 28.0;
-          const axDist = fTier2 * 11.0;
-          trailOriginOffset.set(0, 0, bpZ);
-          offset.set(0, -axDist * 0.914, bpZ - axDist * 0.407);
-          drawTrail = true;
-        } else if (n.includes('sazabi_thruster_gold')) {
-          // Stage 1: moves straight BACK (-Z) with backpack & propellant tanks; Stage 2: slides COAXIALLY out of tank's gold gimbal lock ring!
-          const bpZ = -fTier0 * 28.0;
-          const axDist = fTier2 * 11.5;
-          trailOriginOffset.set(0, 0, bpZ);
-          offset.set(sideSign * axDist * 0.259, -axDist * 0.819, bpZ - axDist * 0.512);
-          drawTrail = true;
-        } else if (n.includes('backpack') || n.includes('hp00_dorsal') || n.includes('sazabi_funnel') || n.includes('sazabi_tank') || n.includes('sazabi_vernier') || n.includes('sazabi_booster')) {
-          // Stock Backpack Assembly (including bolted dark nozzle shrouds & gold gimbal lock rings) slides strictly straight BACKWARD (-Z) off twin 3mm dorsal pegs!
-          offset.set(0, 0, -fTier0 * 28.0);
-          drawTrail = n.includes('backpack_core') || n.includes('backpack_obsidian') || n.includes('backpack_dark') || n.includes('funnel_rack');
-        } else if (n.includes('pauldron') || n.includes('shoulder') || n.includes('horn_olive') || n.includes('spike')) {
-          // Shoulder Pauldrons slide strictly straight OUTWARD (±X) off shoulder_gimbal & pauldron latch!
-          offset.set((sideSign || 1) * fTier1 * 24.0, 0, 0);
-          drawTrail = n.includes('pauldron') || n.includes('shoulder_cowl');
-        } else if (n.includes('manipulator_fist') || n.includes('fist_dark')) {
-          offset.set(0, -fTier1 * 12.0, 0);
-          drawTrail = true;
-        } else if (n.includes('upper_arm') || n.includes('bicep') || n.includes('forearm') || n.includes('gauntlet') || n.includes('elbow_cap') || n.includes('shield') || n.includes('mg_') || n.includes('hawk') || n.includes('saber') || n.includes('rifle') || n.includes('heat_rod')) {
-          // Arm & Forearm Armor Shells slide strictly straight OUTWARD (±X) off gold bicep/forearm snap collars!
-          offset.set((sideSign || 1) * fTier1 * 20.0, 0, 0);
-          drawTrail = n.includes('upper_arm') || n.includes('bicep') || n.includes('gauntlet') || n.includes('forearm_olive') || n.includes('forearm_blue') || n.includes('forearm_crimson');
-        } else if (n.includes('knee_cap_wedge') || n.includes('knee_armor') || n.includes('knee_plate')) {
-          // Front Knee Armor slides strictly straight FORWARD (+Z) off knee_double_pivot!
-          offset.set(0, 0, fTier1 * 18.0);
-          drawTrail = true;
-        } else if (n.includes('knee_cap_disc') || n.includes('knee_cap_hub')) {
-          offset.set((sideSign || 1) * fTier1 * 14.0, 0, 0);
-          drawTrail = n.includes('disc');
-        } else if (n.includes('thigh')) {
-          // Thigh Armor slides strictly straight OUTWARD (±X) off gold femur snap collar!
-          offset.set((sideSign || 1) * fTier1 * 18.0, 0, 0);
-          drawTrail = true;
-        } else if (n.includes('shin') || n.includes('calf') || n.includes('hover_jet') || n.includes('leg_hose')) {
-          // Calf / Shin Armor slides strictly straight OUTWARD (±X) off gold tibia snap collar!
-          offset.set((sideSign || 1) * fTier1 * 18.0, 0, 0);
-          drawTrail = n.includes('shin') || n.includes('calf');
-        } else if (n.includes('ankle_guard') || n.includes('ankle_disc') || n.includes('ankle_cuff')) {
-          offset.set(0, 0, fTier1 * 16.0);
-          drawTrail = n.includes('guard') || n.includes('cuff');
-        } else if (n.includes('foot') || n.includes('sole') || n.includes('boot') || n.includes('toe') || n.includes('heel')) {
-          // Boots slide strictly straight DOWN (-Y) off ankle_universal_gimbal!
-          offset.set(0, -fTier1 * 16.0, 0);
-          drawTrail = n.includes('instep') || n.includes('boot') || n.includes('toe_plate');
-        } else if (n.includes('hose') || n.includes('pipe')) {
-          offset.set((sideSign || 0) * fTier1 * 12.0, 0, fTier1 * 8.0);
-        } else {
-          offset.set((sideSign || 0) * fTier2 * 14.0, 0, 0);
+        switch (meta.group) {
+          case 'head_up':
+            offset.set(0, fTier1 * 24.0, 0);
+            break;
+          case 'collar_up':
+            offset.set(0, fTier1 * 12.0, 0);
+            break;
+          case 'chest_fwd':
+            offset.set(0, 0, fTier1 * 24.0);
+            break;
+          case 'skirt_rear':
+            offset.set(0, 0, -fTier1 * 22.0);
+            break;
+          case 'skirt_front':
+            offset.set(0, 0, fTier1 * 22.0);
+            break;
+          case 'skirt_side':
+            offset.set((sideSign || 1) * fTier1 * 22.0, 0, 0);
+            break;
+          case 'bp_saber_s2': {
+            const bpZ = -fTier0 * 28.0;
+            trailOriginOffset.set(0, 0, bpZ);
+            offset.set(0, fTier2 * 12.0, bpZ);
+            break;
+          }
+          case 'bp_rx_bell_s2': {
+            const bpZ = -fTier0 * 28.0;
+            const axDist = fTier2 * 11.0;
+            trailOriginOffset.set(0, 0, bpZ);
+            offset.set(0, -axDist * 0.927, bpZ - axDist * 0.375);
+            break;
+          }
+          case 'bp_zg_bell_s2': {
+            const bpZ = -fTier0 * 28.0;
+            const axDist = fTier2 * 11.0;
+            trailOriginOffset.set(0, 0, bpZ);
+            offset.set(0, -axDist * 0.914, bpZ - axDist * 0.407);
+            break;
+          }
+          case 'bp_sz_bell_s2': {
+            const bpZ = -fTier0 * 28.0;
+            const axDist = fTier2 * 11.5;
+            trailOriginOffset.set(0, 0, bpZ);
+            offset.set(sideSign * axDist * 0.259, -axDist * 0.819, bpZ - axDist * 0.512);
+            break;
+          }
+          case 'backpack_back':
+            offset.set(0, 0, -fTier0 * 28.0);
+            break;
+          case 'shoulder_shield_out': {
+            const shX = (sideSign || 1) * fTier1 * 24.0;
+            trailOriginOffset.set(shX, 0, 0);
+            offset.set(shX + (sideSign || 1) * fTier2 * 14.0, 0, 0);
+            break;
+          }
+          case 'sz_sh_bell_s2': {
+            const shX = (sideSign || 1) * fTier1 * 24.0;
+            const axDist = fTier2 * 8.5;
+            trailOriginOffset.set(shX, 0, 0);
+            offset.set(shX - (sideSign || 1) * axDist * 0.616, -axDist * 0.788, 0);
+            break;
+          }
+          case 'shoulder_out':
+            offset.set((sideSign || 1) * fTier1 * 24.0, 0, 0);
+            break;
+          case 'fist_down':
+            offset.set(0, -fTier1 * 12.0, 0);
+            break;
+          case 'weapon_fwd':
+            offset.set(0, 0, fTier1 * 24.0);
+            break;
+          case 'forearm_shield_out': {
+            const faX = (sideSign || 1) * fTier1 * 20.0;
+            trailOriginOffset.set(faX, 0, 0);
+            offset.set(faX + (sideSign || 1) * fTier2 * 14.0, 0, 0);
+            break;
+          }
+          case 'arm_out':
+            offset.set((sideSign || 1) * fTier1 * 20.0, 0, 0);
+            break;
+          case 'knee_disc':
+            offset.set((sideSign || 1) * fTier1 * 14.0, 0, 0);
+            break;
+          case 'knee_fwd':
+            offset.set(0, 0, fTier1 * 18.0);
+            break;
+          case 'thigh_out':
+            offset.set((sideSign || 1) * fTier1 * 18.0, 0, 0);
+            break;
+          case 'sz_calf_jet_s2': {
+            const cfX = (sideSign || 1) * fTier1 * 18.0;
+            const axDist = fTier2 * 9.5;
+            trailOriginOffset.set(cfX, 0, 0);
+            offset.set(cfX, -axDist * 0.899, -axDist * 0.438);
+            break;
+          }
+          case 'calf_out':
+            offset.set((sideSign || 1) * fTier1 * 18.0, 0, 0);
+            break;
+          case 'ankle_fwd':
+            offset.set(0, 0, fTier1 * 16.0);
+            break;
+          case 'boot_down':
+            offset.set(0, -fTier1 * 16.0, 0);
+            break;
+          default:
+            offset.set((sideSign || 0) * fTier2 * 14.0, 0, 0);
+            break;
         }
 
         node.position.copy(init).add(offset);
