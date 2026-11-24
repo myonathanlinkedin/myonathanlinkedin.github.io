@@ -3165,7 +3165,9 @@
     renderer.shadowMap.enabled = !isCoarseMobile;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.toneMapping = THREE.AgXToneMapping;
-    renderer.toneMappingExposure = 0.94;
+    // Calibrated for Three.js r170 AgXToneMapping (+0.3 EV compensation so AgX's optical roll-off
+    // stays bright, crisp & eye-comfortable without dark-midtone muddiness or clipped white highlights!)
+    renderer.toneMappingExposure = 1.24;
 
     const maxAnisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), 4);
 
@@ -3189,13 +3191,13 @@
             varying vec3 vDir;
             void main() {
               float y = vDir.y * 0.5 + 0.5;
-              vec3 low = vec3(0.04, 0.07, 0.11);
-              vec3 mid = vec3(0.16, 0.24, 0.34);
-              vec3 top = vec3(0.62, 0.72, 0.84);
+              vec3 low = vec3(0.10, 0.14, 0.20);
+              vec3 mid = vec3(0.28, 0.36, 0.46);
+              vec3 top = vec3(0.76, 0.84, 0.94);
               vec3 col = mix(low, mid, smoothstep(0.14, 0.48, y));
               col = mix(col, top, smoothstep(0.52, 0.96, y));
-              float horizonLine = exp(-abs(vDir.y) * 10.0);
-              col += vec3(0.22, 0.32, 0.44) * horizonLine;
+              float horizonLine = exp(-abs(vDir.y) * 9.0);
+              col += vec3(0.28, 0.36, 0.48) * horizonLine;
               gl_FragColor = vec4(col, 1.0);
             }
           `
@@ -3212,11 +3214,12 @@
         m.lookAt(...lookAt);
         envScene.add(m);
       };
-      addSoftbox(30, 14, new THREE.Color(5.2, 5.0, 4.7), [4, 28, 12], [0, 0, 0]);
-      addSoftbox(9, 30, new THREE.Color(2.6, 3.6, 5.0), [-28, 12, 16], [0, 4, 0]);
-      addSoftbox(9, 28, new THREE.Color(4.2, 3.2, 2.2), [28, 12, 10], [0, 4, 0]);
-      addSoftbox(26, 7, new THREE.Color(3.4, 4.0, 4.9), [0, 16, -28], [0, 2, 0]);
-      addSoftbox(22, 10, new THREE.Color(0.32, 0.46, 0.62), [0, -24, 8], [0, 0, 0]);
+      addSoftbox(32, 16, new THREE.Color(5.8, 5.6, 5.4), [6, 28, 14], [0, 0, 0]);
+      addSoftbox(12, 30, new THREE.Color(3.4, 4.0, 4.8), [-28, 12, 18], [0, 4, 0]);
+      addSoftbox(12, 28, new THREE.Color(4.4, 3.8, 3.2), [28, 12, 12], [0, 4, 0]);
+      addSoftbox(28, 8, new THREE.Color(4.0, 4.5, 5.2), [0, 16, -28], [0, 2, 0]);
+      // Foam-core studio bounce reflector beneath the kit so undersides & hollow verniers stay readable!
+      addSoftbox(26, 14, new THREE.Color(1.05, 1.18, 1.32), [0, -24, 10], [0, 0, 0]);
 
       const tex = pmrem.fromScene(envScene, 0.032).texture;
       pmrem.dispose();
@@ -3224,7 +3227,7 @@
       return tex;
     }
     scene.environment = createCinemaSoftboxEnvMap(renderer);
-    scene.environmentIntensity = 0.56;
+    scene.environmentIntensity = 0.86;
 
     // Async load RTX-Forged Float32 Studio Softbox HDRI (zero frame-0 stall; instant upgrade once ready)
     (function loadForgedStudioHDRI() {
@@ -3264,12 +3267,14 @@
     controls.autoRotate = state.autoRotate;
     controls.autoRotateSpeed = 0.72;
 
-    // 3-Point Directional + Hemisphere Studio Lighting + Soft Shadow Camera on Key Light
-    const hemiLight = new THREE.HemisphereLight(0xb8d4f0, 0x090f1a, isCoarseMobile ? 0.52 : 0.34);
+    // Calibrated 5400K Gunpla 3-Point Studio Lighting (Three.js r170 Physically-Based Units, ~3:1 Key:Fill Ratio!)
+    // Enabled identically on BOTH Desktop & Mobile so shadows on dark armor (Sazabi/Gouf/Zaku) never crush to black.
+    const hemiLight = new THREE.HemisphereLight(0xd8e8f8, 0x2a3b52, isCoarseMobile ? 0.82 : 0.68);
     scene.add(hemiLight);
 
-    const keyLight = new THREE.DirectionalLight(0xfff6ea, 1.48);
-    keyLight.position.set(125, 235, 165);
+    // 1. Key Light: 45 deg lateral, ~42 deg elevated warm-daylight 5400K studio softbox
+    const keyLight = new THREE.DirectionalLight(0xfffaf2, 2.75);
+    keyLight.position.set(135, 225, 175);
     keyLight.castShadow = !isCoarseMobile;
     keyLight.shadow.mapSize.set(2048, 2048);
     keyLight.shadow.camera.near = 40;
@@ -3283,13 +3288,15 @@
     keyLight.shadow.radius = 2.6;
     scene.add(keyLight);
 
-    const fillLight = new THREE.DirectionalLight(0x7cc4fa, 0.44);
-    fillLight.position.set(-165, 130, 110);
-    fillLight.visible = !isCoarseMobile;
+    // 2. Fill Light: opposite camera-front neutral-cool 5800K bounce (3:1 ratio -> keeps dark armor panel lines readable!)
+    const fillLight = new THREE.DirectionalLight(0xdceeff, 1.05);
+    fillLight.position.set(-155, 135, 130);
+    fillLight.visible = true;
     scene.add(fillLight);
 
-    const rimLight = new THREE.DirectionalLight(0x9bd8ff, 0.96);
-    rimLight.position.set(-100, 195, -180);
+    // 3. Rim / Back Stripbox Light: crisp silhouette separation for dark & white armor alike
+    const rimLight = new THREE.DirectionalLight(0xe4f2ff, 1.55);
+    rimLight.position.set(-95, 195, -175);
     scene.add(rimLight);
 
     // Tiered Post-Processing Composer (ULTRA RTX = GTAO + Selective HDR Bloom + AgX OutputPass; BALANCED = Bloom + Shadows; LOW = 1-Pass Fast!)
@@ -4129,12 +4136,12 @@
     });
 
     const ENVIRONMENTS = {
-      hangar: { bg: 0x050b14, fog: 0x050b14, skyTop: 0x0c1a2c, skyMid: 0x06101c, skyBot: 0x03070e, accent: 0x38bdf8, apron: 0x040810, hemiSky: 0xb8d4f0, hemiGnd: 0x0a111e, key: 0xfff6ea, keyI: 1.50, fill: 0x7cc4fa, fillI: 0.46, rim: 0x9bd8ff, rimI: 0.96, hemiI: 0.34, envI: 0.56, stars: 0.24, cyber: false, studio: false },
-      studio: { bg: 0xcbd5e1, fog: 0xcbd5e1, skyTop: 0xe6edf5, skyMid: 0xcbd5e1, skyBot: 0x94a3b8, accent: 0xf97316, apron: 0xb8c5d6, hemiSky: 0xf8fafc, hemiGnd: 0x475569, key: 0xfffaf2, keyI: 1.58, fill: 0x93c5fd, fillI: 0.54, rim: 0xf97316, rimI: 0.72, hemiI: 0.52, envI: 0.52, stars: 0.00, cyber: false, studio: true },
-      earth: { bg: 0x061022, fog: 0x061022, skyTop: 0x162f6e, skyMid: 0x091632, skyBot: 0x030712, accent: 0x60a5fa, apron: 0x060f20, hemiSky: 0xbcd8ff, hemiGnd: 0x0b1426, key: 0xfffdf5, keyI: 1.52, fill: 0x60a5fa, fillI: 0.50, rim: 0x93c5fd, rimI: 0.94, hemiI: 0.36, envI: 0.58, stars: 0.70, cyber: false, studio: false },
-      mars: { bg: 0x14080a, fog: 0x14080a, skyTop: 0x3a1510, skyMid: 0x1a0a0b, skyBot: 0x0a0304, accent: 0xf97316, apron: 0x120708, hemiSky: 0xffcfb4, hemiGnd: 0x1e0c0c, key: 0xffa67a, keyI: 1.54, fill: 0xd94626, fillI: 0.48, rim: 0xfb923c, rimI: 1.02, hemiI: 0.32, envI: 0.52, stars: 0.50, cyber: false, studio: false },
-      lunar: { bg: 0x040508, fog: 0x040508, skyTop: 0x111622, skyMid: 0x070a10, skyBot: 0x020306, accent: 0xcbd5e1, apron: 0x06080d, hemiSky: 0xdbe4f0, hemiGnd: 0x080b12, key: 0xf8fafc, keyI: 1.66, fill: 0x475569, fillI: 0.24, rim: 0xdbeafe, rimI: 0.88, hemiI: 0.22, envI: 0.48, stars: 0.95, cyber: false, studio: false },
-      cyberpunk: { bg: 0x060214, fog: 0x060214, skyTop: 0x260d54, skyMid: 0x0d041e, skyBot: 0x04010c, accent: 0xff007f, apron: 0x080316, hemiSky: 0xc4b5fd, hemiGnd: 0x18082b, key: 0x8b5cf6, keyI: 1.04, fill: 0xff007f, fillI: 1.24, rim: 0x00e5ff, rimI: 1.48, hemiI: 0.32, envI: 0.54, stars: 0.45, cyber: true, studio: false }
+      hangar: { bg: 0x050b14, fog: 0x050b14, skyTop: 0x0c1a2c, skyMid: 0x06101c, skyBot: 0x03070e, accent: 0x38bdf8, apron: 0x040810, hemiSky: 0xd8e8f8, hemiGnd: 0x2a3b52, key: 0xfffaf2, keyI: 2.75, fill: 0xdceeff, fillI: 1.05, rim: 0xe4f2ff, rimI: 1.55, hemiI: 0.68, envI: 0.86, stars: 0.24, cyber: false, studio: false },
+      studio: { bg: 0xcbd5e1, fog: 0xcbd5e1, skyTop: 0xe6edf5, skyMid: 0xcbd5e1, skyBot: 0x94a3b8, accent: 0xf97316, apron: 0xb8c5d6, hemiSky: 0xffffff, hemiGnd: 0x64748b, key: 0xfffdf8, keyI: 2.65, fill: 0xe0f0ff, fillI: 1.15, rim: 0xfff0e0, rimI: 1.20, hemiI: 0.85, envI: 0.82, stars: 0.00, cyber: false, studio: true },
+      earth: { bg: 0x061022, fog: 0x061022, skyTop: 0x162f6e, skyMid: 0x091632, skyBot: 0x030712, accent: 0x60a5fa, apron: 0x060f20, hemiSky: 0xd6e8ff, hemiGnd: 0x283a56, key: 0xfffdf5, keyI: 2.85, fill: 0xc8e2ff, fillI: 1.10, rim: 0xd8ecff, rimI: 1.55, hemiI: 0.72, envI: 0.88, stars: 0.70, cyber: false, studio: false },
+      mars: { bg: 0x14080a, fog: 0x14080a, skyTop: 0x3a1510, skyMid: 0x1a0a0b, skyBot: 0x0a0304, accent: 0xf97316, apron: 0x120708, hemiSky: 0xffdec8, hemiGnd: 0x3a2020, key: 0xffc8a2, keyI: 2.75, fill: 0xf2a080, fillI: 0.98, rim: 0xffbe88, rimI: 1.60, hemiI: 0.65, envI: 0.82, stars: 0.50, cyber: false, studio: false },
+      lunar: { bg: 0x040508, fog: 0x040508, skyTop: 0x111622, skyMid: 0x070a10, skyBot: 0x020306, accent: 0xcbd5e1, apron: 0x06080d, hemiSky: 0xe2eaf4, hemiGnd: 0x222a38, key: 0xffffff, keyI: 2.95, fill: 0x94a8c4, fillI: 0.78, rim: 0xe6f0ff, rimI: 1.50, hemiI: 0.52, envI: 0.78, stars: 0.95, cyber: false, studio: false },
+      cyberpunk: { bg: 0x060214, fog: 0x060214, skyTop: 0x260d54, skyMid: 0x0d041e, skyBot: 0x04010c, accent: 0xff007f, apron: 0x080316, hemiSky: 0xd8ccff, hemiGnd: 0x2e1848, key: 0xc4b0ff, keyI: 2.15, fill: 0xff66b5, fillI: 1.45, rim: 0x5ceeff, rimI: 1.85, hemiI: 0.65, envI: 0.82, stars: 0.45, cyber: true, studio: false }
     };
 
     function applyEnvironment(envKey) {
@@ -4152,7 +4159,7 @@
       rimLight.color.setHex(cfg.rim); rimLight.intensity = cfg.rimI;
       if (cfg.hemiSky) hemiLight.color.setHex(cfg.hemiSky);
       if (cfg.hemiGnd) hemiLight.groundColor.setHex(cfg.hemiGnd);
-      hemiLight.intensity = isCoarseMobile ? cfg.hemiI * 1.35 : cfg.hemiI;
+      hemiLight.intensity = isCoarseMobile ? cfg.hemiI * 1.12 : cfg.hemiI;
       scene.environmentIntensity = cfg.envI * RENDER_ENHANCEMENT_CONFIG.envReflectionIntensity;
       starField.material.opacity = cfg.stars;
       starField.visible = cfg.stars > 0.01;
