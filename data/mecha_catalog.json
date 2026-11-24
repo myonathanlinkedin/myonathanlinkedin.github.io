@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
   "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
-  "last_synced": "2026-11-24T14:10:51.971094+00:00",
+  "last_synced": "2026-11-24T14:23:38.362253+00:00",
   "baselines": [
     {
       "id": "baseline_gundam_frame_v1",
@@ -16,7 +16,7 @@
       "effective_k2_m2": 1.7462,
       "tolerance_stackup_mm": 0.18,
       "base_reactor_kw": 3450,
-      "subsystem_count": 177,
+      "subsystem_count": 180,
       "hardpoints": [
         "HP-00",
         "HP-01",
@@ -46,8 +46,8 @@
         "HP-25",
         "HP-26"
       ],
-      "glb_sha256": "758aa703e9d8ad0407a9880907a52696209c5336afaa709eabdd8be0106e8316",
-      "glb_size_bytes": 1471908
+      "glb_sha256": "6af79e1e819f5be33b31d932f5536e993488ef7d2ad73093368a5464e0e8a834",
+      "glb_size_bytes": 1718436
     },
     {
       "id": "baseline_rival_heavy_frame_v1",
@@ -90,7 +90,7 @@
       ]
     }
   ],
-  "last_synthesized_utc": "2026-11-24T14:10:51Z",
+  "last_synthesized_utc": "2026-11-24T14:23:38Z",
   "manifest_tier": "public_cdn_sanitized",
   "modular_parts": [
     {
@@ -159,8 +159,8 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_a_aero.glb",
-          "sha256_hash": "bdebc28f50dd4c7a4d4904184c5633f1044bf8761a03b4911ba0b3b461453e9b",
-          "file_size_bytes": 262732,
+          "sha256_hash": "b3f1027a4e68fbc894be4b076764b9052631b152f4f68f9d3086b00c619d349a",
+          "file_size_bytes": 258152,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
@@ -186,8 +186,8 @@
         "reactor_power_draw_kw": 450,
         "vernier_thrust_kgf": 82000
       },
-      "glb_sha256": "bdebc28f50dd4c7a4d4904184c5633f1044bf8761a03b4911ba0b3b461453e9b",
-      "glb_size_bytes": 262732,
+      "glb_sha256": "b3f1027a4e68fbc894be4b076764b9052631b152f4f68f9d3086b00c619d349a",
+      "glb_size_bytes": 258152,
       "subsystem_count": 29
     },
     {
@@ -278,8 +278,8 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_s_space.glb",
-          "sha256_hash": "423fc5f59bdd5cec1823742f7875c4aac804ab2b3406bcbd7d5f376a79e14d7b",
-          "file_size_bytes": 312716,
+          "sha256_hash": "eabb993fe956154dc47828afec6e24b305ea531d2c55e10344851091e6d85d9c",
+          "file_size_bytes": 308540,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
@@ -305,8 +305,8 @@
         "reactor_power_draw_kw": 680,
         "vernier_thrust_kgf": 140000
       },
-      "glb_sha256": "423fc5f59bdd5cec1823742f7875c4aac804ab2b3406bcbd7d5f376a79e14d7b",
-      "glb_size_bytes": 312716,
+      "glb_sha256": "eabb993fe956154dc47828afec6e24b305ea531d2c55e10344851091e6d85d9c",
+      "glb_size_bytes": 308540,
       "subsystem_count": 33
     },
     {
@@ -375,8 +375,8 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_h_artillery.glb",
-          "sha256_hash": "3c6e066f6c26f7384b0b9f9ea3595e4617411cd68f546fdc7edf8e641966d1ad",
-          "file_size_bytes": 265380,
+          "sha256_hash": "783307649378b14870d3bf16829e2adaf85c361102bf985e9623f8a6597e7a4b",
+          "file_size_bytes": 260800,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
@@ -402,8 +402,8 @@
         "reactor_power_draw_kw": 1200,
         "vernier_thrust_kgf": 24000
       },
-      "glb_sha256": "3c6e066f6c26f7384b0b9f9ea3595e4617411cd68f546fdc7edf8e641966d1ad",
-      "glb_size_bytes": 265380,
+      "glb_sha256": "783307649378b14870d3bf16829e2adaf85c361102bf985e9623f8a6597e7a4b",
+      "glb_size_bytes": 260800,
       "subsystem_count": 33
     },
     {
@@ -472,8 +472,8 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_e_recon.glb",
-          "sha256_hash": "419dbcdd63f941ea75e1eac49e1594354332d5fd14653bbee4bbe489cf9c9e2e",
-          "file_size_bytes": 231960,
+          "sha256_hash": "1572cd818235351d0413420a2b3c30e31b1de06c0ba3d0e5b30d35a70c32b8da",
+          "file_size_bytes": 227380,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
@@ -499,8 +499,8 @@
         "reactor_power_draw_kw": 850,
         "vernier_thrust_kgf": 18000
       },
-      "glb_sha256": "419dbcdd63f941ea75e1eac49e1594354332d5fd14653bbee4bbe489cf9c9e2e",
-      "glb_size_bytes": 231960,
+      "glb_sha256": "1572cd818235351d0413420a2b3c30e31b1de06c0ba3d0e5b30d35a70c32b8da",
+      "glb_size_bytes": 227380,
       "subsystem_count": 24
     },
     {
@@ -794,8 +794,8 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/propulsion_vernier_wing_pod.glb",
-          "sha256_hash": "cca5098f0be155d0471dc45fc5b9217845875c40d2a7c60d93f9f357c8780e88",
-          "file_size_bytes": 405332,
+          "sha256_hash": "98714ec0c12c1cc338e7c1d4dc1dab4ea6a34903fc468e204c3422647cec9088",
+          "file_size_bytes": 400748,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
@@ -821,8 +821,8 @@
         "reactor_power_draw_kw": 920,
         "vernier_thrust_kgf": 168000
       },
-      "glb_sha256": "cca5098f0be155d0471dc45fc5b9217845875c40d2a7c60d93f9f357c8780e88",
-      "glb_size_bytes": 405332,
+      "glb_sha256": "98714ec0c12c1cc338e7c1d4dc1dab4ea6a34903fc468e204c3422647cec9088",
+      "glb_size_bytes": 400748,
       "subsystem_count": 42
     },
     {
