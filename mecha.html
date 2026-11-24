@@ -6396,6 +6396,7 @@
 
         // Layer 1 & 2: STRICT ORTHOGONAL PRINCIPAL-AXIS SEPARATION (+X/-X/+Y/-Y/+Z/-Z) — ZERO messy diagonal scatter!
         const offset = new THREE.Vector3(0, 0, 0);
+        const trailOriginOffset = new THREE.Vector3(0, 0, 0);
         let drawTrail = false;
 
         if (n.includes('head') || n.includes('v_fin') || n.includes('mono_eye') || n.includes('helmet') || n.includes('snout') || n.includes('commander_fin') || n.includes('commander_blade')) {
@@ -6420,14 +6421,33 @@
           drawTrail = n.includes('skirt_side') && !n.includes('trim');
         } else if (n.includes('backpack_saber_hilt')) {
           // Stage 1: moves straight BACK (-Z) with backpack; Stage 2: slides straight UP (+Y) out of gold saber socket!
-          offset.set(0, fTier2 * 12.0, -fTier0 * 28.0);
+          const bpZ = -fTier0 * 28.0;
+          trailOriginOffset.set(0, 0, bpZ);
+          offset.set(0, fTier2 * 12.0, bpZ);
           drawTrail = true;
         } else if (n.includes('backpack_thruster_bell') || n.includes('backpack_thruster_glow')) {
-          // Stage 1: moves straight BACK (-Z) with backpack; Stage 2: slides straight DOWN (-Y) off gold gimbal ring!
-          offset.set(0, -fTier2 * 9.0, -fTier0 * 28.0);
+          // Stage 1: moves straight BACK (-Z) with backpack; Stage 2: slides COAXIALLY along 22 deg axis out of exposed gold gimbal lock ring!
+          const bpZ = -fTier0 * 28.0;
+          const axDist = fTier2 * 11.0;
+          trailOriginOffset.set(0, 0, bpZ);
+          offset.set(0, -axDist * 0.927, bpZ - axDist * 0.375);
           drawTrail = n.includes('bell');
-        } else if (n.includes('backpack') || n.includes('hp00_dorsal') || n.includes('sazabi_funnel') || n.includes('sazabi_tank') || n.includes('sazabi_thruster') || n.includes('sazabi_vernier') || n.includes('sazabi_booster') || n.includes('zaku_thruster') || n.includes('gouf_thruster')) {
-          // Stock Backpack Assembly slides strictly straight BACKWARD (-Z) off twin 3mm dorsal pegs!
+        } else if (n.includes('zaku_thruster') || n.includes('gouf_thruster')) {
+          // Stage 1: moves straight BACK (-Z) with backpack; Stage 2: slides COAXIALLY along 24 deg axis out of exposed gold gimbal lock ring!
+          const bpZ = -fTier0 * 28.0;
+          const axDist = fTier2 * 11.0;
+          trailOriginOffset.set(0, 0, bpZ);
+          offset.set(0, -axDist * 0.914, bpZ - axDist * 0.407);
+          drawTrail = true;
+        } else if (n.includes('sazabi_thruster_gold')) {
+          // Stage 1: moves straight BACK (-Z) with backpack & propellant tanks; Stage 2: slides COAXIALLY out of tank's gold gimbal lock ring!
+          const bpZ = -fTier0 * 28.0;
+          const axDist = fTier2 * 11.5;
+          trailOriginOffset.set(0, 0, bpZ);
+          offset.set(sideSign * axDist * 0.259, -axDist * 0.819, bpZ - axDist * 0.512);
+          drawTrail = true;
+        } else if (n.includes('backpack') || n.includes('hp00_dorsal') || n.includes('sazabi_funnel') || n.includes('sazabi_tank') || n.includes('sazabi_vernier') || n.includes('sazabi_booster')) {
+          // Stock Backpack Assembly (including bolted dark nozzle shrouds & gold gimbal lock rings) slides strictly straight BACKWARD (-Z) off twin 3mm dorsal pegs!
           offset.set(0, 0, -fTier0 * 28.0);
           drawTrail = n.includes('backpack_core') || n.includes('backpack_obsidian') || n.includes('backpack_dark') || n.includes('funnel_rack');
         } else if (n.includes('pauldron') || n.includes('shoulder') || n.includes('horn_olive') || n.includes('spike')) {
@@ -6471,9 +6491,9 @@
 
         node.position.copy(init).add(offset);
 
-        // Emit crisp SolidWorks dashed CAD assembly trail line connecting exploded shell back to its skeleton adapter!
-        if (factor > 0.02 && drawTrail && node.visible && node.parent && offset.lengthSq() > 1.0) {
-          _tmpCenter.copy(gc).add(init);
+        // Emit crisp SolidWorks dashed CAD assembly trail line connecting exploded shell back to its parent socket/adapter!
+        if (factor > 0.02 && drawTrail && node.visible && node.parent && offset.distanceToSquared(trailOriginOffset) > 1.0) {
+          _tmpCenter.copy(gc).add(init).add(trailOriginOffset);
           _tmpRestWorld.copy(_tmpCenter).applyMatrix4(node.parent.matrixWorld);
           _tmpCurWorld.copy(gc).add(node.position).applyMatrix4(node.parent.matrixWorld);
           trailPositions.push(
