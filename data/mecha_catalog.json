@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
   "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
-  "last_synced": "2026-11-24T11:02:14.512507+00:00",
+  "last_synced": "2026-11-24T11:15:27.791793+00:00",
   "baselines": [
     {
       "id": "baseline_gundam_frame_v1",
@@ -88,7 +88,7 @@
       ]
     }
   ],
-  "last_synthesized_utc": "2026-11-24T11:02:14Z",
+  "last_synthesized_utc": "2026-11-24T11:15:27Z",
   "manifest_tier": "public_cdn_sanitized",
   "modular_parts": [
     {
@@ -273,15 +273,15 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_s_space.glb",
-          "sha256_hash": "7a6298a4b7a83d68f6c824035181c47c51520b25a65d3db2cac96a8a7deb0e4e",
-          "file_size_bytes": 259544,
+          "sha256_hash": "2f226b335bd79e0396f35208850fb22e433a633b7c9738a18e958b6cab03d268",
+          "file_size_bytes": 259588,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
             -35.27699702003732,
-            -36.410663049582524,
-            -34.47873692286389
+            -39.61066304958253,
+            -36.778736922863885
           ],
           "max": [
             35.27699702003732,
@@ -5784,20 +5784,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -32.785,
-            -8.143,
-            -21.046
+            -32.87922363076996,
+            -8.143081191695188,
+            -21.32308820366993
           ],
           "max": [
-            32.785,
-            7.688,
-            -9.6
+            32.87922363076996,
+            9.583212671883704,
+            -9.600000000000001
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_006_09719a.glb",
-          "sha256_hash": "31ef1ae0573c65aa844a5bda4cb2bc96a44fa6b6913abfc977e5a6f21a6aa79b",
-          "file_size_bytes": 180588,
+          "sha256_hash": "661b6046ac224c92be52b8159f47d01fa5d9f5ffc693dd90bb44a4bbc239b36d",
+          "file_size_bytes": 179472,
           "compression": "meshopt"
         }
       },
@@ -7755,20 +7755,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -32.785,
-            -8.143,
-            -21.15
+            -32.87922363076996,
+            -8.143081191695188,
+            -21.32308820366993
           ],
           "max": [
-            32.785,
-            7.688,
-            -9.277
+            32.87922363076996,
+            9.583212671883704,
+            -9.276886183539922
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_005_ee79c5.glb",
-          "sha256_hash": "497c15711840e77f8bd7f6af866ab86dff835103d8eb801120d4fea4fc6b95c2",
-          "file_size_bytes": 254596,
+          "sha256_hash": "fa44771b105f84a329cd32497cb3de4a0d564c7d605c4f91440b19eec8856721",
+          "file_size_bytes": 253480,
           "compression": "meshopt"
         }
       },
@@ -16583,20 +16583,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -32.785,
-            -8.143,
-            -21.046
+            -32.87922363076996,
+            -8.143081191695188,
+            -21.32308820366993
           ],
           "max": [
-            32.785,
-            7.688,
-            -9.6
+            32.87922363076996,
+            9.583212671883704,
+            -9.600000000000001
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_021_ecc82c.glb",
-          "sha256_hash": "977511ccd91b81d420ac2994728871948eb8e2e90ca2bc8235f71bd5b2ee7ced",
-          "file_size_bytes": 180568,
+          "sha256_hash": "5e0a96068496492af6f783ef0741b5875459037c8665167e2b85949a26b8aebb",
+          "file_size_bytes": 179452,
           "compression": "meshopt"
         }
       },
@@ -18562,20 +18562,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -32.785,
-            -8.143,
-            -21.046
+            -32.87922363076996,
+            -8.143081191695188,
+            -21.32308820366993
           ],
           "max": [
-            32.785,
-            7.688,
-            -9.6
+            32.87922363076996,
+            9.583212671883704,
+            -9.600000000000001
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_024_725aec.glb",
-          "sha256_hash": "2ad91ae99fd48898aa3e080ab887b6c872a81203ff1b1f0a8528ca1aaa8ba065",
-          "file_size_bytes": 180608,
+          "sha256_hash": "0861514d63a68e0b42e3e13ba5b88352c125cec0ecc0505512b8d4b6fd1ca08a",
+          "file_size_bytes": 179492,
           "compression": "meshopt"
         }
       },
@@ -24475,20 +24475,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -33.349,
-            -8.832,
-            -21.832
+            -33.4505009311583,
+            -8.832193655234605,
+            -22.11654251887588
           ],
           "max": [
-            33.349,
-            8.325,
-            -9.6
+            33.4505009311583,
+            10.38178396310785,
+            -9.600000000000001
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_040_0191ca.glb",
-          "sha256_hash": "eadcc10fe7b49344ff0e1832e4ba1cc2a166c0242ca74c88dbcbfffd3e4e6c80",
-          "file_size_bytes": 182304,
+          "sha256_hash": "eca949e35919e6ff445680e5502993ce084c8d4b0902cc7ba3b2e351f7ff504b",
+          "file_size_bytes": 181192,
           "compression": "meshopt"
         }
       },
@@ -31654,20 +31654,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -33.208,
-            -8.662,
-            -21.636
+            -33.30768160606122,
+            -8.661930993275014,
+            -21.91817894007439
           ],
           "max": [
-            33.208,
-            8.166,
-            -9.6
+            33.30768160606122,
+            10.182141140301814,
+            -9.600000000000001
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_030_3ea6ae.glb",
-          "sha256_hash": "70ca27d52138f461bf15e3e28517bb37297fd5fcd76aaa48b6462fd1f773736c",
-          "file_size_bytes": 208824,
+          "sha256_hash": "3bb059cddcbe57800ad04d5c5ebc3c56afbca9e7bc1430e5e3d3726a9302b77f",
+          "file_size_bytes": 207704,
           "compression": "meshopt"
         }
       },
@@ -33995,20 +33995,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -33.841,
-            -9.428,
-            -22.52
+            -33.95036856899811,
+            -9.428112972093173,
+            -22.810339516422943
           ],
           "max": [
-            33.841,
-            8.883,
-            -9.6
+            33.95036856899811,
+            11.08086585527715,
+            -9.600000000000001
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_034_2d5273.glb",
-          "sha256_hash": "2914700072e6a37b2598704c02a1b00a6aefa51af5144266af5294d8001bab76",
-          "file_size_bytes": 208276,
+          "sha256_hash": "570f58eb166c73cbdec32ce823217ce908ebc3e4d17c7d2add34e80e5b366502",
+          "file_size_bytes": 207152,
           "compression": "meshopt"
         }
       },
@@ -37816,20 +37816,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -33.349,
-            -8.832,
-            -21.929
+            -33.4505009311583,
+            -8.832193655234605,
+            -22.11654251887588
           ],
           "max": [
-            33.349,
-            8.325,
-            -9.43
+            33.4505009311583,
+            10.38178396310785,
+            -9.429783919534975
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_038_cdb6d0.glb",
-          "sha256_hash": "451aca3c93aebf9e685501ab35bd45a3a9f12dfd12f05581d26ea3f0fd9a81f3",
-          "file_size_bytes": 284044,
+          "sha256_hash": "c4babc46cd7c23d0be0fdeb319506d8540492802e22a69f15828669603325bdb",
+          "file_size_bytes": 282928,
           "compression": "meshopt"
         }
       },
