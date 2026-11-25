@@ -4790,6 +4790,7 @@
         nativeLowerPropellantMeshes: [],
         nativeShoulderShieldMeshes: [],
         nativeHeadHornMeshes: [],
+        nativeChestVentMeshes: [],
         backpackSaberHilts: { r: null, l: null }
       };
       state.monoEyeNodes = [];
@@ -4867,6 +4868,15 @@
         // and ALL default head & shoulder horns/spikes remain 100% preserved!
         if (n.includes('right_curved_tower_shield')) {
           rig.nativeShoulderShieldMeshes.push(mesh);
+        }
+        // Vanguard-ONLY stock chest intake vents (`chest_vent_duct_r/l` & `chest_vent_louvers_r/l`):
+        // automatically detached whenever custom `chest_armor` is equipped, and restored immediately on unequip!
+        if (
+          !spec?.isZeonEnemy &&
+          spec?.id !== 'rival_frame' &&
+          (n.includes('chest_vent_duct') || n.includes('chest_vent_louvers'))
+        ) {
+          rig.nativeChestVentMeshes.push(mesh);
         }
         if (n.includes('backpack_saber_hilt_r')) {
           rig.backpackSaberHilts.r = mesh;
@@ -5843,7 +5853,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r46');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r47');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -7094,6 +7104,13 @@
         state.kinematicRig.nativeHeadHornMeshes.forEach(m => {
           m.userData.hiddenBySwap = hasHeadSensor;
           m.visible = !hasHeadSensor;
+        });
+      }
+      const hasChestArmor = !!state.slotOccupancy.chest_armor && state.equippedPacks.has(state.slotOccupancy.chest_armor);
+      if (state.kinematicRig?.nativeChestVentMeshes) {
+        state.kinematicRig.nativeChestVentMeshes.forEach(m => {
+          m.userData.hiddenBySwap = hasChestArmor;
+          m.visible = !hasChestArmor;
         });
       }
       state.chassisParts = state.chassisParts.filter(n => n.parent !== null);
