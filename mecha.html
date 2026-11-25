@@ -5139,7 +5139,7 @@
       // into the chestplate (0.0mm top-down & side air gap!) while outer Chobham plates stand cleanly proud!
       const chestFrontZ = isSazabi ? 15.8 : (isGouf ? 14.0 : (isZaku ? 13.0 : 12.6));
       const chestScale = isSazabi ? 1.10 : (isGouf ? 1.06 : (isZaku ? 1.04 : 1.0));
-      const dorsalBackZ = isSazabi ? -10.8 : (isGouf ? -10.4 : (isZaku ? -9.6 : -7.6));
+      const dorsalBackZ = isSazabi ? -10.8 : (isGouf ? -13.2 : (isZaku ? -9.6 : -7.6));
       const fistX = rSign * (isSazabi ? 37.6 : (isGouf ? 34.8 : (isZaku ? 34.5 : 36.2)));
       const fistY = isSazabi ? 88.0 : (spec.isZeonEnemy ? 88.5 : 88.8);
       const fistZ = isSazabi ? 9.5 : (spec.isZeonEnemy ? 9.6 : 8.2);
@@ -5844,7 +5844,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r33');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r34');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6461,6 +6461,7 @@
             let pMinY = Infinity, pMaxY = -Infinity, pInnerAbsX = Infinity;
             const sx = Math.abs(grp.scale.x || 1);
             const sy = Math.abs(grp.scale.y || 1);
+            const payloadMeshes = [];
             grp.children.forEach(c => {
               if (!c.isMesh) return;
               const nm = (c.name || '').toLowerCase();
@@ -6473,9 +6474,27 @@
                 pMinY = Math.min(pMinY, bb.min.y * sy);
                 pMaxY = Math.max(pMaxY, bb.max.y * sy);
                 pInnerAbsX = Math.min(pInnerAbsX, Math.abs(bb.min.x) * sx, Math.abs(bb.max.x) * sx);
+                payloadMeshes.push(bb);
               }
             });
-            return { pMinY, pMaxY, pInnerAbsX, isHanging: pMinY < -5.0, hubLocalZ: -0.8 * Math.abs(grp.scale.z || 1) };
+            // Measure ACTUAL inner-wall X in the lower hub attachment band (bb.min.y <= pMinY + 7.0)
+            // so upper overhanging boxes (e.g. smoke_adapter_base) never pull the hinge drum into empty air!
+            let hubInnerAbsX = Infinity;
+            if (Number.isFinite(pMinY)) {
+              payloadMeshes.forEach(bb => {
+                if (bb.min.y * sy <= pMinY + 7.0) {
+                  hubInnerAbsX = Math.min(hubInnerAbsX, Math.abs(bb.min.x) * sx, Math.abs(bb.max.x) * sx);
+                }
+              });
+            }
+            if (!Number.isFinite(hubInnerAbsX)) hubInnerAbsX = pInnerAbsX;
+            return {
+              pMinY,
+              pMaxY,
+              pInnerAbsX: hubInnerAbsX,
+              isHanging: pMinY < -5.0,
+              hubLocalZ: -0.6 * Math.abs(grp.scale.z || 1)
+            };
           };
 
           const ancR = socket.bilateralRightContainer.userData.worldAnchor || { x: 0, y: 156, z: 0, outOffset: 0 };
@@ -6489,18 +6508,18 @@
               [leftGrp, bridgeL, ancL, mL, lSign, 'l'],
             ]) {
               if (!Number.isFinite(m.pMinY)) continue;
-              // Gouf spherical blue dome top is Y=162.1mm -> lift wing/pod floor strictly to Y>=163.8mm (ZERO vernier dome clash!)
+              // Seat EVERY Gouf shoulder pod snugly at exact clearance (+1.5mm above Y=162.1mm blue dome top,
+              // lowering high turrets/cannons down off stilts AND lifting hanging wing verniers clear of dome!)
               const floorY = m.isHanging ? 163.8 : 163.5;
-              if (anc.y + m.pMinY < floorY) grp.position.y += (floorY - (anc.y + m.pMinY));
+              grp.position.y += (floorY - (anc.y + m.pMinY));
               const wMinY = anc.y + grp.position.y + m.pMinY;
               const wInnerX = sgn * (m.pInnerAbsX + anc.outOffset);
               const hubZ = anc.z + m.hubLocalZ;
-              // Compact low-profile hinge right at lower-inner wing root (NEVER a tall chimney sticking up!)
-              const hubY = m.isHanging ? (wMinY + 5.2) : (wMinY + 2.4);
+              const hubY = m.isHanging ? (wMinY + 5.2) : (wMinY + 2.8);
               const px = sgn * 34.5;
               addWorldBox(bGrp, anc, px - 3.2, px + 3.2, 157.5, hubY + 1.5, hubZ - 3.8, hubZ + 3.8, `adapter_solid_pedestal_dark_${sfx}`);
-              addWorldBox(bGrp, anc, Math.min(px, wInnerX + sgn * 2.4), Math.max(px, wInnerX + sgn * 2.4), hubY - 2.2, hubY + 2.2, hubZ - 3.6, hubZ + 3.6, `adapter_solid_clevis_dark_${sfx}`);
-              addWorldRotaryDrum(bGrp, anc, wInnerX - sgn * 0.3, hubY, hubZ, 2.5, 8.6, `adapter_solid_drum_dark_${sfx}`, `adapter_solid_pin_gold_${sfx}`);
+              addWorldBox(bGrp, anc, Math.min(px, wInnerX + sgn * 2.8), Math.max(px, wInnerX + sgn * 2.8), hubY - 2.2, hubY + 2.2, hubZ - 3.6, hubZ + 3.6, `adapter_solid_clevis_dark_${sfx}`);
+              addWorldRotaryDrum(bGrp, anc, wInnerX - sgn * 0.2, hubY, hubZ, 2.4, 8.4, `adapter_solid_drum_dark_${sfx}`, `adapter_solid_pin_gold_${sfx}`);
             }
           } else if (state.activeUnitId === 'enemy_zaku') {
             // Left (+X) spiky dome: horn-free rear-upper quadrant, floor strictly above dome curve (Y>=154.8mm) + compact hinge
