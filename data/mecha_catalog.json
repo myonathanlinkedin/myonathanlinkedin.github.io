@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
   "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
-  "last_synced": "2026-11-25T04:54:12.478153+00:00",
+  "last_synced": "2026-11-25T07:01:55.962306+00:00",
   "baselines": [
     {
       "id": "baseline_gundam_frame_v1",
@@ -16,7 +16,7 @@
       "effective_k2_m2": 1.7462,
       "tolerance_stackup_mm": 0.18,
       "base_reactor_kw": 3450,
-      "subsystem_count": 185,
+      "subsystem_count": 187,
       "hardpoints": [
         "HP-00",
         "HP-01",
@@ -46,8 +46,8 @@
         "HP-25",
         "HP-26"
       ],
-      "glb_sha256": "1aeab3c4ae2acf7ed4ea78cfd6fb184b268ff5fc74813fd68ae407c0fcd38045",
-      "glb_size_bytes": 1841636
+      "glb_sha256": "a5b391cf4574ba741a89ceae10f7844ce18dc98b86bb1c38924f8e3d2d3ca946",
+      "glb_size_bytes": 2153136
     },
     {
       "id": "baseline_rival_heavy_frame_v1",
@@ -90,7 +90,7 @@
       ]
     }
   ],
-  "last_synthesized_utc": "2026-11-25T04:54:12Z",
+  "last_synthesized_utc": "2026-11-25T07:01:55Z",
   "manifest_tier": "public_cdn_sanitized",
   "modular_parts": [
     {
@@ -3173,8 +3173,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_005_0d3a7f.glb",
-          "sha256_hash": "c38e8060c31d75b7fb9abbf6637bc4b0b7a396898b3fe766dc627043aadbe86e",
-          "file_size_bytes": 111312,
+          "sha256_hash": "77e625d76e3ee248a896b7751e71a600c97bc998319e90e994d58393c02a8236",
+          "file_size_bytes": 110816,
           "compression": "meshopt"
         }
       },
@@ -3223,7 +3223,10 @@
         ],
         "topology_hash": "de40f10c0e7d41cf",
         "composition_key": "horned_oni_assault_crest+twin_sensor_ears+full_armor_tactical"
-      }
+      },
+      "glb_sha256": "77e625d76e3ee248a896b7751e71a600c97bc998319e90e994d58393c02a8236",
+      "glb_size_bytes": 110816,
+      "subsystem_count": 15
     },
     {
       "part_id": "llm_gen_chest_armor_004_f57167",
@@ -3419,8 +3422,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_003_73c32f.glb",
-          "sha256_hash": "051ae177628db354b552353cf85c425049a85fa013d69d66aaab1db543ef546b",
-          "file_size_bytes": 311296,
+          "sha256_hash": "4fd0d14f57ef55f2d768f84d49ffe1baa15914aba8b104ee7241d3d6358a3c3a",
+          "file_size_bytes": 309960,
           "compression": "meshopt"
         }
       },
@@ -3474,8 +3477,8 @@
         "topology_hash": "85cf284c9e34885d",
         "composition_key": "radar_dish_recon_pauldrons+forward_sensor_pod+nu_vanguard"
       },
-      "glb_sha256": "2678ac435f9f255781591669c6ac5ec4186b8b7ef0a6c50a9b18ecb6cf887a99",
-      "glb_size_bytes": 310624,
+      "glb_sha256": "4fd0d14f57ef55f2d768f84d49ffe1baa15914aba8b104ee7241d3d6358a3c3a",
+      "glb_size_bytes": 309960,
       "subsystem_count": 26
     },
     {
@@ -4416,8 +4419,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_004_94ad25.glb",
-          "sha256_hash": "06720f8ff60945728afb3a325fb9978b9457d59c8140dd8b9eeecdfa3f867560",
-          "file_size_bytes": 191984,
+          "sha256_hash": "f4775045635c89c2be113e531ba9b451712f1b973f3fb10e211d50e4b90d429a",
+          "file_size_bytes": 187524,
           "compression": "meshopt"
         }
       },
@@ -4467,8 +4470,8 @@
         "topology_hash": "77a32a8cf7068f39",
         "composition_key": "spiked_assault_ram_pauldrons+upper_missile_cap+full_armor_tactical"
       },
-      "glb_sha256": "06720f8ff60945728afb3a325fb9978b9457d59c8140dd8b9eeecdfa3f867560",
-      "glb_size_bytes": 191984,
+      "glb_sha256": "f4775045635c89c2be113e531ba9b451712f1b973f3fb10e211d50e4b90d429a",
+      "glb_size_bytes": 187524,
       "subsystem_count": 18
     },
     {
@@ -4538,8 +4541,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_004_262274.glb",
-          "sha256_hash": "dd63ea9b10b38cfcac703a88bea2c85fcf01ec5a705dc17f5ad32a3cde8d7955",
-          "file_size_bytes": 277160,
+          "sha256_hash": "ba947eb3093013425e134581b508a4d31837e3398795981de13603e2f9dcbf41",
+          "file_size_bytes": 279368,
           "compression": "meshopt"
         }
       },
@@ -4591,8 +4594,8 @@
         "topology_hash": "b9ebc7f2cdd3923c",
         "composition_key": "awacs_halo_radome_pack+quad_micro_verniers+federation_rx"
       },
-      "glb_sha256": "5692f41e640f97701fe20bcf44de3e8d24bee3534382eb608539e54be890bab3",
-      "glb_size_bytes": 277796,
+      "glb_sha256": "ba947eb3093013425e134581b508a4d31837e3398795981de13603e2f9dcbf41",
+      "glb_size_bytes": 279368,
       "subsystem_count": 38
     },
     {
@@ -5173,8 +5176,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_007_41005d.glb",
-          "sha256_hash": "80e1a6b0333142f23131d6692751879cc96eb026268e523e28b09eca9d1dc9b1",
-          "file_size_bytes": 86692,
+          "sha256_hash": "7cb329610787cb220d5a80f2ce6a1e152d2eb6ac4a60bdae9e688053b504500c",
+          "file_size_bytes": 87284,
           "compression": "meshopt"
         }
       },
@@ -5225,7 +5228,10 @@
         ],
         "topology_hash": "de67694eff6caaab",
         "composition_key": "sniper_optical_visor_hood+twin_vfin_antennae+full_armor_tactical"
-      }
+      },
+      "glb_sha256": "7cb329610787cb220d5a80f2ce6a1e152d2eb6ac4a60bdae9e688053b504500c",
+      "glb_size_bytes": 87284,
+      "subsystem_count": 15
     },
     {
       "part_id": "llm_gen_chest_armor_007_8490b0",
@@ -6422,8 +6428,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_005_3945af.glb",
-          "sha256_hash": "f9bc1f85998dc507fca100d75ab8018f9279036064428a0aca355904146ffad0",
-          "file_size_bytes": 267584,
+          "sha256_hash": "a0474de62056e7dae482275ed9dae9796bd4ab08fe53abc1f01a579e215e1650",
+          "file_size_bytes": 272176,
           "compression": "meshopt"
         }
       },
@@ -6482,8 +6488,8 @@
         "topology_hash": "8fc2b4dafc15c9a5",
         "composition_key": "twin_aa_rotary_shoulder_turrets+outer_shield_winglet+char_crimson"
       },
-      "glb_sha256": "3bda8433b90ec9c810c32265921e2c64afb02ac3c35c2599a403182ecfaeaefc",
-      "glb_size_bytes": 269572,
+      "glb_sha256": "a0474de62056e7dae482275ed9dae9796bd4ab08fe53abc1f01a579e215e1650",
+      "glb_size_bytes": 272176,
       "subsystem_count": 26
     },
     {
@@ -7183,8 +7189,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_006_7309b1.glb",
-          "sha256_hash": "8ced14f3338e53d59b57126c1aaf817cdeb358b77282238252513f7b755dc7bf",
-          "file_size_bytes": 73028,
+          "sha256_hash": "3a301fe4922213d7d99e7c03a1533cb1e0bad69954455bfd88ad6a5d686c5673",
+          "file_size_bytes": 73580,
           "compression": "meshopt"
         }
       },
@@ -7234,7 +7240,10 @@
         ],
         "topology_hash": "b2182783f4904398",
         "composition_key": "sniper_optical_visor_hood+none+titans_mk2"
-      }
+      },
+      "glb_sha256": "3a301fe4922213d7d99e7c03a1533cb1e0bad69954455bfd88ad6a5d686c5673",
+      "glb_size_bytes": 73580,
+      "subsystem_count": 13
     },
     {
       "part_id": "llm_gen_chest_armor_008_4f0c7a",
@@ -7430,8 +7439,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_008_c6f4b0.glb",
-          "sha256_hash": "dc4173af60431197d15dbc5acc631e0c9811f7ed788f2fc13cb3612aa2515179",
-          "file_size_bytes": 266108,
+          "sha256_hash": "199be6c6ef87106708d207516a2e6e52d1e5a2c834062f04ee975c009434d987",
+          "file_size_bytes": 261648,
           "compression": "meshopt"
         }
       },
@@ -7485,8 +7494,8 @@
         "topology_hash": "d698da2617aa843b",
         "composition_key": "spiked_assault_ram_pauldrons+rear_surge_vernier+char_crimson"
       },
-      "glb_sha256": "dc4173af60431197d15dbc5acc631e0c9811f7ed788f2fc13cb3612aa2515179",
-      "glb_size_bytes": 266108,
+      "glb_sha256": "199be6c6ef87106708d207516a2e6e52d1e5a2c834062f04ee975c009434d987",
+      "glb_size_bytes": 261648,
       "subsystem_count": 26
     },
     {
@@ -8428,8 +8437,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_011_f7a53f.glb",
-          "sha256_hash": "c7dd1a56301aeddd968a51acf4b0dcc13fa3e8c5faf6d6e46a98468030a1232c",
-          "file_size_bytes": 311516,
+          "sha256_hash": "da719ffd9111e271ede4b20f65247c84e7b80504be20e343692b7dc2f601e0b1",
+          "file_size_bytes": 310244,
           "compression": "meshopt"
         }
       },
@@ -8481,8 +8490,8 @@
         "topology_hash": "16b959a49b64ff44",
         "composition_key": "radar_dish_recon_pauldrons+outer_shield_winglet+federation_rx"
       },
-      "glb_sha256": "fb6573037821e52a003f70c2037c41c9e5682c61882c436a5daff2dee1a11cb7",
-      "glb_size_bytes": 310904,
+      "glb_sha256": "da719ffd9111e271ede4b20f65247c84e7b80504be20e343692b7dc2f601e0b1",
+      "glb_size_bytes": 310244,
       "subsystem_count": 26
     },
     {
@@ -8552,8 +8561,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_009_758435.glb",
-          "sha256_hash": "a8fbe6decd71cb91324b8bf0c00747f0a1a390f1318f110a6a6dda8945805a3c",
-          "file_size_bytes": 252828,
+          "sha256_hash": "650f3ffd2e2b1278a887c9484b78c22fbcc323a07fd3345b58b5d514e0fd6f0d",
+          "file_size_bytes": 255036,
           "compression": "meshopt"
         }
       },
@@ -8606,8 +8615,8 @@
         "topology_hash": "61cf55bf5f94bdb6",
         "composition_key": "awacs_halo_radome_pack+center_stabilizer_tail+titans_mk2"
       },
-      "glb_sha256": "a63f4e41705c23995323c4fe699ca2dd55d31a1ce3bf3922b0e38c5726fae279",
-      "glb_size_bytes": 253468,
+      "glb_sha256": "650f3ffd2e2b1278a887c9484b78c22fbcc323a07fd3345b58b5d514e0fd6f0d",
+      "glb_size_bytes": 255036,
       "subsystem_count": 36
     },
     {
@@ -9426,8 +9435,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_012_08d197.glb",
-          "sha256_hash": "94fb5798883f09c1a9fdd1a8acdddfa44781a6e95f07b5d1f70951b60f16f9ac",
-          "file_size_bytes": 191928,
+          "sha256_hash": "cb062b227b23cafac1cd5e04f402fd924bf3ba078052337c9ed9ff52d2a9a865",
+          "file_size_bytes": 187468,
           "compression": "meshopt"
         }
       },
@@ -9479,8 +9488,8 @@
         "topology_hash": "4ac5a69c83708ae3",
         "composition_key": "spiked_assault_ram_pauldrons+none+titans_mk2"
       },
-      "glb_sha256": "94fb5798883f09c1a9fdd1a8acdddfa44781a6e95f07b5d1f70951b60f16f9ac",
-      "glb_size_bytes": 191928,
+      "glb_sha256": "cb062b227b23cafac1cd5e04f402fd924bf3ba078052337c9ed9ff52d2a9a865",
+      "glb_size_bytes": 187468,
       "subsystem_count": 18
     },
     {
@@ -10182,8 +10191,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_012_53a6c4.glb",
-          "sha256_hash": "d0c6305478233c29967d4e41528c03867698816e5479ae1febf638e2344d11d8",
-          "file_size_bytes": 101340,
+          "sha256_hash": "57364ce4772953babd1131e723573b8ca2aa80b7b67236e8fa418443e8c6f35e",
+          "file_size_bytes": 103264,
           "compression": "meshopt"
         }
       },
@@ -10234,7 +10243,10 @@
         ],
         "topology_hash": "12126d25ea74b571",
         "composition_key": "horned_oni_assault_crest+twin_vfin_antennae+char_crimson"
-      }
+      },
+      "glb_sha256": "57364ce4772953babd1131e723573b8ca2aa80b7b67236e8fa418443e8c6f35e",
+      "glb_size_bytes": 103264,
+      "subsystem_count": 15
     },
     {
       "part_id": "llm_gen_chest_armor_012_279280",
@@ -11425,8 +11437,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_017_3524ad.glb",
-          "sha256_hash": "73a41ecad8d9135a45b8e043c56be03adcf265e05b23d918251588845b0c514f",
-          "file_size_bytes": 385636,
+          "sha256_hash": "eae6e3be3b8ab70d72a25e112bea07d16c4ab8a9c0395f90eda383078503f9a0",
+          "file_size_bytes": 384168,
           "compression": "meshopt"
         }
       },
@@ -11481,8 +11493,8 @@
         "topology_hash": "45919ed87bb7b563",
         "composition_key": "radar_dish_recon_pauldrons+rear_surge_vernier+char_crimson"
       },
-      "glb_sha256": "0ab0c40503ed9923071d9085f0243a2d1a762ee282078145376ae6b74778bc2d",
-      "glb_size_bytes": 384604,
+      "glb_sha256": "eae6e3be3b8ab70d72a25e112bea07d16c4ab8a9c0395f90eda383078503f9a0",
+      "glb_size_bytes": 384168,
       "subsystem_count": 34
     },
     {
@@ -11552,8 +11564,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_013_3adb86.glb",
-          "sha256_hash": "5475511b6cf686bcbe4b621604f7cff926a9c26c299872c78c1a5de7b7cd6ab2",
-          "file_size_bytes": 280592,
+          "sha256_hash": "d02a0f0c49332d16a567212d4234fc21c8d595dfc6bd393e528876fc13548f1f",
+          "file_size_bytes": 283252,
           "compression": "meshopt"
         }
       },
@@ -11605,8 +11617,8 @@
         "topology_hash": "8df7e457d726cad4",
         "composition_key": "awacs_halo_radome_pack+lower_propellant_tanks+char_crimson"
       },
-      "glb_sha256": "91f9acec9730c62a300376cfc65ab774839196364177351b96b240d173b66be6",
-      "glb_size_bytes": 281660,
+      "glb_sha256": "d02a0f0c49332d16a567212d4234fc21c8d595dfc6bd393e528876fc13548f1f",
+      "glb_size_bytes": 283252,
       "subsystem_count": 40
     },
     {
@@ -12177,8 +12189,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_013_df8ad2.glb",
-          "sha256_hash": "d8fafd375cd8696663f2b35fd6a9c9b8b34760a39910ef0c0a50ed835678bd30",
-          "file_size_bytes": 82936,
+          "sha256_hash": "fc333f42c40ccd3e92261a88c8fe4d1447d729d715916621ae9b23704f700656",
+          "file_size_bytes": 83528,
           "compression": "meshopt"
         }
       },
@@ -12229,7 +12241,10 @@
         ],
         "topology_hash": "78f0e64e56e5b9b3",
         "composition_key": "sniper_optical_visor_hood+rear_cooling_crest+unicorn_destroy"
-      }
+      },
+      "glb_sha256": "fc333f42c40ccd3e92261a88c8fe4d1447d729d715916621ae9b23704f700656",
+      "glb_size_bytes": 83528,
+      "subsystem_count": 14
     },
     {
       "part_id": "llm_gen_chest_armor_016_161ab1",
@@ -13418,8 +13433,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_020_a07b53.glb",
-          "sha256_hash": "60ab3504e49a7d5607154ce27b44d40927fd319d0a0704b34ce589d6deef6823",
-          "file_size_bytes": 311532,
+          "sha256_hash": "a0ba802e490e21c7be7349a597387209d4a68f8f6b0c5109dbf5a8712c57047d",
+          "file_size_bytes": 310260,
           "compression": "meshopt"
         }
       },
@@ -13472,8 +13487,8 @@
         "topology_hash": "7ad56b673371c888",
         "composition_key": "radar_dish_recon_pauldrons+upper_missile_cap+nu_vanguard"
       },
-      "glb_sha256": "87027b8176485a5a200a4d93b68160f94203ff0da386145097f3b328e0462f52",
-      "glb_size_bytes": 310920,
+      "glb_sha256": "a0ba802e490e21c7be7349a597387209d4a68f8f6b0c5109dbf5a8712c57047d",
+      "glb_size_bytes": 310260,
       "subsystem_count": 26
     },
     {
@@ -13543,8 +13558,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_015_36cbe1.glb",
-          "sha256_hash": "1774ba14d82b0e3ff6c0df46949aa428a8622c72a1f82e20e3c96e16a8ce9db3",
-          "file_size_bytes": 252308,
+          "sha256_hash": "7673bcd04d223dc98e19f94fc2a987320da39a3a03d022d0c12d20a59acde700",
+          "file_size_bytes": 254664,
           "compression": "meshopt"
         }
       },
@@ -13596,8 +13611,8 @@
         "topology_hash": "18fcc355adea86dd",
         "composition_key": "awacs_halo_radome_pack+none+char_crimson"
       },
-      "glb_sha256": "abe72521775672384eca43a2bc886c87bee938eefcaf10f1d07f01133387ca63",
-      "glb_size_bytes": 253592,
+      "glb_sha256": "7673bcd04d223dc98e19f94fc2a987320da39a3a03d022d0c12d20a59acde700",
+      "glb_size_bytes": 254664,
       "subsystem_count": 36
     },
     {
@@ -14168,8 +14183,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_014_193ace.glb",
-          "sha256_hash": "c74d379df2888b2a12a303081c76a1ca617c492a2789d91e0d941c1d1ad9ea40",
-          "file_size_bytes": 94136,
+          "sha256_hash": "67fdd0e205fe1e7be247438025619a992cb4afbfc6625a30c5b778063b4c2728",
+          "file_size_bytes": 94684,
           "compression": "meshopt"
         }
       },
@@ -14220,7 +14235,10 @@
         ],
         "topology_hash": "f9c37bf29ddc3ec7",
         "composition_key": "sniper_optical_visor_hood+dual_temple_vulcans+nu_vanguard"
-      }
+      },
+      "glb_sha256": "67fdd0e205fe1e7be247438025619a992cb4afbfc6625a30c5b778063b4c2728",
+      "glb_size_bytes": 94684,
+      "subsystem_count": 15
     },
     {
       "part_id": "llm_gen_chest_armor_022_1f49a0",
@@ -14415,8 +14433,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_022_f0a3bd.glb",
-          "sha256_hash": "f0ab7969ee10237219a34f1b39f247f708f24c41838a1ea8e019ba9159b1738d",
-          "file_size_bytes": 342076,
+          "sha256_hash": "414910cfdbe41c5ea88d3c38ab757aabb7a3ac0c90bda88351aee16a5cb45fc8",
+          "file_size_bytes": 344868,
           "compression": "meshopt"
         }
       },
@@ -14470,8 +14488,8 @@
         "topology_hash": "5e5380b2f6f39f9f",
         "composition_key": "twin_aa_rotary_shoulder_turrets+rear_surge_vernier+full_armor_tactical"
       },
-      "glb_sha256": "db04a5b0c26a578da999ea3b40e48ccf398c4f43a4f7d7106590d5a7874f08da",
-      "glb_size_bytes": 342764,
+      "glb_sha256": "414910cfdbe41c5ea88d3c38ab757aabb7a3ac0c90bda88351aee16a5cb45fc8",
+      "glb_size_bytes": 344868,
       "subsystem_count": 34
     },
     {
@@ -15171,8 +15189,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_017_a8bf64.glb",
-          "sha256_hash": "6404ef93e06b76e6d9ce6f23afb510a5f7c1c9c23174c53e3180eaedcae3ded1",
-          "file_size_bytes": 111172,
+          "sha256_hash": "343668c2b81264dd677c1769e08f5af1b4bbb343a603eba031a91943880bf3a6",
+          "file_size_bytes": 110688,
           "compression": "meshopt"
         }
       },
@@ -15222,7 +15240,10 @@
         ],
         "topology_hash": "ff39d740c0fad3ef",
         "composition_key": "horned_oni_assault_crest+dual_temple_vulcans+full_armor_tactical"
-      }
+      },
+      "glb_sha256": "343668c2b81264dd677c1769e08f5af1b4bbb343a603eba031a91943880bf3a6",
+      "glb_size_bytes": 110688,
+      "subsystem_count": 15
     },
     {
       "part_id": "llm_gen_chest_armor_027_6b331c",
@@ -15416,8 +15437,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_023_206d63.glb",
-          "sha256_hash": "70d4a012d721784a61cd3d7bc5c511cb3fd643d52c99f1dade9e95f65ba857d9",
-          "file_size_bytes": 311564,
+          "sha256_hash": "e431d89592662d69d62297271eb4b47e94685e532bbcce1f2b59d18991d41b5a",
+          "file_size_bytes": 310292,
           "compression": "meshopt"
         }
       },
@@ -15470,8 +15491,8 @@
         "topology_hash": "abffaf0e6b233d8f",
         "composition_key": "radar_dish_recon_pauldrons+none+unicorn_destroy"
       },
-      "glb_sha256": "a42b1e9184e83df49476939f977ac26f16480db2ae9630a7502d0dbdd690a0ed",
-      "glb_size_bytes": 310952,
+      "glb_sha256": "e431d89592662d69d62297271eb4b47e94685e532bbcce1f2b59d18991d41b5a",
+      "glb_size_bytes": 310292,
       "subsystem_count": 26
     },
     {
@@ -17431,8 +17452,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_024_e890a6.glb",
-          "sha256_hash": "d0047018e5949fb9435f737bf268f79d14eb475a1026168364208d1f4083809a",
-          "file_size_bytes": 267932,
+          "sha256_hash": "9989b2f4bca6dfef73732de317db4cd840dcdd262834dadc7a0c12bbbcf4663c",
+          "file_size_bytes": 270724,
           "compression": "meshopt"
         }
       },
@@ -17484,8 +17505,8 @@
         "topology_hash": "941dd93ad48c3636",
         "composition_key": "twin_aa_rotary_shoulder_turrets+none+federation_rx"
       },
-      "glb_sha256": "4040ce09792cbf11a2e866b57b23fe7f837bc15d8d9247f2aa75ee57431172f0",
-      "glb_size_bytes": 268620,
+      "glb_sha256": "9989b2f4bca6dfef73732de317db4cd840dcdd262834dadc7a0c12bbbcf4663c",
+      "glb_size_bytes": 270724,
       "subsystem_count": 26
     },
     {
@@ -18431,8 +18452,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_032_bc400e.glb",
-          "sha256_hash": "e10361928151e035be24db8d4f151b0803bf2ddd304c53a9cf2604d1f000d5f5",
-          "file_size_bytes": 211956,
+          "sha256_hash": "08c163281136ceb23cd236abafb3e289bc5090c63583a65b138a75c3b5b37e9f",
+          "file_size_bytes": 207496,
           "compression": "meshopt"
         }
       },
@@ -18485,8 +18506,8 @@
         "topology_hash": "e4f3f810154bd02a",
         "composition_key": "spiked_assault_ram_pauldrons+forward_sensor_pod+nu_vanguard"
       },
-      "glb_sha256": "e10361928151e035be24db8d4f151b0803bf2ddd304c53a9cf2604d1f000d5f5",
-      "glb_size_bytes": 211956,
+      "glb_sha256": "08c163281136ceb23cd236abafb3e289bc5090c63583a65b138a75c3b5b37e9f",
+      "glb_size_bytes": 207496,
       "subsystem_count": 20
     },
     {
@@ -19442,8 +19463,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_034_8f9106.glb",
-          "sha256_hash": "98247a695bf520afca07d4bdc053cc8b1e22566246d0fc0c81884060e67dfc51",
-          "file_size_bytes": 267708,
+          "sha256_hash": "fce36d9caec32a4e385a52947a69c535b2751acc7ec0caa85fcecef23edb3f94",
+          "file_size_bytes": 270468,
           "compression": "meshopt"
         }
       },
@@ -19496,8 +19517,8 @@
         "topology_hash": "adcd06a002d51c15",
         "composition_key": "twin_aa_rotary_shoulder_turrets+forward_sensor_pod+upper_missile_cap+zeon_olive_ace+acc_gold@s1.0400"
       },
-      "glb_sha256": "8f236e6c809bde37a4f70ce71060be01780b08b5c953bea3d67c383924b9e76f",
-      "glb_size_bytes": 269168,
+      "glb_sha256": "fce36d9caec32a4e385a52947a69c535b2751acc7ec0caa85fcecef23edb3f94",
+      "glb_size_bytes": 270468,
       "subsystem_count": 26
     },
     {
@@ -20196,8 +20217,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_034_7b5220.glb",
-          "sha256_hash": "a082e84fb359a12f1b6a46281a9425225d5467867ca5c7afda1b8559eeac896e",
-          "file_size_bytes": 82936,
+          "sha256_hash": "113e91bd40e8a5452f15d4fbcad49055eea19b9a753bc2f467f54550ff3f99c8",
+          "file_size_bytes": 83528,
           "compression": "meshopt"
         }
       },
@@ -20249,7 +20270,10 @@
         ],
         "topology_hash": "b94e6fb027a8f2d9",
         "composition_key": "sniper_optical_visor_hood+rear_cooling_crest+twin_vfin_antennae+federation_rx+acc_optic@s1.0000"
-      }
+      },
+      "glb_sha256": "113e91bd40e8a5452f15d4fbcad49055eea19b9a753bc2f467f54550ff3f99c8",
+      "glb_size_bytes": 83528,
+      "subsystem_count": 14
     },
     {
       "part_id": "llm_gen_chest_armor_034_995203",
@@ -21450,8 +21474,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_035_785bfd.glb",
-          "sha256_hash": "1a778faae1befce20d7fc46a52b512bded04ad57ecdc54a8a05e3873aa60a12c",
-          "file_size_bytes": 267780,
+          "sha256_hash": "338e8294c7477bc8ff514ad9b4c1f46a76101212a71fd41124650561ed43f2a2",
+          "file_size_bytes": 270660,
           "compression": "meshopt"
         }
       },
@@ -21504,8 +21528,8 @@
         "topology_hash": "974c19e295b242c4",
         "composition_key": "twin_aa_rotary_shoulder_turrets+forward_sensor_pod+outer_shield_winglet+zeon_olive_ace+acc_gunmetal@s1.0500"
       },
-      "glb_sha256": "b6f66672231d7f9833aec16ff197db98a009aa952ee05a525285f7141022c605",
-      "glb_size_bytes": 268604,
+      "glb_sha256": "338e8294c7477bc8ff514ad9b4c1f46a76101212a71fd41124650561ed43f2a2",
+      "glb_size_bytes": 270660,
       "subsystem_count": 26
     },
     {
@@ -22203,8 +22227,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_042_94827d.glb",
-          "sha256_hash": "a3da98448e57ead85fa1066b5059cdfb802bd04b502d67073b57eec03aa0ee23",
-          "file_size_bytes": 82924,
+          "sha256_hash": "d6c709d6b2ef6a63933074912a56e97f32b6f0ccb57388f9ab7ad1c04657c9b6",
+          "file_size_bytes": 83516,
           "compression": "meshopt"
         }
       },
@@ -22254,7 +22278,10 @@
         ],
         "topology_hash": "67e2a515c5b7cad4",
         "composition_key": "sniper_optical_visor_hood+rear_cooling_crest+twin_sensor_ears+federation_rx+acc_optic@s1.0000"
-      }
+      },
+      "glb_sha256": "d6c709d6b2ef6a63933074912a56e97f32b6f0ccb57388f9ab7ad1c04657c9b6",
+      "glb_size_bytes": 83516,
+      "subsystem_count": 14
     },
     {
       "part_id": "llm_gen_chest_armor_044_140072",
@@ -22448,8 +22475,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_036_7182c9.glb",
-          "sha256_hash": "ccc169f0f7bb31ce1f74bff46289ac3b0f90de2b17868141a9e5b3ae8bf2a58e",
-          "file_size_bytes": 211464,
+          "sha256_hash": "e4f535b742225616a98271e4662c0755e6c23a3c81381b36338ecb15a12908b9",
+          "file_size_bytes": 206944,
           "compression": "meshopt"
         }
       },
@@ -22503,8 +22530,8 @@
         "topology_hash": "0961bb77177f1c2f",
         "composition_key": "spiked_assault_ram_pauldrons+forward_sensor_pod+rear_surge_vernier+zeon_olive_ace+acc_gunmetal@s1.0800"
       },
-      "glb_sha256": "ccc169f0f7bb31ce1f74bff46289ac3b0f90de2b17868141a9e5b3ae8bf2a58e",
-      "glb_size_bytes": 211464,
+      "glb_sha256": "e4f535b742225616a98271e4662c0755e6c23a3c81381b36338ecb15a12908b9",
+      "glb_size_bytes": 206944,
       "subsystem_count": 20
     },
     {
@@ -22574,8 +22601,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_036_d70417.glb",
-          "sha256_hash": "656b981914d2f2b8b93a50c254b9d6e4ee266d005f0b1b3741123e64bc43ec35",
-          "file_size_bytes": 277408,
+          "sha256_hash": "1a1079962c761bcd9b7249092c1cfc01c946e35b2c66adea4e7fcdb6fa064749",
+          "file_size_bytes": 280548,
           "compression": "meshopt"
         }
       },
@@ -22630,8 +22657,8 @@
         "topology_hash": "6c3e7052de401ea2",
         "composition_key": "awacs_halo_radome_pack+center_stabilizer_tail+quad_micro_verniers+nu_vanguard+acc_optic@s1.0400"
       },
-      "glb_sha256": "43fde32825ca9e0c9af3f0b9fa10aa849464267c8446f05f36bc881b833e8d0c",
-      "glb_size_bytes": 278936,
+      "glb_sha256": "1a1079962c761bcd9b7249092c1cfc01c946e35b2c66adea4e7fcdb6fa064749",
+      "glb_size_bytes": 280548,
       "subsystem_count": 38
     },
     {
@@ -23458,8 +23485,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_038_9f8134.glb",
-          "sha256_hash": "71cac1cab33ed42579c18586324e29ec2cbcff6e7a4cef1a917d7e847b8a033b",
-          "file_size_bytes": 267720,
+          "sha256_hash": "949bc712ef78ac37b0cb04ccc7779ad7b5cf44b18a3e8d9ae09cd2d745002fa8",
+          "file_size_bytes": 270600,
           "compression": "meshopt"
         }
       },
@@ -23511,8 +23538,8 @@
         "topology_hash": "91fbe2e9e318826f",
         "composition_key": "twin_aa_rotary_shoulder_turrets+forward_sensor_pod+rear_surge_vernier+upper_missile_cap+zeon_olive_ace+acc_gold@s1.0500"
       },
-      "glb_sha256": "c22805f6d12267b899fd56caaa656eec700c93576f4109d9ebec92e67460cfb8",
-      "glb_size_bytes": 268544,
+      "glb_sha256": "949bc712ef78ac37b0cb04ccc7779ad7b5cf44b18a3e8d9ae09cd2d745002fa8",
+      "glb_size_bytes": 270600,
       "subsystem_count": 26
     },
     {
@@ -24213,8 +24240,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_038_fa4a24.glb",
-          "sha256_hash": "fb7196cd4285adc553627ecc5e4c0067abab0fc4f556217c997e34bc64f74ff0",
-          "file_size_bytes": 94104,
+          "sha256_hash": "1b6832f1e91c8b855a3b79c6075b46f64c08779545e79e5b663896397878767e",
+          "file_size_bytes": 94664,
           "compression": "meshopt"
         }
       },
@@ -24264,7 +24291,10 @@
         ],
         "topology_hash": "f3224332c3f240c2",
         "composition_key": "sniper_optical_visor_hood+dual_temple_vulcans+twin_vfin_antennae+federation_rx"
-      }
+      },
+      "glb_sha256": "1b6832f1e91c8b855a3b79c6075b46f64c08779545e79e5b663896397878767e",
+      "glb_size_bytes": 94664,
+      "subsystem_count": 15
     },
     {
       "part_id": "llm_gen_chest_armor_039_f773e4",
@@ -24460,8 +24490,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_039_e4a0d1.glb",
-          "sha256_hash": "89d97d09d9dab8619c263a0a8665cb4806de1386558bf28581fe68713d2dde0b",
-          "file_size_bytes": 265500,
+          "sha256_hash": "90aed02a83829e88efdb5540af5172bf73f00ef0d1c966810b346b621423776b",
+          "file_size_bytes": 260956,
           "compression": "meshopt"
         }
       },
@@ -24515,8 +24545,8 @@
         "topology_hash": "73ae5cb04405106b",
         "composition_key": "spiked_assault_ram_pauldrons+rear_surge_vernier+upper_missile_cap+zeon_olive_ace+acc_gold@s1.0400"
       },
-      "glb_sha256": "89d97d09d9dab8619c263a0a8665cb4806de1386558bf28581fe68713d2dde0b",
-      "glb_size_bytes": 265500,
+      "glb_sha256": "90aed02a83829e88efdb5540af5172bf73f00ef0d1c966810b346b621423776b",
+      "glb_size_bytes": 260956,
       "subsystem_count": 26
     },
     {
@@ -24586,8 +24616,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_037_aa5093.glb",
-          "sha256_hash": "0d9299862225398424c82a97ef1b725858b63697f7e9d5336133be4d2b092b6b",
-          "file_size_bytes": 277076,
+          "sha256_hash": "9d848626b1a800781df532a0e559e6719390606f4cd4ed07d8c4612073bb3973",
+          "file_size_bytes": 280196,
           "compression": "meshopt"
         }
       },
@@ -24641,8 +24671,8 @@
         "topology_hash": "3b14da51aae3aa9c",
         "composition_key": "awacs_halo_radome_pack+center_stabilizer_tail+quad_micro_verniers+twin_over_shoulder_cannons+titans_mk2+acc_gold@s1.0500"
       },
-      "glb_sha256": "4f8bb51b66548d8eb7c2b2bb0b14a80ff1fe5fd92f0c44b51794cbf11b704b61",
-      "glb_size_bytes": 278620,
+      "glb_sha256": "9d848626b1a800781df532a0e559e6719390606f4cd4ed07d8c4612073bb3973",
+      "glb_size_bytes": 280196,
       "subsystem_count": 38
     },
     {
@@ -26488,8 +26518,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_043_699b9b.glb",
-          "sha256_hash": "dcfc78fc475726dd54c2e32dc3b3f4a5a09f54f56c89ad163ca50e1f22d945df",
-          "file_size_bytes": 211304,
+          "sha256_hash": "1b6a7dca26687cce046dd7d4e7e6cbb23549f3c8d3fe9dcbbcd5f7f0d614f9ef",
+          "file_size_bytes": 206880,
           "compression": "meshopt"
         }
       },
@@ -26542,8 +26572,8 @@
         "topology_hash": "db7c0be9da3bf789",
         "composition_key": "spiked_assault_ram_pauldrons+forward_sensor_pod+upper_missile_cap+zeon_olive_ace+acc_gold@s1.0600"
       },
-      "glb_sha256": "dcfc78fc475726dd54c2e32dc3b3f4a5a09f54f56c89ad163ca50e1f22d945df",
-      "glb_size_bytes": 211304,
+      "glb_sha256": "1b6a7dca26687cce046dd7d4e7e6cbb23549f3c8d3fe9dcbbcd5f7f0d614f9ef",
+      "glb_size_bytes": 206880,
       "subsystem_count": 20
     },
     {
@@ -27246,8 +27276,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_047_b48cec.glb",
-          "sha256_hash": "03d4b097b9d9fb06517977258c652db06f37dd2d04aa0718e56878f64767aa9f",
-          "file_size_bytes": 140108,
+          "sha256_hash": "774696a857fc5f1d1f6303f42e863a5c0eec88ffdda111be9e64e4a71afdf029",
+          "file_size_bytes": 140284,
           "compression": "meshopt"
         }
       },
@@ -27297,7 +27327,10 @@
         ],
         "topology_hash": "b7dd5ea4a55543e7",
         "composition_key": "unicorn_destroy_split_vfin+rear_cooling_crest+twin_sensor_ears+twin_vfin_antennae+federation_rx+acc_gold+g_d1de4e@s1.0000"
-      }
+      },
+      "glb_sha256": "774696a857fc5f1d1f6303f42e863a5c0eec88ffdda111be9e64e4a71afdf029",
+      "glb_size_bytes": 140284,
+      "subsystem_count": 18
     },
     {
       "part_id": "llm_gen_chest_armor_049_1e60fe",
@@ -27489,8 +27522,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_047_4324eb.glb",
-          "sha256_hash": "b7d046a9f61ba8c7a25ee16d46ae649ad2ed4f1147cd475572bdbb3a13d1ea5d",
-          "file_size_bytes": 279600,
+          "sha256_hash": "995d0e953baecdf0b406a2d32ff5f77ed3da9df0a7032d8cc71e1936a43264b9",
+          "file_size_bytes": 241464,
           "compression": "meshopt"
         }
       },
@@ -27543,9 +27576,9 @@
         "topology_hash": "c95e895044093f18",
         "composition_key": "quad_missile_box_artillery_pods+forward_sensor_pod+rear_surge_vernier+upper_missile_cap+zeon_olive_ace+acc_gold+g_c4eeda@s1.0500"
       },
-      "glb_sha256": "72171d18090d60ed9d976b045aecfc1de6d28ee04da7af3081e8f18646a44e41",
-      "glb_size_bytes": 277492,
-      "subsystem_count": 28
+      "glb_sha256": "995d0e953baecdf0b406a2d32ff5f77ed3da9df0a7032d8cc71e1936a43264b9",
+      "glb_size_bytes": 241464,
+      "subsystem_count": 26
     },
     {
       "part_id": "llm_gen_dorsal_pack_042_4be007",
@@ -27614,8 +27647,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_042_4be007.glb",
-          "sha256_hash": "94be8bd403b21cd8ef2220f2130b4f2d791b16ac9a48fdd4a0d47b877758a639",
-          "file_size_bytes": 280332,
+          "sha256_hash": "15144ed3b1327df6ffe9902da017db57b6eaed4c4dc28ce39045042c7eeb203a",
+          "file_size_bytes": 283452,
           "compression": "meshopt"
         }
       },
@@ -27668,8 +27701,8 @@
         "topology_hash": "fd60da870c0c5f53",
         "composition_key": "awacs_halo_radome_pack+lower_propellant_tanks+twin_over_shoulder_cannons+zeon_olive_ace+acc_gold@s1.0500"
       },
-      "glb_sha256": "d2eb5b5375199cc9d4a1290703b7a90589cfc7830502f7c3049105bda86d5e47",
-      "glb_size_bytes": 281876,
+      "glb_sha256": "15144ed3b1327df6ffe9902da017db57b6eaed4c4dc28ce39045042c7eeb203a",
+      "glb_size_bytes": 283452,
       "subsystem_count": 40
     },
     {
@@ -27994,8 +28027,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_046_d0c1fc.glb",
-          "sha256_hash": "c664b6569546c8f1dbc6b6bc3f01c9350899b2d480d2d3375471cd95c99fcc26",
-          "file_size_bytes": 359272,
+          "sha256_hash": "0b2d9da8626f0d3a5ce3f83e9cb0e8aa7ff3fe3c2d1d6ea8f921120a2c4dd6fb",
+          "file_size_bytes": 357676,
           "compression": "meshopt"
         }
       },
@@ -28051,8 +28084,8 @@
         "topology_hash": "f4b321551e1205b1",
         "composition_key": "twin_hip_missile_pods+forward_rail_prongs+rear_ambac_verniers+federation_rx+acc_optic+g_588714@s1.0150"
       },
-      "glb_sha256": "57eae292c363cf4ac650001598d2926ff4931e2651221c95580a5ab6310b30e4",
-      "glb_size_bytes": 359544,
+      "glb_sha256": "0b2d9da8626f0d3a5ce3f83e9cb0e8aa7ff3fe3c2d1d6ea8f921120a2c4dd6fb",
+      "glb_size_bytes": 357676,
       "subsystem_count": 36
     },
     {
@@ -28123,8 +28156,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_046_96c6e1.glb",
-          "sha256_hash": "d248a58144b45854849b02c1897beb51fd953b579ae583dc3b0f80b4c28cfac2",
-          "file_size_bytes": 335840,
+          "sha256_hash": "9fb6a5d40248fb0dd5acf33640c75ab6a281b5c48001155523b3f59309a715e1",
+          "file_size_bytes": 336360,
           "compression": "meshopt"
         }
       },
@@ -28178,9 +28211,9 @@
         "topology_hash": "11b2b0917ccdfaf9",
         "composition_key": "heavy_gouf_flare_thruster_greaves+forward_knee_spike+outer_aero_stabilizer+full_armor_tactical+acc_gunmetal+g_87dde1@s1.0200"
       },
-      "glb_sha256": "fa742e68da38ac22e4d6fe02e100f34175779eee2a5bf22366def64ccbd3eeef",
-      "glb_size_bytes": 333896,
-      "subsystem_count": 36
+      "glb_sha256": "9fb6a5d40248fb0dd5acf33640c75ab6a281b5c48001155523b3f59309a715e1",
+      "glb_size_bytes": 336360,
+      "subsystem_count": 38
     },
     {
       "part_id": "llm_gen_head_sensor_049_659521",
@@ -28250,8 +28283,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_049_659521.glb",
-          "sha256_hash": "308eeebb744f717e38d1a680ddacdafb0af98aa89ae1a28cd92b8536e9837162",
-          "file_size_bytes": 110140,
+          "sha256_hash": "bf1a527294b7d42d90dcfd271eacacf8bc23df206996aaf4a519de47013168fb",
+          "file_size_bytes": 110620,
           "compression": "meshopt"
         }
       },
@@ -28302,7 +28335,10 @@
         ],
         "topology_hash": "eea71f3953cf446c",
         "composition_key": "zeon_commander_mohawk_crest+dual_temple_vulcans+rear_cooling_crest+twin_sensor_ears+gouf_cobalt+acc_cobalt+g_24ca1b@s1.0100"
-      }
+      },
+      "glb_sha256": "bf1a527294b7d42d90dcfd271eacacf8bc23df206996aaf4a519de47013168fb",
+      "glb_size_bytes": 110620,
+      "subsystem_count": 15
     },
     {
       "part_id": "llm_gen_chest_armor_046_9f62e1",
@@ -28496,8 +28532,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_044_178e21.glb",
-          "sha256_hash": "251bf17ac5483abd3f32d4ec9547e707fd7507b901c298cb3c3fbc673ce48d42",
-          "file_size_bytes": 267768,
+          "sha256_hash": "4e397901330ba527d4bb901a1eb9eb3bc2adf88d1886aa99ed36f7da5d7c695d",
+          "file_size_bytes": 270648,
           "compression": "meshopt"
         }
       },
@@ -28553,8 +28589,8 @@
         "topology_hash": "9267dae21c2a2f3c",
         "composition_key": "twin_aa_rotary_shoulder_turrets+outer_shield_winglet+rear_surge_vernier+upper_missile_cap+zeon_olive_ace+acc_gunmetal@s1.0500"
       },
-      "glb_sha256": "f437aea9d78c5546858afa007b61e371733228e2692666d222881a672aaec5b1",
-      "glb_size_bytes": 268592,
+      "glb_sha256": "4e397901330ba527d4bb901a1eb9eb3bc2adf88d1886aa99ed36f7da5d7c695d",
+      "glb_size_bytes": 270648,
       "subsystem_count": 26
     },
     {
@@ -29258,8 +29294,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_048_03a120.glb",
-          "sha256_hash": "6d1ffc95be105a7b663d19bad74f25ef6fb8b9af21d6c006c2616415ab79d4d6",
-          "file_size_bytes": 113304,
+          "sha256_hash": "1f6ffb01c5eea0113f108796d5ab8843592a1af3a3caf06675666dc02033d341",
+          "file_size_bytes": 112860,
           "compression": "meshopt"
         }
       },
@@ -29310,7 +29346,10 @@
         ],
         "topology_hash": "427ee892dcb4a18d",
         "composition_key": "ew_dual_blade_recon_dome+rear_cooling_crest+twin_sensor_ears+federation_rx+acc_gunmetal+g_f05a82@s1.0100"
-      }
+      },
+      "glb_sha256": "1f6ffb01c5eea0113f108796d5ab8843592a1af3a3caf06675666dc02033d341",
+      "glb_size_bytes": 112860,
+      "subsystem_count": 16
     },
     {
       "part_id": "llm_gen_chest_armor_047_2f412c",
@@ -29504,8 +29543,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_041_3c0a77.glb",
-          "sha256_hash": "a873ff2537bbd5e94c4f4fd8e76d40f84ac84789111eaede64705eec8cce9364",
-          "file_size_bytes": 191368,
+          "sha256_hash": "76192e8060ad43b6dcb58adeffeae93693a8efdbcfa48ca35850801887aa4550",
+          "file_size_bytes": 186764,
           "compression": "meshopt"
         }
       },
@@ -29558,8 +29597,8 @@
         "topology_hash": "217819cad57c161d",
         "composition_key": "spiked_assault_ram_pauldrons+outer_shield_winglet+upper_missile_cap+zeon_olive_ace+acc_red@s1.0500"
       },
-      "glb_sha256": "a873ff2537bbd5e94c4f4fd8e76d40f84ac84789111eaede64705eec8cce9364",
-      "glb_size_bytes": 191368,
+      "glb_sha256": "76192e8060ad43b6dcb58adeffeae93693a8efdbcfa48ca35850801887aa4550",
+      "glb_size_bytes": 186764,
       "subsystem_count": 18
     },
     {
@@ -30138,8 +30177,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_048_0576e9.glb",
-          "sha256_hash": "46670ea65b55e34c59ad1e2a6b0c19ee7cca0fb63506915102eb2c91910bb931",
-          "file_size_bytes": 316644,
+          "sha256_hash": "e7dd586855c1a9d64e7d8f120a101aae17d7329ed5228925ea705dde99d36b7b",
+          "file_size_bytes": 316884,
           "compression": "meshopt"
         }
       },
@@ -30192,9 +30231,9 @@
         "topology_hash": "bab954461e096d42",
         "composition_key": "heavy_gouf_flare_thruster_greaves+dual_ankle_verniers+upper_calf_fuel_cell+full_armor_tactical+acc_gunmetal+g_de781f@s1.0600"
       },
-      "glb_sha256": "f359779411b765515df65b5416ae464d04efa34ecbadfddfb3aeec633cef6926",
-      "glb_size_bytes": 314572,
-      "subsystem_count": 34
+      "glb_sha256": "e7dd586855c1a9d64e7d8f120a101aae17d7329ed5228925ea705dde99d36b7b",
+      "glb_size_bytes": 316884,
+      "subsystem_count": 36
     },
     {
       "part_id": "llm_gen_shoulder_pods_045_bc349d",
@@ -30264,8 +30303,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_045_bc349d.glb",
-          "sha256_hash": "adc7a1b9012b6f2ddf05ac6176ea4a0924ab4540e6ac1af9b9acb8cf1d0d35a4",
-          "file_size_bytes": 311612,
+          "sha256_hash": "ad31421579e61aab4106927f17d01d8f0a16f52e3a39abcad24690b5c408d0b5",
+          "file_size_bytes": 310228,
           "compression": "meshopt"
         }
       },
@@ -30320,8 +30359,8 @@
         "topology_hash": "846dad22c51aca79",
         "composition_key": "radar_dish_recon_pauldrons+forward_sensor_pod+upper_missile_cap+zeon_olive_ace+acc_gunmetal@s1.0600"
       },
-      "glb_sha256": "e305c014654d690e1c814933064229fc770448559d1fc86eb16e7dd44ad11e63",
-      "glb_size_bytes": 311160,
+      "glb_sha256": "ad31421579e61aab4106927f17d01d8f0a16f52e3a39abcad24690b5c408d0b5",
+      "glb_size_bytes": 310228,
       "subsystem_count": 26
     },
     {
@@ -30773,8 +30812,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_049_d0f77d.glb",
-          "sha256_hash": "b42bafd4e8d756534267e654468a25139af773545f7d0242fc4c81441ee58af1",
-          "file_size_bytes": 316632,
+          "sha256_hash": "3f886e99497472c43e1c14861c8c5610b0edbe44bb424c2c8b42b86f1409995e",
+          "file_size_bytes": 316960,
           "compression": "meshopt"
         }
       },
@@ -30828,9 +30867,9 @@
         "topology_hash": "e3bb6b4ca5be753d",
         "composition_key": "heavy_gouf_flare_thruster_greaves+dual_ankle_verniers+forward_knee_spike+outer_aero_stabilizer+full_armor_tactical+acc_gunmetal+g_984aad@s1.0500"
       },
-      "glb_sha256": "b5e712a846e9841dfa72fe774e27ec1fe14a1ea5a435b8a78863d451817828c9",
-      "glb_size_bytes": 314536,
-      "subsystem_count": 34
+      "glb_sha256": "3f886e99497472c43e1c14861c8c5610b0edbe44bb424c2c8b42b86f1409995e",
+      "glb_size_bytes": 316960,
+      "subsystem_count": 36
     },
     {
       "part_id": "llm_gen_shoulder_pods_048_f25589",
@@ -31656,8 +31695,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_049_de057b.glb",
-          "sha256_hash": "6e9097a5d78ca1e14d3acdc5fecec74d5dc0b3edce0c9bf506099edb58b2a98d",
-          "file_size_bytes": 279712,
+          "sha256_hash": "0a29ebcca07a0ee3402bed7d44fdab2512cc7b1eef71d6adcd41cc7614f59093",
+          "file_size_bytes": 241804,
           "compression": "meshopt"
         }
       },
@@ -31711,9 +31750,9 @@
         "topology_hash": "aeea0467f9e55673",
         "composition_key": "quad_missile_box_artillery_pods+forward_sensor_pod+rear_surge_vernier+zeon_olive_ace+acc_gunmetal+g_d1e0f0@s1.0600"
       },
-      "glb_sha256": "a5ba56b37165c5f5fab183aba88fa115cf32e51e3a31bdec2dd3125ce42038d7",
-      "glb_size_bytes": 277616,
-      "subsystem_count": 28
+      "glb_sha256": "0a29ebcca07a0ee3402bed7d44fdab2512cc7b1eef71d6adcd41cc7614f59093",
+      "glb_size_bytes": 241804,
+      "subsystem_count": 26
     },
     {
       "part_id": "llm_gen_aux_shield_047_19d4c7",
@@ -32411,8 +32450,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_031_6d3c86.glb",
-          "sha256_hash": "53222210544a0cf01c2303da740e67c9c5ca663e39d5c6d1f2413f47c451d232",
-          "file_size_bytes": 143928,
+          "sha256_hash": "8562cb9d9de07a478dc2061f63acb12223d91f9ed78cb1ebaa0e5734439f0c56",
+          "file_size_bytes": 144264,
           "compression": "meshopt"
         }
       },
@@ -32464,7 +32503,10 @@
         ],
         "topology_hash": "eefbc846084cbda0",
         "composition_key": "unicorn_destroy_split_vfin+twin_vfin_antennae+zeon_olive_ace+g_c7c01c"
-      }
+      },
+      "glb_sha256": "8562cb9d9de07a478dc2061f63acb12223d91f9ed78cb1ebaa0e5734439f0c56",
+      "glb_size_bytes": 144264,
+      "subsystem_count": 19
     },
     {
       "part_id": "llm_gen_chest_armor_031_e292c7",
@@ -32660,8 +32702,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_031_d796bf.glb",
-          "sha256_hash": "f03d5384ad30cb74a287b506a8efb52b4ceba07272c322895055b0af34922738",
-          "file_size_bytes": 359180,
+          "sha256_hash": "25903d5ff580493683a93d42c083ba6d650c6c963e20b29e59e37f74c60f4427",
+          "file_size_bytes": 357708,
           "compression": "meshopt"
         }
       },
@@ -32717,8 +32759,8 @@
         "topology_hash": "0c95fbfef188f547",
         "composition_key": "twin_hip_missile_pods+forward_rail_prongs+banshee_obsidian+g_a261d1"
       },
-      "glb_sha256": "aa27a78bf77247336488337524b6a6099d79294c264922d13864b352e72e410e",
-      "glb_size_bytes": 359408,
+      "glb_sha256": "25903d5ff580493683a93d42c083ba6d650c6c963e20b29e59e37f74c60f4427",
+      "glb_size_bytes": 357708,
       "subsystem_count": 36
     },
     {
@@ -32917,8 +32959,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_032_323f7c.glb",
-          "sha256_hash": "085123afa9e5cb205fe54271329f7ab7c33fb29131fdb39e3e8262634265623c",
-          "file_size_bytes": 103240,
+          "sha256_hash": "33f6abe82ef388ce295f44382e03494bb88a0cdfb0658d997fdf1dfde393b990",
+          "file_size_bytes": 103448,
           "compression": "meshopt"
         }
       },
@@ -32968,7 +33010,10 @@
         ],
         "topology_hash": "abba5be87018352a",
         "composition_key": "zeon_commander_mohawk_crest+twin_vfin_antennae+banshee_obsidian+g_143b7c"
-      }
+      },
+      "glb_sha256": "33f6abe82ef388ce295f44382e03494bb88a0cdfb0658d997fdf1dfde393b990",
+      "glb_size_bytes": 103448,
+      "subsystem_count": 15
     },
     {
       "part_id": "llm_gen_chest_armor_032_a8f79b",
@@ -33546,8 +33591,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_033_2d1d74.glb",
-          "sha256_hash": "ebb25982d68ad0037cc6bd3ad74d11ffb0b7d0577fe6b477ff7b823d3f96e0da",
-          "file_size_bytes": 117040,
+          "sha256_hash": "b7da8abf586205f1a8ab8de7ee4f191e1793cbbe26bfa3cecce8ee894a6d0b45",
+          "file_size_bytes": 116944,
           "compression": "meshopt"
         }
       },
@@ -33600,7 +33645,10 @@
         ],
         "topology_hash": "227c1b2338473909",
         "composition_key": "ew_dual_blade_recon_dome+twin_vfin_antennae+wing_zero_pearl+g_98e4e0"
-      }
+      },
+      "glb_sha256": "b7da8abf586205f1a8ab8de7ee4f191e1793cbbe26bfa3cecce8ee894a6d0b45",
+      "glb_size_bytes": 116944,
+      "subsystem_count": 17
     },
     {
       "part_id": "llm_gen_chest_armor_033_68aaae",
@@ -34541,8 +34589,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_034_fe3e2e.glb",
-          "sha256_hash": "60324a16c66fc19d7c393993219b6bf108f81c8292545df38979e7c4ff2233fe",
-          "file_size_bytes": 340384,
+          "sha256_hash": "19a50a29e71ecfd0e809f198cad93bcfa1080d09a10d483fd9a724f06617ddf5",
+          "file_size_bytes": 338916,
           "compression": "meshopt"
         }
       },
@@ -34594,8 +34642,8 @@
         "topology_hash": "24de167bc7ebb658",
         "composition_key": "radar_dish_recon_pauldrons+outer_shield_winglet+upper_missile_cap+gouf_cobalt+g_3e8238"
       },
-      "glb_sha256": "d7ab785f4977bc31b0b84100d31e9066c897d5e511e05441bf5c96cd92fb872c",
-      "glb_size_bytes": 339352,
+      "glb_sha256": "19a50a29e71ecfd0e809f198cad93bcfa1080d09a10d483fd9a724f06617ddf5",
+      "glb_size_bytes": 338916,
       "subsystem_count": 30
     },
     {
@@ -34791,8 +34839,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_034_3fa2ba.glb",
-          "sha256_hash": "55c32c5952d77ed921f531792d60e168dec02a3c30fd264e287cb0e5029bec0c",
-          "file_size_bytes": 336236,
+          "sha256_hash": "747e13c2504e4e744ec2a2d77fc6202fa02c6af8eb9eb57493cc3efe28eeabc6",
+          "file_size_bytes": 336976,
           "compression": "meshopt"
         }
       },
@@ -34847,9 +34895,9 @@
         "topology_hash": "7c29601b3b7f9baa",
         "composition_key": "heavy_gouf_flare_thruster_greaves+forward_knee_spike+banshee_obsidian+g_56ca50"
       },
-      "glb_sha256": "9f5fb87cdab062fbd625881565bf531a954b9c9ea796b03aee7c4fb25cf2d505",
-      "glb_size_bytes": 334752,
-      "subsystem_count": 36
+      "glb_sha256": "747e13c2504e4e744ec2a2d77fc6202fa02c6af8eb9eb57493cc3efe28eeabc6",
+      "glb_size_bytes": 336976,
+      "subsystem_count": 38
     },
     {
       "part_id": "llm_gen_aux_weapon_034_08a3bf",
@@ -35165,8 +35213,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_035_cbe11b.glb",
-          "sha256_hash": "74b930cd72b7d458b6a3a0995ea147e7961fbcfe896ac813fa646d0769d56c31",
-          "file_size_bytes": 109296,
+          "sha256_hash": "173e8139795e6791213dc3de655056e463fd08fed177e367136fb0a7e7432115",
+          "file_size_bytes": 108948,
           "compression": "meshopt"
         }
       },
@@ -35219,7 +35267,10 @@
         ],
         "topology_hash": "559ddb23f8b8d506",
         "composition_key": "horned_oni_assault_crest+rear_cooling_crest+twin_sensor_ears+barbatos_iron+acc_gunmetal+g_1e8593@s1.0150"
-      }
+      },
+      "glb_sha256": "173e8139795e6791213dc3de655056e463fd08fed177e367136fb0a7e7432115",
+      "glb_size_bytes": 108948,
+      "subsystem_count": 15
     },
     {
       "part_id": "llm_gen_chest_armor_035_b11036",
@@ -35538,8 +35589,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_035_ad43c0.glb",
-          "sha256_hash": "580a775ac29e0f8afa74c58e17036470af792463773de214e38c9c94ffc3dc8c",
-          "file_size_bytes": 339124,
+          "sha256_hash": "ddea954140c90dc470ded376144684e2124f6c21f8179944b6b7e59b982a9377",
+          "file_size_bytes": 337844,
           "compression": "meshopt"
         }
       },
@@ -35590,8 +35641,8 @@
         "topology_hash": "fa0beea7a7d80014",
         "composition_key": "twin_hip_missile_pods+side_grenade_cylinders+sazabi_verka+g_935477"
       },
-      "glb_sha256": "d30cbd66b9125941886f33452125fc3b677e3e7998811afc4bf3c91c7c282aba",
-      "glb_size_bytes": 339592,
+      "glb_sha256": "ddea954140c90dc470ded376144684e2124f6c21f8179944b6b7e59b982a9377",
+      "glb_size_bytes": 337844,
       "subsystem_count": 34
     },
     {
@@ -36164,8 +36215,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_036_01d6bf.glb",
-          "sha256_hash": "f80c5e6153c134e34965afe11c564e42a417cddad49619eebc61153452d0a24a",
-          "file_size_bytes": 151344,
+          "sha256_hash": "d41930ac5e46ff3146c094622129b0e4591ddb9d0298ade3f12e3b4019657663",
+          "file_size_bytes": 151680,
           "compression": "meshopt"
         }
       },
@@ -36217,7 +36268,10 @@
         ],
         "topology_hash": "6c8ec73c65748fcf",
         "composition_key": "unicorn_destroy_split_vfin+dual_temple_vulcans+strike_freedom_royal+g_d7518c"
-      }
+      },
+      "glb_sha256": "d41930ac5e46ff3146c094622129b0e4591ddb9d0298ade3f12e3b4019657663",
+      "glb_size_bytes": 151680,
+      "subsystem_count": 19
     },
     {
       "part_id": "llm_gen_chest_armor_036_4b55e6",
@@ -37176,8 +37230,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_037_5165f7.glb",
-          "sha256_hash": "6e28b16667381dc06720c1094ffdc666d9e484668d295fe89ce161c2fe860f51",
-          "file_size_bytes": 109688,
+          "sha256_hash": "1a2413783445c13a4fd66f6ff8a5f64ea17f5e531b788d97fb16453696e14f4e",
+          "file_size_bytes": 110160,
           "compression": "meshopt"
         }
       },
@@ -37229,7 +37283,10 @@
         ],
         "topology_hash": "cf70a67fe6dd9469",
         "composition_key": "zeon_commander_mohawk_crest+dual_temple_vulcans+sazabi_verka+g_a115a9"
-      }
+      },
+      "glb_sha256": "1a2413783445c13a4fd66f6ff8a5f64ea17f5e531b788d97fb16453696e14f4e",
+      "glb_size_bytes": 110160,
+      "subsystem_count": 15
     },
     {
       "part_id": "llm_gen_chest_armor_037_4e458a",
@@ -37426,8 +37483,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_037_e805c0.glb",
-          "sha256_hash": "9041c1aceb81030764bec55d947e5565ede1169a67bf6a88fb7e6d255a98bfbd",
-          "file_size_bytes": 279704,
+          "sha256_hash": "71e9971766e3634fb024ab0a6e4d65e463bd94043bb886685e9143c1805bc86b",
+          "file_size_bytes": 241760,
           "compression": "meshopt"
         }
       },
@@ -37484,9 +37541,9 @@
         "topology_hash": "fdb03c1144415c04",
         "composition_key": "quad_missile_box_artillery_pods+upper_missile_cap+wing_zero_pearl+g_5121c9"
       },
-      "glb_sha256": "ead0009f70a9344eea342350a366000bebcd496a0afde86e7a5dd49690655f0d",
-      "glb_size_bytes": 277608,
-      "subsystem_count": 28
+      "glb_sha256": "71e9971766e3634fb024ab0a6e4d65e463bd94043bb886685e9143c1805bc86b",
+      "glb_size_bytes": 241760,
+      "subsystem_count": 26
     },
     {
       "part_id": "llm_gen_waist_ordnance_037_24fe2c",
@@ -38179,8 +38236,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_038_b330ea.glb",
-          "sha256_hash": "15287b534b034eadc41721623bbfc3adf9fdf12632dd5b4e3d861716b2f9f709",
-          "file_size_bytes": 124448,
+          "sha256_hash": "ce1390311624f82b3aefba092a3ee875f2fbcbef7a734f19c550ee1f7bb57f92",
+          "file_size_bytes": 124348,
           "compression": "meshopt"
         }
       },
@@ -38231,7 +38288,10 @@
         ],
         "topology_hash": "dcb131ccf3ecf79e",
         "composition_key": "ew_dual_blade_recon_dome+dual_temple_vulcans+sinanju_gloss_red+g_38bf4e"
-      }
+      },
+      "glb_sha256": "ce1390311624f82b3aefba092a3ee875f2fbcbef7a734f19c550ee1f7bb57f92",
+      "glb_size_bytes": 124348,
+      "subsystem_count": 17
     },
     {
       "part_id": "llm_gen_chest_armor_038_6a9d6f",
@@ -38680,8 +38740,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_038_3c265b.glb",
-          "sha256_hash": "ac347c64072bdcb459319a1e1b63c9607a2698abc937d115cff99c8b03dde7a6",
-          "file_size_bytes": 336140,
+          "sha256_hash": "469aabd4290b7d42b36efd21f7042f9fa941795bc703a9ed7abdd1c9c08d87fe",
+          "file_size_bytes": 336884,
           "compression": "meshopt"
         }
       },
@@ -38735,9 +38795,9 @@
         "topology_hash": "60e9820824cc1d87",
         "composition_key": "heavy_gouf_flare_thruster_greaves+outer_aero_stabilizer+barbatos_iron+g_d2399f"
       },
-      "glb_sha256": "bcb753c82dd654bc5f46ef59eab48cf83160c6335305d6b94d288b00dfda2a10",
-      "glb_size_bytes": 334660,
-      "subsystem_count": 36
+      "glb_sha256": "469aabd4290b7d42b36efd21f7042f9fa941795bc703a9ed7abdd1c9c08d87fe",
+      "glb_size_bytes": 336884,
+      "subsystem_count": 38
     },
     {
       "part_id": "llm_gen_aux_weapon_038_4982d1",
@@ -39062,8 +39122,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_038_4e098a.glb",
-          "sha256_hash": "7b3bac2a12599762db8ccd6acaacaf3228251be065035c5e3baf425bef58c491",
-          "file_size_bytes": 298084,
+          "sha256_hash": "decd2ca42accb1b5228566043565571396bb6625216f4523a6404cdbbf924bd5",
+          "file_size_bytes": 300444,
           "compression": "meshopt"
         }
       },
@@ -39118,8 +39178,8 @@
         "topology_hash": "907d4f75b0036934",
         "composition_key": "awacs_halo_radome_pack+center_stabilizer_tail+twin_over_shoulder_cannons+destiny_phantom+acc_gold+g_8df802@s1.0000"
       },
-      "glb_sha256": "c7409b2faa36514543a70e3b19532f9c44a9270fd0a517e98917631dfca3cf84",
-      "glb_size_bytes": 299368,
+      "glb_sha256": "decd2ca42accb1b5228566043565571396bb6625216f4523a6404cdbbf924bd5",
+      "glb_size_bytes": 300444,
       "subsystem_count": 43
     },
     {
@@ -39190,8 +39250,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_039_658e95.glb",
-          "sha256_hash": "c1affb0f7066fe481f94be2d525d4f8b9c946f28eddbcec96cdb567b70ad3790",
-          "file_size_bytes": 107384,
+          "sha256_hash": "444f7fc437b8889ac31045ee5abe0d05d8c96577b43906275c75aa61468da2a1",
+          "file_size_bytes": 109308,
           "compression": "meshopt"
         }
       },
@@ -39243,7 +39303,10 @@
         ],
         "topology_hash": "5c2dd909c480ea0d",
         "composition_key": "horned_oni_assault_crest+rear_cooling_crest+unicorn_awakened_gn+g_f8f26a"
-      }
+      },
+      "glb_sha256": "444f7fc437b8889ac31045ee5abe0d05d8c96577b43906275c75aa61468da2a1",
+      "glb_size_bytes": 109308,
+      "subsystem_count": 15
     },
     {
       "part_id": "llm_gen_chest_armor_039_cc5979",
@@ -39562,8 +39625,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_039_aa7a3f.glb",
-          "sha256_hash": "09404e38ce902fbbfa9f0e0cc4a8df6750c95c79f6f38cd2aa5dd64c8fd8c0e0",
-          "file_size_bytes": 339036,
+          "sha256_hash": "dedcd4e9a54cac66e23752035c3cc63f4b4b8cdb96d4ba3f37359a9d42f84793",
+          "file_size_bytes": 337752,
           "compression": "meshopt"
         }
       },
@@ -39614,8 +39677,8 @@
         "topology_hash": "f60b90f6225de794",
         "composition_key": "twin_hip_missile_pods+rear_ambac_verniers+sinanju_gloss_red+g_26c53b"
       },
-      "glb_sha256": "1d03f2e44815021604e3f68114dc4ad8d8d911de9b9ef27f66942bcf181b8f70",
-      "glb_size_bytes": 339452,
+      "glb_sha256": "dedcd4e9a54cac66e23752035c3cc63f4b4b8cdb96d4ba3f37359a9d42f84793",
+      "glb_size_bytes": 337752,
       "subsystem_count": 34
     },
     {
@@ -40191,8 +40254,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_040_75545c.glb",
-          "sha256_hash": "d57d9c7fb43e78933ff0fb739f7eb543d72ea78cec1313808a6e62f292090504",
-          "file_size_bytes": 140336,
+          "sha256_hash": "79d6a9056e2fd690989744e109a4f10206ace484bc999778791a9e01cd234a0c",
+          "file_size_bytes": 140512,
           "compression": "meshopt"
         }
       },
@@ -40243,7 +40306,10 @@
         ],
         "topology_hash": "06b68a953e564b0e",
         "composition_key": "unicorn_destroy_split_vfin+rear_cooling_crest+destiny_phantom+g_76b078"
-      }
+      },
+      "glb_sha256": "79d6a9056e2fd690989744e109a4f10206ace484bc999778791a9e01cd234a0c",
+      "glb_size_bytes": 140512,
+      "subsystem_count": 18
     },
     {
       "part_id": "llm_gen_chest_armor_040_ab419c",
@@ -40437,8 +40503,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_040_f05065.glb",
-          "sha256_hash": "063c7bf2e67d739254421e6b8d6dfed10b44889f7681843b3fcb91566fbbd8fd",
-          "file_size_bytes": 240792,
+          "sha256_hash": "16fd6c6ddf89c14597400fc02a5586c1ab9d0fe10c77ad1af2c6dd3ad036c908",
+          "file_size_bytes": 236192,
           "compression": "meshopt"
         }
       },
@@ -40497,8 +40563,8 @@
         "topology_hash": "678d4ff2311a29e3",
         "composition_key": "spiked_assault_ram_pauldrons+forward_sensor_pod+rear_surge_vernier+upper_missile_cap+kampfer_midnight+acc_gold+g_ff61bf@s1.0500"
       },
-      "glb_sha256": "063c7bf2e67d739254421e6b8d6dfed10b44889f7681843b3fcb91566fbbd8fd",
-      "glb_size_bytes": 240792,
+      "glb_sha256": "16fd6c6ddf89c14597400fc02a5586c1ab9d0fe10c77ad1af2c6dd3ad036c908",
+      "glb_size_bytes": 236192,
       "subsystem_count": 24
     },
     {
@@ -41215,8 +41281,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_041_f94c85.glb",
-          "sha256_hash": "c42de11f7428e829d30f0ca2f101d3d705e201dbfe463ed6d7643e3b16210dc5",
-          "file_size_bytes": 98552,
+          "sha256_hash": "28bbe5cf14b345cb6217348e35898275253339e2f91c363db243eb4ff676321e",
+          "file_size_bytes": 99024,
           "compression": "meshopt"
         }
       },
@@ -41264,7 +41330,10 @@
         ],
         "topology_hash": "03b17378684bfbb3",
         "composition_key": "zeon_commander_mohawk_crest+rear_cooling_crest+twin_sensor_ears+twin_vfin_antennae+zeon_olive_ace+acc_gold+g_12f4cf@s1.0000"
-      }
+      },
+      "glb_sha256": "28bbe5cf14b345cb6217348e35898275253339e2f91c363db243eb4ff676321e",
+      "glb_size_bytes": 99024,
+      "subsystem_count": 14
     },
     {
       "part_id": "llm_gen_chest_armor_041_57e322",
@@ -42217,8 +42286,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_042_3079eb.glb",
-          "sha256_hash": "34cc919f665f015208e202032bef951d77affdd34cbe3628b7ac9da1be46366e",
-          "file_size_bytes": 113212,
+          "sha256_hash": "7958d549a32b39684ab331e6ee59bab61819ac155819b54cc02293d42045ece1",
+          "file_size_bytes": 113116,
           "compression": "meshopt"
         }
       },
@@ -42269,7 +42338,10 @@
         ],
         "topology_hash": "8a28d5f94e4e3837",
         "composition_key": "ew_dual_blade_recon_dome+rear_cooling_crest+kampfer_midnight+g_82caa7"
-      }
+      },
+      "glb_sha256": "7958d549a32b39684ab331e6ee59bab61819ac155819b54cc02293d42045ece1",
+      "glb_size_bytes": 113116,
+      "subsystem_count": 16
     },
     {
       "part_id": "llm_gen_chest_armor_042_5cbfeb",
@@ -42465,8 +42537,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_042_a4bb57.glb",
-          "sha256_hash": "1606c0e768fb8c946bbe31ddfce5f78f8db15dd72be43e90afa24cc508a23a74",
-          "file_size_bytes": 300596,
+          "sha256_hash": "c58b27a99084339f483e27a06426125ee9a3b0bea7aa1ac9e2cc7842f467ccd3",
+          "file_size_bytes": 263228,
           "compression": "meshopt"
         }
       },
@@ -42517,9 +42589,9 @@
         "topology_hash": "4ced1db4cef6eeca",
         "composition_key": "quad_missile_box_artillery_pods+outer_shield_winglet+exia_gn_cyan+g_00247a"
       },
-      "glb_sha256": "0f7acde561d4889915fa9767b96a081c379e38249a2d5eb25787baeab5207a76",
-      "glb_size_bytes": 298796,
-      "subsystem_count": 30
+      "glb_sha256": "c58b27a99084339f483e27a06426125ee9a3b0bea7aa1ac9e2cc7842f467ccd3",
+      "glb_size_bytes": 263228,
+      "subsystem_count": 28
     },
     {
       "part_id": "llm_gen_waist_ordnance_042_0147a3",
@@ -42715,8 +42787,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_042_723ced.glb",
-          "sha256_hash": "8df8d8215aa8ee0cca0fdf8d1c9f46dc687d0587e0929089b2aafdf59737e20d",
-          "file_size_bytes": 336736,
+          "sha256_hash": "c6797e5fdc9818c54cafdf894bce75336c764edd1410b7480eb82589a26b6fe5",
+          "file_size_bytes": 336976,
           "compression": "meshopt"
         }
       },
@@ -42771,9 +42843,9 @@
         "topology_hash": "85f3ce2f92659b9e",
         "composition_key": "heavy_gouf_flare_thruster_greaves+upper_calf_fuel_cell+unicorn_awakened_gn+g_99be26"
       },
-      "glb_sha256": "becaf5348684a8ae6da63b356313888a456703a0cd8e3dbeebfe8b9aacf33305",
-      "glb_size_bytes": 334664,
-      "subsystem_count": 36
+      "glb_sha256": "c6797e5fdc9818c54cafdf894bce75336c764edd1410b7480eb82589a26b6fe5",
+      "glb_size_bytes": 336976,
+      "subsystem_count": 38
     },
     {
       "part_id": "llm_gen_aux_weapon_042_8b3d8d",
@@ -43214,8 +43286,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_043_a9668b.glb",
-          "sha256_hash": "ee7dce967bbb51ee246efc3e5e69202b789a974a4c5b9fc9727465042f811272",
-          "file_size_bytes": 104596,
+          "sha256_hash": "8d18665b83695545bf909c53814b45f21f4c071b3129b19c4c29aadc08fc958b",
+          "file_size_bytes": 105188,
           "compression": "meshopt"
         }
       },
@@ -43266,7 +43338,10 @@
         ],
         "topology_hash": "7e42b478f2b7dee1",
         "composition_key": "sniper_optical_visor_hood+dual_temple_vulcans+rear_cooling_crest+twin_sensor_ears+unicorn_awakened_gn+acc_gold+g_2034e8@s1.0000"
-      }
+      },
+      "glb_sha256": "8d18665b83695545bf909c53814b45f21f4c071b3129b19c4c29aadc08fc958b",
+      "glb_size_bytes": 105188,
+      "subsystem_count": 16
     },
     {
       "part_id": "llm_gen_chest_armor_043_170908",
@@ -44219,8 +44294,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_044_227e6e.glb",
-          "sha256_hash": "d1ec274507b74e6bb1720e50cd612fc092a0af171aa1ce2c83b66af9e42ef034",
-          "file_size_bytes": 151392,
+          "sha256_hash": "b90e9ab2e22d7ffb1c858484a96ac7587e2e9666e090ce278eacadb88b5809d8",
+          "file_size_bytes": 151624,
           "compression": "meshopt"
         }
       },
@@ -44274,7 +44349,10 @@
         ],
         "topology_hash": "3c04215538a92cc3",
         "composition_key": "unicorn_destroy_split_vfin+dual_temple_vulcans+twin_sensor_ears+twin_vfin_antennae+full_armor_tactical+acc_optic+g_364acd@s1.0100"
-      }
+      },
+      "glb_sha256": "b90e9ab2e22d7ffb1c858484a96ac7587e2e9666e090ce278eacadb88b5809d8",
+      "glb_size_bytes": 151624,
+      "subsystem_count": 19
     },
     {
       "part_id": "llm_gen_chest_armor_044_c79fbd",
@@ -44601,8 +44679,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_044_8ce526.glb",
-          "sha256_hash": "ceeea8e793bd68a59cb2e4771d4704d63449ddc5f122a629c9cc543564a1dae5",
-          "file_size_bytes": 339108,
+          "sha256_hash": "2710768a8cfcaa6a2aed39fa681af2776e9e42dce51ab3f712b093dd1804b46c",
+          "file_size_bytes": 337824,
           "compression": "meshopt"
         }
       },
@@ -44653,8 +44731,8 @@
         "topology_hash": "91ba1ff7f87f3383",
         "composition_key": "twin_hip_missile_pods+outer_aero_skirt_fin+gouf_cobalt+g_75b58f"
       },
-      "glb_sha256": "5386c7ac2f909d49a7a1b15fb581e54a0415ca1c61529be2266bfc14ea1541c1",
-      "glb_size_bytes": 339524,
+      "glb_sha256": "2710768a8cfcaa6a2aed39fa681af2776e9e42dce51ab3f712b093dd1804b46c",
+      "glb_size_bytes": 337824,
       "subsystem_count": 34
     },
     {
@@ -45229,8 +45307,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_045_88779e.glb",
-          "sha256_hash": "da4cfdeb34ff41d7ae95d4b3d27625d622d7aab4518134757d561e2d2eb5f664",
-          "file_size_bytes": 98160,
+          "sha256_hash": "c1c27d2694f3b59c0c216cda5ba889a9cdc9eb3d6bc7de1b2db147659aa5273a",
+          "file_size_bytes": 98368,
           "compression": "meshopt"
         }
       },
@@ -45282,7 +45360,10 @@
         ],
         "topology_hash": "6838603d9902ef4f",
         "composition_key": "zeon_commander_mohawk_crest+rear_cooling_crest+wing_zero_pearl+g_de678b"
-      }
+      },
+      "glb_sha256": "c1c27d2694f3b59c0c216cda5ba889a9cdc9eb3d6bc7de1b2db147659aa5273a",
+      "glb_size_bytes": 98368,
+      "subsystem_count": 14
     },
     {
       "part_id": "llm_gen_chest_armor_045_470b8e",
@@ -46236,8 +46317,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_046_7633df.glb",
-          "sha256_hash": "08a41fc81c4f0c0fb7ed2905c0a7183a42a89b844a7a9725187b743be0314dba",
-          "file_size_bytes": 123732,
+          "sha256_hash": "9640b538ca7f273224e3fadf7bfc192a6e42ea3b6a1d9d92f74f8cdab39f1ec7",
+          "file_size_bytes": 124012,
           "compression": "meshopt"
         }
       },
@@ -46289,7 +46370,10 @@
         ],
         "topology_hash": "38a322f3d56fe24d",
         "composition_key": "ew_dual_blade_recon_dome+twin_sensor_ears+gouf_cobalt+g_6ccccb"
-      }
+      },
+      "glb_sha256": "9640b538ca7f273224e3fadf7bfc192a6e42ea3b6a1d9d92f74f8cdab39f1ec7",
+      "glb_size_bytes": 124012,
+      "subsystem_count": 17
     },
     {
       "part_id": "llm_gen_chest_armor_046_f71f06",
@@ -46483,8 +46567,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_046_25d4be.glb",
-          "sha256_hash": "76909d7b5d4432b9e4780eddc3fa0b9b1d91bd047a6c097357d67cd02b396321",
-          "file_size_bytes": 281096,
+          "sha256_hash": "84ad0f3ec65cdda20e145406df7e431f2f2313b32bc3f3017cf84a9177acdc51",
+          "file_size_bytes": 243704,
           "compression": "meshopt"
         }
       },
@@ -46538,9 +46622,9 @@
         "topology_hash": "100d2fafe256c164",
         "composition_key": "quad_missile_box_artillery_pods+forward_sensor_pod+tallgeese_imperial+g_eb629d"
       },
-      "glb_sha256": "6c746095afb8ef6ff8ed49ba9e2d386d8a36177e66afebb03db6f469dfa3274e",
-      "glb_size_bytes": 279296,
-      "subsystem_count": 28
+      "glb_sha256": "84ad0f3ec65cdda20e145406df7e431f2f2313b32bc3f3017cf84a9177acdc51",
+      "glb_size_bytes": 243704,
+      "subsystem_count": 26
     },
     {
       "part_id": "llm_gen_waist_ordnance_046_efe3c2",
@@ -46737,8 +46821,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_046_8c1a05.glb",
-          "sha256_hash": "b28494c1bfd6f1c8953237df520637182d94cbe8933a6d48134f24e54a7efa8c",
-          "file_size_bytes": 336440,
+          "sha256_hash": "8c1f09f4032bf9ffd4ec756da854130897b411b98c4949d8bcbd850d94c0bd0b",
+          "file_size_bytes": 336956,
           "compression": "meshopt"
         }
       },
@@ -46791,9 +46875,9 @@
         "topology_hash": "93c4502444dc587a",
         "composition_key": "heavy_gouf_flare_thruster_greaves+forward_knee_spike+outer_aero_stabilizer+upper_calf_fuel_cell+sinanju_gloss_red+acc_crimson+g_bef1d7@s1.0200"
       },
-      "glb_sha256": "1b6f09bcba03f15c8f1598d52203cf00af108a0d7f3f24dda8454de145d9166e",
-      "glb_size_bytes": 334492,
-      "subsystem_count": 36
+      "glb_sha256": "8c1f09f4032bf9ffd4ec756da854130897b411b98c4949d8bcbd850d94c0bd0b",
+      "glb_size_bytes": 336956,
+      "subsystem_count": 38
     },
     {
       "part_id": "llm_gen_aux_weapon_046_654a4b",
@@ -47235,8 +47319,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_047_09a68f.glb",
-          "sha256_hash": "5c270e8700f6117f19c67f5d30d95f34b7bfb5d7a766a332a7e6ef3a3c30bcde",
-          "file_size_bytes": 100144,
+          "sha256_hash": "d78e97eeea3d5216793b4530724d4c5991e84f2b22c45eb944492f4ae90e6418",
+          "file_size_bytes": 99716,
           "compression": "meshopt"
         }
       },
@@ -47285,7 +47369,10 @@
         ],
         "topology_hash": "c125f8a4ec656fb5",
         "composition_key": "horned_oni_assault_crest+none+banshee_obsidian+g_c1e296"
-      }
+      },
+      "glb_sha256": "d78e97eeea3d5216793b4530724d4c5991e84f2b22c45eb944492f4ae90e6418",
+      "glb_size_bytes": 99716,
+      "subsystem_count": 14
     },
     {
       "part_id": "llm_gen_chest_armor_047_896b7e",
@@ -48248,8 +48335,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_048_52c4ff.glb",
-          "sha256_hash": "8da769133d55d6fd88d95459b40a01c5febb1dab4b5ee9967d77d2fff3a64cfc",
-          "file_size_bytes": 151368,
+          "sha256_hash": "4303b46eba2e7b93ab1d6a3b9f78ec87181d700463419fa15412cc335b18311f",
+          "file_size_bytes": 151600,
           "compression": "meshopt"
         }
       },
@@ -48301,7 +48388,10 @@
         ],
         "topology_hash": "f75be8116adcb5aa",
         "composition_key": "unicorn_destroy_split_vfin+dual_temple_vulcans+twin_sensor_ears+twin_vfin_antennae+unicorn_destroy+acc_gold+g_cabb1d@s1.0100"
-      }
+      },
+      "glb_sha256": "4303b46eba2e7b93ab1d6a3b9f78ec87181d700463419fa15412cc335b18311f",
+      "glb_size_bytes": 151600,
+      "subsystem_count": 19
     },
     {
       "part_id": "llm_gen_chest_armor_048_eeb07f",
@@ -48494,8 +48584,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_048_f5d985.glb",
-          "sha256_hash": "a89f3a656b1f9581429950c42afb07a536f17ad7a6646146e12d5e26812d53a9",
-          "file_size_bytes": 240940,
+          "sha256_hash": "545b89ee3d396a1957a827b0df769b66bcea713b9a239480dd95339d7981d82c",
+          "file_size_bytes": 236480,
           "compression": "meshopt"
         }
       },
@@ -48547,8 +48637,8 @@
         "topology_hash": "b26d299ffccf7431",
         "composition_key": "spiked_assault_ram_pauldrons+forward_sensor_pod+rear_surge_vernier+wing_zero_pearl+g_49d715"
       },
-      "glb_sha256": "a89f3a656b1f9581429950c42afb07a536f17ad7a6646146e12d5e26812d53a9",
-      "glb_size_bytes": 240940,
+      "glb_sha256": "545b89ee3d396a1957a827b0df769b66bcea713b9a239480dd95339d7981d82c",
+      "glb_size_bytes": 236480,
       "subsystem_count": 24
     },
     {
@@ -49245,8 +49335,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_049_264efb.glb",
-          "sha256_hash": "fc36e21d38c4c73756fa5cb72cec134867920f271af75e9c63b72ed979e689cf",
-          "file_size_bytes": 109544,
+          "sha256_hash": "397d0ea9fdec272e7a3cb1ffb45f5d517d9d50e7710f433eec11631545bf7f6c",
+          "file_size_bytes": 110004,
           "compression": "meshopt"
         }
       },
@@ -49297,7 +49387,10 @@
         ],
         "topology_hash": "32e06b78fd600eee",
         "composition_key": "zeon_commander_mohawk_crest+twin_sensor_ears+strike_freedom_royal+g_d3c546"
-      }
+      },
+      "glb_sha256": "397d0ea9fdec272e7a3cb1ffb45f5d517d9d50e7710f433eec11631545bf7f6c",
+      "glb_size_bytes": 110004,
+      "subsystem_count": 15
     },
     {
       "part_id": "llm_gen_chest_armor_049_f4a574",
@@ -50245,8 +50338,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_050_1fb7e2.glb",
-          "sha256_hash": "708d8f705f5305bea1c506c66b7d57590dfc45f456767dd4669bc16c8acf09fa",
-          "file_size_bytes": 103184,
+          "sha256_hash": "2656c87d83141cd801a4694a06bd402573d11aadca53b0bf233c5b6e3501e36d",
+          "file_size_bytes": 102840,
           "compression": "meshopt"
         }
       },
@@ -50300,7 +50393,10 @@
         ],
         "topology_hash": "7a390475f4108fe3",
         "composition_key": "ew_dual_blade_recon_dome+none+barbatos_iron+g_48b1ab"
-      }
+      },
+      "glb_sha256": "2656c87d83141cd801a4694a06bd402573d11aadca53b0bf233c5b6e3501e36d",
+      "glb_size_bytes": 102840,
+      "subsystem_count": 15
     },
     {
       "part_id": "llm_gen_chest_armor_050_21a92d",
@@ -50493,8 +50589,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_050_f2d565.glb",
-          "sha256_hash": "dd13fef168010fa9bd426e79da35e0bb10c0e97a62b569ab63cbdc6923976c8c",
-          "file_size_bytes": 355536,
+          "sha256_hash": "9103d06a2e75febd138761699a9c3cf7f692cb889471af096ef0430d1dc8a6ff",
+          "file_size_bytes": 317552,
           "compression": "meshopt"
         }
       },
@@ -50544,9 +50640,9 @@
         "topology_hash": "32550b1bd0c04d4b",
         "composition_key": "quad_missile_box_artillery_pods+rear_surge_vernier+barbatos_iron+g_55331d"
       },
-      "glb_sha256": "27ae96da075cd2111c2c6bbd24442abf515cd07425245dc4ca8d3e0968936450",
-      "glb_size_bytes": 353440,
-      "subsystem_count": 36
+      "glb_sha256": "9103d06a2e75febd138761699a9c3cf7f692cb889471af096ef0430d1dc8a6ff",
+      "glb_size_bytes": 317552,
+      "subsystem_count": 34
     },
     {
       "part_id": "llm_gen_waist_ordnance_050_860047",
@@ -50741,8 +50837,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_050_f96481.glb",
-          "sha256_hash": "c5206faec37eb914e1344442b1af2e14121405e261e5d7349b2524e54d4163c9",
-          "file_size_bytes": 336696,
+          "sha256_hash": "4b382e7f31682bd8e56b101764f3f74366f286cb0194ba9383c6f1ead9e35320",
+          "file_size_bytes": 336940,
           "compression": "meshopt"
         }
       },
@@ -50793,9 +50889,9 @@
         "topology_hash": "aebc7bd4efca7cd9",
         "composition_key": "heavy_gouf_flare_thruster_greaves+forward_knee_spike+outer_aero_stabilizer+wing_zero_pearl+g_048bd4"
       },
-      "glb_sha256": "062db0e722ac7b7889f64d7c28aafbcc51c99c95b2a6cc58f5b5fe1e845ea72c",
-      "glb_size_bytes": 334624,
-      "subsystem_count": 36
+      "glb_sha256": "4b382e7f31682bd8e56b101764f3f74366f286cb0194ba9383c6f1ead9e35320",
+      "glb_size_bytes": 336940,
+      "subsystem_count": 38
     },
     {
       "part_id": "llm_gen_aux_weapon_050_f3a953",
@@ -51243,8 +51339,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_051_7e672d.glb",
-          "sha256_hash": "62c235d02b54fcf1d15ba7e73b7fb86dcb132e4bdaddd3593416f43aaea8499a",
-          "file_size_bytes": 92184,
+          "sha256_hash": "2523f6a14d4af7afcc4c9bd853b708b59f4df5f03f928c3c9ac5d8d459e5803c",
+          "file_size_bytes": 92776,
           "compression": "meshopt"
         }
       },
@@ -51294,7 +51390,10 @@
         ],
         "topology_hash": "c59ac6584ccc8cd6",
         "composition_key": "sniper_optical_visor_hood+rear_cooling_crest+twin_sensor_ears+exia_gn_cyan+acc_gold+g_9da7e3@s1.0000"
-      }
+      },
+      "glb_sha256": "2523f6a14d4af7afcc4c9bd853b708b59f4df5f03f928c3c9ac5d8d459e5803c",
+      "glb_size_bytes": 92776,
+      "subsystem_count": 15
     },
     {
       "part_id": "llm_gen_chest_armor_051_0e8871",
@@ -52252,8 +52351,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_052_41df17.glb",
-          "sha256_hash": "0b09a5691f8d4764afd82a2fa3b5a5a460ab00042dc2e8e030fc81c53af2b358",
-          "file_size_bytes": 121096,
+          "sha256_hash": "8cad046f72b14b7355ef24ebdde8e994679cecfaf93413b0e6a735d3c9db5c7a",
+          "file_size_bytes": 120608,
           "compression": "meshopt"
         }
       },
@@ -52303,7 +52402,10 @@
         ],
         "topology_hash": "cad86e8816a1b358",
         "composition_key": "horned_oni_assault_crest+dual_temple_vulcans+twin_vfin_antennae+sazabi_verka+g_fa1e98"
-      }
+      },
+      "glb_sha256": "8cad046f72b14b7355ef24ebdde8e994679cecfaf93413b0e6a735d3c9db5c7a",
+      "glb_size_bytes": 120608,
+      "subsystem_count": 16
     },
     {
       "part_id": "llm_gen_chest_armor_052_5c0347",
@@ -52500,8 +52602,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_052_bc255c.glb",
-          "sha256_hash": "24baaba6dc220e066af271bf1581f7246cc32b002f61aaa48f19efc2594e2e96",
-          "file_size_bytes": 240408,
+          "sha256_hash": "f6026fc1952c5876dfa1ca4ed2eb396aaef69c357155f53b7d800326f163abcb",
+          "file_size_bytes": 235776,
           "compression": "meshopt"
         }
       },
@@ -52553,8 +52655,8 @@
         "topology_hash": "aac4a70d2c7f820c",
         "composition_key": "spiked_assault_ram_pauldrons+forward_sensor_pod+rear_surge_vernier+gouf_cobalt+acc_cobalt+g_6fbb98@s1.0200"
       },
-      "glb_sha256": "24baaba6dc220e066af271bf1581f7246cc32b002f61aaa48f19efc2594e2e96",
-      "glb_size_bytes": 240408,
+      "glb_sha256": "f6026fc1952c5876dfa1ca4ed2eb396aaef69c357155f53b7d800326f163abcb",
+      "glb_size_bytes": 235776,
       "subsystem_count": 24
     },
     {
@@ -52625,8 +52727,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_052_03f63a.glb",
-          "sha256_hash": "728946e51512cb61ee04a7ab97e2c03900f4e8d3981d281eb986d0b346741023",
-          "file_size_bytes": 359244,
+          "sha256_hash": "3bf186dcec0446453ed5995a62c19129bcbeea648eb0087900d214fe151fc91c",
+          "file_size_bytes": 357772,
           "compression": "meshopt"
         }
       },
@@ -52682,8 +52784,8 @@
         "topology_hash": "6f041e2f5ed2c4af",
         "composition_key": "twin_hip_missile_pods+forward_rail_prongs+destiny_phantom+g_b95624"
       },
-      "glb_sha256": "8e9a40e1829ad72835cb943e40e95e9a4ba3af44a4f93b96426082185a196695",
-      "glb_size_bytes": 359468,
+      "glb_sha256": "3bf186dcec0446453ed5995a62c19129bcbeea648eb0087900d214fe151fc91c",
+      "glb_size_bytes": 357772,
       "subsystem_count": 36
     },
     {
@@ -53130,8 +53232,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_052_f142bd.glb",
-          "sha256_hash": "0d7cc1c499f540b22011480ebda54ae88660f2d08283b8e66d4e1e3ed53c5eb7",
-          "file_size_bytes": 298104,
+          "sha256_hash": "3cd6927ef48072968ca80335a19ab9c45edcf4132d73a6277518d7e46d74ca6a",
+          "file_size_bytes": 300460,
           "compression": "meshopt"
         }
       },
@@ -53183,8 +53285,8 @@
         "topology_hash": "d0ba351a7e1d3e91",
         "composition_key": "awacs_halo_radome_pack+lower_propellant_tanks+twin_over_shoulder_cannons+strike_freedom_royal+g_37de93"
       },
-      "glb_sha256": "e0845190cf4bcabe822a95fba0e5f3b27445bca6c09178f5a1233dfff1d34fd0",
-      "glb_size_bytes": 299384,
+      "glb_sha256": "3cd6927ef48072968ca80335a19ab9c45edcf4132d73a6277518d7e46d74ca6a",
+      "glb_size_bytes": 300460,
       "subsystem_count": 43
     },
     {
@@ -53255,8 +53357,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_053_90df09.glb",
-          "sha256_hash": "1ec2711a89b547c53916525cc922a63168422493f3a32cdd4e5a1be0ffa667e6",
-          "file_size_bytes": 140260,
+          "sha256_hash": "58d06b5552f3c27e2df8172782b37ca32eda7cb59e50565a91eb3e2ef9e5bc9a",
+          "file_size_bytes": 140432,
           "compression": "meshopt"
         }
       },
@@ -53307,7 +53409,10 @@
         ],
         "topology_hash": "34db5fba33f27ee6",
         "composition_key": "unicorn_destroy_split_vfin+rear_cooling_crest+twin_sensor_ears+tallgeese_imperial+acc_gold+g_beef99@s1.0000"
-      }
+      },
+      "glb_sha256": "58d06b5552f3c27e2df8172782b37ca32eda7cb59e50565a91eb3e2ef9e5bc9a",
+      "glb_size_bytes": 140432,
+      "subsystem_count": 18
     },
     {
       "part_id": "llm_gen_chest_armor_053_2d5a7e",
@@ -53503,8 +53608,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_053_a6455b.glb",
-          "sha256_hash": "8a5a6d5396cddd522190ab80ca2ae6377fdbd506825896c3d0bf1cb65867655e",
-          "file_size_bytes": 301160,
+          "sha256_hash": "3fc144c9d6ac03c2c73e401a14064e50f185e96e6327a1e8d3e0b11871bd0777",
+          "file_size_bytes": 263496,
           "compression": "meshopt"
         }
       },
@@ -53556,9 +53661,9 @@
         "topology_hash": "43070458e5296230",
         "composition_key": "quad_missile_box_artillery_pods+outer_shield_winglet+rear_surge_vernier+sazabi_verka+g_3b1f2b"
       },
-      "glb_sha256": "2accedcd0300416c5bb462afbf6fd50b36013513438ba8426578146d447725a8",
-      "glb_size_bytes": 299092,
-      "subsystem_count": 30
+      "glb_sha256": "3fc144c9d6ac03c2c73e401a14064e50f185e96e6327a1e8d3e0b11871bd0777",
+      "glb_size_bytes": 263496,
+      "subsystem_count": 28
     },
     {
       "part_id": "llm_gen_waist_ordnance_053_bb0706",
@@ -54264,8 +54369,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_054_a1c90c.glb",
-          "sha256_hash": "8d7a79c134ab3c0eee7b015b0b83f9c5d22858b9b7b5caf9e13a922491467cf5",
-          "file_size_bytes": 88656,
+          "sha256_hash": "1eed8b848441e672a84f2fd844b6bf51b0ac6cca4ddf153c2d09b922a072a6e0",
+          "file_size_bytes": 89116,
           "compression": "meshopt"
         }
       },
@@ -54315,7 +54420,10 @@
         ],
         "topology_hash": "91939e7060a08db6",
         "composition_key": "zeon_commander_mohawk_crest+none+sinanju_gloss_red+g_e8d460"
-      }
+      },
+      "glb_sha256": "1eed8b848441e672a84f2fd844b6bf51b0ac6cca4ddf153c2d09b922a072a6e0",
+      "glb_size_bytes": 89116,
+      "subsystem_count": 13
     },
     {
       "part_id": "llm_gen_chest_armor_054_f1de50",
@@ -54510,8 +54618,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_054_c71015.glb",
-          "sha256_hash": "1ee52b9fcaaf79e1d1e24bdb6876306803a58bc93b1eb9a3e65e06788ce14591",
-          "file_size_bytes": 300416,
+          "sha256_hash": "7a29a139334aee0324d0cb0cf17a2cea5f0802071d4a4a45e0786fdc2dc6d434",
+          "file_size_bytes": 263024,
           "compression": "meshopt"
         }
       },
@@ -54563,9 +54671,9 @@
         "topology_hash": "e43b7c29c34c89a3",
         "composition_key": "quad_missile_box_artillery_pods+outer_shield_winglet+rear_surge_vernier+sinanju_gloss_red+g_02807f"
       },
-      "glb_sha256": "ca9d870b3f6b51b1b9e0b9127ae027d02917ec1fe1977baa0575e4a53a107484",
-      "glb_size_bytes": 298616,
-      "subsystem_count": 30
+      "glb_sha256": "7a29a139334aee0324d0cb0cf17a2cea5f0802071d4a4a45e0786fdc2dc6d434",
+      "glb_size_bytes": 263024,
+      "subsystem_count": 28
     },
     {
       "part_id": "llm_gen_waist_ordnance_054_008a5c",
@@ -54760,8 +54868,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_054_2e9f73.glb",
-          "sha256_hash": "fe287d499d850a5c6caa98bff7e35590b4cb7ec5ed6ba6fbe0b0c161e43825f8",
-          "file_size_bytes": 336344,
+          "sha256_hash": "2fd70b4a2a53decc50e7e24fcd4b501e782b825854d1d9d9bc46c70cb58c8a69",
+          "file_size_bytes": 336836,
           "compression": "meshopt"
         }
       },
@@ -54814,9 +54922,9 @@
         "topology_hash": "8ab73d6b881ac6a4",
         "composition_key": "heavy_gouf_flare_thruster_greaves+forward_knee_spike+outer_aero_stabilizer+exia_gn_cyan+g_41054c"
       },
-      "glb_sha256": "f478170614fd59d452c6fd0881a7710edf56d6bbc4b1b684ae63b31e995fd312",
-      "glb_size_bytes": 334660,
-      "subsystem_count": 36
+      "glb_sha256": "2fd70b4a2a53decc50e7e24fcd4b501e782b825854d1d9d9bc46c70cb58c8a69",
+      "glb_size_bytes": 336836,
+      "subsystem_count": 38
     },
     {
       "part_id": "llm_gen_aux_weapon_054_601e16",
@@ -56274,8 +56382,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_056_d19e7c.glb",
-          "sha256_hash": "09b829442fa172b5d8f6309e4b706ceed23f020f9038e1a6e2aa7aa741f2b9ab",
-          "file_size_bytes": 124360,
+          "sha256_hash": "b221a67e3c5bf4cbf1a7d882f454e181b6f36f794991202437ad50102c21da64",
+          "file_size_bytes": 124640,
           "compression": "meshopt"
         }
       },
@@ -56327,7 +56435,10 @@
         ],
         "topology_hash": "6387f083516e0ca5",
         "composition_key": "ew_dual_blade_recon_dome+dual_temple_vulcans+twin_vfin_antennae+destiny_phantom+g_89295d"
-      }
+      },
+      "glb_sha256": "b221a67e3c5bf4cbf1a7d882f454e181b6f36f794991202437ad50102c21da64",
+      "glb_size_bytes": 124640,
+      "subsystem_count": 17
     },
     {
       "part_id": "llm_gen_chest_armor_056_b8b830",
@@ -56524,8 +56635,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_056_e47967.glb",
-          "sha256_hash": "9c67075ceb15b0a6e9004065f5bda84820113438d06b56b0ccd40f778252b700",
-          "file_size_bytes": 240864,
+          "sha256_hash": "9974b9739b4954b6ba3880ec538b272c09c652c6e92703095c8f5a6a27abd137",
+          "file_size_bytes": 236404,
           "compression": "meshopt"
         }
       },
@@ -56576,7 +56687,10 @@
         ],
         "topology_hash": "fe75602231ead527",
         "composition_key": "spiked_assault_ram_pauldrons+forward_sensor_pod+rear_surge_vernier+destiny_phantom+g_9a4cdb"
-      }
+      },
+      "glb_sha256": "9974b9739b4954b6ba3880ec538b272c09c652c6e92703095c8f5a6a27abd137",
+      "glb_size_bytes": 236404,
+      "subsystem_count": 24
     },
     {
       "part_id": "llm_gen_waist_ordnance_056_4a6c5d",
@@ -57265,8 +57379,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_057_8eb325.glb",
-          "sha256_hash": "9f5241f193429b77adbc7ff37b4b6f575c16f9ddcdb11521f0a5caa6792ff18e",
-          "file_size_bytes": 120560,
+          "sha256_hash": "b6b94e0faba68e2b172826992a30403a7d735ab1c3a580394ce30c706dfead03",
+          "file_size_bytes": 120128,
           "compression": "meshopt"
         }
       },
@@ -57319,7 +57433,10 @@
         ],
         "topology_hash": "3e38e0038b121dd2",
         "composition_key": "horned_oni_assault_crest+dual_temple_vulcans+twin_vfin_antennae+kampfer_midnight+g_b31baf"
-      }
+      },
+      "glb_sha256": "b6b94e0faba68e2b172826992a30403a7d735ab1c3a580394ce30c706dfead03",
+      "glb_size_bytes": 120128,
+      "subsystem_count": 16
     },
     {
       "part_id": "llm_gen_chest_armor_057_6b9478",
@@ -57511,8 +57628,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_057_06971d.glb",
-          "sha256_hash": "87463470b7d8cf914a2b8b05dc968bb5e984fcf106910ac75983c9fc6d6ff321",
-          "file_size_bytes": 374720,
+          "sha256_hash": "1f4042b9c033777d21f5491fc15f5466e946e1737ba4c4225b48c042c9b43c95",
+          "file_size_bytes": 337100,
           "compression": "meshopt"
         }
       },
@@ -57571,7 +57688,10 @@
         ],
         "topology_hash": "48c0c36b13c9f21f",
         "composition_key": "quad_missile_box_artillery_pods+outer_shield_winglet+rear_surge_vernier+kampfer_midnight+g_e445ee"
-      }
+      },
+      "glb_sha256": "1f4042b9c033777d21f5491fc15f5466e946e1737ba4c4225b48c042c9b43c95",
+      "glb_size_bytes": 337100,
+      "subsystem_count": 36
     },
     {
       "part_id": "llm_gen_waist_ordnance_057_6f726b",
@@ -58266,8 +58386,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_058_b854ac.glb",
-          "sha256_hash": "e91c0ca39773ff76cd94288c18c6abf27592efef44b7c2285d8dea7b85b2539f",
-          "file_size_bytes": 151208,
+          "sha256_hash": "3c921c3801fa5436ebac3ad6587112dd4f53604534e69166e999adf4ce564d87",
+          "file_size_bytes": 151384,
           "compression": "meshopt"
         }
       },
@@ -58321,7 +58441,10 @@
         ],
         "topology_hash": "0ca3e4ec615277cc",
         "composition_key": "unicorn_destroy_split_vfin+twin_sensor_ears+gouf_cobalt+g_6a1589"
-      }
+      },
+      "glb_sha256": "3c921c3801fa5436ebac3ad6587112dd4f53604534e69166e999adf4ce564d87",
+      "glb_size_bytes": 151384,
+      "subsystem_count": 19
     },
     {
       "part_id": "llm_gen_chest_armor_058_2bf34f",
@@ -58761,8 +58884,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_058_6c8d6f.glb",
-          "sha256_hash": "20dd37c0b740411d5762ad7c51181d58304c8d775897e873eecf7daa5fe25a20",
-          "file_size_bytes": 356440,
+          "sha256_hash": "a543e90159f4254036cd94029e6eab346a99c0836041542c3cf920ddbef4c6f5",
+          "file_size_bytes": 356932,
           "compression": "meshopt"
         }
       },
@@ -58815,7 +58938,10 @@
         ],
         "topology_hash": "8204face6faf7d3b",
         "composition_key": "heavy_gouf_flare_thruster_greaves+forward_knee_spike+outer_aero_stabilizer+kampfer_midnight+g_4119fe"
-      }
+      },
+      "glb_sha256": "a543e90159f4254036cd94029e6eab346a99c0836041542c3cf920ddbef4c6f5",
+      "glb_size_bytes": 356932,
+      "subsystem_count": 40
     },
     {
       "part_id": "llm_gen_aux_weapon_058_1a9b97",
@@ -59259,8 +59385,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_059_7d5e35.glb",
-          "sha256_hash": "fe2fbd2ef3dedce10de6929c98c6724dc93368c16018c3bcf906b59121398a4c",
-          "file_size_bytes": 123756,
+          "sha256_hash": "941852f534d8f1b67d2b021dc232026fcdf26baced01dacbd291fd2b2a0d6aef",
+          "file_size_bytes": 124228,
           "compression": "meshopt"
         }
       },
@@ -59310,7 +59436,10 @@
         ],
         "topology_hash": "313b1a1357ddd1c4",
         "composition_key": "zeon_commander_mohawk_crest+dual_temple_vulcans+twin_vfin_antennae+unicorn_awakened_gn+g_2b1e8a"
-      }
+      },
+      "glb_sha256": "941852f534d8f1b67d2b021dc232026fcdf26baced01dacbd291fd2b2a0d6aef",
+      "glb_size_bytes": 124228,
+      "subsystem_count": 17
     },
     {
       "part_id": "llm_gen_chest_armor_059_db579d",
@@ -59500,8 +59629,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_059_3b2bbb.glb",
-          "sha256_hash": "6c4e604c315e91306a8067e55f3bb12a1e0892f31ea9c4de49df016d4a0153b4",
-          "file_size_bytes": 314952,
+          "sha256_hash": "fdcbae44b0876c0b8569f12e2595d9241b5e388e6b2bed159fb58d86909a9a59",
+          "file_size_bytes": 310492,
           "compression": "meshopt"
         }
       },
@@ -59553,7 +59682,10 @@
         ],
         "topology_hash": "b911d5581871431a",
         "composition_key": "spiked_assault_ram_pauldrons+forward_sensor_pod+rear_surge_vernier+banshee_obsidian+g_a0f772"
-      }
+      },
+      "glb_sha256": "fdcbae44b0876c0b8569f12e2595d9241b5e388e6b2bed159fb58d86909a9a59",
+      "glb_size_bytes": 310492,
+      "subsystem_count": 32
     },
     {
       "part_id": "llm_gen_waist_ordnance_059_7bade9",
@@ -60240,8 +60372,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_060_223286.glb",
-          "sha256_hash": "92979f0462e5e1bebe45587dd3c5acb8dd5ce179c5c956108d1143f8b3e92e50",
-          "file_size_bytes": 138260,
+          "sha256_hash": "854b528a75ff13f6b097ecef4c6b3c072b538d2d0c8ad8e86b07184944351e88",
+          "file_size_bytes": 138164,
           "compression": "meshopt"
         }
       },
@@ -60294,7 +60426,10 @@
         ],
         "topology_hash": "7a56678902b40c49",
         "composition_key": "ew_dual_blade_recon_dome+dual_temple_vulcans+twin_vfin_antennae+zeon_olive_ace+g_3311ad"
-      }
+      },
+      "glb_sha256": "854b528a75ff13f6b097ecef4c6b3c072b538d2d0c8ad8e86b07184944351e88",
+      "glb_size_bytes": 138164,
+      "subsystem_count": 19
     },
     {
       "part_id": "llm_gen_chest_armor_060_c1c487",
@@ -61232,8 +61367,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_061_21015e.glb",
-          "sha256_hash": "088e6fce2f295b7352431421cb4c535ee9857f828231a505e103ac286c45aead",
-          "file_size_bytes": 132596,
+          "sha256_hash": "8e160aff72f80f27be490af26152d0400ab5a3f1ab5a337124e5c2038840901d",
+          "file_size_bytes": 134520,
           "compression": "meshopt"
         }
       },
@@ -61284,7 +61419,10 @@
         ],
         "topology_hash": "168b84c2f6d12100",
         "composition_key": "horned_oni_assault_crest+dual_temple_vulcans+twin_vfin_antennae+wing_zero_pearl+g_612f87"
-      }
+      },
+      "glb_sha256": "8e160aff72f80f27be490af26152d0400ab5a3f1ab5a337124e5c2038840901d",
+      "glb_size_bytes": 134520,
+      "subsystem_count": 18
     },
     {
       "part_id": "llm_gen_chest_armor_061_8af796",
@@ -61600,8 +61738,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_061_f60cce.glb",
-          "sha256_hash": "8fca84c005b72331507eea89d8637d486b91cfe3c1fdbe8b713f0cafee9949cc",
-          "file_size_bytes": 359332,
+          "sha256_hash": "e9211df05df09fbf9a12c25e8a845dfce1bdc708de3ee36519afe72aa89c080f",
+          "file_size_bytes": 356892,
           "compression": "meshopt"
         }
       },
@@ -61655,7 +61793,10 @@
         ],
         "topology_hash": "23c6237fa3511b21",
         "composition_key": "twin_hip_missile_pods+forward_rail_prongs+exia_gn_cyan+g_fccac7"
-      }
+      },
+      "glb_sha256": "e9211df05df09fbf9a12c25e8a845dfce1bdc708de3ee36519afe72aa89c080f",
+      "glb_size_bytes": 356892,
+      "subsystem_count": 36
     },
     {
       "part_id": "llm_gen_leg_thrusters_061_c4a7c6",
@@ -62466,8 +62607,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_062_128378.glb",
-          "sha256_hash": "85f37a342bab959a2052d560d9f1b122f127a798c1a810a4b3145f7fee1f3f07",
-          "file_size_bytes": 372332,
+          "sha256_hash": "5fe2026073e80082961bb487d0f3059314f25150a4268c431b4903de4bb5aca9",
+          "file_size_bytes": 375124,
           "compression": "meshopt"
         }
       },
@@ -62519,7 +62660,10 @@
         ],
         "topology_hash": "3e596e957cd10dca",
         "composition_key": "twin_aa_rotary_shoulder_turrets+rear_surge_vernier+barbatos_iron+g_20c704"
-      }
+      },
+      "glb_sha256": "5fe2026073e80082961bb487d0f3059314f25150a4268c431b4903de4bb5aca9",
+      "glb_size_bytes": 375124,
+      "subsystem_count": 38
     },
     {
       "part_id": "llm_gen_waist_ordnance_062_7977a1",
@@ -62711,8 +62855,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_062_b7c5bf.glb",
-          "sha256_hash": "3a54161094b8fdd537ccd2e52b5ccf04cbd0be2caf1fa8c3b1dc0988a98a8a4c",
-          "file_size_bytes": 356624,
+          "sha256_hash": "368c7952c263703bf696b5670b032bce2ee4d02a959d8785f935d93213de0358",
+          "file_size_bytes": 356868,
           "compression": "meshopt"
         }
       },
@@ -62766,7 +62910,10 @@
         ],
         "topology_hash": "5f4255b642f8a8c3",
         "composition_key": "heavy_gouf_flare_thruster_greaves+forward_knee_spike+upper_calf_fuel_cell+strike_freedom_royal+g_2f9214"
-      }
+      },
+      "glb_sha256": "368c7952c263703bf696b5670b032bce2ee4d02a959d8785f935d93213de0358",
+      "glb_size_bytes": 356868,
+      "subsystem_count": 40
     },
     {
       "part_id": "llm_gen_aux_weapon_062_07c127",
@@ -63210,8 +63357,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_063_0351f4.glb",
-          "sha256_hash": "4ab14f759bf9c5ac05dccfa6178051f95271c4a9d6db5e5be6dfd3c97fc81636",
-          "file_size_bytes": 130160,
+          "sha256_hash": "d1edb83c5c2ee6f244b5ec43ad831758d073594076d2b71219bc01298f419b68",
+          "file_size_bytes": 130496,
           "compression": "meshopt"
         }
       },
@@ -63264,7 +63411,10 @@
         ],
         "topology_hash": "3c5256c8c4257083",
         "composition_key": "unicorn_destroy_split_vfin+none+sazabi_verka+g_dccbf2"
-      }
+      },
+      "glb_sha256": "d1edb83c5c2ee6f244b5ec43ad831758d073594076d2b71219bc01298f419b68",
+      "glb_size_bytes": 130496,
+      "subsystem_count": 17
     },
     {
       "part_id": "llm_gen_chest_armor_063_50b349",
@@ -63454,8 +63604,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_shoulder_pods_063_55b7ed.glb",
-          "sha256_hash": "7b35fe91ad367c1d4d59cdcac4bff314e3ac104b06c4c9a4389bcc0f86816b0c",
-          "file_size_bytes": 415024,
+          "sha256_hash": "4dc368d684c84fb0f42f0afdbecc5e77dec46e0fdb5a04221a120ad5796cb9e6",
+          "file_size_bytes": 413688,
           "compression": "meshopt"
         }
       },
@@ -63514,7 +63664,10 @@
         ],
         "topology_hash": "463a5f74e63d0016",
         "composition_key": "radar_dish_recon_pauldrons+rear_surge_vernier+sazabi_verka+g_639de4"
-      }
+      },
+      "glb_sha256": "4dc368d684c84fb0f42f0afdbecc5e77dec46e0fdb5a04221a120ad5796cb9e6",
+      "glb_size_bytes": 413688,
+      "subsystem_count": 38
     },
     {
       "part_id": "llm_gen_waist_ordnance_063_97cc6d",
@@ -64222,8 +64375,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_064_de9a50.glb",
-          "sha256_hash": "049de0322e8472f4aa562805c99f3ce32ec7a6b0ebeb6d0366d55554bfdcafcf",
-          "file_size_bytes": 111856,
+          "sha256_hash": "4c9ab189287eb51d548bb175ea1f49285c35b4c00eb703cf4789e4f8f67eee18",
+          "file_size_bytes": 112328,
           "compression": "meshopt"
         }
       },
@@ -64273,7 +64426,10 @@
         ],
         "topology_hash": "1958a7bb2568923d",
         "composition_key": "zeon_commander_mohawk_crest+rear_cooling_crest+twin_vfin_antennae+destiny_phantom+g_266939"
-      }
+      },
+      "glb_sha256": "4c9ab189287eb51d548bb175ea1f49285c35b4c00eb703cf4789e4f8f67eee18",
+      "glb_size_bytes": 112328,
+      "subsystem_count": 16
     },
     {
       "part_id": "llm_gen_chest_armor_064_4655d6",
@@ -65223,8 +65379,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_065_b2b584.glb",
-          "sha256_hash": "dac1eaeaaeafb01afbdae01847a02084ab5d50a711d535f57a2fba08a85eef61",
-          "file_size_bytes": 126596,
+          "sha256_hash": "8d8462c909ad87aadaacff16f4e3ed7f542c5967b5ef36a8307063087663e18e",
+          "file_size_bytes": 126496,
           "compression": "meshopt"
         }
       },
@@ -65280,7 +65436,10 @@
         ],
         "topology_hash": "41a8e4e7c3e260fd",
         "composition_key": "ew_dual_blade_recon_dome+rear_cooling_crest+twin_vfin_antennae+strike_freedom_royal+g_49af6d"
-      }
+      },
+      "glb_sha256": "8d8462c909ad87aadaacff16f4e3ed7f542c5967b5ef36a8307063087663e18e",
+      "glb_size_bytes": 126496,
+      "subsystem_count": 18
     },
     {
       "part_id": "llm_gen_chest_armor_065_0216ae",
@@ -65603,8 +65762,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_waist_ordnance_065_e4c1f7.glb",
-          "sha256_hash": "90847cbbd5f16bbd1cdfbc2a6013ee01c7a6b5db83460d733b0dee146ebd2f41",
-          "file_size_bytes": 359788,
+          "sha256_hash": "bb4cfb6174ce968d8294e102f27c7d99dc78373001ac3ea0d88160cdd6efc870",
+          "file_size_bytes": 358316,
           "compression": "meshopt"
         }
       },
@@ -65666,7 +65825,10 @@
         ],
         "topology_hash": "0e3dbb62ff3fefa7",
         "composition_key": "twin_hip_missile_pods+forward_rail_prongs+tallgeese_imperial+g_8f7f23"
-      }
+      },
+      "glb_sha256": "bb4cfb6174ce968d8294e102f27c7d99dc78373001ac3ea0d88160cdd6efc870",
+      "glb_size_bytes": 358316,
+      "subsystem_count": 36
     },
     {
       "part_id": "llm_gen_leg_thrusters_065_2cb094",
@@ -66159,6 +66321,2511 @@
         ],
         "topology_hash": "9f56fc193a60b7a6",
         "composition_key": "quad_xwing_aero_binder+lower_propellant_tanks+quad_micro_verniers+exia_gn_cyan+acc_white+g_660cc3@s1.0200"
+      }
+    },
+    {
+      "part_id": "llm_gen_head_sensor_066_ad3c4a",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-HED-535",
+      "name": "MSN-04 Sazabi Cranial AWACS Crown",
+      "category": "modular_mission_pack",
+      "primary_hardpoint": "HP-01",
+      "slot_group": "head_sensor",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP01-CRANIAL",
+      "entropy_seed": "0fd763794a24e149507b57b242e5e18bb945b8257970bfba5ba8dabe4c2c70d2",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1200,
+        "thrust_kgf": 0,
+        "reactor_draw_kw": 500
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-01",
+        "HP-02"
+      ],
+      "structural_specs": {
+        "mass_kg": 1200,
+        "bom_computed_mass_kg": 1200,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-01",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -13.736,
+            -1.689,
+            -15.613
+          ],
+          "max": [
+            13.736,
+            20.819,
+            7.606
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_head_sensor_066_ad3c4a.glb",
+          "sha256_hash": "996e6a9b7fee9e1390ad1c5ac4b348db3e044c16232e5e3a5c89f1615a02b548",
+          "file_size_bytes": 139400,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides forward‑facing sensor suite and high‑gain radar for Char’s Newtype‑enhanced situational awareness and rapid target acquisition during high‑speed engagements.",
+        "reactor_power_draw_kw": 500,
+        "vernier_thrust_kgf": 0
+      },
+      "reference_sources": [
+        {
+          "title": "MSN-04 Sazabi",
+          "url": "https://gundam.fandom.com/wiki/MSN-04_Sazabi",
+          "source": "Gundam Wiki",
+          "summary": "After Char Aznable returned as the leader of his own Neo Zeon faction in U.C. 0093, he ordered his engineers to create a new mobile suit which would fit his piloting skills and Newtype powers. The result was the MSN-04 Sazabi, which was later built by the Luna-based contractor Anaheim Electronics. With an overall height of 25.6 meters, the Sazabi is much bigger than most standard mobile suits, but thanks to the use of lightweight armor materials and a great number of thrusters it is much faster and maneuverable tha"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "MSN-04 Sazabi Cranial AWACS Crown",
+        "concept_slug": "sazabi_cranial_awacs",
+        "concept_tokens": [
+          "awacs",
+          "cranial",
+          "crown",
+          "msn",
+          "sazabi"
+        ],
+        "component_count": 10,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "sculpted_pod": 1,
+          "machined_sensor_bezel": 1,
+          "cylinder": 3,
+          "fin": 1,
+          "box": 4
+        },
+        "aabb_size_mm": [
+          27.5,
+          22.5,
+          23.2
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.819,
+          0.845
+        ],
+        "topology_hash": "bcbc74be75df0329",
+        "composition_key": "sniper_optical_visor_hood+dual_temple_vulcans+twin_sensor_ears+twin_vfin_antennae+sazabi_verka+acc_crimson+g_e13035@s1.0100"
+      },
+      "glb_sha256": "996e6a9b7fee9e1390ad1c5ac4b348db3e044c16232e5e3a5c89f1615a02b548",
+      "glb_size_bytes": 139400,
+      "subsystem_count": 20
+    },
+    {
+      "part_id": "llm_gen_chest_armor_066_360d2a",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-CHS-536",
+      "name": "GAT-X105 Strike Gundam Chest Mega-Emitter Pack",
+      "category": "armor",
+      "primary_hardpoint": "HP-09",
+      "slot_group": "chest_armor",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP09-PECTORAL",
+      "entropy_seed": "9882f6c3b30725ccd0ed47151135550b976dff0dcb0a2351e6f19e74f195c1d4",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1200,
+        "thrust_kgf": 50000,
+        "reactor_draw_kw": 800
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-09",
+        "HP-10"
+      ],
+      "structural_specs": {
+        "mass_kg": 1200,
+        "bom_computed_mass_kg": 1200,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-09",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -17.645,
+            -4.352,
+            0.2
+          ],
+          "max": [
+            17.645,
+            8.752,
+            13.144
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_chest_armor_066_360d2a.glb",
+          "sha256_hash": "e1355608284842bfcabe247d66ddcdba20f7486164c74198f7db5345eb0ac25b",
+          "file_size_bytes": 150852,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Versatile high‑mobility chest armor with integrated mega‑particle emitter for rapid deployment and sustained firepower.",
+        "reactor_power_draw_kw": 800,
+        "vernier_thrust_kgf": 50000
+      },
+      "reference_sources": [
+        {
+          "title": "GAT-X105 Strike Gundam",
+          "url": "https://gundam.fandom.com/wiki/GAT-X105_Strike_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "The GAT-X105 Strike Gundam is the most versatile of the five Gundams in the Earth Alliance's G Project and can be easily configured for various types of combat. Using its Striker Packs, it can be outfitted for high mobility combat (Aile Strike), long-range assault (Launcher Strike), or melee combat (Sword Strike). In addition, the Striker packs are also equipped with backup batteries that can extend the Strike's operation time. Built on the X100 series frame first adopted by the GAT-X102 Duel Gundam, the Strike als"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "GAT-X105 Strike Gundam Chest Mega-Emitter Pack",
+        "concept_slug": "strike_gat105_chest_mega_emitter",
+        "concept_tokens": [
+          "emitter",
+          "gat",
+          "strike"
+        ],
+        "component_count": 8,
+        "primitive_types": 6,
+        "primitive_counts": {
+          "sculpted_pod": 1,
+          "revolved": 1,
+          "cylinder": 2,
+          "fin": 1,
+          "servo_drum": 1,
+          "box": 2
+        },
+        "aabb_size_mm": [
+          35.3,
+          13.1,
+          12.9
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.371,
+          0.367
+        ],
+        "topology_hash": "935224577e178ba3",
+        "composition_key": "twin_mega_particle_rib_cannons+center_mega_emitter+upper_collar_gorget+unicorn_awakened_gn+g_d1391e"
+      }
+    },
+    {
+      "part_id": "llm_gen_shoulder_pods_066_934979",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-SHL-537",
+      "name": "GAT-X103 Buster Battleship-Grade Artillery Pods",
+      "category": "weapon",
+      "primary_hardpoint": "HP-03",
+      "slot_group": "shoulder_pods",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP03-SHOULDER",
+      "entropy_seed": "76f1c2077fa1fa0641d0f25a37f200a5ce631c6fa0b3fbd770afb2a36fbff2c8",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 4850,
+        "thrust_kgf": 18500,
+        "reactor_draw_kw": 1250
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-03",
+        "HP-05"
+      ],
+      "structural_specs": {
+        "mass_kg": 4850,
+        "bom_computed_mass_kg": 4850,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-03",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -55.434,
+            -3.54,
+            -13.771
+          ],
+          "max": [
+            55.434,
+            23.113,
+            26.748
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_shoulder_pods_066_934979.glb",
+          "sha256_hash": "37a91ad4c3199fc23d228e946b35eca2ab28eb9aa2ce8fd635ab0ddd91fa1a89",
+          "file_size_bytes": 373680,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Rear-support artillery pods delivering battleship-level firepower against capital ships and facilities from extreme range.",
+        "reactor_power_draw_kw": 1250,
+        "vernier_thrust_kgf": 18500
+      },
+      "reference_sources": [
+        {
+          "title": "GAT-X103 Buster Gundam",
+          "url": "https://gundam.fandom.com/wiki/GAT-X103_Buster_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "One of the five mobile suits developed as part of the Earth Alliance's G Project, the Buster Gundam is an artillery mobile suit and adopts the X100-series frame, similar to the one used by the GAT-X102 Duel Gundam. It has firepower rivaling that of a battleship's and is meant to provide rear support for the other units and to attack enemy ships or facilities from a distance. Due to its role, the main sensor camera on Buster's head is very important and is protected with additional armor. Its primary armaments are t"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "GAT-X103 Buster Battleship-Grade Artillery Pods",
+        "concept_slug": "buster_gat_x103_battleship_artillery",
+        "concept_tokens": [
+          "artillery",
+          "battleship",
+          "buster",
+          "gat",
+          "grade",
+          "pods"
+        ],
+        "component_count": 13,
+        "primitive_types": 6,
+        "primitive_counts": {
+          "box": 5,
+          "servo_drum": 1,
+          "sculpted_pod": 1,
+          "cylinder": 4,
+          "machined_sensor_bezel": 1,
+          "vernier": 1
+        },
+        "aabb_size_mm": [
+          110.9,
+          26.7,
+          40.5
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.24,
+          0.365
+        ],
+        "topology_hash": "c216df1ff2333ec6",
+        "composition_key": "twin_aa_rotary_shoulder_turrets+rear_surge_vernier+unicorn_awakened_gn+g_d56571"
+      },
+      "glb_sha256": "37a91ad4c3199fc23d228e946b35eca2ab28eb9aa2ce8fd635ab0ddd91fa1a89",
+      "glb_size_bytes": 373680,
+      "subsystem_count": 38
+    },
+    {
+      "part_id": "llm_gen_waist_ordnance_066_d05668",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-WST-538",
+      "name": "ν Gundam HP-13 Beam & Rail Waist Pack",
+      "category": "armor",
+      "primary_hardpoint": "HP-13",
+      "slot_group": "waist_ordnance",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP13-WAIST",
+      "entropy_seed": "c86bd70c8bf1e3bbe75bf2528d0ebd7512d3181c04d1a3d49f2829cb0609566f",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 800,
+        "thrust_kgf": 0,
+        "reactor_draw_kw": 300
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-13",
+        "HP-17"
+      ],
+      "structural_specs": {
+        "mass_kg": 800,
+        "bom_computed_mass_kg": 800,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-13",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -33.95,
+            -8.644,
+            -23.923
+          ],
+          "max": [
+            33.95,
+            11.081,
+            -9.6
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_waist_ordnance_066_d05668.glb",
+          "sha256_hash": "c2aa35250db3c95db23ea8f5120fdbf46d6501e6ea12d45e6cf30e1813531ed1",
+          "file_size_bytes": 273944,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Adds forward‑firing rail‑prong salvo and side‑mounted grenade burst while preserving ν Gundam’s high‑mobility combat stance.",
+        "reactor_power_draw_kw": 300,
+        "vernier_thrust_kgf": 0
+      },
+      "reference_sources": [
+        {
+          "title": "RX-93 ν Gundam",
+          "url": "https://gundam.fandom.com/wiki/RX-93_%CE%BD_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "The RX-93 ν Gundam was one of the most advanced mobile suits during the Second Neo Zeon War in U.C. 0093, and was used by Amuro Ray who was also involved in designing the machine. It was manufactured at Anaheim Electronics' Von Braun plant and hastily completed in a short period of time (about three months) under the supervision of chief engineer October Saran. Its design was based on the average specification values of each successive generations of Gundam-type units from the original RX-78-2 Gundam to the MSZ-010"
+        },
+        {
+          "title": "List of Gundam Build Fighters characters",
+          "url": "https://en.wikipedia.org/wiki/List_of_Gundam_Build_Fighters_characters",
+          "source": "Wikipedia",
+          "summary": "This is a list of fictional characters from the Japanese anime series Gundam Build Fighters."
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "ν Gundam HP-13 Beam & Rail Waist Pack",
+        "concept_slug": "nu_gundam_waist_beam_rail_pack",
+        "concept_tokens": [
+          "beam",
+          "rail"
+        ],
+        "component_count": 10,
+        "primitive_types": 4,
+        "primitive_counts": {
+          "box": 5,
+          "sculpted_pod": 1,
+          "cylinder": 3,
+          "vernier": 1
+        },
+        "aabb_size_mm": [
+          67.9,
+          19.7,
+          14.3
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.29,
+          0.211
+        ],
+        "topology_hash": "34bd82b043f2b8ec",
+        "composition_key": "saber_quickdraw_holster_binders+rear_ambac_verniers+kampfer_midnight+g_60422f"
+      }
+    },
+    {
+      "part_id": "llm_gen_leg_thrusters_066_e0e04a",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-LEG-539",
+      "name": "MS-18E Kämpfer Fast Assault Calf Thruster Kit",
+      "category": "propulsion",
+      "primary_hardpoint": "HP-24",
+      "slot_group": "leg_thrusters",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP24-CALF",
+      "entropy_seed": "639cab9dbe3765ebfd0a94d72aa07a09db03aaad7b5ea349f62f6edd1b728c92",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 2000,
+        "thrust_kgf": 85000,
+        "reactor_draw_kw": 500
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-24",
+        "HP-26"
+      ],
+      "structural_specs": {
+        "mass_kg": 2000,
+        "bom_computed_mass_kg": 2000,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-24",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -41.9,
+            -17.781,
+            -12.499
+          ],
+          "max": [
+            41.9,
+            16.684,
+            9.608
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_leg_thrusters_066_e0e04a.glb",
+          "sha256_hash": "1285da6b6cbc2ee86c70226a0a7d40f35354c6b0b93b78a2d75117393a6cec58",
+          "file_size_bytes": 355828,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides rapid acceleration and high maneuverability for close‑quarters assault, featuring multiple verniers and high‑output thrusters for swift strikes and retreats.",
+        "reactor_power_draw_kw": 500,
+        "vernier_thrust_kgf": 85000
+      },
+      "reference_sources": [
+        {
+          "title": "MS-18E Kämpfer",
+          "url": "https://gundam.fandom.com/wiki/MS-18E_K%C3%A4mpfer",
+          "source": "Gundam Wiki",
+          "summary": "The \"E\" in the MS-18E Kämpfer's model number was an abbreviation for the German word \"Einhauen,\" which translates to \"to smash in,\" and this summed up the mobile suit's role as a fast assault unit meant to strike quickly and cause massive damage before making a fast escape. The Kämpfer was a very focused design, never intended to work outside of its role. Within this role it was an exceptional unit, rivaling the Federation's RX series in firepower and speed. It was equipped with numerous thrusters and verniers to a"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "MS-18E Kämpfer Fast Assault Calf Thruster Kit",
+        "concept_slug": "kampfer_fast_assault_leg_thrusters",
+        "concept_tokens": [
+          "assault",
+          "fast",
+          "kampfer",
+          "mpfer",
+          "thruster",
+          "thrusters"
+        ],
+        "component_count": 12,
+        "primitive_types": 6,
+        "primitive_counts": {
+          "sculpted_pod": 1,
+          "box": 4,
+          "cylinder": 3,
+          "recessed_vent_grille": 1,
+          "servo_drum": 1,
+          "vernier": 2
+        },
+        "aabb_size_mm": [
+          83.8,
+          34.5,
+          22.1
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.411,
+          0.264
+        ],
+        "topology_hash": "c701614d7f76a563",
+        "composition_key": "heavy_gouf_flare_thruster_greaves+outer_aero_stabilizer+upper_calf_fuel_cell+destiny_phantom+g_b5b6a4"
+      },
+      "glb_sha256": "1285da6b6cbc2ee86c70226a0a7d40f35354c6b0b93b78a2d75117393a6cec58",
+      "glb_size_bytes": 355828,
+      "subsystem_count": 40
+    },
+    {
+      "part_id": "llm_gen_aux_weapon_066_41e26d",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-WPN-540",
+      "name": "RX-78-02 Auxiliary Beam Sniper Cannon Kit",
+      "category": "weapon",
+      "primary_hardpoint": "HP-11",
+      "slot_group": "aux_weapon",
+      "weapon_grip_type": "firearm_pistol_grip",
+      "adapter_id": "ADP-HP11-WEAPON",
+      "entropy_seed": "1fdd4566d8161eb8906cc56effbb59010d8692995ce48fecf2e76cf9cc917425",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1200,
+        "thrust_kgf": 0,
+        "reactor_draw_kw": 1200
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-11",
+        "HP-12"
+      ],
+      "structural_specs": {
+        "mass_kg": 1200,
+        "bom_computed_mass_kg": 1200,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-11",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -3.606,
+            -5.015,
+            -1.2
+          ],
+          "max": [
+            3.606,
+            14.884,
+            71.18
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_aux_weapon_066_41e26d.glb",
+          "sha256_hash": "ca59299d216b1f89de537d963e9e59a88e311192991c04af900c955fda0a971d",
+          "file_size_bytes": 133992,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides long-range precision fire to complement the Gundam’s close-quarter beam rifle, leveraging the RX-78-02’s high-output reactor for sniper-railgun engagements.",
+        "reactor_power_draw_kw": 1200,
+        "vernier_thrust_kgf": 0
+      },
+      "reference_sources": [
+        {
+          "title": "RX-78-02 Gundam",
+          "url": "https://gundam.fandom.com/wiki/RX-78-02_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "Its estimate generator output was from 1000&nbsp;kW to 1400&nbsp;kW, its target output was to be at least 150% of the RCX-76 . The operation tests of the RX-78-02, a prototype MS of the Earth Federation, were carried out in secret, but civilian Amuro Ray coincidentally became its pilot when Zeon Forces assaulted Side 7. The RX-78-02 utilizes its wide array of portable weapons such as its beam rifle and hyper bazooka. It also has fixed weaponry such as two shoulder magnums on the left shoulder, a gatling gun on the "
+        },
+        {
+          "title": "Gundam (fictional robot)",
+          "url": "https://en.wikipedia.org/wiki/Gundam_(fictional_robot)",
+          "source": "Wikipedia",
+          "summary": "The RX-78-2 Gundam (Japanese: RX-78-2 ガンダム, Hepburn: Āru Ekkusu Nanajū Hachi no Ni Gandamu) is a piloted mecha introduced in 1979 in Yoshiyuki Tomino's and Sunrise's anime series Mobile Suit Gundam. In the series, it is a prototype weapon used by the Earth Federation. The mecha ends up in the hands of Amuro Ray, the son of Tem Ray, who designed the Gundam. Amuro Ray goes on to pilot the mecha for the Earth Federation"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RX-78-02 Auxiliary Beam Sniper Cannon Kit",
+        "concept_slug": "rx78_aux_beam_sniper_cannon",
+        "concept_tokens": [
+          "beam",
+          "cannon",
+          "sniper"
+        ],
+        "component_count": 14,
+        "primitive_types": 3,
+        "primitive_counts": {
+          "sculpted_pod": 1,
+          "box": 8,
+          "cylinder": 5
+        },
+        "aabb_size_mm": [
+          7.2,
+          19.9,
+          72.4
+        ],
+        "aabb_ratios": [
+          0.1,
+          0.275,
+          1.0
+        ],
+        "topology_hash": "994333f815e13011",
+        "composition_key": "anti_ship_sniper_railgun+extended_sniper_scope+side_drum_capacitor+federation_rx+acc_optic+g_20199c@s1.0200"
+      }
+    },
+    {
+      "part_id": "llm_gen_aux_shield_066_d421ac",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-SHD-541",
+      "name": "XVX-016 Aerial Forearm Beam Shield Mk.II",
+      "category": "armor",
+      "primary_hardpoint": "HP-07",
+      "slot_group": "aux_shield",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP07-FOREARM",
+      "entropy_seed": "9e9a983867b467449c16b34a3fa54089daee7de65a1ba7abdeea01ff18832c90",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1200,
+        "thrust_kgf": 5000,
+        "reactor_draw_kw": 300
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-07",
+        "HP-08"
+      ],
+      "structural_specs": {
+        "mass_kg": 1200,
+        "bom_computed_mass_kg": 1200,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-07",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -17.262,
+            -39.123,
+            -13.775
+          ],
+          "max": [
+            -1.7,
+            14.329,
+            15.375
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_aux_shield_066_d421ac.glb",
+          "sha256_hash": "0afc8908857fb5b12b74e29b9e21aca62386fe31264260f17592dcbefe48676a",
+          "file_size_bytes": 116364,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides a compact, high‑velocity beam emitter shield with integrated thruster verniers for rapid deployment of the Aerial's beam rifle.",
+        "reactor_power_draw_kw": 300,
+        "vernier_thrust_kgf": 5000
+      },
+      "reference_sources": [
+        {
+          "title": "XVX-016 Gundam Aerial",
+          "url": "https://gundam.fandom.com/wiki/XVX-016_Gundam_Aerial",
+          "source": "Gundam Wiki",
+          "summary": "This is an MS that Sulette Mercury brought to Asticassia School of Technology. Its basic structure, with joints imitating the human body moved using EMTs (electric motors), is the same as the standards of existing mobile suits manufactured by other companies. The holder part rotates forward when taking it out from the mount holder on the back. ;*Beam Rifle :The Aerial's portable firearm. Stored on the backpack's mount when not in use, it detaches and uses built-in thrusters to automatically be equipped on the Aeria"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "XVX-016 Aerial Forearm Beam Shield Mk.II",
+        "concept_slug": "aerial_forearm_beam_shield",
+        "concept_tokens": [
+          "aerial",
+          "beam",
+          "shield",
+          "xvx"
+        ],
+        "component_count": 10,
+        "primitive_types": 3,
+        "primitive_counts": {
+          "box": 5,
+          "cylinder": 4,
+          "beam_blade": 1
+        },
+        "aabb_size_mm": [
+          15.6,
+          53.5,
+          29.2
+        ],
+        "aabb_ratios": [
+          0.291,
+          1.0,
+          0.545
+        ],
+        "topology_hash": "646fe271bb8a934d",
+        "composition_key": "rotary_beam_disc_buckler+center_ifield_emitter+top_ram_spikes+banshee_obsidian+g_f5d7e6"
+      }
+    },
+    {
+      "part_id": "llm_gen_dorsal_pack_066_7ae759",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-DPK-542",
+      "name": "ZGMF-X42S Destiny Impulse Salvo Dorsal Pack",
+      "category": "propulsion",
+      "primary_hardpoint": "HP-00",
+      "slot_group": "dorsal_pack",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP00-DORSAL",
+      "entropy_seed": "b018190fcdb7e48df5ccf7c3205d0c73c7a017460ba6b9ae0a781a591d7f005f",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 4200,
+        "thrust_kgf": 185000,
+        "reactor_draw_kw": 1450
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-00"
+      ],
+      "structural_specs": {
+        "mass_kg": 4200,
+        "bom_computed_mass_kg": 4200,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-00",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -50.143,
+            -25.126,
+            -25.985
+          ],
+          "max": [
+            50.143,
+            42.769,
+            8.0
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_dorsal_pack_066_7ae759.glb",
+          "sha256_hash": "fafb5c75d8d154edf599384a2d575d8d3f5ede908b0a154b9999f417bb5069c2",
+          "file_size_bytes": 275636,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "High-performance general-purpose dorsal array integrating banned Junius Treaty tech for varied armament and close-combat beam boomerang deployment.",
+        "reactor_power_draw_kw": 1450,
+        "vernier_thrust_kgf": 185000
+      },
+      "reference_sources": [
+        {
+          "title": "ZGMF-X42S Destiny Gundam",
+          "url": "https://gundam.fandom.com/wiki/ZGMF-X42S_Destiny_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "The ZGMF-X42S Destiny Gundam was a high performance general-purpose MS commissioned by PLANT Chairman Gilbert Durandal, who ordered it to be incorporated with the most advanced technology of the time, including technologies banned by the Junius Treaty. Based on the ZGMF-X56S Impulse Gundam and Shinn Asuka's combat data, it was designed to handle any combat situations with a single set of varied armament, a concept first tested on the ZGMF-X56S/θ Destiny Impulse. For close combat, it had two beam boomerangs that dou"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "ZGMF-X42S Destiny Impulse Salvo Dorsal Pack",
+        "concept_slug": "destiny_impulse_salvo_dorsal",
+        "concept_tokens": [
+          "destiny",
+          "impulse",
+          "salvo",
+          "zgmf"
+        ],
+        "component_count": 20,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "cylinder": 11,
+          "box": 4,
+          "fin": 3,
+          "revolved": 1,
+          "vernier": 1
+        },
+        "aabb_size_mm": [
+          100.3,
+          67.9,
+          34.0
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.677,
+          0.339
+        ],
+        "topology_hash": "13a57345880e59cc",
+        "composition_key": "six_wing_seraph_angel_binders+center_stabilizer_tail+twin_over_shoulder_cannons+strike_freedom_royal+g_f80e1f"
+      }
+    },
+    {
+      "part_id": "llm_gen_head_sensor_067_43cc0c",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-HED-543",
+      "name": "RX-105 Ξ Gundam Cranial AWACS Crown",
+      "category": "modular_mission_pack",
+      "primary_hardpoint": "HP-01",
+      "slot_group": "head_sensor",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP01-CRANIAL",
+      "entropy_seed": "63848a50e09ff2964eb29c419ade13ecd74c8be105b59c77ad47944457b159cb",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 950,
+        "thrust_kgf": 0,
+        "reactor_draw_kw": 250
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-01",
+        "HP-02"
+      ],
+      "structural_specs": {
+        "mass_kg": 950,
+        "bom_computed_mass_kg": 950,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-01",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -14.512,
+            -2.22,
+            -13.027
+          ],
+          "max": [
+            14.512,
+            21.701,
+            5.079
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_head_sensor_067_43cc0c.glb",
+          "sha256_hash": "ee381d7528bb6b1960e03367ce52c93bc1fdde1f5bb9abad511a3842fe860082",
+          "file_size_bytes": 123972,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides forward‑facing sensor fusion and battlefield awareness, integrating twin V‑fin antennae and cooling crest to support the Ξ Gundam’s integrated Minovsky Craft and beam barr",
+        "reactor_power_draw_kw": 250,
+        "vernier_thrust_kgf": 0
+      },
+      "reference_sources": [
+        {
+          "title": "RX-105 Ξ Gundam (HF)",
+          "url": "https://gundam.fandom.com/wiki/RX-105_%CE%9E_Gundam_(HF)",
+          "source": "Gundam Wiki",
+          "summary": "After completion of the last model of Project Zeta, the RX-104FF Penelope, Anaheim Electronics secretly developed and built an improved variant, the RX-105 Ξ Gundam, and sold it to the terrorist group of Mafty Navue Erin. The Ξ Gundam features a Minovsky Craft unit similar to the Penelope but integrates it into its main frame, resulting in a sleeker design and lighter mass. Unlike Penelope, the Ξ Gundam doesn't transform but deploys a Beam Barrier by flipping its chest armor up. The Beam Barrier is a device that cr"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RX-105 Ξ Gundam Cranial AWACS Crown",
+        "concept_slug": "xi_gundam_cranial_awacs",
+        "concept_tokens": [
+          "awacs",
+          "cranial",
+          "crown"
+        ],
+        "component_count": 9,
+        "primitive_types": 4,
+        "primitive_counts": {
+          "box": 5,
+          "fin": 2,
+          "machined_sensor_bezel": 1,
+          "cylinder": 1
+        },
+        "aabb_size_mm": [
+          29.0,
+          23.9,
+          18.1
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.824,
+          0.624
+        ],
+        "topology_hash": "b5205fd360c5a549",
+        "composition_key": "horned_oni_assault_crest+rear_cooling_crest+twin_vfin_antennae+sinanju_gloss_red+g_b5e306"
+      },
+      "glb_sha256": "ee381d7528bb6b1960e03367ce52c93bc1fdde1f5bb9abad511a3842fe860082",
+      "glb_size_bytes": 123972,
+      "subsystem_count": 17
+    },
+    {
+      "part_id": "llm_gen_chest_armor_067_7c1652",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-CHS-544",
+      "name": "F91 Gundam V-Crest Mega-Emitter Chest Armor",
+      "category": "armor",
+      "primary_hardpoint": "HP-09",
+      "slot_group": "chest_armor",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP09-PECTORAL",
+      "entropy_seed": "8efc2c8343adcd8da9bb63cb00fd10a1a1b36034fce76c9abc63191819fbc0c9",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 6000,
+        "thrust_kgf": 200000,
+        "reactor_draw_kw": 1200
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-09",
+        "HP-10"
+      ],
+      "structural_specs": {
+        "mass_kg": 6000,
+        "bom_computed_mass_kg": 6000,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-09",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -17.575,
+            -4.308,
+            0.2
+          ],
+          "max": [
+            17.575,
+            8.711,
+            11.402
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_chest_armor_067_7c1652.glb",
+          "sha256_hash": "e1b111410a435027dd4844f8ed491cb8db31de30bd2c58d41b1dc258b345511f",
+          "file_size_bytes": 219792,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides high‑mobility, reactive V‑crest armor with integrated mega‑emitter and venting for optimal heat dissipation during rapid combat.",
+        "reactor_power_draw_kw": 1200,
+        "vernier_thrust_kgf": 200000
+      },
+      "reference_sources": [
+        {
+          "title": "F91 Gundam F91",
+          "url": "https://gundam.fandom.com/wiki/F91_Gundam_F91",
+          "source": "Gundam Wiki",
+          "summary": "Based on F90V Gundam F90 VSBR Type, the F91 Gundam F91 is a prototype machine created under SNRI’s ‘Formula Project’. The Formula Project, also known as F Project, is a miniaturized MS development program meant to address technological problems such as the upsizing and increasing cost of MS, and to rectify Anaheim Electronics’ monopolization of the MS industry. The F91 was developed to reached the ‘performance limit tidemark of present day MS’, and as such, its capabilities exceed that of contemporary machines. SNR"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "F91 Gundam V-Crest Mega-Emitter Chest Armor",
+        "concept_slug": "f91_vcrest_mega_emitter_chest",
+        "concept_tokens": [
+          "crest",
+          "emitter",
+          "vcrest"
+        ],
+        "component_count": 9,
+        "primitive_types": 4,
+        "primitive_counts": {
+          "sculpted_pod": 1,
+          "box": 6,
+          "servo_drum": 1,
+          "cylinder": 1
+        },
+        "aabb_size_mm": [
+          35.1,
+          13.0,
+          11.2
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.37,
+          0.319
+        ],
+        "topology_hash": "4882b53db01706e3",
+        "composition_key": "full_armor_chobham_era_plastron+twin_pectoral_vents+upper_collar_gorget+tallgeese_imperial+g_d2c5c1"
+      }
+    },
+    {
+      "part_id": "llm_gen_shoulder_pods_067_30c3d8",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-SHL-545",
+      "name": "MS-18E Kämpfer Einhaugen Ram Vernier Pods",
+      "category": "weapon",
+      "primary_hardpoint": "HP-03",
+      "slot_group": "shoulder_pods",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP03-SHOULDER",
+      "entropy_seed": "85189c5c428d76eb6abade93589f1a08a419e67e8f929ce4923bf16171c01dfc",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1850,
+        "thrust_kgf": 45000,
+        "reactor_draw_kw": 850
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-03",
+        "HP-05"
+      ],
+      "structural_specs": {
+        "mass_kg": 1850,
+        "bom_computed_mass_kg": 1850,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-03",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -54.48,
+            -3.54,
+            -13.771
+          ],
+          "max": [
+            54.48,
+            28.428,
+            8.032
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_shoulder_pods_067_30c3d8.glb",
+          "sha256_hash": "b7418b4ed83eaecb7d0a211d2421528b20e169782cdda545d58f19a38e7831a4",
+          "file_size_bytes": 413824,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "High-velocity CQC ramming assembly featuring beveled Chobham mantles and rear surge verniers for rapid strike-and-flee assault tactics.",
+        "reactor_power_draw_kw": 850,
+        "vernier_thrust_kgf": 45000
+      },
+      "reference_sources": [
+        {
+          "title": "MS-18E Kämpfer",
+          "url": "https://gundam.fandom.com/wiki/MS-18E_K%C3%A4mpfer",
+          "source": "Gundam Wiki",
+          "summary": "The \"E\" in the MS-18E Kämpfer's model number was an abbreviation for the German word \"Einhauen,\" which translates to \"to smash in,\" and this summed up the mobile suit's role as a fast assault unit meant to strike quickly and cause massive damage before making a fast escape. The Kämpfer was a very focused design, never intended to work outside of its role. Within this role it was an exceptional unit, rivaling the Federation's RX series in firepower and speed. It was equipped with numerous thrusters and verniers to a"
+        },
+        {
+          "title": "List of Gundam Build Fighters Try characters",
+          "url": "https://en.wikipedia.org/wiki/List_of_Gundam_Build_Fighters_Try_characters",
+          "source": "Wikipedia",
+          "summary": "This is a list of fictional characters from the Japanese anime series Gundam Build Fighters Try."
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "MS-18E Kämpfer Einhaugen Ram Vernier Pods",
+        "concept_slug": "kampfer_einhauen_ram_vers",
+        "concept_tokens": [
+          "einhauen",
+          "einhaugen",
+          "kampfer",
+          "mpfer",
+          "pods",
+          "ram",
+          "vernier",
+          "vers"
+        ],
+        "component_count": 14,
+        "primitive_types": 7,
+        "primitive_counts": {
+          "sculpted_pod": 1,
+          "cylinder": 4,
+          "box": 4,
+          "servo_drum": 1,
+          "revolved": 2,
+          "stepped_armor_panel": 1,
+          "vernier": 1
+        },
+        "aabb_size_mm": [
+          109.0,
+          32.0,
+          21.8
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.293,
+          0.2
+        ],
+        "topology_hash": "e643ca035c1efa73",
+        "composition_key": "radar_dish_recon_pauldrons+rear_surge_vernier+destiny_phantom+g_dd4562"
+      }
+    },
+    {
+      "part_id": "llm_gen_waist_ordnance_067_476b00",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-WST-546",
+      "name": "MS-09 Dom Hover-Drive Waist Ambac Cluster",
+      "category": "armor",
+      "primary_hardpoint": "HP-13",
+      "slot_group": "waist_ordnance",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP13-WAIST",
+      "entropy_seed": "540a6dd3b74caf3419c846c86e80955ce3a6f161816cbd8c8f6360c455799e6e",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1500,
+        "thrust_kgf": 180000,
+        "reactor_draw_kw": 1200
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-13",
+        "HP-17"
+      ],
+      "structural_specs": {
+        "mass_kg": 1500,
+        "bom_computed_mass_kg": 1500,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-13",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -33.501,
+            -13.205,
+            -24.637
+          ],
+          "max": [
+            33.501,
+            5.095,
+            -9.531
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_waist_ordnance_067_476b00.glb",
+          "sha256_hash": "a324aacc88ba20ec97c30d7b6f379fc037a6519bc2d25fed892e61e0951261a1",
+          "file_size_bytes": 329036,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides a high‑mobility, thermonuclear‑jet powered waist ambac cluster for rapid ground traversal and short‑range anti‑armor strikes.",
+        "reactor_power_draw_kw": 1200,
+        "vernier_thrust_kgf": 180000
+      },
+      "reference_sources": [
+        {
+          "title": "MS-09 Dom",
+          "url": "https://gundam.fandom.com/wiki/MS-09_Dom",
+          "source": "Gundam Wiki",
+          "summary": "A heavy mobile suit developed by Zimmad, the MS-09 Dom was a ground combat machine equipped with hovercraft technology. It was fitted with thermonuclear jets and rockets under its feet, allowing it to quickly move across the ground, greatly improving its mobility compared to previous ground-use mobile suits. Thanks to sensors located in front of its feet, it was able to traverse uneven terrain. While in cruising mode, it could hover across the ground using only its thermonuclear jets. The Dom can hover at a maximum"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "MS-09 Dom Hover-Drive Waist Ambac Cluster",
+        "concept_slug": "ms09_dom_hover_drive_ambac_cluster",
+        "concept_tokens": [
+          "ambac",
+          "cluster",
+          "dom",
+          "drive",
+          "hover"
+        ],
+        "component_count": 8,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "sculpted_pod": 1,
+          "box": 3,
+          "stepped_armor_panel": 1,
+          "vernier": 2,
+          "cylinder": 1
+        },
+        "aabb_size_mm": [
+          67.0,
+          18.3,
+          15.1
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.273,
+          0.225
+        ],
+        "topology_hash": "39a10a30f466a9e8",
+        "composition_key": "heavy_skirt_thruster_binders+forward_rail_prongs+unicorn_destroy+g_f7c6e0"
+      }
+    },
+    {
+      "part_id": "llm_gen_leg_thrusters_067_56abb8",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-LEG-547",
+      "name": "RX-0 FA Unicorn HP-24 Psycho-Frame Calf Booster Kit",
+      "category": "propulsion",
+      "primary_hardpoint": "HP-24",
+      "slot_group": "leg_thrusters",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP24-CALF",
+      "entropy_seed": "2119419cb1a43134e6d7e12c12ee5947f1a10623ba2f225355404c5cae691b9f",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1850,
+        "thrust_kgf": 45000,
+        "reactor_draw_kw": 850
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-24",
+        "HP-26"
+      ],
+      "structural_specs": {
+        "mass_kg": 1850,
+        "bom_computed_mass_kg": 1850,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-24",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -41.509,
+            -16.565,
+            -14.929
+          ],
+          "max": [
+            41.509,
+            11.192,
+            7.47
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_leg_thrusters_067_56abb8.glb",
+          "sha256_hash": "b96e7481a1e10f23ad9a7f65aac031b777254b927347f2002228d12fdef38caf",
+          "file_size_bytes": 341196,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "High-mobility leg thruster assembly integrating external fuel pods and ankle verniers to support the Full Armor Unicorn's rapid Newtype-enhanced evasive maneuvers.",
+        "reactor_power_draw_kw": 850,
+        "vernier_thrust_kgf": 45000
+      },
+      "reference_sources": [
+        {
+          "title": "RX-0 Full Armor Unicorn Gundam",
+          "url": "https://gundam.fandom.com/wiki/RX-0_Full_Armor_Unicorn_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "The Full Armor Unicorn Gundam was an enhancement plan devised by Takuya Irei while aboard the Nahel Argama and is based on his extensive knowledge of mobile suits. After Banagher's Newtype potential manifests itself, the psycho-frame changes color to a vibrant green. Unlike other mobile suits with the Full Armor designation, the FA Unicorn does not have any additional armor for the MS itself (except additional shields). However, it does introduce a large array of weapons, which are added to the legs, backpack and f"
+        },
+        {
+          "title": "Zaku",
+          "url": "https://en.wikipedia.org/wiki/Zaku",
+          "source": "Wikipedia",
+          "summary": "The Zaku (ザク, Zaku) is a fictional line of \"Mobile Suits\" or mecha (human-piloted giant robots) from Mobile Suit Gundam, part of the fictional universe of the Universal Century, where they are the Principality of Zeon's most commonly fielded Mobile Suits. The most widely known model is the MS-06 Zaku II series. It is redesigned by Kunio Okawara based upon the earlier draft by the series director Yoshiyuki Tomino, in "
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RX-0 FA Unicorn HP-24 Psycho-Frame Calf Booster Kit",
+        "concept_slug": "fa_unicorn_hp24_psycho_calf_boosters",
+        "concept_tokens": [
+          "booster",
+          "boosters",
+          "frame",
+          "psycho",
+          "unicorn"
+        ],
+        "component_count": 11,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "sculpted_pod": 1,
+          "box": 4,
+          "cylinder": 2,
+          "fin": 1,
+          "vernier": 3
+        },
+        "aabb_size_mm": [
+          83.0,
+          27.8,
+          22.4
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.334,
+          0.27
+        ],
+        "topology_hash": "11e0da5faac30630",
+        "composition_key": "aero_fin_interceptor_greaves+dual_ankle_verniers+upper_calf_fuel_cell+barbatos_iron+g_fd7f2a"
+      }
+    },
+    {
+      "part_id": "llm_gen_aux_weapon_067_6499ae",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-WPN-548",
+      "name": "RX-78-02 Auxiliary Beam Magnum Cannon Kit",
+      "category": "weapon",
+      "primary_hardpoint": "HP-11",
+      "slot_group": "aux_weapon",
+      "weapon_grip_type": "melee_hilt_grip",
+      "adapter_id": "ADP-HP11-WEAPON",
+      "entropy_seed": "ecc42042fee319ca089f7c0d1924851fbbcc436b714ea54403801d3dae0554db",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 800,
+        "thrust_kgf": 0,
+        "reactor_draw_kw": 1200
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-11",
+        "HP-12"
+      ],
+      "structural_specs": {
+        "mass_kg": 800,
+        "bom_computed_mass_kg": 800,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-11",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -4.415,
+            -28.379,
+            -26.177
+          ],
+          "max": [
+            9.225,
+            52.776,
+            57.362
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_aux_weapon_067_6499ae.glb",
+          "sha256_hash": "3945178b507df5dc1410222b136716140e72b4ce7d8124044289acd86f9297e8",
+          "file_size_bytes": 141200,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides high‑rate beam fire from the shoulder to suppress enemy mobile suits while drawing moderate reactor power, complementing the Gundam’s primary beam rifle.",
+        "reactor_power_draw_kw": 1200,
+        "vernier_thrust_kgf": 0
+      },
+      "reference_sources": [
+        {
+          "title": "RX-78-02 Gundam",
+          "url": "https://gundam.fandom.com/wiki/RX-78-02_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "Its estimate generator output was from 1000&nbsp;kW to 1400&nbsp;kW, its target output was to be at least 150% of the RCX-76 . The operation tests of the RX-78-02, a prototype MS of the Earth Federation, were carried out in secret, but civilian Amuro Ray coincidentally became its pilot when Zeon Forces assaulted Side 7. The RX-78-02 utilizes its wide array of portable weapons such as its beam rifle and hyper bazooka. It also has fixed weaponry such as two shoulder magnums on the left shoulder, a gatling gun on the "
+        },
+        {
+          "title": "Gundam (fictional robot)",
+          "url": "https://en.wikipedia.org/wiki/Gundam_(fictional_robot)",
+          "source": "Wikipedia",
+          "summary": "The RX-78-2 Gundam (Japanese: RX-78-2 ガンダム, Hepburn: Āru Ekkusu Nanajū Hachi no Ni Gandamu) is a piloted mecha introduced in 1979 in Yoshiyuki Tomino's and Sunrise's anime series Mobile Suit Gundam. In the series, it is a prototype weapon used by the Earth Federation. The mecha ends up in the hands of Amuro Ray, the son of Tem Ray, who designed the Gundam. Amuro Ray goes on to pilot the mecha for the Earth Federation"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RX-78-02 Auxiliary Beam Magnum Cannon Kit",
+        "concept_slug": "aux_beam_magnum_cannon_rx78",
+        "concept_tokens": [
+          "beam",
+          "cannon",
+          "magnum"
+        ],
+        "component_count": 11,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "cylinder": 5,
+          "servo_drum": 1,
+          "box": 2,
+          "beam_blade": 2,
+          "vernier": 1
+        },
+        "aabb_size_mm": [
+          13.6,
+          81.2,
+          83.5
+        ],
+        "aabb_ratios": [
+          0.163,
+          0.971,
+          1.0
+        ],
+        "topology_hash": "27ff0f16acee4918",
+        "composition_key": "double_beam_glaive_twinblade+pommel_vernier_boost+twin_guard_wings+sazabi_verka+g_bfe8f3"
+      }
+    },
+    {
+      "part_id": "llm_gen_aux_shield_067_80ff7a",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-SHD-549",
+      "name": "GN-001 Exia Close-Combat Forearm Shield Mk.III",
+      "category": "armor",
+      "primary_hardpoint": "HP-07",
+      "slot_group": "aux_shield",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP07-FOREARM",
+      "entropy_seed": "a787279da4acd53e925beb0af7bb9c78d16441657d5e6f226d82a4f4156f8646",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1200,
+        "thrust_kgf": 50000,
+        "reactor_draw_kw": 800
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-07",
+        "HP-08"
+      ],
+      "structural_specs": {
+        "mass_kg": 1200,
+        "bom_computed_mass_kg": 1200,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-07",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -16.34,
+            -35.403,
+            -13.204
+          ],
+          "max": [
+            -1.7,
+            22.727,
+            15.689
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_aux_shield_067_80ff7a.glb",
+          "sha256_hash": "fe7ebde959dc488a5b72647a52c8aca097d6cedaf955013dd8e2f8aaf041c252",
+          "file_size_bytes": 214440,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Deploys twin shear blades for rapid melee strikes while shielding the forearm, powered by GN Drive for sustained close combat.",
+        "reactor_power_draw_kw": 800,
+        "vernier_thrust_kgf": 50000
+      },
+      "reference_sources": [
+        {
+          "title": "GN-001 Gundam Exia",
+          "url": "https://gundam.fandom.com/wiki/GN-001_Gundam_Exia",
+          "source": "Gundam Wiki",
+          "summary": "Specializing in close combat and armed mainly with melee weapons, the Gundam Exia is one of four Gundams deployed in AD 2307 by the paramilitary organization, Celestial Being, to eliminate world conflicts through armed interventions. To fight against the world with their small numbers and win, these Gundams have overwhelming power and equipped with advanced technology a century ahead of its time. Notably, the semi-perpetual GN Drive mounted in the center of the Gundams provide almost limitless energy and generates "
+        },
+        {
+          "title": "List of Gundam Build Fighters characters",
+          "url": "https://en.wikipedia.org/wiki/List_of_Gundam_Build_Fighters_characters",
+          "source": "Wikipedia",
+          "summary": "This is a list of fictional characters from the Japanese anime series Gundam Build Fighters."
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "GN-001 Exia Close-Combat Forearm Shield Mk.III",
+        "concept_slug": "exia_closecombat_forearm_shield_mk3",
+        "concept_tokens": [
+          "close",
+          "closecombat",
+          "combat",
+          "exia",
+          "shield"
+        ],
+        "component_count": 16,
+        "primitive_types": 7,
+        "primitive_counts": {
+          "curved_armor_plate": 1,
+          "stepped_armor_panel": 1,
+          "servo_drum": 1,
+          "cylinder": 5,
+          "fin": 2,
+          "box": 4,
+          "vernier": 2
+        },
+        "aabb_size_mm": [
+          14.6,
+          58.1,
+          28.9
+        ],
+        "aabb_ratios": [
+          0.252,
+          1.0,
+          0.497
+        ],
+        "topology_hash": "6e077f0ecebddc00",
+        "composition_key": "scissor_beam_mantle_shield+center_ifield_emitter+side_missile_microbay+barbatos_iron+g_bc2c26"
+      }
+    },
+    {
+      "part_id": "llm_gen_dorsal_pack_067_525962",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-DPK-550",
+      "name": "ZGMF-X13A Providence DRAGOON Salvo Dorsal Pack",
+      "category": "propulsion",
+      "primary_hardpoint": "HP-00",
+      "slot_group": "dorsal_pack",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP00-DORSAL",
+      "entropy_seed": "f815261d6d90d0906a6c634a17f249297babfe0f55350d24b3c61de07be7007e",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 4200,
+        "thrust_kgf": 185000,
+        "reactor_draw_kw": 1450
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-00"
+      ],
+      "structural_specs": {
+        "mass_kg": 4200,
+        "bom_computed_mass_kg": 4200,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-00",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -26.548,
+            -15.969,
+            -29.84
+          ],
+          "max": [
+            26.548,
+            35.672,
+            8.0
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_dorsal_pack_067_525962.glb",
+          "sha256_hash": "e43430dbf05e59ad078f6dfed5e08478d2519c025828e41702ef1acc94469033",
+          "file_size_bytes": 460496,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Nuclear-powered dorsal battery deploying 12-tube missile salvos and DRAGOON support via Phase Shift armored rotary sub-arms for close-range suppression.",
+        "reactor_power_draw_kw": 1450,
+        "vernier_thrust_kgf": 185000
+      },
+      "reference_sources": [
+        {
+          "title": "ZGMF-X13A Providence Gundam",
+          "url": "https://gundam.fandom.com/wiki/ZGMF-X13A_Providence_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "Like the other ZGMF-X Series Gundams created by ZAFT in C.E. 71, the ZGMF-X13A Providence Gundam is equipped with a Neutron Jammer Canceller and is powered by a nuclear reactor. It is also armored with Phase Shift armor and features armaments reverse engineered from the stolen mobile suits of the Earth Alliance. Initially designed as a close combat unit with large beam sabers, the Providence is later changed into a DRAGOON system equipped unit when Rau Le Creuset is designated as its pilot and because it could be p"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "ZGMF-X13A Providence DRAGOON Salvo Dorsal Pack",
+        "concept_slug": "providence_dragoon_salvo_dorsal",
+        "concept_tokens": [
+          "dragoon",
+          "providence",
+          "salvo",
+          "zgmf"
+        ],
+        "component_count": 19,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "cylinder": 6,
+          "servo_drum": 2,
+          "box": 8,
+          "sculpted_pod": 1,
+          "vernier": 2
+        },
+        "aabb_size_mm": [
+          53.1,
+          51.6,
+          37.8
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.973,
+          0.713
+        ],
+        "topology_hash": "b841b3d8e6c99851",
+        "composition_key": "heavy_12tube_missile_salvo_pack+lower_propellant_tanks+quad_micro_verniers+zeon_olive_ace+acc_gold+g_9dc284@s1.0400"
+      }
+    },
+    {
+      "part_id": "llm_gen_head_sensor_068_dcf10d",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-HED-551",
+      "name": "RX-121-1 Gundam TR-1 Hazel Custom Recon Sensor",
+      "category": "modular_mission_pack",
+      "primary_hardpoint": "HP-01",
+      "slot_group": "head_sensor",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP01-CRANIAL",
+      "entropy_seed": "53af7bf83e0259a508f92607f37d07234861d16969f8329277c0979382e01c70",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1200,
+        "thrust_kgf": 0,
+        "reactor_draw_kw": 200
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-01",
+        "HP-02"
+      ],
+      "structural_specs": {
+        "mass_kg": 1200,
+        "bom_computed_mass_kg": 1200,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-01",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -15.3,
+            -2.486,
+            -8.984
+          ],
+          "max": [
+            15.392,
+            17.273,
+            6.368
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_head_sensor_068_dcf10d.glb",
+          "sha256_hash": "cdfa1dd754883755fa1c312ba35726008de8908d91153a09ae9dea7343ab2100",
+          "file_size_bytes": 109412,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "A high‑resolution cranial sensor array designed for long‑range reconnaissance, integrating advanced optical and thermal imaging with a reinforced cooling system for sustained opera",
+        "reactor_power_draw_kw": 200,
+        "vernier_thrust_kgf": 0
+      },
+      "reference_sources": [
+        {
+          "title": "RX-121-1 Gundam TR-1 ［Hazel Custom］",
+          "url": "https://gundam.fandom.com/wiki/RX-121-1_Gundam_TR-1_%EF%BC%BBHazel_Custom%EF%BC%BD",
+          "source": "Gundam Wiki",
+          "summary": "The TR-1 [Hazel Custom] is the upgraded form of the Gundam TR-1 [Hazel], which was heavily damaged during combat with a Stutzer-series mobile suit—modified units used by Zeon Remnants. The damaged Hazel was repaired and reinforced using spare parts stored aboard the Aswan, as well as components from a GM Quel stationed at Confeito. Through these extensive modifications, the unit was reborn as a true Gundam—not just in name, but in form, appearance, and internal structure. Drawing on operational data and accumulated"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RX-121-1 Gundam TR-1 Hazel Custom Recon Sensor",
+        "concept_slug": "hazel_custom_recon_sensor",
+        "concept_tokens": [
+          "hazel",
+          "recon",
+          "sensor"
+        ],
+        "component_count": 10,
+        "primitive_types": 4,
+        "primitive_counts": {
+          "cylinder": 3,
+          "box": 5,
+          "fin": 1,
+          "revolved": 1
+        },
+        "aabb_size_mm": [
+          30.7,
+          19.8,
+          15.4
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.644,
+          0.5
+        ],
+        "topology_hash": "5f78bf2ca3cdccc1",
+        "composition_key": "asymmetric_monocle_targeter+rear_cooling_crest+twin_vfin_antennae+tallgeese_imperial+g_289764"
+      }
+    },
+    {
+      "part_id": "llm_gen_chest_armor_068_81a7be",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-CHS-552",
+      "name": "RX-78NT-1 Gundam NT-1 Newtype Sensor Pectoral",
+      "category": "armor",
+      "primary_hardpoint": "HP-09",
+      "slot_group": "chest_armor",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP09-PECTORAL",
+      "entropy_seed": "af6dbadb97eeda9741c783433c25250b30feb365e5cc4e6afe2341a6d71e486b",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1850,
+        "thrust_kgf": 45000,
+        "reactor_draw_kw": 850
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-09",
+        "HP-10"
+      ],
+      "structural_specs": {
+        "mass_kg": 1850,
+        "bom_computed_mass_kg": 1850,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-09",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -17.841,
+            -5.694,
+            0.2
+          ],
+          "max": [
+            17.841,
+            9.636,
+            11.345
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_chest_armor_068_81a7be.glb",
+          "sha256_hash": "bf46bcba1fa7a6eac1ef9b896603118394ddd5209a25ff5e03e4fc1a4e506ff4",
+          "file_size_bytes": 171156,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "High-sensitivity Newtype interface chest armor integrating V-chevron ERA shielding with a central mega-emitter for long-range beam suppression.",
+        "reactor_power_draw_kw": 850,
+        "vernier_thrust_kgf": 45000
+      },
+      "reference_sources": [
+        {
+          "title": "RX-78NT-1 Gundam NT-1",
+          "url": "https://gundam.fandom.com/wiki/RX-78NT-1_Gundam_NT-1",
+          "source": "Gundam Wiki",
+          "summary": "By the time of the One Year War, the Principality of Zeon's lead Newtype researcher, Dr. Flanagan, had been conducting his research for more than ten years. In contrast, the Earth Federation Forces only began their Newtype research in August, U.C. 0079. This was because the EFF did not see the military value of Newtypes due to the small number of examples and low replicability. However, concepts similar to Newtype-use unit were still included as part of the RX Project. Based on existing research to improve mobile s"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RX-78NT-1 Gundam NT-1 Newtype Sensor Pectoral",
+        "concept_slug": "nt1_newtype_sensor_pectoral",
+        "concept_tokens": [
+          "newtype",
+          "pectoral",
+          "sensor"
+        ],
+        "component_count": 8,
+        "primitive_types": 2,
+        "primitive_counts": {
+          "fin": 2,
+          "box": 6
+        },
+        "aabb_size_mm": [
+          35.7,
+          15.3,
+          11.1
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.43,
+          0.312
+        ],
+        "topology_hash": "faf1f1e556c07792",
+        "composition_key": "vcrest_core_fighter_breastplate+lower_abdominal_era+upper_collar_gorget+sinanju_gloss_red+g_eae062"
+      }
+    },
+    {
+      "part_id": "llm_gen_shoulder_pods_068_c6e47d",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-SHL-553",
+      "name": "Hi-ν Vanguard Shoulder Funnel Pods",
+      "category": "weapon",
+      "primary_hardpoint": "HP-03",
+      "slot_group": "shoulder_pods",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP03-SHOULDER",
+      "entropy_seed": "448e5109946dee20bce4df9755ef2c77f97ff93e17121378c23a7569fb9c1f46",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 850,
+        "thrust_kgf": 15000,
+        "reactor_draw_kw": 800
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-03",
+        "HP-05"
+      ],
+      "structural_specs": {
+        "mass_kg": 850,
+        "bom_computed_mass_kg": 850,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-03",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -56.002,
+            -12.312,
+            -11.936
+          ],
+          "max": [
+            56.002,
+            14.631,
+            10.736
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_shoulder_pods_068_c6e47d.glb",
+          "sha256_hash": "74950c187bf8cee6ed953286fee93f876804dc5ea4b0ea06efc388138e1bcc7b",
+          "file_size_bytes": 368268,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides high‑mobility sensor and thrust augmentation for the ν‑Gundam, enhancing Newtype reaction speed and fin‑funnel deployment efficiency.",
+        "reactor_power_draw_kw": 800,
+        "vernier_thrust_kgf": 15000
+      },
+      "reference_sources": [
+        {
+          "title": "RX-93-ν2 Hi-ν Gundam",
+          "url": "https://gundam.fandom.com/wiki/RX-93-%CE%BD2_Hi-%CE%BD_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "Originally developed in the Anaheim Electronics facility near Von Braun, the RX-93-ν2 Hi-ν Gundam's basic design was an update of past Gundam Type mobile suits, returning to the basics of Federation-made mobile suits and going against the trend of larger and more complex mobile suit designs at the time. Its most notable feature was a set of six all-range weapons mounted on its back, known as \"Fin Funnels\", which were capable of both attack and defense. This made it the first full spec Newtype-use Gundam type mobile"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "Hi-ν Vanguard Shoulder Funnel Pods",
+        "concept_slug": "hi_nu_shoulder_funnel_vanguard",
+        "concept_tokens": [
+          "funnel",
+          "pods",
+          "vanguard"
+        ],
+        "component_count": 11,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "box": 4,
+          "servo_drum": 1,
+          "fin": 3,
+          "vernier": 2,
+          "cylinder": 1
+        },
+        "aabb_size_mm": [
+          112.0,
+          26.9,
+          22.7
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.241,
+          0.202
+        ],
+        "topology_hash": "87e7b4cf1f32a47d",
+        "composition_key": "swept_samurai_wing_pauldrons+forward_sensor_pod+tallgeese_imperial+g_192452"
+      }
+    },
+    {
+      "part_id": "llm_gen_waist_ordnance_068_61cdc3",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-WST-554",
+      "name": "PMX-003 The-O Spatial Recognition Waist Beam & Rail Pack",
+      "category": "armor",
+      "primary_hardpoint": "HP-13",
+      "slot_group": "waist_ordnance",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP13-WAIST",
+      "entropy_seed": "5ddbaa93f12d659793df4a18b31a214ae0d06091a66d3daf0c712a6ded2e9043",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1200,
+        "thrust_kgf": 50000,
+        "reactor_draw_kw": 1200
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-13",
+        "HP-17"
+      ],
+      "structural_specs": {
+        "mass_kg": 1200,
+        "bom_computed_mass_kg": 1200,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-13",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -32.127,
+            -9.557,
+            -28.262
+          ],
+          "max": [
+            32.127,
+            4.179,
+            -8.992
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_waist_ordnance_068_61cdc3.glb",
+          "sha256_hash": "3168e84b7f92a62e5bc6bececc2ba1332811652a9d964083ea1b56721a1a6acd",
+          "file_size_bytes": 275604,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Equips the PMX‑003 with a waist‑mounted beam cannon and railgun, delivering area denial and precision strikes while preserving spatial recognition.",
+        "reactor_power_draw_kw": 1200,
+        "vernier_thrust_kgf": 50000
+      },
+      "reference_sources": [
+        {
+          "title": "PMX-003 The-O",
+          "url": "https://gundam.fandom.com/wiki/PMX-003_The-O",
+          "source": "Gundam Wiki",
+          "summary": "The fourth of five mobile suits built by the Newtype Paptimus Scirocco on the Jupitris, the PMX-003 The-O is Scirocco’s personal mobile suit, and perhaps the most powerful. It has an independently developed control system to take advantage of his rare spatial recognition abilities, and its control interface is specifically tuned for Scirocco's use, making The-O impossible for anybody to pilot except by Scirocco himself. The generator output specifications are modest at less than 2,000Kw; however, The-O is said to b"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "PMX-003 The-O Spatial Recognition Waist Beam & Rail Pack",
+        "concept_slug": "the_o_spatial_waist_beam_rail_pack",
+        "concept_tokens": [
+          "beam",
+          "pmx",
+          "rail",
+          "recognition",
+          "spatial",
+          "the"
+        ],
+        "component_count": 9,
+        "primitive_types": 4,
+        "primitive_counts": {
+          "box": 3,
+          "cylinder": 3,
+          "revolved": 1,
+          "vernier": 2
+        },
+        "aabb_size_mm": [
+          64.3,
+          13.7,
+          19.3
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.214,
+          0.3
+        ],
+        "topology_hash": "5275083a7d3a8d08",
+        "composition_key": "side_skirt_propellant_pods+outer_aero_skirt_fin+nu_vanguard+g_6920b4"
       }
     }
   ]
