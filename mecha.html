@@ -5837,7 +5837,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r31');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r32');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6581,7 +6581,11 @@
             state.chassisParts.push(node);
             if (slotGroup === 'head_sensor') {
               const gc = node.userData.geomCenter;
-              if (Math.abs(gc.x) < 6.5 || gc.y > 5.0) {
+              const bb = node.geometry.boundingBox;
+              // STRICT crown vs ear separation: ear-mounted whips/blades/pods start below Y=4.5 at |X|>=7.5
+              // and MUST stay bolted on the ear pods (never pulled into crownMeshes to drag cMinY down!).
+              const isCrownPart = (bb.min.y >= 4.8) || (Math.abs(gc.x) < 6.5 && gc.y > 4.5);
+              if (isCrownPart) {
                 crownMeshes.push(node);
               }
             }
@@ -6695,17 +6699,46 @@
               sideGrp.add(sideInner);
               packModel.add(sideGrp);
 
-              // Flush machined lateral-crown mounting pylon linking helmet side dome directly into side-crown base!
-              const pylonW = Math.max(3.4, targetCxWorld - 2.4) / hs;
+              // Flush machined lateral-crown mounting pylon + rotary hinge drum + gold pivot axle + vertical ear strut!
+              // Eliminates ALL floating/unhinged appearance by mechanically locking: Helmet Dome <-> Pylon <-> Hinge <-> Ear Clamp <-> Side Crown!
+              const pylonInnerX = 1.6;
+              const pylonOuterX = targetCxWorld + 2.4;
+              const pylonW = Math.max(4.4, pylonOuterX - pylonInnerX) / hs;
+              const pylonY = (targetBotYWorld - 0.8) / hs;
+              const pylonZ = targetCzWorld / hs;
               addPart(
                 packModel,
-                new THREE.BoxGeometry(pylonW, 3.6 / hs, 6.2 / hs),
+                new THREE.BoxGeometry(pylonW, 4.4 / hs, 6.4 / hs),
                 bridgeMat,
-                (0.5 * (3.2 + targetCxWorld)) / hs,
-                (targetBotYWorld - 1.2) / hs,
-                targetCzWorld / hs,
+                (0.5 * (pylonInnerX + pylonOuterX)) / hs,
+                pylonY,
+                pylonZ,
                 'adapter_side_crown_pylon_dark'
               );
+              // Vertical diagonal gusset strut bolting side-crown pylon solidly down into the right ear clamp (X=+8.8, Y=1.2)!
+              const strutTopX = Math.min(8.6, targetCxWorld);
+              const strutBotX = 8.8;
+              const strutBotY = 1.2;
+              const strutH = Math.max(2.6, pylonY - strutBotY + 1.2);
+              const strutTiltDeg = THREE.MathUtils.radToDeg(Math.atan2(strutTopX / hs - strutBotX, Math.max(1.0, pylonY - strutBotY)));
+              addPart(
+                packModel,
+                new THREE.BoxGeometry(2.2 / hs, strutH, 4.6 / hs),
+                bridgeMat,
+                0.5 * (strutTopX / hs + strutBotX),
+                0.5 * (pylonY + strutBotY),
+                pylonZ,
+                'adapter_side_crown_strut_dark',
+                0, 0, -strutTiltDeg
+              );
+              // Exposed Bandai MG/PG Rotary Hinge Drum + Gold Pivot Lock-Axle right at the pylon-to-strut elbow!
+              const hingeX = strutTopX / hs;
+              const hingeDrumGeo = new THREE.CylinderGeometry(1.75 / hs, 1.75 / hs, 6.8 / hs, 16);
+              hingeDrumGeo.rotateX(Math.PI / 2);
+              addPart(packModel, hingeDrumGeo, bridgeMat, hingeX, pylonY - (0.3 / hs), pylonZ, 'adapter_side_crown_hinge_drum_dark');
+              const hingePinGeo = new THREE.CylinderGeometry(0.95 / hs, 0.95 / hs, 7.6 / hs, 14);
+              hingePinGeo.rotateX(Math.PI / 2);
+              addPart(packModel, hingePinGeo, goldBoltMat, hingeX, pylonY - (0.3 / hs), pylonZ, 'adapter_side_crown_hinge_pin_gold');
             }
           }
         }
