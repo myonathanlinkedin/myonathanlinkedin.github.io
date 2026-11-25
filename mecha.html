@@ -5131,12 +5131,13 @@
       // Zaku-II, Gouf & Sazabi calibrated to exact measured outer dome/pectoral/pauldron/calf/forearm bounds!)
       const headHeightY = isSazabi ? 168.0 : (isGouf ? 169.8 : (isZaku ? 169.8 : 165.0));
       const headScale = isSazabi ? 1.15 : (isGouf ? 1.20 : (isZaku ? 1.18 : 1.0));
-      // Calibrated per-unit torso front face Z, Y & pitch so chest_armor plates hug the EXACT body contour
-      // (RX-78 chiseled +22.8 deg lower chest apex Z=19.8 -> Y=138.2, Z=15.6, rx=+0.35 rad; Sazabi +5.2 deg contour!)
+      // Calibrated per-unit torso front face Z (level rot=[0,0,0] so ALL chest guns/cannons aim STRICTLY +Z forward!)
+      // RX-78 Vanguard (`vanguard_rx`) carries the 2-facet contoured jacket (`vanguard_upper_chest_*` -45.5 deg + +22.5 deg
+      // pectoral armor) at Z=13.6; Zaku-II, Gouf, Sazabi & Rival hide Vanguard's upper slope and seat cleanly at their own Z!
       const isHeroRX78 = !spec.isZeonEnemy && spec.id !== 'rival_frame';
-      const chestFrontZ = isSazabi ? 15.8 : (isGouf ? 14.0 : (isZaku ? 13.0 : (isHeroRX78 ? 15.6 : 12.6)));
-      const chestFrontY = isHeroRX78 ? 138.2 : 141.0;
-      const chestPitchX = isHeroRX78 ? 0.35 : (isSazabi ? 0.09 : 0.0);
+      const chestFrontZ = isSazabi ? 15.6 : (isGouf ? 14.0 : (isZaku ? 12.8 : (isHeroRX78 ? 13.6 : 12.6)));
+      const chestFrontY = 141.0;
+      const chestPitchX = 0.0;
       const chestScale = isSazabi ? 1.10 : (isGouf ? 1.06 : (isZaku ? 1.04 : 1.0));
       const dorsalBackZ = isSazabi ? -10.8 : (isGouf ? -13.2 : (isZaku ? -9.6 : -7.6));
       const fistX = rSign * (isSazabi ? 37.6 : (isGouf ? 34.8 : (isZaku ? 34.5 : 36.2)));
@@ -5843,7 +5844,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r44');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r45');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6643,6 +6644,13 @@
           if (node.isMesh) {
             const nm = (node.name || '').toLowerCase();
             if (nm.includes('dovetail')) {
+              node.visible = false;
+              return;
+            }
+            // Vanguard-only 2-facet chiseled upper chest clavicle slope cowls (`vanguard_upper_chest_*`):
+            // Shown ONLY on RX-78 Vanguard (`vanguard_rx` / `gundam_rx78`), automatically hidden on Zaku-II, Gouf, Sazabi & Rival!
+            const isVanguardUnit = (state.activeUnitId === 'vanguard_rx' || state.activeUnitId === 'gundam_rx78');
+            if (slotGroup === 'chest_armor' && nm.includes('vanguard_upper_chest_') && !isVanguardUnit) {
               node.visible = false;
               return;
             }
