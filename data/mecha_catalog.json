@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
   "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
-  "last_synced": "2026-11-25T15:02:07.762258+00:00",
+  "last_synced": "2026-11-25T17:02:04.772465+00:00",
   "baselines": [
     {
       "id": "baseline_gundam_frame_v1",
@@ -90,7 +90,7 @@
       ]
     }
   ],
-  "last_synthesized_utc": "2026-11-25T15:02:07Z",
+  "last_synthesized_utc": "2026-11-25T17:02:04Z",
   "manifest_tier": "public_cdn_sanitized",
   "modular_parts": [
     {
@@ -9340,8 +9340,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_009_47a45d.glb",
-          "sha256_hash": "699f7dfc2447f85ca2fcc17817e4668b726b53b9a92bbec433c7d30626db9569",
-          "file_size_bytes": 143876,
+          "sha256_hash": "ccdc70c67082fa6fa15b200e76fa271ca34b7027e744997a3c3766cd06b904af",
+          "file_size_bytes": 142972,
           "compression": "meshopt"
         }
       },
@@ -9393,8 +9393,8 @@
         "topology_hash": "b89d6546b9818ea8",
         "composition_key": "vcrest_core_fighter_breastplate+twin_pectoral_vents+unicorn_destroy"
       },
-      "glb_sha256": "b3be0acc0b4e4aa53226e1e63c48a469bb230b5df5bb54b11ca7e0a548d2e256",
-      "glb_size_bytes": 146612,
+      "glb_sha256": "ccdc70c67082fa6fa15b200e76fa271ca34b7027e744997a3c3766cd06b904af",
+      "glb_size_bytes": 142972,
       "subsystem_count": 15
     },
     {
@@ -21415,8 +21415,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_040_311476.glb",
-          "sha256_hash": "66701e5bcb5f55fb4921bdb41a4777180ac05957f3d5d0cb4b9b0ada0410538b",
-          "file_size_bytes": 144112,
+          "sha256_hash": "1a2a1da0c5913bca4bf49910363726dc57d7bbd3e1494e2c5d309c9143948558",
+          "file_size_bytes": 143244,
           "compression": "meshopt"
         }
       },
@@ -21471,8 +21471,8 @@
         "topology_hash": "22f55e8129d8226b",
         "composition_key": "vcrest_core_fighter_breastplate+twin_pectoral_vents+upper_collar_gorget+federation_rx+acc_optic@s1.0100"
       },
-      "glb_sha256": "d6bf0ca5361b0223410044cbf79cded5265cfdcb595dbee0bf1814c13347dd3d",
-      "glb_size_bytes": 146888,
+      "glb_sha256": "1a2a1da0c5913bca4bf49910363726dc57d7bbd3e1494e2c5d309c9143948558",
+      "glb_size_bytes": 143244,
       "subsystem_count": 15
     },
     {
@@ -25465,8 +25465,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_042_d236f9.glb",
-          "sha256_hash": "72a68e2985fa553464c3b8ba77db5ce9f17d1a4d7e5a88380cadb5221c1ff580",
-          "file_size_bytes": 125080,
+          "sha256_hash": "7189a42d9047e2bb59f15578caae37dfb4a7b9a88245b8c5f71e7b10e472f81b",
+          "file_size_bytes": 124212,
           "compression": "meshopt"
         }
       },
@@ -25520,8 +25520,8 @@
         "topology_hash": "8cd052394725194b",
         "composition_key": "vcrest_core_fighter_breastplate+center_mega_emitter+lower_abdominal_era+full_armor_tactical+acc_gunmetal@s1.0200"
       },
-      "glb_sha256": "50f6dfe44ef1837e02b7bea502ab9b14737ce78b069633317aa6084e3327645d",
-      "glb_size_bytes": 127840,
+      "glb_sha256": "7189a42d9047e2bb59f15578caae37dfb4a7b9a88245b8c5f71e7b10e472f81b",
+      "glb_size_bytes": 124212,
       "subsystem_count": 14
     },
     {
@@ -38487,8 +38487,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_038_6a9d6f.glb",
-          "sha256_hash": "a92c73c52673b93962d559dbf1513501ab129ea021c4ffb82e8363729e3e31f3",
-          "file_size_bytes": 137244,
+          "sha256_hash": "e5bf033e936aefca7b4700f4c7802a9a0d4ef4275f1b920fa851f501730a08ee",
+          "file_size_bytes": 136320,
           "compression": "meshopt"
         }
       },
@@ -38543,8 +38543,8 @@
         "topology_hash": "2232879871bd5c3f",
         "composition_key": "vcrest_core_fighter_breastplate+center_mega_emitter+unicorn_awakened_gn+g_883233"
       },
-      "glb_sha256": "22870dfd1220ffec753a1309e4c9913f6e36530e83e37cd422fc8dbf8b1dcd0f",
-      "glb_size_bytes": 139960,
+      "glb_sha256": "e5bf033e936aefca7b4700f4c7802a9a0d4ef4275f1b920fa851f501730a08ee",
+      "glb_size_bytes": 136320,
       "subsystem_count": 15
     },
     {
@@ -43549,8 +43549,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_043_170908.glb",
-          "sha256_hash": "cd3f9bfa63f74185f23c93b510135d58ca7a89fe08a5a12e021406d6f3c2772e",
-          "file_size_bytes": 156656,
+          "sha256_hash": "9a14b32bfa88eecfce4c169981d6880093eeb60aa38fb95c35cd4f4d766bb7f5",
+          "file_size_bytes": 155736,
           "compression": "meshopt"
         }
       },
@@ -43602,8 +43602,8 @@
         "topology_hash": "f55151691958288a",
         "composition_key": "vcrest_core_fighter_breastplate+lower_abdominal_era+twin_pectoral_vents+upper_collar_gorget+titans_mk2+acc_titanium+g_bd9ed1@s1.0000"
       },
-      "glb_sha256": "2ed019b48648ab6c95d3815c406885b76f9c9a82de8bade3eed51af38f903d1f",
-      "glb_size_bytes": 159376,
+      "glb_sha256": "9a14b32bfa88eecfce4c169981d6880093eeb60aa38fb95c35cd4f4d766bb7f5",
+      "glb_size_bytes": 155736,
       "subsystem_count": 16
     },
     {
@@ -53644,8 +53644,8 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_053_2d5a7e.glb",
-          "sha256_hash": "dc94271f7c08c4026f61885801def081a7badd380c1749cd61f86d35732c5029",
-          "file_size_bytes": 157068,
+          "sha256_hash": "22e98a1b1393e10435ac07d51756301564a2aa481143d4427b55582e6e681336",
+          "file_size_bytes": 156148,
           "compression": "meshopt"
         }
       },
@@ -53698,8 +53698,8 @@
         "topology_hash": "75174a428f817885",
         "composition_key": "vcrest_core_fighter_breastplate+lower_abdominal_era+upper_collar_gorget+exia_gn_cyan+g_672254"
       },
-      "glb_sha256": "96392be6e8087238dab89ca0474f571140db57cc32dcd38f53d7bdb8e9df2dfd",
-      "glb_size_bytes": 159788,
+      "glb_sha256": "22e98a1b1393e10435ac07d51756301564a2aa481143d4427b55582e6e681336",
+      "glb_size_bytes": 156148,
       "subsystem_count": 16
     },
     {
@@ -57747,7 +57747,10 @@
         ],
         "topology_hash": "8aa1a4eeaa8e2c0d",
         "composition_key": "vcrest_core_fighter_breastplate+center_mega_emitter+twin_pectoral_vents+upper_collar_gorget+gouf_cobalt+acc_gold+g_d3d685@s1.0200"
-      }
+      },
+      "glb_sha256": "ec8db1393715b402df80f0b27bdd41a0d21dcdd4570eff6e64aa55cccf75dd91",
+      "glb_size_bytes": 140228,
+      "subsystem_count": 15
     },
     {
       "part_id": "llm_gen_shoulder_pods_057_06971d",
@@ -68912,7 +68915,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_068_81a7be.glb",
-          "sha256_hash": "bf46bcba1fa7a6eac1ef9b896603118394ddd5209a25ff5e03e4fc1a4e506ff4",
+          "sha256_hash": "455060b1c699bc8bed2d7fc88bb3bb2697d753cd06d5483f1e9c519cab866f47",
           "file_size_bytes": 171156,
           "compression": "meshopt"
         }
@@ -68961,7 +68964,10 @@
         ],
         "topology_hash": "faf1f1e556c07792",
         "composition_key": "vcrest_core_fighter_breastplate+lower_abdominal_era+upper_collar_gorget+sinanju_gloss_red+g_eae062"
-      }
+      },
+      "glb_sha256": "455060b1c699bc8bed2d7fc88bb3bb2697d753cd06d5483f1e9c519cab866f47",
+      "glb_size_bytes": 171156,
+      "subsystem_count": 17
     },
     {
       "part_id": "llm_gen_shoulder_pods_068_c6e47d",
@@ -69907,7 +69913,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_069_6068f3.glb",
-          "sha256_hash": "3efd1e33daad127431ed1e7a65501b60a994d5aa13d802717a5b24725354b6e4",
+          "sha256_hash": "b70a2706c462be903d949d0dd3bf32ede69f43b201eb2df95d8ce3410fbed821",
           "file_size_bytes": 176768,
           "compression": "meshopt"
         }
@@ -69958,7 +69964,10 @@
         ],
         "topology_hash": "62f1a94d44e139b1",
         "composition_key": "demolition_cage_bumper_plastron+twin_pectoral_vents+upper_collar_gorget+kampfer_midnight+g_57940a"
-      }
+      },
+      "glb_sha256": "b70a2706c462be903d949d0dd3bf32ede69f43b201eb2df95d8ce3410fbed821",
+      "glb_size_bytes": 176768,
+      "subsystem_count": 18
     },
     {
       "part_id": "llm_gen_shoulder_pods_069_e5fdde",
@@ -70901,7 +70910,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_070_cbe51e.glb",
-          "sha256_hash": "64a29eb5399cd52b9d4f074a463b170303bf0e3d6135c982fd7a1dd69d22afeb",
+          "sha256_hash": "586e3533dee312a333e6ac8885b063b3c35ee1d97514ac6917d4bff220316066",
           "file_size_bytes": 181540,
           "compression": "meshopt"
         }
@@ -70955,7 +70964,10 @@
         ],
         "topology_hash": "6ff93dad1302f0bd",
         "composition_key": "twin_mega_particle_rib_cannons+lower_abdominal_era+twin_pectoral_vents+destiny_phantom+g_c9b792"
-      }
+      },
+      "glb_sha256": "586e3533dee312a333e6ac8885b063b3c35ee1d97514ac6917d4bff220316066",
+      "glb_size_bytes": 181540,
+      "subsystem_count": 19
     },
     {
       "part_id": "llm_gen_shoulder_pods_070_142ace",
@@ -71890,7 +71902,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_071_879469.glb",
-          "sha256_hash": "bdd366017f4ede1054ba0cc22223a2633b0a67dcaa7ac7b0e0c7f4e8f9672139",
+          "sha256_hash": "78c5d1f49d72f4cff28e11df1a39cb277516386fac9151cd36b65025225da149",
           "file_size_bytes": 205120,
           "compression": "meshopt"
         }
@@ -71940,7 +71952,10 @@
         ],
         "topology_hash": "65bc4b7388eba2d0",
         "composition_key": "full_armor_chobham_era_plastron+center_mega_emitter+upper_collar_gorget+hyaku_shiki_gold+g_d3603c"
-      }
+      },
+      "glb_sha256": "78c5d1f49d72f4cff28e11df1a39cb277516386fac9151cd36b65025225da149",
+      "glb_size_bytes": 205120,
+      "subsystem_count": 20
     },
     {
       "part_id": "llm_gen_shoulder_pods_071_bb2232",
@@ -72882,7 +72897,7 @@
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_072_6c49ab.glb",
-          "sha256_hash": "a0880095ca8ce06e54e27571a37615dc4ae7ababffc9d0ffb73168f65105aae4",
+          "sha256_hash": "ec51cc34f16e17c09a3ca14336b0dc44d9f7832294d6cec4f7b11bf9d5c9d9f8",
           "file_size_bytes": 157608,
           "compression": "meshopt"
         }
@@ -72936,25 +72951,28 @@
         ],
         "topology_hash": "56910c8a5b116560",
         "composition_key": "twin_chest_gatling_ports+center_mega_emitter+upper_collar_gorget+wing_zero_pearl+g_1704cb"
-      }
+      },
+      "glb_sha256": "ec51cc34f16e17c09a3ca14336b0dc44d9f7832294d6cec4f7b11bf9d5c9d9f8",
+      "glb_size_bytes": 157608,
+      "subsystem_count": 19
     },
     {
-      "part_id": "llm_gen_shoulder_pods_072_f06d4c",
+      "part_id": "llm_gen_shoulder_pods_072_a4715c",
       "blueprint_family": "llm_freeform_cad",
       "serial_number": "GXM-GEN-SHL-585",
-      "name": "MS-07B Gouf CQC Shoulder Pods",
+      "name": "Gouf Cobalt Ram Shoulder Pods",
       "category": "weapon",
       "primary_hardpoint": "HP-03",
       "slot_group": "shoulder_pods",
       "weapon_grip_type": null,
       "adapter_id": "ADP-HP03-SHOULDER",
-      "entropy_seed": "ebb60d880865c861f6389806c3d24d1c94bde8275ae1de3b08f01002d00cd1b6",
+      "entropy_seed": "8c3ed4e9108c0e424aec18e9f89a3181162fe808647f9406950b011e514fca89",
       "synthesis_origin": "llm_cad_architect",
       "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
       "llm_blueprint_params": {
-        "mass_kg": 850,
-        "thrust_kgf": 18000,
-        "reactor_draw_kw": 900
+        "mass_kg": 820,
+        "thrust_kgf": 0,
+        "reactor_draw_kw": 320
       },
       "faction_compatibility": "universal_gundam_universe",
       "compatible_hardpoints": [
@@ -72962,8 +72980,8 @@
         "HP-05"
       ],
       "structural_specs": {
-        "mass_kg": 850,
-        "bom_computed_mass_kg": 850,
+        "mass_kg": 820,
+        "bom_computed_mass_kg": 820,
         "primary_material": "gundarium_alloy_gamma",
         "center_of_mass": [
           0.0,
@@ -73005,7 +73023,7 @@
           ]
         },
         "asset_reference": {
-          "relative_url": "models/parts/llm_gen_shoulder_pods_072_f06d4c.glb",
+          "relative_url": "models/parts/llm_gen_shoulder_pods_072_a4715c.glb",
           "sha256_hash": "bc7534676e62673a38cc2ac77c99ad31f899134d2b60dee0776aff4d15e5766a",
           "file_size_bytes": 237104,
           "compression": "meshopt"
@@ -73017,9 +73035,9 @@
         "metalness": 0.85
       },
       "telemetry_and_lore": {
-        "operational_role": "Provides close‑quarter shield protection and rapid thrust‑assisted melee strikes, enhancing Gouf’s CQC dominance while retaining high mobility.",
-        "reactor_power_draw_kw": 900,
-        "vernier_thrust_kgf": 18000
+        "operational_role": "Reinforced CQC shield with integrated forward sensor for rapid close‑quarter combat, boosting melee survivability and targeting precision.",
+        "reactor_power_draw_kw": 320,
+        "vernier_thrust_kgf": 0
       },
       "reference_sources": [
         {
@@ -73030,13 +73048,13 @@
         }
       ],
       "geometry_fingerprint": {
-        "name": "MS-07B Gouf CQC Shoulder Pods",
-        "concept_slug": "gouf_cqb_shoulder_pods",
+        "name": "Gouf Cobalt Ram Shoulder Pods",
+        "concept_slug": "gouf_cobalt_ram_shoulder",
         "concept_tokens": [
-          "cqb",
-          "cqc",
+          "cobalt",
           "gouf",
-          "pods"
+          "pods",
+          "ram"
         ],
         "component_count": 8,
         "primitive_types": 4,
@@ -73061,22 +73079,22 @@
       }
     },
     {
-      "part_id": "llm_gen_waist_ordnance_072_d2ef26",
+      "part_id": "llm_gen_waist_ordnance_072_d8f0c5",
       "blueprint_family": "llm_freeform_cad",
       "serial_number": "GXM-GEN-WST-586",
-      "name": "RGM-89S Stark Jegan Anti-Ship Waist Thruster Array",
+      "name": "RGM-89S Stark Jegan Waist Missile & Railgun Grenade Pack",
       "category": "armor",
       "primary_hardpoint": "HP-13",
       "slot_group": "waist_ordnance",
       "weapon_grip_type": null,
       "adapter_id": "ADP-HP13-WAIST",
-      "entropy_seed": "66f64408265a401abf420f43850e84da8115eb3da58b73a79b1d69b5cbca8df1",
+      "entropy_seed": "29dd829a2d8be3148fcf2da1a0e4844c60e79148e6892f79e257d0973b855385",
       "synthesis_origin": "llm_cad_architect",
       "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
       "llm_blueprint_params": {
-        "mass_kg": 1850,
-        "thrust_kgf": 45000,
-        "reactor_draw_kw": 850
+        "mass_kg": 500,
+        "thrust_kgf": 0,
+        "reactor_draw_kw": 200
       },
       "faction_compatibility": "universal_gundam_universe",
       "compatible_hardpoints": [
@@ -73084,8 +73102,8 @@
         "HP-17"
       ],
       "structural_specs": {
-        "mass_kg": 1850,
-        "bom_computed_mass_kg": 1850,
+        "mass_kg": 500,
+        "bom_computed_mass_kg": 500,
         "primary_material": "gundarium_alloy_gamma",
         "center_of_mass": [
           0.0,
@@ -73127,7 +73145,7 @@
           ]
         },
         "asset_reference": {
-          "relative_url": "models/parts/llm_gen_waist_ordnance_072_d2ef26.glb",
+          "relative_url": "models/parts/llm_gen_waist_ordnance_072_d8f0c5.glb",
           "sha256_hash": "a544cb7679d68c70ece8538a6c2510538b0c4af2c11e32929baffeed8776c2ff",
           "file_size_bytes": 339536,
           "compression": "meshopt"
@@ -73139,9 +73157,9 @@
         "metalness": 0.85
       },
       "telemetry_and_lore": {
-        "operational_role": "Special forces anti-ship waist assembly featuring purgeable armor and rear-hip propellant pods for sustained orbital bombardment support.",
-        "reactor_power_draw_kw": 850,
-        "vernier_thrust_kgf": 45000
+        "operational_role": "Provides anti-ship missile pods, railgun launchers, and grenade dispensers for close‑quarters support and rapid fire.",
+        "reactor_power_draw_kw": 200,
+        "vernier_thrust_kgf": 0
       },
       "reference_sources": [
         {
@@ -73152,17 +73170,16 @@
         }
       ],
       "geometry_fingerprint": {
-        "name": "RGM-89S Stark Jegan Anti-Ship Waist Thruster Array",
-        "concept_slug": "stark_jegan_anti_ship_waist_cluster",
+        "name": "RGM-89S Stark Jegan Waist Missile & Railgun Grenade Pack",
+        "concept_slug": "stark_jegan_waist_missile_rail_grenade_pack",
         "concept_tokens": [
-          "anti",
-          "array",
-          "cluster",
+          "grenade",
           "jegan",
+          "missile",
+          "rail",
+          "railgun",
           "rgm",
-          "ship",
-          "stark",
-          "thruster"
+          "stark"
         ],
         "component_count": 11,
         "primitive_types": 5,
@@ -73188,22 +73205,22 @@
       }
     },
     {
-      "part_id": "llm_gen_leg_thrusters_072_a8eec3",
+      "part_id": "llm_gen_leg_thrusters_072_a89f3d",
       "blueprint_family": "llm_freeform_cad",
       "serial_number": "GXM-GEN-LEG-587",
-      "name": "RX-121-1 TR-1 Hazel Custom HP‑24 Hover Calf Thruster Kit",
+      "name": "RX-121-1 Hazel Custom Reinforced Calf Booster Kit",
       "category": "propulsion",
       "primary_hardpoint": "HP-24",
       "slot_group": "leg_thrusters",
       "weapon_grip_type": null,
       "adapter_id": "ADP-HP24-CALF",
-      "entropy_seed": "90011bec8855b0e2638801867a592628f29961ba6d5a16fadadb785df4caad56",
+      "entropy_seed": "723790c01f56c6a25e20da8dfd7599805ad156172988cc3f08ebd8c442e19d37",
       "synthesis_origin": "llm_cad_architect",
       "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
       "llm_blueprint_params": {
-        "mass_kg": 950,
-        "thrust_kgf": 115000,
-        "reactor_draw_kw": 1200
+        "mass_kg": 1850,
+        "thrust_kgf": 45000,
+        "reactor_draw_kw": 850
       },
       "faction_compatibility": "universal_gundam_universe",
       "compatible_hardpoints": [
@@ -73211,8 +73228,8 @@
         "HP-26"
       ],
       "structural_specs": {
-        "mass_kg": 950,
-        "bom_computed_mass_kg": 950,
+        "mass_kg": 1850,
+        "bom_computed_mass_kg": 1850,
         "primary_material": "gundarium_alloy_gamma",
         "center_of_mass": [
           0.0,
@@ -73254,7 +73271,7 @@
           ]
         },
         "asset_reference": {
-          "relative_url": "models/parts/llm_gen_leg_thrusters_072_a8eec3.glb",
+          "relative_url": "models/parts/llm_gen_leg_thrusters_072_a89f3d.glb",
           "sha256_hash": "bd9ec7498418dcec9b2e332b13fbc9ce12d207792d932b238b9b06584e25e905",
           "file_size_bytes": 262992,
           "compression": "meshopt"
@@ -73266,9 +73283,9 @@
         "metalness": 0.85
       },
       "telemetry_and_lore": {
-        "operational_role": "Provides enhanced high‑mobility hover thrust and extra fuel capacity for the reinforced TR‑1 Hazel Custom, enabling rapid evasion and sustained flight after battlefield repairs.",
-        "reactor_power_draw_kw": 1200,
-        "vernier_thrust_kgf": 115000
+        "operational_role": "High-mobility leg thruster assembly integrating GM Quel-derived fuel pods and Aswan spare-part reinforcements for sustained aerial pursuit.",
+        "reactor_power_draw_kw": 850,
+        "vernier_thrust_kgf": 45000
       },
       "reference_sources": [
         {
@@ -73279,12 +73296,12 @@
         }
       ],
       "geometry_fingerprint": {
-        "name": "RX-121-1 TR-1 Hazel Custom HP‑24 Hover Calf Thruster Kit",
-        "concept_slug": "tr1_hazel_custom_hover_calf",
+        "name": "RX-121-1 Hazel Custom Reinforced Calf Booster Kit",
+        "concept_slug": "hazel_custom_reinforced_calf_booster",
         "concept_tokens": [
+          "booster",
           "hazel",
-          "hover",
-          "thruster"
+          "reinforced"
         ],
         "component_count": 10,
         "primitive_types": 5,
@@ -73310,22 +73327,22 @@
       }
     },
     {
-      "part_id": "llm_gen_aux_weapon_072_de5d37",
+      "part_id": "llm_gen_aux_weapon_072_479377",
       "blueprint_family": "llm_freeform_cad",
       "serial_number": "GXM-GEN-WPN-588",
-      "name": "RX-78-02 Side-7 Assault Scattergun Mk.I",
+      "name": "RX-78-02 Side-7 Assault Scattergun Mk.IV",
       "category": "weapon",
       "primary_hardpoint": "HP-11",
       "slot_group": "aux_weapon",
       "weapon_grip_type": "firearm_pistol_grip",
       "adapter_id": "ADP-HP11-WEAPON",
-      "entropy_seed": "34d674e1949db0e14e44f84aba1e560923c94489085e496e2f9c07548abab9a8",
+      "entropy_seed": "995908fa61f22465bc01044a54e61718f0fb30bfe1279e3b4b11e4ebaa7d0a95",
       "synthesis_origin": "llm_cad_architect",
       "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
       "llm_blueprint_params": {
-        "mass_kg": 840,
+        "mass_kg": 1850,
         "thrust_kgf": 0,
-        "reactor_draw_kw": 1450
+        "reactor_draw_kw": 1400
       },
       "faction_compatibility": "universal_gundam_universe",
       "compatible_hardpoints": [
@@ -73333,8 +73350,8 @@
         "HP-12"
       ],
       "structural_specs": {
-        "mass_kg": 840,
-        "bom_computed_mass_kg": 840,
+        "mass_kg": 1850,
+        "bom_computed_mass_kg": 1850,
         "primary_material": "gundarium_alloy_gamma",
         "center_of_mass": [
           0.0,
@@ -73376,7 +73393,7 @@
           ]
         },
         "asset_reference": {
-          "relative_url": "models/parts/llm_gen_aux_weapon_072_de5d37.glb",
+          "relative_url": "models/parts/llm_gen_aux_weapon_072_479377.glb",
           "sha256_hash": "5acb5d4cab9a6eb6af2b2a7c1187bbedbba28d566f9c6a24a1072562cd8e66b5",
           "file_size_bytes": 90856,
           "compression": "meshopt"
@@ -73388,8 +73405,8 @@
         "metalness": 0.85
       },
       "telemetry_and_lore": {
-        "operational_role": "Close-range suppression weapon for the RX-78-02, utilizing a twin-bore beam scattergun with an integrated side capacitor drum for sustained fire during the Side 7 defense.",
-        "reactor_power_draw_kw": 1450,
+        "operational_role": "High-yield close-quarters suppression weapon utilizing the RX-78-02's 1400kW reactor output for sustained twin-beam saturation fire during mobile battles.",
+        "reactor_power_draw_kw": 1400,
         "vernier_thrust_kgf": 0
       },
       "reference_sources": [
@@ -73407,8 +73424,8 @@
         }
       ],
       "geometry_fingerprint": {
-        "name": "RX-78-02 Side-7 Assault Scattergun Mk.I",
-        "concept_slug": "rx78_side7_assault_scattergun",
+        "name": "RX-78-02 Side-7 Assault Scattergun Mk.IV",
+        "concept_slug": "rx78_02_side7_assault_scattergun",
         "concept_tokens": [
           "assault",
           "scattergun",
@@ -73437,22 +73454,22 @@
       }
     },
     {
-      "part_id": "llm_gen_aux_shield_072_cb55b1",
+      "part_id": "llm_gen_aux_shield_072_4aa21d",
       "blueprint_family": "llm_freeform_cad",
       "serial_number": "GXM-GEN-SHD-589",
-      "name": "RX-78NT-1 Newtype Hexagonal Barricade Shield",
+      "name": "RX-78NT-1 Newtype Hex-Field Forearm Buckler",
       "category": "armor",
       "primary_hardpoint": "HP-07",
       "slot_group": "aux_shield",
       "weapon_grip_type": null,
       "adapter_id": "ADP-HP07-FOREARM",
-      "entropy_seed": "2c216094b8a697d81d3377e69cf70453e46e53a54427c619b6d4e8df3a9c2807",
+      "entropy_seed": "8b3e79895b331d1dbe7ef5a23c528afbf27955dc857bd584a3960deb94faa1c5",
       "synthesis_origin": "llm_cad_architect",
       "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
       "llm_blueprint_params": {
-        "mass_kg": 1850,
-        "thrust_kgf": 45000,
-        "reactor_draw_kw": 850
+        "mass_kg": 850,
+        "thrust_kgf": 4500,
+        "reactor_draw_kw": 420
       },
       "faction_compatibility": "universal_gundam_universe",
       "compatible_hardpoints": [
@@ -73460,8 +73477,8 @@
         "HP-08"
       ],
       "structural_specs": {
-        "mass_kg": 1850,
-        "bom_computed_mass_kg": 1850,
+        "mass_kg": 850,
+        "bom_computed_mass_kg": 850,
         "primary_material": "gundarium_alloy_gamma",
         "center_of_mass": [
           0.0,
@@ -73503,7 +73520,7 @@
           ]
         },
         "asset_reference": {
-          "relative_url": "models/parts/llm_gen_aux_shield_072_cb55b1.glb",
+          "relative_url": "models/parts/llm_gen_aux_shield_072_4aa21d.glb",
           "sha256_hash": "f09910fff8965aa0b4515309f6e34154d1015c598319858d598a9386fc0bc178",
           "file_size_bytes": 172164,
           "compression": "meshopt"
@@ -73515,9 +73532,9 @@
         "metalness": 0.85
       },
       "telemetry_and_lore": {
-        "operational_role": "High-mobility Newtype auxiliary shield projecting a hexagonal I-Field barrier to counter Zeon beam saturation while maintaining agile maneuverability.",
-        "reactor_power_draw_kw": 850,
-        "vernier_thrust_kgf": 45000
+        "operational_role": "High-mobility Newtype auxiliary shield projecting a hexagonal I-Field barrier for close-range evasion and beam deflection.",
+        "reactor_power_draw_kw": 420,
+        "vernier_thrust_kgf": 4500
       },
       "reference_sources": [
         {
@@ -73528,15 +73545,13 @@
         }
       ],
       "geometry_fingerprint": {
-        "name": "RX-78NT-1 Newtype Hexagonal Barricade Shield",
-        "concept_slug": "nt1_flanagan_hex_barricade",
+        "name": "RX-78NT-1 Newtype Hex-Field Forearm Buckler",
+        "concept_slug": "nt1_newtype_hex_field_buckler",
         "concept_tokens": [
-          "barricade",
-          "flanagan",
+          "buckler",
+          "field",
           "hex",
-          "hexagonal",
-          "newtype",
-          "shield"
+          "newtype"
         ],
         "component_count": 14,
         "primitive_types": 6,
@@ -73563,30 +73578,30 @@
       }
     },
     {
-      "part_id": "llm_gen_dorsal_pack_072_5754c2",
+      "part_id": "llm_gen_dorsal_pack_072_d6855c",
       "blueprint_family": "llm_freeform_cad",
       "serial_number": "GXM-GEN-DPK-590",
-      "name": "MSZ-006 Zeta Gundam Psycommu Funnel Dorsal Pack",
+      "name": "MSZ-006 Zeta Gundam Dorsal Psycommu Funnel Pack",
       "category": "propulsion",
       "primary_hardpoint": "HP-00",
       "slot_group": "dorsal_pack",
       "weapon_grip_type": null,
       "adapter_id": "ADP-HP00-DORSAL",
-      "entropy_seed": "5b54db255f539cf2ea7f8a172d6334c85b64d0b4c77a0bea17794a2551298b30",
+      "entropy_seed": "02f0c681d60b63e2a589de5791dfa3509d42d10667e0dcd1cf90f06a39fb8067",
       "synthesis_origin": "llm_cad_architect",
       "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
       "llm_blueprint_params": {
-        "mass_kg": 850,
-        "thrust_kgf": 15000,
-        "reactor_draw_kw": 900
+        "mass_kg": 4800,
+        "thrust_kgf": 18000,
+        "reactor_draw_kw": 850
       },
       "faction_compatibility": "universal_gundam_universe",
       "compatible_hardpoints": [
         "HP-00"
       ],
       "structural_specs": {
-        "mass_kg": 850,
-        "bom_computed_mass_kg": 850,
+        "mass_kg": 4800,
+        "bom_computed_mass_kg": 4800,
         "primary_material": "gundarium_alloy_gamma",
         "center_of_mass": [
           0.0,
@@ -73628,7 +73643,7 @@
           ]
         },
         "asset_reference": {
-          "relative_url": "models/parts/llm_gen_dorsal_pack_072_5754c2.glb",
+          "relative_url": "models/parts/llm_gen_dorsal_pack_072_d6855c.glb",
           "sha256_hash": "c33b37dbbf88b46f6882ad1dea756be23a860b798ccf0a22e9fd1f60b5e6cdb1",
           "file_size_bytes": 401936,
           "compression": "meshopt"
@@ -73640,9 +73655,9 @@
         "metalness": 0.85
       },
       "telemetry_and_lore": {
-        "operational_role": "Provides high‑output psycommu emission for beam weapon coordination while housing auxiliary thruster tanks and shoulder‑mounted cannons for enhanced maneuverability and firepower.",
-        "reactor_power_draw_kw": 900,
-        "vernier_thrust_kgf": 15000
+        "operational_role": "Provides high-capacity psycommu funnel emission and supplemental shoulder cannons while housing extra propellant tanks for extended transform-mode endurance and enhanced maneuverab",
+        "reactor_power_draw_kw": 850,
+        "vernier_thrust_kgf": 18000
       },
       "reference_sources": [
         {
@@ -73653,11 +73668,10 @@
         }
       ],
       "geometry_fingerprint": {
-        "name": "MSZ-006 Zeta Gundam Psycommu Funnel Dorsal Pack",
-        "concept_slug": "zeta_funnel_halo_pack",
+        "name": "MSZ-006 Zeta Gundam Dorsal Psycommu Funnel Pack",
+        "concept_slug": "zeta_dorsal_psycommu_funnel_pack",
         "concept_tokens": [
           "funnel",
-          "halo",
           "msz",
           "psycommu",
           "zeta"
@@ -73686,22 +73700,22 @@
       }
     },
     {
-      "part_id": "llm_gen_head_sensor_073_c6ca8c",
+      "part_id": "llm_gen_head_sensor_073_09bc74",
       "blueprint_family": "llm_freeform_cad",
       "serial_number": "GXM-GEN-HED-591",
-      "name": "OZ-00MS Tallgeese Super Vernier Cranial Dome",
+      "name": "Tallgeese Recon Sensor Crown",
       "category": "modular_mission_pack",
       "primary_hardpoint": "HP-01",
       "slot_group": "head_sensor",
       "weapon_grip_type": null,
       "adapter_id": "ADP-HP01-CRANIAL",
-      "entropy_seed": "ccdb1705a63f356f2311cf102db371db50364d6cd205a907f181c3cad673a364",
+      "entropy_seed": "aa20082dfcf6734b21a23eba4cc6e4d1f1d55fe2389f0460503e49f872bb5356",
       "synthesis_origin": "llm_cad_architect",
       "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
       "llm_blueprint_params": {
-        "mass_kg": 850,
-        "thrust_kgf": 12500,
-        "reactor_draw_kw": 450
+        "mass_kg": 1800,
+        "thrust_kgf": 0,
+        "reactor_draw_kw": 200
       },
       "faction_compatibility": "universal_gundam_universe",
       "compatible_hardpoints": [
@@ -73709,8 +73723,8 @@
         "HP-02"
       ],
       "structural_specs": {
-        "mass_kg": 850,
-        "bom_computed_mass_kg": 850,
+        "mass_kg": 1800,
+        "bom_computed_mass_kg": 1800,
         "primary_material": "gundarium_alloy_gamma",
         "center_of_mass": [
           0.0,
@@ -73752,7 +73766,7 @@
           ]
         },
         "asset_reference": {
-          "relative_url": "models/parts/llm_gen_head_sensor_073_c6ca8c.glb",
+          "relative_url": "models/parts/llm_gen_head_sensor_073_09bc74.glb",
           "sha256_hash": "c7c0122f8b626d17b7bf5cd51745fb8a3f79ef078ced78065e8f825bbc83df5f",
           "file_size_bytes": 172548,
           "compression": "meshopt"
@@ -73764,9 +73778,9 @@
         "metalness": 0.85
       },
       "telemetry_and_lore": {
-        "operational_role": "First armed MS command head featuring heavy armor and high-gain radar for long-range coordination and melee support.",
-        "reactor_power_draw_kw": 450,
-        "vernier_thrust_kgf": 12500
+        "operational_role": "Provides long-range battlefield awareness and command coordination, leveraging Tallgeese's advanced radar and heavy armor for secure sensor operations.",
+        "reactor_power_draw_kw": 200,
+        "vernier_thrust_kgf": 0
       },
       "reference_sources": [
         {
@@ -73777,13 +73791,13 @@
         }
       ],
       "geometry_fingerprint": {
-        "name": "OZ-00MS Tallgeese Super Vernier Cranial Dome",
-        "concept_slug": "oz00ms_super_vernier_cranial_dome",
+        "name": "Tallgeese Recon Sensor Crown",
+        "concept_slug": "tallgeese_recon_sensor_crown",
         "concept_tokens": [
-          "cranial",
-          "dome",
-          "tallgeese",
-          "vernier"
+          "crown",
+          "recon",
+          "sensor",
+          "tallgeese"
         ],
         "component_count": 12,
         "primitive_types": 5,
@@ -73809,21 +73823,21 @@
       }
     },
     {
-      "part_id": "llm_gen_chest_armor_073_0f76d9",
+      "part_id": "llm_gen_chest_armor_073_7f0017",
       "blueprint_family": "llm_freeform_cad",
       "serial_number": "GXM-GEN-CHS-592",
-      "name": "ASW-G-11 Gusion Rebake V-Crest Vent Chest",
+      "name": "ASW-G-11 Gusion Rebake Alaya-Vijnana Intake Pectoral",
       "category": "armor",
       "primary_hardpoint": "HP-09",
       "slot_group": "chest_armor",
       "weapon_grip_type": null,
       "adapter_id": "ADP-HP09-PECTORAL",
-      "entropy_seed": "8ff50a0028d02780d0577c143344b3d96eb90bf174bbcb8650155f67e90060e8",
+      "entropy_seed": "bc8cbdc779df7b9c489d4a0ea12b1d00302a53e1e1e7308efb99adfaf0ca6530",
       "synthesis_origin": "llm_cad_architect",
       "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
       "llm_blueprint_params": {
-        "mass_kg": 950,
-        "thrust_kgf": 150000,
+        "mass_kg": 1850,
+        "thrust_kgf": 45000,
         "reactor_draw_kw": 1200
       },
       "faction_compatibility": "universal_gundam_universe",
@@ -73832,8 +73846,8 @@
         "HP-10"
       ],
       "structural_specs": {
-        "mass_kg": 950,
-        "bom_computed_mass_kg": 950,
+        "mass_kg": 1850,
+        "bom_computed_mass_kg": 1850,
         "primary_material": "gundarium_alloy_gamma",
         "center_of_mass": [
           0.0,
@@ -73875,7 +73889,7 @@
           ]
         },
         "asset_reference": {
-          "relative_url": "models/parts/llm_gen_chest_armor_073_0f76d9.glb",
+          "relative_url": "models/parts/llm_gen_chest_armor_073_7f0017.glb",
           "sha256_hash": "b9edb194491214334c6bd981bec2c589de5649302724ec8457ab0e81d9ca5acf",
           "file_size_bytes": 148872,
           "compression": "meshopt"
@@ -73887,9 +73901,9 @@
         "metalness": 0.85
       },
       "telemetry_and_lore": {
-        "operational_role": "Provides balanced protection and rapid heat venting for the Gusion Rebake, enabling high-mobility combat in gravity while maintaining Alaya-Vijnana sensor integrity.",
+        "operational_role": "Versatile gravity-adaptive chest armor featuring forward-swept intakes that channel airflow to stabilize the Alaya-Vijnana System's high-output reactor core.",
         "reactor_power_draw_kw": 1200,
-        "vernier_thrust_kgf": 150000
+        "vernier_thrust_kgf": 45000
       },
       "reference_sources": [
         {
@@ -73900,16 +73914,16 @@
         }
       ],
       "geometry_fingerprint": {
-        "name": "ASW-G-11 Gusion Rebake V-Crest Vent Chest",
-        "concept_slug": "gusion_rebake_vented_vcrest",
+        "name": "ASW-G-11 Gusion Rebake Alaya-Vijnana Intake Pectoral",
+        "concept_slug": "gusion_rebake_alaya_vijnana_intake",
         "concept_tokens": [
+          "alaya",
           "asw",
-          "crest",
           "gusion",
+          "intake",
+          "pectoral",
           "rebake",
-          "vcrest",
-          "vent",
-          "vented"
+          "vijnana"
         ],
         "component_count": 8,
         "primitive_types": 6,
@@ -73936,7 +73950,7 @@
       }
     },
     {
-      "part_id": "llm_gen_shoulder_pods_073_ff3a54",
+      "part_id": "llm_gen_shoulder_pods_073_09e0d1",
       "blueprint_family": "llm_freeform_cad",
       "serial_number": "GXM-GEN-SHL-593",
       "name": "RX-77-2 Guncannon Twin Beam Shoulder Pods",
@@ -73945,13 +73959,13 @@
       "slot_group": "shoulder_pods",
       "weapon_grip_type": null,
       "adapter_id": "ADP-HP03-SHOULDER",
-      "entropy_seed": "915d6a478f3b2522d8c77f85c105bef23942d18e684158ead0e7d4a5a4a43cde",
+      "entropy_seed": "7686875cf62702af81a63bbb0c3242c2fa02c64fcd01cc830f250398f8fb6b9c",
       "synthesis_origin": "llm_cad_architect",
       "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
       "llm_blueprint_params": {
-        "mass_kg": 6000,
-        "thrust_kgf": 180000,
-        "reactor_draw_kw": 1500
+        "mass_kg": 5200,
+        "thrust_kgf": 0,
+        "reactor_draw_kw": 1200
       },
       "faction_compatibility": "universal_gundam_universe",
       "compatible_hardpoints": [
@@ -73959,8 +73973,8 @@
         "HP-05"
       ],
       "structural_specs": {
-        "mass_kg": 6000,
-        "bom_computed_mass_kg": 6000,
+        "mass_kg": 5200,
+        "bom_computed_mass_kg": 5200,
         "primary_material": "gundarium_alloy_gamma",
         "center_of_mass": [
           0.0,
@@ -74002,7 +74016,7 @@
           ]
         },
         "asset_reference": {
-          "relative_url": "models/parts/llm_gen_shoulder_pods_073_ff3a54.glb",
+          "relative_url": "models/parts/llm_gen_shoulder_pods_073_09e0d1.glb",
           "sha256_hash": "763d0c2457edd33495bae082a7dad4259cf6e2d96fc9c223644f7672ef183a39",
           "file_size_bytes": 330380,
           "compression": "meshopt"
@@ -74014,9 +74028,9 @@
         "metalness": 0.85
       },
       "telemetry_and_lore": {
-        "operational_role": "Medium-range artillery support with twin beam cannons, durable shoulder-mounted pods for sustained fire.",
-        "reactor_power_draw_kw": 1500,
-        "vernier_thrust_kgf": 180000
+        "operational_role": "Provides medium-range artillery support with twin linear beam cannons, reinforced shoulder armor, and integrated sensor pods for target acquisition.",
+        "reactor_power_draw_kw": 1200,
+        "vernier_thrust_kgf": 0
       },
       "reference_sources": [
         {
@@ -74028,7 +74042,7 @@
       ],
       "geometry_fingerprint": {
         "name": "RX-77-2 Guncannon Twin Beam Shoulder Pods",
-        "concept_slug": "guncannon_twin_beam_shoulder_pods",
+        "concept_slug": "rx77_guncannon_twin_beam_shoulder_pods",
         "concept_tokens": [
           "beam",
           "guncannon",
@@ -74058,22 +74072,22 @@
       }
     },
     {
-      "part_id": "llm_gen_waist_ordnance_073_3976e5",
+      "part_id": "llm_gen_waist_ordnance_073_403ce7",
       "blueprint_family": "llm_freeform_cad",
       "serial_number": "GXM-GEN-WST-594",
-      "name": "MS-18E Kämpfer Rapid Assault Waist Pack",
+      "name": "MS-18E Kämpfer Rapid‑Jet Waist Pack",
       "category": "armor",
       "primary_hardpoint": "HP-13",
       "slot_group": "waist_ordnance",
       "weapon_grip_type": null,
       "adapter_id": "ADP-HP13-WAIST",
-      "entropy_seed": "166ba8c85cfdf19d4289d185de7d0e41d8ff2eb62c2a769aef30d5af65891412",
+      "entropy_seed": "9e9442420d93e48285920fabe00abc9b58b3625cc10c7ac414142cfe87c093da",
       "synthesis_origin": "llm_cad_architect",
       "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
       "llm_blueprint_params": {
-        "mass_kg": 1200,
-        "thrust_kgf": 8000,
-        "reactor_draw_kw": 850
+        "mass_kg": 720,
+        "thrust_kgf": 15000,
+        "reactor_draw_kw": 350
       },
       "faction_compatibility": "universal_gundam_universe",
       "compatible_hardpoints": [
@@ -74081,8 +74095,8 @@
         "HP-17"
       ],
       "structural_specs": {
-        "mass_kg": 1200,
-        "bom_computed_mass_kg": 1200,
+        "mass_kg": 720,
+        "bom_computed_mass_kg": 720,
         "primary_material": "gundarium_alloy_gamma",
         "center_of_mass": [
           0.0,
@@ -74124,7 +74138,7 @@
           ]
         },
         "asset_reference": {
-          "relative_url": "models/parts/llm_gen_waist_ordnance_073_3976e5.glb",
+          "relative_url": "models/parts/llm_gen_waist_ordnance_073_403ce7.glb",
           "sha256_hash": "4819af0858b421e21c2d927353f962667a157b5e8bd8c5bebbe097e8c47dba84",
           "file_size_bytes": 357824,
           "compression": "meshopt"
@@ -74136,9 +74150,9 @@
         "metalness": 0.85
       },
       "telemetry_and_lore": {
-        "operational_role": "A high‑mobility waist module that adds grenade racks, rail prongs and ambac verniers for burst damage and quick evasion, matching the Kämpfer's smash‑in doctrine.",
-        "reactor_power_draw_kw": 850,
-        "vernier_thrust_kgf": 8000
+        "operational_role": "A high‑mobility waist pack delivering extra thrust and a forward rail gun, letting the Kämpfer strike faster and retreat with burst speed.",
+        "reactor_power_draw_kw": 350,
+        "vernier_thrust_kgf": 15000
       },
       "reference_sources": [
         {
@@ -74149,11 +74163,11 @@
         }
       ],
       "geometry_fingerprint": {
-        "name": "MS-18E Kämpfer Rapid Assault Waist Pack",
-        "concept_slug": "kaempfer_rapid_assault_waist",
+        "name": "MS-18E Kämpfer Rapid‑Jet Waist Pack",
+        "concept_slug": "kampfer_rapid_jet_waist",
         "concept_tokens": [
-          "assault",
-          "kaempfer",
+          "jet",
+          "kampfer",
           "mpfer",
           "rapid"
         ],
