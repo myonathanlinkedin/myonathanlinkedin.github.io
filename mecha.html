@@ -5119,15 +5119,16 @@
           alwaysVisible: false
         }),
 
-        // 7. WAIST / HIP FOLDING RAILGUNS ZONE (HP-13/17 — seated 0.0mm flush directly ABOVE the rear waist skirt on ALL 5 units!)
-        // Calibrated per-unit rear skirt top Y: RX-78=110.0, Rival=109.0/pelvis=113.5, Zaku=111.3/belt=115.3, Gouf=111.6/belt=115.3, Sazabi=113.0/belt=115.3
+        // 7. WAIST / HIP FOLDING RAILGUNS ZONE (HP-13/17 — seated 0.0mm flush into the black rear abdomen directly ABOVE the rear waist skirt on ALL 5 units!)
+        // Calibrated exact embed_Z >= 2.1mm into black abdomen + seat_Y >= 1.0mm onto waist belt top:
+        // RX-78 (canonical): [0, 111.8, +2.2], Rival: [0, 115.2, +2.2], Zaku-II: [0, 117.0, +2.0], Gouf: [0, 117.0, +2.2], Sazabi: [0, 117.2, +2.4]
         waist_ordnance: createPhysicalAdapterSocket(rig.pelvis, {
           slotGroup: 'waist_ordnance',
           adapterId: 'ADP-HP13-WAIST',
           worldPos: [
             0.0,
-            isSazabi ? 117.6 : (isGouf ? 116.8 : (isZaku ? 116.6 : (spec.id === 'rival_frame' ? 112.4 : 111.8))),
-            isSazabi ? -2.2 : (isGouf ? -0.8 : (isZaku ? -0.6 : (spec.id === 'rival_frame' ? 1.0 : 2.2)))
+            isSazabi ? 117.2 : (isGouf ? 117.0 : (isZaku ? 117.0 : (spec.id === 'rival_frame' ? 115.2 : 111.8))),
+            isSazabi ? 2.4 : (isGouf ? 2.2 : (isZaku ? 2.0 : 2.2))
           ],
           rot: [0, 0, 0],
           scale: isSazabi ? 1.15 : (isGouf ? 1.08 : (isZaku ? 1.06 : 1.0)),
@@ -5725,7 +5726,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261124_r9');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r12');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
