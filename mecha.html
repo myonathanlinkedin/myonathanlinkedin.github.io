@@ -5757,7 +5757,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r19');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r20');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6374,69 +6374,126 @@
             }
           }
         });
-        // Horn-Preserving Adaptive Cranial Crown Mounting (ZERO detached horns across RX-78, Rival, Gouf & Sazabi!):
-        // Bilateral temple/ear pods stay dead-flush on helmet sides; center crown adapts cleanly around native horn!
+        // Horn-AND-Dorsal-Pack-Safe Adaptive Cranial Mounting (ZERO detached horns, ZERO AWACS/dorsal clash!):
+        // - RX-78 Vanguard: Full-Wrap Bolted Cranial Headset Harness linking ear clamps -> curved over-temple arches
+        //   (with gold pivot lock-bolts) -> mohawk-straddling clamps -> snug crown cradle + rear occipital strap!
+        // - Sazabi / Gouf / Rival: Forward-Facing Tactical Side-Crown Mount (0.65x) cleanly flanking the tall center
+        //   commander blade (X >= +1.9mm, Z ~ -10..+5mm -> 100% clear of ALL AWACS/radome/wing dorsal packs!).
         if (slotGroup === 'head_sensor' && crownMeshes.length > 0 && state.activeUnitId !== 'enemy_zaku') {
           const bridgeMat = getSharedMechaMaterial({ color: 0x2c3442, roughness: 0.36, metalness: 0.72, materialClass: 'metal_gunmetal' });
-          const addBridge = (parentGrp, w, h, d, lx, ly, lz, nm) => {
-            const bMesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), bridgeMat);
-            bMesh.name = nm;
-            bMesh.position.set(lx, ly, lz);
-            bMesh.castShadow = true;
-            bMesh.receiveShadow = true;
-            bMesh.userData.origMaterial = bridgeMat;
-            bMesh.userData.initialPosition = bMesh.position.clone();
-            bMesh.userData.isModularPack = true;
-            parentGrp.add(bMesh);
-            state.chassisParts.push(bMesh);
+          const goldBoltMat = getSharedMechaMaterial({ color: 0xeab308, roughness: 0.22, metalness: 0.90, materialClass: 'metal_gold' });
+          const addPart = (parentGrp, geom, mat, lx, ly, lz, nm, rxDeg = 0, ryDeg = 0, rzDeg = 0) => {
+            const pMesh = new THREE.Mesh(geom, mat);
+            pMesh.name = nm;
+            pMesh.position.set(lx, ly, lz);
+            if (rxDeg || ryDeg || rzDeg) {
+              pMesh.rotation.set(
+                THREE.MathUtils.degToRad(rxDeg),
+                THREE.MathUtils.degToRad(ryDeg),
+                THREE.MathUtils.degToRad(rzDeg)
+              );
+            }
+            pMesh.castShadow = true;
+            pMesh.receiveShadow = true;
+            pMesh.userData.origMaterial = mat;
+            pMesh.userData.initialPosition = pMesh.position.clone();
+            pMesh.userData.isModularPack = true;
+            parentGrp.add(pMesh);
+            state.chassisParts.push(pMesh);
+            return pMesh;
           };
+
           if (state.activeUnitId === 'gundam_rx78') {
-            const crownGrp = new THREE.Group();
-            crownGrp.name = 'AdaptiveCrown_RX78';
-            crownGrp.position.set(0.0, 4.6, -1.4);
+            let cMinY = Infinity, cMinX = Infinity, cMaxX = -Infinity;
+            const activeCrown = [];
             crownMeshes.forEach(m => {
               if ((m.name || '').toLowerCase().includes('crown_riser')) {
                 m.visible = false;
                 return;
               }
-              crownGrp.add(m);
+              activeCrown.push(m);
+              if (m.geometry?.boundingBox) {
+                cMinY = Math.min(cMinY, m.geometry.boundingBox.min.y);
+                cMinX = Math.min(cMinX, m.geometry.boundingBox.min.x);
+                cMaxX = Math.max(cMaxX, m.geometry.boundingBox.max.x);
+              }
             });
-            packModel.add(crownGrp);
-            // Twin flanking dark gunmetal saddle rails straddling RX-78's curved mohawk (|X|<=1.96mm)!
-            addBridge(packModel, 1.4, 4.8, 7.2,  3.0, 9.8, -4.2, 'adapter_crown_flank_rail_r');
-            addBridge(packModel, 1.4, 4.8, 7.2, -3.0, 9.8, -4.2, 'adapter_crown_flank_rail_l');
-          } else if (state.activeUnitId === 'rival_frame') {
-            const crownGrp = new THREE.Group();
-            crownGrp.name = 'AdaptiveCrown_Rival';
-            crownGrp.position.set(0.0, 1.8, -9.5);
-            crownMeshes.forEach(m => crownGrp.add(m));
-            packModel.add(crownGrp);
-          } else if (state.activeUnitId === 'enemy_gouf' || state.activeUnitId === 'enemy_sazabi') {
+            if (activeCrown.length > 0 && Number.isFinite(cMinY)) {
+              const crownGrp = new THREE.Group();
+              crownGrp.name = 'AdaptiveCrown_RX78_Harness';
+              const dy = 11.4 - cMinY; // Seats crown underside snugly at world Y=176.4 flush on curved mohawk top!
+              crownGrp.position.set(0.0, dy, -0.8);
+              activeCrown.forEach(m => crownGrp.add(m));
+              packModel.add(crownGrp);
+
+              const cradleHalfW = Math.max(5.2, Math.min(7.2, 0.5 * (cMaxX - cMinX) - 0.6));
+              for (const [sgn, sfx] of [[1.0, 'r'], [-1.0, 'l']]) {
+                // 1. Ear-to-Temple Vertical Collar Bridge (bolts directly into top of bilateral ear clamps!)
+                addPart(packModel, new THREE.BoxGeometry(1.6, 5.2, 4.4), bridgeMat, sgn * 8.45, 4.1, -2.0, `adapter_harness_low_${sfx}`, 0, 0, sgn * 18.0);
+                // 2. Curved Upper Over-Temple Arch Strut (hugs RX-78 white helmet temple dome into crown underside!)
+                addPart(packModel, new THREE.BoxGeometry(1.6, 6.0, 4.4), bridgeMat, sgn * 6.65, 8.3, -2.0, `adapter_harness_mid_${sfx}`, 0, 0, sgn * 42.0);
+                // 3. Upper Crown Mounting Lug Bracket (locks cleanly into crown underside!)
+                addPart(packModel, new THREE.BoxGeometry(3.2, 1.9, 5.8), bridgeMat, sgn * Math.max(3.6, cradleHalfW - 1.2), 11.0, -2.4, `adapter_harness_lug_${sfx}`);
+                // 4. Contoured Mohawk-Clamping Side Cheeks straddling RX-78 curved mohawk (|X|<=1.96mm)
+                addPart(packModel, new THREE.BoxGeometry(1.2, 4.2, 8.0), bridgeMat, sgn * 2.55, 9.8, -2.8, `adapter_harness_clamp_${sfx}`);
+                // 5. Gold Mechanical Temple Pivot Lock-Bolts
+                addPart(packModel, new THREE.CylinderGeometry(0.95, 0.95, 2.2, 12), goldBoltMat, sgn * 8.9, 6.2, -2.0, `adapter_harness_bolt_gold_${sfx}`, 0, 0, 90.0);
+                // 6. Rear-Temple Diagonal Stabilizer Rib linking temple arch -> rear occipital strap
+                addPart(packModel, new THREE.BoxGeometry(1.3, 2.0, 6.2), bridgeMat, sgn * 7.2, 6.8, -5.6, `adapter_harness_rear_rib_${sfx}`, 0, sgn * -24.0, 0);
+              }
+              // 7. Rear Occipital Stabilizer Crossbar wrapping cleanly behind RX-78 curved mohawk (Z=-8.5, >14mm clear of AWACS!)
+              addPart(packModel, new THREE.BoxGeometry(12.2, 2.2, 1.6), bridgeMat, 0.0, 6.8, -8.5, 'adapter_harness_occipital_dark');
+            }
+          } else if (state.activeUnitId === 'enemy_sazabi' || state.activeUnitId === 'enemy_gouf' || state.activeUnitId === 'rival_frame') {
             const isSaz = state.activeUnitId === 'enemy_sazabi';
-            const hs = isSaz ? 1.15 : 1.20;
-            const tiltDeg = isSaz ? -44.0 : -42.0;
-            const dY = isSaz ? -4.4 : -4.5;
-            const dZ = isSaz ? -14.2 : -12.6;
-            const crownPivot = new THREE.Group();
-            crownPivot.name = isSaz ? 'AdaptiveCrown_Sazabi' : 'AdaptiveCrown_Gouf';
-            crownPivot.position.set(0.0, 7.5 + dY / hs, -4.0 + dZ / hs);
-            crownPivot.rotation.x = THREE.MathUtils.degToRad(tiltDeg);
-            const crownInner = new THREE.Group();
-            crownInner.position.set(0.0, -7.5, 4.0);
-            crownMeshes.forEach(m => crownInner.add(m));
-            crownPivot.add(crownInner);
-            packModel.add(crownPivot);
-            // Flush machined occipital mounting bridge anchoring rear-tilted crown to rear helmet armor!
-            addBridge(
-              packModel,
-              isSaz ? 7.6 : 7.4,
-              isSaz ? 3.3 : 3.2,
-              isSaz ? 4.8 : 4.6,
-              0.0,
-              (isSaz ? 2.0 : 2.2) / hs,
-              (isSaz ? -14.2 : -12.8) / hs,
-              'adapter_occipital_bridge_dark'
-            );
+            const isGouf = state.activeUnitId === 'enemy_gouf';
+            const hs = isSaz ? 1.15 : (isGouf ? 1.20 : 1.0);
+            const cs = 0.65; // Sleek tactical side-crown scale facing straight forward (+Z)!
+            let cMinX = Infinity, cMaxX = -Infinity, cMinY = Infinity, cMaxY = -Infinity, cMinZ = Infinity, cMaxZ = -Infinity;
+            crownMeshes.forEach(m => {
+              if (m.geometry?.boundingBox) {
+                const bb = m.geometry.boundingBox;
+                cMinX = Math.min(cMinX, bb.min.x); cMaxX = Math.max(cMaxX, bb.max.x);
+                cMinY = Math.min(cMinY, bb.min.y); cMaxY = Math.max(cMaxY, bb.max.y);
+                cMinZ = Math.min(cMinZ, bb.min.z); cMaxZ = Math.max(cMaxZ, bb.max.z);
+              }
+            });
+            if (Number.isFinite(cMinX)) {
+              const cx = 0.5 * (cMinX + cMaxX);
+              const cy = 0.5 * (cMinY + cMaxY);
+              const cz = 0.5 * (cMinZ + cMaxZ);
+              const halfWWorld = 0.5 * (cMaxX - cMinX) * hs * cs;
+              // Clears center commander blade (|X|<=1.0mm) by >= +0.9mm AND stays Z ~ -10..+5mm (100% clear of ALL AWACS/dorsal packs!)
+              const targetCxWorld = Math.max(5.6, 1.9 + halfWWorld);
+              const targetBotYWorld = isSaz ? 7.0 : (isGouf ? 7.8 : 6.8);
+              const targetCzWorld = -2.0;
+
+              const sideGrp = new THREE.Group();
+              sideGrp.name = `AdaptiveSideCrown_${state.activeUnitId}`;
+              sideGrp.position.set(
+                targetCxWorld / hs,
+                (targetBotYWorld / hs) - (cMinY - cy) * cs,
+                targetCzWorld / hs
+              );
+              sideGrp.scale.set(cs, cs, cs);
+              const sideInner = new THREE.Group();
+              sideInner.position.set(-cx, -cy, -cz);
+              crownMeshes.forEach(m => sideInner.add(m));
+              sideGrp.add(sideInner);
+              packModel.add(sideGrp);
+
+              // Flush machined lateral-crown mounting pylon linking helmet side dome directly into side-crown base!
+              const pylonW = Math.max(3.4, targetCxWorld - 2.4) / hs;
+              addPart(
+                packModel,
+                new THREE.BoxGeometry(pylonW, 3.6 / hs, 6.2 / hs),
+                bridgeMat,
+                (0.5 * (3.2 + targetCxWorld)) / hs,
+                (targetBotYWorld - 1.2) / hs,
+                targetCzWorld / hs,
+                'adapter_side_crown_pylon_dark'
+              );
+            }
           }
         }
         socket.adapterVis.visible = true;
