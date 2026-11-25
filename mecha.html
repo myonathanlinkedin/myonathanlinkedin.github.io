@@ -4730,9 +4730,10 @@
         const isLeft = (gc.x * lSign) > 1.5;
 
         let targetGroup = torso;
-        if (n.includes('forearm') || n.includes('gauntlet') || n.includes('rg_cuff') || n.includes('fist') || n.includes('hand') || n.includes('wrist') || n.includes('elbow') || n.includes('mg_') || n.includes('hawk') || (!n.includes('backpack') && n.includes('saber')) || n.includes('rifle') || (n.includes('shield') && !n.includes('shoulder') && gc.y < 125.0)) {
+        const isHeatHawk = n.includes('zaku_hawk') || n.includes('heat_hawk');
+        if (n.includes('forearm') || n.includes('gauntlet') || n.includes('rg_cuff') || n.includes('fist') || n.includes('hand') || n.includes('wrist') || n.includes('elbow') || n.includes('mg_') || isHeatHawk || (!n.includes('backpack') && n.includes('saber')) || n.includes('rifle') || (n.includes('shield') && !n.includes('shoulder') && gc.y < 125.0)) {
           targetGroup = isRight ? forearmR : (isLeft ? forearmL : torso);
-        } else if (!n.includes('shield') && !n.includes('hawk') && (n.includes('head') || n.includes('helmet') || n.includes('jaw') || n.includes('v_fin') || n.includes('mono_eye') || n.includes('visor') || n.includes('snout') || n.includes('chin') || n.includes('cheek') || n.includes('crest') || n.includes('commander_fin') || n.includes('commander_blade') || n.includes('neck') || n.includes('vulcan_gold'))) {
+        } else if (!n.includes('shield') && !isHeatHawk && (n.includes('head') || n.includes('helmet') || n.includes('jaw') || n.includes('v_fin') || n.includes('mono_eye') || n.includes('visor') || n.includes('snout') || n.includes('chin') || n.includes('cheek') || n.includes('crest') || n.includes('commander_fin') || n.includes('commander_blade') || n.includes('neck') || n.includes('vulcan_gold'))) {
           targetGroup = head;
         } else if (n.includes('shoulder') || n.includes('pauldron') || n.includes('spike') || n.includes('horn') || n.includes('bicep') || n.includes('humerus') || n.includes('upper_arm') || n.includes('binder') || (n.includes('shield') && gc.y >= 125.0)) {
           targetGroup = isRight ? armR : (isLeft ? armL : torso);
@@ -5248,7 +5249,7 @@
       if (zoneKey === 'shoulder_pods') return n.includes('pauldron') || n.includes('shoulder');
       if (zoneKey === 'dorsal_pack') return n.includes('backpack') || n.includes('dorsal') || n.includes('wing') || n.includes('fin_binder') || n.includes('tank');
       if (zoneKey === 'aux_weapon') return n.includes('rifle') || n.includes('_mg_') || n.includes('saber') || n.includes('heat_rod') || n.includes('forearm_r');
-      if (zoneKey === 'aux_shield') return n.includes('shield') || n.includes('hawk') || n.includes('forearm_l');
+      if (zoneKey === 'aux_shield') return n.includes('shield') || n.includes('zaku_hawk') || n.includes('heat_hawk') || n.includes('forearm_l');
       if (zoneKey === 'waist_ordnance') return n.includes('pelvis') || n.includes('waist') || n.includes('skirt') || n.includes('hip') || n.includes('xiphias');
       if (zoneKey === 'leg_thrusters') return n.includes('calf') || n.includes('shin') || n.includes('knee') || n.includes('thigh') || n.includes('foot') || n.includes('boot');
       return false;
@@ -5757,7 +5758,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r20');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r21');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
