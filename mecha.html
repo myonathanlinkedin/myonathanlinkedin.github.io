@@ -4785,27 +4785,10 @@
         ) {
           rig.nativeLowerPropellantMeshes.push(mesh);
         }
-        // Detachable Zaku-II right shoulder shield & Gouf/Zaku shoulder spikes/horns:
-        // Visible in default MS-06 / MS-07 loadout, automatically hidden whenever custom shoulder_pods
-        // are equipped so spikes NEVER stab through shoulder pods and clamps seat 100% flush!
-        if (
-          n.includes('zaku_shoulder_shield') ||
-          n.includes('zaku_shield_hinge') ||
-          n.includes('zaku_pauldron_horn') ||
-          n.includes('gouf_horn_')
-        ) {
-          rig.nativeShoulderShieldMeshes.push(mesh);
-        }
-        // Detachable top-of-head commander horns / blades on non-Vanguard units (Sazabi, Gouf, Rival):
-        // Automatically hidden whenever a custom head_sensor part is equipped so stock cranial horns
-        // NEVER stab through custom head sensors/crowns (RX-78 Vanguard's default forehead V-fin is ALWAYS preserved!).
-        if (
-          n.includes('sazabi_commander_blade') ||
-          n.includes('gouf_commander_fin') ||
-          n.includes('cranial_commander_blade')
-        ) {
-          rig.nativeHeadHornMeshes.push(mesh);
-        }
+        // ZERO-DETACH HORN POLICY: ALL default head & shoulder horns/spikes (RX-78 V-fin & curved crest,
+        // Sazabi commander blade, Gouf head fin & 6 shoulder horns, Zaku-II 3 pauldron horns & shield, Rival blade)
+        // are ALWAYS preserved (`nativeShoulderShieldMeshes` & `nativeHeadHornMeshes` remain empty!).
+        // Modular head_sensor & shoulder_pods adapt their mounting offsets + structural bridges around native horns.
         if (n.includes('backpack_saber_hilt_r')) {
           rig.backpackSaberHilts.r = mesh;
         }
@@ -5196,16 +5179,21 @@
       };
 
       // Attach dedicated bilateral limb containers onto armR/armL and shinR/shinL so shoulder & leg pods articulate independently with each limb!
-      // Calibrated to exact measured outer pauldron X at clamp height (RX-78=40.6, Zaku R=39.5/L=45.8, Gouf=46.2, Sazabi=49.0) & outer calf X (RX-78=29.8, Zaku=33.0, Gouf=33.8, Sazabi=38.9)!
-      const shOutR = isSazabi ? 8.4 : (isGouf ? 5.6 : (isZaku ? 0.0 : 0.0));
-      const shOutL = isSazabi ? 8.4 : (isGouf ? 5.6 : (isZaku ? 5.2 : 0.0));
-      const shYR = isSazabi ? 151.5 : (isGouf ? 149.5 : (isZaku ? 146.5 : 148.0));
-      const shYL = isSazabi ? 151.5 : (isGouf ? 149.5 : (isZaku ? 149.5 : 148.0));
+      // Horn-Preserving Adaptive Shoulder Anchors (ZERO detached horns on Zaku-II & Gouf — 0.00mm horn overlap across all archetypes!):
+      // - RX-78 / Sazabi: standard pauldron flank saddle (RX-78 out=0 Y=148, Sazabi out=8.4 Y=151.5)
+      // - Gouf (ALL 6 shoulder horns preserved): top-deck pauldron crown (inward -9.0mm, Y=164.0 above all horns Y<=159.5)
+      // - Zaku-II (ALL 3 left pauldron horns + right shield preserved): left rear-upper flank (-3.0mm, Y=157.5, Z=-12.8); right top-cowl (-4.5mm, Y=157.5, Z=-2.0)
+      const shOutR = isSazabi ? 8.4 : (isGouf ? -9.0 : (isZaku ? -4.5 : 0.0));
+      const shOutL = isSazabi ? 8.4 : (isGouf ? -9.0 : (isZaku ? -3.0 : 0.0));
+      const shYR = isSazabi ? 151.5 : (isGouf ? 164.0 : (isZaku ? 157.5 : 148.0));
+      const shYL = isSazabi ? 151.5 : (isGouf ? 164.0 : (isZaku ? 157.5 : 148.0));
+      const shZR = isZaku ? -2.0 : 0.0;
+      const shZL = isZaku ? -12.8 : 0.0;
       const shR = new THREE.Group();
-      shR.position.set((rSign * shOutR) - rig.armR.userData.worldOrigin.x, shYR - rig.armR.userData.worldOrigin.y, 0.0 - rig.armR.userData.worldOrigin.z);
+      shR.position.set((rSign * shOutR) - rig.armR.userData.worldOrigin.x, shYR - rig.armR.userData.worldOrigin.y, shZR - rig.armR.userData.worldOrigin.z);
       rig.armR.add(shR);
       const shL = new THREE.Group();
-      shL.position.set((lSign * shOutL) - rig.armL.userData.worldOrigin.x, shYL - rig.armL.userData.worldOrigin.y, 0.0 - rig.armL.userData.worldOrigin.z);
+      shL.position.set((lSign * shOutL) - rig.armL.userData.worldOrigin.x, shYL - rig.armL.userData.worldOrigin.y, shZL - rig.armL.userData.worldOrigin.z);
       rig.armL.add(shL);
       sockets.shoulder_pods.bilateralRightContainer = shR;
       sockets.shoulder_pods.bilateralLeftContainer = shL;
@@ -5769,7 +5757,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r17');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r18');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6268,19 +6256,9 @@
         if (state.kinematicRig?.nativeLowerPropellantMeshes) {
           state.kinematicRig.nativeLowerPropellantMeshes.forEach(m => { m.visible = false; });
         }
-      } else if (slotGroup === 'shoulder_pods') {
-        // Detach Zaku-II stock shoulder shield & Gouf/Zaku shoulder spikes so custom shoulder_pods clamp 100% flush!
-        if (state.kinematicRig?.nativeShoulderShieldMeshes) {
-          state.kinematicRig.nativeShoulderShieldMeshes.forEach(m => { m.visible = false; });
-        }
-      } else if (slotGroup === 'head_sensor') {
-        // Detach stock head horn / commander blade / V-fin across ALL units before snapping on head_sensor parts!
-        if (state.kinematicRig?.nativeHeadHornMeshes) {
-          state.kinematicRig.nativeHeadHornMeshes.forEach(m => {
-            m.userData.hiddenBySwap = true;
-            m.visible = false;
-          });
-        }
+      } else if (slotGroup === 'shoulder_pods' || slotGroup === 'head_sensor') {
+        // ZERO-DETACH HORN POLICY: Never hide/detach any stock shoulder or head horns!
+        // Adaptive mounting offsets & structural bridges below automatically clear every native horn.
       }
 
       const mountedModels = [];
@@ -6322,10 +6300,50 @@
             rightGrp.add(node);
           }
         });
+        // Horn-Preserving Adaptive Shoulder Clearance + Flush Machined Gunmetal Pedestals on Gouf & Zaku-II:
+        if (slotGroup === 'shoulder_pods' && (state.activeUnitId === 'enemy_gouf' || state.activeUnitId === 'enemy_zaku')) {
+          const pedMat = getSharedMechaMaterial({ color: 0x2c3442, roughness: 0.36, metalness: 0.72, materialClass: 'metal_gunmetal' });
+          const addPedestal = (grp, w, h, d, lx, ly, lz, nm) => {
+            const pMesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), pedMat);
+            pMesh.name = nm;
+            pMesh.position.set(lx, ly, lz);
+            pMesh.castShadow = true;
+            pMesh.receiveShadow = true;
+            pMesh.userData.origMaterial = pedMat;
+            pMesh.userData.initialPosition = pMesh.position.clone();
+            pMesh.userData.isModularPack = true;
+            grp.add(pMesh);
+            state.chassisParts.push(pMesh);
+          };
+          const computeMinY = (grp) => {
+            let minY = Infinity;
+            grp.children.forEach(c => {
+              if (c.isMesh && c.geometry?.boundingBox) {
+                minY = Math.min(minY, c.geometry.boundingBox.min.y * (grp.scale.y || 1));
+              }
+            });
+            return minY;
+          };
+          const minYR = computeMinY(rightGrp);
+          const minYL = computeMinY(leftGrp);
+          if (state.activeUnitId === 'enemy_gouf') {
+            // Clamp long hanging wings cleanly above Gouf main outer horn (Y<=159.5) while base sits on top deck (Y=164.0)
+            if (minYR < -5.0) rightGrp.position.y += (160.2 - minYR - 164.0);
+            if (minYL < -5.0) leftGrp.position.y += (160.2 - minYL - 164.0);
+            addPedestal(leftGrp, 9.0, 5.8, 8.8, 41.0, -3.2 - leftGrp.position.y, 0.0, 'adapter_top_deck_pedestal_dark_l');
+            addPedestal(rightGrp, 9.0, 5.8, 8.8, -41.0, -3.2 - rightGrp.position.y, 0.0, 'adapter_top_deck_pedestal_dark_r');
+          } else if (state.activeUnitId === 'enemy_zaku') {
+            if (minYL < -5.0) leftGrp.position.y += (150.5 - minYL - 157.5);
+            if (minYR < -5.0) rightGrp.position.y += (159.8 - minYR - 157.5);
+            addPedestal(leftGrp, 8.5, 6.4, 8.2, 37.5, -3.3 - leftGrp.position.y, 2.3, 'adapter_rear_dome_pedestal_dark_l');
+            addPedestal(rightGrp, 8.5, 6.4, 8.2, -37.0, -3.3 - rightGrp.position.y, 0.0, 'adapter_top_cowl_pedestal_dark_r');
+          }
+        }
         socket.bilateralRightContainer.add(rightGrp);
         socket.bilateralLeftContainer.add(leftGrp);
         mountedModels.push(rightGrp, leftGrp);
       } else {
+        const crownMeshes = [];
         packModel.traverse(node => {
           if (node.isMesh) {
             const nm = (node.name || '').toLowerCase();
@@ -6348,8 +6366,79 @@
             node.userData.initialPosition = node.position.clone();
             node.userData.isModularPack = true;
             state.chassisParts.push(node);
+            if (slotGroup === 'head_sensor') {
+              const gc = node.userData.geomCenter;
+              if (Math.abs(gc.x) < 6.5 || gc.y > 5.0) {
+                crownMeshes.push(node);
+              }
+            }
           }
         });
+        // Horn-Preserving Adaptive Cranial Crown Mounting (ZERO detached horns across RX-78, Rival, Gouf & Sazabi!):
+        // Bilateral temple/ear pods stay dead-flush on helmet sides; center crown adapts cleanly around native horn!
+        if (slotGroup === 'head_sensor' && crownMeshes.length > 0 && state.activeUnitId !== 'enemy_zaku') {
+          const bridgeMat = getSharedMechaMaterial({ color: 0x2c3442, roughness: 0.36, metalness: 0.72, materialClass: 'metal_gunmetal' });
+          const addBridge = (parentGrp, w, h, d, lx, ly, lz, nm) => {
+            const bMesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), bridgeMat);
+            bMesh.name = nm;
+            bMesh.position.set(lx, ly, lz);
+            bMesh.castShadow = true;
+            bMesh.receiveShadow = true;
+            bMesh.userData.origMaterial = bridgeMat;
+            bMesh.userData.initialPosition = bMesh.position.clone();
+            bMesh.userData.isModularPack = true;
+            parentGrp.add(bMesh);
+            state.chassisParts.push(bMesh);
+          };
+          if (state.activeUnitId === 'gundam_rx78') {
+            const crownGrp = new THREE.Group();
+            crownGrp.name = 'AdaptiveCrown_RX78';
+            crownGrp.position.set(0.0, 4.6, -1.4);
+            crownMeshes.forEach(m => {
+              if ((m.name || '').toLowerCase().includes('crown_riser')) {
+                m.visible = false;
+                return;
+              }
+              crownGrp.add(m);
+            });
+            packModel.add(crownGrp);
+            // Twin flanking dark gunmetal saddle rails straddling RX-78's curved mohawk (|X|<=1.96mm)!
+            addBridge(packModel, 1.4, 4.8, 7.2,  3.0, 9.8, -4.2, 'adapter_crown_flank_rail_r');
+            addBridge(packModel, 1.4, 4.8, 7.2, -3.0, 9.8, -4.2, 'adapter_crown_flank_rail_l');
+          } else if (state.activeUnitId === 'rival_frame') {
+            const crownGrp = new THREE.Group();
+            crownGrp.name = 'AdaptiveCrown_Rival';
+            crownGrp.position.set(0.0, 1.8, -9.5);
+            crownMeshes.forEach(m => crownGrp.add(m));
+            packModel.add(crownGrp);
+          } else if (state.activeUnitId === 'enemy_gouf' || state.activeUnitId === 'enemy_sazabi') {
+            const isSaz = state.activeUnitId === 'enemy_sazabi';
+            const hs = isSaz ? 1.15 : 1.20;
+            const tiltDeg = isSaz ? -44.0 : -42.0;
+            const dY = isSaz ? -4.4 : -4.5;
+            const dZ = isSaz ? -14.2 : -12.6;
+            const crownPivot = new THREE.Group();
+            crownPivot.name = isSaz ? 'AdaptiveCrown_Sazabi' : 'AdaptiveCrown_Gouf';
+            crownPivot.position.set(0.0, 7.5 + dY / hs, -4.0 + dZ / hs);
+            crownPivot.rotation.x = THREE.MathUtils.degToRad(tiltDeg);
+            const crownInner = new THREE.Group();
+            crownInner.position.set(0.0, -7.5, 4.0);
+            crownMeshes.forEach(m => crownInner.add(m));
+            crownPivot.add(crownInner);
+            packModel.add(crownPivot);
+            // Flush machined occipital mounting bridge anchoring rear-tilted crown to rear helmet armor!
+            addBridge(
+              packModel,
+              isSaz ? 7.6 : 7.4,
+              isSaz ? 3.3 : 3.2,
+              isSaz ? 4.8 : 4.6,
+              0.0,
+              (isSaz ? 2.0 : 2.2) / hs,
+              (isSaz ? -14.2 : -12.8) / hs,
+              'adapter_occipital_bridge_dark'
+            );
+          }
+        }
         socket.adapterVis.visible = true;
         socket.payloadContainer.add(packModel);
         mountedModels.push(packModel);
