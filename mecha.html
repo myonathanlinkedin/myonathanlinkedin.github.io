@@ -4751,15 +4751,13 @@
         ) {
           rig.nativeShoulderShieldMeshes.push(mesh);
         }
-        // Detachable stock head horns / commander blades / V-fins across ALL units:
+        // Detachable top-of-head commander horns / blades on non-Vanguard units (Sazabi, Gouf, Rival):
         // Automatically hidden whenever a custom head_sensor part is equipped so stock cranial horns
-        // NEVER stab through or collide with custom head sensors/crowns (restored cleanly on unequip!).
+        // NEVER stab through custom head sensors/crowns (RX-78 Vanguard's default forehead V-fin is ALWAYS preserved!).
         if (
           n.includes('sazabi_commander_blade') ||
           n.includes('gouf_commander_fin') ||
-          n.includes('cranial_commander_blade') ||
-          n.includes('v_fin_antenna') ||
-          n.includes('head_v_fin_crest_gem')
+          n.includes('cranial_commander_blade')
         ) {
           rig.nativeHeadHornMeshes.push(mesh);
         }
