@@ -4498,8 +4498,10 @@
       }
       let color = 0xf0f2ec, roughness = 0.38, metalness = 0.08, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, isEmissive = false, materialClass = 'armor_white';
       if (n.includes('twin_eyes')) {
-        color = 0xfef08a; emissive = 0xf59e0b; emissiveIntensity = 5.2; roughness = 0.12; metalness = 0.08; useDetail = false; isEmissive = true; materialClass = 'emissive';
-      } else if (n.includes('sensor_front') || n.includes('sensor_rear')) {
+        color = 0xfacc15; emissive = 0xf59e0b; emissiveIntensity = 1.9; roughness = 0.14; metalness = 0.08; useDetail = false; isEmissive = true; materialClass = 'emissive';
+      } else if (n.includes('sensor_front')) {
+        color = 0xef4444; emissive = 0xdc2626; emissiveIntensity = 1.8; roughness = 0.14; metalness = 0.10; useDetail = false; isEmissive = true; materialClass = 'emissive';
+      } else if (n.includes('sensor_rear')) {
         color = 0x7dd3fc; emissive = 0x0ea5e9; emissiveIntensity = 4.2; roughness = 0.12; metalness = 0.10; useDetail = false; isEmissive = true; materialClass = 'emissive';
       } else if (n.includes('thruster_glow')) {
         color = 0x38f8ff; emissive = 0x00e5ff; emissiveIntensity = 4.6; roughness = 0.12; metalness = 0.10; useDetail = false; isEmissive = true; materialClass = 'emissive';
@@ -4517,7 +4519,9 @@
         color = 0xe6e9e3; roughness = 0.40; metalness = 0.08; materialClass = 'armor_white';
       } else if (n.includes('_rg_') || n.includes('rg_panel') || n.includes('rg_cuff') || n.includes('rg_subplate')) {
         color = 0x94a3b8; roughness = 0.40; metalness = 0.18; materialClass = 'armor_painted';
-      } else if (n.includes('face_slit_dark') || n.includes('cheek_vent_dark') || n.includes('visor_recess') || n.includes('vent_duct') || n.includes('flex_seam_dark') || n.includes('_hub_dark') || n.includes('shoulder_vent_dark') || n.includes('collar_ribs_dark') || n.includes('ear_slot_dark')) {
+      } else if (n.includes('face_slit_dark') || n.includes('cheek_vent_dark') || n.includes('visor_recess')) {
+        color = 0x0b0f17; roughness = 0.78; metalness = 0.08; useDetail = false; materialClass = 'polymer_matte';
+      } else if (n.includes('vent_duct') || n.includes('flex_seam_dark') || n.includes('_hub_dark') || n.includes('shoulder_vent_dark') || n.includes('collar_ribs_dark') || n.includes('ear_slot_dark')) {
         color = 0x101824; roughness = 0.64; metalness = 0.22; useDetail = false; materialClass = 'polymer_matte';
       } else if (n.includes('foot_sole')) {
         color = 0x222c3a; roughness = 0.68; metalness = 0.16; useDetail = false; materialClass = 'polymer_matte';
@@ -5833,7 +5837,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r27');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r28');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
