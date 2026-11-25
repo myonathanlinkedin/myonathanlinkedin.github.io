@@ -2946,6 +2946,8 @@
     // 1. UNIFIED 4-UNIT MECHA-UNIVERSE ROSTER (LOADED FROM PUBLIC 'mecha-assets' REPO!)
     // =========================================================================
     const MECHA_ASSETS_CDN = 'https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main';
+    // Immutable commit-pinned baseline CDN bypasses Fastly raw.githubusercontent.com 300s /main/ edge cache!
+    const MECHA_BASELINE_CDN = 'https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/a2808569cc8d0fe990fb98eebb9a1cd2e4d223c0';
 
     const HERO_RX78_SPEC = {
       id: 'vanguard_rx',
@@ -2955,7 +2957,7 @@
       massKg: 24500,
       reactorKw: 3450,
       baseThrust: 55500,
-      glbUrl: `${MECHA_ASSETS_CDN}/models/baselines/baseline_gundam_frame_v1.glb`,
+      glbUrl: `${MECHA_BASELINE_CDN}/models/baselines/baseline_gundam_frame_v1.glb`,
       isZeonEnemy: false,
       hasNativeHandsEmpty: true,
       dorsalZ: -19.0,
@@ -5855,7 +5857,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r52');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r53');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
