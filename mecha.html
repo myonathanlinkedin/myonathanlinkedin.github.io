@@ -1914,9 +1914,10 @@
     .callout-tag {
       position: absolute;
       transform: translate(-50%, -50%);
+      width: 236px;
       padding: 5px 9px;
       border-radius: 7px;
-      background: rgba(9, 15, 29, 0.88);
+      background: rgba(9, 15, 29, 0.90);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border: 1px solid rgba(56, 189, 248, 0.50);
@@ -1925,18 +1926,43 @@
       font-family: var(--font-mono);
       font-size: 8.6px;
       font-weight: 700;
-      letter-spacing: 0.45px;
-      white-space: nowrap;
+      letter-spacing: 0.4px;
       line-height: 1.25;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.42);
     }
 
+    .callout-tag.equipped {
+      border-left-color: #38bdf8;
+    }
+
+    .callout-tag .c-head {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .callout-tag .c-desc {
+      display: block;
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 7.8px;
+      font-weight: 500;
+      color: #e2e8f0;
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      letter-spacing: 0.1px;
+    }
+
     .callout-tag .c-sub {
       display: block;
-      font-size: 7.4px;
+      font-size: 7.2px;
       color: #94a3b8;
       font-weight: 600;
       margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .callout-tag .c-dot {
@@ -1948,6 +1974,25 @@
       margin-right: 5px;
       vertical-align: middle;
       box-shadow: 0 0 8px rgba(249, 115, 22, 0.7);
+    }
+
+    .callout-tag.equipped .c-dot {
+      background: #38bdf8;
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.75);
+    }
+
+    @media (max-width: 768px) {
+      .callout-tag {
+        width: 152px;
+        padding: 4px 6px;
+        font-size: 7.4px;
+      }
+      .callout-tag .c-desc {
+        font-size: 6.8px;
+      }
+      .callout-tag .c-sub {
+        font-size: 6.4px;
+      }
     }
 
     body.studio-light-mode .callout-tag {
@@ -7026,98 +7071,221 @@
     canvas.addEventListener('wheel', handoffToUser, { passive: true });
     window.addEventListener('keydown', (e) => { if (e.key !== 'Escape') handoffToUser(); });
 
-    function _shortCalloutName(partId) {
-      if (!partId || !state.catalog?.modular_parts) return '';
-      const p = state.catalog.modular_parts.find(x => x.part_id === partId);
-      if (!p || !p.name) return '';
-      const raw = String(p.name).trim();
-      return raw.length > 26 ? raw.slice(0, 25).trim() + '…' : raw;
+    function _getEquippedPartMeta(partId) {
+      if (!partId || !state.catalog?.modular_parts) return null;
+      return state.catalog.modular_parts.find(x => x.part_id === partId) || null;
     }
 
-    const CALLOUT_ANCHORS = [
+    function _shortText(txt, maxLen) {
+      const raw = String(txt || '').replace(/\s+/g, ' ').trim();
+      if (!raw) return '';
+      return raw.length > maxLen ? raw.slice(0, maxLen - 1).trim() + '…' : raw;
+    }
+
+    function _shortCalloutName(partId, maxLen = 28) {
+      const p = _getEquippedPartMeta(partId);
+      return p?.name ? _shortText(p.name, maxLen) : '';
+    }
+
+    function _equippedCalloutDesc(partId, fallbackHp, maxLen = 46) {
+      const p = _getEquippedPartMeta(partId);
+      if (!p) return `${fallbackHp} • LOCKED`;
+      const role = p.telemetry_and_lore?.operational_role || '';
+      if (role) return _shortText(role, maxLen);
+      return `${p.primary_hardpoint || fallbackHp} • ${p.serial_number || 'MODULAR'} • LOCKED`;
+    }
+
+    function _equippedCalloutSpecs(partId, fallbackHp) {
+      const p = _getEquippedPartMeta(partId);
+      if (!p) return `${fallbackHp} • LOCKED`;
+      const hp = p.primary_hardpoint || fallbackHp;
+      const serial = p.serial_number ? ` • ${p.serial_number}` : '';
+      const mass = Number(p.structural_specs?.mass_kg || 0);
+      const thrust = Number(p.telemetry_and_lore?.vernier_thrust_kgf || 0);
+      const power = Number(p.telemetry_and_lore?.reactor_power_draw_kw || 0);
+      const stat = thrust > 0
+        ? ` • ${(thrust / 1000).toFixed(0)}t THRUST`
+        : (mass > 0 ? ` • ${mass}kg` : (power > 0 ? ` • ${power}kW` : ''));
+      return `${hp}${serial}${stat}`;
+    }
+
+    // Complete 8-Zone UHIS Dynamic Modular Callout Anchors (tracks all 8 slots accurately across all 5 Mobile Suits!)
+    const EQUIPPED_ZONE_CALLOUTS = [
       {
-        id: 'c_optics',
+        id: 'c_head',
+        slotGroup: 'head_sensor',
+        zoneLabel: 'HEAD',
+        hp: 'HP-01/02',
+        preferredSide: -1,
         getWorld: (out) => {
+          const sock = state.socketRig?.head_sensor?.socketRoot;
+          if (sock) { out.set(0, 10, 2); sock.localToWorld(out); return out; }
           const rig = state.kinematicRig;
-          if (rig?.head) { out.set(0, 10, 9); rig.head.localToWorld(out); return out; }
-          return out.set(0, 165, 10);
-        },
-        screenDx: -155, screenDy: -34,
-        title: () => state.slotOccupancy.head_sensor ? `HEAD: ${_shortCalloutName(state.slotOccupancy.head_sensor)}` : 'OPTICAL SENSOR ARRAY',
-        sub: () => state.slotOccupancy.head_sensor
-          ? 'ADP-HP01 CRANIAL • LOCKED'
-          : (UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'RECESSED MONO-EYE • IR RIM' : 'DUAL GOLDEN CAM • TRACKING')
+          if (rig?.head) { out.set(0, 12, 4); rig.head.localToWorld(out); return out; }
+          return out.set(0, 174, 4);
+        }
       },
       {
-        id: 'c_reactor',
+        id: 'c_dorsal',
+        slotGroup: 'dorsal_pack',
+        zoneLabel: 'BACKPACK',
+        hp: 'HP-00',
+        preferredSide: 1,
         getWorld: (out) => {
+          const sock = state.socketRig?.dorsal_pack?.socketRoot;
+          if (sock) { out.set(0, 4, -14); sock.localToWorld(out); return out; }
           const rig = state.kinematicRig;
-          if (rig?.torso) { out.set(0, 24, 12); rig.torso.localToWorld(out); return out; }
-          return out.set(0, 138, 12);
-        },
-        screenDx: 160, screenDy: -28,
-        title: () => state.slotOccupancy.chest_armor
-          ? `CHEST: ${_shortCalloutName(state.slotOccupancy.chest_armor)}`
-          : (UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'ZEON REACTOR CORE' : 'MINOVSKY 3-GEAR CORE'),
-        sub: () => state.hatchOpen
-          ? (UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'HATCH OPEN • CORE EXPOSED' : 'HATCH OPEN • 20T/14T SPIN')
-          : (state.slotOccupancy.chest_armor ? 'ADP-HP09 PECTORAL • LOCKED' : (state.renderMode === 'glass' ? 'GLASS CUTAWAY • EXPOSED' : 'HATCH SEALED'))
+          if (rig?.torso) { out.set(0, 24, -22); rig.torso.localToWorld(out); return out; }
+          return out.set(0, 144, -24);
+        }
       },
       {
-        id: 'c_servo',
+        id: 'c_shoulder',
+        slotGroup: 'shoulder_pods',
+        zoneLabel: 'SHOULDER',
+        hp: 'HP-03/05',
+        preferredSide: 1,
         getWorld: (out) => {
           const rig = state.kinematicRig;
-          if (state.slotOccupancy.shoulder_pods && rig?.armR) {
-            out.set((rig.rSign || 1) * 4, 6, 0); rig.armR.localToWorld(out); return out;
-          }
-          if (rig?.forearmR) { out.set(0, 0, 0); rig.forearmR.localToWorld(out); return out; }
-          return out.set(34 * (rig?.rSign || 1), 116, 2);
-        },
-        screenDx: 155, screenDy: 14,
-        title: () => state.slotOccupancy.shoulder_pods ? `SHOULDER: ${_shortCalloutName(state.slotOccupancy.shoulder_pods)}` : 'ROTARY SERVO DRUM',
-        sub: () => state.slotOccupancy.shoulder_pods ? 'ADP-HP03 PAULDRON • LOCKED' : '6-BOLT ANODIZED COLLAR'
+          const rCont = state.socketRig?.shoulder_pods?.bilateralRightContainer;
+          if (rCont) { out.set((rig?.rSign || 1) * 48, 8, 0); rCont.localToWorld(out); return out; }
+          if (rig?.armR) { out.set((rig.rSign || 1) * 10, 6, 0); rig.armR.localToWorld(out); return out; }
+          return out.set(46 * (rig?.rSign || 1), 152, 0);
+        }
       },
       {
-        id: 'c_weapon',
+        id: 'c_chest',
+        slotGroup: 'chest_armor',
+        zoneLabel: 'CHEST',
+        hp: 'HP-09/10',
+        preferredSide: -1,
         getWorld: (out) => {
-          const sock = state.socketRig?.aux_weapon?.socketRoot;
-          if (sock) { sock.getWorldPosition(out); return out; }
+          const sock = state.socketRig?.chest_armor?.socketRoot;
+          if (sock) { out.set(0, 2, 10); sock.localToWorld(out); return out; }
           const rig = state.kinematicRig;
-          if (rig?.forearmR) { out.set(0, -26, 2); rig.forearmR.localToWorld(out); return out; }
-          return out.set(35 * (rig?.rSign || 1), 88, 4);
-        },
-        screenDx: 155, screenDy: 44,
-        title: () => state.slotOccupancy.aux_weapon ? `WEAPON: ${_shortCalloutName(state.slotOccupancy.aux_weapon)}` : 'ADP-HP11 PALM SOCKET',
-        sub: () => state.slotOccupancy.aux_weapon
-          ? (state.activeStance === 'RifleBurst' ? 'BEAM AIM • LOCKED' : 'PALM ADAPTER • LOCKED')
-          : 'STANDBY • NO WEAPON EQUIPPED'
+          if (rig?.torso) { out.set(0, 24, 18); rig.torso.localToWorld(out); return out; }
+          return out.set(0, 140, 18);
+        }
       },
       {
         id: 'c_shield',
+        slotGroup: 'aux_shield',
+        zoneLabel: 'SHIELD',
+        hp: 'HP-07',
+        preferredSide: -1,
         getWorld: (out) => {
           const sock = state.socketRig?.aux_shield?.socketRoot;
           if (sock) { sock.getWorldPosition(out); return out; }
           const rig = state.kinematicRig;
           if (rig?.forearmL) { out.set(0, -14, 0); rig.forearmL.localToWorld(out); return out; }
           return out.set(-38 * (rig?.rSign || 1), 102, 2);
-        },
-        screenDx: -160, screenDy: 24,
-        title: () => state.slotOccupancy.aux_shield ? `SHIELD: ${_shortCalloutName(state.slotOccupancy.aux_shield)}` : 'ADP-HP07 FOREARM MOUNT',
-        sub: () => state.slotOccupancy.aux_shield ? 'OUTWARD NORMAL • LOCKED' : 'STANDBY • NO SHIELD EQUIPPED'
+        }
       },
       {
-        id: 'c_knee',
+        id: 'c_weapon',
+        slotGroup: 'aux_weapon',
+        zoneLabel: 'WEAPON',
+        hp: 'HP-11',
+        preferredSide: 1,
+        getWorld: (out) => {
+          const sock = state.socketRig?.aux_weapon?.socketRoot;
+          if (sock) { sock.getWorldPosition(out); return out; }
+          const rig = state.kinematicRig;
+          if (rig?.forearmR) { out.set(0, -26, 2); rig.forearmR.localToWorld(out); return out; }
+          return out.set(35 * (rig?.rSign || 1), 88, 4);
+        }
+      },
+      {
+        id: 'c_waist',
+        slotGroup: 'waist_ordnance',
+        zoneLabel: 'WAIST',
+        hp: 'HP-13/17',
+        preferredSide: -1,
+        getWorld: (out) => {
+          const sock = state.socketRig?.waist_ordnance?.socketRoot;
+          if (sock) { out.set(-22, 0, -14); sock.localToWorld(out); return out; }
+          const rig = state.kinematicRig;
+          if (rig?.pelvis) { out.set(-22, 10, -14); rig.pelvis.localToWorld(out); return out; }
+          return out.set(-24, 114, -14);
+        }
+      },
+      {
+        id: 'c_legs',
+        slotGroup: 'leg_thrusters',
+        zoneLabel: 'LEGS',
+        hp: 'HP-24/26',
+        preferredSide: 1,
         getWorld: (out) => {
           const rig = state.kinematicRig;
-          if (state.slotOccupancy.leg_thrusters && rig?.shinL) {
-            out.set((rig.lSign || -1) * 8, -18, 0); rig.shinL.localToWorld(out); return out;
-          }
-          if (rig?.shinL) { out.set(0, 2, 6); rig.shinL.localToWorld(out); return out; }
-          return out.set(-16 * (rig?.rSign || 1), 62, 6);
+          const rCont = state.socketRig?.leg_thrusters?.bilateralRightContainer;
+          if (rCont) { out.set((rig?.rSign || 1) * 34, 0, -2); rCont.localToWorld(out); return out; }
+          if (rig?.shinR) { out.set((rig.rSign || 1) * 8, -16, 0); rig.shinR.localToWorld(out); return out; }
+          return out.set(30 * (rig?.rSign || 1), 46, -2);
+        }
+      }
+    ];
+
+    // Stock Mobile Suit baseline callouts shown cleanly ONLY when 0 modular parts are equipped
+    const BASELINE_STOCK_CALLOUTS = [
+      {
+        id: 'b_head',
+        preferredSide: -1,
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (rig?.head) { out.set(0, 10, 9); rig.head.localToWorld(out); return out; }
+          return out.set(0, 168, 10);
         },
-        screenDx: -155, screenDy: 56,
-        title: () => state.slotOccupancy.leg_thrusters ? `LEGS: ${_shortCalloutName(state.slotOccupancy.leg_thrusters)}` : 'DOUBLE-PIVOT KNEE DRUM',
-        sub: () => state.slotOccupancy.leg_thrusters ? 'ADP-HP24 CALF POD • LOCKED' : 'TEARDOWN HYDRAULIC DAMPER'
+        title: () => UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'STOCK MONO-EYE SENSOR' : 'STOCK DUAL-CAM HEAD & V-FIN',
+        desc: () => UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'Recessed optical mono-eye tracking rail' : 'Dual golden eyes, 60mm Vulcans & compact V-fin',
+        sub: () => 'HP-01/02 STANDBY • READY FOR HEAD MODULE'
+      },
+      {
+        id: 'b_dorsal',
+        preferredSide: 1,
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (rig?.torso) { out.set(0, 24, -20); rig.torso.localToWorld(out); return out; }
+          return out.set(0, 144, -20);
+        },
+        title: () => state.activeUnitId === 'sazabi_msn04' ? 'STOCK 12-NOZZLE FUNNEL PACK' : 'STOCK DORSAL THRUSTER PACK',
+        desc: () => state.activeUnitId === 'sazabi_msn04' ? 'Dual tall funnel racks & propellant boosters' : 'Standard propulsion backpack & saber mounts',
+        sub: () => 'HP-00 UHIS DOVETAIL • READY FOR BACKPACK'
+      },
+      {
+        id: 'b_chest',
+        preferredSide: -1,
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (rig?.torso) { out.set(0, 22, 16); rig.torso.localToWorld(out); return out; }
+          return out.set(0, 140, 16);
+        },
+        title: () => UNIT_REGISTRY[state.activeUnitId]?.isZeonEnemy ? 'ZEON ULTRACOMPACT REACTOR' : 'MINOVSKY 3-GEAR CORE & VENTS',
+        desc: () => state.hatchOpen ? 'Cockpit hatch open — internal core exposed' : 'Armored sternum hatch & cooling intake vents',
+        sub: () => 'HP-09/10 STANDBY • READY FOR CHEST ARMOR'
+      },
+      {
+        id: 'b_arms',
+        preferredSide: 1,
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (rig?.forearmR) { out.set(0, -18, 2); rig.forearmR.localToWorld(out); return out; }
+          return out.set(35, 96, 4);
+        },
+        title: () => 'STOCK MANIPULATOR & HARDPOINTS',
+        desc: () => 'Articulated 4-finger hand & forearm shield mount',
+        sub: () => 'HP-03/07/11 • READY FOR WEAPON / SHIELD / PODS'
+      },
+      {
+        id: 'b_legs',
+        preferredSide: -1,
+        getWorld: (out) => {
+          const rig = state.kinematicRig;
+          if (rig?.shinL) { out.set(0, -8, 6); rig.shinL.localToWorld(out); return out; }
+          return out.set(-18, 54, 6);
+        },
+        title: () => 'STOCK AMBAC LEG & WAIST FRAME',
+        desc: () => 'Double-pivot knee damper & articulated hip skirts',
+        sub: () => 'HP-13/24 • READY FOR WAIST / LEG MODULES'
       }
     ];
     const _projVec = new THREE.Vector3();
@@ -7135,34 +7303,125 @@
       _lastCalloutSig = sig;
       _lastCalloutFrameTs = nowTs;
       if (state.chassisModel) state.chassisModel.updateWorldMatrix(true, true);
-      let svgHtml = '';
-      let nodesHtml = '';
       const isStudio = state.activeEnv === 'studio';
+      const isMobile = w <= 768;
       const strokeCol = isStudio ? '#ea580c' : '#38bdf8';
       const dotCol = '#f97316';
       // Measure exact open side-drawer bounds + half-pill safety margin so NO callout card EVER clips!
       const leftRect = (state.menus.left && !state.menus.allHidden && leftDrawer) ? leftDrawer.getBoundingClientRect() : null;
       const rightRect = ((state.menus.right || state.menus.scene) && !state.menus.allHidden && rightStack) ? rightStack.getBoundingClientRect() : null;
-      const cardHalfW = 112;
-      const minX = (leftRect && w > 960 && leftRect.right > 40) ? (leftRect.right + cardHalfW + 16) : (cardHalfW + 12);
-      const maxX = (rightRect && w > 960 && rightRect.left < w - 40) ? (rightRect.left - cardHalfW - 16) : (w - cardHalfW - 12);
-      for (const a of CALLOUT_ANCHORS) {
-        a.getWorld(_projVec);
+      const cardHalfW = isMobile ? 76 : 118;
+      const minX = (leftRect && w > 960 && leftRect.right > 40) ? (leftRect.right + cardHalfW + 14) : (cardHalfW + 8);
+      const maxX = (rightRect && w > 960 && rightRect.left < w - 40) ? (rightRect.left - cardHalfW - 14) : (w - cardHalfW - 8);
+      const minY = isMobile ? 86 : 84;
+      const maxY = isMobile ? (h - 92) : (h - 96);
+
+      // Dynamic Mode: If >= 1 modular part is equipped, show ALL currently equipped parts (1..8) with full specs & roles;
+      // otherwise show stock baseline chassis callouts so the overlay is always meaningful!
+      const equippedEntries = EQUIPPED_ZONE_CALLOUTS.filter(z => Boolean(state.slotOccupancy[z.slotGroup]));
+      const activeList = equippedEntries.length > 0
+        ? equippedEntries.map(z => {
+            const pid = state.slotOccupancy[z.slotGroup];
+            return {
+              id: z.id,
+              preferredSide: z.preferredSide,
+              getWorld: z.getWorld,
+              title: `${z.zoneLabel}: ${_shortCalloutName(pid, isMobile ? 19 : 26)}`,
+              desc: _equippedCalloutDesc(pid, z.hp, isMobile ? 32 : 46),
+              sub: _equippedCalloutSpecs(pid, z.hp),
+              isEquipped: true
+            };
+          })
+        : BASELINE_STOCK_CALLOUTS.map(b => ({
+            id: b.id,
+            preferredSide: b.preferredSide,
+            getWorld: b.getWorld,
+            title: b.title(),
+            desc: b.desc(),
+            sub: b.sub(),
+            isEquipped: false
+          }));
+
+      // Project all active anchors to 2D screen coordinates & partition cleanly into Left vs Right columns
+      const leftCol = [];
+      const rightCol = [];
+      for (const item of activeList) {
+        item.getWorld(_projVec);
         _projVec.project(camera);
         if (_projVec.z > 1.0) continue;
         const sx = (_projVec.x * 0.5 + 0.5) * w;
         const sy = (-_projVec.y * 0.5 + 0.5) * h;
-        const dxSign = sx < (w * 0.5) ? -1 : 1;
-        const dx = Math.abs(a.screenDx) * dxSign;
-        const lx = Math.max(minX, Math.min(maxX, sx + dx));
-        const ly = Math.max(88, Math.min(h - 98, sy + a.screenDy));
-        // Precision CAD elbow leader line (anchor -> knee -> tag)
-        const kx = sx + (lx - sx) * 0.42;
-        const titleTxt = typeof a.title === 'function' ? a.title() : a.title;
-        svgHtml += `<polyline points="${sx.toFixed(1)},${sy.toFixed(1)} ${kx.toFixed(1)},${ly.toFixed(1)} ${lx.toFixed(1)},${ly.toFixed(1)}" fill="none" stroke="${strokeCol}" stroke-width="1.35" opacity="0.88" />`
-          + `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="4.8" fill="none" stroke="${dotCol}" stroke-width="1.2" opacity="0.65" />`
-          + `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="2.6" fill="${dotCol}" />`;
-        nodesHtml += `<div class="callout-tag" style="left:${lx.toFixed(1)}px;top:${ly.toFixed(1)}px;"><span class="c-dot"></span>${escapePresetHtml(titleTxt)}<span class="c-sub">${escapePresetHtml(a.sub())}</span></div>`;
+        const entry = { item, sx, sy, side: sx < (w * 0.5) ? -1 : 1 };
+        // When near horizontal center, honor preferredSide so 8 equipped tags balance cleanly 4 Left / 4 Right
+        if (Math.abs(sx - w * 0.5) < (isMobile ? 28 : 48)) {
+          entry.side = item.preferredSide;
+        }
+        (entry.side < 0 ? leftCol : rightCol).push(entry);
+      }
+
+      // Rebalance columns if one side has > 5 cards (e.g., all 8 parts visible from side angle)
+      while (leftCol.length > 4 && rightCol.length < 4) {
+        leftCol.sort((a, b) => b.sx - a.sx);
+        const moved = leftCol.shift();
+        moved.side = 1;
+        rightCol.push(moved);
+      }
+      while (rightCol.length > 4 && leftCol.length < 4) {
+        rightCol.sort((a, b) => a.sx - b.sx);
+        const moved = rightCol.shift();
+        moved.side = -1;
+        leftCol.push(moved);
+      }
+
+      // Vertical anti-overlap solver per column so ALL 8 callout cards stay crisp with ZERO overlaps!
+      const minGapY = isMobile ? 48 : 56;
+      const layoutColumn = (col) => {
+        col.sort((a, b) => a.sy - b.sy);
+        for (let i = 0; i < col.length; i++) {
+          col[i].ly = Math.max(minY, Math.min(maxY, col[i].sy));
+        }
+        // Downward pass
+        for (let i = 1; i < col.length; i++) {
+          if (col[i].ly < col[i - 1].ly + minGapY) {
+            col[i].ly = col[i - 1].ly + minGapY;
+          }
+        }
+        // Clamp bottom & upward pass
+        if (col.length > 0 && col[col.length - 1].ly > maxY) {
+          col[col.length - 1].ly = maxY;
+          for (let i = col.length - 2; i >= 0; i--) {
+            if (col[i].ly > col[i + 1].ly - minGapY) {
+              col[i].ly = col[i + 1].ly - minGapY;
+            }
+          }
+          if (col[0].ly < minY) {
+            const span = Math.max(1, maxY - minY);
+            const step = col.length > 1 ? span / (col.length - 1) : 0;
+            for (let i = 0; i < col.length; i++) col[i].ly = minY + i * step;
+          }
+        }
+      };
+      layoutColumn(leftCol);
+      layoutColumn(rightCol);
+
+      let svgHtml = '';
+      let nodesHtml = '';
+      const baseOffset = isMobile ? 102 : 178;
+      for (const entry of [...leftCol, ...rightCol]) {
+        const { item, sx, sy, side, ly } = entry;
+        const targetX = side < 0 ? Math.min(sx - baseOffset, minX + (isMobile ? 4 : 24)) : Math.max(sx + baseOffset, maxX - (isMobile ? 4 : 24));
+        const lx = Math.max(minX, Math.min(maxX, targetX));
+        const edgeX = lx + (side < 0 ? cardHalfW : -cardHalfW);
+        const kx = sx + (edgeX - sx) * 0.45;
+        const activeDotCol = item.isEquipped ? '#38bdf8' : dotCol;
+        svgHtml += `<polyline points="${sx.toFixed(1)},${sy.toFixed(1)} ${kx.toFixed(1)},${ly.toFixed(1)} ${edgeX.toFixed(1)},${ly.toFixed(1)}" fill="none" stroke="${strokeCol}" stroke-width="1.35" opacity="0.88" />`
+          + `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="4.8" fill="none" stroke="${activeDotCol}" stroke-width="1.2" opacity="0.65" />`
+          + `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="2.6" fill="${activeDotCol}" />`;
+        nodesHtml += `<div class="callout-tag${item.isEquipped ? ' equipped' : ''}" style="left:${lx.toFixed(1)}px;top:${ly.toFixed(1)}px;">`
+          + `<div class="c-head"><span class="c-dot"></span>${escapePresetHtml(item.title)}</div>`
+          + (item.desc ? `<span class="c-desc">${escapePresetHtml(item.desc)}</span>` : '')
+          + `<span class="c-sub">${escapePresetHtml(item.sub)}</span>`
+          + `</div>`;
       }
       calloutSvg.innerHTML = svgHtml;
       calloutNodesEl.innerHTML = nodesHtml;
