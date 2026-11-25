@@ -4511,11 +4511,13 @@
         color = 0xeab308; roughness = 0.20; metalness = 0.90; useDetail = false; materialClass = 'metal_gold';
       } else if (n.includes('chest_armor_blue') || n.includes('cockpit_hatch_blue') || n.includes('subplate_blue_rg')) {
         color = 0x1b64c6; roughness = 0.28; metalness = 0.24; materialClass = 'armor_gloss';
+      } else if (n.includes('cockpit_hatch_navy')) {
+        color = 0x113a78; roughness = 0.34; metalness = 0.20; materialClass = 'armor_painted';
       } else if (n.includes('elbow_cap_white') || n.includes('knee_cap_disc_white') || n.includes('ankle_disc_white')) {
         color = 0xe6e9e3; roughness = 0.40; metalness = 0.08; materialClass = 'armor_white';
       } else if (n.includes('_rg_') || n.includes('rg_panel') || n.includes('rg_cuff') || n.includes('rg_subplate')) {
         color = 0x94a3b8; roughness = 0.40; metalness = 0.18; materialClass = 'armor_painted';
-      } else if (n.includes('face_slit_dark') || n.includes('cheek_vent_dark') || n.includes('visor_recess') || n.includes('vent_duct') || n.includes('_hub_dark') || n.includes('shoulder_vent_dark') || n.includes('collar_ribs_dark') || n.includes('ear_slot_dark')) {
+      } else if (n.includes('face_slit_dark') || n.includes('cheek_vent_dark') || n.includes('visor_recess') || n.includes('vent_duct') || n.includes('flex_seam_dark') || n.includes('_hub_dark') || n.includes('shoulder_vent_dark') || n.includes('collar_ribs_dark') || n.includes('ear_slot_dark')) {
         color = 0x101824; roughness = 0.64; metalness = 0.22; useDetail = false; materialClass = 'polymer_matte';
       } else if (n.includes('foot_sole')) {
         color = 0x222c3a; roughness = 0.68; metalness = 0.16; useDetail = false; materialClass = 'polymer_matte';
@@ -5831,7 +5833,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r26');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r27');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
