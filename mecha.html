@@ -4446,7 +4446,7 @@
         color = 0xe6e9e3; roughness = 0.40; metalness = 0.08; materialClass = 'armor_white';
       } else if (n.includes('_rg_') || n.includes('rg_panel') || n.includes('rg_cuff') || n.includes('rg_subplate')) {
         color = 0x94a3b8; roughness = 0.40; metalness = 0.18; materialClass = 'armor_painted';
-      } else if (n.includes('face_slit_dark') || n.includes('cheek_vent_dark') || n.includes('visor_recess') || n.includes('vent_duct') || n.includes('_hub_dark') || n.includes('shoulder_vent_dark')) {
+      } else if (n.includes('face_slit_dark') || n.includes('cheek_vent_dark') || n.includes('visor_recess') || n.includes('vent_duct') || n.includes('_hub_dark') || n.includes('shoulder_vent_dark') || n.includes('collar_ribs_dark') || n.includes('ear_slot_dark')) {
         color = 0x101824; roughness = 0.64; metalness = 0.22; useDetail = false; materialClass = 'polymer_matte';
       } else if (n.includes('foot_sole')) {
         color = 0x222c3a; roughness = 0.68; metalness = 0.16; useDetail = false; materialClass = 'polymer_matte';
@@ -5769,7 +5769,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r14');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r16');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
