@@ -4861,15 +4861,11 @@
         ) {
           rig.nativeLowerPropellantMeshes.push(mesh);
         }
-        // Stock detachable shoulder-mounted shields (Zaku-II right olive shield & Rival right curved tower shield):
-        // automatically hidden when equipping shoulder_pods so modular shoulder pods/wings mount cleanly onto the
-        // right shoulder cowl instead of punching a bracket through the stock shield (restored immediately on unequip!).
-        // All default head & shoulder horns/spikes remain 100% preserved!
-        if (
-          n.includes('zaku_shoulder_shield') ||
-          n.includes('zaku_shield_hinge') ||
-          n.includes('right_curved_tower_shield')
-        ) {
+        // Stock detachable Rival shoulder-mounted curved tower shield:
+        // automatically hidden when equipping shoulder_pods (restored immediately on unequip!).
+        // Zaku-II's iconic default right olive shoulder shield (`zaku_shoulder_shield_olive_r` + hinge)
+        // and ALL default head & shoulder horns/spikes remain 100% preserved!
+        if (n.includes('right_curved_tower_shield')) {
           rig.nativeShoulderShieldMeshes.push(mesh);
         }
         if (n.includes('backpack_saber_hilt_r')) {
@@ -5844,7 +5840,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r35');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r36');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6496,7 +6492,7 @@
             };
           };
 
-          const applyMekarTransform = (grp, anc, m, sgn, rollDeg, lpX, lpY, lpZ, tpX, tpY, tpZ, domeCenter, domeR, hornMinYGate) => {
+          const applyMekarTransform = (grp, anc, m, sgn, rollDeg, lpX, lpY, lpZ, tpX, tpY, tpZ, domeCenter, domeR, hornMinYGate, gateAbsX = 42.5) => {
             const sx = Math.abs(grp.scale.x || 1);
             const sy = Math.abs(grp.scale.y || 1);
             const sz = Math.abs(grp.scale.z || 1);
@@ -6504,7 +6500,7 @@
             const cosR = Math.cos(rollRad);
             const sinR = Math.sin(rollRad);
 
-            // Compute exact rotated world AABB corners to enforce >= +1.2mm dome clearance & horn clearance!
+            // Compute exact rotated world AABB corners to enforce >= +1.2mm dome clearance & horn/shield clearance!
             let finalTpX = tpX, finalTpY = tpY;
             const evalCorners = (cx, cy) => {
               let minDomeClr = Infinity;
@@ -6522,7 +6518,7 @@
                         const d = Math.hypot(wx - domeCenter[0], wy - domeCenter[1], wz - domeCenter[2]) - domeR;
                         if (d < minDomeClr) minDomeClr = d;
                       }
-                      if (hornMinYGate && Math.abs(wx) > 42.5 && wy < minHornY) {
+                      if (hornMinYGate && Math.abs(wx) > gateAbsX && wy < minHornY) {
                         minHornY = wy;
                       }
                     }
@@ -6593,17 +6589,17 @@
               const [fx, fy, fz] = applyMekarTransform(leftGrp, ancL, mL, lSign, rollDeg, lpX, lpY, -0.6, tpX, tpY, tpZ, [31.8, 145.5, 0.0], 14.8, 0);
               addWorldAngledHinge(bridgeL, ancL, lSign * 34.0, 154.5, -9.5, fx, fy - 0.8, fz, 'l');
             }
-            // Right (-X) flat cowl (stock olive shoulder shield detached!): symmetrical MEKAR mantle flaring over shoulder!
+            // Right (-X) flat cowl (stock olive shoulder shield KEPT ON!): MEKAR mantle clears shield top (Y<=159.3) cleanly!
             if (Number.isFinite(mR.pMinY)) {
               const isWM = mR.isWingOrMantle;
               const rollDeg = isWM ? (rSign * (mR.isHanging ? 48.0 : 44.0)) : (-rSign * 12.0);
               const lpX = isWM ? (rSign * mR.hubInnerAbsX) : (rSign * (mR.hubInnerAbsX + 3.0));
               const lpY = isWM ? (mR.pMinY + (mR.isHanging ? 14.5 : 9.0)) : (mR.pMinY + 2.0);
-              const tpX = rSign * (isWM ? 38.5 : 35.5);
-              const tpY = isWM ? (mR.isHanging ? 164.0 : 161.5) : 158.8;
+              const tpX = rSign * (isWM ? 37.0 : 34.5);
+              const tpY = isWM ? (mR.isHanging ? 169.8 : 166.5) : 163.5;
               const tpZ = -0.8;
-              const [fx, fy, fz] = applyMekarTransform(rightGrp, ancR, mR, rSign, rollDeg, lpX, lpY, -0.6, tpX, tpY, tpZ, null, 0, 0);
-              addWorldAngledHinge(bridgeR, ancR, rSign * 33.5, 152.5, tpZ, fx, fy - 0.8, fz, 'r');
+              const [fx, fy, fz] = applyMekarTransform(rightGrp, ancR, mR, rSign, rollDeg, lpX, lpY, -0.6, tpX, tpY, tpZ, null, 0, 160.8, 34.5);
+              addWorldAngledHinge(bridgeR, ancR, rSign * 30.0, 153.5, tpZ, fx, fy - 0.8, fz, 'r');
             }
           } else if (state.activeUnitId === 'rival_frame') {
             // Left (-X) spiky pauldron: horn-free rear-upper slope with Samurai Mantle MEKAR (tempurung on top!)
