@@ -5245,7 +5245,7 @@
           adapterId: 'ADP-HP13-WAIST',
           worldPos: [
             0.0,
-            isSazabi ? 117.2 : (isGouf ? 117.0 : (isZaku ? 117.0 : (spec.id === 'rival_frame' ? 115.2 : 111.8))),
+            isSazabi ? 117.2 : (isGouf ? 117.0 : (isZaku ? 117.0 : (spec.id === 'rival_frame' ? 115.2 : 115.6))),
             isSazabi ? 2.4 : (isGouf ? 2.2 : (isZaku ? 2.0 : 2.2))
           ],
           rot: [0, 0, 0],
@@ -5853,7 +5853,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r49');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261125_r50');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
