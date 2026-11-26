@@ -5857,7 +5857,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261126_r57');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261126_r58');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6888,10 +6888,13 @@
 
           allChestMeshes.forEach(m => {
             const nm = (m.name || '').toLowerCase();
+            // Strip material suffix `_barrel_metal` before checking for real gun barrels so gunmetal
+            // vent louvers, ERA bricks, and stepped armor plates NEVER detach from `lowerGrp`!
+            const baseNm = nm.replace(/_barrel_metal/g, '');
             const isFwdWeapon = (
-              nm.includes('barrel') || nm.includes('muzzle') ||
-              nm.includes('emitter_bell') || nm.includes('emitter_lens') ||
-              nm.includes('reactor_core_orb') || nm.includes('reactor_gold_bezel')
+              baseNm.includes('barrel') || baseNm.includes('muzzle') ||
+              baseNm.includes('emitter_bell') || baseNm.includes('emitter_lens') ||
+              baseNm.includes('reactor_core_orb') || baseNm.includes('reactor_gold_bezel')
             );
             if (isFwdWeapon) {
               weaponGrp.add(m);
