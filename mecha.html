@@ -4655,20 +4655,44 @@
       if (!n) return false;
       if (
         n.includes('adapter_') || n.includes('dovetail') || n.includes('collar') ||
-        n.includes('gimbal') || n.includes('ring_gold') || n.includes('clamp') ||
-        n.includes('bracket') || n.includes('manifold') || n.includes('shroud') ||
-        n.includes('cowling') || n.includes('hull') || n.includes('bay') ||
-        n.includes('pod') || n.includes('rack') || n.includes('yoke') ||
-        n.includes('glow') || n.includes('core_laser') || n.includes('mid_laser') ||
-        n.includes('halo_laser') || n.includes('hover_bell_skirt') || n.includes('skirt')
+        n.includes('gimbal') || n.includes('ring_gold') || n.includes('socket_dark') ||
+        n.includes('clamp') || n.includes('bracket') || n.includes('manifold') ||
+        n.includes('shroud') || n.includes('cowling') || n.includes('hull') ||
+        n.includes('bay') || n.includes('pod') || n.includes('rack') ||
+        n.includes('yoke') || n.includes('glow') || n.includes('core_laser') ||
+        n.includes('mid_laser') || n.includes('halo_laser') ||
+        n.includes('hover_bell_skirt') || n.includes('skirt') ||
+        n.includes('mega_emitter') || n.includes('emitter')
       ) {
         return false;
       }
       return (
         n.includes('_vernier') || n.includes('vernier_') || n.endsWith('vernier') ||
         n.includes('nozzle') || n.includes('_bell') || n.includes('bell_') ||
-        n.includes('aero_thruster') || n.includes('thruster_bell')
+        n.includes('aero_thruster') || n.includes('thruster_bell') ||
+        n.includes('main_thruster') || n.includes('boost_bell') ||
+        n.includes('vector_bell') || n.includes('surge_bell') ||
+        n.includes('hover_bell') || n.includes('flare_bell')
       );
+    }
+
+    function isModularRocketGimbalName(rawName) {
+      const n = (rawName || '').toLowerCase();
+      if (!n) return false;
+      if (
+        n.includes('skirt') || n.includes('shroud') || n.includes('cowling') ||
+        n.includes('pod') || n.includes('manifold') || n.includes('mega_emitter') ||
+        n.includes('emitter') || n.includes('glow')
+      ) {
+        return false;
+      }
+      const isThrusterPart = (
+        n.includes('vernier') || n.includes('nozzle') || n.includes('bell') || n.includes('thruster')
+      );
+      const isMountRing = (
+        n.includes('gimbal') || n.includes('collar') || n.includes('ring_gold') || n.includes('socket_dark')
+      );
+      return isThrusterPart && isMountRing;
     }
 
     function buildPackPBRMaterial(node, unitId = state.activeUnitId) {
@@ -4686,20 +4710,22 @@
       }
       if (n.includes('thruster_glow') || n.includes('modular_bell_glow')) {
         return getSharedMechaMaterial({
-          color: 0x38f8ff, emissive: 0x00e5ff, emissiveIntensity: 4.6,
+          color: 0x38f8ff, emissive: 0x00e5ff, emissiveIntensity: 4.8,
           roughness: 0.12, metalness: 0.10, useDetail: false, isEmissive: true, materialClass: 'emissive'
         });
       }
-      if (isModularRocketBellName(n)) {
-        // Unified elite rocket nozzle outer shell: Metallic Gold on Sazabi, Satin-Gloss Obsidian Black on all other units!
-        // Inner cyan plasma glow matching the default backpack thruster is attached automatically inside the hollow mouth.
+      if (isModularRocketBellName(n) || isModularRocketGimbalName(n)) {
+        // Unified Bandai Ver.Ka rocket nozzle & coaxial mount finish (ZERO patchwork collars, ZERO green!):
+        // - Sazabi: 100% Pure Burnished Metallic Gold (all-gold rocket nozzle)
+        // - Vanguard / Zaku / Gouf: 100% Pure Satin-Gloss Obsidian Black (all-black rocket nozzle)
+        // Inner electric plasma exhaust glow matching RX-78 default backpack thruster is attached inside every hollow bell mouth.
         if (unitId === 'enemy_sazabi') {
           return getSharedMechaMaterial({
-            color: 0xeab308, roughness: 0.19, metalness: 0.92, useDetail: false, materialClass: 'metal_gold'
+            color: 0xeab308, roughness: 0.18, metalness: 0.92, useDetail: false, materialClass: 'metal_gold'
           });
         }
         return getSharedMechaMaterial({
-          color: 0x161b22, roughness: 0.21, metalness: 0.90, useDetail: false, materialClass: 'metal_gunmetal'
+          color: 0x11161e, roughness: 0.20, metalness: 0.90, useDetail: false, materialClass: 'metal_gunmetal'
         });
       }
       if (n.includes('hilt_white')) {
@@ -4713,11 +4739,15 @@
       }
       let color = pc.frame, roughness = 0.36, metalness = 0.74, emissive = 0x000000, emissiveIntensity = 0.0, useDetail = true, materialClass = 'metal_gunmetal';
       if (n.includes('psycho_emerald')) {
-        // Textured Anodized Metallic Emerald Armor (rich 2K panel lines & satin-gloss metallic depth — zero flat cartoon green!)
-        color = 0x059669; roughness = 0.30; metalness = 0.44; useDetail = true; materialClass = 'armor_gloss';
+        // ZERO-GREEN Bandai Ver.Ka 60-30-10 metallic harmony remap (eliminates clashing mint green on rockets/weapons/armor!)
+        if (unitId === 'enemy_sazabi') {
+          color = 0xeab308; roughness = 0.20; metalness = 0.90; useDetail = true; materialClass = 'metal_gold';
+        } else {
+          color = 0x94a3b8; roughness = 0.24; metalness = 0.86; useDetail = true; materialClass = 'metal_brushed';
+        }
       } else if (n.includes('amber_optic')) {
-        // Textured Anodized Copper-Amber Armor (rich 2K panel lines & metallic depth — zero flat cartoon orange!)
-        color = 0xc25e0a; roughness = 0.30; metalness = 0.46; useDetail = true; materialClass = 'armor_gloss';
+        // Burnished Titanium Champagne-Gold accent (Ver.Ka 10% metallic accent harmony)
+        color = 0xd4961a; roughness = 0.24; metalness = 0.84; useDetail = true; materialClass = 'metal_gold';
       } else if (n.includes('titanium_silver')) {
         color = 0xcbd5e1; roughness = 0.24; metalness = 0.86; useDetail = true; materialClass = 'metal_brushed';
       } else if (n.includes('crimson_gloss')) {
@@ -4725,10 +4755,11 @@
       } else if (n.includes('cobalt_anodized')) {
         color = 0x1d4ed8; roughness = 0.28; metalness = 0.48; useDetail = true; materialClass = 'armor_gloss';
       } else if (n.includes('zeon_olive_coat')) {
-        color = 0x556b45; roughness = 0.44; metalness = 0.18; useDetail = true; materialClass = 'armor_painted';
+        // ZERO-GREEN remap on modular parts -> Stealth Tactical Dark Gunmetal-Charcoal (harmonizes with all 4 mobile suits!)
+        color = 0x262f3c; roughness = 0.34; metalness = 0.68; useDetail = true; materialClass = 'metal_gunmetal';
       } else if (n.includes('optic_cyan') || n.includes('plasma_core_cyan') || n.includes('lens_emerald')) {
-        // Textured Anodized Sapphire-Cyan Optical Armor (glossy lens depth + 2K micro-detail — zero flat neon!)
-        color = 0x0284c7; emissive = 0x0369a1; emissiveIntensity = 0.22; roughness = 0.26; metalness = 0.44; useDetail = true; materialClass = 'armor_gloss';
+        // Pure Royal Sapphire Metallic Optical Trim (zero greenish/teal cast!)
+        color = 0x1d4ed8; emissive = 0x1e40af; emissiveIntensity = 0.28; roughness = 0.24; metalness = 0.48; useDetail = true; materialClass = 'armor_gloss';
       } else if (n.includes('gold') || n.includes('blade') || n.includes('intake') || n.includes('cross_gold') || n.includes('vane') || n.includes('pin_gold') || n.includes('lock_gold') || n.includes('drum_gold') || n.includes('coupling_gold')) {
         color = pc.gold; roughness = 0.24; metalness = 0.86; useDetail = true; materialClass = 'metal_gold';
       } else if (n.includes('grip') || n.includes('epac')) {
@@ -4742,7 +4773,12 @@
       } else if (n.includes('wing') || n.includes('disc') || n.includes('shield_frame') || n.includes('fin_binder') || n.includes('tower_shield') || n.includes('rudder') || n.includes('pectoral_armor') || n.includes('pod')) {
         color = pc.primary; roughness = 0.38; metalness = 0.12; useDetail = true; materialClass = (pc.primary === 0xf0f2ec || pc.primary === 0xeef2f6 || pc.primary === 0xc4cedb) ? 'armor_white' : 'armor_painted';
       } else if (n.includes('bell') || n.includes('thruster') || n.includes('vernier') || n.includes('nozzle')) {
-        color = 0x526072; roughness = 0.24; metalness = 0.88; emissive = pc.optic; emissiveIntensity = 0.14; useDetail = false; materialClass = 'metal_brushed';
+        // Fallback thruster shell also strictly Obsidian Black or Metallic Gold (NEVER green `pc.optic` emissive!)
+        if (unitId === 'enemy_sazabi') {
+          color = 0xeab308; roughness = 0.18; metalness = 0.92; useDetail = false; materialClass = 'metal_gold';
+        } else {
+          color = 0x11161e; roughness = 0.20; metalness = 0.90; useDetail = false; materialClass = 'metal_gunmetal';
+        }
       } else if (n.includes('barrel') || n.includes('receiver') || n.includes('sleeve') || n.includes('cylinder') || n.includes('stake') || n.includes('rail')) {
         color = 0x334155; roughness = 0.30; metalness = 0.84; useDetail = false; materialClass = 'metal_gunmetal';
       }
@@ -5896,7 +5932,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r62');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r63');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6498,17 +6534,17 @@
         const mouthProj = (rPos >= rNeg) ? maxProj : -minProj;
 
         // Tapered inner plasma glow matching RX-78 default `backpack_thruster_glow`!
-        const glowH = Math.max(2.0, Math.min(4.8, span * 0.42));
-        const glowGeo = new THREE.CylinderGeometry(mouthR * 0.24, mouthR * 0.58, glowH, 14);
+        const glowH = Math.max(2.2, Math.min(5.0, span * 0.46));
+        const glowGeo = new THREE.CylinderGeometry(mouthR * 0.26, mouthR * 0.62, glowH, 16);
         const glowMat = getSharedMechaMaterial({
-          color: 0x38f8ff, emissive: 0x00e5ff, emissiveIntensity: 4.6,
+          color: 0x38f8ff, emissive: 0x00e5ff, emissiveIntensity: 4.8,
           roughness: 0.12, metalness: 0.10, useDetail: false, isEmissive: true, materialClass: 'emissive'
         });
         const glowMesh = new THREE.Mesh(glowGeo, glowMat);
         glowMesh.name = `${bellMesh.name}_modular_bell_glow`;
-        // Align CylinderGeometry -Y (wide end) along mouthDir so wide glowing disc sits cleanly inside the exhaust mouth!
+        // Align CylinderGeometry -Y (wide end) along mouthDir so wide glowing disc sits cleanly recessed inside the exhaust mouth!
         glowMesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, -1, 0), mouthDir);
-        const glowPos = center.clone().addScaledVector(mouthDir, mouthProj - glowH * 0.56);
+        const glowPos = center.clone().addScaledVector(mouthDir, mouthProj - glowH * 0.52);
         glowMesh.position.copy(glowPos);
         glowMesh.castShadow = false;
         glowMesh.receiveShadow = false;
