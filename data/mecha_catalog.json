@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
   "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
-  "last_synced": "2026-11-26T11:01:48.733522+00:00",
+  "last_synced": "2026-11-26T13:02:19.135591+00:00",
   "baselines": [
     {
       "id": "baseline_gundam_frame_v1",
@@ -90,7 +90,7 @@
       ]
     }
   ],
-  "last_synthesized_utc": "2026-11-26T11:01:48Z",
+  "last_synthesized_utc": "2026-11-26T13:02:19Z",
   "manifest_tier": "public_cdn_sanitized",
   "modular_parts": [
     {
@@ -2161,20 +2161,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -14.5,
-            -1.689,
-            -8.4
+            -14.711,
+            -2.052,
+            -8.8
           ],
           "max": [
-            14.5,
-            15.44612950008591,
-            5.6
+            14.8,
+            16.947,
+            6.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_003_b3c692.glb",
-          "sha256_hash": "3d57bbd20bf9dc2dfc3e68c502cfb74afcee573ed0822e1c947162ae39ff4446",
-          "file_size_bytes": 106256,
+          "sha256_hash": "5c8a654e85d8dd125136beb55285f91438fbf269a2d1837c9ebb41f97ee7fd0e",
+          "file_size_bytes": 86608,
           "compression": "meshopt"
         }
       },
@@ -3290,20 +3290,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.280384342620593,
+            -17.698,
             -4.013,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            17.280384342620593,
-            11.28151887588952,
-            11.748766950787674
+            17.698,
+            11.282,
+            11.863
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_004_f57167.glb",
-          "sha256_hash": "72571599d14a87cd436c5e01244363f9e455df704d3b77370e877201557b48c1",
-          "file_size_bytes": 124472,
+          "sha256_hash": "8d4e53742037f61e1837710fdc6cdef25ce49c0c7fc82bb1c19dee3cd1e22d70",
+          "file_size_bytes": 124456,
           "compression": "meshopt"
         }
       },
@@ -4296,20 +4296,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.71655530464656,
-            -4.477201988914971,
-            0.19999999999999996
+            -18.818,
+            -5.548,
+            0.2
           ],
           "max": [
-            18.71655530464656,
-            8.45824480707634,
-            11.441188783079564
+            18.818,
+            9.948,
+            11.324
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_005_8a2d16.glb",
-          "sha256_hash": "6ba91aa9179d44f23fe0a4759d0b84a9aee5c7275c260bb44d5e2c5630d4b37f",
-          "file_size_bytes": 178548,
+          "sha256_hash": "c4068ee6b148caa3d300e42158891f942f5913176ab249867670ab1ccf8989e2",
+          "file_size_bytes": 133796,
           "compression": "meshopt"
         }
       },
@@ -6310,20 +6310,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.71655530464656,
-            -4.477201988914971,
-            0.19999999999999996
+            -18.818,
+            -5.548,
+            0.2
           ],
           "max": [
-            18.71655530464656,
-            8.45824480707634,
-            11.441188783079564
+            18.818,
+            9.948,
+            11.324
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_006_908d4a.glb",
-          "sha256_hash": "afb06771a57deee3cdb15edbee792ae1bd61f1d36cb3ddd13cf2ad4e441e3851",
-          "file_size_bytes": 174736,
+          "sha256_hash": "98f6a710ef0f61643f465696f4ae6ed880ad34a1270909d4d68b7549fd860f38",
+          "file_size_bytes": 129984,
           "compression": "meshopt"
         }
       },
@@ -8328,20 +8328,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.286209161485232,
+            -18.719,
             -4.694,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            18.286209161485232,
-            10.66976,
-            14.565265631464332
+            18.719,
+            10.67,
+            14.565
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_010_e150e5.glb",
-          "sha256_hash": "88969c0c272132084bc9911686efd850d381c4cb8b01a263fdf78d2425f3d15c",
-          "file_size_bytes": 144988,
+          "sha256_hash": "67fb8ca356c677811d76939dd4c77baeea43b6316552193a41130f6c32bed6d6",
+          "file_size_bytes": 144412,
           "compression": "meshopt"
         }
       },
@@ -9202,20 +9202,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -14.5,
-            -1.689,
-            -8.4
+            -14.711,
+            -2.052,
+            -8.8
           ],
           "max": [
-            14.5,
-            15.44612950008591,
-            5.6
+            14.8,
+            16.947,
+            6.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_010_e63a23.glb",
-          "sha256_hash": "f84a256669035af5167949712bca1dc6cbaa6fada8d086b3a4099603ce749b7a",
-          "file_size_bytes": 113568,
+          "sha256_hash": "c24b03998bd660eb44a746bd79065d8ea3b852fc7949f0997578dfc411c4e484",
+          "file_size_bytes": 93920,
           "compression": "meshopt"
         }
       },
@@ -10334,20 +10334,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.280384342620593,
+            -17.698,
             -4.013,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            17.280384342620593,
-            11.28151887588952,
-            11.748766950787674
+            17.698,
+            11.282,
+            11.863
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_012_279280.glb",
-          "sha256_hash": "fe5abdb1f7a24ca378f1f091b7a02525c78976c2a82cc45ca582f0afd7df9d55",
-          "file_size_bytes": 124832,
+          "sha256_hash": "545f133fdb37983c521bd3acf370aff3fbd48f8a6e04f354187cc8dccaed34fd",
+          "file_size_bytes": 124816,
           "compression": "meshopt"
         }
       },
@@ -11211,20 +11211,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -14.5,
-            -1.689,
-            -8.4
+            -14.711,
+            -2.052,
+            -8.8
           ],
           "max": [
-            14.5,
-            15.44612950008591,
-            5.6
+            14.8,
+            16.947,
+            6.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_011_eb56f4.glb",
-          "sha256_hash": "4e0a1a14cea6359e9639ed3754de02c59fd0335bc53e588fa1b29f19c7421142",
-          "file_size_bytes": 113708,
+          "sha256_hash": "ead9a9d96a880a78db6c8543bdf368c60f6f573d969f57a1aed27219feb264b4",
+          "file_size_bytes": 94028,
           "compression": "meshopt"
         }
       },
@@ -11337,20 +11337,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.71655530464656,
-            -4.477201988914971,
-            0.19999999999999996
+            -18.818,
+            -5.548,
+            0.2
           ],
           "max": [
-            18.71655530464656,
-            8.45824480707634,
-            11.441188783079564
+            18.818,
+            9.948,
+            11.324
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_014_0ec77b.glb",
-          "sha256_hash": "7daffd4098ab2b9ed34cfc40f73c07c17a9d0e982d8adaa36b0901703ecdd89c",
-          "file_size_bytes": 186436,
+          "sha256_hash": "a796f936515893599ca2b256de1b8d2b278127cc5653c589387efd2fbf4b5444",
+          "file_size_bytes": 144636,
           "compression": "meshopt"
         }
       },
@@ -12341,20 +12341,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.58289342450503,
+            -17.999,
             -4.013,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            17.58289342450503,
+            17.999,
             10.344,
-            14.166601568715704
+            14.167
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_016_161ab1.glb",
-          "sha256_hash": "88a8f0e2c2e9866ad89913caa13725f27aed82b79f8c8145e40e22a462dc8895",
-          "file_size_bytes": 130448,
+          "sha256_hash": "2d3dd59904c9786bddaebf74ca3ba084b49a72c6a3b1f5203621e68e7c1c151e",
+          "file_size_bytes": 129704,
           "compression": "meshopt"
         }
       },
@@ -13337,20 +13337,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.71655530464656,
-            -4.477201988914971,
-            0.19999999999999996
+            -18.818,
+            -5.548,
+            0.2
           ],
           "max": [
-            18.71655530464656,
-            8.45824480707634,
-            11.441188783079564
+            18.818,
+            9.948,
+            11.324
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_018_b5b99b.glb",
-          "sha256_hash": "51c238cf16ac98d2aca7f674d1671cc3a1f348ba1260217de393b50e9d3e3036",
-          "file_size_bytes": 197620,
+          "sha256_hash": "0503362931083a5f4010e72690487a1b94d8b874aec4b861fa19311e81335433",
+          "file_size_bytes": 152872,
           "compression": "meshopt"
         }
       },
@@ -14338,20 +14338,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.280384342620593,
+            -17.698,
             -4.013,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            17.280384342620593,
-            11.28151887588952,
-            11.748766950787674
+            17.698,
+            11.282,
+            11.863
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_022_1f49a0.glb",
-          "sha256_hash": "1cd9d42b2c1c24c861e48644cee65a838aa2df0c97269cb15f04ff96c36b1077",
-          "file_size_bytes": 113292,
+          "sha256_hash": "7117fcdcfce453992bdf261d222cbca7ec0afecbd7f44e57e4f65a1974323592",
+          "file_size_bytes": 113276,
           "compression": "meshopt"
         }
       },
@@ -15346,20 +15346,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.286209161485232,
+            -18.719,
             -4.144,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            18.286209161485232,
-            10.66976,
-            14.565265631464332
+            18.719,
+            10.67,
+            14.565
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_027_6b331c.glb",
-          "sha256_hash": "4f2cac8441cfa1f3aab00a9e295ebbda4377fdf04f03979ddcad2cee783ae80d",
-          "file_size_bytes": 153652,
+          "sha256_hash": "6b694eabd14782160f1de81900f895fb0bf2363982cb2e09841d3eafe56aa2b0",
+          "file_size_bytes": 152928,
           "compression": "meshopt"
         }
       },
@@ -16227,20 +16227,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -14.065,
-            -1.689,
-            -8.274
+            -14.27,
+            -1.726,
+            -8.662
           ],
           "max": [
-            14.065,
-            15.246769491707761,
-            5.336
+            14.356,
+            16.703,
+            5.724
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_020_6f0f83.glb",
-          "sha256_hash": "c4905da0d30d9b159effc9fb9043058ac5da1ab92cfa980faa96ff288db15ac0",
-          "file_size_bytes": 91952,
+          "sha256_hash": "9447aa440b5d59d8ac2ceb2f973ed34df15501c894e94fce3f17450f58aeef45",
+          "file_size_bytes": 72616,
           "compression": "meshopt"
         }
       },
@@ -16352,20 +16352,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.814829219196483,
+            -18.245,
             -4.013,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            17.814829219196483,
-            11.565257761689583,
-            11.982233969884199
+            18.245,
+            11.565,
+            12.1
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_033_9a229b.glb",
-          "sha256_hash": "5418990145af9b4072cd050ce7d688dce4e14856915f689c95fc3f660d78056a",
-          "file_size_bytes": 101564,
+          "sha256_hash": "8c3df74a5be9582abaf1352905f15b2f241b8c575a8b473ffd8f1baa36c3d7db",
+          "file_size_bytes": 101544,
           "compression": "meshopt"
         }
       },
@@ -17368,20 +17368,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.670031155551893,
+            -18.089,
             -4.013,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            17.670031155551893,
-            10.38472,
-            14.215846818585884
+            18.089,
+            10.385,
+            14.216
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_036_9bec5a.glb",
-          "sha256_hash": "0edbf18c00e7468c06f4e0e27b092fc6451ae9b46f45ba48c7a4fac7e1cc7e7e",
-          "file_size_bytes": 153244,
+          "sha256_hash": "a9a2e487f50f6d15d87e6054fc5c932c54c9ab5a8c52477d55a519d2ae7f1b28",
+          "file_size_bytes": 152524,
           "compression": "meshopt"
         }
       },
@@ -18247,20 +18247,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -14.065,
-            -1.689,
-            -8.274
+            -14.27,
+            -1.726,
+            -8.662
           ],
           "max": [
-            14.065,
-            15.246769491707761,
-            5.336
+            14.356,
+            16.703,
+            5.724
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_032_eadbcd.glb",
-          "sha256_hash": "f3c6442d62f22254b9e408dfa793f63f5d16e2996a50a5bb15f82e8e8568b6c7",
-          "file_size_bytes": 101908,
+          "sha256_hash": "403986ce457e40c846d045cbd00817b4407148262be6358690a8b2ff4a2f4f49",
+          "file_size_bytes": 82556,
           "compression": "meshopt"
         }
       },
@@ -18372,19 +18372,19 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.527422387964343,
-            -4.259233629073899,
-            0.19999999999999996
+            -18.975,
+            -4.188,
+            0.2
           ],
           "max": [
-            18.527422387964343,
-            11.943576276089665,
-            12.293523328679568
+            18.975,
+            11.944,
+            12.416
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_024_64ca2f.glb",
-          "sha256_hash": "60b26ae7df74cf3ec2c2360566043abf8dcd954605a4e44abb5d299f22a096d7",
+          "sha256_hash": "e462be2db74b9a92254533210d7818c9e734e2ceb67cffaa66d033996f3a6c88",
           "file_size_bytes": 105420,
           "compression": "meshopt"
         }
@@ -19388,20 +19388,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.58289342450503,
-            -4.448999999999999,
-            0.19999999999999996
+            -17.999,
+            -4.449,
+            0.2
           ],
           "max": [
-            17.58289342450503,
+            17.999,
             10.344,
-            14.166601568715704
+            14.167
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_028_aeb897.glb",
-          "sha256_hash": "651a5c5510597d44e50f2132bf1141c27d7b9bf234774f3a9dfe5c07f847d917",
-          "file_size_bytes": 156084,
+          "sha256_hash": "049c22e4d011c85999f68ddfcfac56bc49d30a1bc2170e622c89d7bbf6e8fa05",
+          "file_size_bytes": 155504,
           "compression": "meshopt"
         }
       },
@@ -20394,19 +20394,19 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.99297751138845,
-            -4.072909582081381,
-            0.19999999999999996
+            -18.428,
+            -4.013,
+            0.2
           ],
           "max": [
-            17.99297751138845,
-            11.659837390289603,
-            12.060056309583043
+            18.428,
+            11.66,
+            12.179
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_034_995203.glb",
-          "sha256_hash": "72ed695070ba75a68e8742d6cece2afcb17299ed182821b86ad07fd9b0895f88",
+          "sha256_hash": "2d7362cffb2307f87248428e3c866c4fb3c86a1ed6ee61ca7c644e1a0ab03136",
           "file_size_bytes": 105360,
           "compression": "meshopt"
         }
@@ -21277,20 +21277,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -14.79,
-            -1.689,
-            -8.484
+            -15.006,
+            -2.269,
+            -8.892
           ],
           "max": [
-            14.79,
-            15.579052090087625,
-            5.796
+            15.096,
+            17.11,
+            6.184
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_037_5ecc82.glb",
-          "sha256_hash": "c2a3f1155cf1a2100157f9ae89730cb0fda56ce2806a8be00ecf4d5e96b81d8f",
-          "file_size_bytes": 102464,
+          "sha256_hash": "c37fbb036b3b13a3192180c1be5bab97c39f3e4d9b33525e26ab9e759f87ac1d",
+          "file_size_bytes": 82868,
           "compression": "meshopt"
         }
       },
@@ -22411,20 +22411,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.176654670858674,
-            -4.284590393080884,
-            0.19999999999999996
+            -18.275,
+            -5.324,
+            0.2
           ],
           "max": [
-            18.176654670858674,
-            8.413,
-            11.232456960117052
+            18.275,
+            9.724,
+            11.118
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_044_140072.glb",
-          "sha256_hash": "954f3c126c2bfb968236cbed78d3a1563667fd0c557f2a2e11d82b2348b05ef4",
-          "file_size_bytes": 178744,
+          "sha256_hash": "850192122f7670020eb9eddd1b26fe645662e4b617f479e7e861e9c3ece12e08",
+          "file_size_bytes": 136796,
           "compression": "meshopt"
         }
       },
@@ -23295,20 +23295,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -14.21,
-            -1.689,
-            -8.316
+            -14.417,
+            -1.835,
+            -8.708
           ],
           "max": [
-            14.21,
-            15.31320691008419,
-            5.424
+            14.504,
+            16.784,
+            5.816
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_043_b6332b.glb",
-          "sha256_hash": "63701527ef1c5b609ba0d3c4fdeb270940961e28b9da938f29154e4a2d1c89d6",
-          "file_size_bytes": 113056,
+          "sha256_hash": "fb4c2e9dc406d3c918b9555a72f0d6372e4ab55cb2cf06661a1f9fdfd587a473",
+          "file_size_bytes": 93708,
           "compression": "meshopt"
         }
       },
@@ -24433,20 +24433,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.082046249399347,
-            -4.103716022896283,
-            0.19999999999999996
+            -18.519,
+            -4.034,
+            0.2
           ],
           "max": [
-            18.082046249399347,
-            11.707127204589614,
-            12.098467479432463
+            18.519,
+            11.707,
+            12.219
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_039_f773e4.glb",
-          "sha256_hash": "5c21e1125b40b142f9d4e7f2c2e00cd76e403faabfd5abcffbcbd8bdbee80fb4",
-          "file_size_bytes": 124432,
+          "sha256_hash": "812506e8a58f4831bf771b5b47173550ffbe8b71b5ceab29a00c78392bf8c9b6",
+          "file_size_bytes": 124460,
           "compression": "meshopt"
         }
       },
@@ -25325,20 +25325,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -14.79,
-            -1.689,
-            -8.484
+            -15.006,
+            -2.269,
+            -8.892
           ],
           "max": [
-            14.79,
-            15.579052090087625,
-            5.796
+            15.096,
+            17.11,
+            6.184
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_044_6b8695.glb",
-          "sha256_hash": "0da07784ed996347a1a40ef546369d03140d826d7599389b0413da5df2438608",
-          "file_size_bytes": 113576,
+          "sha256_hash": "4be302f0c6abab47ddfc0e7114e3bf84df49505a01adc2e5d57dd678237fc184",
+          "file_size_bytes": 94000,
           "compression": "meshopt"
         }
       },
@@ -26476,20 +26476,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.816720915000086,
-            -4.156182662524828,
-            0.19999999999999996
+            -17.913,
+            -5.175,
+            0.2
           ],
           "max": [
-            17.816720915000086,
-            8.413,
-            11.093302411475376
+            17.913,
+            9.575,
+            10.981
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_041_c799a2.glb",
-          "sha256_hash": "94a6678ae36560fe7666b3a8554603647e7c410d1f09165597a7f7494414e6a0",
-          "file_size_bytes": 178744,
+          "sha256_hash": "f7e6fddf0aa26e61a3f1668ce0ebe2c60da683acc6103374a4fd6924826a0a80",
+          "file_size_bytes": 136736,
           "compression": "meshopt"
         }
       },
@@ -27481,20 +27481,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.93455129299513,
+            -18.359,
             -4.022,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            17.93455129299513,
-            10.50688,
-            14.365933600090017
+            18.359,
+            10.507,
+            14.366
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_049_1e60fe.glb",
-          "sha256_hash": "fb55e93a7c2eefc3620c46b99310241b94a00132e684c0875b9bea474f7479c2",
-          "file_size_bytes": 146960,
+          "sha256_hash": "0c3f7041a2a063f1f7e5a8a5c4e9b228b3764026ba9a967328a473abe6596050",
+          "file_size_bytes": 146236,
           "compression": "meshopt"
         }
       },
@@ -28492,20 +28492,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.09423337198011,
+            -17.304,
             -4.226,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            17.09423337198011,
-            8.626000000000001,
+            17.304,
+            8.626,
             12.972
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_046_9f62e1.glb",
-          "sha256_hash": "fba5f8d138b032a2589ad4f799a044584f047064f807178d0adff45a55a1e57d",
-          "file_size_bytes": 140116,
+          "sha256_hash": "c044a821f45553f736d84fe22f2327229135da553a0ca1794056115ddf87abf6",
+          "file_size_bytes": 140096,
           "compression": "meshopt"
         }
       },
@@ -32296,20 +32296,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.996687792929382,
-            -4.220386527802856,
-            0.19999999999999996
+            -18.094,
+            -5.25,
+            0.2
           ],
           "max": [
-            17.996687792929382,
-            8.413,
-            11.162879685796215
+            18.094,
+            9.65,
+            11.05
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_030_519fa5.glb",
-          "sha256_hash": "b5574cdf1c7b8191771cbffa2facad2f7b089a0cf4651d5a470c78a64833cb96",
-          "file_size_bytes": 210512,
+          "sha256_hash": "ca3aaed8cbfe6baac053fbb5a2c80343770a663c8f7e7abd54201ffc6762e1e4",
+          "file_size_bytes": 165596,
           "compression": "meshopt"
         }
       },
@@ -32672,20 +32672,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.286209161485232,
+            -18.719,
             -4.694,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            18.286209161485232,
-            10.66976,
-            14.565265631464332
+            18.719,
+            10.67,
+            14.565
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_031_e292c7.glb",
-          "sha256_hash": "068c681c10c96e7497fb043f48f5cd1db235d87254189cdd493071fe187b67ed",
-          "file_size_bytes": 149520,
+          "sha256_hash": "1ab466920f64225a59f7560721202a03e786eaa7092b78d69735bb37f3ac8dc6",
+          "file_size_bytes": 148940,
           "compression": "meshopt"
         }
       },
@@ -33179,20 +33179,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.430435878358153,
-            -4.351999999999999,
-            0.19999999999999996
+            -17.645,
+            -4.352,
+            0.2
           ],
           "max": [
-            17.430435878358153,
-            8.751999999999999,
+            17.645,
+            8.752,
             13.144
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_032_a8f79b.glb",
-          "sha256_hash": "37003ce99c06a2c3701d79452e825f8e3dd23d72dcfb1f2eed4810eb09bf7384",
-          "file_size_bytes": 147472,
+          "sha256_hash": "95c669d8337c821ffce76af3835a51f4afe943a693e0bc204b0db073aad8678b",
+          "file_size_bytes": 147476,
           "compression": "meshopt"
         }
       },
@@ -34569,20 +34569,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.280384342620593,
+            -17.698,
             -4.013,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            17.280384342620593,
-            11.28151887588952,
-            11.748766950787674
+            17.698,
+            11.282,
+            11.863
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_034_ecf168.glb",
-          "sha256_hash": "a8c70ea2b73471ee57a9e5abbce537e78afaa3ecf53a93166ec21e59a0667a8b",
-          "file_size_bytes": 137796,
+          "sha256_hash": "2ef984ee81175e6eb1aa5c790f104931f3a7d21059b7c07183e573a65a7a64e7",
+          "file_size_bytes": 137784,
           "compression": "meshopt"
         }
       },
@@ -35448,20 +35448,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.286209161485232,
+            -18.719,
             -4.694,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            18.286209161485232,
-            10.66976,
-            14.565265631464332
+            18.719,
+            10.67,
+            14.565
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_035_b11036.glb",
-          "sha256_hash": "1ab436406aeecfd6f221fdabaf1286c9ccea43c8cf2c3cececff8e91b7278500",
-          "file_size_bytes": 168564,
+          "sha256_hash": "586b238e2af53bbb8edd314abeb9d6e86238e2d4119b86df208a51ac4b4cea8e",
+          "file_size_bytes": 167984,
           "compression": "meshopt"
         }
       },
@@ -36449,19 +36449,19 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -16.253727106035004,
+            -16.454,
             -4.013,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            16.253727106035004,
+            16.454,
             8.413,
             12.542
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_036_4b55e6.glb",
-          "sha256_hash": "7094dbcc1aa08e4a3672363cf56d427022e03ec9a2188378fbd70566506f5d8f",
+          "sha256_hash": "d6b97c9431421ff364e5a093f799f829ff90917732f8402d8ddfc5f0ff3be005",
           "file_size_bytes": 159068,
           "compression": "meshopt"
         }
@@ -39493,20 +39493,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.71655530464656,
-            -4.477201988914971,
-            0.19999999999999996
+            -18.818,
+            -5.548,
+            0.2
           ],
           "max": [
-            18.71655530464656,
-            8.45824480707634,
-            11.441188783079564
+            18.818,
+            9.948,
+            11.324
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_039_cc5979.glb",
-          "sha256_hash": "63067b97fe840b820c13faffac70fe8d180abae7945c38b1bfc46f5bb538282b",
-          "file_size_bytes": 210692,
+          "sha256_hash": "ff20a58850a1efd85f4e440a83a038f8ee284b2e4fed0c8d6e1d88bf4a77de71",
+          "file_size_bytes": 165940,
           "compression": "meshopt"
         }
       },
@@ -40496,20 +40496,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -16.758030865602066,
+            -16.964,
             -4.1,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            16.758030865602066,
+            16.964,
             8.5,
             12.8
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_040_ab419c.glb",
-          "sha256_hash": "8c9dff0b455d9e5e60a837a04a4ead64750b59bf3ac03a0025f6997be0a25c91",
-          "file_size_bytes": 158528,
+          "sha256_hash": "fc4c4793fbe55133531c7fa43be45ba9c7f51be09d492d18629483b5cfa7a3c9",
+          "file_size_bytes": 158524,
           "compression": "meshopt"
         }
       },
@@ -42534,20 +42534,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.286209161485232,
+            -18.719,
             -4.144,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            18.286209161485232,
-            10.66976,
-            14.565265631464332
+            18.719,
+            10.67,
+            14.565
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_042_5cbfeb.glb",
-          "sha256_hash": "35c33d2e54dde6437b7d1878d574e23ad15327eef38454d3ed7743657881aef2",
-          "file_size_bytes": 146996,
+          "sha256_hash": "67793c6a2789d692ec7bddd500c24b1a1675e5d0dfb8d851489fdf0e60a83864",
+          "file_size_bytes": 146272,
           "compression": "meshopt"
         }
       },
@@ -44548,19 +44548,19 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -16.253727106035004,
+            -16.454,
             -4.013,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            16.253727106035004,
+            16.454,
             8.413,
             12.542
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_044_c79fbd.glb",
-          "sha256_hash": "5577df8c0b8bf9e4bc1f6eb5205a9a45197df10efda52e505b5bf0f16962e003",
+          "sha256_hash": "08146979e97defafc1a4f3a7cec63c88bfaf397be7ca8172e7fd862ec7f94b9a",
           "file_size_bytes": 139244,
           "compression": "meshopt"
         }
@@ -45562,20 +45562,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.814829219196483,
+            -18.245,
             -4.013,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            17.814829219196483,
-            11.565257761689583,
-            11.982233969884199
+            18.245,
+            11.565,
+            12.1
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_045_470b8e.glb",
-          "sha256_hash": "0744660c5be49cf0a870bc8f696abdd7899b6553dd20ab73cd395e5ffc249876",
-          "file_size_bytes": 117840,
+          "sha256_hash": "f9bade82e646fd26479e45042120ed78b1364ca9391930b88245edc34eb31a20",
+          "file_size_bytes": 117820,
           "compression": "meshopt"
         }
       },
@@ -47577,20 +47577,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.23123555601493,
+            -17.639,
             -4.013,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            17.23123555601493,
-            10.18112,
-            13.96726953734139
+            17.639,
+            10.181,
+            13.967
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_047_896b7e.glb",
-          "sha256_hash": "2679bc558fd0ed3e424730e7bc8cf616e1a3f4078299c9c6755474aec439dc68",
-          "file_size_bytes": 165824,
+          "sha256_hash": "ec9802a8cd983f788b4021e192a917e7ef72681cd8e9b7cb85699c839e68ddc1",
+          "file_size_bytes": 165120,
           "compression": "meshopt"
         }
       },
@@ -48599,19 +48599,19 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.430435878358153,
-            -4.351999999999999,
-            0.19999999999999996
+            -17.645,
+            -4.352,
+            0.2
           ],
           "max": [
-            17.430435878358153,
-            8.751999999999999,
+            17.645,
+            8.752,
             13.144
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_048_eeb07f.glb",
-          "sha256_hash": "c95627e0b1c38a55a09df15fdd7caf361ec2266753bf5feefdf867db85a5c360",
+          "sha256_hash": "e4773836919885721eb9b134523d72ed2cb4627539fce923ffd571553f3bd132",
           "file_size_bytes": 135436,
           "compression": "meshopt"
         }
@@ -49601,20 +49601,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.71655530464656,
-            -4.477201988914971,
-            0.19999999999999996
+            -18.818,
+            -5.548,
+            0.2
           ],
           "max": [
-            18.71655530464656,
-            8.45824480707634,
-            11.441188783079564
+            18.818,
+            9.948,
+            11.324
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_049_f4a574.glb",
-          "sha256_hash": "576ded38673f59970c58b026e4959317b4f8a9f16c7e0663feefe6ad540fb6a2",
-          "file_size_bytes": 210664,
+          "sha256_hash": "215046fafbd66ea9a68f469bdc6aec5e97873982e2df3923c80bc007ee71c513",
+          "file_size_bytes": 165912,
           "compression": "meshopt"
         }
       },
@@ -51607,20 +51607,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.171125803580416,
-            -4.135017597745554,
-            0.19999999999999996
+            -18.61,
+            -4.065,
+            0.2
           ],
           "max": [
-            18.171125803580416,
-            11.754417018889622,
-            12.137878649281884
+            18.61,
+            11.754,
+            12.258
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_051_0e8871.glb",
-          "sha256_hash": "591de6f4c3aef52d33bc9520117869850b450afef1063ad04691fca8cbe1c60a",
-          "file_size_bytes": 137244,
+          "sha256_hash": "53e3112bdcb18a0aaef6e84a1f458913080d4a20ac2f69cbdd2d21f402721760",
+          "file_size_bytes": 137260,
           "compression": "meshopt"
         }
       },
@@ -52622,20 +52622,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.430435878358153,
-            -4.351999999999999,
-            0.19999999999999996
+            -17.645,
+            -4.352,
+            0.2
           ],
           "max": [
-            17.430435878358153,
-            8.751999999999999,
+            17.645,
+            8.752,
             13.144
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_052_5c0347.glb",
-          "sha256_hash": "2752319a2830bb93f8b0d37bd155988c2c6e4544c2c97b808288272d31a82131",
-          "file_size_bytes": 159492,
+          "sha256_hash": "182fa81635dc17284da2ef73d0175ecf022592b7ad577c8c1bdc23e4c227f6e3",
+          "file_size_bytes": 159496,
           "compression": "meshopt"
         }
       },
@@ -55650,20 +55650,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.996687792929382,
-            -4.220386527802856,
-            0.19999999999999996
+            -18.094,
+            -5.25,
+            0.2
           ],
           "max": [
-            17.996687792929382,
-            8.413,
-            11.162879685796215
+            18.094,
+            9.65,
+            11.05
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_055_dca07c.glb",
-          "sha256_hash": "35dff54eeaa6eed246343ba93455fe591b37861d3e83bad004d3b84da53cbb92",
-          "file_size_bytes": 210492,
+          "sha256_hash": "cfc2ae11666e771dcf347712753921ca5ff2f6ceec43e0162334576eb24caad6",
+          "file_size_bytes": 165572,
           "compression": "meshopt"
         }
       },
@@ -56667,19 +56667,19 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.99297751138845,
-            -4.072909582081381,
-            0.19999999999999996
+            -18.428,
+            -4.013,
+            0.2
           ],
           "max": [
-            17.99297751138845,
-            11.659837390289603,
-            12.060056309583043
+            18.428,
+            11.66,
+            12.179
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_056_b8b830.glb",
-          "sha256_hash": "860598673d49ce47ca1cdd59ea2fda01dcc4a983fdcaaf7bdf763f23706f17cb",
+          "sha256_hash": "948d22b2816be6ec3ac707d3a45adecfa80d431c228dda00f2c54d0065a190ac",
           "file_size_bytes": 137320,
           "compression": "meshopt"
         }
@@ -58706,19 +58706,19 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -16.758030865602066,
+            -16.964,
             -4.1,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            16.758030865602066,
+            16.964,
             8.5,
             12.8
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_058_2bf34f.glb",
-          "sha256_hash": "6ec148ac211fefe3ffc720ee7bdda6bc444fd90720a152c3bff39e98443cc91f",
+          "sha256_hash": "5567e93fa6a5db51798573195ac46c8356e07370ad5acbe8ceb697a1ecac63f0",
           "file_size_bytes": 170008,
           "compression": "meshopt"
         }
@@ -60721,20 +60721,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.58289342450503,
+            -17.999,
             -4.013,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            17.58289342450503,
+            17.999,
             10.344,
-            14.166601568715704
+            14.167
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_060_c1c487.glb",
-          "sha256_hash": "60ca9e8b281512595c15e9bce67588e889c86616ed8563c4d1d5378c05ef2fa2",
-          "file_size_bytes": 177816,
+          "sha256_hash": "b0419dfec3f3bd09f1167309f23731a251e8fcbc366f2abef9ecd19f0507ea95",
+          "file_size_bytes": 177076,
           "compression": "meshopt"
         }
       },
@@ -61735,20 +61735,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.71655530464656,
-            -4.477201988914971,
-            0.19999999999999996
+            -18.818,
+            -5.548,
+            0.2
           ],
           "max": [
-            18.71655530464656,
-            8.45824480707634,
-            11.441188783079564
+            18.818,
+            9.948,
+            11.324
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_061_8af796.glb",
-          "sha256_hash": "c052954a71dd228645ccd59211ff85c79dc2550701c1bcf6fa7186ceaf15e66f",
-          "file_size_bytes": 221684,
+          "sha256_hash": "0a70e171fbd625ea81b24a3383264abc504783767feef05b11249327a00fe2ff",
+          "file_size_bytes": 176924,
           "compression": "meshopt"
         }
       },
@@ -62622,20 +62622,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -14.5,
-            -1.689,
-            -8.4
+            -14.711,
+            -2.052,
+            -8.8
           ],
           "max": [
-            14.5,
-            15.44612950008591,
-            5.6
+            14.8,
+            16.947,
+            6.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_062_68808f.glb",
-          "sha256_hash": "a4a708bc50b8b4ad65b2c537c2fddfd5c95312632413f91610bfd50dde04703d",
-          "file_size_bytes": 137204,
+          "sha256_hash": "b0dcfb72a045e4cfd59e22cc486cb3642cb93b0b20d93831416ad69439ca2bf3",
+          "file_size_bytes": 117524,
           "compression": "meshopt"
         }
       },
@@ -62746,20 +62746,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.430435878358153,
-            -4.351999999999999,
-            0.19999999999999996
+            -17.645,
+            -4.352,
+            0.2
           ],
           "max": [
-            17.430435878358153,
-            8.751999999999999,
+            17.645,
+            8.752,
             13.144
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_062_ec121b.glb",
-          "sha256_hash": "f8b6d1884f3b054b786a2803299c3116e61dd6df0c44e25d4825b2811797d1d8",
-          "file_size_bytes": 170304,
+          "sha256_hash": "fd461cea5960fbf71f66105776cc3ef611f23de12ae00c04488cef69a8f8e318",
+          "file_size_bytes": 170308,
           "compression": "meshopt"
         }
       },
@@ -64793,20 +64793,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.58289342450503,
+            -17.999,
             -4.013,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            17.58289342450503,
+            17.999,
             10.344,
-            14.166601568715704
+            14.167
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_064_4655d6.glb",
-          "sha256_hash": "a2d064ed8c94d758213973ff81c3719948aa1c2dbed952fb874dad81754d9b0f",
-          "file_size_bytes": 177620,
+          "sha256_hash": "4ef0591e34da64f70d7e75f78db115a7f32e701c6c10a01c8e42271ae7c8dbf9",
+          "file_size_bytes": 176880,
           "compression": "meshopt"
         }
       },
@@ -65824,20 +65824,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.814829219196483,
+            -18.245,
             -4.013,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            17.814829219196483,
-            11.565257761689583,
-            11.982233969884199
+            18.245,
+            11.565,
+            12.1
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_065_0216ae.glb",
-          "sha256_hash": "a514b52cf5d20701ae6813dabecf259f469d3dc1dd10e52595d03eaddba92c2e",
-          "file_size_bytes": 149028,
+          "sha256_hash": "94f9b148e81ca0bb7de44812504fe40301f6fc45cd5e601e6ee15f0c63f4844f",
+          "file_size_bytes": 149008,
           "compression": "meshopt"
         }
       },
@@ -66851,20 +66851,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.430435878358153,
-            -4.351999999999999,
-            0.19999999999999996
+            -17.645,
+            -4.352,
+            0.2
           ],
           "max": [
-            17.430435878358153,
-            8.751999999999999,
+            17.645,
+            8.752,
             13.144
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_066_360d2a.glb",
-          "sha256_hash": "b1deed6247c8b238514d1dec51c318a11d39447b2c515c246c71e8057b503252",
-          "file_size_bytes": 150692,
+          "sha256_hash": "9faeaa4e30bfbdac3cd43c5fde97f4ddb00bd94183b3c6e722992e1d5e79b4df",
+          "file_size_bytes": 150696,
           "compression": "meshopt"
         }
       },
@@ -68779,20 +68779,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -15.08,
-            -1.689,
-            -8.568
+            -15.3,
+            -2.486,
+            -8.984
           ],
           "max": [
-            15.08,
-            15.711974680089345,
-            5.992
+            15.392,
+            17.273,
+            6.368
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_068_dcf10d.glb",
-          "sha256_hash": "05b333961c0487a8c6e2131cd83d599761f31dc934ea2f114ac14411dcd1b170",
-          "file_size_bytes": 125996,
+          "sha256_hash": "6a5a807bc8ef4b3111c2944810a424eb0ba9813c1e56c8a4f1d8ec7b1400c937",
+          "file_size_bytes": 106436,
           "compression": "meshopt"
         }
       },
@@ -69901,20 +69901,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.996687792929382,
-            -4.220386527802856,
-            0.19999999999999996
+            -17.646,
+            -5.25,
+            0.2
           ],
           "max": [
-            17.996687792929382,
-            8.413,
-            11.162879685796215
+            17.646,
+            9.65,
+            11.05
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_069_6068f3.glb",
-          "sha256_hash": "b653700ebbb72bfd249aef2f839de4dadde8011794d5b5e890a7c2d306c3c3cb",
-          "file_size_bytes": 221696,
+          "sha256_hash": "b70a2706c462be903d949d0dd3bf32ede69f43b201eb2df95d8ce3410fbed821",
+          "file_size_bytes": 176768,
           "compression": "meshopt"
         }
       },
@@ -70898,20 +70898,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.430435878358153,
-            -4.351999999999999,
-            0.19999999999999996
+            -17.645,
+            -4.352,
+            0.2
           ],
           "max": [
-            17.430435878358153,
-            8.751999999999999,
+            17.645,
+            8.752,
             13.144
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_070_cbe51e.glb",
-          "sha256_hash": "8a41d29d66926b9e14ffde73220c597442fa8b80ba058d0d7e7c7a1052d76899",
-          "file_size_bytes": 181536,
+          "sha256_hash": "586e3533dee312a333e6ac8885b063b3c35ee1d97514ac6917d4bff220316066",
+          "file_size_bytes": 181540,
           "compression": "meshopt"
         }
       },
@@ -72885,20 +72885,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.286209161485232,
+            -18.286,
             -4.144,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            18.286209161485232,
-            10.66976,
-            14.565265631464332
+            18.286,
+            10.67,
+            14.565
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_072_6c49ab.glb",
-          "sha256_hash": "f9295facc1446a716a37ba6a0f807fc687d811b39d5b0258073241eb942e87f4",
-          "file_size_bytes": 158328,
+          "sha256_hash": "ec51cc34f16e17c09a3ca14336b0dc44d9f7832294d6cec4f7b11bf9d5c9d9f8",
+          "file_size_bytes": 157608,
           "compression": "meshopt"
         }
       },
@@ -73878,20 +73878,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.527422387964343,
-            -4.259233629073899,
-            0.19999999999999996
+            -18.639,
+            -4.259,
+            0.2
           ],
           "max": [
-            18.527422387964343,
-            11.943576276089665,
-            12.293523328679568
+            18.639,
+            11.944,
+            12.294
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_073_7f0017.glb",
-          "sha256_hash": "0974f89108da6d49104a028c4f64f9bd7ce089953a28856a99c6ebcf654eb1a2",
-          "file_size_bytes": 148868,
+          "sha256_hash": "b9edb194491214334c6bd981bec2c589de5649302724ec8457ab0e81d9ca5acf",
+          "file_size_bytes": 148872,
           "compression": "meshopt"
         }
       },
@@ -74867,19 +74867,19 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -16.253727106035004,
+            -16.454,
             -4.013,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            16.253727106035004,
+            16.454,
             8.413,
             12.542
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_074_514ae8.glb",
-          "sha256_hash": "2c66ed3dee648b1ce8a2408b73edd6c0ef99deeb16c94a8164bccbc952802fcd",
+          "sha256_hash": "0a77f2f8ef0e0f8be4efb42b39bd52eb7dfb8b99ef4b4071c820be7f23964c32",
           "file_size_bytes": 162728,
           "compression": "meshopt"
         }
@@ -77719,20 +77719,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -15.08,
-            -1.689,
-            -8.568
+            -14.529,
+            -2.016,
+            -8.36
           ],
           "max": [
-            15.08,
-            15.711974680089345,
-            5.992
+            15.288,
+            15.712,
+            6.096
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_077_94045e.glb",
-          "sha256_hash": "a64eecd99d9a627802cb1472ec2ee03d51e7c099cc8f4004b6f2c8ee243aa343",
-          "file_size_bytes": 137376,
+          "sha256_hash": "4e0c95dc2e26068dcc3a847a384ff7c87c10deee6acd1ac3a49d2ab429efbf1f",
+          "file_size_bytes": 117776,
           "compression": "meshopt"
         }
       },
@@ -77842,20 +77842,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.996687792929382,
-            -4.220386527802856,
-            0.19999999999999996
+            -17.646,
+            -5.25,
+            0.2
           ],
           "max": [
-            17.996687792929382,
-            8.413,
-            11.162879685796215
+            17.646,
+            9.65,
+            11.05
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_077_74a7a5.glb",
-          "sha256_hash": "18b0d10f18adc47f3d61d170b82ec75004ed32bd05dd9cd7db0e2f532baab028",
-          "file_size_bytes": 202500,
+          "sha256_hash": "c83d76971c27ca7bed67c188aeeefc213acb382bbf480c256a32826d589c4ca6",
+          "file_size_bytes": 157584,
           "compression": "meshopt"
         }
       },
@@ -78843,19 +78843,19 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -16.253727106035004,
+            -16.454,
             -4.013,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            16.253727106035004,
+            16.454,
             8.413,
             12.542
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_078_250316.glb",
-          "sha256_hash": "7d841dcc80ee2c8c8d536ae5fc7eb7662764c256bc99047892ebaaaffb6926eb",
+          "sha256_hash": "696e36d35347a2b9094041e5d4643de5f4d3a0b66ff466492d3d9799f825408a",
           "file_size_bytes": 161792,
           "compression": "meshopt"
         }
@@ -80851,20 +80851,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -17.58289342450503,
+            -17.583,
             -4.013,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            17.58289342450503,
+            17.583,
             10.344,
-            14.166601568715704
+            14.167
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_080_4cfbde.glb",
-          "sha256_hash": "7f9b094f5a433529536231cb1fbfb9cf780617a0119d7d7c9af72c60946f15d8",
-          "file_size_bytes": 189300,
+          "sha256_hash": "55e51ec6c4d101f57e9a47de747d9b680c26dc198b8ad034229dd85dbcb33aec",
+          "file_size_bytes": 188560,
           "compression": "meshopt"
         }
       },
@@ -81843,19 +81843,19 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.527422387964343,
-            -4.259233629073899,
-            0.19999999999999996
+            -18.639,
+            -4.259,
+            0.2
           ],
           "max": [
-            18.527422387964343,
-            11.943576276089665,
-            12.293523328679568
+            18.639,
+            11.944,
+            12.294
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_081_160ea2.glb",
-          "sha256_hash": "e0705d68fa0f7d5f7108445e8a6c2ebbe2c376f6c9fc92c0b6b0565228640a88",
+          "sha256_hash": "0063638b7a915d594d3cc1c01c1e70db84f6b3d909a5d56f2fd9ce487c6faec6",
           "file_size_bytes": 129512,
           "compression": "meshopt"
         }
@@ -83705,20 +83705,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -14.5,
+            -13.97,
             -1.689,
-            -8.4
+            -8.2
           ],
           "max": [
-            14.5,
-            15.44612950008591,
-            5.6
+            14.7,
+            15.446,
+            5.7
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_head_sensor_083_5f143e.glb",
-          "sha256_hash": "268bff5b58045c330182b045cd82643d932ef39205b1ddc106269824d8f606ea",
-          "file_size_bytes": 132900,
+          "sha256_hash": "4d0516563e490ba91ea614d63cb9256f5c1c2e778b7a720109507154df9e3fa8",
+          "file_size_bytes": 113220,
           "compression": "meshopt"
         }
       },
@@ -83831,20 +83831,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -18.71655530464656,
-            -4.477201988914971,
-            0.19999999999999996
+            -18.351,
+            -5.548,
+            0.2
           ],
           "max": [
-            18.71655530464656,
-            8.45824480707634,
-            11.441188783079564
+            18.351,
+            9.948,
+            11.324
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_083_f02da1.glb",
-          "sha256_hash": "cca27fb0de4f97cf763569c057d6002fd48a532420649e77e90d3dab0cbc1f77",
-          "file_size_bytes": 233332,
+          "sha256_hash": "c92de5867e0abac5abf47f3546dfdde86c845e77f870ef4e9db63e428ef8e280",
+          "file_size_bytes": 188560,
           "compression": "meshopt"
         }
       },
@@ -84826,19 +84826,19 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -16.253727106035004,
+            -16.454,
             -4.013,
-            0.19999999999999996
+            0.2
           ],
           "max": [
-            16.253727106035004,
+            16.454,
             8.413,
             12.542
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_chest_armor_084_128d49.glb",
-          "sha256_hash": "2aceb17c11911515d77ba488e2a437e8995218c134e368cbaf067e8696ca2b27",
+          "sha256_hash": "9139a13d3fed546708f2890329a1e13ccd064679ec76fcc6ee1e2ea2e9e57644",
           "file_size_bytes": 193232,
           "compression": "meshopt"
         }
@@ -85398,6 +85398,1264 @@
         ],
         "topology_hash": "702db8d73a0ff167",
         "composition_key": "pile_bunker_kinetic_lance+twin_guard_wings+sazabi_verka+g_6cc579"
+      }
+    },
+    {
+      "part_id": "llm_gen_aux_shield_084_61465a",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-SHD-685",
+      "name": "RGM-79[G] Ground Twin‑Pincer Aux Shield Mk.II",
+      "category": "armor",
+      "primary_hardpoint": "HP-07",
+      "slot_group": "aux_shield",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP07-FOREARM",
+      "entropy_seed": "dfbae7d8f1b36fadc804ae3c009470b90a953d36d234ed8654b985868692077c",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1800,
+        "thrust_kgf": 15000,
+        "reactor_draw_kw": 800
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-07",
+        "HP-08"
+      ],
+      "structural_specs": {
+        "mass_kg": 1800,
+        "bom_computed_mass_kg": 1800,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-07",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -17.321,
+            -24.842,
+            -14.38
+          ],
+          "max": [
+            -1.7,
+            18.134,
+            16.397
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_aux_shield_084_61465a.glb",
+          "sha256_hash": "9a12e5d2f6cdd54bdaea7b8854ebcec8f2d73652f06de56d94a2720c152c91e4",
+          "file_size_bytes": 165380,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "A compact forearm shield integrating an I‑Field emitter and vernier thrusters, providing high‑mobility ground combat units with kinetic protection and close‑range ram capability.",
+        "reactor_power_draw_kw": 800,
+        "vernier_thrust_kgf": 15000
+      },
+      "reference_sources": [
+        {
+          "title": "RGM-79［G］ GM Ground Type",
+          "url": "https://gundam.fandom.com/wiki/RGM-79%EF%BC%BBG%EF%BC%BD_GM_Ground_Type",
+          "source": "Gundam Wiki",
+          "summary": "An early prototype of the Earth Federation Forces' mobile suit mass production project, the GM Ground Type was developed before the RX-78-2 Gundam's operational data was recovered. Even though it was only able to operate on Earth, its internal parts were all tuned for ground combat, and it was equipped with Luna Titanium armor, resulting in its mobility, maneuverability, and general performance to surpass the later RGM-79 GM. It is said that its performance under gravity even rivals that of the RX-78. Compared to t"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RGM-79[G] Ground Twin‑Pincer Aux Shield Mk.II",
+        "concept_slug": "gm_ground_twin_pincer_aux_shield",
+        "concept_tokens": [
+          "ground",
+          "pincer",
+          "rgm",
+          "shield"
+        ],
+        "component_count": 12,
+        "primitive_types": 6,
+        "primitive_counts": {
+          "curved_armor_plate": 1,
+          "stepped_armor_panel": 2,
+          "machined_sensor_bezel": 1,
+          "box": 5,
+          "fin": 1,
+          "cylinder": 2
+        },
+        "aabb_size_mm": [
+          15.6,
+          43.0,
+          30.8
+        ],
+        "aabb_ratios": [
+          0.363,
+          1.0,
+          0.716
+        ],
+        "topology_hash": "784b40a186e338b4",
+        "composition_key": "spiked_knuckle_breacher_buckler+top_ram_spikes+underslung_vernier_pair+unicorn_awakened_gn+g_f56b69"
+      }
+    },
+    {
+      "part_id": "llm_gen_dorsal_pack_084_cec9a3",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-DPK-686",
+      "name": "RX-78GP01-Fb Zephyranthes Full Burnern Propulsion Pack",
+      "category": "propulsion",
+      "primary_hardpoint": "HP-00",
+      "slot_group": "dorsal_pack",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP00-DORSAL",
+      "entropy_seed": "444f01251a20f159c9687281fb8c507cce6601892a9e061932ae94a61adf2c8e",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1200,
+        "thrust_kgf": 50000,
+        "reactor_draw_kw": 800
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-00"
+      ],
+      "structural_specs": {
+        "mass_kg": 1200,
+        "bom_computed_mass_kg": 1200,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-00",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -25.754,
+            -27.101,
+            -28.591
+          ],
+          "max": [
+            25.754,
+            11.13,
+            8.0
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_dorsal_pack_084_cec9a3.glb",
+          "sha256_hash": "03174ab9b3a3fbf3add41c41e5c910e51fbb060aa1251db974c2848a602ad65e",
+          "file_size_bytes": 280372,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides high-thrust orbital propulsion and stability for the GP01, enabling rapid maneuvering and extended space operations.",
+        "reactor_power_draw_kw": 800,
+        "vernier_thrust_kgf": 50000
+      },
+      "reference_sources": [
+        {
+          "title": "RX-78GP01-Fb Gundam \"Zephyranthes\" Full Burnern",
+          "url": "https://gundam.fandom.com/wiki/RX-78GP01-Fb_Gundam_%22Zephyranthes%22_Full_Burnern",
+          "source": "Gundam Wiki",
+          "summary": "Originally, the GP01 was capable of operating in space by swapping out its Core Fighter and equipping other optional equipment, such as leg-mounted propellant tanks. In fact, these optional equipment rolled out on the same day as the GP01 itself. However, after the GP01 was heavily damaged in battle, it received a complete overhaul, incorporating many new ideas and reflecting trial data collected on Earth. Since the resulting mobile suit deviated from the original plan, it was given the new, unofficial model number"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RX-78GP01-Fb Zephyranthes Full Burnern Propulsion Pack",
+        "concept_slug": "zephyranthes_full_burnern_prop_pack",
+        "concept_tokens": [
+          "burnern",
+          "full",
+          "prop",
+          "propulsion",
+          "zephyranthes"
+        ],
+        "component_count": 19,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "sculpted_pod": 1,
+          "cylinder": 10,
+          "box": 6,
+          "revolved": 1,
+          "vernier": 1
+        },
+        "aabb_size_mm": [
+          51.5,
+          38.2,
+          36.6
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.742,
+          0.71
+        ],
+        "topology_hash": "bb4765a24e5cce40",
+        "composition_key": "twin_propellant_tank_booster+center_stabilizer_tail+quad_micro_verniers+sazabi_verka+g_d735a8"
+      }
+    },
+    {
+      "part_id": "llm_gen_head_sensor_085_41c6da",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-HED-687",
+      "name": "GN-002 Gundam Dynames Long-Range Sensor Hood",
+      "category": "modular_mission_pack",
+      "primary_hardpoint": "HP-01",
+      "slot_group": "head_sensor",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP01-CRANIAL",
+      "entropy_seed": "b8304b16526f8eb2c316f4d166b3c42a3076c1ec15e02c62be441e1e80703ef1",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1250,
+        "thrust_kgf": 45000,
+        "reactor_draw_kw": 850
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-01",
+        "HP-02"
+      ],
+      "structural_specs": {
+        "mass_kg": 1250,
+        "bom_computed_mass_kg": 1250,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-01",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -12.726,
+            -1.689,
+            -8.113
+          ],
+          "max": [
+            12.726,
+            22.26,
+            3.106
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_head_sensor_085_41c6da.glb",
+          "sha256_hash": "d04a93361a44bec85a14e3fe7bfe7edde75794488f047002a47373020ad629ed",
+          "file_size_bytes": 126596,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Celestial Being long-range engagement unit featuring a forward-sloped armored brow sensor and GN Particle-enhanced stealth telemetry for precision beam weaponry.",
+        "reactor_power_draw_kw": 850,
+        "vernier_thrust_kgf": 45000
+      },
+      "reference_sources": [
+        {
+          "title": "GN-002 Gundam Dynames",
+          "url": "https://gundam.fandom.com/wiki/GN-002_Gundam_Dynames",
+          "source": "Gundam Wiki",
+          "summary": "The paramilitary organization, Celestial Being, deployed several Gundams in AD 2307 to eliminate world conflicts through armed interventions, and the Gundam Dynames that specialized in long-range shooting is one of them. Like its fellow Gundams, Dynames has a semi-perpetual GN Drive in the center of its body that provides almost limitless energy and produces special, multifunctional GN Particles. The GN Particles grant outstanding mobility and are also utilized for beam weaponry, attitude control, and stealth purpo"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "GN-002 Gundam Dynames Long-Range Sensor Hood",
+        "concept_slug": "dynames_gn_sniper_hood",
+        "concept_tokens": [
+          "dynames",
+          "hood",
+          "long",
+          "range",
+          "sensor",
+          "sniper"
+        ],
+        "component_count": 8,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "sculpted_pod": 2,
+          "cylinder": 1,
+          "fin": 1,
+          "machined_sensor_bezel": 1,
+          "box": 3
+        },
+        "aabb_size_mm": [
+          25.5,
+          23.9,
+          11.2
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.941,
+          0.441
+        ],
+        "topology_hash": "20ed4b26d5d30c3a",
+        "composition_key": "ew_dual_blade_recon_dome+dual_temple_vulcans+rear_cooling_crest+tallgeese_imperial+g_855fd3"
+      }
+    },
+    {
+      "part_id": "llm_gen_chest_armor_085_a4075e",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-CHS-688",
+      "name": "RX-0 Full Armor Unicorn Pectoral Shield Array",
+      "category": "armor",
+      "primary_hardpoint": "HP-09",
+      "slot_group": "chest_armor",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP09-PECTORAL",
+      "entropy_seed": "59db74376ca70fbe6b588de51c61fd2057fddd970c991705d98dd7449d59f13d",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1200,
+        "thrust_kgf": 50000,
+        "reactor_draw_kw": 800
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-09",
+        "HP-10"
+      ],
+      "structural_specs": {
+        "mass_kg": 1200,
+        "bom_computed_mass_kg": 1200,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-09",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -17.692,
+            -4.345,
+            0.2
+          ],
+          "max": [
+            17.692,
+            8.741,
+            11.402
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_chest_armor_085_a4075e.glb",
+          "sha256_hash": "f09108ffea13ac4a6730dc8f694558170f38f311b5de8e1e66c1f0f2242c877d",
+          "file_size_bytes": 220456,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Reinforced Chobham composite plating with integrated mega emitter and venting for the RX-0 Full Armor Unicorn, boosting frontal defense and output.",
+        "reactor_power_draw_kw": 800,
+        "vernier_thrust_kgf": 50000
+      },
+      "reference_sources": [
+        {
+          "title": "RX-0 Full Armor Unicorn Gundam",
+          "url": "https://gundam.fandom.com/wiki/RX-0_Full_Armor_Unicorn_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "The Full Armor Unicorn Gundam was an enhancement plan devised by Takuya Irei while aboard the Nahel Argama and is based on his extensive knowledge of mobile suits. After Banagher's Newtype potential manifests itself, the psycho-frame changes color to a vibrant green. Unlike other mobile suits with the Full Armor designation, the FA Unicorn does not have any additional armor for the MS itself (except additional shields). However, it does introduce a large array of weapons, which are added to the legs, backpack and f"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RX-0 Full Armor Unicorn Pectoral Shield Array",
+        "concept_slug": "rx0_unicorn_pec_shield_array",
+        "concept_tokens": [
+          "array",
+          "full",
+          "pec",
+          "pectoral",
+          "shield",
+          "unicorn"
+        ],
+        "component_count": 10,
+        "primitive_types": 4,
+        "primitive_counts": {
+          "sculpted_pod": 1,
+          "box": 6,
+          "servo_drum": 1,
+          "cylinder": 2
+        },
+        "aabb_size_mm": [
+          35.4,
+          13.1,
+          11.2
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.37,
+          0.317
+        ],
+        "topology_hash": "ba6048b33f264a02",
+        "composition_key": "full_armor_chobham_era_plastron+center_mega_emitter+twin_pectoral_vents+upper_collar_gorget+unicorn_awakened_gn+acc_emerald+g_1a8f54@s1.0000"
+      }
+    },
+    {
+      "part_id": "llm_gen_shoulder_pods_085_223267",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-SHL-689",
+      "name": "RGM-89S Stark Jegan Anti-Ship Missile Pauldrons",
+      "category": "weapon",
+      "primary_hardpoint": "HP-03",
+      "slot_group": "shoulder_pods",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP03-SHOULDER",
+      "entropy_seed": "021a59f046bd77715c64c9b96e185c38409bfa93a30d0cbbd4cfb4130346674b",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1850,
+        "thrust_kgf": 45000,
+        "reactor_draw_kw": 850
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-03",
+        "HP-05"
+      ],
+      "structural_specs": {
+        "mass_kg": 1850,
+        "bom_computed_mass_kg": 1850,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-03",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -55.916,
+            -3.54,
+            -10.955
+          ],
+          "max": [
+            55.916,
+            16.884,
+            36.406
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_shoulder_pods_085_223267.glb",
+          "sha256_hash": "18e73d7d85daa59bb60ea988c504a982f5e747488dd08d75056dce1693a57eb9",
+          "file_size_bytes": 330592,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Special forces anti-ship shoulder pods featuring purgeable armor and heavy missile arrays for sustained bombardment.",
+        "reactor_power_draw_kw": 850,
+        "vernier_thrust_kgf": 45000
+      },
+      "reference_sources": [
+        {
+          "title": "RGM-89S Stark Jegan",
+          "url": "https://gundam.fandom.com/wiki/RGM-89S_Stark_Jegan",
+          "source": "Gundam Wiki",
+          "summary": "The Stark Jegan is a special forces-use version of the RGM-89D Jegan D Type designed for anti-ship warfare, and has improved performance due to the additional armor and thrusters. It also incorporated feedback from its prototype, the RGM-89S Prototype Stark Jegan, and can mount missile pods on its shoulders for support use. Thus, it also inherited the functional concept of the RGM-86R GM III. Some of the added armor and the missile pods can be purged when required, with the subsequent balance adjustment being perfo"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RGM-89S Stark Jegan Anti-Ship Missile Pauldrons",
+        "concept_slug": "stark_jegan_anti_ship_missile_pods",
+        "concept_tokens": [
+          "anti",
+          "jegan",
+          "missile",
+          "pauldrons",
+          "pods",
+          "rgm",
+          "ship",
+          "stark"
+        ],
+        "component_count": 13,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "revolved": 3,
+          "sculpted_pod": 1,
+          "box": 4,
+          "cylinder": 4,
+          "stepped_armor_panel": 1
+        },
+        "aabb_size_mm": [
+          111.8,
+          20.4,
+          47.4
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.183,
+          0.423
+        ],
+        "topology_hash": "98f3f49356e782e8",
+        "composition_key": "twin_mega_beam_shoulder_cannons+rear_surge_vernier+titans_mk2+g_959e8f"
+      }
+    },
+    {
+      "part_id": "llm_gen_waist_ordnance_085_1aa2a3",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-WST-690",
+      "name": "Strike Freedom Hip‑Rail & Grenade Ordnance Pack",
+      "category": "armor",
+      "primary_hardpoint": "HP-13",
+      "slot_group": "waist_ordnance",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP13-WAIST",
+      "entropy_seed": "84b922a7ea2e39505a9a16b116f005487c54b65f7af3a58fd74ec1de79b35ad8",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 950,
+        "thrust_kgf": 15000,
+        "reactor_draw_kw": 900
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-13",
+        "HP-17"
+      ],
+      "structural_specs": {
+        "mass_kg": 950,
+        "bom_computed_mass_kg": 950,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-13",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -34.072,
+            -7.842,
+            -24.071
+          ],
+          "max": [
+            34.072,
+            8.311,
+            -9.6
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_waist_ordnance_085_1aa2a3.glb",
+          "sha256_hash": "032c02a66dfe85704dd0acc319e59fef14db0db1865f541c4a1e9cd2f6d5ea8b",
+          "file_size_bytes": 303576,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides high‑velocity railgun fire and multi‑phase grenade bursts from the hips, complementing the Strike Freedom’s long‑range beam arsenal while preserving its superior mobility.",
+        "reactor_power_draw_kw": 900,
+        "vernier_thrust_kgf": 15000
+      },
+      "reference_sources": [
+        {
+          "title": "ZGMF-X20A Strike Freedom Gundam",
+          "url": "https://gundam.fandom.com/wiki/ZGMF-X20A_Strike_Freedom_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "A mobile suit tuned to meet Kira Yamato's needs, the Strike Freedom has Variable Phase Shift Armor, and like its predecessor, ZGMF-X10A Freedom Gundam, is primarily armed with powerful ranged weapons. Its armaments include head-mounted CIWS, an abdomen-mounted multi-phase beam cannon, hip-mounted railguns, combinable beam sabers and beam rifles, Super DRAGOON pods controlled by an improved DRAGOON system, and beam shields. It is powered by the new Hyper-Deuterion Engine, and is also equipped with the Neutron Jammer"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "Strike Freedom Hip‑Rail & Grenade Ordnance Pack",
+        "concept_slug": "strike_freedom_waist_rail_grenade_pack",
+        "concept_tokens": [
+          "freedom",
+          "grenade",
+          "hip",
+          "ordnance",
+          "rail",
+          "strike"
+        ],
+        "component_count": 10,
+        "primitive_types": 6,
+        "primitive_counts": {
+          "servo_drum": 1,
+          "sculpted_pod": 1,
+          "box": 4,
+          "revolved": 2,
+          "stepped_armor_panel": 1,
+          "cylinder": 1
+        },
+        "aabb_size_mm": [
+          68.1,
+          16.2,
+          14.5
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.237,
+          0.212
+        ],
+        "topology_hash": "693551b2a4357935",
+        "composition_key": "twin_hip_missile_pods+forward_rail_prongs+unicorn_destroy+g_11b92a"
+      }
+    },
+    {
+      "part_id": "llm_gen_leg_thrusters_085_cd68ac",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-LEG-691",
+      "name": "RX-78-02 Side-7 Emergency Egress Calf Thruster Kit",
+      "category": "propulsion",
+      "primary_hardpoint": "HP-24",
+      "slot_group": "leg_thrusters",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP24-CALF",
+      "entropy_seed": "6b7f1a06d4d9c765929fc524a68cf291f688dd5f11ab75fa9663bc70273d6e53",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 840,
+        "thrust_kgf": 18500,
+        "reactor_draw_kw": 1450
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-24",
+        "HP-26"
+      ],
+      "structural_specs": {
+        "mass_kg": 840,
+        "bom_computed_mass_kg": 840,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-24",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -39.812,
+            -14.423,
+            -9.324
+          ],
+          "max": [
+            39.812,
+            9.711,
+            5.76
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_leg_thrusters_085_cd68ac.glb",
+          "sha256_hash": "f804287998c5af50cf0e5a51daffe0748b352c285ab4cc0431cd9a870deb962b",
+          "file_size_bytes": 268848,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "High-thrust coaxial calf boosters enabling rapid atmospheric escape and vertical stabilization during the Side-7 evacuation, mirroring the RX-78-02's 1500kW reactor output.",
+        "reactor_power_draw_kw": 1450,
+        "vernier_thrust_kgf": 18500
+      },
+      "reference_sources": [
+        {
+          "title": "RX-78-02 Gundam",
+          "url": "https://gundam.fandom.com/wiki/RX-78-02_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "Its estimate generator output was from 1000&nbsp;kW to 1400&nbsp;kW, its target output was to be at least 150% of the RCX-76 . The operation tests of the RX-78-02, a prototype MS of the Earth Federation, were carried out in secret, but civilian Amuro Ray coincidentally became its pilot when Zeon Forces assaulted Side 7. The RX-78-02 utilizes its wide array of portable weapons such as its beam rifle and hyper bazooka. It also has fixed weaponry such as two shoulder magnums on the left shoulder, a gatling gun on the "
+        },
+        {
+          "title": "Mobile Suit Gundam: Hathaway",
+          "url": "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Hathaway",
+          "source": "Wikipedia",
+          "summary": "Mobile Suit Gundam: Hathaway (Japanese: 機動戦士ガンダム 閃光のハサウェイ, Hepburn: Kidō Senshi Gandamu Senkō no Hasauei; lit. 'Mobile Suit Gundam: Hathaway's Flash') is a Japanese science fiction animated film and the first part of a planned trilogy in the Gundam franchise. Adapted from the 1989–1990 novel of the same name by Yoshiyuki Tomino, it is directed by Shuko Murase, written by Yasuyuki Muto, scored by Hiroyuki Sawano, and "
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RX-78-02 Side-7 Emergency Egress Calf Thruster Kit",
+        "concept_slug": "rx78_side7_evac_hover_greaves",
+        "concept_tokens": [
+          "egress",
+          "emergency",
+          "evac",
+          "greaves",
+          "hover",
+          "side",
+          "thruster"
+        ],
+        "component_count": 9,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "sculpted_pod": 1,
+          "box": 3,
+          "cylinder": 2,
+          "fin": 1,
+          "vernier": 2
+        },
+        "aabb_size_mm": [
+          79.6,
+          24.1,
+          15.1
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.303,
+          0.189
+        ],
+        "topology_hash": "cea5d78804dc43c7",
+        "composition_key": "aero_fin_interceptor_greaves+forward_knee_spike+tallgeese_imperial+g_0cbbb3"
+      }
+    },
+    {
+      "part_id": "llm_gen_aux_weapon_085_483b8b",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-WPN-692",
+      "name": "RX-78-02 Auxiliary Double Beam Glaive Guard Kit",
+      "category": "weapon",
+      "primary_hardpoint": "HP-11",
+      "slot_group": "aux_weapon",
+      "weapon_grip_type": "melee_hilt_grip",
+      "adapter_id": "ADP-HP11-WEAPON",
+      "entropy_seed": "f2a64536740d83ae876f1c43ce6db47eb34899d48393ee2fd0d1024f0fbace95",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 5800,
+        "thrust_kgf": 150000,
+        "reactor_draw_kw": 1400
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-11",
+        "HP-12"
+      ],
+      "structural_specs": {
+        "mass_kg": 5800,
+        "bom_computed_mass_kg": 5800,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-11",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -2.403,
+            -16.471,
+            -13.929
+          ],
+          "max": [
+            7.542,
+            44.27,
+            53.998
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_aux_weapon_085_483b8b.glb",
+          "sha256_hash": "ae3519f0a5f161d995e19f0f3328d8adb3a69d33e2066e700a1a3a53db0a1c3f",
+          "file_size_bytes": 87636,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides a long-reach, high-energy beam polearm for precision strikes while twin guard wings stabilize recoil and enhance maneuverability.",
+        "reactor_power_draw_kw": 1400,
+        "vernier_thrust_kgf": 150000
+      },
+      "reference_sources": [
+        {
+          "title": "RX-78-02 Gundam",
+          "url": "https://gundam.fandom.com/wiki/RX-78-02_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "Its estimate generator output was from 1000&nbsp;kW to 1400&nbsp;kW, its target output was to be at least 150% of the RCX-76 . The operation tests of the RX-78-02, a prototype MS of the Earth Federation, were carried out in secret, but civilian Amuro Ray coincidentally became its pilot when Zeon Forces assaulted Side 7. The RX-78-02 utilizes its wide array of portable weapons such as its beam rifle and hyper bazooka. It also has fixed weaponry such as two shoulder magnums on the left shoulder, a gatling gun on the "
+        },
+        {
+          "title": "Gundam (fictional robot)",
+          "url": "https://en.wikipedia.org/wiki/Gundam_(fictional_robot)",
+          "source": "Wikipedia",
+          "summary": "The RX-78-2 Gundam (Japanese: RX-78-2 ガンダム, Hepburn: Āru Ekkusu Nanajū Hachi no Ni Gandamu) is a piloted mecha introduced in 1979 in Yoshiyuki Tomino's and Sunrise's anime series Mobile Suit Gundam. In the series, it is a prototype weapon used by the Earth Federation. The mecha ends up in the hands of Amuro Ray, the son of Tem Ray, who designed the Gundam. Amuro Ray goes on to pilot the mecha for the Earth Federation"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RX-78-02 Auxiliary Double Beam Glaive Guard Kit",
+        "concept_slug": "double_beam_glaive_aux_guard",
+        "concept_tokens": [
+          "beam",
+          "glaive",
+          "guard"
+        ],
+        "component_count": 9,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "cylinder": 4,
+          "spike": 2,
+          "servo_drum": 1,
+          "box": 1,
+          "beam_blade": 1
+        },
+        "aabb_size_mm": [
+          9.9,
+          60.7,
+          67.9
+        ],
+        "aabb_ratios": [
+          0.146,
+          0.894,
+          1.0
+        ],
+        "topology_hash": "ea7f6edcd3138455",
+        "composition_key": "plasma_war_scythe+twin_guard_wings+exia_gn_cyan+g_ae85c0"
+      }
+    },
+    {
+      "part_id": "llm_gen_aux_shield_085_fa3183",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-SHD-693",
+      "name": "Strike Freedom I‑Field Aux Shield Mk.II",
+      "category": "armor",
+      "primary_hardpoint": "HP-07",
+      "slot_group": "aux_shield",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP07-FOREARM",
+      "entropy_seed": "dc560b0aafc210a610404a81d173b38e6ff2886fd2eabb9b0f7f15008244bcc3",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1150,
+        "thrust_kgf": 18000,
+        "reactor_draw_kw": 850
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-07",
+        "HP-08"
+      ],
+      "structural_specs": {
+        "mass_kg": 1150,
+        "bom_computed_mass_kg": 1150,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-07",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -17.446,
+            -25.209,
+            -18.316
+          ],
+          "max": [
+            -1.7,
+            21.209,
+            18.321
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_aux_shield_085_fa3183.glb",
+          "sha256_hash": "b610e6bdc2f06a8db375ffb92bcb5210a943a90ad8a0fe5a830cba3e4751c4e5",
+          "file_size_bytes": 176184,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides a high‑mobility energy forearm shield that projects an I‑Field barrier while housing micro‑missiles and a vernier thruster for rapid evasion and close‑range interception.",
+        "reactor_power_draw_kw": 850,
+        "vernier_thrust_kgf": 18000
+      },
+      "reference_sources": [
+        {
+          "title": "ZGMF-X20A Strike Freedom Gundam",
+          "url": "https://gundam.fandom.com/wiki/ZGMF-X20A_Strike_Freedom_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "A mobile suit tuned to meet Kira Yamato's needs, the Strike Freedom has Variable Phase Shift Armor, and like its predecessor, ZGMF-X10A Freedom Gundam, is primarily armed with powerful ranged weapons. Its armaments include head-mounted CIWS, an abdomen-mounted multi-phase beam cannon, hip-mounted railguns, combinable beam sabers and beam rifles, Super DRAGOON pods controlled by an improved DRAGOON system, and beam shields. It is powered by the new Hyper-Deuterion Engine, and is also equipped with the Neutron Jammer"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "Strike Freedom I‑Field Aux Shield Mk.II",
+        "concept_slug": "sf_aux_ifield_microbay_vernier",
+        "concept_tokens": [
+          "field",
+          "freedom",
+          "ifield",
+          "microbay",
+          "shield",
+          "strike",
+          "vernier"
+        ],
+        "component_count": 17,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "fin": 4,
+          "stepped_armor_panel": 2,
+          "revolved": 1,
+          "cylinder": 6,
+          "box": 4
+        },
+        "aabb_size_mm": [
+          15.7,
+          46.4,
+          36.6
+        ],
+        "aabb_ratios": [
+          0.339,
+          1.0,
+          0.789
+        ],
+        "topology_hash": "100aa99fb975dfa8",
+        "composition_key": "ifield_hex_plasma_shield+center_ifield_emitter+side_missile_microbay+underslung_vernier_pair+strike_freedom_royal+g_626171@s1.0400"
+      }
+    },
+    {
+      "part_id": "llm_gen_dorsal_pack_085_3c67ce",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-DPK-694",
+      "name": "GN-0000 00 Raiser Twin Drive Sync Halo Pack",
+      "category": "propulsion",
+      "primary_hardpoint": "HP-00",
+      "slot_group": "dorsal_pack",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP00-DORSAL",
+      "entropy_seed": "e97ba9629f7fbf42a1fade778bfd16cb21d3a2dd7f2205f1db174e913ce22c1c",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1850,
+        "thrust_kgf": 45000,
+        "reactor_draw_kw": 1450
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-00"
+      ],
+      "structural_specs": {
+        "mass_kg": 1850,
+        "bom_computed_mass_kg": 1850,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-00",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -20.532,
+            -14.316,
+            -39.02
+          ],
+          "max": [
+            20.532,
+            33.464,
+            8.0
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_dorsal_pack_085_3c67ce.glb",
+          "sha256_hash": "089fc119b07a33edc800f36a5484967570ecf83fb870ef1fdee3871b174543d6",
+          "file_size_bytes": 352224,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "High-output dorsal emitter array synchronizing dual GN Drives to square particle output for sustained funnel saturation.",
+        "reactor_power_draw_kw": 1450,
+        "vernier_thrust_kgf": 45000
+      },
+      "reference_sources": [
+        {
+          "title": "GN-0000+GNR-010 00 Raiser",
+          "url": "https://gundam.fandom.com/wiki/GN-0000%2BGNR-010_00_Raiser",
+          "source": "Gundam Wiki",
+          "summary": "The GN-0000 00 Gundam was one of the new Gundams deployed by Celestial Being in AD 2312, and the first mobile suit to feature the Twin Drive System that comprised two original GN Drives. By perfectly synchronizing the two GN Drives, the Twin Drive System can produce a GN Particle output that is squared that of a single GN Drive rather than merely doubled. The 00 was expected to have exceptional combat capabilities thanks to this immense amount of GN Particles. Unfortunately, the 00 was unable to stabilize the Twin "
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "GN-0000 00 Raiser Twin Drive Sync Halo Pack",
+        "concept_slug": "twin_drive_sync_halo",
+        "concept_tokens": [
+          "drive",
+          "halo",
+          "raiser",
+          "sync"
+        ],
+        "component_count": 23,
+        "primitive_types": 6,
+        "primitive_counts": {
+          "box": 9,
+          "cylinder": 9,
+          "revolved": 2,
+          "sculpted_pod": 1,
+          "fin": 1,
+          "vernier": 1
+        },
+        "aabb_size_mm": [
+          41.1,
+          47.8,
+          47.0
+        ],
+        "aabb_ratios": [
+          0.859,
+          1.0,
+          0.984
+        ],
+        "topology_hash": "22d8578708478f0e",
+        "composition_key": "awacs_halo_radome_pack+lower_propellant_tanks+quad_micro_verniers+twin_over_shoulder_cannons+sinanju_gloss_red+g_96c03d"
       }
     }
   ]
