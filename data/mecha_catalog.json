@@ -2659,20 +2659,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -3.507,
-            -16.471,
-            -13.429
+            -2.553317315297731,
+            -15.575349088013626,
+            -12.982353576229357
           ],
           "max": [
-            7.542,
-            44.27,
-            54.498
+            8.238210842280026,
+            46.94320749215031,
+            54.94912577265353
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_003_4285ba.glb",
-          "sha256_hash": "5d537401dda2e6f6f1b091f5626a26c7d05ec447613038caeb830fa55a70a872",
-          "file_size_bytes": 83732,
+          "sha256_hash": "19fcd6a823867e9057e85b9f68f489019bdb74989a0f5cb6b805f50137f35cf3",
+          "file_size_bytes": 109808,
           "compression": "meshopt"
         }
       },
@@ -3041,20 +3041,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -40.938,
-            -16.951,
-            -8.221
+            -41.253851996103286,
+            -16.748464567507856,
+            -8.4319924
           ],
           "max": [
-            40.938,
-            18.229,
-            4.3
+            41.253851996103286,
+            14.99303215599655,
+            4.300000000000001
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_002_def7cf.glb",
-          "sha256_hash": "091731c04a460757fa53998d551b99cd55ca460166867fef9dbbc86cdda6427f",
-          "file_size_bytes": 164200,
+          "sha256_hash": "e6ea1f1729726ca9b82588b3a54a4de01a8abdfc7041f1386fbc463eb6b4c034",
+          "file_size_bytes": 288832,
           "compression": "meshopt"
         }
       },
@@ -10084,20 +10084,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -40.938,
-            -16.951,
-            -8.221
+            -41.253851996103286,
+            -16.748464567507856,
+            -8.4319924
           ],
           "max": [
-            40.938,
-            18.229,
-            4.3
+            41.253851996103286,
+            14.99303215599655,
+            4.300000000000001
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_009_f00f57.glb",
-          "sha256_hash": "f78f501caca1a7bd6674e9c06ab25e09595ebab8c112b35b24f037a91bf30ae3",
-          "file_size_bytes": 164212,
+          "sha256_hash": "e78d7b22881a928b2b598c062e252a8689179f07a8aa1dfa88084ab88a954714",
+          "file_size_bytes": 288780,
           "compression": "meshopt"
         }
       },
@@ -13086,20 +13086,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -42.524,
-            -19.497,
-            -14.929
+            -42.890104974204874,
+            -19.26151742402507,
+            -9.5381614
           ],
           "max": [
-            42.524,
-            21.298,
-            4.3
+            42.890104974204874,
+            17.547540989889605,
+            5.1926000000000005
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_021_06e89b.glb",
-          "sha256_hash": "12f8f3624245f36143c77c10633ba4b8f61417ee5e4db6d977d4574504b3cdc9",
-          "file_size_bytes": 191992,
+          "sha256_hash": "f15aea626c270e7f29734ba3bbd649e5e938cfc503e494e1f3597dff0f74d109",
+          "file_size_bytes": 316796,
           "compression": "meshopt"
         }
       },
@@ -13713,20 +13713,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -2.608,
-            -17.451,
-            -14.937
+            -2.7673588460614162,
+            -16.50569051916343,
+            -13.938674017265273
           ],
           "max": [
-            7.927,
-            47.154,
-            57.312
+            8.666806121523326,
+            50.00341222569181,
+            58.323811482588056
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_015_319444.glb",
-          "sha256_hash": "358ec61aa65f6d0780465c7974a3388ae63eb1abf90bfc37cf6f25c34da15640",
-          "file_size_bytes": 75964,
+          "sha256_hash": "7ade1e62051af34aa0da518605ad11c29035b4ba339a073f7d6f9b9bf08590ac",
+          "file_size_bytes": 102044,
           "compression": "meshopt"
         }
       },
@@ -16727,20 +16727,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -2.403,
-            -16.471,
-            -13.929
+            -2.553317315297731,
+            -15.575349088013626,
+            -12.982353576229357
           ],
           "max": [
-            7.542,
-            44.27,
-            53.998
+            8.238210842280026,
+            46.94320749215031,
+            54.94912577265353
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_023_cef8f4.glb",
-          "sha256_hash": "6161b13b346fb20f98a240d98309a3d444202091ce791b0d9f8ce86c61a6e2e3",
-          "file_size_bytes": 79888,
+          "sha256_hash": "592e2f3c95a4f7a98dff2b0f6f077aef1e9fd9702f800b8bda1ad3d4b2b40c1a",
+          "file_size_bytes": 105960,
           "compression": "meshopt"
         }
       },
@@ -19136,20 +19136,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -41.89,
-            -18.479,
-            -14.19
+            -42.23560378296424,
+            -18.256296281418184,
+            -9.0956938
           ],
           "max": [
-            41.89,
-            20.07,
-            4.3
+            42.23560378296424,
+            16.526783325245354,
+            4.8242
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_034_d3aacd.glb",
-          "sha256_hash": "744b340b6efb9aa597d54cf9df3bac5d4805f10a4cdb6f602d6c4457e758e231",
-          "file_size_bytes": 192168,
+          "sha256_hash": "cccede4acc979f4f81100ebb661eaf22209facd67f9c51d54b9a02049146711a",
+          "file_size_bytes": 317708,
           "compression": "meshopt"
         }
       },
@@ -21148,20 +21148,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -42.206,
-            -18.988,
-            -9.079
+            -42.56285437858456,
+            -18.758906852721626,
+            -9.3169276
           ],
           "max": [
-            42.206,
-            20.684,
-            4.436
+            42.56285437858456,
+            17.038033714994956,
+            5.0084
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_031_99c7e5.glb",
-          "sha256_hash": "9ef1c79fc177cf72c43512e15ac605b2c23f2ff44112ea8860e9ff364d35c0b7",
-          "file_size_bytes": 183280,
+          "sha256_hash": "32217aa1a459000c70b0ff4bc3b7180e1c0e2034b93c8c9c0fc52bef075403ac",
+          "file_size_bytes": 307636,
           "compression": "meshopt"
         }
       },
@@ -23169,20 +23169,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -41.996,
-            -18.648,
-            -14.313
+            -42.34468731483768,
+            -18.42383313851933,
+            -9.1694384
           ],
           "max": [
-            41.996,
-            20.275,
-            4.3
+            42.34468731483768,
+            16.69720012182856,
+            4.8856
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_037_3e6a57.glb",
-          "sha256_hash": "834fafd042a3c2a50ec28eea8c93e70144c4c83f56f3a4aca8b08faa49ea5628",
-          "file_size_bytes": 192168,
+          "sha256_hash": "7196d22fbca692f2008746bc5836aa88364c7ac1fc24a6af5d22838e96fd68e5",
+          "file_size_bytes": 317492,
           "compression": "meshopt"
         }
       },
@@ -24812,20 +24812,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -4.011,
-            -18.267,
-            -15.778
+            -2.945726788364487,
+            -17.280975045121604,
+            -14.735607718128538
           ],
           "max": [
-            8.281,
-            49.557,
-            60.074
+            9.023968854226077,
+            52.5535828369764,
+            61.13604957420015
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_041_2e3359.glb",
-          "sha256_hash": "2bf776db6e5c9fab613353f7765c3dca1c9a609158b464406ca4a4932c92a2e2",
-          "file_size_bytes": 83640,
+          "sha256_hash": "6feeefa7c5136a9c67359ddc18f509d803184f60bc7f2a6bc523f14601eccbc5",
+          "file_size_bytes": 109644,
           "compression": "meshopt"
         }
       },
@@ -32927,20 +32927,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -41.784,
-            -18.309,
-            -14.066
+            -42.1265202510908,
+            -18.088759424317036,
+            -9.0219492
           ],
           "max": [
-            41.784,
-            19.865,
-            4.411
+            42.1265202510908,
+            16.356366528662157,
+            4.7628
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_031_e061fc.glb",
-          "sha256_hash": "bbdc4e86144e5150bd66ddfe37b9f2b51b9be449e57c8ac08f294afd4d7da213",
-          "file_size_bytes": 221008,
+          "sha256_hash": "70587c14f0859407e2fe845036d3d4a7cc1cf42c5316e53d7ce0f7d3ab008228",
+          "file_size_bytes": 346852,
           "compression": "meshopt"
         }
       },
@@ -39866,20 +39866,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -40.938,
-            -16.951,
-            -8.221
+            -41.253851996103286,
+            -16.748464567507856,
+            -8.4319924
           ],
           "max": [
-            40.938,
-            18.229,
-            4.3
+            41.253851996103286,
+            14.99303215599655,
+            4.300000000000001
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_039_d2e9cc.glb",
-          "sha256_hash": "4295a9b46beada75dcefbd12270b279c4e0e4c53ae180788c51a52b05a79a948",
-          "file_size_bytes": 192980,
+          "sha256_hash": "f363c2eaba94512d7f89f684cd6577753a733293760646e256efb3e8740619d9",
+          "file_size_bytes": 317612,
           "compression": "meshopt"
         }
       },
@@ -47959,20 +47959,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -42.206,
-            -18.988,
-            -14.559
+            -42.56285437858456,
+            -18.758906852721626,
+            -9.3169276
           ],
           "max": [
-            42.206,
-            20.684,
-            4.3
+            42.56285437858456,
+            17.038033714994956,
+            5.0084
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_047_7c15db.glb",
-          "sha256_hash": "ec432c7e71a1b7ff502d8d991e9c153b5949b531ae38a171a40e3645dba79d3a",
-          "file_size_bytes": 220956,
+          "sha256_hash": "2955e6b6f1ab0a2af7984e55b1855d00572d2c0febd229137b0a742f771c1864",
+          "file_size_bytes": 345312,
           "compression": "meshopt"
         }
       },
@@ -56026,20 +56026,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -40.938,
-            -16.951,
-            -13.081
+            -41.253851996103286,
+            -16.748464567507856,
+            -8.4319924
           ],
           "max": [
-            40.938,
-            18.229,
-            4.3
+            41.253851996103286,
+            14.99303215599655,
+            4.300000000000001
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_055_684fba.glb",
-          "sha256_hash": "3e7c903619106761f8a3f7f0d7728575656b8b04ba8a8e2e75dbfe3d160e523f",
-          "file_size_bytes": 221948,
+          "sha256_hash": "1407b9be1138fb0667ca49b441437e11fd0d21b9d8ecc8cbf98eba0680a62ffa",
+          "file_size_bytes": 346556,
           "compression": "meshopt"
         }
       },
@@ -58190,20 +58190,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -4.195,
-            -18.92,
-            -16.45
+            -3.0884211422069434,
+            -17.901202665888142,
+            -15.373154678819148
           ],
           "max": [
-            8.569,
-            51.48,
-            62.283
+            9.309699040388278,
+            54.59371932600408,
+            63.38584004748982
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_057_e1416b.glb",
-          "sha256_hash": "d8fd4be8cfbb115367dc051ed4373cfea71a9b8fe6b6569c4e3e69c8a8e78130",
-          "file_size_bytes": 94848,
+          "sha256_hash": "27f60b17fe3e4e915d19721d80b9824cadaf93ef28dbb340774685c071d40e94",
+          "file_size_bytes": 121156,
           "compression": "meshopt"
         }
       },
@@ -62115,20 +62115,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -42.206,
-            -18.988,
-            -14.559
+            -42.56285437858456,
+            -18.758906852721626,
+            -9.3169276
           ],
           "max": [
-            42.206,
-            20.684,
-            4.436
+            42.56285437858456,
+            17.038033714994956,
+            5.0084
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_061_c4a7c6.glb",
-          "sha256_hash": "d87336a878072b61f040041c38f3c49fb611bdcef8a35362e5ff8f248fd8e098",
-          "file_size_bytes": 240464,
+          "sha256_hash": "2806b94b49f0e40aec23c0f62f8f116dbdb70af11b54c9734281ba9c9186a92b",
+          "file_size_bytes": 364804,
           "compression": "meshopt"
         }
       },
@@ -74252,20 +74252,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -42.524,
-            -19.497,
-            -9.294
+            -42.890104974204874,
+            -19.26151742402507,
+            -9.5381614
           ],
           "max": [
-            42.524,
-            21.298,
-            4.604
+            42.890104974204874,
+            17.547540989889605,
+            5.1926000000000005
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_073_8f06c7.glb",
-          "sha256_hash": "e460e65d83bbda80783954e1b585dc22298a234705d7c8d60046281ad790629a",
-          "file_size_bytes": 212040,
+          "sha256_hash": "bea86711f79369e0989aecd14bfe9503f4a896e9b93f82dfac177829d706e8df",
+          "file_size_bytes": 336828,
           "compression": "meshopt"
         }
       },
@@ -78218,20 +78218,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -41.572,
-            -17.97,
-            -8.65
+            -41.90835318734392,
+            -17.75368571011474,
+            -8.87446
           ],
           "max": [
-            41.572,
-            19.456,
-            4.3
+            41.90835318734392,
+            16.015532935495756,
+            4.640000000000001
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_077_0c3412.glb",
-          "sha256_hash": "ba4fff05d8233014091823b15a1c66516e7898f71cd45ad0495841caf8d3fe31",
-          "file_size_bytes": 212232,
+          "sha256_hash": "2a6316c214636dece95b29d5fccf8735073bba2228f22521976acf6990ce8fd5",
+          "file_size_bytes": 338064,
           "compression": "meshopt"
         }
       },
@@ -81343,20 +81343,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -2.914,
-            -18.92,
-            -16.45
+            -3.0884211422069434,
+            -17.901202665888142,
+            -15.373154678819148
           ],
           "max": [
-            8.569,
-            51.48,
-            62.283
+            9.309699040388278,
+            54.59371932600408,
+            63.38584004748982
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_080_9e73b5.glb",
-          "sha256_hash": "ee230652f1385f11203343fe0568d94567e0bd7d81b94a58c01925325206b630",
-          "file_size_bytes": 87180,
+          "sha256_hash": "c2b5982de226d39098349ed4aaceb17d31c185d3f330c82f4712bc11c0da73c8",
+          "file_size_bytes": 113476,
           "compression": "meshopt"
         }
       },
@@ -82215,20 +82215,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -42.524,
-            -19.497,
-            -9.294
+            -42.890104974204874,
+            -19.26151742402507,
+            -9.5381614
           ],
           "max": [
-            42.524,
-            21.298,
-            4.604
+            42.890104974204874,
+            17.547540989889605,
+            5.1926000000000005
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_081_15c6a8.glb",
-          "sha256_hash": "6ccbe152ee26b4bb1a1a3871c04275a2fa33fd74de5d6004b762da6bbab4e9a4",
-          "file_size_bytes": 212088,
+          "sha256_hash": "cf265511249b090e66975060ddcce324c11b75bfb33a0819e061e1ffaa03d9bf",
+          "file_size_bytes": 336884,
           "compression": "meshopt"
         }
       },
@@ -86337,20 +86337,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -2.403,
-            -16.471,
-            -13.929
+            -2.553317315297731,
+            -15.575349088013626,
+            -12.982353576229357
           ],
           "max": [
-            7.542,
-            44.27,
-            53.998
+            8.238210842280026,
+            46.94320749215031,
+            54.94912577265353
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_085_483b8b.glb",
-          "sha256_hash": "ae3519f0a5f161d995e19f0f3328d8adb3a69d33e2066e700a1a3a53db0a1c3f",
-          "file_size_bytes": 87636,
+          "sha256_hash": "a9dd2d21fa7670aa559c4a88e45be1370d99da0c0c8eb6bca3dd1718b76ecb96",
+          "file_size_bytes": 113712,
           "compression": "meshopt"
         }
       },
@@ -87207,6 +87207,7 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
+<<<<<<< Updated upstream
             -40.938,
             -16.951,
             -8.221
@@ -87215,12 +87216,27 @@
             40.938,
             18.229,
             4.3
+=======
+            -41.253851996103286,
+            -16.748464567507856,
+            -8.4319924
+          ],
+          "max": [
+            41.253851996103286,
+            14.99303215599655,
+            4.300000000000001
+>>>>>>> Stashed changes
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_086_060bef.glb",
+<<<<<<< Updated upstream
           "sha256_hash": "a0901fc042d7699fbab81396f737623ffa0f08cb4c184660ae68a57a4c8720d4",
           "file_size_bytes": 213196,
+=======
+          "sha256_hash": "c72505994109aafb291a66e188e28d1f0128bcae23912c0981d821e1d89cb709",
+          "file_size_bytes": 337784,
+>>>>>>> Stashed changes
           "compression": "meshopt"
         }
       },
