@@ -4650,6 +4650,27 @@
     const beamSaberMidMat = createBeamPlasmaShaderMaterial(0xffb3d6, 0xff175c, 0.82, 1.85, false);
     const beamSaberHaloMat = createBeamPlasmaShaderMaterial(0xff4d88, 0xd90445, 0.38, 2.20, false);
 
+    function isModularRocketBellName(rawName) {
+      const n = (rawName || '').toLowerCase();
+      if (!n) return false;
+      if (
+        n.includes('adapter_') || n.includes('dovetail') || n.includes('collar') ||
+        n.includes('gimbal') || n.includes('ring_gold') || n.includes('clamp') ||
+        n.includes('bracket') || n.includes('manifold') || n.includes('shroud') ||
+        n.includes('cowling') || n.includes('hull') || n.includes('bay') ||
+        n.includes('pod') || n.includes('rack') || n.includes('yoke') ||
+        n.includes('glow') || n.includes('core_laser') || n.includes('mid_laser') ||
+        n.includes('halo_laser') || n.includes('hover_bell_skirt') || n.includes('skirt')
+      ) {
+        return false;
+      }
+      return (
+        n.includes('_vernier') || n.includes('vernier_') || n.endsWith('vernier') ||
+        n.includes('nozzle') || n.includes('_bell') || n.includes('bell_') ||
+        n.includes('aero_thruster') || n.includes('thruster_bell')
+      );
+    }
+
     function buildPackPBRMaterial(node, unitId = state.activeUnitId) {
       const spec = UNIT_REGISTRY[unitId] || UNIT_REGISTRY.vanguard_rx;
       const pc = spec.packColors;
@@ -4662,6 +4683,24 @@
       }
       if (n.includes('halo_laser')) {
         return beamSaberHaloMat;
+      }
+      if (n.includes('thruster_glow') || n.includes('modular_bell_glow')) {
+        return getSharedMechaMaterial({
+          color: 0x38f8ff, emissive: 0x00e5ff, emissiveIntensity: 4.6,
+          roughness: 0.12, metalness: 0.10, useDetail: false, isEmissive: true, materialClass: 'emissive'
+        });
+      }
+      if (isModularRocketBellName(n)) {
+        // Unified elite rocket nozzle outer shell: Metallic Gold on Sazabi, Satin-Gloss Obsidian Black on all other units!
+        // Inner cyan plasma glow matching the default backpack thruster is attached automatically inside the hollow mouth.
+        if (unitId === 'enemy_sazabi') {
+          return getSharedMechaMaterial({
+            color: 0xeab308, roughness: 0.19, metalness: 0.92, useDetail: false, materialClass: 'metal_gold'
+          });
+        }
+        return getSharedMechaMaterial({
+          color: 0x161b22, roughness: 0.21, metalness: 0.90, useDetail: false, materialClass: 'metal_gunmetal'
+        });
       }
       if (n.includes('hilt_white')) {
         return getSharedMechaMaterial({ color: 0xe8edf3, roughness: 0.34, metalness: 0.10, useDetail: true, materialClass: 'armor_white' });
@@ -5857,7 +5896,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261126_r61');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r62');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6390,6 +6429,96 @@
         // ZERO-DETACH HORN POLICY: Never hide/detach any stock head horns/V-fins/blades!
       }
 
+      // Attaches a default-backpack-style cyan inner plasma glow cone inside the open exhaust mouth
+      // of EVERY modular rocket bell (`vernier`/`nozzle`/`bell`/`aero_thruster`) — zero changes to stock backpacks!
+      const attachModularBellInnerGlow = (bellMesh) => {
+        if (!bellMesh || !bellMesh.isMesh || !bellMesh.geometry || bellMesh.userData.hasModularBellGlow) return;
+        if (typeof isModularRocketBellName !== 'function' || !isModularRocketBellName(bellMesh.name)) return;
+        const posAttr = bellMesh.geometry.attributes?.position;
+        if (!posAttr || posAttr.count < 12) return;
+
+        bellMesh.geometry.computeBoundingBox();
+        const bb = bellMesh.geometry.boundingBox;
+        const size = new THREE.Vector3();
+        const center = new THREE.Vector3();
+        bb.getSize(size);
+        bb.getCenter(center);
+
+        // Identify principal axis (axis of max extent) & detect which end is the wider open exhaust mouth!
+        const axis = new THREE.Vector3(0, 1, 0);
+        let L = size.y;
+        if (size.z >= size.x && size.z >= size.y) { axis.set(0, 0, 1); L = size.z; }
+        else if (size.x >= size.y && size.x >= size.z) { axis.set(1, 0, 0); L = size.x; }
+        if (L < 2.2) return;
+
+        // Refine exact axis direction by comparing centroids of the two extreme ends along the major axis
+        const p = new THREE.Vector3();
+        const posEnd = new THREE.Vector3(), negEnd = new THREE.Vector3();
+        let posCnt = 0, negCnt = 0;
+        const thresh = L * 0.28;
+        for (let i = 0; i < posAttr.count; i++) {
+          p.fromBufferAttribute(posAttr, i).sub(center);
+          const proj = p.dot(axis);
+          if (proj > thresh) { posEnd.add(p); posCnt++; }
+          else if (proj < -thresh) { negEnd.add(p); negCnt++; }
+        }
+        if (posCnt > 3 && negCnt > 3) {
+          posEnd.divideScalar(posCnt);
+          negEnd.divideScalar(negCnt);
+          const refined = posEnd.clone().sub(negEnd);
+          if (refined.length() > 1.0) {
+            axis.copy(refined.normalize());
+          }
+        }
+
+        // Measure radial spread at +axis end vs -axis end; exhaust mouth is ALWAYS the wider flared end!
+        let rPosSum = 0, rPosCnt = 0, rNegSum = 0, rNegCnt = 0;
+        let minProj = Infinity, maxProj = -Infinity;
+        for (let i = 0; i < posAttr.count; i++) {
+          p.fromBufferAttribute(posAttr, i).sub(center);
+          const proj = p.dot(axis);
+          if (proj < minProj) minProj = proj;
+          if (proj > maxProj) maxProj = proj;
+        }
+        const span = maxProj - minProj;
+        if (span < 2.0) return;
+        const hiCut = maxProj - span * 0.22;
+        const loCut = minProj + span * 0.22;
+        for (let i = 0; i < posAttr.count; i++) {
+          p.fromBufferAttribute(posAttr, i).sub(center);
+          const proj = p.dot(axis);
+          const radial = p.clone().addScaledVector(axis, -proj).length();
+          if (proj >= hiCut) { rPosSum += radial; rPosCnt++; }
+          else if (proj <= loCut) { rNegSum += radial; rNegCnt++; }
+        }
+        const rPos = rPosCnt ? (rPosSum / rPosCnt) : 0;
+        const rNeg = rNegCnt ? (rNegSum / rNegCnt) : 0;
+        const mouthDir = (rPos >= rNeg) ? axis.clone() : axis.clone().negate();
+        const mouthR = Math.max(1.1, Math.max(rPos, rNeg));
+        const mouthProj = (rPos >= rNeg) ? maxProj : -minProj;
+
+        // Tapered inner plasma glow matching RX-78 default `backpack_thruster_glow`!
+        const glowH = Math.max(2.0, Math.min(4.8, span * 0.42));
+        const glowGeo = new THREE.CylinderGeometry(mouthR * 0.24, mouthR * 0.58, glowH, 14);
+        const glowMat = getSharedMechaMaterial({
+          color: 0x38f8ff, emissive: 0x00e5ff, emissiveIntensity: 4.6,
+          roughness: 0.12, metalness: 0.10, useDetail: false, isEmissive: true, materialClass: 'emissive'
+        });
+        const glowMesh = new THREE.Mesh(glowGeo, glowMat);
+        glowMesh.name = `${bellMesh.name}_modular_bell_glow`;
+        // Align CylinderGeometry -Y (wide end) along mouthDir so wide glowing disc sits cleanly inside the exhaust mouth!
+        glowMesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, -1, 0), mouthDir);
+        const glowPos = center.clone().addScaledVector(mouthDir, mouthProj - glowH * 0.56);
+        glowMesh.position.copy(glowPos);
+        glowMesh.castShadow = false;
+        glowMesh.receiveShadow = false;
+        glowMesh.userData.origMaterial = glowMat;
+        glowMesh.userData.initialPosition = glowMesh.position.clone();
+        glowMesh.userData.isModularPack = true;
+        bellMesh.add(glowMesh);
+        bellMesh.userData.hasModularBellGlow = true;
+      };
+
       const mountedModels = [];
 
       // For bilateral limb zones (shoulder_pods on armR/armL, leg_thrusters on shinR/shinL),
@@ -6420,6 +6549,7 @@
           node.geometry.boundingBox.getCenter(node.userData.geomCenter);
           node.userData.initialPosition = node.position.clone();
           node.userData.isModularPack = true;
+          attachModularBellInnerGlow(node);
           state.chassisParts.push(node);
 
           // Bind sub-mesh to whichever limb bone (armR/shinR vs armL/shinL) lies on the same side of X=0!
@@ -6691,6 +6821,7 @@
             node.geometry.boundingBox.getCenter(node.userData.geomCenter);
             node.userData.initialPosition = node.position.clone();
             node.userData.isModularPack = true;
+            attachModularBellInnerGlow(node);
             state.chassisParts.push(node);
             if (slotGroup === 'head_sensor') {
               const gc = node.userData.geomCenter;
