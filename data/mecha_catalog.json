@@ -87207,16 +87207,6 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-<<<<<<< Updated upstream
-            -40.938,
-            -16.951,
-            -8.221
-          ],
-          "max": [
-            40.938,
-            18.229,
-            4.3
-=======
             -41.253851996103286,
             -16.748464567507856,
             -8.4319924
@@ -87225,18 +87215,12 @@
             41.253851996103286,
             14.99303215599655,
             4.300000000000001
->>>>>>> Stashed changes
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_leg_thrusters_086_060bef.glb",
-<<<<<<< Updated upstream
-          "sha256_hash": "a0901fc042d7699fbab81396f737623ffa0f08cb4c184660ae68a57a4c8720d4",
-          "file_size_bytes": 213196,
-=======
           "sha256_hash": "c72505994109aafb291a66e188e28d1f0128bcae23912c0981d821e1d89cb709",
           "file_size_bytes": 337784,
->>>>>>> Stashed changes
           "compression": "meshopt"
         }
       },
