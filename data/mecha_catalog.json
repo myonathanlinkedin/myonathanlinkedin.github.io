@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "asset_repository": "https://github.com/myonathanlinkedin/mecha-assets",
   "asset_cdn_base_url": "https://raw.githubusercontent.com/myonathanlinkedin/mecha-assets/main",
-  "last_synced": "2026-11-27T11:02:06.301990+00:00",
+  "last_synced": "2026-11-27T13:02:00.264919+00:00",
   "baselines": [
     {
       "id": "baseline_gundam_frame_v1",
@@ -90,7 +90,7 @@
       ]
     }
   ],
-  "last_synthesized_utc": "2026-11-27T11:02:06Z",
+  "last_synthesized_utc": "2026-11-27T13:02:00Z",
   "manifest_tier": "public_cdn_sanitized",
   "modular_parts": [
     {
@@ -375,20 +375,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/mission_pack_type_h_artillery.glb",
-          "sha256_hash": "61807aae5b9a09c6733f8d03de887a501cd9856d1576ea77f94adc8cb8e46125",
-          "file_size_bytes": 479392,
+          "sha256_hash": "1ccedbe08ad2deac56ea5313102e795e868c60f9decbf65907fb036dd400db1d",
+          "file_size_bytes": 260808,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
-            -26.439999999999998,
-            -16.25997128324137,
-            -26.4
+            -25.4,
+            -20.55,
+            -20.1
           ],
           "max": [
-            26.439999999999998,
-            40.0,
-            62.0
+            25.4,
+            35.277,
+            63.0
           ]
         }
       },
@@ -633,20 +633,20 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/weapon_beam_rifle_rx.glb",
-          "sha256_hash": "919eacbc596c96e036c1e4309cae7c39be5b20a7affe0292593025979b6c6f67",
-          "file_size_bytes": 288208,
+          "sha256_hash": "a00c495357e9d2d77335c008718309702df45f29b2ad14ca8c04cced5d163657",
+          "file_size_bytes": 107284,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
             -12.0,
             -7.0,
-            -1.5208967585061126
+            -1.504661307763695
           ],
           "max": [
             12.0,
-            14.954,
-            74.0
+            14.458980933132963,
+            72.0
           ]
         }
       },
@@ -1387,19 +1387,19 @@
         "bounding_box_aabb_mm": {
           "min": [
             -1.7,
-            -5.186999999999999,
+            -5.187,
             -23.91
           ],
           "max": [
-            15.043999999999999,
-            17.0,
-            56.339999999999996
+            14.71,
+            15.106,
+            56.04
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_weapon_hyper_bazooka.glb",
-          "sha256_hash": "7c1609e42674b1546b4eb8cbae9e7d072fcf302006fbecc4bfa04955943b047c",
-          "file_size_bytes": 232556,
+          "sha256_hash": "6ad4c30baa277212e3dd0aa8e77ac77586387b458497f486d884548d73213eb0",
+          "file_size_bytes": 100180,
           "compression": "meshopt"
         },
         "format": "binary_gltf_glb"
@@ -3667,20 +3667,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -4.720000000000001,
+            -3.748,
             -5.015,
             -1.2
           ],
           "max": [
-            4.720000000000001,
-            15.358,
-            75.07000000000001
+            3.748,
+            15.252,
+            73.72
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_004_f4658c.glb",
-          "sha256_hash": "bbb9bb4559f9875774a809d631089da5e5a9384b5de7f177752ca46e43ceb347",
-          "file_size_bytes": 196660,
+          "sha256_hash": "44f56d8dfef6a14e9ba850e690b8f9d9ad9942f82028a4fe7a78aef73d48350a",
+          "file_size_bytes": 114768,
           "compression": "meshopt"
         }
       },
@@ -6691,20 +6691,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -10.475,
+            -4.778,
             -5.015,
             -1.2
           ],
           "max": [
-            10.475,
-            15.182,
-            66.2
+            10.105,
+            14.532,
+            64.82
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_006_d4b7c1.glb",
-          "sha256_hash": "9a72e57761f00975202c15e222a87f75e9369ed9b7ead422a6e0b1e03a969e88",
-          "file_size_bytes": 284072,
+          "sha256_hash": "2ded86ae0a236e34a22ccb8cf3e5036af3bc1a9743b5e2cca1fda9147a97eeb2",
+          "file_size_bytes": 110568,
           "compression": "meshopt"
         }
       },
@@ -7700,20 +7700,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -4.312000000000001,
+            -3.323,
             -5.015,
             -1.2
           ],
           "max": [
-            4.312000000000001,
-            14.241999999999999,
-            67.87
+            3.323,
+            14.148,
+            65.46
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_008_44ec6d.glb",
-          "sha256_hash": "6edb0df5eba9bd0ef75eae7b5ea1c14483167546f870ea51bf8da20b37758b27",
-          "file_size_bytes": 185288,
+          "sha256_hash": "6ea53fba8e87947c7ccdb2d8821837f6bf6044fb72131b8ca72d1a7e723585bc",
+          "file_size_bytes": 106244,
           "compression": "meshopt"
         }
       },
@@ -10706,20 +10706,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -4.312000000000001,
+            -3.323,
             -5.015,
             -1.2
           ],
           "max": [
-            4.312000000000001,
-            14.241999999999999,
-            67.87
+            3.323,
+            14.148,
+            65.46
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_010_74f40d.glb",
-          "sha256_hash": "6404a06caf7508fe4b2607f36873c54953d6c11b2e599c46d513ec8f59ae3a90",
-          "file_size_bytes": 195780,
+          "sha256_hash": "cdf8a48ae050de43e54be6a7502c47e3e585fb6407f15442bc5c63a92c99799e",
+          "file_size_bytes": 116688,
           "compression": "meshopt"
         }
       },
@@ -11713,20 +11713,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -10.475,
+            -4.778,
             -5.015,
             -1.2
           ],
           "max": [
-            10.475,
-            15.182,
-            66.2
+            10.105,
+            14.532,
+            64.82
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_012_5eeabe.glb",
-          "sha256_hash": "4575fbae5716fa6addf93105696f97e1a7b768d14028c1682707226737c4de5d",
-          "file_size_bytes": 280208,
+          "sha256_hash": "61f3b5b6db3713e6e109bf070f1710ee1e04edc3ee136c42bfaafcd15836de36",
+          "file_size_bytes": 106732,
           "compression": "meshopt"
         }
       },
@@ -14712,20 +14712,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -4.312000000000001,
+            -3.323,
             -5.015,
             -1.2
           ],
           "max": [
-            4.312000000000001,
-            14.241999999999999,
-            67.87
+            3.323,
+            14.148,
+            65.46
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_016_45e66c.glb",
-          "sha256_hash": "6a4dbac3d04a9e4a69b72f291648eed3a432cb4e127fb31eeb71c7ee85ebe925",
-          "file_size_bytes": 189236,
+          "sha256_hash": "6a60a2756cea221b761402985da0b792aa96db1f07a08609ce15ce04f8025fbd",
+          "file_size_bytes": 110108,
           "compression": "meshopt"
         }
       },
@@ -17739,20 +17739,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -10.6272844,
+            -5.387,
             -5.015,
             -1.2
           ],
           "max": [
-            10.6272844,
-            16.418,
-            74.8
+            11.395,
+            15.684,
+            73.18
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_030_f5c9cb.glb",
-          "sha256_hash": "1d11b1ece553f00527d9da5f20be4f1def598891e4a69d8907d6be8d74b88496",
-          "file_size_bytes": 291112,
+          "sha256_hash": "b84301bac4859d626412ef49afd2ee1e5101108738766ca7fbf96a4d801802a7",
+          "file_size_bytes": 117360,
           "compression": "meshopt"
         }
       },
@@ -19761,20 +19761,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -10.527027,
+            -5.337,
             -5.015,
             -1.2
           ],
           "max": [
-            10.527027,
-            16.315,
-            74.25
+            11.287,
+            15.588,
+            72.65
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_034_367adb.glb",
-          "sha256_hash": "9e0782dd03db540edc812ec88e0c7d0d6bace37f3c340832c4079835e231cd26",
-          "file_size_bytes": 284520,
+          "sha256_hash": "13406604fa957478e0fcf9779b8e4060cc3d7d526d8bb6d8eccbca1985492f22",
+          "file_size_bytes": 110696,
           "compression": "meshopt"
         }
       },
@@ -21782,20 +21782,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -10.475,
+            -4.778,
             -5.015,
             -1.2
           ],
           "max": [
-            10.475,
-            15.182,
-            66.2
+            10.105,
+            14.532,
+            64.82
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_024_e4d03f.glb",
-          "sha256_hash": "2d81631c712a330aa808174e0535b8d8146b62a6b2c55fe16e5a42ffa2f6455f",
-          "file_size_bytes": 290616,
+          "sha256_hash": "fa96cf9231383bcf0bfdb897e07c1c0998e3c00ad20504ec8bafaace87a85aba",
+          "file_size_bytes": 117124,
           "compression": "meshopt"
         }
       },
@@ -23804,20 +23804,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -10.475,
+            -5.235,
             -5.015,
             -1.2
           ],
           "max": [
-            10.475,
-            16.108999999999998,
-            72.65
+            11.072,
+            15.396,
+            71.09
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_036_a10f1e.glb",
-          "sha256_hash": "c0b30f632cb25036d956214da031d203737e4c65742e1562a3925aeda21bf129",
-          "file_size_bytes": 290860,
+          "sha256_hash": "621175c17003402581aa7bd593ba07577b6c650d5541a06a748f74bbdb653455",
+          "file_size_bytes": 117396,
           "compression": "meshopt"
         }
       },
@@ -25838,20 +25838,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -10.527027,
+            -5.337,
             -5.015,
             -1.2
           ],
           "max": [
-            10.527027,
-            16.315,
-            74.25
+            11.287,
+            15.588,
+            72.65
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_042_8e3fe3.glb",
-          "sha256_hash": "275b7ff77ffd190276d7390db543c24e4bf00cd706cbdd4fe5a1f08014d4bc3e",
-          "file_size_bytes": 291104,
+          "sha256_hash": "d26e129f1e5888160619efeac9f02cc2622df27fe97cd70988e1c940eaa3eec1",
+          "file_size_bytes": 117296,
           "compression": "meshopt"
         }
       },
@@ -27854,20 +27854,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -5.316000000000001,
+            -4.408,
             -5.015,
             -1.2
           ],
           "max": [
-            5.316000000000001,
-            15.895,
-            63.68
+            4.408,
+            16.525,
+            60.58
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_046_c8b620.glb",
-          "sha256_hash": "cdcaae66b2b1ab403772c487c880e4414f19e879788803bdad011012e791ba5e",
-          "file_size_bytes": 241552,
+          "sha256_hash": "2c1b27d6e0a70b5d01437a1b229653ed7b509cd9b5cff2e77df80d9c160e9fd0",
+          "file_size_bytes": 85260,
           "compression": "meshopt"
         }
       },
@@ -29880,20 +29880,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -5.298000000000001,
+            -4.846,
             -5.015,
             -1.2
           ],
           "max": [
-            5.298000000000001,
-            13.558,
-            48.31
+            4.846,
+            12.791,
+            43.22
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_048_65f15c.glb",
-          "sha256_hash": "193ff5299def9d2b1f4d927b5b3c9ad791046e789bdb5ce6135b215dd304a9c2",
-          "file_size_bytes": 195252,
+          "sha256_hash": "75aa23ca666267986c8ee34c39972e8c85d03fe41e98216dedff2a4a31061e19",
+          "file_size_bytes": 77308,
           "compression": "meshopt"
         }
       },
@@ -31158,20 +31158,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -24.57,
-            -16.122830781614432,
-            -31.205000000000002
+            -24.415,
+            -16.123,
+            -22.7
           ],
           "max": [
-            24.57,
-            36.9012,
-            24.55
+            24.415,
+            34.772,
+            20.875
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_047_183565.glb",
-          "sha256_hash": "9194b5b8876a0a806344b67127bf026f51d6ccbb5e8e3f0e3caa46d21856b8b1",
-          "file_size_bytes": 417008,
+          "sha256_hash": "d351e8d90da8a314fd01e635cd49078c1fe7c1e713f5d306b7b2fffc7b855c41",
+          "file_size_bytes": 334548,
           "compression": "meshopt"
         }
       },
@@ -33559,20 +33559,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -5.476000000000001,
+            -4.576,
             -5.015,
             -1.2
           ],
           "max": [
-            5.476000000000001,
-            16.291,
-            66.244
+            4.576,
+            16.945,
+            62.564
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_032_e43dc4.glb",
-          "sha256_hash": "a2ab985f039243fb009eef3b3716c47b46f7c829931371200d15eda69678c426",
-          "file_size_bytes": 249520,
+          "sha256_hash": "853b5e49b7ea940d5b9a8b86e7ccd196384ffdc19f5ddb7eb90a01208b8c95fc",
+          "file_size_bytes": 92872,
           "compression": "meshopt"
         }
       },
@@ -34193,20 +34193,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -4.720000000000001,
+            -3.748,
             -5.015,
             -1.2
           ],
           "max": [
-            4.720000000000001,
-            15.358,
-            75.07000000000001
+            3.748,
+            15.252,
+            73.72
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_033_9c7678.glb",
-          "sha256_hash": "76fac96957d08230f256b8159feb3172ca4206f3524ec7e37faadf565c03e6a5",
-          "file_size_bytes": 210360,
+          "sha256_hash": "191b791c5122c5f843aa0457d1adce0a4b370fdec6a7e86744ab562241cd12a7",
+          "file_size_bytes": 130260,
           "compression": "meshopt"
         }
       },
@@ -35072,20 +35072,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -5.462000000000001,
+            -5.036,
             -5.015,
             -1.2
           ],
           "max": [
-            5.462000000000001,
-            13.873999999999999,
-            50.43
+            5.036,
+            13.077,
+            44.66
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_034_08a3bf.glb",
-          "sha256_hash": "198ac841a24aa9736d56ce3e9bf66a965b6136c8255427965a3e5102d69dd469",
-          "file_size_bytes": 202064,
+          "sha256_hash": "72112707e289423a8b2c63bec27d9412818257ceceee8c4986831b5aa3c9ea5a",
+          "file_size_bytes": 84084,
           "compression": "meshopt"
         }
       },
@@ -36197,20 +36197,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -25.506,
-            -16.737033859009266,
-            -32.089
+            -25.167,
+            -16.737,
+            -23.26
           ],
           "max": [
-            25.506,
-            38.306960000000004,
-            25.790000000000003
+            25.167,
+            36.097,
+            21.975
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_035_ba0676.glb",
-          "sha256_hash": "d04b11bcb6909627c4bb526652d9871bbed2a8b16ce4eb498f901b7c3fd3275b",
-          "file_size_bytes": 406368,
+          "sha256_hash": "1d930cb673c06585b48cc7f4c3df0b573e96c956d76d81611793b4c1c5227da5",
+          "file_size_bytes": 323912,
           "compression": "meshopt"
         }
       },
@@ -36955,20 +36955,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -5.476000000000001,
+            -4.576,
             -5.015,
             -1.2
           ],
           "max": [
-            5.476000000000001,
-            16.291,
-            66.244
+            4.576,
+            16.945,
+            62.564
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_036_f34830.glb",
-          "sha256_hash": "af9bdcff2805eee3fb27f11954221b76bbce79990c9bb0c01ade825e0fc075e6",
-          "file_size_bytes": 249664,
+          "sha256_hash": "7e095265d1a32e566d29718aa0f5fe1892a14be6a8f8484282a063d6323cfa7e",
+          "file_size_bytes": 93028,
           "compression": "meshopt"
         }
       },
@@ -38981,20 +38981,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -5.462000000000001,
+            -4.802,
             -5.015,
             -1.2
           ],
           "max": [
-            5.462000000000001,
-            13.873999999999999,
-            50.43
+            4.802,
+            13.077,
+            44.66
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_038_4982d1.glb",
-          "sha256_hash": "5b73fec4a58b3431c6491f715f6eeac787ffef04d5d13f107a58cbd3b99aa74b",
-          "file_size_bytes": 201752,
+          "sha256_hash": "312ef1c05783292c16a2ad58dbcb8d64e580a871128238cc5929a1785f2aef0d",
+          "file_size_bytes": 87804,
           "compression": "meshopt"
         }
       },
@@ -40245,20 +40245,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -24.57,
-            -16.122830781614432,
-            -31.205000000000002
+            -24.415,
+            -16.123,
+            -22.7
           ],
           "max": [
-            24.57,
-            36.9012,
-            24.55
+            24.415,
+            34.772,
+            20.875
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_039_d98878.glb",
-          "sha256_hash": "cedd6057303bcc8d5d81f4f4b120c6ebb8a3aedd3e1c9d90bd94acc7a32b76ad",
-          "file_size_bytes": 416356,
+          "sha256_hash": "2f2432ffd2989df685343149ec5c214983eae31858dc88ae7bbec4e6c0fe9930",
+          "file_size_bytes": 333900,
           "compression": "meshopt"
         }
       },
@@ -41012,20 +41012,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -5.236000000000001,
+            -4.325,
             -5.015,
             -1.2
           ],
           "max": [
-            5.236000000000001,
-            15.697000000000001,
-            62.647999999999996
+            4.325,
+            16.315,
+            59.088
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_040_5c984c.glb",
-          "sha256_hash": "8853ab4ef2d083bd1b4b50954dffe470c2d30189476a35ab07419a0dc909ce34",
-          "file_size_bytes": 248296,
+          "sha256_hash": "d0e606225b771b25cb41e8c9b1753a635a42df7db4daa457a85e8dbb27efd9b5",
+          "file_size_bytes": 91900,
           "compression": "meshopt"
         }
       },
@@ -43038,20 +43038,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -5.585000000000001,
+            -5.179,
             -5.015,
             -1.2
           ],
           "max": [
-            5.585000000000001,
-            14.110999999999999,
-            51.645
+            5.179,
+            13.291,
+            46.24
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_042_8b3d8d.glb",
-          "sha256_hash": "778787daa798c55e852816fa7f2b190f44450276185b2d7908670144ad1fe918",
-          "file_size_bytes": 195128,
+          "sha256_hash": "4f599b4e7ad4a63972f1fc17c927e96377c4b6f962e80788d69805eecb59b4fd",
+          "file_size_bytes": 77400,
           "compression": "meshopt"
         }
       },
@@ -44295,20 +44295,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -24.804000000000002,
-            -16.276381550963137,
-            -31.426
+            -24.603,
+            -16.276,
+            -22.84
           ],
           "max": [
-            24.804000000000002,
-            37.25264,
-            24.86
+            24.603,
+            35.103,
+            21.15
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_043_686f01.glb",
-          "sha256_hash": "73eb240dc0b3af2f957593ce2fc612bb6417020bde3ab08d42d0e2c1154dbf3b",
-          "file_size_bytes": 435752,
+          "sha256_hash": "e99e585a34b90fecf8fc9af4c798b6401b9490f844eaf499113bbaaef41fe925",
+          "file_size_bytes": 353156,
           "compression": "meshopt"
         }
       },
@@ -45058,20 +45058,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -5.196000000000001,
+            -4.283,
             -5.015,
             -1.2
           ],
           "max": [
-            5.196000000000001,
-            15.597999999999999,
-            61.632000000000005
+            4.283,
+            16.21,
+            58.592
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_044_43ba4a.glb",
-          "sha256_hash": "00200c138769fa1fd944af5200b67a66fd448f08f2d8f28ce494293059e3e63f",
-          "file_size_bytes": 248256,
+          "sha256_hash": "3443b953816769baee70ccd2276e74002fe77c20e01727b32433bde2ef7514ae",
+          "file_size_bytes": 91964,
           "compression": "meshopt"
         }
       },
@@ -47079,20 +47079,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -5.462000000000001,
+            -5.036,
             -5.015,
             -1.2
           ],
           "max": [
-            5.462000000000001,
-            13.873999999999999,
-            50.43
+            5.036,
+            13.077,
+            44.66
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_046_654a4b.glb",
-          "sha256_hash": "5d8136f3f805ce2622fb7fc3290bfbc7d84240effb0a9921d8af0f44c684d9af",
-          "file_size_bytes": 190692,
+          "sha256_hash": "8ce36012bc93dd630445ec73bde3ccd657ad7feb5a592a114ecb6551bacedb49",
+          "file_size_bytes": 72700,
           "compression": "meshopt"
         }
       },
@@ -48348,20 +48348,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -24.804000000000002,
-            -16.276381550963137,
-            -31.426
+            -24.603,
+            -16.276,
+            -22.84
           ],
           "max": [
-            24.804000000000002,
-            37.25264,
-            24.86
+            24.603,
+            35.103,
+            21.15
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_047_70ff09.glb",
-          "sha256_hash": "77f306dff95951b6906433a75ea8ec3b8e2b8a8934323bcdf690f2b9c4c08721",
-          "file_size_bytes": 431724,
+          "sha256_hash": "052f48c61a5a23b1a699276a880049a7596cac0b9c1ed30526ca9a6c0848122c",
+          "file_size_bytes": 349020,
           "compression": "meshopt"
         }
       },
@@ -49099,20 +49099,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -4.822000000000001,
+            -3.854,
             -5.015,
             -1.2
           ],
           "max": [
-            4.822000000000001,
-            15.637,
-            77.355
+            3.854,
+            15.528,
+            75.33
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_048_72befd.glb",
-          "sha256_hash": "07c1cafa4355b84d0fd3f0943ba2ca271865406aba984ec9ed13e73510fd317f",
-          "file_size_bytes": 211044,
+          "sha256_hash": "91753f975704ba4a70cd58c721e32aacd0c9dc6ed64f641860c6c9ab7521c715",
+          "file_size_bytes": 130972,
           "compression": "meshopt"
         }
       },
@@ -51102,20 +51102,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -5.1160000000000005,
+            -4.199,
             -5.015,
             -1.2
           ],
           "max": [
-            5.1160000000000005,
-            15.4,
-            60.6
+            4.199,
+            16.0,
+            57.6
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_050_f3a953.glb",
-          "sha256_hash": "752087e01c754e1e6372ce963879d0be2cc0176c71fda9eaa896a2f6d29e10cc",
-          "file_size_bytes": 249932,
+          "sha256_hash": "567b0b663ffe9f1459cf809c60c0e896a30f9e8c995842b7e50c3d3e9be1e989",
+          "file_size_bytes": 93132,
           "compression": "meshopt"
         }
       },
@@ -52372,20 +52372,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -23.868,
-            -15.662178473568305,
-            -30.542
+            -23.851,
+            -15.662,
+            -22.28
           ],
           "max": [
-            23.868,
-            35.84688,
-            23.62
+            23.851,
+            33.779,
+            20.05
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_051_45bd52.glb",
-          "sha256_hash": "c26132270807a5ac58103ee880dd03196a4e8a0589548e650f6975fad108b190",
-          "file_size_bytes": 435660,
+          "sha256_hash": "1d71b8d667daa5bdb2badef39e139917faf569b27737c37fbd9f78dbb1c13424",
+          "file_size_bytes": 352596,
           "compression": "meshopt"
         }
       },
@@ -53129,20 +53129,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -5.216,
+            -4.751,
             -5.015,
             -1.2
           ],
           "max": [
-            5.216,
-            13.4,
-            47.5
+            4.751,
+            12.648,
+            42.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_052_64d01f.glb",
-          "sha256_hash": "76ec0d628ea1e916926cf826883f5e6a68d58d9bdf5f7c40aea6f236c2220566",
-          "file_size_bytes": 200656,
+          "sha256_hash": "875854aafe242bc2146f4538f9c2c953ff18248d4db2fc76b62811d6f6c23c7b",
+          "file_size_bytes": 82384,
           "compression": "meshopt"
         }
       },
@@ -55147,20 +55147,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -4.822000000000001,
+            -3.854,
             -5.015,
             -1.2
           ],
           "max": [
-            4.822000000000001,
-            15.637,
-            77.355
+            3.854,
+            15.528,
+            75.33
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_054_601e16.glb",
-          "sha256_hash": "90475b7ca0ed726593396b6d1b72dd2ec1517ed5ec4e719921ba98801f1452ef",
-          "file_size_bytes": 211908,
+          "sha256_hash": "bde6dcec3282c987e5ade83ab8abbb3a77f06dca132f1b9b0e1e3952d89db074",
+          "file_size_bytes": 131828,
           "compression": "meshopt"
         }
       },
@@ -56415,20 +56415,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -23.400000000000002,
-            -15.355076934870887,
-            -30.1
+            -23.475,
+            -15.355,
+            -22.0
           ],
           "max": [
-            23.400000000000002,
-            35.144,
-            23.0
+            23.475,
+            33.116,
+            19.5
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_055_cac731.glb",
-          "sha256_hash": "6951886597516f863060774bd0fcfcc70f66a1fa45e9577acdc5b5d9b612b62c",
-          "file_size_bytes": 417280,
+          "sha256_hash": "04c0e53ae29d66075a680288f43ffa2ad1f2e4de6590b869d763169e3925300f",
+          "file_size_bytes": 334016,
           "compression": "meshopt"
         }
       },
@@ -57176,20 +57176,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -5.356000000000001,
+            -4.45,
             -5.015,
             -1.2
           ],
           "max": [
-            5.356000000000001,
-            15.994,
-            64.196
+            4.45,
+            16.63,
+            61.076
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_056_b3f75d.glb",
-          "sha256_hash": "ef8d40a223b5c80e0374f57dca1dd015f5b1e7d20212d437279d4ab56ba871b2",
-          "file_size_bytes": 238648,
+          "sha256_hash": "ea1c4f8d8e1877543107f467ba9a3292fa643195b6a0b38ea97745fe8d57acd8",
+          "file_size_bytes": 82212,
           "compression": "meshopt"
         }
       },
@@ -59212,20 +59212,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -5.298000000000001,
+            -4.621,
             -5.015,
             -1.2
           ],
           "max": [
-            5.298000000000001,
-            13.558,
-            48.31
+            4.621,
+            12.791,
+            43.22
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_058_1a9b97.glb",
-          "sha256_hash": "c509acb339b08c16ea0d2e3aa7f4b28c924f06e127c71e59461fc6896084a98f",
-          "file_size_bytes": 211412,
+          "sha256_hash": "f789b7b3706e5760d3108a4a74a3f6a9a9d9f945ab52d86b79a046707efa2c46",
+          "file_size_bytes": 97616,
           "compression": "meshopt"
         }
       },
@@ -60469,20 +60469,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -24.804000000000002,
-            -16.276381550963137,
-            -31.426
+            -24.603,
+            -16.276,
+            -22.84
           ],
           "max": [
-            24.804000000000002,
-            37.25264,
-            24.86
+            24.603,
+            35.103,
+            21.15
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_059_38c0b7.glb",
-          "sha256_hash": "d3a59a05268f5ef8a11cfe96c61cde669d92596d89ad1ff0880ca74ebc3e68eb",
-          "file_size_bytes": 445660,
+          "sha256_hash": "782668734474269ab3e7d81a6777804ed2c1fd71b518b0cdaebd671cbce1688f",
+          "file_size_bytes": 363164,
           "compression": "meshopt"
         }
       },
@@ -61226,20 +61226,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -4.312000000000001,
+            -3.323,
             -5.015,
             -1.2
           ],
           "max": [
-            4.312000000000001,
-            14.241999999999999,
-            67.87
+            3.323,
+            14.148,
+            65.46
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_060_327fd1.glb",
-          "sha256_hash": "17cebee1ca0fa489c7b95a29ba2763e4f188a50ff414f538cb8c72ee5e14e578",
-          "file_size_bytes": 221368,
+          "sha256_hash": "7150b51b234f01891e4962c296f7eb72e890d4208dddbfde4a1f21f93e0ec302",
+          "file_size_bytes": 142272,
           "compression": "meshopt"
         }
       },
@@ -63253,20 +63253,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -10.475,
+            -5.082,
             -5.015,
             -1.2
           ],
           "max": [
-            10.475,
-            15.8,
-            70.5
+            10.75,
+            15.108,
+            69.0
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_062_07c127.glb",
-          "sha256_hash": "d908e875314c4ade1b9884ba5918ed10e1e2608dbdcc19d480b52f3c5a2dda7a",
-          "file_size_bytes": 314792,
+          "sha256_hash": "ae20c710c25021d5aab00be1fd685942096e9ff1187ed3f4299c52fd6b39e23b",
+          "file_size_bytes": 141540,
           "compression": "meshopt"
         }
       },
@@ -64541,20 +64541,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -21.996000000000002,
-            -14.433772318778633,
-            -28.774
+            -22.107,
+            -14.434,
+            -21.16
           ],
           "max": [
-            21.996000000000002,
-            33.035360000000004,
-            21.14
+            22.107,
+            31.129,
+            17.85
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_063_351144.glb",
-          "sha256_hash": "7de79e837ef8c261293b0eaabb68bb56cf5ad9b9ef33e73bca5fc8a2ac7d0a66",
-          "file_size_bytes": 459096,
+          "sha256_hash": "5dcf14a3b461fa6bfe95705ce57ee00840a608951f35804cd1fee0ea7410e86b",
+          "file_size_bytes": 375604,
           "compression": "meshopt"
         }
       },
@@ -65310,20 +65310,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -4.876,
+            -3.947,
             -5.015,
             -1.2
           ],
           "max": [
-            4.876,
-            14.806000000000001,
-            57.004000000000005
+            3.947,
+            15.37,
+            54.124
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_064_a921a1.glb",
-          "sha256_hash": "8043f8b6edeed3f96b50061fdb4733ba023321dbf142b93464d0a7fec60e98da",
-          "file_size_bytes": 259552,
+          "sha256_hash": "145241e7549e3c78349c63c440b5853024060ae3d7c2a8a9515757beb795093c",
+          "file_size_bytes": 103056,
           "compression": "meshopt"
         }
       },
@@ -67364,20 +67364,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -4.5840000000000005,
+            -3.606,
             -5.015,
             -1.2
           ],
           "max": [
-            4.5840000000000005,
-            14.986,
-            72.69
+            3.606,
+            14.884,
+            71.18
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_066_41e26d.glb",
-          "sha256_hash": "b6d8e68631bc8f4943b3baf11dd8150fbe594da78a1aacbd25407ba7a0d288c9",
-          "file_size_bytes": 213868,
+          "sha256_hash": "f3cec7c4f3ad66aba722151f0c345bf1594e93385b12fa741232b1d04e0f26a0",
+          "file_size_bytes": 132800,
           "compression": "meshopt"
         }
       },
@@ -69401,20 +69401,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -4.970000000000001,
+            -4.089,
             -5.015,
             -1.2
           ],
           "max": [
-            4.970000000000001,
-            12.925999999999998,
-            44.57
+            4.089,
+            12.219,
+            39.84
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_068_a38786.glb",
-          "sha256_hash": "74ec4e5898abfe6c62b0c1b62bea18de54aaf401822af97d27102b140c48ac29",
-          "file_size_bytes": 206132,
+          "sha256_hash": "a49a578e8d1b06b6aac2b4d15509a0b8f02952f5bbd4970b99caa74fc65c6ce9",
+          "file_size_bytes": 87464,
           "compression": "meshopt"
         }
       },
@@ -70398,20 +70398,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -10.6272844,
+            -4.933,
             -5.015,
             -1.2
           ],
           "max": [
-            10.6272844,
-            16.418,
-            74.8
+            11.395,
+            15.684,
+            73.18
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_069_1bb5ed.glb",
-          "sha256_hash": "fe2ae6b6dfd67fa85698e8624d17287a05cd65c9cafeeb97da7d66cfe81cb843",
-          "file_size_bytes": 309096,
+          "sha256_hash": "2af174245facd978f6d88c60d529b3f74415bae2f516b8506b5e8cf6fd4e125a",
+          "file_size_bytes": 135320,
           "compression": "meshopt"
         }
       },
@@ -71394,20 +71394,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -4.876,
+            -3.614,
             -5.015,
             -1.2
           ],
           "max": [
-            4.876,
-            14.806000000000001,
-            57.004000000000005
+            3.614,
+            15.182,
+            54.624
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_070_dc5c1d.glb",
-          "sha256_hash": "9a70580a212f1b3a986055c51e38f9e83ffa552cfb1bbf639a30dc69a826fc5c",
-          "file_size_bytes": 252192,
+          "sha256_hash": "194af793aa37a020f906d3214021df3f9676e6ae94e0a0ae6225002a4959e7e9",
+          "file_size_bytes": 95672,
           "compression": "meshopt"
         }
       },
@@ -72382,20 +72382,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -4.312000000000001,
+            -3.043,
             -5.015,
             -1.2
           ],
           "max": [
-            4.312000000000001,
-            14.241999999999999,
-            67.87
+            3.043,
+            14.148,
+            65.46
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_071_875de3.glb",
-          "sha256_hash": "843ab41e75514f24955adee8e8cd1d1027084759a92e67b1cdd7fbd15a25b5a1",
-          "file_size_bytes": 214292,
+          "sha256_hash": "cf74658b984e7ba082295bb3a3932bc22fb4ef2b27adbc65e74e66096d585268",
+          "file_size_bytes": 135236,
           "compression": "meshopt"
         }
       },
@@ -72635,20 +72635,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -25.506,
-            -16.737033859009266,
-            -32.089
+            -25.167,
+            -16.737,
+            -23.26
           ],
           "max": [
-            25.506,
-            38.306960000000004,
-            25.790000000000003
+            25.167,
+            35.752,
+            21.975
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_071_deb1b7.glb",
-          "sha256_hash": "4235039b976b468996c35f821eb3019bdbad37985e5c2c4a8172dc89dbd021d4",
-          "file_size_bytes": 439900,
+          "sha256_hash": "4560cb38081c16c74ecd00f55a6a65737db1449f4ba2cec382ccd71b35eff0dd",
+          "file_size_bytes": 357416,
           "compression": "meshopt"
         }
       },
@@ -73382,20 +73382,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -5.462000000000001,
+            -4.558,
             -5.015,
             -1.2
           ],
           "max": [
-            5.462000000000001,
-            13.873999999999999,
-            50.43
+            4.558,
+            13.077,
+            45.16
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_072_479377.glb",
-          "sha256_hash": "9fbd9cd5bf56244e498f570ab1d9cafd3f62fde84441e2f01bea3363a700eb7c",
-          "file_size_bytes": 204812,
+          "sha256_hash": "5acb5d4cab9a6eb6af2b2a7c1187bbedbba28d566f9c6a24a1072562cd8e66b5",
+          "file_size_bytes": 90856,
           "compression": "meshopt"
         }
       },
@@ -74372,20 +74372,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -10.928056600000001,
+            -5.073,
             -5.015,
             -1.2
           ],
           "max": [
-            10.928056600000001,
-            16.727,
-            76.95
+            11.718,
+            15.973,
+            75.27
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_073_01cd8f.glb",
-          "sha256_hash": "50bf17a3853177bd120ca83b4f2f0d5def16551a51c19a5676be6413547f61db",
-          "file_size_bytes": 310440,
+          "sha256_hash": "56cf7c68559cfa2335764148dfe9fc27bbeb3d98341ae1dde2d3d40b79159cc2",
+          "file_size_bytes": 136608,
           "compression": "meshopt"
         }
       },
@@ -75363,20 +75363,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -5.476000000000001,
+            -4.19,
             -5.015,
             -1.2
           ],
           "max": [
-            5.476000000000001,
-            16.291,
-            66.244
+            4.19,
+            16.727,
+            63.064
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_074_af8475.glb",
-          "sha256_hash": "ae120f64ee11c3796d2caf2d086a95b5fa1422934160d837246ea83422e8d85a",
-          "file_size_bytes": 252412,
+          "sha256_hash": "9543e33964b585f1811bc6461d480f6e244c6b60d8079218b5ed0cc4a2b2d2cd",
+          "file_size_bytes": 95788,
           "compression": "meshopt"
         }
       },
@@ -76360,20 +76360,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -4.720000000000001,
+            -3.432,
             -5.015,
             -1.2
           ],
           "max": [
-            4.720000000000001,
-            15.358,
-            75.07000000000001
+            3.432,
+            15.252,
+            73.72
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_075_b7cccd.glb",
-          "sha256_hash": "1fde53eaeaba7575bed6ab929e84d867658f9ef7f1f48b341b4c01b145efc2d1",
-          "file_size_bytes": 224472,
+          "sha256_hash": "45eaf8d14dddac187beab7674ace8cc4669a61394478518961589354d485eecc",
+          "file_size_bytes": 144452,
           "compression": "meshopt"
         }
       },
@@ -77345,20 +77345,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -4.970000000000001,
+            -4.042,
             -5.015,
             -1.2
           ],
           "max": [
-            4.970000000000001,
-            12.925999999999998,
-            44.57
+            4.042,
+            12.219,
+            39.84
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_076_365c48.glb",
-          "sha256_hash": "ed61fe6aeefe6ee98c099b5c46a35b9b5c05c61b2ac728acc3c6c8ee70b6424d",
-          "file_size_bytes": 214952,
+          "sha256_hash": "27a68b4fbbe91f452c2dbf359a551c976cefe474a5b69f0e0880c09fe4c05742",
+          "file_size_bytes": 100532,
           "compression": "meshopt"
         }
       },
@@ -78340,20 +78340,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -10.6272844,
+            -4.933,
             -5.015,
             -1.2
           ],
           "max": [
-            10.6272844,
-            16.418,
-            74.8
+            11.395,
+            15.684,
+            73.18
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_077_3fc2b5.glb",
-          "sha256_hash": "2f612f100468d90b005a93bfe97ed3274f9f8213512982977571b1cb793fd993",
-          "file_size_bytes": 320268,
+          "sha256_hash": "fd9f0007446c2aaac4a9b15a74a45ea9a726192b247626f4980d1b203a1cdc22",
+          "file_size_bytes": 146472,
           "compression": "meshopt"
         }
       },
@@ -79342,20 +79342,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -5.356000000000001,
+            -4.075,
             -5.015,
             -1.2
           ],
           "max": [
-            5.356000000000001,
-            15.994,
-            64.196
+            4.075,
+            16.418,
+            61.576
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_078_d7c229.glb",
-          "sha256_hash": "81ceb943b578fcc7736141d1f8408b9e0e83ffddb70b205713bea2edc542c941",
-          "file_size_bytes": 263336,
+          "sha256_hash": "947adde5f20e782ea2d66be5fa2a4c2c108ea0f1734393b7533b5329f352778c",
+          "file_size_bytes": 106852,
           "compression": "meshopt"
         }
       },
@@ -79595,20 +79595,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -24.804000000000002,
-            -16.276381550963137,
-            -31.426
+            -24.603,
+            -16.276,
+            -22.84
           ],
           "max": [
-            24.804000000000002,
-            37.25264,
-            24.86
+            24.603,
+            34.768,
+            21.15
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_078_1aec39.glb",
-          "sha256_hash": "62b6418e7a111d6c1b2a5bb45a1443d2d7e747bbe3a1ba2a65b8a4c42bbb9375",
-          "file_size_bytes": 469292,
+          "sha256_hash": "5ed4a7fe167fb8958d2493a7c479da318165c2a1e8249b5e83c2fd02c39a6ea0",
+          "file_size_bytes": 386688,
           "compression": "meshopt"
         }
       },
@@ -91338,20 +91338,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -5.216,
+            -4.3,
             -5.015,
             -1.2
           ],
           "max": [
-            5.216,
-            13.4,
-            47.5
+            4.3,
+            12.648,
+            42.5
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_090_df5ca8.glb",
-          "sha256_hash": "9022aae897d8bf6b4cd306694540392ad44827b615cb29fad2f8efdd7c414f1d",
-          "file_size_bytes": 202764,
+          "sha256_hash": "d85f58979b7f7b2f018df0b787d0ee474f059655b13c243547fc319008a85a0c",
+          "file_size_bytes": 88504,
           "compression": "meshopt"
         }
       },
@@ -93338,20 +93338,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -4.516,
+            -3.237,
             -5.015,
             -1.2
           ],
           "max": [
-            4.516,
-            14.8,
-            71.0
+            3.237,
+            14.7,
+            70.5
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_092_811de6.glb",
-          "sha256_hash": "109eb5ee0070b3887148caa371567d3f88d8f51e663584b6c83280c8d83979fb",
-          "file_size_bytes": 209824,
+          "sha256_hash": "8a9fc73e0b59f8407959dc7fff761d56639f7760a5121254b3487b5c95b4a71a",
+          "file_size_bytes": 128924,
           "compression": "meshopt"
         }
       },
@@ -95332,20 +95332,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -10.6272844,
+            -4.933,
             -5.015,
             -1.2
           ],
           "max": [
-            10.6272844,
-            16.418,
-            74.8
+            11.395,
+            15.684,
+            73.18
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_094_8fb555.glb",
-          "sha256_hash": "5e193eca07cefcb498a15ae9639550ae334cdd0004063cb1a61679e43948310f",
-          "file_size_bytes": 304784,
+          "sha256_hash": "c0a6e0798e9d2110ef2f9e82d71dcd9b094cad3f829c92db2a25830493aff811",
+          "file_size_bytes": 131012,
           "compression": "meshopt"
         }
       },
@@ -95583,20 +95583,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -23.400000000000002,
-            -15.355076934870887,
-            -30.1
+            -23.475,
+            -15.355,
+            -22.0
           ],
           "max": [
-            23.400000000000002,
-            35.144,
-            23.0
+            23.475,
+            32.8,
+            19.5
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_094_b2818b.glb",
-          "sha256_hash": "460467edb0c01241714686cd17b44fcbb7e98bc5c6f473b0658aaebdb6829aef",
-          "file_size_bytes": 435528,
+          "sha256_hash": "697769b3a49f8da3af5100efa826cfc75ac2440d23f962987ef652bf2ab7b40b",
+          "file_size_bytes": 352492,
           "compression": "meshopt"
         }
       },
@@ -97331,20 +97331,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -5.1160000000000005,
+            -3.844,
             -5.015,
             -1.2
           ],
           "max": [
-            5.1160000000000005,
-            15.4,
-            60.6
+            3.844,
+            15.8,
+            58.1
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_096_4a06d2.glb",
-          "sha256_hash": "ee442bd5d04536ad957996583835787f2cf0979a4af267e28ab45a7f99ec91e0",
-          "file_size_bytes": 247988,
+          "sha256_hash": "1a7b8e1d3ade300fddf5d9f29eaa1a6887a6c4c54f906cb6aef3f385ad6cf346",
+          "file_size_bytes": 91152,
           "compression": "meshopt"
         }
       },
@@ -99338,20 +99338,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -5.462000000000001,
+            -4.611,
             -5.015,
             -1.2
           ],
           "max": [
-            5.462000000000001,
-            13.873999999999999,
-            50.43
+            4.611,
+            13.077,
+            45.16
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_aux_weapon_098_e49fa6.glb",
-          "sha256_hash": "4cfd144f26e10a9d4b83770fafb1611c3fc316f4ff21a97e7d7069c076dc2746",
-          "file_size_bytes": 202064,
+          "sha256_hash": "4aefc288eac844a8ab268710a4224065c7469e21579f03549cef74a8514a4f91",
+          "file_size_bytes": 84052,
           "compression": "meshopt"
         }
       },
@@ -99593,20 +99593,20 @@
         "units": "millimeters",
         "bounding_box_aabb_mm": {
           "min": [
-            -21.996000000000002,
-            -14.433772318778633,
-            -28.774
+            -22.107,
+            -14.434,
+            -21.16
           ],
           "max": [
-            21.996000000000002,
-            33.035360000000004,
-            21.14
+            22.107,
+            30.832,
+            17.85
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_gen_dorsal_pack_098_d26265.glb",
-          "sha256_hash": "c71d492c5baeebf6b47b0cfed2e166d905f9d1e9e034ccca6b2d03fe24aa9e4d",
-          "file_size_bytes": 434504,
+          "sha256_hash": "217e9a13e798ce6241c107427afe7f5787345ca67616d2ee811e93902c2c66cb",
+          "file_size_bytes": 351140,
           "compression": "meshopt"
         }
       },
@@ -100413,6 +100413,1255 @@
         ],
         "topology_hash": "f8d2526114cad8cd",
         "composition_key": "beam_battleaxe_tomahawk+twin_guard_wings+strike_freedom_royal+g_baf653"
+      }
+    },
+    {
+      "part_id": "llm_gen_aux_shield_099_ee1fa1",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-SHD-805",
+      "name": "RX-0 Unicorn Aux Shield Mk.II",
+      "category": "armor",
+      "primary_hardpoint": "HP-07",
+      "slot_group": "aux_shield",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP07-FOREARM",
+      "entropy_seed": "19f5630bf552270225ffd44488364e2eb8fc9cba38a8fff21a1b7e853a7942e9",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1400,
+        "thrust_kgf": 8000,
+        "reactor_draw_kw": 800
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-07",
+        "HP-08"
+      ],
+      "structural_specs": {
+        "mass_kg": 1400,
+        "bom_computed_mass_kg": 1400,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-07",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -16.778,
+            -39.638,
+            -13.454
+          ],
+          "max": [
+            -1.7,
+            11.846,
+            14.068
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_aux_shield_099_ee1fa1.glb",
+          "sha256_hash": "8f086aa0e7ba83cb46b246505847f9df5e8152cd6f95696c18ff227688575271",
+          "file_size_bytes": 154064,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides high‑density I‑Field shielding and kinetic ram capability, allowing the Unicorn to counter Newtype attacks while retaining melee thrust.",
+        "reactor_power_draw_kw": 800,
+        "vernier_thrust_kgf": 8000
+      },
+      "reference_sources": [
+        {
+          "title": "RX-0 Unicorn Gundam",
+          "url": "https://gundam.fandom.com/wiki/RX-0_Unicorn_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "Produced as the final part of the E.F.S.F's reorganization plan, the \"UC Project\", the Unicorn Gundam is a revolutionary design meant to be the main symbol of the project's main goal: to destroy any traces of Zeonism in the Earth Sphere. Thus, not only does it feature a Gundam design, but it also incorporates an anti-Newtype system. Two prototype machines were completed at Anaheim Electronics' factory in Granada. However, when the Vist Foundation took control of the project, they installed a special \"La+ Program\" O"
+        },
+        {
+          "title": "Mobile Suit Gundam: Hathaway",
+          "url": "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Hathaway",
+          "source": "Wikipedia",
+          "summary": "Mobile Suit Gundam: Hathaway (Japanese: 機動戦士ガンダム 閃光のハサウェイ, Hepburn: Kidō Senshi Gandamu Senkō no Hasauei; lit. 'Mobile Suit Gundam: Hathaway's Flash') is a Japanese science fiction animated film and the first part of a planned trilogy in the Gundam franchise. Adapted from the 1989–1990 novel of the same name by Yoshiyuki Tomino, it is directed by Shuko Murase, written by Yasuyuki Muto, scored by Hiroyuki Sawano, and "
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RX-0 Unicorn Aux Shield Mk.II",
+        "concept_slug": "unicorn_anti_newtype_aux_shield",
+        "concept_tokens": [
+          "anti",
+          "newtype",
+          "shield",
+          "unicorn"
+        ],
+        "component_count": 16,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "cylinder": 6,
+          "revolved": 2,
+          "sculpted_pod": 1,
+          "beam_blade": 1,
+          "box": 6
+        },
+        "aabb_size_mm": [
+          15.1,
+          51.5,
+          27.5
+        ],
+        "aabb_ratios": [
+          0.293,
+          1.0,
+          0.535
+        ],
+        "topology_hash": "4a4ae0085bfba3cf",
+        "composition_key": "rotary_beam_disc_buckler+side_missile_microbay+top_ram_spikes+underslung_vernier_pair+gouf_cobalt+g_706207"
+      }
+    },
+    {
+      "part_id": "llm_gen_dorsal_pack_099_f99c32",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-DPK-806",
+      "name": "MSN-06S Sinanju Stein Psycho-Frame Aero Dorsal",
+      "category": "propulsion",
+      "primary_hardpoint": "HP-00",
+      "slot_group": "dorsal_pack",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP00-DORSAL",
+      "entropy_seed": "aa136dadfe1ae3e2071c8d53c6ba6c2b522678cf586d01778203388c4e496c8b",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1850,
+        "thrust_kgf": 42000,
+        "reactor_draw_kw": 850
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-00"
+      ],
+      "structural_specs": {
+        "mass_kg": 1850,
+        "bom_computed_mass_kg": 1850,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-00",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -27.655,
+            -16.737,
+            -30.89
+          ],
+          "max": [
+            27.655,
+            37.387,
+            8.0
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_dorsal_pack_099_f99c32.glb",
+          "sha256_hash": "2496f03dbed21f124ba0d3c31ba6fb2207db7005c477d0bc8285ffa541be58d2",
+          "file_size_bytes": 436188,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "High-agility dorsal array integrating Zeonic swept-wing binders with Psycho-Frame reactive stabilizers for Full Frontal's evasive combat doctrine.",
+        "reactor_power_draw_kw": 850,
+        "vernier_thrust_kgf": 42000
+      },
+      "reference_sources": [
+        {
+          "title": "MSN-06S Sinanju",
+          "url": "https://gundam.fandom.com/wiki/MSN-06S_Sinanju",
+          "source": "Gundam Wiki",
+          "summary": "Originally the MSN-06S Sinanju Stein was developed by Anaheim Electronics as part of the Earth Federation's \"UC Project\". Its movable frame is partly made from Psycho-Frame materials. This mobile suit was then stolen and modified into the MSN-06S Sinanju by the Neo Zeon remnant group known as \"The Sleeves\", and became the personal machine of the group's leader, Full Frontal. All of the Gundam-like features (except for the head-mounted vulcan guns) in the Sinanju Stein have been replaced with a Zeonic design and wea"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "MSN-06S Sinanju Stein Psycho-Frame Aero Dorsal",
+        "concept_slug": "sinanju_stein_psyframe_aero_dorsal",
+        "concept_tokens": [
+          "aero",
+          "frame",
+          "msn",
+          "psycho",
+          "psyframe",
+          "sinanju",
+          "stein"
+        ],
+        "component_count": 17,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "cylinder": 6,
+          "servo_drum": 2,
+          "box": 6,
+          "sculpted_pod": 1,
+          "vernier": 2
+        },
+        "aabb_size_mm": [
+          55.3,
+          54.1,
+          38.9
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.979,
+          0.703
+        ],
+        "topology_hash": "5e76bab67faf87eb",
+        "composition_key": "heavy_12tube_missile_salvo_pack+lower_propellant_tanks+sazabi_verka+g_7beed2"
+      }
+    },
+    {
+      "part_id": "llm_gen_head_sensor_100_65e5b4",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-HED-807",
+      "name": "GM Sniper II Long‑Range Sensor Hood",
+      "category": "modular_mission_pack",
+      "primary_hardpoint": "HP-01",
+      "slot_group": "head_sensor",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP01-CRANIAL",
+      "entropy_seed": "4d07f1e8ec775de329ce860ba356e6d0b178620f2536a6dd46fa35f833696e00",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 850,
+        "thrust_kgf": 0,
+        "reactor_draw_kw": 200
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-01",
+        "HP-02"
+      ],
+      "structural_specs": {
+        "mass_kg": 850,
+        "bom_computed_mass_kg": 850,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-01",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -13.55,
+            -1.689,
+            -10.2
+          ],
+          "max": [
+            13.55,
+            19.0,
+            6.905
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_head_sensor_100_65e5b4.glb",
+          "sha256_hash": "6774b7a2019f843d69367f327828a07e8aaa6a905cffcf19a68fb40f1513e272",
+          "file_size_bytes": 118528,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides ultra‑long‑range targeting with integrated compound sensors and dual antennae, enhancing sniper accuracy while maintaining GM‑type mobility.",
+        "reactor_power_draw_kw": 200,
+        "vernier_thrust_kgf": 0
+      },
+      "reference_sources": [
+        {
+          "title": "RGM-79SP GM Sniper II",
+          "url": "https://gundam.fandom.com/wiki/RGM-79SP_GM_Sniper_II",
+          "source": "Gundam Wiki",
+          "summary": "Based on the RGM-79G GM Command series and the concept of the RGM-79SC GM Sniper Custom, the RGM-79SP GM Sniper II is a high-performance machine capable of using specialized weaponry at maximum capacity for ultra-long range engagements. It was the last and most advanced of the Federation's line of GM Sniper mobile suits during the One Year War. It was also one of the last GM-type units to be developed during the war. The GM Sniper II's specialized head visor has built-in compound sensors with specialized laser sens"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "GM Sniper II Long‑Range Sensor Hood",
+        "concept_slug": "gm_sniper_ii_long_range_visor",
+        "concept_tokens": [
+          "hood",
+          "long",
+          "range",
+          "sensor",
+          "sniper",
+          "visor"
+        ],
+        "component_count": 9,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "sculpted_pod": 1,
+          "machined_sensor_bezel": 1,
+          "cylinder": 3,
+          "fin": 1,
+          "box": 3
+        },
+        "aabb_size_mm": [
+          27.1,
+          20.7,
+          17.1
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.763,
+          0.631
+        ],
+        "topology_hash": "f191a88290fade85",
+        "composition_key": "sniper_optical_visor_hood+twin_sensor_ears+twin_vfin_antennae+wing_zero_pearl+g_717938"
+      }
+    },
+    {
+      "part_id": "llm_gen_chest_armor_100_d18ad0",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-CHS-808",
+      "name": "FA-78-1 Magnet-Coat Pectoral Shroud",
+      "category": "armor",
+      "primary_hardpoint": "HP-09",
+      "slot_group": "chest_armor",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP09-PECTORAL",
+      "entropy_seed": "18a1a406117720edc9975f2fab5abaa976fd6dfadd7df0a91e3f93835f70ac09",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1850,
+        "thrust_kgf": 45000,
+        "reactor_draw_kw": 850
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-09",
+        "HP-10"
+      ],
+      "structural_specs": {
+        "mass_kg": 1850,
+        "bom_computed_mass_kg": 1850,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-09",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -18.556,
+            -5.861,
+            0.2
+          ],
+          "max": [
+            18.556,
+            9.456,
+            11.597
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_chest_armor_100_d18ad0.glb",
+          "sha256_hash": "9a4df9c4e4aa2b270b7b4e9f8f4e248e18d99091f85d85a68ef2179ec1290a69",
+          "file_size_bytes": 159640,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Modular FSWS enhancement chest armor providing heavy ERA protection and auxiliary thruster integration for Newtype pilots.",
+        "reactor_power_draw_kw": 850,
+        "vernier_thrust_kgf": 45000
+      },
+      "reference_sources": [
+        {
+          "title": "FA-78-1 Full Armor Gundam",
+          "url": "https://gundam.fandom.com/wiki/FA-78-1_Full_Armor_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "The FA-78-1 Full Armor Gundam was the RX-78-2 Gundam equipped with a set of optional armor, weapons, and auxiliary propulsion systems designed as part of the FSWS Plan, an enhancement plan for the RX-78 Gundam series. The plan was intended to improve the performance of RX-78 type units for use by Newtype pilots. The FA-78-1 equipment was planned to be equipped by the Gundam after it had undergone Magnet Coating treatment. This equipment was fully modular and could be easily equipped or removed. The optional armor t"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "FA-78-1 Magnet-Coat Pectoral Shroud",
+        "concept_slug": "fa78_1_magnet_coat_pectoral_shroud",
+        "concept_tokens": [
+          "coat",
+          "magnet",
+          "pectoral",
+          "shroud"
+        ],
+        "component_count": 8,
+        "primitive_types": 3,
+        "primitive_counts": {
+          "fin": 2,
+          "box": 5,
+          "cylinder": 1
+        },
+        "aabb_size_mm": [
+          37.1,
+          15.3,
+          11.4
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.413,
+          0.307
+        ],
+        "topology_hash": "db6348edc7ccac05",
+        "composition_key": "vcrest_core_fighter_breastplate+center_mega_emitter+twin_pectoral_vents+tallgeese_imperial+g_364496"
+      }
+    },
+    {
+      "part_id": "llm_gen_shoulder_pods_100_2b4382",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-SHL-809",
+      "name": "Heavyarms Custom Twin-AA Rotary Shoulder Pods",
+      "category": "weapon",
+      "primary_hardpoint": "HP-03",
+      "slot_group": "shoulder_pods",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP03-SHOULDER",
+      "entropy_seed": "b4f9471bbf27fc862ce97ecd507bf746fc138aba021ebebb72f5bd43ff6ce05a",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 950,
+        "thrust_kgf": 18000,
+        "reactor_draw_kw": 900
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-03",
+        "HP-05"
+      ],
+      "structural_specs": {
+        "mass_kg": 950,
+        "bom_computed_mass_kg": 950,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-03",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -59.657,
+            -8.482,
+            -15.86
+          ],
+          "max": [
+            59.657,
+            27.013,
+            14.224
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_shoulder_pods_100_2b4382.glb",
+          "sha256_hash": "0d1e88ac2d6a3a6b0425e872780c8414a43698127a643b1f2a128cb349303626",
+          "file_size_bytes": 305488,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides high-rate anti-missile CIWS and vernier thrust for rapid attitude control, enhancing the Heavyarms Custom’s zero-gravity maneuverability and defensive envelope.",
+        "reactor_power_draw_kw": 900,
+        "vernier_thrust_kgf": 18000
+      },
+      "reference_sources": [
+        {
+          "title": "XXXG-01H2 Gundam Heavyarms Custom",
+          "url": "https://gundam.fandom.com/wiki/XXXG-01H2_Gundam_Heavyarms_Custom",
+          "source": "Gundam Wiki",
+          "summary": "An upgrade of the Heavyarms to make it worthy for space combat. Besides minor changes to its armor, it has added verniers on the front and rear skirt armor as well as on top of the backpack to enhance its mobility in zero-gravity environment. Its armaments are unchanged with the exception of the Beam Gatling, which has been upgraded into the more powerful Twin Beam Gatling. ==Armaments== ;*Vulcan Gun :A pair of shell-firing armament built into the head. Low offensive power, only used to restrict enemy movement, and"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "Heavyarms Custom Twin-AA Rotary Shoulder Pods",
+        "concept_slug": "heavyarms_custom_shoulder_vanguard",
+        "concept_tokens": [
+          "heavyarms",
+          "pods",
+          "rotary",
+          "vanguard"
+        ],
+        "component_count": 8,
+        "primitive_types": 5,
+        "primitive_counts": {
+          "servo_drum": 1,
+          "box": 4,
+          "fin": 1,
+          "stepped_armor_panel": 1,
+          "cylinder": 1
+        },
+        "aabb_size_mm": [
+          119.3,
+          35.5,
+          30.1
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.297,
+          0.252
+        ],
+        "topology_hash": "1fd3b13e7d4d1871",
+        "composition_key": "wing_shield_binder_pauldrons+upper_missile_cap+destiny_phantom+g_3a82cf"
+      }
+    },
+    {
+      "part_id": "llm_gen_waist_ordnance_100_3eff2f",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-WST-810",
+      "name": "Freedom HP‑13 Ambac‑Rail Waist Pack",
+      "category": "armor",
+      "primary_hardpoint": "HP-13",
+      "slot_group": "waist_ordnance",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP13-WAIST",
+      "entropy_seed": "a2c9b6c722ac4605aa1eaff1e96f98749b9220725e3bdec79f0fbd8a2e984302",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1200,
+        "thrust_kgf": 50000,
+        "reactor_draw_kw": 800
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-13",
+        "HP-17"
+      ],
+      "structural_specs": {
+        "mass_kg": 1200,
+        "bom_computed_mass_kg": 1200,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-13",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -33.95,
+            -8.974,
+            -22.81
+          ],
+          "max": [
+            33.95,
+            11.081,
+            -9.6
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_waist_ordnance_100_3eff2f.glb",
+          "sha256_hash": "f3deed311fdd3eab66b847ab1609737c4d5f301c1e5cd3bea9d6a7b174355a47",
+          "file_size_bytes": 219736,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Compact, high‑mobility ordnance suite combining railgun, ambac, and grenade launchers for rapid, multi‑mode engagement.",
+        "reactor_power_draw_kw": 800,
+        "vernier_thrust_kgf": 50000
+      },
+      "reference_sources": [
+        {
+          "title": "ZGMF-X10A Freedom Gundam",
+          "url": "https://gundam.fandom.com/wiki/ZGMF-X10A_Freedom_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "One of ZAFT's ZGMF-X Series of Gundam units built in C.E. 71 using technology derived from the four captured Earth Alliance's Gundams, the ZGMF-X10A Freedom Gundam has Phase Shift Armor and its armaments include CIWS, beam sabers, shield, plasma beam cannons, railguns, and a beam rifle. When the latter three weapons are used simultaneously, the Freedom is said to be in 'Full Burst Mode'. The mobile suit has full flight capabilities in the atmosphere and the rear-mounted wings can be deployed in \"High Mobility Aeria"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "Freedom HP‑13 Ambac‑Rail Waist Pack",
+        "concept_slug": "freedom_waist_ambac_rail_pack",
+        "concept_tokens": [
+          "ambac",
+          "freedom",
+          "rail"
+        ],
+        "component_count": 9,
+        "primitive_types": 3,
+        "primitive_counts": {
+          "box": 5,
+          "sculpted_pod": 1,
+          "cylinder": 3
+        },
+        "aabb_size_mm": [
+          67.9,
+          20.1,
+          13.2
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.295,
+          0.195
+        ],
+        "topology_hash": "9fe0afb0688cdd9b",
+        "composition_key": "saber_quickdraw_holster_binders+rear_ambac_verniers+tallgeese_imperial+g_59f0c0"
+      }
+    },
+    {
+      "part_id": "llm_gen_leg_thrusters_100_6b4f34",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-LEG-811",
+      "name": "RX-78-02 Hathaway Flash Calf Thruster Kit",
+      "category": "propulsion",
+      "primary_hardpoint": "HP-24",
+      "slot_group": "leg_thrusters",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP24-CALF",
+      "entropy_seed": "b1611f1edeee440e8bdb25f4277c6fe97029a20c18a743094f587f61b043dc13",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 850,
+        "thrust_kgf": 45000,
+        "reactor_draw_kw": 1400
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-24",
+        "HP-26"
+      ],
+      "structural_specs": {
+        "mass_kg": 850,
+        "bom_computed_mass_kg": 850,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-24",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -42.03,
+            -16.67,
+            -9.713
+          ],
+          "max": [
+            42.03,
+            10.706,
+            6.44
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_leg_thrusters_100_6b4f34.glb",
+          "sha256_hash": "5a12b7395a08f017e2365e8808f6ec6d2cfd97106bd9c8d8b598c5f3931bd0a7",
+          "file_size_bytes": 381600,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "High-mobility leg thruster assembly for the RX-78-02, optimized for the rapid, evasive maneuvers and sustained high-G thrust required in the Hathaway-era tactical doctrine.",
+        "reactor_power_draw_kw": 1400,
+        "vernier_thrust_kgf": 45000
+      },
+      "reference_sources": [
+        {
+          "title": "RX-78-02 Gundam",
+          "url": "https://gundam.fandom.com/wiki/RX-78-02_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "Its estimate generator output was from 1000&nbsp;kW to 1400&nbsp;kW, its target output was to be at least 150% of the RCX-76 . The operation tests of the RX-78-02, a prototype MS of the Earth Federation, were carried out in secret, but civilian Amuro Ray coincidentally became its pilot when Zeon Forces assaulted Side 7. The RX-78-02 utilizes its wide array of portable weapons such as its beam rifle and hyper bazooka. It also has fixed weaponry such as two shoulder magnums on the left shoulder, a gatling gun on the "
+        },
+        {
+          "title": "Mobile Suit Gundam: Hathaway",
+          "url": "https://en.wikipedia.org/wiki/Mobile_Suit_Gundam:_Hathaway",
+          "source": "Wikipedia",
+          "summary": "Mobile Suit Gundam: Hathaway (Japanese: 機動戦士ガンダム 閃光のハサウェイ, Hepburn: Kidō Senshi Gandamu Senkō no Hasauei; lit. 'Mobile Suit Gundam: Hathaway's Flash') is a Japanese science fiction animated film and the first part of a planned trilogy in the Gundam franchise. Adapted from the 1989–1990 novel of the same name by Yoshiyuki Tomino, it is directed by Shuko Murase, written by Yasuyuki Muto, scored by Hiroyuki Sawano, and "
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RX-78-02 Hathaway Flash Calf Thruster Kit",
+        "concept_slug": "rx78_hathaway_flash_calf_boost",
+        "concept_tokens": [
+          "boost",
+          "flash",
+          "hathaway",
+          "thruster"
+        ],
+        "component_count": 12,
+        "primitive_types": 7,
+        "primitive_counts": {
+          "box": 4,
+          "sculpted_pod": 2,
+          "recessed_vent_grille": 1,
+          "machined_sensor_bezel": 1,
+          "stepped_armor_panel": 1,
+          "vernier": 2,
+          "cylinder": 1
+        },
+        "aabb_size_mm": [
+          84.1,
+          27.4,
+          16.2
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.326,
+          0.192
+        ],
+        "topology_hash": "ec768366eb0a17c6",
+        "composition_key": "hover_skirt_bell_thrusters+forward_knee_spike+unicorn_awakened_gn+g_8d2f07"
+      }
+    },
+    {
+      "part_id": "llm_gen_aux_weapon_100_125efa",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-WPN-812",
+      "name": "RX-78-02 Auxiliary Beam Magnum Sniper Kit",
+      "category": "weapon",
+      "primary_hardpoint": "HP-11",
+      "slot_group": "aux_weapon",
+      "weapon_grip_type": "firearm_pistol_grip",
+      "adapter_id": "ADP-HP11-WEAPON",
+      "entropy_seed": "98942494c8fc18787acc86646e6883d72fd5e533f3bda40a9613652e4049b0d5",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1800,
+        "thrust_kgf": 50000,
+        "reactor_draw_kw": 1300
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-11",
+        "HP-12"
+      ],
+      "structural_specs": {
+        "mass_kg": 1800,
+        "bom_computed_mass_kg": 1800,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-11",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -4.312,
+            -5.015,
+            -1.2
+          ],
+          "max": [
+            4.312,
+            14.242,
+            67.87
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_aux_weapon_100_125efa.glb",
+          "sha256_hash": "2dcb77540ac632ffc33d5c4f896cce1059d39c65ddffec4864b7a3402c976662",
+          "file_size_bytes": 210756,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Delivers long‑range high‑damage firepower, enabling the Gundam to strike enemy mobile suits and capital ships beyond typical ranges while preserving core mobility.",
+        "reactor_power_draw_kw": 1300,
+        "vernier_thrust_kgf": 50000
+      },
+      "reference_sources": [
+        {
+          "title": "RX-78-02 Gundam",
+          "url": "https://gundam.fandom.com/wiki/RX-78-02_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "Its estimate generator output was from 1000&nbsp;kW to 1400&nbsp;kW, its target output was to be at least 150% of the RCX-76 . The operation tests of the RX-78-02, a prototype MS of the Earth Federation, were carried out in secret, but civilian Amuro Ray coincidentally became its pilot when Zeon Forces assaulted Side 7. The RX-78-02 utilizes its wide array of portable weapons such as its beam rifle and hyper bazooka. It also has fixed weaponry such as two shoulder magnums on the left shoulder, a gatling gun on the "
+        },
+        {
+          "title": "Gundam (fictional robot)",
+          "url": "https://en.wikipedia.org/wiki/Gundam_(fictional_robot)",
+          "source": "Wikipedia",
+          "summary": "The RX-78-2 Gundam (Japanese: RX-78-2 ガンダム, Hepburn: Āru Ekkusu Nanajū Hachi no Ni Gandamu) is a piloted mecha introduced in 1979 in Yoshiyuki Tomino's and Sunrise's anime series Mobile Suit Gundam. In the series, it is a prototype weapon used by the Earth Federation. The mecha ends up in the hands of Amuro Ray, the son of Tem Ray, who designed the Gundam. Amuro Ray goes on to pilot the mecha for the Earth Federation"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RX-78-02 Auxiliary Beam Magnum Sniper Kit",
+        "concept_slug": "aux_beam_magnum_sniper",
+        "concept_tokens": [
+          "beam",
+          "magnum",
+          "sniper"
+        ],
+        "component_count": 18,
+        "primitive_types": 7,
+        "primitive_counts": {
+          "sculpted_pod": 1,
+          "stepped_armor_panel": 1,
+          "recessed_vent_grille": 1,
+          "fin": 4,
+          "cylinder": 5,
+          "box": 5,
+          "machined_sensor_bezel": 1
+        },
+        "aabb_size_mm": [
+          8.6,
+          19.3,
+          69.1
+        ],
+        "aabb_ratios": [
+          0.125,
+          0.279,
+          1.0
+        ],
+        "topology_hash": "f093ec0efa0799f1",
+        "composition_key": "anti_ship_sniper_railgun+extended_sniper_scope+barbatos_iron+g_cf63de"
+      }
+    },
+    {
+      "part_id": "llm_gen_aux_shield_100_41875e",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-SHD-813",
+      "name": "RX-0[N] Banshee Norn XC Pincer Guard",
+      "category": "armor",
+      "primary_hardpoint": "HP-07",
+      "slot_group": "aux_shield",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP07-FOREARM",
+      "entropy_seed": "c51e23121295d3aa819b1a4c1c296a5497d1986d0b18b72ee25c04dc62da6f5f",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 1850,
+        "thrust_kgf": 45000,
+        "reactor_draw_kw": 850
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-07",
+        "HP-08"
+      ],
+      "structural_specs": {
+        "mass_kg": 1850,
+        "bom_computed_mass_kg": 1850,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-07",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -16.73,
+            -22.956,
+            -13.139
+          ],
+          "max": [
+            -1.7,
+            16.472,
+            15.097
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_aux_shield_100_41875e.glb",
+          "sha256_hash": "c3ee89d5b3b47d4c9be161cfb84eac327c8e00d650f10ca85507f2184deb550d",
+          "file_size_bytes": 150152,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "High-mobility forearm siege shield integrating the Armed Armor XC's rotating pincer jaws with micro-missile bays for rapid close-quarters suppression.",
+        "reactor_power_draw_kw": 850,
+        "vernier_thrust_kgf": 45000
+      },
+      "reference_sources": [
+        {
+          "title": "RX-0［N］ Unicorn Gundam 02 Banshee Norn",
+          "url": "https://gundam.fandom.com/wiki/RX-0%EF%BC%BBN%EF%BC%BD_Unicorn_Gundam_02_Banshee_Norn",
+          "source": "Gundam Wiki",
+          "summary": "The RX-0[N] Unicorn Gundam 02 Banshee Norn is an upgraded version of the Banshee with improved performance, assigned to Londo Bell pilot Riddhe Marcenas. The unit itself remains unchanged from the upgrades, with only the Armed Armors BS and VN replaced by two new equipment, the Armed Armor DE and Armed Armor XC. The Banshee Norn's primary ranged weapon is the Beam Magnum but with a new attachment, the Revolving Launcher. In Destroy Mode, the Armed Armor XC opens and rotates up, giving the Banshee Norn a lion-like l"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "RX-0[N] Banshee Norn XC Pincer Guard",
+        "concept_slug": "banshee_norn_xc_pincer_guard",
+        "concept_tokens": [
+          "banshee",
+          "guard",
+          "norn",
+          "pincer"
+        ],
+        "component_count": 11,
+        "primitive_types": 6,
+        "primitive_counts": {
+          "curved_armor_plate": 1,
+          "stepped_armor_panel": 2,
+          "machined_sensor_bezel": 1,
+          "box": 3,
+          "fin": 1,
+          "cylinder": 3
+        },
+        "aabb_size_mm": [
+          15.0,
+          39.4,
+          28.2
+        ],
+        "aabb_ratios": [
+          0.381,
+          1.0,
+          0.716
+        ],
+        "topology_hash": "1181dd4999e45e8f",
+        "composition_key": "spiked_knuckle_breacher_buckler+center_ifield_emitter+underslung_vernier_pair+destiny_phantom+g_ce40bd"
+      }
+    },
+    {
+      "part_id": "llm_gen_dorsal_pack_100_387b44",
+      "blueprint_family": "llm_freeform_cad",
+      "serial_number": "GXM-GEN-DPK-814",
+      "name": "ZGMF-X09A Justice Gundam Fatum-00 HiMAT Dorsal Pack",
+      "category": "propulsion",
+      "primary_hardpoint": "HP-00",
+      "slot_group": "dorsal_pack",
+      "weapon_grip_type": null,
+      "adapter_id": "ADP-HP00-DORSAL",
+      "entropy_seed": "e5ef3a02bbfab4ce26a4dc5f05f7fad16ffdf47e8c095aca93dacc28a5ce3745",
+      "synthesis_origin": "llm_cad_architect",
+      "llm_design_source": "web_grounded_groq_bandai_cad_v5_true_infinite",
+      "llm_blueprint_params": {
+        "mass_kg": 720,
+        "thrust_kgf": 130000,
+        "reactor_draw_kw": 1200
+      },
+      "faction_compatibility": "universal_gundam_universe",
+      "compatible_hardpoints": [
+        "HP-00"
+      ],
+      "structural_specs": {
+        "mass_kg": 720,
+        "bom_computed_mass_kg": 720,
+        "primary_material": "gundarium_alloy_gamma",
+        "center_of_mass": [
+          0.0,
+          48.0,
+          -18.0
+        ]
+      },
+      "hardpoints": [
+        {
+          "id": "HP-00",
+          "type": "uhis_trapezoidal_dovetail",
+          "position_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "orientation_euler_deg": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "clearance_mm": 0.15
+        }
+      ],
+      "cad_mesh_definition": {
+        "format": "binary_gltf_glb",
+        "scale_ratio": "1:100",
+        "units": "millimeters",
+        "bounding_box_aabb_mm": {
+          "min": [
+            -40.148,
+            -23.694,
+            -26.53
+          ],
+          "max": [
+            40.148,
+            39.608,
+            8.0
+          ]
+        },
+        "asset_reference": {
+          "relative_url": "models/parts/llm_gen_dorsal_pack_100_387b44.glb",
+          "sha256_hash": "5261f0c00a569055f5f907397e59b1f8a4532af678a2d276578942eff3081499",
+          "file_size_bytes": 300440,
+          "compression": "meshopt"
+        }
+      },
+      "pbr_material": {
+        "color_hex": "#1a2530",
+        "roughness": 0.35,
+        "metalness": 0.85
+      },
+      "telemetry_and_lore": {
+        "operational_role": "Provides extreme thrust for rapid vertical ascent and high‑speed horizontal dash, enabling HiMAT aerial tactics and swift battlefield repositioning.",
+        "reactor_power_draw_kw": 1200,
+        "vernier_thrust_kgf": 130000
+      },
+      "reference_sources": [
+        {
+          "title": "ZGMF-X09A Justice Gundam",
+          "url": "https://gundam.fandom.com/wiki/ZGMF-X09A_Justice_Gundam",
+          "source": "Gundam Wiki",
+          "summary": "One of ZAFT's five ZGMF-X Gundam units produced in C.E. 71 using technology derived from the four captured Alliance's Gundams, the ZGMF-X09A Justice Gundam was designed as an assault mobile suit. The Justice's main feature is the Fatum-00 unit on its back. This complex armament unit normally serves as the main thrusters, granting overwhelming acceleration as well as mobility when deployed horizontally and this configuration is also known as 'High-Mobility Aerial Tactics (HiMAT) Mode'. It also grants flight capabili"
+        }
+      ],
+      "geometry_fingerprint": {
+        "name": "ZGMF-X09A Justice Gundam Fatum-00 HiMAT Dorsal Pack",
+        "concept_slug": "justice_fatum00_himat_pack",
+        "concept_tokens": [
+          "fatum",
+          "himat",
+          "justice",
+          "zgmf"
+        ],
+        "component_count": 19,
+        "primitive_types": 4,
+        "primitive_counts": {
+          "cylinder": 9,
+          "box": 5,
+          "fin": 3,
+          "vernier": 2
+        },
+        "aabb_size_mm": [
+          80.3,
+          63.3,
+          34.5
+        ],
+        "aabb_ratios": [
+          1.0,
+          0.788,
+          0.43
+        ],
+        "topology_hash": "771bfb766c53add4",
+        "composition_key": "quad_xwing_aero_binder+twin_over_shoulder_cannons+exia_gn_cyan+g_20f19d"
       }
     }
   ]
