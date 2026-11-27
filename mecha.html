@@ -5548,14 +5548,29 @@
       sockets.shoulder_pods.bilateralRightContainer = shR;
       sockets.shoulder_pods.bilateralLeftContainer = shL;
 
-      const legOutX = isSazabi ? 8.8 : (isGouf ? 4.0 : (isZaku ? 3.2 : 0.0));
-      const legOutZ = isSazabi ? -6.0 : (isGouf ? -3.0 : (isZaku ? -2.2 : -1.0));
-      const legRCont = new THREE.Group();
-      legRCont.position.set((rSign * legOutX) - rig.shinR.userData.worldOrigin.x, 38.0 - rig.shinR.userData.worldOrigin.y, legOutZ - rig.shinR.userData.worldOrigin.z);
-      rig.shinR.add(legRCont);
-      const legLCont = new THREE.Group();
-      legLCont.position.set((lSign * legOutX) - rig.shinL.userData.worldOrigin.x, 38.0 - rig.shinL.userData.worldOrigin.y, legOutZ - rig.shinL.userData.worldOrigin.z);
-      rig.shinL.add(legLCont);
+      // Exact per-unit outer calf contour mounting (flare roll + A-stance yaw + pivot-compensated flush wall contact!):
+      // All leg_thrusters GLBs are sculpted at RX-78's +5.0 deg calf slope with inner clamp anchor at (xSign*31.0, 0.0, -1.5).
+      // Zeon flared bell-bottom calves (Sazabi 15.4 deg / 7.5 deg yaw, Gouf 12.0 deg / 7.0 deg yaw, Zaku 11.0 deg / 7.0 deg yaw)
+      // rotate right around the clamp contact point so EVERY calf thruster sits 0.0mm flush & parallel to the leg contour!
+      const legWallX = isSazabi ? 33.8 : (isGouf ? 30.6 : (isZaku ? 30.2 : 31.0));
+      const legWallZ = isSazabi ? -2.2 : (isGouf ? -2.0 : (isZaku ? -2.0 : -2.5));
+      const legFlareRad = THREE.MathUtils.degToRad(isSazabi ? 10.4 : (isGouf ? 7.0 : (isZaku ? 6.0 : 0.0)));
+      const legYawRad = THREE.MathUtils.degToRad(isSazabi ? 7.5 : ((isGouf || isZaku) ? 7.0 : 0.0));
+
+      const makeContourLegContainer = (shinBone, xSign) => {
+        const cont = new THREE.Group();
+        cont.rotation.set(0, xSign * legYawRad, xSign * legFlareRad, 'XYZ');
+        const pLocal = new THREE.Vector3(xSign * 31.0, 0.0, -1.5).applyEuler(cont.rotation);
+        cont.position.set(
+          (xSign * legWallX) - shinBone.userData.worldOrigin.x - pLocal.x,
+          38.0 - shinBone.userData.worldOrigin.y - pLocal.y,
+          legWallZ - shinBone.userData.worldOrigin.z - pLocal.z
+        );
+        shinBone.add(cont);
+        return cont;
+      };
+      const legRCont = makeContourLegContainer(rig.shinR, rSign);
+      const legLCont = makeContourLegContainer(rig.shinL, lSign);
       sockets.leg_thrusters.bilateralRightContainer = legRCont;
       sockets.leg_thrusters.bilateralLeftContainer = legLCont;
 
@@ -6107,7 +6122,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r65');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r66');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
