@@ -4668,6 +4668,7 @@
       }
       return (
         n.includes('_vernier') || n.includes('vernier_') || n.endsWith('vernier') ||
+        n.includes('venturi') ||
         n.includes('nozzle') || n.includes('_bell') || n.includes('bell_') ||
         n.includes('aero_thruster') || n.includes('thruster_bell') ||
         n.includes('main_thruster') || n.includes('boost_bell') ||
@@ -4844,12 +4845,18 @@
         : mean.clone().addScaledVector(mouthDir, mouthProj);
 
       // 4. Exact RX-78 default `backpack_thruster_glow` proportions — recessed cleanly INSIDE the hollow bell!
+      // Bazooka / Artillery rear recoilless venturis use Blazing Solar Amber-Orange (distinct from propulsion rocket blue!)
+      const bellLower = (bellMesh.name || '').toLowerCase();
+      const isBazookaVenturi = bellLower.includes('venturi');
+      const glowColor = opts.glowColor !== undefined ? opts.glowColor : (isBazookaVenturi ? 0xffb74d : 0x38f8ff);
+      const glowEmissive = opts.glowEmissive !== undefined ? opts.glowEmissive : (isBazookaVenturi ? 0xff5500 : 0x00e5ff);
+      const glowIntensity = opts.glowIntensity !== undefined ? opts.glowIntensity : 4.8;
       const bellLen = span / 1.26;
       const glowH = Math.max(1.8, Math.min(4.4, bellLen * 0.44));
       const recess = bellLen * 0.18;
       const glowGeo = new THREE.CylinderGeometry(exitR * 0.22, exitR * 0.56, glowH, 18);
       const glowMat = getSharedMechaMaterial({
-        color: 0x38f8ff, emissive: 0x00e5ff, emissiveIntensity: 4.8,
+        color: glowColor, emissive: glowEmissive, emissiveIntensity: glowIntensity,
         roughness: 0.12, metalness: 0.10, useDetail: false, isEmissive: true, materialClass: 'emissive'
       });
       const glowMesh = new THREE.Mesh(glowGeo, glowMat);
@@ -4868,6 +4875,125 @@
       bellMesh.add(glowMesh);
       bellMesh.userData.hasBellGlow = true;
       bellMesh.userData.hasModularBellGlow = true;
+    }
+
+    // Detects forward-firing gun / railgun / bazooka / artillery hollow barrels (strips `_barrel_metal` suffix first!)
+    function isModularWeaponBarrelName(rawName) {
+      const n = (rawName || '').toLowerCase().replace(/_barrel_metal/g, '');
+      if (!n) return false;
+      if (
+        n.includes('adapter_') || n.includes('collar') || n.includes('clamp') ||
+        n.includes('shroud') || n.includes('jacket') || n.includes('cage') ||
+        n.includes('diffuser') || n.includes('glow') || n.includes('venturi') ||
+        n.includes('vernier') || n.includes('muzzle_crown') || n.includes('rail') ||
+        n.includes('cowl') || n.includes('conduit') || n.includes('hydraulic')
+      ) {
+        return false;
+      }
+      return (
+        n.includes('_barrel') || n.startsWith('barrel_') || n === 'barrel' ||
+        n.includes('beam_muzzle_tube')
+      );
+    }
+
+    // Coaxial PCA recessed inner muzzle glow for ALL guns & bazookas (NEVER propulsion rocket blue, 0% green!):
+    // - Bazooka / Dorsal Artillery / Rotary Autocannon: Blazing Solar Amber-Orange (#ffb74d / #ff5500)
+    // - Beam Rifle / Sniper Railgun / Beam Magnum / Pulse Scattergun: High-Output Crimson-Rose (#ff77aa / #ff1458)
+    function attachWeaponMuzzlePlasmaGlow(barrelMesh, partMeta = null) {
+      if (!barrelMesh || !barrelMesh.isMesh || !barrelMesh.geometry || barrelMesh.userData.hasMuzzleGlow) return;
+      if (!isModularWeaponBarrelName(barrelMesh.name)) return;
+      const posAttr = barrelMesh.geometry.attributes?.position;
+      if (!posAttr || posAttr.count < 12) return;
+
+      const seen = new Set();
+      const uPts = [];
+      let mx = 0, my = 0, mz = 0;
+      for (let i = 0; i < posAttr.count; i++) {
+        const vx = posAttr.getX(i), vy = posAttr.getY(i), vz = posAttr.getZ(i);
+        const key = `${Math.round(vx * 100)},${Math.round(vy * 100)},${Math.round(vz * 100)}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        uPts.push(vx, vy, vz);
+        mx += vx; my += vy; mz += vz;
+      }
+      const nPts = uPts.length / 3;
+      if (nPts < 12) return;
+      mx /= nPts; my /= nPts; mz /= nPts;
+      const mean = new THREE.Vector3(mx, my, mz);
+
+      let cxx = 0, cxy = 0, cxz = 0, cyy = 0, cyz = 0, czz = 0;
+      for (let i = 0; i < uPts.length; i += 3) {
+        const dx = uPts[i] - mx, dy = uPts[i + 1] - my, dz = uPts[i + 2] - mz;
+        cxx += dx * dx; cxy += dx * dy; cxz += dx * dz;
+        cyy += dy * dy; cyz += dy * dz; czz += dz * dz;
+      }
+      const invN = 1 / nPts;
+      const eig = eigenDecomposeSymmetric3x3(cxx * invN, cxy * invN, cxz * invN, cyy * invN, cyz * invN, czz * invN);
+      // Barrel is elongated -> largest eigenvalue eigenvector is its exact bore axis!
+      const axis = eig[2].vec.clone().normalize();
+      // Point muzzleDir forward (+Z)
+      const muzzleDir = axis.z >= 0 ? axis : axis.clone().negate();
+
+      let minP = Infinity, maxP = -Infinity;
+      const projs = new Float64Array(nPts);
+      const rads = new Float64Array(nPts);
+      for (let k = 0; k < nPts; k++) {
+        const dx = uPts[k * 3] - mx, dy = uPts[k * 3 + 1] - my, dz = uPts[k * 3 + 2] - mz;
+        const proj = dx * muzzleDir.x + dy * muzzleDir.y + dz * muzzleDir.z;
+        const rx = dx - proj * muzzleDir.x, ry = dy - proj * muzzleDir.y, rz = dz - proj * muzzleDir.z;
+        projs[k] = proj;
+        rads[k] = Math.hypot(rx, ry, rz);
+        if (proj < minP) minP = proj;
+        if (proj > maxP) maxP = proj;
+      }
+      const span = maxP - minP;
+      if (span < 3.5) return;
+
+      const tipCut = maxP - Math.max(0.8, span * 0.04);
+      let rcx = 0, rcy = 0, rcz = 0, rcCnt = 0, maxTipR = 0;
+      for (let k = 0; k < nPts; k++) {
+        if (projs[k] >= tipCut) {
+          rcx += uPts[k * 3]; rcy += uPts[k * 3 + 1]; rcz += uPts[k * 3 + 2];
+          rcCnt++;
+          if (rads[k] > maxTipR) maxTipR = rads[k];
+        }
+      }
+      if (maxTipR < 0.7) return;
+      const muzzleCenter = rcCnt >= 3
+        ? new THREE.Vector3(rcx / rcCnt, rcy / rcCnt, rcz / rcCnt)
+        : mean.clone().addScaledVector(muzzleDir, maxP);
+
+      const bn = (barrelMesh.name || '').toLowerCase();
+      const pn = ((partMeta?.name || '') + ' ' + (partMeta?.part_id || '')).toLowerCase();
+      const isThermalBallistic = (
+        bn.includes('bazooka') || bn.includes('artillery') || bn.includes('mega_cannon') ||
+        bn.includes('barrel_top') || bn.includes('barrel_bl') || bn.includes('barrel_br') ||
+        bn.includes('ciws') || pn.includes('bazooka') || pn.includes('artillery') ||
+        pn.includes('rotary') || pn.includes('autocannon') || pn.includes('gatling')
+      );
+      const glowColor = isThermalBallistic ? 0xffb74d : 0xff77aa;
+      const glowEmissive = isThermalBallistic ? 0xff5500 : 0xff1458;
+      const glowIntensity = isThermalBallistic ? 4.8 : 4.6;
+
+      const glowH = Math.max(1.6, Math.min(4.0, maxTipR * 1.10));
+      const recess = Math.max(0.35, Math.min(1.6, maxTipR * 0.35));
+      const glowGeo = new THREE.CylinderGeometry(maxTipR * 0.22, maxTipR * 0.56, glowH, 16);
+      const glowMat = getSharedMechaMaterial({
+        color: glowColor, emissive: glowEmissive, emissiveIntensity: glowIntensity,
+        roughness: 0.12, metalness: 0.10, useDetail: false, isEmissive: true, materialClass: 'emissive'
+      });
+      const glowMesh = new THREE.Mesh(glowGeo, glowMat);
+      glowMesh.name = `${barrelMesh.name}_muzzle_glow`;
+      glowMesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, -1, 0), muzzleDir);
+      glowMesh.position.copy(muzzleCenter).addScaledVector(muzzleDir, -(recess + glowH * 0.5));
+      glowMesh.castShadow = false;
+      glowMesh.receiveShadow = false;
+      glowMesh.userData.origMaterial = glowMat;
+      glowMesh.userData.initialPosition = glowMesh.position.clone();
+      glowMesh.userData.isModularPack = true;
+      glowMesh.userData.isBellGlowChild = true;
+      barrelMesh.add(glowMesh);
+      barrelMesh.userData.hasMuzzleGlow = true;
     }
 
     function buildPackPBRMaterial(node, unitId = state.activeUnitId) {
@@ -6122,7 +6248,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r68');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r69');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6704,6 +6830,9 @@
           node.userData.initialPosition = node.position.clone();
           node.userData.isModularPack = true;
           attachModularBellInnerGlow(node);
+          if (typeof attachWeaponMuzzlePlasmaGlow === 'function') {
+            attachWeaponMuzzlePlasmaGlow(node, part);
+          }
           state.chassisParts.push(node);
 
           // Bind sub-mesh to whichever limb bone (armR/shinR vs armL/shinL) lies on the same side of X=0!
@@ -6976,6 +7105,9 @@
             node.userData.initialPosition = node.position.clone();
             node.userData.isModularPack = true;
             attachModularBellInnerGlow(node);
+            if (typeof attachWeaponMuzzlePlasmaGlow === 'function') {
+              attachWeaponMuzzlePlasmaGlow(node, part);
+            }
             state.chassisParts.push(node);
             if (slotGroup === 'head_sensor') {
               const gc = node.userData.geomCenter;
