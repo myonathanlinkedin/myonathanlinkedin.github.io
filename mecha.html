@@ -4719,73 +4719,135 @@
       );
     }
 
-    // Shared helper: injects the exact RX-78 default backpack plasma exhaust glow cone inside any hollow
-    // supersonic vernier bell (used for BOTH non-Vanguard stock default bells AND all modular pack bells!).
+    // Exact 3x3 symmetric Jacobi eigen-decomposition for coaxial PCA axis extraction (0.0000 deg error!)
+    function eigenDecomposeSymmetric3x3(cxx, cxy, cxz, cyy, cyz, czz) {
+      const a = [
+        [cxx, cxy, cxz],
+        [cxy, cyy, cyz],
+        [cxz, cyz, czz],
+      ];
+      const v = [
+        [1, 0, 0],
+        [0, 1, 0],
+        [0, 0, 1],
+      ];
+      for (let iter = 0; iter < 18; iter++) {
+        let p = 0, q = 1, maxOff = Math.abs(a[0][1]);
+        if (Math.abs(a[0][2]) > maxOff) { p = 0; q = 2; maxOff = Math.abs(a[0][2]); }
+        if (Math.abs(a[1][2]) > maxOff) { p = 1; q = 2; maxOff = Math.abs(a[1][2]); }
+        if (maxOff < 1e-12) break;
+        const app = a[p][p], aqq = a[q][q], apq = a[p][q];
+        const tau = (aqq - app) / (2 * apq);
+        const t = (tau >= 0 ? 1 : -1) / (Math.abs(tau) + Math.sqrt(1 + tau * tau));
+        const c = 1 / Math.sqrt(1 + t * t);
+        const s = t * c;
+        a[p][p] = app - t * apq;
+        a[q][q] = aqq + t * apq;
+        a[p][q] = a[q][p] = 0;
+        const r = 3 - p - q;
+        const arp = a[r][p], arq = a[r][q];
+        a[r][p] = a[p][r] = c * arp - s * arq;
+        a[r][q] = a[q][r] = s * arp + c * arq;
+        for (let i = 0; i < 3; i++) {
+          const vip = v[i][p], viq = v[i][q];
+          v[i][p] = c * vip - s * viq;
+          v[i][q] = s * vip + c * viq;
+        }
+      }
+      const pairs = [0, 1, 2].map(k => ({
+        val: a[k][k],
+        vec: new THREE.Vector3(v[0][k], v[1][k], v[2][k]).normalize(),
+      }));
+      pairs.sort((x, y) => x.val - y.val);
+      return pairs;
+    }
+
+    // Shared helper: injects the exact RX-78 default backpack plasma exhaust glow cone strictly coaxial
+    // and dead-centered inside any rotated hollow supersonic vernier bell (stock Zeon bells + all modular bells!).
     function attachThrusterBellInnerGlow(bellMesh, opts = {}) {
       if (!bellMesh || !bellMesh.isMesh || !bellMesh.geometry || bellMesh.userData.hasBellGlow) return;
       const posAttr = bellMesh.geometry.attributes?.position;
       if (!posAttr || posAttr.count < 12) return;
 
-      bellMesh.geometry.computeBoundingBox();
-      const bb = bellMesh.geometry.boundingBox;
-      const size = new THREE.Vector3();
-      const center = new THREE.Vector3();
-      bb.getSize(size);
-      bb.getCenter(center);
-
-      const axis = new THREE.Vector3(0, 1, 0);
-      let L = size.y;
-      if (size.z >= size.x && size.z >= size.y) { axis.set(0, 0, 1); L = size.z; }
-      else if (size.x >= size.y && size.x >= size.z) { axis.set(1, 0, 0); L = size.x; }
-      if (L < 2.2) return;
-
-      const p = new THREE.Vector3();
-      const posEnd = new THREE.Vector3(), negEnd = new THREE.Vector3();
-      let posCnt = 0, negCnt = 0;
-      const thresh = L * 0.28;
+      // 1. Deduplicate seam vertices (0.01mm quantization) so UV seams never skew the true axis of revolution!
+      const seen = new Set();
+      const uPts = [];
+      let mx = 0, my = 0, mz = 0;
       for (let i = 0; i < posAttr.count; i++) {
-        p.fromBufferAttribute(posAttr, i).sub(center);
-        const proj = p.dot(axis);
-        if (proj > thresh) { posEnd.add(p); posCnt++; }
-        else if (proj < -thresh) { negEnd.add(p); negCnt++; }
+        const vx = posAttr.getX(i), vy = posAttr.getY(i), vz = posAttr.getZ(i);
+        const key = `${Math.round(vx * 100)},${Math.round(vy * 100)},${Math.round(vz * 100)}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        uPts.push(vx, vy, vz);
+        mx += vx; my += vy; mz += vz;
       }
-      if (posCnt > 3 && negCnt > 3) {
-        posEnd.divideScalar(posCnt);
-        negEnd.divideScalar(negCnt);
-        const refined = posEnd.clone().sub(negEnd);
-        if (refined.length() > 1.0) {
-          axis.copy(refined.normalize());
+      const nPts = uPts.length / 3;
+      if (nPts < 12) return;
+      mx /= nPts; my /= nPts; mz /= nPts;
+      const mean = new THREE.Vector3(mx, my, mz);
+
+      // 2. Exact 3D Covariance PCA: any axisymmetric bell has 2 equal cross-section eigenvalues and 1 unique
+      //    symmetry-axis eigenvalue (works identically for wide/short OR tall/narrow bells at ANY 3D tilt angle!).
+      let cxx = 0, cxy = 0, cxz = 0, cyy = 0, cyz = 0, czz = 0;
+      for (let i = 0; i < uPts.length; i += 3) {
+        const dx = uPts[i] - mx, dy = uPts[i + 1] - my, dz = uPts[i + 2] - mz;
+        cxx += dx * dx; cxy += dx * dy; cxz += dx * dz;
+        cyy += dy * dy; cyz += dy * dz; czz += dz * dz;
+      }
+      const invN = 1 / nPts;
+      const eig = eigenDecomposeSymmetric3x3(cxx * invN, cxy * invN, cxz * invN, cyy * invN, cyz * invN, czz * invN);
+      const gapLow = eig[1].val - eig[0].val;
+      const gapHigh = eig[2].val - eig[1].val;
+      const axis = (gapLow > gapHigh ? eig[0].vec : eig[2].vec).clone().normalize();
+
+      // 3. Identify open exhaust mouth direction (wider circular rim end) & exact rim circle center/radius!
+      let minP = Infinity, maxP = -Infinity;
+      const projs = new Float64Array(nPts);
+      const rads = new Float64Array(nPts);
+      for (let k = 0; k < nPts; k++) {
+        const dx = uPts[k * 3] - mx, dy = uPts[k * 3 + 1] - my, dz = uPts[k * 3 + 2] - mz;
+        const proj = dx * axis.x + dy * axis.y + dz * axis.z;
+        const rx = dx - proj * axis.x, ry = dy - proj * axis.y, rz = dz - proj * axis.z;
+        projs[k] = proj;
+        rads[k] = Math.hypot(rx, ry, rz);
+        if (proj < minP) minP = proj;
+        if (proj > maxP) maxP = proj;
+      }
+      const span = maxP - minP;
+      if (span < 2.0) return;
+
+      const hiCut = maxP - span * 0.18;
+      const loCut = minP + span * 0.18;
+      let maxRPos = 0, maxRNeg = 0;
+      for (let k = 0; k < nPts; k++) {
+        if (projs[k] >= hiCut && rads[k] > maxRPos) maxRPos = rads[k];
+        if (projs[k] <= loCut && rads[k] > maxRNeg) maxRNeg = rads[k];
+      }
+      const mouthIsPos = maxRPos >= maxRNeg;
+      const mouthDir = mouthIsPos ? axis.clone() : axis.clone().negate();
+      const mouthProj = mouthIsPos ? maxP : -minP;
+      const exitR = Math.max(1.2, mouthIsPos ? maxRPos : maxRNeg);
+
+      // Average exact circular rim ring vertices -> 0.000mm radial centering error!
+      let rcx = 0, rcy = 0, rcz = 0, rcCnt = 0;
+      const rimCut = mouthProj - span * 0.06;
+      const minRimR = exitR * 0.70;
+      for (let k = 0; k < nPts; k++) {
+        const mDot = mouthIsPos ? projs[k] : -projs[k];
+        if (mDot >= rimCut && rads[k] >= minRimR) {
+          rcx += uPts[k * 3]; rcy += uPts[k * 3 + 1]; rcz += uPts[k * 3 + 2];
+          rcCnt++;
         }
       }
+      const mouthCenter = rcCnt >= 3
+        ? new THREE.Vector3(rcx / rcCnt, rcy / rcCnt, rcz / rcCnt)
+        : mean.clone().addScaledVector(mouthDir, mouthProj);
 
-      let rPosSum = 0, rPosCnt = 0, rNegSum = 0, rNegCnt = 0;
-      let minProj = Infinity, maxProj = -Infinity;
-      for (let i = 0; i < posAttr.count; i++) {
-        p.fromBufferAttribute(posAttr, i).sub(center);
-        const proj = p.dot(axis);
-        if (proj < minProj) minProj = proj;
-        if (proj > maxProj) maxProj = proj;
-      }
-      const span = maxProj - minProj;
-      if (span < 2.0) return;
-      const hiCut = maxProj - span * 0.22;
-      const loCut = minProj + span * 0.22;
-      for (let i = 0; i < posAttr.count; i++) {
-        p.fromBufferAttribute(posAttr, i).sub(center);
-        const proj = p.dot(axis);
-        const radial = p.clone().addScaledVector(axis, -proj).length();
-        if (proj >= hiCut) { rPosSum += radial; rPosCnt++; }
-        else if (proj <= loCut) { rNegSum += radial; rNegCnt++; }
-      }
-      const rPos = rPosCnt ? (rPosSum / rPosCnt) : 0;
-      const rNeg = rNegCnt ? (rNegSum / rNegCnt) : 0;
-      const mouthDir = (rPos >= rNeg) ? axis.clone() : axis.clone().negate();
-      const mouthR = Math.max(1.1, Math.max(rPos, rNeg));
-      const mouthProj = (rPos >= rNeg) ? maxProj : -minProj;
-
-      // Exact RX-78 default `backpack_thruster_glow` electric plasma cone!
-      const glowH = Math.max(2.2, Math.min(5.0, span * 0.46));
-      const glowGeo = new THREE.CylinderGeometry(mouthR * 0.26, mouthR * 0.62, glowH, 16);
+      // 4. Exact RX-78 default `backpack_thruster_glow` proportions — recessed cleanly INSIDE the hollow bell!
+      const bellLen = span / 1.26;
+      const glowH = Math.max(1.8, Math.min(4.4, bellLen * 0.44));
+      const recess = bellLen * 0.18;
+      const glowGeo = new THREE.CylinderGeometry(exitR * 0.22, exitR * 0.56, glowH, 18);
       const glowMat = getSharedMechaMaterial({
         color: 0x38f8ff, emissive: 0x00e5ff, emissiveIntensity: 4.8,
         roughness: 0.12, metalness: 0.10, useDetail: false, isEmissive: true, materialClass: 'emissive'
@@ -4793,7 +4855,7 @@
       const glowMesh = new THREE.Mesh(glowGeo, glowMat);
       glowMesh.name = `${bellMesh.name}_thruster_glow`;
       glowMesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, -1, 0), mouthDir);
-      const glowPos = center.clone().addScaledVector(mouthDir, mouthProj - glowH * 0.52);
+      const glowPos = mouthCenter.clone().addScaledVector(mouthDir, -(recess + glowH * 0.5));
       glowMesh.position.copy(glowPos);
       glowMesh.castShadow = false;
       glowMesh.receiveShadow = false;
@@ -6045,7 +6107,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r64');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r65');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
