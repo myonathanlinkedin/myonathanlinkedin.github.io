@@ -880,19 +880,19 @@
         "format": "binary_gltf_glb",
         "asset_reference": {
           "relative_url": "models/parts/head_vulcan_crest_pod.glb",
-          "sha256_hash": "c1df8c05dd7e5b9a39f7d0d6b38337f50eb63e7f79478c04b9e22b72a02dfe09",
-          "file_size_bytes": 116980,
+          "sha256_hash": "e91043908cb80a307065bcd6f1271ae1259a10d3fe87c87493f89d7c194e9f7b",
+          "file_size_bytes": 121016,
           "compression": "meshopt"
         },
         "bounding_box_aabb_mm": {
           "min": [
             -14.299999999999999,
             -7.0,
-            -18.4
+            -15.6
           ],
           "max": [
             14.299999999999999,
-            26.3,
+            26.9,
             10.2
           ]
         }
@@ -1817,18 +1817,18 @@
           "min": [
             -13.4,
             -2.252,
-            -15.5
+            -13.6
           ],
           "max": [
             13.4,
-            24.816,
-            4.0
+            25.31995394605179,
+            3.9999999999999996
           ]
         },
         "asset_reference": {
           "relative_url": "models/parts/llm_head_commander_crest.glb",
-          "sha256_hash": "7085abeb7d4410bbcaf88d9c9afaad28cdbcbbd52e20148fc932ea3991b06d7f",
-          "file_size_bytes": 72420,
+          "sha256_hash": "33215c6d08598dfb8d45af0bafbece01665e317230d8a9105166f89f1e359531",
+          "file_size_bytes": 77028,
           "compression": "meshopt"
         }
       },
