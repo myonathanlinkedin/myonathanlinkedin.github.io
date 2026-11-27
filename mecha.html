@@ -6122,7 +6122,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r67');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r68');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6989,17 +6989,135 @@
             }
           }
         });
-        // Strictly Bilateral Symmetric Centered Cranial Seating (r67):
-        // Keeps EVERY head_sensor crown 100% centered at X=0.0 across ALL 4 mobile suits (Vanguard, Zaku, Gouf, Sazabi)
-        // with ZERO asymmetric side-shoving and ZERO clunky black box-tower connectors!
-        // On Sazabi (helmet dome top Y=176.35 vs Gouf/Zaku Y=179.30), seat the symmetric crown cleanly -0.85 local units
-        // deeper so adapter_crown_riser_dark embeds flush (-3.45mm) right onto Sazabi's maroon helmet crown!
-        if (slotGroup === 'head_sensor' && crownMeshes.length > 0 && state.activeUnitId === 'enemy_sazabi') {
-          const symCrownGrp = new THREE.Group();
-          symCrownGrp.name = 'SymmetricCrownSeat_enemy_sazabi';
-          symCrownGrp.position.set(0.0, -0.85, 0.0);
-          crownMeshes.forEach(m => symCrownGrp.add(m));
-          packModel.add(symCrownGrp);
+        // Horn-Safe Bilateral Symmetric Flanking Cranial Mount (r68):
+        // - Vanguard & Zaku-II: 100% untouched (canonical centered crown).
+        // - Sazabi & Gouf (tall central commander horn at |X|<=0.98mm): NEVER collide with the center horn!
+        //   Hides the redundant center `crown_riser` box and mounts twin strictly X-symmetric flanking sensor pods
+        //   on BOTH +X and -X cleanly clear of the center horn (inner edge >= +2.0mm / <= -2.0mm), anchored flush
+        //   to the curved helmet temples via sleek low-profile bilateral rail cradles, angled dome straps & gold micro-pins!
+        if (slotGroup === 'head_sensor' && crownMeshes.length > 0 && (state.activeUnitId === 'enemy_sazabi' || state.activeUnitId === 'enemy_gouf' || state.activeUnitId === 'rival_frame')) {
+          const isSaz = state.activeUnitId === 'enemy_sazabi';
+          const isGouf = state.activeUnitId === 'enemy_gouf';
+          const hs = isSaz ? 1.15 : (isGouf ? 1.20 : 1.0);
+          const cs = 0.56; // Precision flanking scale so twin L+R pods sit sleekly on the helmet temples
+          const bridgeMat = getSharedMechaMaterial({ color: 0x262f3c, roughness: 0.34, metalness: 0.78, materialClass: 'metal_gunmetal' });
+          const goldBoltMat = getSharedMechaMaterial({ color: 0xeab308, roughness: 0.22, metalness: 0.90, materialClass: 'metal_gold' });
+
+          const addSymPart = (parentGrp, geom, mat, lx, ly, lz, nm, rxDeg = 0, ryDeg = 0, rzDeg = 0) => {
+            const pMesh = new THREE.Mesh(geom, mat);
+            pMesh.name = nm;
+            pMesh.position.set(lx, ly, lz);
+            if (rxDeg || ryDeg || rzDeg) {
+              pMesh.rotation.set(
+                THREE.MathUtils.degToRad(rxDeg),
+                THREE.MathUtils.degToRad(ryDeg),
+                THREE.MathUtils.degToRad(rzDeg)
+              );
+            }
+            pMesh.castShadow = true;
+            pMesh.receiveShadow = true;
+            pMesh.userData.origMaterial = mat;
+            pMesh.userData.initialPosition = pMesh.position.clone();
+            pMesh.userData.isModularPack = true;
+            parentGrp.add(pMesh);
+            state.chassisParts.push(pMesh);
+            return pMesh;
+          };
+
+          // Hide legacy center-mount `crown_riser` block so zero redundant dark brick stacks under the flanking pods!
+          const activeCrown = [];
+          let cMinX = Infinity, cMaxX = -Infinity, cMinY = Infinity, cMaxY = -Infinity, cMinZ = Infinity, cMaxZ = -Infinity;
+          crownMeshes.forEach(m => {
+            if ((m.name || '').toLowerCase().includes('crown_riser')) {
+              m.visible = false;
+              return;
+            }
+            activeCrown.push(m);
+            if (m.geometry?.boundingBox) {
+              const bb = m.geometry.boundingBox;
+              cMinX = Math.min(cMinX, bb.min.x); cMaxX = Math.max(cMaxX, bb.max.x);
+              cMinY = Math.min(cMinY, bb.min.y); cMaxY = Math.max(cMaxY, bb.max.y);
+              cMinZ = Math.min(cMinZ, bb.min.z); cMaxZ = Math.max(cMaxZ, bb.max.z);
+            }
+          });
+
+          if (activeCrown.length > 0 && Number.isFinite(cMinX)) {
+            const cx = 0.5 * (cMinX + cMaxX);
+            const cy = 0.5 * (cMinY + cMaxY);
+            const cz = 0.5 * (cMinZ + cMaxZ);
+            const halfWWorld = 0.5 * (cMaxX - cMinX) * hs * cs;
+            // Strict >= 2.0mm horn clearance on BOTH sides (Sazabi horn |X|<=0.98mm, Gouf fin |X|<=0.87mm -> >=1.0mm air gap!)
+            const targetCxWorld = Math.max(4.6, 2.1 + halfWWorld);
+            const targetBotYWorld = isSaz ? 5.8 : (isGouf ? 6.8 : 6.0);
+            const targetCzWorld = -1.8;
+
+            for (const [sgn, sfx] of [[1.0, 'r'], [-1.0, 'l']]) {
+              const sideGrp = new THREE.Group();
+              sideGrp.name = `HornSafeFlankCrown_${state.activeUnitId}_${sfx}`;
+              sideGrp.position.set(
+                (sgn * targetCxWorld) / hs,
+                (targetBotYWorld / hs) - (cMinY - cy) * cs,
+                targetCzWorld / hs
+              );
+              sideGrp.scale.set(cs, cs, cs);
+              const sideInner = new THREE.Group();
+              sideInner.position.set(-cx, -cy, -cz);
+              activeCrown.forEach(m => {
+                if (sgn > 0) {
+                  sideInner.add(m);
+                } else {
+                  const cl = m.clone(true);
+                  cl.name = `${m.name}_sym_l`;
+                  cl.userData = { ...m.userData, initialPosition: m.position.clone(), isModularPack: true };
+                  sideInner.add(cl);
+                  state.chassisParts.push(cl);
+                }
+              });
+              sideGrp.add(sideInner);
+              packModel.add(sideGrp);
+
+              // Sleek low-profile contoured temple rail cradle (embedded flush into dome shoulder, strictly clear of horn |X|<=1.0mm!)
+              const railInnerX = Math.max(2.2, targetCxWorld - Math.max(2.0, halfWWorld * 0.75));
+              const railOuterX = Math.min(9.4, targetCxWorld + Math.max(1.8, halfWWorld * 0.65));
+              const railW = Math.max(3.2, railOuterX - railInnerX) / hs;
+              const railY = (targetBotYWorld - 0.55) / hs;
+              const railZ = targetCzWorld / hs;
+              addSymPart(
+                packModel,
+                new THREE.BoxGeometry(railW, 1.5 / hs, 5.2 / hs),
+                bridgeMat,
+                (sgn * 0.5 * (railInnerX + railOuterX)) / hs,
+                railY,
+                railZ,
+                `adapter_flank_rail_dark_${sfx}`
+              );
+
+              // Sleek contour-hugging temple arch linking rail outer lug cleanly down to bilateral ear clamp (X=+-8.8, Y=1.8)
+              const topX = (sgn * Math.min(8.6, railOuterX - 0.4)) / hs;
+              const botX = sgn * 8.8;
+              const topY = railY - (0.3 / hs);
+              const botY = 1.8;
+              const dx = topX - botX;
+              const dy = Math.max(1.0, topY - botY);
+              const archLen = Math.hypot(dx, dy) + (0.8 / hs);
+              const archTiltDeg = THREE.MathUtils.radToDeg(Math.atan2(dx, dy));
+              addSymPart(
+                packModel,
+                new THREE.BoxGeometry(1.45 / hs, archLen, 3.8 / hs),
+                bridgeMat,
+                0.5 * (topX + botX),
+                0.5 * (topY + botY),
+                railZ,
+                `adapter_flank_arch_dark_${sfx}`,
+                0, 0, -archTiltDeg
+              );
+
+              // Flush micro gold lock-bolt at the temple rail joint
+              const boltGeo = new THREE.CylinderGeometry(0.75 / hs, 0.75 / hs, 4.4 / hs, 14);
+              boltGeo.rotateX(Math.PI / 2);
+              addSymPart(packModel, boltGeo, goldBoltMat, topX, topY, railZ, `adapter_flank_bolt_gold_${sfx}`);
+            }
+          }
         }
         // Vanguard-ONLY (RX-78) 2-Facet Full-Armor Chest Contour Adaptation (r61):
         // Keeps Zaku-II, Gouf, Sazabi & Rival 100% untouched (canonical pre-r45 geometry & sockets!),
