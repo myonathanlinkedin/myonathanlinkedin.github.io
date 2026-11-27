@@ -4509,7 +4509,7 @@
         color = 0x38f8ff; emissive = 0x00e5ff; emissiveIntensity = 4.6; roughness = 0.12; metalness = 0.10; useDetail = false; isEmissive = true; materialClass = 'emissive';
       } else if (n.includes('v_fin_crest_gem') || n.includes('chin_guard') || n.includes('cheek_red_trim') || n.includes('abdomen_core') || n.includes('plaque_red') || n.includes('toe_plate') || n.includes('heel_block')) {
         color = 0xd62428; roughness = 0.30; metalness = 0.18; materialClass = 'armor_painted';
-      } else if (n.includes('_yellow') || n.includes('louvers') || n.includes('v_emblem')) {
+      } else if (n.includes('_yellow') || n.includes('louvers') || n.includes('v_emblem') || n.includes('v_fin_antenna')) {
         color = 0xf4b41a; roughness = 0.28; metalness = 0.32; materialClass = 'armor_painted';
       } else if (n.includes('v_fin_sub_gold') || n.includes('vulcan_gold') || n.includes('_gold')) {
         color = 0xeab308; roughness = 0.20; metalness = 0.90; useDetail = false; materialClass = 'metal_gold';
@@ -6248,7 +6248,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r70');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r71');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
