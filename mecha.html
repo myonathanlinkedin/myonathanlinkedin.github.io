@@ -4695,6 +4695,119 @@
       return isThrusterPart && isMountRing;
     }
 
+    function isStockZeonThrusterBellName(rawName) {
+      const n = (rawName || '').toLowerCase();
+      if (!n) return false;
+      if (
+        n.includes('gimbal') || n.includes('collar') || n.includes('socket') ||
+        n.includes('ring') || n.includes('shroud') || n.includes('fairing') ||
+        n.includes('mount') || n.includes('glow') || n.includes('vane') ||
+        n.includes('vent') || n.includes('housing') || n.includes('port') ||
+        n.includes('tank') || n.includes('cowl') || n.includes('cannon') ||
+        n.includes('emitter')
+      ) {
+        return false;
+      }
+      return (
+        n.includes('zaku_thruster_') ||
+        n.includes('gouf_thruster_') ||
+        n.includes('sazabi_thruster_') ||
+        n.includes('sazabi_shoulder_thruster_') ||
+        n.includes('sazabi_calf_jet_') ||
+        n.includes('hover_jet_thruster_') ||
+        n.includes('rival_main_thruster_')
+      );
+    }
+
+    // Shared helper: injects the exact RX-78 default backpack plasma exhaust glow cone inside any hollow
+    // supersonic vernier bell (used for BOTH non-Vanguard stock default bells AND all modular pack bells!).
+    function attachThrusterBellInnerGlow(bellMesh, opts = {}) {
+      if (!bellMesh || !bellMesh.isMesh || !bellMesh.geometry || bellMesh.userData.hasBellGlow) return;
+      const posAttr = bellMesh.geometry.attributes?.position;
+      if (!posAttr || posAttr.count < 12) return;
+
+      bellMesh.geometry.computeBoundingBox();
+      const bb = bellMesh.geometry.boundingBox;
+      const size = new THREE.Vector3();
+      const center = new THREE.Vector3();
+      bb.getSize(size);
+      bb.getCenter(center);
+
+      const axis = new THREE.Vector3(0, 1, 0);
+      let L = size.y;
+      if (size.z >= size.x && size.z >= size.y) { axis.set(0, 0, 1); L = size.z; }
+      else if (size.x >= size.y && size.x >= size.z) { axis.set(1, 0, 0); L = size.x; }
+      if (L < 2.2) return;
+
+      const p = new THREE.Vector3();
+      const posEnd = new THREE.Vector3(), negEnd = new THREE.Vector3();
+      let posCnt = 0, negCnt = 0;
+      const thresh = L * 0.28;
+      for (let i = 0; i < posAttr.count; i++) {
+        p.fromBufferAttribute(posAttr, i).sub(center);
+        const proj = p.dot(axis);
+        if (proj > thresh) { posEnd.add(p); posCnt++; }
+        else if (proj < -thresh) { negEnd.add(p); negCnt++; }
+      }
+      if (posCnt > 3 && negCnt > 3) {
+        posEnd.divideScalar(posCnt);
+        negEnd.divideScalar(negCnt);
+        const refined = posEnd.clone().sub(negEnd);
+        if (refined.length() > 1.0) {
+          axis.copy(refined.normalize());
+        }
+      }
+
+      let rPosSum = 0, rPosCnt = 0, rNegSum = 0, rNegCnt = 0;
+      let minProj = Infinity, maxProj = -Infinity;
+      for (let i = 0; i < posAttr.count; i++) {
+        p.fromBufferAttribute(posAttr, i).sub(center);
+        const proj = p.dot(axis);
+        if (proj < minProj) minProj = proj;
+        if (proj > maxProj) maxProj = proj;
+      }
+      const span = maxProj - minProj;
+      if (span < 2.0) return;
+      const hiCut = maxProj - span * 0.22;
+      const loCut = minProj + span * 0.22;
+      for (let i = 0; i < posAttr.count; i++) {
+        p.fromBufferAttribute(posAttr, i).sub(center);
+        const proj = p.dot(axis);
+        const radial = p.clone().addScaledVector(axis, -proj).length();
+        if (proj >= hiCut) { rPosSum += radial; rPosCnt++; }
+        else if (proj <= loCut) { rNegSum += radial; rNegCnt++; }
+      }
+      const rPos = rPosCnt ? (rPosSum / rPosCnt) : 0;
+      const rNeg = rNegCnt ? (rNegSum / rNegCnt) : 0;
+      const mouthDir = (rPos >= rNeg) ? axis.clone() : axis.clone().negate();
+      const mouthR = Math.max(1.1, Math.max(rPos, rNeg));
+      const mouthProj = (rPos >= rNeg) ? maxProj : -minProj;
+
+      // Exact RX-78 default `backpack_thruster_glow` electric plasma cone!
+      const glowH = Math.max(2.2, Math.min(5.0, span * 0.46));
+      const glowGeo = new THREE.CylinderGeometry(mouthR * 0.26, mouthR * 0.62, glowH, 16);
+      const glowMat = getSharedMechaMaterial({
+        color: 0x38f8ff, emissive: 0x00e5ff, emissiveIntensity: 4.8,
+        roughness: 0.12, metalness: 0.10, useDetail: false, isEmissive: true, materialClass: 'emissive'
+      });
+      const glowMesh = new THREE.Mesh(glowGeo, glowMat);
+      glowMesh.name = `${bellMesh.name}_thruster_glow`;
+      glowMesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, -1, 0), mouthDir);
+      const glowPos = center.clone().addScaledVector(mouthDir, mouthProj - glowH * 0.52);
+      glowMesh.position.copy(glowPos);
+      glowMesh.castShadow = false;
+      glowMesh.receiveShadow = false;
+      glowMesh.userData.origMaterial = glowMat;
+      glowMesh.userData.initialPosition = glowMesh.position.clone();
+      glowMesh.userData.isBellGlowChild = true;
+      if (opts.isModularPack) {
+        glowMesh.userData.isModularPack = true;
+      }
+      bellMesh.add(glowMesh);
+      bellMesh.userData.hasBellGlow = true;
+      bellMesh.userData.hasModularBellGlow = true;
+    }
+
     function buildPackPBRMaterial(node, unitId = state.activeUnitId) {
       const spec = UNIT_REGISTRY[unitId] || UNIT_REGISTRY.vanguard_rx;
       const pc = spec.packColors;
@@ -5932,7 +6045,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r63');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r64');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -5964,6 +6077,7 @@
 
           state.gearNodes = [];
           state.hingeNodes = [];
+          const zeonStockBellMeshes = [];
           model.traverse(node => {
             if (node.isMesh) {
               if (node.geometry) {
@@ -5987,6 +6101,9 @@
                 node.userData.rootGeomCenter = node.userData.geomCenter.clone();
                 node.userData.explodeMeta = classifyExplodeRole(node.name, node.userData.geomCenter.x);
               }
+              if (spec.isZeonEnemy && typeof isStockZeonThrusterBellName === 'function' && isStockZeonThrusterBellName(ln)) {
+                zeonStockBellMeshes.push(node);
+              }
               if (ln.includes('chest_gear_') || ln.includes('dorsal_gear_')) {
                 const gc = node.userData.geomCenter || new THREE.Vector3();
                 const dirSign = ln.includes('pinion') ? -1.42 : 1.0;
@@ -6006,6 +6123,10 @@
               state.chassisParts.push(node);
             }
           });
+          // Attach matching default-backpack plasma exhaust glow inside every stock Zaku / Gouf / Sazabi thruster bell!
+          if (zeonStockBellMeshes.length > 0 && typeof attachThrusterBellInnerGlow === 'function') {
+            zeonStockBellMeshes.forEach(bellNode => attachThrusterBellInnerGlow(bellNode, { isModularPack: false }));
+          }
 
           // Bind all meshes into the 11-Bone Hierarchical Kinematic Rig!
           state.kinematicRig = buildProceduralKinematicRig(model, spec);
@@ -6040,7 +6161,7 @@
               const byKey = new Map();
               const removable = [];
               for (const child of [...bone.children]) {
-                if (!child.isMesh || child.userData?.isDecal || keepIndividual.has(child) || !child.geometry) continue;
+                if (!child.isMesh || child.userData?.isDecal || child.userData?.hasBellGlow || (child.children && child.children.length > 0) || keepIndividual.has(child) || !child.geometry) continue;
                 const mat = child.material;
                 const exMeta = child.userData.explodeMeta || classifyExplodeRole(child.name, (child.userData.rootGeomCenter || child.userData.geomCenter || new THREE.Vector3()).x);
                 child.userData.explodeMeta = exMeta;
@@ -6466,93 +6587,13 @@
       }
 
       // Attaches a default-backpack-style cyan inner plasma glow cone inside the open exhaust mouth
-      // of EVERY modular rocket bell (`vernier`/`nozzle`/`bell`/`aero_thruster`) — zero changes to stock backpacks!
+      // of EVERY modular rocket bell (`vernier`/`nozzle`/`bell`/`aero_thruster`) using the shared helper!
       const attachModularBellInnerGlow = (bellMesh) => {
         if (!bellMesh || !bellMesh.isMesh || !bellMesh.geometry || bellMesh.userData.hasModularBellGlow) return;
         if (typeof isModularRocketBellName !== 'function' || !isModularRocketBellName(bellMesh.name)) return;
-        const posAttr = bellMesh.geometry.attributes?.position;
-        if (!posAttr || posAttr.count < 12) return;
-
-        bellMesh.geometry.computeBoundingBox();
-        const bb = bellMesh.geometry.boundingBox;
-        const size = new THREE.Vector3();
-        const center = new THREE.Vector3();
-        bb.getSize(size);
-        bb.getCenter(center);
-
-        // Identify principal axis (axis of max extent) & detect which end is the wider open exhaust mouth!
-        const axis = new THREE.Vector3(0, 1, 0);
-        let L = size.y;
-        if (size.z >= size.x && size.z >= size.y) { axis.set(0, 0, 1); L = size.z; }
-        else if (size.x >= size.y && size.x >= size.z) { axis.set(1, 0, 0); L = size.x; }
-        if (L < 2.2) return;
-
-        // Refine exact axis direction by comparing centroids of the two extreme ends along the major axis
-        const p = new THREE.Vector3();
-        const posEnd = new THREE.Vector3(), negEnd = new THREE.Vector3();
-        let posCnt = 0, negCnt = 0;
-        const thresh = L * 0.28;
-        for (let i = 0; i < posAttr.count; i++) {
-          p.fromBufferAttribute(posAttr, i).sub(center);
-          const proj = p.dot(axis);
-          if (proj > thresh) { posEnd.add(p); posCnt++; }
-          else if (proj < -thresh) { negEnd.add(p); negCnt++; }
+        if (typeof attachThrusterBellInnerGlow === 'function') {
+          attachThrusterBellInnerGlow(bellMesh, { isModularPack: true });
         }
-        if (posCnt > 3 && negCnt > 3) {
-          posEnd.divideScalar(posCnt);
-          negEnd.divideScalar(negCnt);
-          const refined = posEnd.clone().sub(negEnd);
-          if (refined.length() > 1.0) {
-            axis.copy(refined.normalize());
-          }
-        }
-
-        // Measure radial spread at +axis end vs -axis end; exhaust mouth is ALWAYS the wider flared end!
-        let rPosSum = 0, rPosCnt = 0, rNegSum = 0, rNegCnt = 0;
-        let minProj = Infinity, maxProj = -Infinity;
-        for (let i = 0; i < posAttr.count; i++) {
-          p.fromBufferAttribute(posAttr, i).sub(center);
-          const proj = p.dot(axis);
-          if (proj < minProj) minProj = proj;
-          if (proj > maxProj) maxProj = proj;
-        }
-        const span = maxProj - minProj;
-        if (span < 2.0) return;
-        const hiCut = maxProj - span * 0.22;
-        const loCut = minProj + span * 0.22;
-        for (let i = 0; i < posAttr.count; i++) {
-          p.fromBufferAttribute(posAttr, i).sub(center);
-          const proj = p.dot(axis);
-          const radial = p.clone().addScaledVector(axis, -proj).length();
-          if (proj >= hiCut) { rPosSum += radial; rPosCnt++; }
-          else if (proj <= loCut) { rNegSum += radial; rNegCnt++; }
-        }
-        const rPos = rPosCnt ? (rPosSum / rPosCnt) : 0;
-        const rNeg = rNegCnt ? (rNegSum / rNegCnt) : 0;
-        const mouthDir = (rPos >= rNeg) ? axis.clone() : axis.clone().negate();
-        const mouthR = Math.max(1.1, Math.max(rPos, rNeg));
-        const mouthProj = (rPos >= rNeg) ? maxProj : -minProj;
-
-        // Tapered inner plasma glow matching RX-78 default `backpack_thruster_glow`!
-        const glowH = Math.max(2.2, Math.min(5.0, span * 0.46));
-        const glowGeo = new THREE.CylinderGeometry(mouthR * 0.26, mouthR * 0.62, glowH, 16);
-        const glowMat = getSharedMechaMaterial({
-          color: 0x38f8ff, emissive: 0x00e5ff, emissiveIntensity: 4.8,
-          roughness: 0.12, metalness: 0.10, useDetail: false, isEmissive: true, materialClass: 'emissive'
-        });
-        const glowMesh = new THREE.Mesh(glowGeo, glowMat);
-        glowMesh.name = `${bellMesh.name}_modular_bell_glow`;
-        // Align CylinderGeometry -Y (wide end) along mouthDir so wide glowing disc sits cleanly recessed inside the exhaust mouth!
-        glowMesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, -1, 0), mouthDir);
-        const glowPos = center.clone().addScaledVector(mouthDir, mouthProj - glowH * 0.52);
-        glowMesh.position.copy(glowPos);
-        glowMesh.castShadow = false;
-        glowMesh.receiveShadow = false;
-        glowMesh.userData.origMaterial = glowMat;
-        glowMesh.userData.initialPosition = glowMesh.position.clone();
-        glowMesh.userData.isModularPack = true;
-        bellMesh.add(glowMesh);
-        bellMesh.userData.hasModularBellGlow = true;
       };
 
       const mountedModels = [];
