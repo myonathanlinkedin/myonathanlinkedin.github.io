@@ -4894,7 +4894,9 @@
         n.includes('vernier') || n.includes('muzzle_crown') || n.includes('rail') ||
         n.includes('cowl') || n.includes('conduit') || n.includes('hydraulic') ||
         n.includes('pole') || n.includes('shaft') || n.includes('spike') ||
-        n.includes('pelvis') || n.includes('waist_cyl')
+        n.includes('pelvis') || n.includes('waist_cyl') ||
+        n.includes('muzzle_inner') || n.includes('muzzle_core') ||
+        n.includes('muzzle_plume') || n.includes('plume')
       ) {
         return false;
       }
@@ -4906,76 +4908,136 @@
       );
     }
 
-    // Coaxial PCA 3-layer volumetric muzzle energy effect for ALL guns & bazookas (NEVER propulsion rocket blue, 0% green!):
+    // Coaxial PCA RECESSED inner-bore muzzle glow for ALL guns & bazookas (0.0mm protrusion past muzzle lip!):
+    // - Strictly recessed inside the hollow barrel bore (visible from front/3/4 bore view ONLY; zero side protrusion!)
     // - Bazooka / Dorsal Artillery / Rotary Autocannon / CIWS / Gatling / Vulcan / MG: Blazing Solar Amber-Orange
-    // - Beam Rifle / Sniper Railgun / Beam Magnum / Pulse Scattergun / Beam Cannon: High-Output Crimson-Rose
+    // - Beam Rifle / Sniper Railgun / Beam Magnum / Pulse Scattergun / Beam Cannon / Sazabi Rifle: High-Output Crimson-Rose
     function attachWeaponMuzzlePlasmaGlow(barrelMesh, partMeta = null) {
-      if (!barrelMesh || !barrelMesh.isMesh || !barrelMesh.geometry || barrelMesh.userData.hasMuzzleGlow) return;
+      if (
+        !barrelMesh || !barrelMesh.isMesh || !barrelMesh.geometry ||
+        barrelMesh.userData.hasMuzzleGlow ||
+        barrelMesh.userData.isBellGlowChild ||
+        barrelMesh.userData.isMuzzleGlowChild
+      ) return;
       if (!isModularWeaponBarrelName(barrelMesh.name)) return;
       const posAttr = barrelMesh.geometry.attributes?.position;
       if (!posAttr || posAttr.count < 12) return;
 
       const seen = new Set();
       const uPts = [];
-      let mx = 0, my = 0, mz = 0;
       for (let i = 0; i < posAttr.count; i++) {
         const vx = posAttr.getX(i), vy = posAttr.getY(i), vz = posAttr.getZ(i);
         const key = `${Math.round(vx * 100)},${Math.round(vy * 100)},${Math.round(vz * 100)}`;
         if (seen.has(key)) continue;
         seen.add(key);
         uPts.push(vx, vy, vz);
-        mx += vx; my += vy; mz += vz;
       }
       const nPts = uPts.length / 3;
       if (nPts < 12) return;
-      mx /= nPts; my /= nPts; mz /= nPts;
-      const mean = new THREE.Vector3(mx, my, mz);
 
-      let cxx = 0, cxy = 0, cxz = 0, cyy = 0, cyz = 0, czz = 0;
-      for (let i = 0; i < uPts.length; i += 3) {
-        const dx = uPts[i] - mx, dy = uPts[i + 1] - my, dz = uPts[i + 2] - mz;
-        cxx += dx * dx; cxy += dx * dy; cxz += dx * dz;
-        cyy += dy * dy; cyz += dy * dz; czz += dz * dz;
-      }
-      const invN = 1 / nPts;
-      const eig = eigenDecomposeSymmetric3x3(cxx * invN, cxy * invN, cxz * invN, cyy * invN, cyz * invN, czz * invN);
-      // Barrel is elongated -> largest eigenvalue eigenvector is its exact bore axis!
-      const axis = eig[2].vec.clone().normalize();
-      // Point muzzleDir forward (+Z), EXCEPT downward forearm gatling / shield-pod clusters which fire along -Y (fist direction)
+      const runPCA = (ptsFlat) => {
+        const cnt = ptsFlat.length / 3;
+        let mx = 0, my = 0, mz = 0;
+        for (let i = 0; i < ptsFlat.length; i += 3) {
+          mx += ptsFlat[i]; my += ptsFlat[i + 1]; mz += ptsFlat[i + 2];
+        }
+        mx /= cnt; my /= cnt; mz /= cnt;
+        let cxx = 0, cxy = 0, cxz = 0, cyy = 0, cyz = 0, czz = 0;
+        for (let i = 0; i < ptsFlat.length; i += 3) {
+          const dx = ptsFlat[i] - mx, dy = ptsFlat[i + 1] - my, dz = ptsFlat[i + 2] - mz;
+          cxx += dx * dx; cxy += dx * dy; cxz += dx * dz;
+          cyy += dy * dy; cyz += dy * dz; czz += dz * dz;
+        }
+        const inv = 1 / cnt;
+        return {
+          mean: new THREE.Vector3(mx, my, mz),
+          eig: eigenDecomposeSymmetric3x3(cxx * inv, cxy * inv, cxz * inv, cyy * inv, cyz * inv, czz * inv),
+        };
+      };
+
+      let { mean, eig } = runPCA(uPts);
+      // Barrel is elongated -> largest eigenvalue eigenvector is its bore axis!
+      const coarseAxis = eig[2].vec.clone().normalize();
+      // Point muzzleDir forward (+Z), EXCEPT downward forearm gatling / shield-pod clusters which fire along -Y
       const bn = (barrelMesh.name || '').toLowerCase();
       const isForearmDown = bn.includes('gatling_barrels') || bn.includes('addon_shield_barrel');
-      const muzzleDir = isForearmDown
-        ? (axis.y <= 0 ? axis : axis.clone().negate())
-        : (axis.z >= 0 ? axis : axis.clone().negate());
+      let muzzleDir = isForearmDown
+        ? (coarseAxis.y <= 0 ? coarseAxis : coarseAxis.clone().negate())
+        : (coarseAxis.z >= 0 ? coarseAxis : coarseAxis.clone().negate());
 
-      let minP = Infinity, maxP = -Infinity;
       const projs = new Float64Array(nPts);
-      const rads = new Float64Array(nPts);
-      for (let k = 0; k < nPts; k++) {
-        const dx = uPts[k * 3] - mx, dy = uPts[k * 3 + 1] - my, dz = uPts[k * 3 + 2] - mz;
-        const proj = dx * muzzleDir.x + dy * muzzleDir.y + dz * muzzleDir.z;
-        const rx = dx - proj * muzzleDir.x, ry = dy - proj * muzzleDir.y, rz = dz - proj * muzzleDir.z;
-        projs[k] = proj;
-        rads[k] = Math.hypot(rx, ry, rz);
-        if (proj < minP) minP = proj;
-        if (proj > maxP) maxP = proj;
-      }
-      const span = maxP - minP;
+      const projectAll = (origin, dir) => {
+        let lo = Infinity, hi = -Infinity;
+        for (let k = 0; k < nPts; k++) {
+          const p = (uPts[k * 3] - origin.x) * dir.x + (uPts[k * 3 + 1] - origin.y) * dir.y + (uPts[k * 3 + 2] - origin.z) * dir.z;
+          projs[k] = p;
+          if (p < lo) lo = p;
+          if (p > hi) hi = p;
+        }
+        return { minP: lo, maxP: hi, span: hi - lo };
+      };
+
+      let { minP, maxP, span } = projectAll(mean, muzzleDir);
       if (span < 3.5) return;
 
-      const tipCut = maxP - Math.max(0.8, span * 0.04);
-      let rcx = 0, rcy = 0, rcz = 0, rcCnt = 0, maxTipR = 0;
+      // Front-40% PCA refinement for merged stock rifles (e.g. `sazabi_rifle_obsidian`) so boxy receivers never skew bore axis!
+      const frontCut = maxP - span * 0.40;
+      const frontPts = [];
+      for (let k = 0; k < nPts; k++) {
+        if (projs[k] >= frontCut) {
+          frontPts.push(uPts[k * 3], uPts[k * 3 + 1], uPts[k * 3 + 2]);
+        }
+      }
+      if (frontPts.length >= 36) {
+        const refined = runPCA(frontPts);
+        if (refined.eig[2].val > refined.eig[1].val * 2.2) {
+          const fAxis = refined.eig[2].vec.clone().normalize();
+          if (fAxis.dot(muzzleDir) < 0) fAxis.negate();
+          muzzleDir = fAxis;
+          mean = refined.mean;
+          ({ minP, maxP, span } = projectAll(mean, muzzleDir));
+        }
+      }
+
+      const tipCut = maxP - Math.max(0.35, Math.min(1.5, span * 0.04));
+      let rcx = 0, rcy = 0, rcz = 0, rcCnt = 0;
+      const tipIdx = [];
       for (let k = 0; k < nPts; k++) {
         if (projs[k] >= tipCut) {
           rcx += uPts[k * 3]; rcy += uPts[k * 3 + 1]; rcz += uPts[k * 3 + 2];
           rcCnt++;
-          if (rads[k] > maxTipR) maxTipR = rads[k];
+          tipIdx.push(k);
         }
       }
-      if (maxTipR < 0.7) return;
-      const muzzleCenter = rcCnt >= 3
-        ? new THREE.Vector3(rcx / rcCnt, rcy / rcCnt, rcz / rcCnt)
-        : mean.clone().addScaledVector(muzzleDir, maxP);
+      if (rcCnt < 3) return;
+      rcx /= rcCnt; rcy /= rcCnt; rcz /= rcCnt;
+      // Snap muzzleCenter onto the exact maxP front lip plane!
+      const tcProj = (rcx - mean.x) * muzzleDir.x + (rcy - mean.y) * muzzleDir.y + (rcz - mean.z) * muzzleDir.z;
+      const dMax = maxP - tcProj;
+      const muzzleCenter = new THREE.Vector3(
+        rcx + muzzleDir.x * dMax,
+        rcy + muzzleDir.y * dMax,
+        rcz + muzzleDir.z * dMax
+      );
+
+      // Measure tip radial distances from exact muzzleCenter (NOT whole-mesh centroid!) to extract true outerR & hollow boreR!
+      const tipRads = [];
+      for (let j = 0; j < tipIdx.length; j++) {
+        const k = tipIdx[j];
+        const dx = uPts[k * 3] - muzzleCenter.x;
+        const dy = uPts[k * 3 + 1] - muzzleCenter.y;
+        const dz = uPts[k * 3 + 2] - muzzleCenter.z;
+        const dp = dx * muzzleDir.x + dy * muzzleDir.y + dz * muzzleDir.z;
+        tipRads.push(Math.hypot(dx - dp * muzzleDir.x, dy - dp * muzzleDir.y, dz - dp * muzzleDir.z));
+      }
+      tipRads.sort((a, b) => a - b);
+      const outerR = tipRads[tipRads.length - 1] || 0;
+      if (outerR < 0.55) return;
+      const innerRing = tipRads.filter(r => r >= outerR * 0.25 && r <= outerR * 0.85);
+      const rawBoreR = innerRing.length >= 4
+        ? innerRing[Math.floor(innerRing.length * 0.5)]
+        : outerR * 0.62;
+      const boreR = Math.max(0.32, Math.min(3.6, rawBoreR));
 
       const pn = ((partMeta?.name || '') + ' ' + (partMeta?.part_id || '')).toLowerCase();
       const isThermalBallistic = (
@@ -4988,23 +5050,22 @@
       );
       const palette = isThermalBallistic
         ? {
+            outerColor: 0xffb74d, outerEmissive: 0xff5500,
             coreColor: 0xfff3c4, coreEmissive: 0xffaa00,
-            midColor: 0xffb74d, midEmissive: 0xff5500,
-            haloColor: 0xff6d00, haloEmissive: 0xe64a19,
           }
         : {
+            outerColor: 0xff77aa, outerEmissive: 0xff1458,
             coreColor: 0xffe4f0, coreEmissive: 0xff5c9a,
-            midColor: 0xff77aa, midEmissive: 0xff1458,
-            haloColor: 0xe11d48, haloEmissive: 0xbe123c,
           };
 
       const isModPack = partMeta?.isModularPack !== false;
       const qAlign = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), muzzleDir);
-      const addMuzzleLayer = (suffix, geo, mat, distAlongDir) => {
+      const addRecessedLayer = (suffix, geo, mat, distBackFromLip) => {
         const mesh = new THREE.Mesh(geo, mat);
         mesh.name = `${barrelMesh.name}_${suffix}`;
         mesh.quaternion.copy(qAlign);
-        mesh.position.copy(muzzleCenter).addScaledVector(muzzleDir, distAlongDir);
+        // Strictly NEGATIVE offset along muzzleDir -> 100% INSIDE the hollow barrel bore (0.0mm protrusion!)
+        mesh.position.copy(muzzleCenter).addScaledVector(muzzleDir, -distBackFromLip);
         mesh.castShadow = false;
         mesh.receiveShadow = false;
         mesh.userData.origMaterial = mat;
@@ -5015,41 +5076,33 @@
         barrelMesh.add(mesh);
       };
 
-      // Layer 1: Flush luminous muzzle bore core lens right at barrel tip (visible on both hollow & solid barrels!)
-      const coreH = Math.max(0.45, maxTipR * 0.28);
-      const coreGeo = new THREE.CylinderGeometry(maxTipR * 0.54, maxTipR * 0.64, coreH, 16);
+      const glowH = Math.max(1.2, Math.min(3.8, boreR * 1.35));
+      const recess = Math.max(0.22, Math.min(0.65, boreR * 0.22));
+
+      // Layer 1: Deep recessed tapered inner-bore glow cone (front lip sits at -recess behind 0.0mm muzzle rim!)
+      const outerGeo = new THREE.CylinderGeometry(boreR * 0.86, boreR * 0.34, glowH, 18);
+      const outerMat = getSharedMechaMaterial({
+        color: palette.outerColor, emissive: palette.outerEmissive, emissiveIntensity: 4.8,
+        roughness: 0.12, metalness: 0.08, useDetail: false, isEmissive: true, materialClass: 'emissive'
+      });
+      addRecessedLayer('muzzle_inner_glow', outerGeo, outerMat, recess + glowH * 0.5);
+
+      // Layer 2: Bright recessed incandescent bore core centered strictly inside Layer 1
+      const coreH = glowH * 0.72;
+      const coreGeo = new THREE.CylinderGeometry(boreR * 0.48, boreR * 0.16, coreH, 14);
       const coreMat = getSharedMechaMaterial({
-        color: palette.coreColor, emissive: palette.coreEmissive, emissiveIntensity: 5.5,
-        roughness: 0.10, metalness: 0.05, useDetail: false, isEmissive: true, materialClass: 'emissive'
+        color: palette.coreColor, emissive: palette.coreEmissive, emissiveIntensity: 5.8,
+        roughness: 0.08, metalness: 0.04, useDetail: false, isEmissive: true, materialClass: 'emissive'
       });
-      addMuzzleLayer('muzzle_core_lens', coreGeo, coreMat, 0.18);
-
-      // Layer 2: Forward-projecting tapered inner plasma/thermal lance plume
-      const plumeLen = Math.max(3.0, Math.min(8.2, maxTipR * 2.4));
-      const midGeo = new THREE.CylinderGeometry(maxTipR * 0.08, maxTipR * 0.56, plumeLen, 16);
-      const midMat = new THREE.MeshStandardMaterial({
-        color: palette.midColor, emissive: palette.midEmissive, emissiveIntensity: 4.8,
-        roughness: 0.12, metalness: 0.05,
-        transparent: true, opacity: 0.88, blending: THREE.AdditiveBlending,
-        depthWrite: false, side: THREE.DoubleSide
-      });
-      addMuzzleLayer('muzzle_plume_core', midGeo, midMat, plumeLen * 0.48);
-
-      // Layer 3: Wide translucent volumetric outer muzzle corona halo
-      const haloLen = plumeLen * 1.42;
-      const haloGeo = new THREE.CylinderGeometry(maxTipR * 0.14, maxTipR * 0.96, haloLen, 16);
-      const haloMat = new THREE.MeshStandardMaterial({
-        color: palette.haloColor, emissive: palette.haloEmissive, emissiveIntensity: 3.6,
-        roughness: 0.15, metalness: 0.02,
-        transparent: true, opacity: 0.34, blending: THREE.AdditiveBlending,
-        depthWrite: false, side: THREE.DoubleSide
-      });
-      addMuzzleLayer('muzzle_plume_halo', haloGeo, haloMat, plumeLen * 0.66);
+      addRecessedLayer('muzzle_inner_core_glow', coreGeo, coreMat, recess + glowH * 0.38);
 
       barrelMesh.userData.hasMuzzleGlow = true;
     }
 
     function buildPackPBRMaterial(node, unitId = state.activeUnitId) {
+      if (node?.userData?.isBellGlowChild || node?.userData?.isMuzzleGlowChild) {
+        return node.userData.origMaterial || node.material;
+      }
       const spec = UNIT_REGISTRY[unitId] || UNIT_REGISTRY.vanguard_rx;
       const pc = spec.packColors;
       const n = (node.name || '').toLowerCase();
@@ -5233,7 +5286,9 @@
       state.monoEyeNodes = [];
 
       const meshes = [];
-      model.traverse(n => { if (n.isMesh) meshes.push(n); });
+      model.traverse(n => {
+        if (n.isMesh && !n.userData?.isBellGlowChild && !n.userData?.isMuzzleGlowChild) meshes.push(n);
+      });
 
       meshes.forEach(mesh => {
         const n = (mesh.name || '').toLowerCase();
@@ -6305,7 +6360,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261128_r74');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261128_r75');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6387,17 +6442,16 @@
               state.chassisParts.push(node);
             }
           });
+          // Bind all meshes into the 11-Bone Hierarchical Kinematic Rig FIRST so child glows stay strictly parented!
+          state.kinematicRig = buildProceduralKinematicRig(model, spec);
           // Attach matching default-backpack plasma exhaust glow inside every stock Zaku / Gouf / Sazabi thruster bell!
           if (zeonStockBellMeshes.length > 0 && typeof attachThrusterBellInnerGlow === 'function') {
             zeonStockBellMeshes.forEach(bellNode => attachThrusterBellInnerGlow(bellNode, { isModularPack: false }));
           }
-          // Attach volumetric muzzle energy effects on stock unit gun barrels (e.g. Zaku MG / Sazabi Beam Rifle)!
+          // Attach recessed inner-bore muzzle glow on stock unit gun barrels (e.g. Zaku MG / Sazabi Beam Rifle)!
           if (stockWeaponBarrelMeshes.length > 0 && typeof attachWeaponMuzzlePlasmaGlow === 'function') {
             stockWeaponBarrelMeshes.forEach(barrelNode => attachWeaponMuzzlePlasmaGlow(barrelNode, { name: barrelNode.name, isModularPack: false }));
           }
-
-          // Bind all meshes into the 11-Bone Hierarchical Kinematic Rig!
-          state.kinematicRig = buildProceduralKinematicRig(model, spec);
           mechaRoot.add(model);
           // Project canonical Ver.Ka / Zeon / Neo-Zeon / EFSF unit logos & warning decals cleanly onto bone armor faces!
           attachVerKaDecalsForUnit(model, state.kinematicRig, spec);
@@ -6429,7 +6483,7 @@
               const byKey = new Map();
               const removable = [];
               for (const child of [...bone.children]) {
-                if (!child.isMesh || child.userData?.isDecal || child.userData?.hasBellGlow || (child.children && child.children.length > 0) || keepIndividual.has(child) || !child.geometry) continue;
+                if (!child.isMesh || child.userData?.isDecal || child.userData?.hasBellGlow || child.userData?.hasMuzzleGlow || child.userData?.isBellGlowChild || child.userData?.isMuzzleGlowChild || (child.children && child.children.length > 0) || keepIndividual.has(child) || !child.geometry) continue;
                 const mat = child.material;
                 const exMeta = child.userData.explodeMeta || classifyExplodeRole(child.name, (child.userData.rootGeomCenter || child.userData.geomCenter || new THREE.Vector3()).x);
                 child.userData.explodeMeta = exMeta;
@@ -6876,7 +6930,9 @@
           leftGrp.scale.set(...part._genomeScale);
         }
         const children = [];
-        packModel.traverse(n => { if (n.isMesh) children.push(n); });
+        packModel.traverse(n => {
+          if (n.isMesh && !n.userData?.isBellGlowChild && !n.userData?.isMuzzleGlowChild) children.push(n);
+        });
         children.forEach(node => {
           const nm = (node.name || '').toLowerCase();
           if (nm.includes('dovetail')) return;
@@ -7148,8 +7204,14 @@
         mountedModels.push(rightGrp, leftGrp);
       } else {
         const crownMeshes = [];
+        const packMeshes = [];
         packModel.traverse(node => {
-          if (node.isMesh) {
+          if (node.isMesh && !node.userData?.isBellGlowChild && !node.userData?.isMuzzleGlowChild) {
+            packMeshes.push(node);
+          }
+        });
+        packMeshes.forEach(node => {
+          {
             const nm = (node.name || '').toLowerCase();
             if (nm.includes('dovetail')) {
               node.visible = false;
