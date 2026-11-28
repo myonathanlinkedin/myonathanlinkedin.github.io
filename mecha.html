@@ -6305,7 +6305,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261128_r73');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261128_r74');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -7671,20 +7671,28 @@
       }
     }
 
+    const CANONICAL_8_ZONES = ['head_sensor', 'chest_armor', 'shoulder_pods', 'dorsal_pack', 'aux_weapon', 'aux_shield', 'waist_ordnance', 'leg_thrusters'];
+
+    function invalidateAllSlotTokens() {
+      CANONICAL_8_ZONES.forEach(z => {
+        state.slotLoadToken[z] = (state.slotLoadToken[z] || 0) + 1;
+      });
+    }
+
     // 1-Click 8-Zone Full Armor Loadout (Snaps 1 part into EVERY body zone: Head, Chest, Shoulders, Back, R-Weapon, L-Shield, Waist, Legs!)
     async function equipFullBodyLoadout() {
       if (!state.catalog?.modular_parts) return;
       const myBatchToken = ++state.batchLoadToken;
       state.weaponDrawAnim = null;
-      const zonesOrder = ['head_sensor', 'chest_armor', 'shoulder_pods', 'dorsal_pack', 'aux_weapon', 'aux_shield', 'waist_ordnance', 'leg_thrusters'];
+      invalidateAllSlotTokens();
       try {
-        for (const z of zonesOrder) {
+        await Promise.allSettled(CANONICAL_8_ZONES.map(async (z) => {
           if (state.batchLoadToken !== myBatchToken) return;
           const candidate = state.catalog.modular_parts.find(p => resolvePartSlotGroup(p) === z);
           if (candidate && !state.equippedPacks.has(candidate.part_id)) {
             await mountPartOnAdapter(candidate, true);
           }
-        }
+        }));
         if (state.batchLoadToken !== myBatchToken) return;
         battleAudio.playGunplaSnapClick();
         showToast('⚡ [CLICK! ×8] FULL-BODY 8-ZONE ARMOR & ORDNANCE LOADOUT LOCKED!', true);
@@ -7701,6 +7709,7 @@
 
     function clearAllEquippedParts() {
       state.batchLoadToken++;
+      invalidateAllSlotTokens();
       const ids = Array.from(state.equippedPacks.keys());
       ids.forEach(id => dismountPart(id, true));
       enforceSinglePartPerSlotInvariant();
@@ -7712,52 +7721,82 @@
       showToast('🧹 Dismounted All 8 Body Zones');
     }
 
-    // Smart Multi-Zone Tactical Build Randomizer (Cycles Distinct Gundam Combat Archetypes Across All 8 Zones!)
+    // Smart Multi-Zone Tactical Build Randomizer (True Archetype-Aware Diversity Across All 8 Zones!)
     async function synthesizeLiveAgenticPart() {
       if (!state.catalog?.modular_parts || state.catalog.modular_parts.length === 0) return;
       const myBatchToken = ++state.batchLoadToken;
       state.weaponDrawAnim = null;
 
       const presets = [
-        { name: 'Heavy Siege Assault', stance: 'RifleBurst', zones: ['dorsal_pack', 'aux_weapon', 'aux_shield', 'shoulder_pods', 'chest_armor', 'waist_ordnance', 'leg_thrusters'] },
-        { name: 'High-Mobility Interceptor', stance: 'BoostJump', zones: ['dorsal_pack', 'aux_weapon', 'head_sensor', 'leg_thrusters', 'waist_ordnance'] },
-        { name: 'Close-Quarters Beam Saber Duelist', stance: 'MeleeSlash', zones: ['aux_weapon', 'aux_shield', 'chest_armor', 'shoulder_pods', 'head_sensor', 'dorsal_pack'] },
-        { name: 'Tactical Recon Vanguard', stance: 'Sentinel', zones: ['dorsal_pack', 'head_sensor', 'aux_weapon', 'aux_shield', 'leg_thrusters'] },
-        { name: 'Full-Armor Saber Striker', stance: 'MeleeSlash', zones: ['head_sensor', 'chest_armor', 'shoulder_pods', 'dorsal_pack', 'aux_weapon', 'aux_shield', 'waist_ordnance', 'leg_thrusters'] }
+        {
+          name: 'Heavy Siege Assault',
+          zones: ['dorsal_pack', 'aux_weapon', 'aux_shield', 'shoulder_pods', 'chest_armor', 'waist_ordnance', 'leg_thrusters'],
+          filters: {
+            dorsal_pack: (p) => /(artillery|missile|salvo|rail|funnel|heavy|tank)/i.test(`${p.part_id} ${p.name}`),
+            aux_weapon: (p) => resolveWeaponGripType(p) === 'firearm_pistol_grip' || /(bazooka|cannon|rail|rifle|magnum|gatling|scatter)/i.test(`${p.part_id} ${p.name}`),
+          },
+        },
+        {
+          name: 'High-Mobility Interceptor',
+          zones: ['dorsal_pack', 'aux_weapon', 'head_sensor', 'leg_thrusters', 'waist_ordnance'],
+          filters: {
+            dorsal_pack: (p) => /(aero|wing|xwing|seraph|space|booster|propellant|vernier)/i.test(`${p.part_id} ${p.name}`),
+          },
+        },
+        {
+          name: 'Close-Quarters Melee Duelist',
+          zones: ['aux_weapon', 'aux_shield', 'chest_armor', 'shoulder_pods', 'head_sensor', 'dorsal_pack'],
+          filters: {
+            aux_weapon: (p) => resolveWeaponGripType(p) === 'melee_hilt_grip',
+            aux_shield: (p) => /(cqc|breacher|claw|buckler|scissor|pincer|ram|gatling)/i.test(`${p.part_id} ${p.name}`),
+          },
+        },
+        {
+          name: 'Tactical Recon Vanguard',
+          zones: ['dorsal_pack', 'head_sensor', 'aux_weapon', 'aux_shield', 'leg_thrusters'],
+          filters: {
+            dorsal_pack: (p) => /(recon|awacs|radome|halo|\bew\b)/i.test(`${p.part_id} ${p.name}`),
+            aux_weapon: (p) => resolveWeaponGripType(p) === 'firearm_pistol_grip',
+          },
+        },
+        {
+          name: 'Full-Armor Overlord',
+          zones: CANONICAL_8_ZONES,
+          filters: {},
+        },
       ];
-      const build = presets[state.agenticSynthNonce % presets.length];
+      const presetPool = presets.map((_, i) => i).filter(i => i !== state.lastRandomPresetIdx);
+      const chosenIdx = presetPool[Math.floor(Math.random() * presetPool.length)] ?? 0;
+      state.lastRandomPresetIdx = chosenIdx;
       state.agenticSynthNonce++;
+      const build = presets[chosenIdx];
 
-      const prevIds = Array.from(state.equippedPacks.keys());
-      prevIds.forEach(id => dismountPart(id, true));
+      const prevIds = new Set(state.equippedPacks.keys());
+      [...prevIds].forEach(id => dismountPart(id, true));
+      invalidateAllSlotTokens();
 
       const allParts = state.catalog.modular_parts;
-      const pickRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
+      const pickFreshRandom = (candidates, filterFn = null) => {
+        const scoped = filterFn ? candidates.filter(filterFn) : candidates;
+        const base = scoped.length > 0 ? scoped : candidates;
+        if (base.length === 0) return null;
+        const fresh = base.filter(p => !prevIds.has(p.part_id));
+        const pool = fresh.length > 0 ? fresh : base;
+        return pool[Math.floor(Math.random() * pool.length)];
+      };
       let mountedCount = 0;
       try {
-        for (const z of build.zones) {
+        await Promise.allSettled(build.zones.map(async (z) => {
           if (state.batchLoadToken !== myBatchToken) return;
           const candidates = allParts.filter(p => resolvePartSlotGroup(p) === z);
-          if (candidates.length === 0) continue;
-          let chosen = null;
-          if ((build.name.includes('Saber')) && z === 'aux_weapon') {
-            chosen = candidates.find(p => p.part_id === 'weapon_beam_saber_rx') || pickRandom(candidates);
-          } else if (build.name === 'Close-Quarters Beam Saber Duelist' && z === 'aux_shield') {
-            chosen = candidates.find(p => p.part_id === 'mission_pack_type_c_cqc') || pickRandom(candidates);
-          } else if (build.name === 'Heavy Siege Assault' && z === 'dorsal_pack') {
-            chosen = candidates.find(p => p.part_id === 'mission_pack_type_h_artillery') || pickRandom(candidates);
-          } else if (build.name === 'High-Mobility Interceptor' && z === 'dorsal_pack') {
-            chosen = candidates.find(p => p.part_id === 'propulsion_vernier_wing_pod' || p.part_id === 'mission_pack_type_s_space') || pickRandom(candidates);
-          } else if (build.name === 'Tactical Recon Vanguard' && z === 'dorsal_pack') {
-            chosen = candidates.find(p => p.part_id === 'mission_pack_type_e_recon') || pickRandom(candidates);
-          } else {
-            chosen = pickRandom(candidates);
-          }
+          const chosen = pickFreshRandom(candidates, build.filters[z]);
           if (chosen) {
             await mountPartOnAdapter(chosen, true);
-            mountedCount++;
+            if (state.batchLoadToken === myBatchToken && state.slotOccupancy[z] === chosen.part_id) {
+              mountedCount++;
+            }
           }
-        }
+        }));
         if (state.batchLoadToken !== myBatchToken) return;
         // RANDOM BUILD preserves the Gundam's current combat stance / movement scene untouched!
         battleAudio.playGunplaSnapClick();
