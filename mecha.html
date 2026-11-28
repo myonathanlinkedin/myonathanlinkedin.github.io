@@ -4685,15 +4685,19 @@
       if (
         n.includes('skirt') || n.includes('shroud') || n.includes('cowling') ||
         n.includes('pod') || n.includes('manifold') || n.includes('mega_emitter') ||
-        n.includes('emitter') || n.includes('glow')
+        n.includes('emitter') || n.includes('glow') || n.includes('tank') ||
+        n.includes('rotodome') || n.includes('gatling')
       ) {
         return false;
       }
       const isThrusterPart = (
-        n.includes('vernier') || n.includes('nozzle') || n.includes('bell') || n.includes('thruster')
+        n.includes('vernier') || n.includes('nozzle') || n.includes('bell') || n.includes('thruster') ||
+        n.includes('recon_ring') || n.includes('intake_ring') || n.includes('intake_collar') ||
+        n.includes('booster_ring') || n.includes('fin_ring') || n.includes('calf_ring') ||
+        n.includes('container_ring') || n.includes('overboost_ring') || n.includes('lower_gimbal')
       );
       const isMountRing = (
-        n.includes('gimbal') || n.includes('collar') || n.includes('ring_gold') || n.includes('socket_dark')
+        n.includes('gimbal') || n.includes('collar') || n.includes('ring_gold') || n.includes('socket_dark') || n.includes('collar_dark')
       );
       return isThrusterPart && isMountRing;
     }
@@ -4879,7 +4883,7 @@
       bellMesh.userData.hasModularBellGlow = true;
     }
 
-    // Detects forward-firing gun / railgun / bazooka / artillery hollow barrels (strips `_barrel_metal` suffix first!)
+    // Detects forward-firing gun / railgun / bazooka / artillery barrels (strips `_barrel_metal` suffix first!)
     function isModularWeaponBarrelName(rawName) {
       const n = (rawName || '').toLowerCase().replace(/_barrel_metal/g, '');
       if (!n) return false;
@@ -4888,19 +4892,23 @@
         n.includes('shroud') || n.includes('jacket') || n.includes('cage') ||
         n.includes('diffuser') || n.includes('glow') || n.includes('venturi') ||
         n.includes('vernier') || n.includes('muzzle_crown') || n.includes('rail') ||
-        n.includes('cowl') || n.includes('conduit') || n.includes('hydraulic')
+        n.includes('cowl') || n.includes('conduit') || n.includes('hydraulic') ||
+        n.includes('pole') || n.includes('shaft') || n.includes('spike') ||
+        n.includes('pelvis') || n.includes('waist_cyl')
       ) {
         return false;
       }
       return (
         n.includes('_barrel') || n.startsWith('barrel_') || n === 'barrel' ||
-        n.includes('beam_muzzle_tube')
+        n.includes('beam_muzzle_tube') || n.includes('vulcan_barrel') ||
+        n.includes('gatling_barrels') || n.includes('addon_shield_barrel') ||
+        n.includes('sazabi_rifle_obsidian') || n.includes('zaku_mg_barrel')
       );
     }
 
-    // Coaxial PCA recessed inner muzzle glow for ALL guns & bazookas (NEVER propulsion rocket blue, 0% green!):
-    // - Bazooka / Dorsal Artillery / Rotary Autocannon: Blazing Solar Amber-Orange (#ffb74d / #ff5500)
-    // - Beam Rifle / Sniper Railgun / Beam Magnum / Pulse Scattergun: High-Output Crimson-Rose (#ff77aa / #ff1458)
+    // Coaxial PCA 3-layer volumetric muzzle energy effect for ALL guns & bazookas (NEVER propulsion rocket blue, 0% green!):
+    // - Bazooka / Dorsal Artillery / Rotary Autocannon / CIWS / Gatling / Vulcan / MG: Blazing Solar Amber-Orange
+    // - Beam Rifle / Sniper Railgun / Beam Magnum / Pulse Scattergun / Beam Cannon: High-Output Crimson-Rose
     function attachWeaponMuzzlePlasmaGlow(barrelMesh, partMeta = null) {
       if (!barrelMesh || !barrelMesh.isMesh || !barrelMesh.geometry || barrelMesh.userData.hasMuzzleGlow) return;
       if (!isModularWeaponBarrelName(barrelMesh.name)) return;
@@ -4933,9 +4941,9 @@
       const eig = eigenDecomposeSymmetric3x3(cxx * invN, cxy * invN, cxz * invN, cyy * invN, cyz * invN, czz * invN);
       // Barrel is elongated -> largest eigenvalue eigenvector is its exact bore axis!
       const axis = eig[2].vec.clone().normalize();
-      // Point muzzleDir forward (+Z), EXCEPT downward forearm gatling clusters which fire along -Y (fist direction)
+      // Point muzzleDir forward (+Z), EXCEPT downward forearm gatling / shield-pod clusters which fire along -Y (fist direction)
       const bn = (barrelMesh.name || '').toLowerCase();
-      const isForearmDown = bn.includes('gatling_barrels');
+      const isForearmDown = bn.includes('gatling_barrels') || bn.includes('addon_shield_barrel');
       const muzzleDir = isForearmDown
         ? (axis.y <= 0 ? axis : axis.clone().negate())
         : (axis.z >= 0 ? axis : axis.clone().negate());
@@ -4973,31 +4981,71 @@
       const isThermalBallistic = (
         bn.includes('bazooka') || bn.includes('artillery') || bn.includes('mega_cannon') ||
         bn.includes('barrel_top') || bn.includes('barrel_bl') || bn.includes('barrel_br') ||
-        bn.includes('ciws') || bn.includes('gatling') || pn.includes('bazooka') || pn.includes('artillery') ||
+        bn.includes('ciws') || bn.includes('gatling') || bn.includes('vulcan') ||
+        bn.includes('addon_shield_barrel') || bn.includes('zaku_mg') ||
+        pn.includes('bazooka') || pn.includes('artillery') ||
         pn.includes('rotary') || pn.includes('autocannon') || pn.includes('gatling')
       );
-      const glowColor = isThermalBallistic ? 0xffb74d : 0xff77aa;
-      const glowEmissive = isThermalBallistic ? 0xff5500 : 0xff1458;
-      const glowIntensity = isThermalBallistic ? 4.8 : 4.6;
+      const palette = isThermalBallistic
+        ? {
+            coreColor: 0xfff3c4, coreEmissive: 0xffaa00,
+            midColor: 0xffb74d, midEmissive: 0xff5500,
+            haloColor: 0xff6d00, haloEmissive: 0xe64a19,
+          }
+        : {
+            coreColor: 0xffe4f0, coreEmissive: 0xff5c9a,
+            midColor: 0xff77aa, midEmissive: 0xff1458,
+            haloColor: 0xe11d48, haloEmissive: 0xbe123c,
+          };
 
-      const glowH = Math.max(1.6, Math.min(4.0, maxTipR * 1.10));
-      const recess = Math.max(0.35, Math.min(1.6, maxTipR * 0.35));
-      const glowGeo = new THREE.CylinderGeometry(maxTipR * 0.22, maxTipR * 0.56, glowH, 16);
-      const glowMat = getSharedMechaMaterial({
-        color: glowColor, emissive: glowEmissive, emissiveIntensity: glowIntensity,
-        roughness: 0.12, metalness: 0.10, useDetail: false, isEmissive: true, materialClass: 'emissive'
+      const isModPack = partMeta?.isModularPack !== false;
+      const qAlign = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), muzzleDir);
+      const addMuzzleLayer = (suffix, geo, mat, distAlongDir) => {
+        const mesh = new THREE.Mesh(geo, mat);
+        mesh.name = `${barrelMesh.name}_${suffix}`;
+        mesh.quaternion.copy(qAlign);
+        mesh.position.copy(muzzleCenter).addScaledVector(muzzleDir, distAlongDir);
+        mesh.castShadow = false;
+        mesh.receiveShadow = false;
+        mesh.userData.origMaterial = mat;
+        mesh.userData.initialPosition = mesh.position.clone();
+        mesh.userData.isModularPack = isModPack;
+        mesh.userData.isBellGlowChild = true;
+        mesh.userData.isMuzzleGlowChild = true;
+        barrelMesh.add(mesh);
+      };
+
+      // Layer 1: Flush luminous muzzle bore core lens right at barrel tip (visible on both hollow & solid barrels!)
+      const coreH = Math.max(0.45, maxTipR * 0.28);
+      const coreGeo = new THREE.CylinderGeometry(maxTipR * 0.54, maxTipR * 0.64, coreH, 16);
+      const coreMat = getSharedMechaMaterial({
+        color: palette.coreColor, emissive: palette.coreEmissive, emissiveIntensity: 5.5,
+        roughness: 0.10, metalness: 0.05, useDetail: false, isEmissive: true, materialClass: 'emissive'
       });
-      const glowMesh = new THREE.Mesh(glowGeo, glowMat);
-      glowMesh.name = `${barrelMesh.name}_muzzle_glow`;
-      glowMesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, -1, 0), muzzleDir);
-      glowMesh.position.copy(muzzleCenter).addScaledVector(muzzleDir, -(recess + glowH * 0.5));
-      glowMesh.castShadow = false;
-      glowMesh.receiveShadow = false;
-      glowMesh.userData.origMaterial = glowMat;
-      glowMesh.userData.initialPosition = glowMesh.position.clone();
-      glowMesh.userData.isModularPack = true;
-      glowMesh.userData.isBellGlowChild = true;
-      barrelMesh.add(glowMesh);
+      addMuzzleLayer('muzzle_core_lens', coreGeo, coreMat, 0.18);
+
+      // Layer 2: Forward-projecting tapered inner plasma/thermal lance plume
+      const plumeLen = Math.max(3.0, Math.min(8.2, maxTipR * 2.4));
+      const midGeo = new THREE.CylinderGeometry(maxTipR * 0.08, maxTipR * 0.56, plumeLen, 16);
+      const midMat = new THREE.MeshStandardMaterial({
+        color: palette.midColor, emissive: palette.midEmissive, emissiveIntensity: 4.8,
+        roughness: 0.12, metalness: 0.05,
+        transparent: true, opacity: 0.88, blending: THREE.AdditiveBlending,
+        depthWrite: false, side: THREE.DoubleSide
+      });
+      addMuzzleLayer('muzzle_plume_core', midGeo, midMat, plumeLen * 0.48);
+
+      // Layer 3: Wide translucent volumetric outer muzzle corona halo
+      const haloLen = plumeLen * 1.42;
+      const haloGeo = new THREE.CylinderGeometry(maxTipR * 0.14, maxTipR * 0.96, haloLen, 16);
+      const haloMat = new THREE.MeshStandardMaterial({
+        color: palette.haloColor, emissive: palette.haloEmissive, emissiveIntensity: 3.6,
+        roughness: 0.15, metalness: 0.02,
+        transparent: true, opacity: 0.34, blending: THREE.AdditiveBlending,
+        depthWrite: false, side: THREE.DoubleSide
+      });
+      addMuzzleLayer('muzzle_plume_halo', haloGeo, haloMat, plumeLen * 0.66);
+
       barrelMesh.userData.hasMuzzleGlow = true;
     }
 
@@ -5070,7 +5118,7 @@
       ) {
         // Pure Royal Sapphire Metallic Optical Trim (zero greenish/teal cast!)
         color = 0x1d4ed8; emissive = 0x1e40af; emissiveIntensity = 0.28; roughness = 0.24; metalness = 0.48; useDetail = true; materialClass = 'armor_gloss';
-      } else if (n.includes('gold') || n.includes('blade') || n.includes('intake') || n.includes('cross_gold') || n.includes('vane') || n.includes('pin_gold') || n.includes('lock_gold') || n.includes('drum_gold') || n.includes('coupling_gold') || n.includes('prow')) {
+      } else if (n.includes('gold') || n.includes('blade') || (n.includes('intake') && !n.includes('adapter_')) || n.includes('cross_gold') || n.includes('vane') || n.includes('pin_gold') || n.includes('lock_gold') || n.includes('drum_gold') || n.includes('coupling_gold') || n.includes('prow')) {
         color = pc.gold; roughness = 0.24; metalness = 0.86; useDetail = true; materialClass = 'metal_gold';
       } else if (n.includes('grip') || n.includes('epac')) {
         color = 0x1c232e; roughness = 0.62; metalness = 0.20; useDetail = false; materialClass = 'polymer_matte';
@@ -6257,7 +6305,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261128_r72');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261128_r73');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
@@ -6290,6 +6338,7 @@
           state.gearNodes = [];
           state.hingeNodes = [];
           const zeonStockBellMeshes = [];
+          const stockWeaponBarrelMeshes = [];
           model.traverse(node => {
             if (node.isMesh) {
               if (node.geometry) {
@@ -6316,6 +6365,9 @@
               if (spec.isZeonEnemy && typeof isStockZeonThrusterBellName === 'function' && isStockZeonThrusterBellName(ln)) {
                 zeonStockBellMeshes.push(node);
               }
+              if (typeof isModularWeaponBarrelName === 'function' && isModularWeaponBarrelName(ln)) {
+                stockWeaponBarrelMeshes.push(node);
+              }
               if (ln.includes('chest_gear_') || ln.includes('dorsal_gear_')) {
                 const gc = node.userData.geomCenter || new THREE.Vector3();
                 const dirSign = ln.includes('pinion') ? -1.42 : 1.0;
@@ -6338,6 +6390,10 @@
           // Attach matching default-backpack plasma exhaust glow inside every stock Zaku / Gouf / Sazabi thruster bell!
           if (zeonStockBellMeshes.length > 0 && typeof attachThrusterBellInnerGlow === 'function') {
             zeonStockBellMeshes.forEach(bellNode => attachThrusterBellInnerGlow(bellNode, { isModularPack: false }));
+          }
+          // Attach volumetric muzzle energy effects on stock unit gun barrels (e.g. Zaku MG / Sazabi Beam Rifle)!
+          if (stockWeaponBarrelMeshes.length > 0 && typeof attachWeaponMuzzlePlasmaGlow === 'function') {
+            stockWeaponBarrelMeshes.forEach(barrelNode => attachWeaponMuzzlePlasmaGlow(barrelNode, { name: barrelNode.name, isModularPack: false }));
           }
 
           // Bind all meshes into the 11-Bone Hierarchical Kinematic Rig!
