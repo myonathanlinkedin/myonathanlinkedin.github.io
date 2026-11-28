@@ -4574,6 +4574,8 @@
         color = 0x1e4a8c; roughness = 0.36; metalness = 0.18; materialClass = 'armor_painted';
       } else if (n.includes('_oxblood')) {
         color = 0x6b1018; roughness = 0.30; metalness = 0.24; materialClass = 'armor_gloss';
+      } else if (n.includes('visor_optic')) {
+        color = 0x1d4ed8; emissive = 0x1e40af; emissiveIntensity = 0.35; roughness = 0.22; metalness = 0.48; materialClass = 'armor_gloss';
       } else if (n.includes('_obsidian') || n.includes('_dark') || n.includes('_frame') || n.includes('socket') || n.includes('_mg_') || n.includes('_rifle_') || n.includes('drum')) {
         color = 0x202733; roughness = 0.32; metalness = 0.84; useDetail = false; materialClass = 'metal_gunmetal';
       } else if (n.includes('_maroon')) {
@@ -4931,8 +4933,12 @@
       const eig = eigenDecomposeSymmetric3x3(cxx * invN, cxy * invN, cxz * invN, cyy * invN, cyz * invN, czz * invN);
       // Barrel is elongated -> largest eigenvalue eigenvector is its exact bore axis!
       const axis = eig[2].vec.clone().normalize();
-      // Point muzzleDir forward (+Z)
-      const muzzleDir = axis.z >= 0 ? axis : axis.clone().negate();
+      // Point muzzleDir forward (+Z), EXCEPT downward forearm gatling clusters which fire along -Y (fist direction)
+      const bn = (barrelMesh.name || '').toLowerCase();
+      const isForearmDown = bn.includes('gatling_barrels');
+      const muzzleDir = isForearmDown
+        ? (axis.y <= 0 ? axis : axis.clone().negate())
+        : (axis.z >= 0 ? axis : axis.clone().negate());
 
       let minP = Infinity, maxP = -Infinity;
       const projs = new Float64Array(nPts);
@@ -4963,12 +4969,11 @@
         ? new THREE.Vector3(rcx / rcCnt, rcy / rcCnt, rcz / rcCnt)
         : mean.clone().addScaledVector(muzzleDir, maxP);
 
-      const bn = (barrelMesh.name || '').toLowerCase();
       const pn = ((partMeta?.name || '') + ' ' + (partMeta?.part_id || '')).toLowerCase();
       const isThermalBallistic = (
         bn.includes('bazooka') || bn.includes('artillery') || bn.includes('mega_cannon') ||
         bn.includes('barrel_top') || bn.includes('barrel_bl') || bn.includes('barrel_br') ||
-        bn.includes('ciws') || pn.includes('bazooka') || pn.includes('artillery') ||
+        bn.includes('ciws') || bn.includes('gatling') || pn.includes('bazooka') || pn.includes('artillery') ||
         pn.includes('rotary') || pn.includes('autocannon') || pn.includes('gatling')
       );
       const glowColor = isThermalBallistic ? 0xffb74d : 0xff77aa;
@@ -5058,10 +5063,14 @@
       } else if (n.includes('zeon_olive_coat')) {
         // ZERO-GREEN remap on modular parts -> Stealth Tactical Dark Gunmetal-Charcoal (harmonizes with all 4 mobile suits!)
         color = 0x262f3c; roughness = 0.34; metalness = 0.68; useDetail = true; materialClass = 'metal_gunmetal';
-      } else if (n.includes('optic_cyan') || n.includes('plasma_core_cyan') || n.includes('lens_emerald')) {
+      } else if (
+        n.includes('optic_cyan') || n.includes('plasma_core_cyan') || n.includes('lens_emerald') ||
+        n.includes('psycho_strip') || n.includes('conduit') || n.includes('visor_optic') ||
+        n.includes('optic_slit') || n.includes('optic_lens') || n.includes('beacon_optic') || n.includes('pl_opt')
+      ) {
         // Pure Royal Sapphire Metallic Optical Trim (zero greenish/teal cast!)
         color = 0x1d4ed8; emissive = 0x1e40af; emissiveIntensity = 0.28; roughness = 0.24; metalness = 0.48; useDetail = true; materialClass = 'armor_gloss';
-      } else if (n.includes('gold') || n.includes('blade') || n.includes('intake') || n.includes('cross_gold') || n.includes('vane') || n.includes('pin_gold') || n.includes('lock_gold') || n.includes('drum_gold') || n.includes('coupling_gold')) {
+      } else if (n.includes('gold') || n.includes('blade') || n.includes('intake') || n.includes('cross_gold') || n.includes('vane') || n.includes('pin_gold') || n.includes('lock_gold') || n.includes('drum_gold') || n.includes('coupling_gold') || n.includes('prow')) {
         color = pc.gold; roughness = 0.24; metalness = 0.86; useDetail = true; materialClass = 'metal_gold';
       } else if (n.includes('grip') || n.includes('epac')) {
         color = 0x1c232e; roughness = 0.62; metalness = 0.20; useDetail = false; materialClass = 'polymer_matte';
@@ -6248,7 +6257,7 @@
       await loadAdapterTemplate();
 
       return new Promise((resolve, reject) => {
-        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261127_r71');
+        const vTag = encodeURIComponent((state.catalog?.last_synthesized_utc || Date.now()) + '_v20261128_r72');
         const bustUrl = spec.glbUrl.includes('?') ? spec.glbUrl : `${spec.glbUrl}?v=${vTag}`;
         const onGltfReady = async (gltf) => {
           if (state.unitLoadToken !== myUnitToken) {
